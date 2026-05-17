@@ -660,7 +660,7 @@ export default function SetupScreen({
 
                 <div className="
                   grid
-                  grid-cols-1 sm:grid-cols-2
+                  grid-cols-2
                   gap-2
                 ">
 
@@ -727,7 +727,7 @@ export default function SetupScreen({
 
                 <div className="
                   grid
-                  grid-cols-1 md:grid-cols-4
+                  grid-cols-4
                   gap-2
                 ">
 
@@ -783,9 +783,9 @@ export default function SetupScreen({
 
                 <div className="
                   grid
-                  grid-cols-1 md:grid-cols-3
+                  grid-cols-3
                   gap-2
-                ">
+                 pb-12">
 
                   {difficultyOptions.map(difficulty => {
 
@@ -842,13 +842,18 @@ export default function SetupScreen({
             disabled={!canStart}
             onClick={onStart}
             className={`
-              mt-6
+              mt-3
               w-full
               rounded-[2rem]
-              py-5
-              text-lg
+              px-6
+              py-3
+              text-center
+              text-base
               font-black
+              leading-tight
               transition-all
+              lg:py-4
+              lg:text-lg
 
               ${
                 canStart
@@ -857,11 +862,13 @@ export default function SetupScreen({
               }
             `}
           >
-            {
-              canStart
-                ? "Comenzar práctica"
-                : "Selecciona capítulo, modo y dificultad"
-            }
+            <span className="block whitespace-normal break-words">
+              {
+                canStart
+                  ? "Comenzar práctica"
+                  : "Selecciona capítulo, modo y dificultad"
+              }
+            </span>
           </button>
 
         </section>
