@@ -245,9 +245,20 @@ export default function App() {
 
   function pauseSession() {
 
+    const pausedSession = {
+      sessionQuestions,
+      current,
+      score,
+      finished: false,
+      selectedChapters,
+      selectedDifficulties,
+      questionCount,
+      practiceMode
+    }
+
     localStorage.setItem(
       "odontoma_paused_session",
-      "true"
+      JSON.stringify(pausedSession)
     )
 
     setHasPausedSession(true)
@@ -256,13 +267,81 @@ export default function App() {
 
   function continuePausedSession() {
 
-    setHasPausedSession(false)
+    const raw =
+      localStorage.getItem(
+        "odontoma_paused_session"
+      )
 
-    localStorage.removeItem(
-      "odontoma_paused_session"
-    )
+    if (!raw) {
+      setHasPausedSession(false)
+      return
+    }
 
-    setStarted(true)
+    try {
+
+      const pausedSession =
+        JSON.parse(raw)
+
+      if (
+        !pausedSession.sessionQuestions ||
+        pausedSession.sessionQuestions.length === 0
+      ) {
+        localStorage.removeItem(
+          "odontoma_paused_session"
+        )
+
+        setHasPausedSession(false)
+        return
+      }
+
+      setSessionQuestions(
+        pausedSession.sessionQuestions
+      )
+
+      setCurrent(
+        pausedSession.current || 0
+      )
+
+      setScore(
+        pausedSession.score || 0
+      )
+
+      setSelectedChapters(
+        pausedSession.selectedChapters || []
+      )
+
+      setSelectedDifficulties(
+        pausedSession.selectedDifficulties || [
+          "easy",
+          "medium",
+          "hard"
+        ]
+      )
+
+      setQuestionCount(
+        pausedSession.questionCount || 10
+      )
+
+      setPracticeMode(
+        pausedSession.practiceMode || "smart"
+      )
+
+      setFinished(false)
+      setStarted(true)
+      setHasPausedSession(false)
+
+      localStorage.removeItem(
+        "odontoma_paused_session"
+      )
+
+    } catch {
+
+      localStorage.removeItem(
+        "odontoma_paused_session"
+      )
+
+      setHasPausedSession(false)
+    }
   }
 
   function clearPausedSession() {
