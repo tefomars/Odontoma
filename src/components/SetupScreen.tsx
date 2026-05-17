@@ -251,14 +251,14 @@ export default function SetupScreen({
           min-h-0
           flex-col
           justify-between
-          rounded-[2rem]
+          rounded-[1.5rem] lg:rounded-[2rem]
           border
           border-zinc-800
           bg-[#111113]
-          p-6
+          p-4 lg:p-6
           shadow-2xl
           shadow-black/30
-          lg:p-6
+          lg:p-4 lg:p-6
         ">
 
           <div>
@@ -578,7 +578,7 @@ export default function SetupScreen({
                     w-full
                     max-w-2xl
                     overflow-y-auto
-                    rounded-[2rem]
+                    rounded-[1.5rem] lg:rounded-[2rem]
                     border
                     border-zinc-800
                     bg-[#111113]
@@ -844,7 +844,7 @@ export default function SetupScreen({
             className={`
               mt-3
               w-full
-              rounded-[2rem]
+              rounded-[1.5rem] lg:rounded-[2rem]
               px-6
               py-3
               text-center
@@ -876,7 +876,7 @@ export default function SetupScreen({
         <section className="
           min-h-0
           overflow-hidden
-          rounded-[2rem]
+          rounded-[1.5rem] lg:rounded-[2rem]
           border
           border-zinc-800
           bg-[#111113]
@@ -910,7 +910,7 @@ export default function SetupScreen({
 
           <div className="
             grid
-            max-h-[calc(100vh-9rem)]
+            max-h-none lg:max-h-[calc(100vh-9rem)]
             gap-4
             overflow-y-auto
             pr-2
@@ -936,7 +936,7 @@ export default function SetupScreen({
                   className={`
                     relative
                     overflow-hidden
-                    rounded-[2rem]
+                    rounded-[1.5rem] lg:rounded-[2rem]
                     border
                     p-0
                     text-left
@@ -973,8 +973,8 @@ export default function SetupScreen({
 
                   <div className="
                     relative
-                    min-h-[150px]
-                    p-6
+                    min-h-[112px] lg:min-h-[150px]
+                    p-4 lg:p-6
                   ">
 
                     <div className="
@@ -998,18 +998,22 @@ export default function SetupScreen({
                         </p>
 
                         <h3 className="
-                          text-2xl
+                          text-xl
                           font-black
                           text-white
+                          lg:text-2xl
                         ">
                           {chapter.title}
                         </h3>
 
                         <p className="
-                          mt-2
+                          mt-1
                           max-w-xl
-                          text-sm
-                          leading-relaxed
+                          text-xs
+                          leading-snug
+                          lg:mt-2
+                          lg:text-sm
+                          lg:leading-relaxed
                           text-zinc-300
                         ">
                           {chapter.subtitle}
@@ -1021,9 +1025,12 @@ export default function SetupScreen({
                         shrink-0
                         rounded-2xl
                         bg-black/40
-                        px-4
-                        py-2
-                        text-sm
+                        px-3
+                        py-1.5
+                        text-xs
+                        lg:px-4
+                        lg:py-2
+                        lg:text-sm
                         font-black
                         text-zinc-200
                       ">
@@ -1036,11 +1043,15 @@ export default function SetupScreen({
 
                       <div className="
                         absolute
-                        bottom-5
-                        right-5
+                        bottom-4
+                        right-4
                         flex
-                        h-10
-                        w-10
+                        h-8
+                        w-8
+                        lg:bottom-5
+                        lg:right-5
+                        lg:h-10
+                        lg:w-10
                         items-center
                         justify-center
                         rounded-full
