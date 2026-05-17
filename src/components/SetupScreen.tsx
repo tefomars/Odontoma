@@ -111,6 +111,8 @@ export default function SetupScreen({
   onClearSession
 }: Props) {
 
+  const [phoneChaptersOpen, setPhoneChaptersOpen] = useState(false)
+
   const [localHasPausedSession, setLocalHasPausedSession] =
     useState(false)
 
@@ -873,7 +875,136 @@ export default function SetupScreen({
 
         </section>
 
-        <section className="
+        
+        <section className="mobile-chapters-button hidden rounded-[1.5rem] border border-zinc-800 bg-[#111113] p-4 shadow-2xl shadow-black/30">
+          <div className="mb-4 px-2">
+            <h2 className="text-2xl font-black">
+              Capítulos
+            </h2>
+            <p className="mt-1 text-sm text-zinc-400">
+              Selecciona uno o varios para mezclar preguntas.
+            </p>
+          </div>
+
+          <button
+            type="button"
+            onClick={() => setPhoneChaptersOpen(true)}
+            className="w-full rounded-[1.5rem] bg-violet-500 px-5 py-4 text-base font-black text-white shadow-lg shadow-violet-500/25"
+          >
+            Elegir capítulos · {selectedChapters.length} seleccionados
+          </button>
+        </section>
+
+        {phoneChaptersOpen && (
+          <div className="mobile-chapters-popup fixed inset-0 z-50 bg-black/75 p-4 backdrop-blur-sm">
+            <div className="mx-auto flex h-[92dvh] w-full max-w-md flex-col rounded-[2rem] border border-violet-500/60 bg-[#111113] p-4 shadow-2xl">
+              <div className="mb-4 flex shrink-0 items-start justify-between gap-4">
+                <div>
+                  <h2 className="text-3xl font-black text-white">
+                    Capítulos
+                  </h2>
+                  <p className="mt-1 text-base text-zinc-400">
+                    Selecciona capítulos.
+                  </p>
+                </div>
+
+                <button
+                  type="button"
+                  onClick={() => setPhoneChaptersOpen(false)}
+                  className="rounded-full bg-zinc-800 px-5 py-3 text-sm font-black text-white"
+                >
+                  Cerrar
+                </button>
+              </div>
+
+              <div className="grid flex-1 gap-4 overflow-y-auto pr-1 pb-4">
+                {chapters.map(chapter => {
+                  const selected = selectedChapters.includes(chapter.id)
+
+                  const count =
+                    questionCountsByChapter[
+                      chapter.id as keyof typeof questionCountsByChapter
+                    ] || 0
+
+                  return (
+                    <button
+                      key={chapter.id}
+                      type="button"
+                      onClick={() => toggleChapter(chapter.id)}
+                      className={`
+                        phone-chapter-card
+                        relative
+                        overflow-hidden
+                        rounded-[1.75rem]
+                        border
+                        p-0
+                        text-left
+                        shadow-lg
+                        transition-all
+
+                        ${
+                          selected
+                            ? "border-violet-400 ring-2 ring-violet-400/40"
+                            : "border-zinc-700"
+                        }
+                      `}
+                    >
+                      <div
+                        className="phone-chapter-image absolute inset-0 bg-cover bg-center opacity-80"
+                        style={{
+                          backgroundImage: `url(${chapter.image})`
+                        }}
+                      />
+
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/45 to-black/20" />
+
+                      <div className={`
+                        absolute
+                        inset-0
+                        bg-gradient-to-br
+                        ${chapter.accent}
+                      `} />
+
+                      <div className="phone-chapter-content relative flex flex-col justify-end p-5 pr-20">
+                        <p className="text-xs font-black uppercase tracking-[0.22em] text-zinc-200 drop-shadow">
+                          {chapter.id}
+                        </p>
+
+                        <h3 className="mt-2 text-2xl font-black text-white drop-shadow">
+                          {chapter.title}
+                        </h3>
+
+                        <p className="mt-1 text-base font-semibold text-zinc-200 drop-shadow">
+                          {chapter.subtitle}
+                        </p>
+                      </div>
+
+                      <div className="absolute right-4 top-4 rounded-2xl bg-black/70 px-4 py-2 text-base font-black text-white">
+                        {count}
+                      </div>
+
+                      {selected && (
+                        <div className="absolute bottom-4 right-4 flex h-10 w-10 items-center justify-center rounded-full bg-violet-500 text-lg font-black text-white shadow-lg shadow-violet-500/30">
+                          ✓
+                        </div>
+                      )}
+                    </button>
+                  )
+                })}
+              </div>
+
+              <button
+                type="button"
+                onClick={() => setPhoneChaptersOpen(false)}
+                className="mt-4 shrink-0 rounded-[1.75rem] bg-white px-5 py-4 text-lg font-black text-black"
+              >
+                Listo
+              </button>
+            </div>
+          </div>
+        )}
+
+        <section className="desktop-chapters-panel
           min-h-0
           overflow-hidden
           rounded-[1.5rem] lg:rounded-[2rem]

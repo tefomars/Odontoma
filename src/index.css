@@ -58,3 +58,304 @@ body,
 
 
 /* Mobile fix: evita superposición y permite scroll correcto */
+
+/* MOBILE ONLY: ocultar panel grande de capítulos y mostrar popup */
+@media (max-width: 1023px) {
+  .desktop-chapters-panel {
+    display: none !important;
+  }
+
+  .mobile-chapters-button {
+    display: block !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .mobile-chapters-button,
+  .mobile-chapters-popup {
+    display: none !important;
+  }
+}
+
+/* MOBILE ONLY: SetupScreen más cómodo en teléfono */
+@media (max-width: 1023px) {
+  main {
+    min-height: 100dvh;
+    overflow-x: hidden;
+  }
+
+  /* El layout principal pasa a una sola columna */
+  main > div {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* Evita que las secciones corten contenido en móvil */
+  section {
+    overflow: visible !important;
+  }
+
+  /* Reduce padding general en tarjetas grandes */
+  section.rounded-\[1\.5rem\],
+  section.rounded-\[2rem\] {
+    padding: 1rem !important;
+  }
+
+  /* Botones principales más compactos */
+  button {
+    max-width: 100%;
+  }
+
+  /* Botón Comenzar práctica */
+  button:has(span) {
+    white-space: normal !important;
+  }
+
+  /* Fotos / tarjetas con imagen de capítulos dentro del popup */
+  .mobile-chapters-popup button {
+    min-height: auto !important;
+  }
+
+  .mobile-chapters-popup h3 {
+    font-size: 1rem !important;
+    line-height: 1.15 !important;
+  }
+
+  .mobile-chapters-popup p {
+    line-height: 1.25 !important;
+  }
+
+  /* Popup ocupa pantalla sin salirse */
+  .mobile-chapters-popup {
+    overflow-y: auto;
+  }
+
+  .mobile-chapters-popup > div {
+    max-height: calc(100dvh - 2rem) !important;
+    overflow: hidden;
+  }
+
+  .mobile-chapters-popup .grid {
+    max-height: 60dvh;
+    overflow-y: auto;
+  }
+}
+
+/* MOBILE ONLY: capítulos como popup */
+@media (max-width: 1023px) {
+  .desktop-chapters-panel {
+    display: none !important;
+  }
+
+  .mobile-chapters-picker {
+    display: block !important;
+  }
+
+  .mobile-chapters-popup {
+    display: block !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .mobile-chapters-picker,
+  .mobile-chapters-popup {
+    display: none !important;
+  }
+}
+
+
+/* MOBILE ONLY: compactar setup sin tocar escritorio */
+@media (max-width: 1023px) {
+  main {
+    padding: 12px !important;
+  }
+
+  /* El layout principal pasa a una sola columna y deja de apretarse */
+  main > div {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+    min-height: auto !important;
+  }
+
+  /* Tarjetas/secciones más compactas */
+  main section {
+    padding: 14px !important;
+    border-radius: 22px !important;
+    overflow: visible !important;
+  }
+
+  /* Títulos más chicos en móvil */
+  main h1 {
+    font-size: 28px !important;
+    line-height: 1.05 !important;
+  }
+
+  main h2 {
+    font-size: 20px !important;
+    line-height: 1.1 !important;
+  }
+
+  main p {
+    line-height: 1.25 !important;
+  }
+
+  /* Grids internos: que no se salgan */
+  main section .grid {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+
+  /* Botones de opciones más compactos */
+  main section button {
+    max-width: 100% !important;
+  }
+
+  /* Botón comenzar */
+  main section > button[type="button"] {
+    margin-top: 12px !important;
+    padding: 12px 16px !important;
+    border-radius: 20px !important;
+    font-size: 15px !important;
+    line-height: 1.15 !important;
+  }
+
+  /* Panel de elegir capítulos más cerca */
+  .mobile-chapters-picker {
+    margin-top: 0 !important;
+    padding: 12px !important;
+  }
+
+  .mobile-chapters-picker h2 {
+    font-size: 20px !important;
+  }
+
+  .mobile-chapters-picker p {
+    font-size: 13px !important;
+  }
+
+  .mobile-chapters-picker button {
+    padding: 12px 14px !important;
+    border-radius: 20px !important;
+  }
+
+  /* Popup de capítulos */
+  .mobile-chapters-popup {
+    max-height: 90dvh !important;
+    border-radius: 24px !important;
+  }
+
+  .mobile-chapters-popup .grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+
+/* MOBILE ONLY: contener todo dentro del reborde y evitar desbordes */
+@media (max-width: 1023px) {
+  html,
+  body,
+  #root {
+    width: 100%;
+    min-height: 100dvh;
+    overflow-x: hidden !important;
+  }
+
+  main {
+    width: 100% !important;
+    min-height: auto !important;
+    height: auto !important;
+    padding: 10px !important;
+    overflow-x: hidden !important;
+  }
+
+  main > div {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: auto !important;
+    height: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+    overflow: visible !important;
+  }
+
+  main section {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: auto !important;
+    height: auto !important;
+    overflow: hidden !important;
+    padding: 14px !important;
+    border-radius: 24px !important;
+  }
+
+  main section * {
+    max-width: 100%;
+  }
+
+  main section .grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .mobile-chapters-button {
+    margin-top: 10px !important;
+  }
+
+  .mobile-chapters-button button {
+    width: 100% !important;
+  }
+
+  .mobile-chapters-popup {
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: 9999 !important;
+    display: flex !important;
+    align-items: flex-end !important;
+    justify-content: center !important;
+    background: rgba(0, 0, 0, 0.72) !important;
+    padding: 12px !important;
+  }
+
+  .mobile-chapters-popup > div {
+    width: 100% !important;
+    max-height: 88dvh !important;
+    overflow-y: auto !important;
+    border-radius: 28px !important;
+    border: 1px solid rgba(139, 92, 246, 0.45) !important;
+    background: #111113 !important;
+    padding: 14px !important;
+  }
+
+  .mobile-chapters-popup-card {
+    min-height: 118px !important;
+    overflow: hidden !important;
+    border-radius: 24px !important;
+    background-size: cover !important;
+    background-position: center !important;
+  }
+}
+
+/* PHONE CHAPTER POPUP: tarjetas altas con foto visible */
+@media (max-width: 1023px) {
+  .phone-chapter-card {
+    height: 220px !important;
+    min-height: 220px !important;
+    max-height: none !important;
+    display: block !important;
+  }
+
+  .phone-chapter-content {
+    height: 220px !important;
+    min-height: 220px !important;
+  }
+
+  .phone-chapter-image {
+    background-size: cover !important;
+    background-position: center !important;
+  }
+
+  .mobile-chapters-popup .grid {
+    align-content: start !important;
+  }
+}
