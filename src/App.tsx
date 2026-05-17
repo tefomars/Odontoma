@@ -61,11 +61,30 @@ export default function App() {
     useState<any[]>([])
 
   const [hasPausedSession, setHasPausedSession] =
-    useState(() =>
-      Boolean(
-        localStorage.getItem("odontoma_paused_session")
-      )
-    )
+    useState(() => {
+
+      const raw =
+        localStorage.getItem(
+          "odontoma_paused_session"
+        )
+
+      if (!raw || raw === "true") return false
+
+      try {
+
+        const pausedSession =
+          JSON.parse(raw)
+
+        return Boolean(
+          pausedSession.sessionQuestions &&
+          pausedSession.sessionQuestions.length > 0
+        )
+
+      } catch {
+
+        return false
+      }
+    })
 
   const availableQuestions =
     useMemo(() => {
@@ -272,7 +291,12 @@ export default function App() {
         "odontoma_paused_session"
       )
 
-    if (!raw) {
+    if (!raw || raw === "true") {
+
+      localStorage.removeItem(
+        "odontoma_paused_session"
+      )
+
       setHasPausedSession(false)
       return
     }
@@ -282,10 +306,11 @@ export default function App() {
       const pausedSession =
         JSON.parse(raw)
 
-      if (
-        !pausedSession.sessionQuestions ||
-        pausedSession.sessionQuestions.length === 0
-      ) {
+      const restoredQuestions =
+        pausedSession.sessionQuestions || []
+
+      if (restoredQuestions.length === 0) {
+
         localStorage.removeItem(
           "odontoma_paused_session"
         )
@@ -294,17 +319,16 @@ export default function App() {
         return
       }
 
-      setSessionQuestions(
-        pausedSession.sessionQuestions
-      )
+      setSessionQuestions(restoredQuestions)
 
       setCurrent(
-        pausedSession.current || 0
+        Math.min(
+          pausedSession.current || 0,
+          restoredQuestions.length - 1
+        )
       )
 
-      setScore(
-        pausedSession.score || 0
-      )
+      setScore(pausedSession.score || 0)
 
       setSelectedChapters(
         pausedSession.selectedChapters || []
