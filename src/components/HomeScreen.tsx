@@ -1,3 +1,4 @@
+import logoImage from "@/assets/logo.png"
 type Props = {
   onSelectSubject: (subject: string) => void
 }
@@ -75,7 +76,7 @@ export default function HomeScreen({
               tracking-[0.3em]
               text-violet-300
             ">
-              Odontoma
+              <span className="inline-flex items-center gap-3"><img src={logoImage} alt="Odontoma" className="h-10 w-10 rounded-xl object-contain" />Odontoma</span>
             </p>
 
             <h1 className="

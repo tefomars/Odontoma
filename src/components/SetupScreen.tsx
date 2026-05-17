@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react"
 
+import logoImage from "@/assets/logo.png"
+
 import { chapters } from "@/content/histologia/chapters"
 
 import {
@@ -304,7 +306,7 @@ export default function SetupScreen({
                   tracking-[0.25em]
                   text-violet-300
                 ">
-                  Odontoma
+                  <span className="inline-flex items-center gap-3"><img src={logoImage} alt="Odontoma" className="h-10 w-10 rounded-xl object-contain" />Odontoma</span>
                 </p>
 
                 <h1 className="

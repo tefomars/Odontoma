@@ -1,5 +1,6 @@
 import { questions } from "@/content/histologia"
 import { chapters } from "@/content/histologia/chapters"
+import logoImage from "@/assets/logo.png"
 
 type Props = {
   stats: any
@@ -138,7 +139,7 @@ export default function WeakTopicsScreen({
               tracking-[0.25em]
               text-emerald-300
             ">
-              Odontoma
+              <span className="inline-flex items-center gap-3"><img src={logoImage} alt="Odontoma" className="h-10 w-10 rounded-xl object-contain" />Odontoma</span>
             </p>
 
             <h1 className="

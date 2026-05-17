@@ -4,6 +4,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { chapters } from "@/content/histologia/chapters"
+import logoImage from "@/assets/logo.png"
 
 type Props = {
   question: any
@@ -294,7 +295,7 @@ export default function QuizScreen({
               tracking-tight
               mb-2
             ">
-              Odontoma
+              <span className="inline-flex items-center gap-3"><img src={logoImage} alt="Odontoma" className="h-10 w-10 rounded-xl object-contain" />Odontoma</span>
             </h1>
 
             <p className="text-zinc-500">
