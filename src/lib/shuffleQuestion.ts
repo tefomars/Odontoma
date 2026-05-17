@@ -43,7 +43,7 @@ export function shuffleQuestion(question: any) {
 
     options:
       shuffled.map(
-        item => item.option
+        (item: any) => item.option
       ),
 
     correctAnswers:
@@ -51,7 +51,7 @@ export function shuffleQuestion(question: any) {
         .map(
           (item, index) =>
 
-            item.isCorrect
+            (item as any).isCorrect
               ? index
               : null
         )

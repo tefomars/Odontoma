@@ -12,7 +12,8 @@ export const chapters = [
     description:
       "Origen embrionario, organización general y clasificación de los tejidos básicos.",
     image: cap4Image,
-    questionCount: 65
+    questionCount: 65,
+    accent: "from-sky-500/20 to-cyan-500/20"
   },
 
   {
@@ -22,7 +23,8 @@ export const chapters = [
     description:
       "Epitelios, polaridad celular, uniones, membrana basal, especializaciones y glándulas.",
     image: cap5Image,
-    questionCount: 237
+    questionCount: 237,
+    accent: "from-violet-500/20 to-fuchsia-500/20"
   },
 
   {
@@ -32,7 +34,8 @@ export const chapters = [
     description:
       "Células, fibras, sustancia fundamental, variedades del tejido conjuntivo e integración clínica.",
     image: cap6Image,
-    questionCount: 322
+    questionCount: 322,
+    accent: "from-emerald-500/20 to-teal-500/20"
   },
 
   {
@@ -42,7 +45,8 @@ export const chapters = [
     description:
       "Cartílago hialino, elástico, fibrocartílago, condrocitos, matriz, crecimiento y correlaciones clínicas.",
     image: cap7Image,
-    questionCount: 150
+    questionCount: 150,
+    accent: "from-amber-500/20 to-orange-500/20"
   },
 
   {
@@ -52,7 +56,8 @@ export const chapters = [
     description:
       "Matriz ósea, células, mineralización, osteonas, osificación, remodelación y reparación.",
     image: cap8Image,
-    questionCount: 372
+    questionCount: 372,
+    accent: "from-rose-500/20 to-red-500/20"
   },
 
   {
@@ -63,7 +68,8 @@ export const chapters = [
       "Contenido pendiente de carga.",
     image:
       "https://images.unsplash.com/photo-1498837167922-ddd27525d352?q=80&w=1200&auto=format&fit=crop",
-    questionCount: 0
+    questionCount: 0,
+    accent: "from-slate-500/20 to-zinc-500/20"
   },
 
   {
@@ -74,7 +80,8 @@ export const chapters = [
       "Contenido pendiente de carga.",
     image:
       "https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=1200&auto=format&fit=crop",
-    questionCount: 0
+    questionCount: 0,
+    accent: "from-slate-500/20 to-zinc-500/20"
   },
 
   {
@@ -85,7 +92,8 @@ export const chapters = [
       "Contenido pendiente de carga.",
     image:
       "https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=1200&auto=format&fit=crop",
-    questionCount: 0
+    questionCount: 0,
+    accent: "from-slate-500/20 to-zinc-500/20"
   },
 
   {
@@ -96,7 +104,8 @@ export const chapters = [
       "Contenido pendiente de carga.",
     image:
       "https://images.unsplash.com/photo-1507413245164-6160d8298b31?q=80&w=1200&auto=format&fit=crop",
-    questionCount: 0
+    questionCount: 0,
+    accent: "from-slate-500/20 to-zinc-500/20"
   }
 ]
 
