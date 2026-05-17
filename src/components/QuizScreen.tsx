@@ -232,20 +232,24 @@ export default function QuizScreen({
   return (
 
     <main className="
-      h-screen
+      min-h-screen
       bg-[#09090b]
       text-white
       px-4
-      py-6
-      overflow-hidden
+      py-5
+      overflow-y-auto
+      lg:h-screen
+      lg:overflow-hidden
+      lg:py-6
     ">
 
       <div className="
         mx-auto
         max-w-5xl
-        h-full
+        min-h-screen
         flex
         flex-col
+        lg:h-full
       ">
 
         <div className="
@@ -359,14 +363,17 @@ export default function QuizScreen({
         </div>
 
         <Card className="
-          flex-1
-          min-h-0
-          rounded-[32px]
+          flex-none
+          rounded-[28px]
           border-zinc-800
           bg-[#111118]
-          overflow-hidden
+          overflow-visible
           flex
           flex-col
+          lg:flex-1
+          lg:min-h-0
+          lg:rounded-[32px]
+          lg:overflow-hidden
         ">
 
           <div className="
@@ -378,9 +385,12 @@ export default function QuizScreen({
           ">
 
             <div className="
-              max-h-[135px]
-              overflow-y-auto
-              pr-2
+              max-h-none
+              overflow-visible
+              pr-0
+              lg:max-h-[135px]
+              lg:overflow-y-auto
+              lg:pr-2
             ">
 
               <h2 className="
@@ -403,24 +413,27 @@ export default function QuizScreen({
           ">
 
             <div className="
+              pointer-events-none
               absolute
               bottom-0
               left-0
               right-0
+              z-10
+              hidden
               h-16
-              pointer-events-none
               bg-gradient-to-t
               from-[#111118]
               to-transparent
-              z-10
+              lg:block
             " />
 
             <div className="
-              h-full
-              overflow-y-auto
+              overflow-visible
               p-5
-              md:p-6
               pr-3
+              md:p-6
+              lg:h-full
+              lg:overflow-y-auto
             ">
 
               <div className="

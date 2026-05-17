@@ -230,17 +230,20 @@ export default function SetupScreen({
   return (
 
     <main className="
-      h-screen
-      overflow-hidden
+      min-h-screen
+      overflow-y-auto
       bg-[#09090b]
       text-white
+      lg:h-screen
+      lg:overflow-hidden
     ">
 
       <div className="
         mx-auto
         grid
-        h-full
+        min-h-screen
         max-w-7xl
+        lg:h-full
         grid-cols-1
         gap-8
         px-5
@@ -374,17 +377,21 @@ export default function SetupScreen({
                 <div className="
                   mt-4
                   flex
+                  flex-col
                   gap-3
+                  sm:flex-row
                 ">
 
                   <button
                     type="button"
                     onClick={onContinueSession}
                     className="
+                      w-full
                       rounded-2xl
                       bg-emerald-500
                       px-5
                       py-3
+                      sm:w-auto
                       text-sm
                       font-black
                       text-black
@@ -398,12 +405,14 @@ export default function SetupScreen({
                     type="button"
                     onClick={clearSession}
                     className="
+                      w-full
                       rounded-2xl
                       border
                       border-zinc-700
                       bg-zinc-900
                       px-5
                       py-3
+                      sm:w-auto
                       text-sm
                       font-black
                       text-zinc-200
