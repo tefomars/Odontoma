@@ -256,19 +256,26 @@ export default function QuizScreen({
           mb-4
           shrink-0
           flex
-          items-end
-          justify-between
+          flex-col
+          items-start
+          gap-3
+          lg:flex-row
+          lg:items-end
+          lg:justify-between
         ">
 
           <button
             onClick={onBack}
 
             className="
-              absolute
-              top-6
-              left-6
-
+              relative
               z-50
+              mb-3
+              self-start
+              lg:absolute
+              lg:top-6
+              lg:left-6
+              lg:mb-0
 
               rounded-2xl
 
