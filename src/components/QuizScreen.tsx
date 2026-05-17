@@ -104,6 +104,9 @@ export default function QuizScreen({
   const [checked, setChecked] =
     useState(false)
 
+  const [showExplanation, setShowExplanation] =
+    useState(false)
+
   const shuffled = useMemo(
     () => shuffleQuestion(question),
     [question.id]
@@ -122,6 +125,7 @@ export default function QuizScreen({
 
     setSelected([])
     setChecked(false)
+    setShowExplanation(false)
 
   }, [question.id])
 
@@ -595,11 +599,34 @@ export default function QuizScreen({
 
                         </p>
 
+                        <button
+                          type="button"
+                          onClick={() => setShowExplanation(true)}
+                          className="
+                            mt-2
+                            w-full
+                            rounded-xl
+                            border
+                            border-violet-500/30
+                            bg-violet-500/10
+                            px-3
+                            py-2
+                            text-left
+                            text-sm
+                            font-black
+                            text-violet-200
+                            lg:hidden
+                          "
+                        >
+                          Ver explicación completa
+                        </button>
+
                         <p className="
+                          hidden
                           text-sm
                           text-zinc-400
                           leading-relaxed
-                          line-clamp-2
+                          lg:block
                         ">
                           {question.explanation}
                         </p>
@@ -684,6 +711,103 @@ export default function QuizScreen({
         </Card>
 
       </div>
+
+      {showExplanation && question.explanation && (
+
+        <div className="
+          fixed
+          inset-0
+          z-[100]
+          flex
+          items-end
+          bg-black/70
+          p-4
+          backdrop-blur-sm
+          lg:hidden
+        ">
+
+          <div className="
+            max-h-[82dvh]
+            w-full
+            overflow-hidden
+            rounded-[2rem]
+            border
+            border-zinc-800
+            bg-[#111118]
+            shadow-2xl
+          ">
+
+            <div className="
+              flex
+              items-center
+              justify-between
+              gap-4
+              border-b
+              border-zinc-800
+              p-4
+            ">
+
+              <div>
+                <p className="
+                  text-xs
+                  font-black
+                  uppercase
+                  tracking-[0.2em]
+                  text-violet-300
+                ">
+                  Explicación
+                </p>
+
+                <h3 className="
+                  mt-1
+                  text-lg
+                  font-black
+                  text-white
+                ">
+                  Respuesta completa
+                </h3>
+              </div>
+
+              <button
+                type="button"
+                onClick={() => setShowExplanation(false)}
+                className="
+                  rounded-full
+                  bg-zinc-800
+                  px-4
+                  py-2
+                  text-sm
+                  font-black
+                  text-white
+                "
+              >
+                Cerrar
+              </button>
+
+            </div>
+
+            <div className="
+              max-h-[65dvh]
+              overflow-y-auto
+              p-5
+            ">
+
+              <p className="
+                whitespace-pre-wrap
+                text-base
+                leading-relaxed
+                text-zinc-200
+              ">
+                {question.explanation}
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      )}
 
     </main>
 
