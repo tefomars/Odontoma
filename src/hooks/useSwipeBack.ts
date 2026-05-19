@@ -1,113 +1,67 @@
-import { useEffect } from "react"
+import { useEffect, useRef } from "react"
 
-type SwipeBackOptions = {
+type Options = {
+  onBack: () => void
   enabled?: boolean
-  edgeOnly?: boolean
-  edgeSize?: number
   minDistance?: number
   maxVerticalDrift?: number
-  onBack?: () => void
 }
 
 export function useSwipeBack({
+  onBack,
   enabled = true,
-  edgeOnly = true,
-  edgeSize = 48,
-  minDistance = 85,
-  maxVerticalDrift = 70,
-  onBack
-}: SwipeBackOptions = {}) {
+  minDistance = 70,
+  maxVerticalDrift = 90
+}: Options) {
+
+  const startX = useRef(0)
+  const startY = useRef(0)
+  const startTime = useRef(0)
+
   useEffect(() => {
+
     if (!enabled) return
 
-    let startX = 0
-    let startY = 0
-    let tracking = false
+    function handleTouchStart(event: TouchEvent) {
 
-    function isEditableTarget(target: EventTarget | null) {
-      if (!(target instanceof HTMLElement)) return false
+      const touch = event.touches[0]
+      if (!touch) return
 
-      return Boolean(
-        target.closest("input") ||
-        target.closest("textarea") ||
-        target.closest("select") ||
-        target.closest("[contenteditable='true']")
-      )
+      startX.current = touch.clientX
+      startY.current = touch.clientY
+      startTime.current = Date.now()
     }
 
-    function findBackButton() {
-      const buttons =
-        Array.from(document.querySelectorAll("button"))
+    function handleTouchEnd(event: TouchEvent) {
 
-      return buttons.find(button => {
-        const text =
-          button.textContent?.trim().toLowerCase() || ""
+      const touch = event.changedTouches[0]
+      if (!touch) return
 
-        return (
-          text.includes("volver") ||
-          text.includes("atrás") ||
-          text.includes("atras") ||
-          text === "←" ||
-          text.startsWith("←")
-        )
-      })
-    }
+      const deltaX = touch.clientX - startX.current
+      const deltaY = touch.clientY - startY.current
+      const elapsed = Date.now() - startTime.current
 
-    function handlePointerDown(event: PointerEvent) {
-      if (event.pointerType !== "touch") return
-      if (isEditableTarget(event.target)) return
+      const isRightSwipe = deltaX >= minDistance
+      const isMostlyHorizontal = Math.abs(deltaY) <= maxVerticalDrift
+      const isIntentional = elapsed <= 900
 
-      startX = event.clientX
-      startY = event.clientY
-
-      tracking =
-        !edgeOnly ||
-        startX <= edgeSize
-    }
-
-    function handlePointerUp(event: PointerEvent) {
-      if (!tracking) return
-      if (event.pointerType !== "touch") return
-
-      const deltaX =
-        event.clientX - startX
-
-      const deltaY =
-        Math.abs(event.clientY - startY)
-
-      tracking = false
-
-      if (
-        deltaX >= minDistance &&
-        deltaY <= maxVerticalDrift
-      ) {
-        if (onBack) {
-          onBack()
-          return
-        }
-
-        const backButton =
-          findBackButton()
-
-        if (backButton) {
-          backButton.click()
-        }
+      if (isRightSwipe && isMostlyHorizontal && isIntentional) {
+        onBack()
       }
     }
 
-    window.addEventListener("pointerdown", handlePointerDown)
-    window.addEventListener("pointerup", handlePointerUp)
+    window.addEventListener("touchstart", handleTouchStart, { passive: true })
+    window.addEventListener("touchend", handleTouchEnd, { passive: true })
 
     return () => {
-      window.removeEventListener("pointerdown", handlePointerDown)
-      window.removeEventListener("pointerup", handlePointerUp)
+      window.removeEventListener("touchstart", handleTouchStart)
+      window.removeEventListener("touchend", handleTouchEnd)
     }
+
   }, [
+    onBack,
     enabled,
-    edgeOnly,
-    edgeSize,
     minDistance,
-    maxVerticalDrift,
-    onBack
+    maxVerticalDrift
   ])
 }

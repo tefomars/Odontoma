@@ -55,14 +55,6 @@ function ScreenTransition({
 
 export default function App() {
 
-  useSwipeBack({
-    enabled: true,
-    edgeOnly: true,
-    edgeSize: 48,
-    minDistance: 85,
-    maxVerticalDrift: 70
-  })
-
   const [selectedStudyMethod, setSelectedStudyMethod] =
     useState<"quizzes" | "flashcards" | null>(null)
 
@@ -558,6 +550,92 @@ export default function App() {
     setCurrent(0)
     setScore(0)
   }
+
+  function goBack() {
+
+    if (showMastery) {
+      setShowMastery(false)
+      return
+    }
+
+    if (selectedStudyMethod === "flashcards") {
+
+      if (showSuspendedFlashcards) {
+        setShowSuspendedFlashcards(false)
+        return
+      }
+
+      if (editingUserTopicId) {
+        setEditingUserTopicId(null)
+        return
+      }
+
+      if (activeUserTopicId) {
+        setActiveUserTopicId(null)
+        return
+      }
+
+      if (showMyFlashcardTopics) {
+        setShowMyFlashcardTopics(false)
+        setSelectedFlashcardSubject(null)
+        return
+      }
+
+      if (selectedFlashcardTopic) {
+        if (selectedFlashcardSource === "user") {
+          setActiveUserTopicId(selectedFlashcardTopic)
+          setShowMyFlashcardTopics(true)
+        }
+
+        setSelectedFlashcardTopic(null)
+        setSelectedFlashcardSubtopic(null)
+        return
+      }
+
+      if (selectedFlashcardSubject) {
+        setSelectedFlashcardSubject(null)
+        return
+      }
+
+      setSelectedStudyMethod(null)
+      return
+    }
+
+    if (selectedStudyMethod === "quizzes") {
+
+      if (started) {
+        pauseSession()
+        return
+      }
+
+      if (editingUserQuizDeckId) {
+        setEditingUserQuizDeckId(null)
+        return
+      }
+
+      if (activeUserQuizDeckId) {
+        setActiveUserQuizDeckId(null)
+        return
+      }
+
+      if (selectedSubject) {
+        setSelectedSubject(null)
+        return
+      }
+
+      setSelectedStudyMethod(null)
+      return
+    }
+
+    goToMainMenu()
+  }
+
+  useSwipeBack({
+    onBack: goBack,
+    enabled: true,
+    minDistance: 70,
+    maxVerticalDrift: 90
+  })
 
   const question =
     sessionQuestions[current]
