@@ -17,6 +17,11 @@ import {
   type FlashcardSource
 } from "@/lib/flashcardDecks"
 
+import {
+  filterActiveFlashcards,
+  suspendFlashcard
+} from "@/lib/suspendedFlashcards"
+
 type Props = {
   onBack: () => void
   onMenu?: () => void
@@ -115,9 +120,11 @@ export default function FlashcardReviewScreen({
   const allCards =
     useMemo(
       () =>
-        getFlashcardsBySource(
-          source,
-          source === "user" ? selectedTopic : undefined
+        filterActiveFlashcards(
+          getFlashcardsBySource(
+            source,
+            source === "user" ? selectedTopic : undefined
+          )
         ),
       [source, selectedTopic]
     )
@@ -125,6 +132,23 @@ export default function FlashcardReviewScreen({
   const filteredCards =
     useMemo(
       () => {
+
+        if (
+          source === "default" &&
+          selectedSubtopic?.startsWith("__subtopics:")
+        ) {
+          const subtopics =
+            selectedSubtopic
+              .replace("__subtopics:", "")
+              .split("||")
+              .filter(Boolean)
+
+          return allCards.filter(
+            card =>
+              card.chapter === selectedTopic &&
+              subtopics.includes(card.subtopic)
+          )
+        }
 
         if (selectedSubtopic) {
           return allCards.filter(
@@ -134,13 +158,22 @@ export default function FlashcardReviewScreen({
           )
         }
 
+        if (
+          source === "default" &&
+          selectedTopic.startsWith("Capítulo")
+        ) {
+          return allCards.filter(
+            card => card.chapter === selectedTopic
+          )
+        }
+
         return source === "user" || selectedTopic === "all"
           ? allCards
           : allCards.filter(
               card => card.topic === selectedTopic
             )
       },
-      [allCards, selectedTopic, selectedSubtopic]
+      [allCards, selectedTopic, selectedSubtopic, source]
     )
 
   const dueCards =
@@ -311,6 +344,49 @@ export default function FlashcardReviewScreen({
 
     setStorage(nextStorage)
     saveFsrsStorage(nextStorage)
+    setShowAnswer(false)
+    setCurrentIndex(0)
+  }
+
+  function handleMobileReviewTap(
+    event: React.PointerEvent<HTMLElement>
+  ) {
+
+    if (!showAnswer || !currentCard) return
+    if (event.pointerType !== "touch") return
+
+    const target =
+      event.target as HTMLElement
+
+    if (
+      target.closest("button") ||
+      target.closest("input") ||
+      target.closest("textarea")
+    ) {
+      return
+    }
+
+    const screenMiddle =
+      window.innerWidth / 2
+
+    if (event.clientX < screenMiddle) {
+      rateCard("again")
+      return
+    }
+
+    rateCard("good")
+  }
+
+  function suspendCurrentCard() {
+
+    if (!currentCard) return
+
+    const confirmed =
+      window.confirm("¿Suspender esta flashcard? No aparecerá en repasos hasta que la reactives.")
+
+    if (!confirmed) return
+
+    suspendFlashcard(currentCard.id)
     setShowAnswer(false)
     setCurrentIndex(0)
   }
@@ -514,7 +590,9 @@ export default function FlashcardReviewScreen({
   }
 
   return (
-    <main className="
+    <main
+      onPointerUp={handleMobileReviewTap}
+      className="
       min-h-screen
       bg-[#09090b]
       p-5
@@ -611,28 +689,54 @@ export default function FlashcardReviewScreen({
             </span>
           </div>
 
-          {storage.reviews.length > 0 && (
+          <div className="
+            mb-4
+            flex
+            flex-wrap
+            gap-2
+          ">
+            {storage.reviews.length > 0 && (
+              <button
+                type="button"
+                onClick={undoLastReview}
+                className="
+                  w-fit
+                  rounded-2xl
+                  border
+                  border-amber-500/30
+                  bg-amber-500/10
+                  px-4
+                  py-2
+                  text-xs
+                  font-black
+                  text-amber-200
+                  hover:bg-amber-500/20
+                "
+              >
+                Undo último review
+              </button>
+            )}
+
             <button
               type="button"
-              onClick={undoLastReview}
+              onClick={suspendCurrentCard}
               className="
-                mb-4
                 w-fit
                 rounded-2xl
                 border
-                border-amber-500/30
-                bg-amber-500/10
+                border-red-500/30
+                bg-red-500/10
                 px-4
                 py-2
                 text-xs
                 font-black
-                text-amber-200
-                hover:bg-amber-500/20
+                text-red-200
+                hover:bg-red-500/20
               "
             >
-              Undo último review
+              Suspender tarjeta
             </button>
-          )}
+          </div>
 
           <div className="
             flex

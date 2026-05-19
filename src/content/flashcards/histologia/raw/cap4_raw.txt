@@ -1,0 +1,980 @@
+chapter	subtopic	front	back
+Capítulo 4	Fundamentos de los tejidos	¿Qué es un tejido?	Un conjunto organizado de células que funcionan de forma colectiva.
+Capítulo 4	Fundamentos de los tejidos	¿Qué permite que las células de un tejido funcionen como una unidad?	La cooperación entre células conectadas y comunicadas entre sí.
+Capítulo 4	Fundamentos de los tejidos	¿Qué tipo de unión conecta físicamente células de un mismo tejido?	Las uniones de anclaje.
+Capítulo 4	Fundamentos de los tejidos	¿Qué tipo de unión permite comunicación directa entre células vecinas?	Las uniones de hendidura.
+Capítulo 4	Fundamentos de los tejidos	¿Qué estructuras permiten que una célula responda a estímulos hormonales, nerviosos o mecánicos?	Receptores específicos de membrana.
+Capítulo 4	Fundamentos de los tejidos	¿Cuántos tejidos básicos forman todos los órganos?	Cuatro tejidos básicos.
+Capítulo 4	Fundamentos de los tejidos	¿Cuáles son los cuatro tejidos básicos del cuerpo?	Epitelial, conjuntivo, muscular y nervioso.
+Capítulo 4	Fundamentos de los tejidos	¿Qué tejido básico cubre superficies, reviste cavidades y forma glándulas?	El tejido epitelial.
+Capítulo 4	Fundamentos de los tejidos	¿Qué tejido básico sostiene estructural y funcionalmente a los otros tejidos?	El tejido conjuntivo.
+Capítulo 4	Fundamentos de los tejidos	¿Qué tejido básico está formado por células contráctiles?	El tejido muscular.
+Capítulo 4	Fundamentos de los tejidos	¿Qué tejido básico recibe, transmite e integra información?	El tejido nervioso.
+Capítulo 4	Clasificación de los tejidos	¿Qué criterio define principalmente al tejido epitelial?	Su morfología.
+Capítulo 4	Clasificación de los tejidos	¿Qué criterio define principalmente al tejido conjuntivo?	Su morfología.
+Capítulo 4	Clasificación de los tejidos	¿Qué criterio define principalmente al tejido muscular?	Su función.
+Capítulo 4	Clasificación de los tejidos	¿Qué criterio define principalmente al tejido nervioso?	Su función.
+Capítulo 4	Clasificación de los tejidos	¿Por qué la clasificación de los tejidos no se reduce a una sola regla?	Porque combina criterios morfológicos y funcionales.
+Capítulo 4	Clasificación de los tejidos	¿Por qué el mioepitelio se clasifica como epitelio aunque sea contráctil?	Porque se ubica asociado al epitelio.
+Capítulo 4	Epitelio	¿Qué relación tiene el epitelio con una superficie libre?	Sus células revisten o cubren superficies libres.
+Capítulo 4	Epitelio	¿Qué superficie epitelial mira hacia una luz o superficie externa?	La superficie libre.
+Capítulo 4	Epitelio	¿Qué superficie epitelial contacta el tejido conjuntivo subyacente?	La superficie basal.
+Capítulo 4	Epitelio	¿Qué estructura une el epitelio con el tejido conjuntivo subyacente?	La lámina basal.
+Capítulo 4	Epitelio	¿Sobre qué estructura se apoyan todos los epitelios?	Sobre la lámina basal.
+Capítulo 4	Epitelio	¿Qué criterio se usa para clasificar epitelios según su forma celular?	La forma de las células superficiales.
+Capítulo 4	Epitelio	¿Qué formas celulares básicas se usan para clasificar epitelios?	Plana, cúbica y cilíndrica.
+Capítulo 4	Epitelio	¿Qué criterio distingue epitelio simple de estratificado?	La cantidad de capas celulares.
+Capítulo 4	Epitelio	¿Cómo se llama un epitelio con una sola capa celular?	Epitelio simple.
+Capítulo 4	Epitelio	¿Cómo se llama un epitelio con varias capas celulares?	Epitelio estratificado.
+Capítulo 4	Epitelio	¿Qué estructura forma el epitelio además de cubrir y revestir superficies?	Glándulas.
+Capítulo 4	Tejido conjuntivo	¿Qué componente define principalmente al tejido conjuntivo?	La matriz extracelular.
+Capítulo 4	Tejido conjuntivo	¿Cómo se disponen las células del tejido conjuntivo en comparación con las epiteliales?	Están más separadas entre sí.
+Capítulo 4	Tejido conjuntivo	¿Qué ocupa los espacios intercelulares del tejido conjuntivo?	Matriz extracelular.
+Capítulo 4	Tejido conjuntivo	¿Quién produce la matriz extracelular del tejido conjuntivo?	Las células del tejido conjuntivo.
+Capítulo 4	Tejido conjuntivo	¿Qué dos aspectos se consideran para clasificar tejido conjuntivo?	Las células y la matriz extracelular.
+Capítulo 4	Tejido conjuntivo	¿De qué capa germinal deriva el tejido conjuntivo embrionario?	Del mesodermo.
+Capítulo 4	Tejido conjuntivo	¿Dónde se encuentra el tejido conjuntivo embrionario?	En el embrión y el cordón umbilical.
+Capítulo 4	Tejido conjuntivo	¿Qué tejido conjuntivo suele apoyar a la mayoría de los epitelios?	El tejido conjuntivo laxo.
+Capítulo 4	Tejido conjuntivo	¿Qué caracteriza la matriz del tejido conjuntivo laxo?	Fibras de colágeno laxamente distribuidas y abundantes células.
+Capítulo 4	Tejido conjuntivo	¿Qué célula forma y mantiene la matriz extracelular del tejido conjuntivo laxo?	El fibroblasto.
+Capítulo 4	Tejido conjuntivo	¿Qué origen tienen muchas células inmunitarias del tejido conjuntivo laxo?	Migran desde el sistema vascular.
+Capítulo 4	Tejido conjuntivo	¿Qué caracteriza al tejido conjuntivo denso?	Abundantes fibras de colágeno densamente dispuestas y pocas células.
+Capítulo 4	Tejido conjuntivo	¿Qué célula predomina en el tejido conjuntivo denso?	El fibroblasto.
+Capítulo 4	Tejido conjuntivo	¿Qué función principal aporta el tejido conjuntivo denso?	Resistencia mecánica.
+Capítulo 4	Tejido conjuntivo	¿Qué ejemplos de tejido conjuntivo especializado menciona el capítulo?	Hueso, cartílago y sangre.
+Capítulo 4	Tejido conjuntivo	¿Qué caracteriza la matriz extracelular del hueso?	Está mineralizada con calcio y fosfato asociados al colágeno.
+Capítulo 4	Tejido conjuntivo	¿Qué caracteriza la matriz extracelular del cartílago?	Contiene mucha agua unida a grupos hialurónicos.
+Capítulo 4	Tejido conjuntivo	¿Qué caracteriza la matriz extracelular de la sangre?	Es líquida y rica en proteínas.
+Capítulo 4	Tejido conjuntivo	¿Cómo se llama la matriz extracelular líquida de la sangre?	Plasma.
+Capítulo 4	Tejido muscular	¿Qué propiedad funcional define al tejido muscular?	La contractilidad celular.
+Capítulo 4	Tejido muscular	¿Qué proteínas contráctiles contienen las células musculares?	Actina y miosina.
+Capítulo 4	Tejido muscular	¿Qué estructuras forman la actina y la miosina en células musculares?	Miofilamentos.
+Capítulo 4	Tejido muscular	¿Qué causa las estriaciones del músculo esquelético y cardíaco?	La organización específica de los miofilamentos.
+Capítulo 4	Tejido muscular	¿Qué tipos de músculo presentan estriaciones?	El músculo esquelético y el músculo cardíaco.
+Capítulo 4	Tejido muscular	¿Qué tipo de músculo no presenta estriaciones?	El músculo liso.
+Capítulo 4	Tejido nervioso	¿Qué función general cumple el tejido nervioso?	Recibir, transmitir e integrar información.
+Capítulo 4	Tejido nervioso	¿Qué célula nerviosa transmite impulsos eléctricos?	La neurona.
+Capítulo 4	Tejido nervioso	¿Qué partes forman una neurona típica?	Soma, axón y dendritas.
+Capítulo 4	Tejido nervioso	¿Qué parte de la neurona transmite impulsos desde el soma?	El axón.
+Capítulo 4	Tejido nervioso	¿Qué parte de la neurona recibe impulsos hacia el soma?	Las dendritas.
+Capítulo 4	Tejido nervioso	¿Dónde se encuentran las neuronas del sistema nervioso central?	En el encéfalo y la médula espinal.
+Capítulo 4	Tejido nervioso	¿Qué estructuras forman el sistema nervioso periférico?	Nervios y ganglios.
+Capítulo 4	Tejido nervioso	¿Cómo se llaman las células de sostén del sistema nervioso central?	Células de la glía.
+Capítulo 4	Tejido nervioso	¿Qué células de sostén se encuentran en el sistema nervioso periférico?	Células de Schwann y células satélite.
+Capítulo 4	Histogénesis de los tejidos	¿Cuáles son las tres capas germinales embrionarias?	Ectodermo, mesodermo y endodermo.
+Capítulo 4	Histogénesis de los tejidos	¿Qué capa germinal origina derivados de superficie y neuroectodermo?	El ectodermo.
+Capítulo 4	Derivados ectodérmicos	¿Qué derivado cutáneo se origina del ectodermo de superficie?	La epidermis.
+Capítulo 4	Derivados ectodérmicos	¿Qué anexos cutáneos derivan del ectodermo de superficie?	Pelos, uñas, glándulas cutáneas y glándulas mamarias.
+Capítulo 4	Derivados ectodérmicos	¿Qué estructura dental deriva del ectodermo de superficie?	El esmalte dentario.
+Capítulo 4	Derivados ectodérmicos	¿Qué parte de la hipófisis deriva del ectodermo de superficie?	La hipófisis anterior.
+Capítulo 4	Derivados ectodérmicos	¿Qué estructuras oculares derivan del ectodermo de superficie?	El epitelio de la córnea y el cristalino.
+Capítulo 4	Derivados ectodérmicos	¿Qué estructura del sistema nervioso deriva del tubo neural?	El sistema nervioso central.
+Capítulo 4	Derivados ectodérmicos	¿Qué estructura ocular deriva del neuroectodermo del tubo neural?	La retina.
+Capítulo 4	Derivados ectodérmicos	¿Qué parte de la hipófisis deriva del neuroectodermo?	La hipófisis posterior.
+Capítulo 4	Derivados ectodérmicos	¿Qué células pigmentarias derivan de la cresta neural?	Los melanocitos.
+Capítulo 4	Derivados ectodérmicos	¿Qué células gliales periféricas derivan de la cresta neural?	Las células de Schwann.
+Capítulo 4	Derivados ectodérmicos	¿Qué estructura suprarrenal deriva de la cresta neural?	La médula suprarrenal.
+Capítulo 4	Derivados ectodérmicos	¿Qué células dentales derivan de la cresta neural?	Los odontoblastos.
+Capítulo 4	Derivados mesodérmicos	¿Qué capa germinal origina la mayor parte del tejido conjuntivo?	El mesodermo.
+Capítulo 4	Derivados mesodérmicos	¿Qué capa germinal origina el tejido muscular?	El mesodermo.
+Capítulo 4	Derivados mesodérmicos	¿Qué sistemas vasculares derivan del mesodermo?	Los sistemas cardiovascular y linfático.
+Capítulo 4	Derivados mesodérmicos	¿Qué células circulantes derivan del mesodermo?	Las células sanguíneas y linfáticas.
+Capítulo 4	Derivados mesodérmicos	¿Qué órgano linfoide deriva del mesodermo?	El bazo.
+Capítulo 4	Derivados mesodérmicos	¿Qué parte de la glándula suprarrenal deriva del mesodermo?	La corteza suprarrenal.
+Capítulo 4	Derivados mesodérmicos	¿Qué región mesodérmica origina el sistema urogenital?	El mesodermo intermedio.
+Capítulo 4	Derivados mesodérmicos	¿Qué región mesodérmica origina músculo esquelético del tórax y miembros?	El mesodermo paraxial.
+Capítulo 4	Derivados mesodérmicos	¿Qué región mesodérmica origina serosas como pleura, pericardio y peritoneo?	El mesodermo lateral.
+Capítulo 4	Derivados endodérmicos	¿Qué capa germinal forma la pared del intestino primitivo?	El endodermo.
+Capítulo 4	Derivados endodérmicos	¿Qué epitelio digestivo deriva del endodermo?	El epitelio del tubo digestivo.
+Capítulo 4	Derivados endodérmicos	¿Qué partes del tubo digestivo no derivan del endodermo?	La cavidad bucal y la región distal del conducto anal.
+Capítulo 4	Derivados endodérmicos	¿Qué glándulas digestivas extramurales derivan del endodermo?	Hígado, páncreas y vesícula biliar.
+Capítulo 4	Derivados endodérmicos	¿Qué epitelio respiratorio deriva del endodermo?	El epitelio del sistema respiratorio.
+Capítulo 4	Derivados endodérmicos	¿Qué epitelio urinario deriva del endodermo?	El revestimiento de la vejiga urinaria y gran parte de la uretra.
+Capítulo 4	Derivados endodérmicos	¿Qué glándulas endocrinas tienen componentes epiteliales derivados del endodermo?	Tiroides y paratiroides.
+Capítulo 4	Derivados endodérmicos	¿Qué órgano linfoepitelial tiene componente epitelial derivado del endodermo?	El timo.
+Capítulo 4	Teratomas	¿Qué es un teratoma?	Un tumor con tejidos derivados de más de una capa germinal.
+Capítulo 4	Teratomas	¿Qué tipo de célula puede originar un teratoma?	Una célula madre pluripotencial.
+Capítulo 4	Teratomas	¿Por qué los teratomas suelen aparecer en gónadas?	Porque allí se encuentran células madre pluripotenciales.
+Capítulo 4	Teratomas	¿Qué caracteriza la organización tisular de un teratoma?	Contiene tejidos maduros dispuestos de forma desorganizada.
+Capítulo 4	Teratomas	¿Por qué los tejidos de un teratoma no forman órganos funcionales?	Porque carecen de organización estructural normal.
+Capítulo 4	Teratomas	¿Qué nombre recibe con frecuencia el teratoma ovárico maduro?	Quiste dermoide.
+Capítulo 4	Identificación de los tejidos	¿En qué se basa el reconocimiento histológico de los tejidos?	En componentes celulares específicos y relaciones celulares específicas.
+Capítulo 4	Identificación de los tejidos	¿Qué pregunta ayuda a reconocer epitelio en un corte histológico?	Si las células están asociadas a una superficie libre.
+Capítulo 4	Identificación de los tejidos	¿Qué pregunta ayuda a reconocer tejido conjuntivo en un corte histológico?	Si las células están separadas por una matriz extracelular definida.
+Capítulo 4	Identificación de los tejidos	¿Qué pregunta ayuda a reconocer músculo o nervio en un corte histológico?	Si las células tienen propiedades especiales de contracción o conducción.
+Capítulo 4	Identificación de los tejidos	¿Por qué se estudian los tejidos por separado aunque formen órganos integrados?	Para comprender mejor su estructura y función dentro de los órganos.
+cat > src/content/flashcards/histologia/raw/cap5_raw.txt
+chapter	subtopic	front	back
+Capítulo 5	Fundamentos del tejido epitelial	¿Qué tejido reviste la superficie corporal, cavidades internas y conductos corporales?	El tejido epitelial.
+Capítulo 5	Fundamentos del tejido epitelial	¿Qué tejido forma la porción secretora de las glándulas y sus conductos?	El tejido epitelial.
+Capítulo 5	Fundamentos del tejido epitelial	¿Por qué el epitelio depende del tejido conjuntivo subyacente para nutrirse?	Porque es avascular.
+Capítulo 5	Fundamentos del tejido epitelial	¿Qué característica espacial tienen las células epiteliales entre sí?	Están muy próximas unas a otras.
+Capítulo 5	Fundamentos del tejido epitelial	¿Qué estructuras mantienen unidas a las células epiteliales vecinas?	Uniones intercelulares especializadas.
+Capítulo 5	Fundamentos del tejido epitelial	¿Qué característica permite distinguir regiones apical, lateral y basal en células epiteliales?	La polaridad funcional y morfológica.
+Capítulo 5	Fundamentos del tejido epitelial	¿Sobre qué estructura no celular se apoya la superficie basal del epitelio?	Sobre la membrana basal.
+Capítulo 5	Fundamentos del tejido epitelial	¿Qué moléculas abundan en la membrana basal?	Proteínas y polisacáridos.
+Capítulo 5	Fundamentos del tejido epitelial	¿Qué técnicas permiten detectar la membrana basal con microscopía óptica?	Técnicas histoquímicas.
+Capítulo 5	Fundamentos del tejido epitelial	¿Qué tipo de células epiteliales funcionan como receptores sensoriales?	Células epiteliales especializadas.
+Capítulo 5	Fundamentos del tejido epitelial	¿Qué sentidos pueden depender de células epiteliales especializadas?	Olfato, gusto, oído y visión.
+Capítulo 5	Tejido epitelioide	¿Cómo se llama el tejido parecido al epitelio pero sin superficie libre?	Tejido epitelioide.
+Capítulo 5	Tejido epitelioide	¿Qué característica epitelial conserva el tejido epitelioide?	Células muy próximas apoyadas en membrana basal.
+Capítulo 5	Tejido epitelioide	¿Qué característica falta en el tejido epitelioide respecto al epitelio típico?	Una superficie libre.
+Capítulo 5	Tejido epitelioide	¿De qué tipo celular derivan muchas células epitelioides?	De células mesenquimatosas.
+Capítulo 5	Tejido epitelioide	¿Qué organización epitelial es típica en muchas glándulas endocrinas?	La organización epitelioide.
+Capítulo 5	Tejido epitelioide	¿Qué células testiculares son un ejemplo de organización epitelioide?	Las células intersticiales de Leydig.
+Capítulo 5	Tejido epitelioide	¿Qué células ováricas son ejemplo de organización epitelioide?	Las células luteínicas.
+Capítulo 5	Tejido epitelioide	¿Qué región pancreática tiene organización epitelioide?	Los islotes de Langerhans.
+Capítulo 5	Tejido epitelioide	¿Qué órgano endocrino tiene parénquima con organización epitelioide?	La glándula suprarrenal.
+Capítulo 5	Tejido epitelioide	¿Qué parte de la hipófisis puede tener organización epitelioide?	El lóbulo anterior.
+Capítulo 5	Barrera epitelial	¿Qué tipo de barrera forma el epitelio de revestimiento?	Una barrera selectiva.
+Capítulo 5	Barrera epitelial	¿Qué separa el epitelio de revestimiento?	El medio externo o cavidades internas del tejido conjuntivo subyacente.
+Capítulo 5	Barrera epitelial	¿Qué puede regular la barrera epitelial selectiva?	El intercambio de sustancias específicas.
+Capítulo 5	Clasificación de los epitelios	¿Qué dos criterios usa la clasificación tradicional de los epitelios?	Número de estratos celulares y forma de las células superficiales.
+Capítulo 5	Clasificación de los epitelios	¿La clasificación tradicional del epitelio describe función o estructura?	Estructura.
+Capítulo 5	Clasificación de los epitelios	¿Cómo se clasifica un epitelio con un solo estrato celular?	Epitelio simple.
+Capítulo 5	Clasificación de los epitelios	¿Cómo se clasifica un epitelio con dos o más estratos celulares?	Epitelio estratificado.
+Capítulo 5	Clasificación de los epitelios	¿Qué forma celular epitelial tiene ancho mayor que altura?	Plana o escamosa.
+Capítulo 5	Clasificación de los epitelios	¿Qué forma celular epitelial tiene ancho, profundidad y altura similares?	Cúbica.
+Capítulo 5	Clasificación de los epitelios	¿Qué forma celular epitelial tiene altura mayor que ancho?	Cilíndrica.
+Capítulo 5	Clasificación de los epitelios	En epitelios estratificados, ¿qué estrato determina la clasificación por forma celular?	El estrato más superficial.
+Capítulo 5	Clasificación de los epitelios	¿Por qué un epitelio estratificado puede tener células profundas distintas a las superficiales?	Porque solo la forma superficial se usa para clasificarlo.
+Capítulo 5	Clasificación de los epitelios	¿Qué tercer criterio puede añadirse a la clasificación epitelial?	La especialización de la región apical.
+Capítulo 5	Clasificación de los epitelios	¿Cómo se clasifica un epitelio cilíndrico simple con cilios apicales?	Epitelio cilíndrico simple ciliado.
+Capítulo 5	Clasificación de los epitelios	¿Cómo se clasifica la epidermis por su superficie queratinizada?	Epitelio plano estratificado queratinizado.
+Capítulo 5	Clasificación de los epitelios	¿Qué especialización superficial distingue epitelio plano estratificado queratinizado del no queratinizado?	La queratinización de las células superficiales.
+Capítulo 5	Epitelio seudoestratificado	¿Qué epitelio parece estratificado pero en realidad es simple?	El epitelio seudoestratificado.
+Capítulo 5	Epitelio seudoestratificado	¿Por qué el epitelio seudoestratificado se considera simple?	Porque todas sus células se apoyan sobre la membrana basal.
+Capítulo 5	Epitelio seudoestratificado	En el epitelio seudoestratificado, ¿todas las células alcanzan la superficie libre?	No.
+Capítulo 5	Epitelio seudoestratificado	¿Qué dificulta identificar un epitelio seudoestratificado?	Discernir si todas las células contactan la membrana basal.
+Capítulo 5	Epitelio seudoestratificado	¿Qué información ayuda a identificar epitelio seudoestratificado?	Conocer sus ubicaciones normales.
+Capítulo 5	Urotelio	¿Qué otro nombre recibe el epitelio de transición?	Urotelio.
+Capítulo 5	Urotelio	¿Qué vías reviste el urotelio?	Las vías urinarias inferiores.
+Capítulo 5	Urotelio	¿Desde dónde hasta dónde se extiende el urotelio?	Desde cálices menores hasta el segmento proximal de la uretra.
+Capítulo 5	Urotelio	¿Qué tipo de epitelio es el urotelio?	Epitelio estratificado especializado.
+Capítulo 5	Urotelio	¿Qué propiedad mecánica caracteriza al urotelio?	La distensibilidad.
+Capítulo 5	Epitelios con nombres especiales	¿Qué epitelio reviste vasos sanguíneos y linfáticos?	Endotelio.
+Capítulo 5	Epitelios con nombres especiales	¿Qué tipo de epitelio suele ser el endotelio?	Epitelio plano simple.
+Capítulo 5	Epitelios con nombres especiales	¿Por qué el endotelio vascular es funcionalmente importante?	Porque regula el transporte entre sangre y tejidos.
+Capítulo 5	Epitelios con nombres especiales	¿Qué epitelio reviste aurículas y ventrículos cardíacos?	Endocardio.
+Capítulo 5	Epitelios con nombres especiales	¿Qué epitelio reviste cavidades corporales cerradas?	Mesotelio.
+Capítulo 5	Epitelios con nombres especiales	¿Qué cavidades corporales están revestidas por mesotelio?	Pleural, pericárdica y abdominal.
+Capítulo 5	Epitelios con nombres especiales	¿Qué tipo de epitelio suelen ser endotelio, endocardio y mesotelio?	Epitelio plano simple.
+Capítulo 5	Funciones epiteliales	¿Qué función epitelial predomina en el epitelio cilíndrico del estómago?	Secreción.
+Capítulo 5	Funciones epiteliales	¿Qué función epitelial predomina en el epitelio cilíndrico intestinal?	Absorción.
+Capítulo 5	Funciones epiteliales	¿Qué función epitelial permite mover partículas sobre la superficie epitelial?	Transporte por movimiento ciliar.
+Capítulo 5	Funciones epiteliales	¿Qué función epitelial cumple la epidermis?	Protección mecánica.
+Capítulo 5	Funciones epiteliales	¿Qué función epitelial permite recibir y transducir estímulos externos?	Función receptora.
+Capítulo 5	Funciones epiteliales	¿Qué tipos de epitelio suelen participar en secreción o absorción?	Epitelios simples o seudoestratificados.
+Capítulo 5	Funciones epiteliales	¿Qué refleja con frecuencia la altura de las células epiteliales?	El grado de actividad secretora o absortiva.
+Capítulo 5	Funciones epiteliales	¿Qué tipo de epitelio favorece transporte transepitelial rápido?	Epitelio plano simple.
+Capítulo 5	Funciones epiteliales	¿Con qué propiedad suele correlacionarse la estratificación epitelial?	Con mayor impermeabilidad transepitelial.
+Capítulo 5	Polaridad celular	¿Cuáles son las tres regiones de una célula epitelial polarizada?	Apical, lateral y basal.
+Capítulo 5	Polaridad celular	¿Qué región epitelial mira hacia la superficie externa o la luz?	La región apical.
+Capítulo 5	Polaridad celular	¿Qué región epitelial contacta células adyacentes?	La región lateral.
+Capítulo 5	Polaridad celular	¿Qué región epitelial se apoya en la membrana basal?	La región basal.
+Capítulo 5	Polaridad celular	¿Qué región epitelial fija la célula al tejido conjuntivo subyacente?	La región basal.
+Capítulo 5	Polaridad celular	¿Qué región epitelial contiene áreas especializadas de adhesión célula-célula?	La región lateral.
+Capítulo 5	Polaridad celular	¿Qué diferencia bioquímica tienen las regiones apical, lateral y basal?	Poseen lípidos y proteínas de membrana específicos.
+Capítulo 5	Polaridad celular	¿Qué determina la polaridad funcional de una célula epitelial?	Sus regiones con composición bioquímica y disposición geométrica específicas.
+Capítulo 5	Polaridad celular	¿Qué estructuras establecen adhesión firme entre células epiteliales?	Complejos de unión.
+Capítulo 5	Polaridad celular	¿En qué región celular se forman los complejos de unión epiteliales?	En la región lateral.
+Capítulo 5	Polaridad celular	¿Qué vía de movimiento de solutos regulan los complejos de unión?	La vía paracelular.
+Capítulo 5	Polaridad celular	¿Qué regiones de membrana separan los complejos de unión?	La región apical de las regiones lateral y basal.
+Capítulo 5	Polaridad celular	¿Por qué los complejos de unión son necesarios para la polaridad epitelial?	Porque separan dominios de membrana con funciones distintas.
+Capítulo 5	Polaridad celular	¿Qué trayecto sigue el líquido en la absorción transepitelial intestinal?	Luz → célula → espacio intercelular → membrana basal → tejido conjuntivo.
+chapter	subtopic	front	back
+Capítulo 5	Región apical	¿Qué región epitelial presenta modificaciones especializadas hacia la superficie libre?	La región apical.
+Capítulo 5	Región apical	¿Qué función general cumplen las especializaciones apicales del epitelio?	Adaptan la superficie apical a funciones específicas.
+Capítulo 5	Región apical	¿Qué moléculas funcionales pueden encontrarse en la región apical además de especializaciones estructurales?	Enzimas, conductos iónicos y proteínas transportadoras.
+Capítulo 5	Región apical	¿Qué especialización apical contiene un núcleo de filamentos de actina?	La microvellosidad.
+Capítulo 5	Región apical	¿Qué especialización apical corresponde a microvellosidades largas?	Los estereocilios.
+Capítulo 5	Región apical	¿Qué especialización apical contiene haces de microtúbulos?	Los cilios.
+Capítulo 5	Microvellosidades	¿Qué son las microvellosidades?	Evaginaciones citoplasmáticas digitiformes de la superficie apical.
+Capítulo 5	Microvellosidades	¿En qué superficie celular se encuentran las microvellosidades?	En la superficie apical.
+Capítulo 5	Microvellosidades	¿Qué función principal cumplen las microvellosidades?	Aumentan la superficie apical.
+Capítulo 5	Microvellosidades	¿Qué componente del citoesqueleto sostiene el centro de las microvellosidades?	Filamentos de actina.
+Capítulo 5	Microvellosidades	¿Qué relación existe entre microvellosidades y absorción?	A mayor cantidad y longitud, mayor capacidad absortiva.
+Capítulo 5	Microvellosidades	¿Qué tipo de células tienen muchas microvellosidades altas y juntas?	Células que absorben metabolitos o transportan líquidos activamente.
+Capítulo 5	Microvellosidades	¿Qué tipo de microvellosidades tienen células con transporte transepitelial menos activo?	Microvellosidades pequeñas e irregulares.
+Capítulo 5	Microvellosidades	¿Qué nombre recibe el conjunto de microvellosidades en células absortivas intestinales?	Borde estriado.
+Capítulo 5	Microvellosidades	¿Qué nombre recibe el conjunto de microvellosidades en túbulos renales?	Borde en cepillo.
+Capítulo 5	Microvellosidades	¿Qué representa el borde estriado visible con microscopía óptica?	Microvellosidades paralelas y muy juntas.
+Capítulo 5	Microvellosidades	¿Por qué las microvellosidades cortas pueden pasar inadvertidas al microscopio óptico?	Porque son poco abundantes y no forman un borde evidente.
+Capítulo 5	Microvellosidades	¿Qué proteína formadora de fascículos puede inducir microvellosidades?	Villina.
+Capítulo 5	Microvellosidades	¿Qué efecto tiene la villina en la superficie apical?	Induce la formación de microvellosidades.
+Capítulo 5	Microvellosidades	¿Qué proteínas forman enlaces cruzados entre filamentos de actina en microvellosidades?	Fascina, espina y fimbrina.
+Capítulo 5	Microvellosidades	¿Qué función tienen fascina, espina y fimbrina en las microvellosidades?	Dan sostén y rigidez al fascículo de actina.
+Capítulo 5	Microvellosidades	¿Qué proteína fija los filamentos de actina a la membrana plasmática de la microvellosidad?	Miosina I.
+Capítulo 5	Microvellosidades	¿Hacia qué estructura se extienden los filamentos de actina de las microvellosidades?	Hacia el velo terminal.
+Capítulo 5	Microvellosidades	¿Qué es el velo terminal?	Una red apical de filamentos de actina bajo las microvellosidades.
+Capítulo 5	Microvellosidades	¿Qué proteína estabiliza el velo terminal?	Espectrina.
+Capítulo 5	Microvellosidades	¿Qué proteína fija el velo terminal a la membrana apical?	Espectrina.
+Capítulo 5	Microvellosidades	¿Qué proteínas explican la capacidad contráctil del velo terminal?	Miosina II y tropomiosina.
+Capítulo 5	Microvellosidades	¿Qué efecto tiene la contracción del velo terminal sobre las microvellosidades?	Las separa al reducir el diámetro apical.
+Capítulo 5	Microvellosidades	¿Por qué la separación de microvellosidades aumenta el espacio intermicrovelloso?	Porque el velo terminal contrae la región apical.
+Capítulo 5	Microvellosidades	¿Qué proteína une el fascículo de actina con la membrana de la microvellosidad?	Miosina I.
+Capítulo 5	Microvellosidades	¿Qué proteínas están en el velo terminal y no dentro del eje principal de la microvellosidad?	Miosina II y tropomiosina.
+Capítulo 5	Microvellosidades	¿Qué especialización apical se asocia más directamente con absorción intestinal?	Microvellosidades.
+Capítulo 5	Microvellosidades	¿Qué especialización apical se asocia al borde en cepillo renal?	Microvellosidades.
+Capítulo 5	Estereocilios	¿Qué son los estereocilios?	Microvellosidades inmóviles de longitud inusual.
+Capítulo 5	Estereocilios	¿Qué componente del citoesqueleto sostiene a los estereocilios?	Filamentos de actina.
+Capítulo 5	Estereocilios	¿Por qué los estereocilios no son cilios verdaderos?	Porque tienen filamentos de actina, no microtúbulos.
+Capítulo 5	Estereocilios	¿Qué proteína forma enlaces cruzados entre filamentos de actina en estereocilios?	Fimbrina.
+Capítulo 5	Estereocilios	¿Dónde se orientan los extremos positivos de los filamentos de actina en estereocilios?	Hacia la punta.
+Capítulo 5	Estereocilios	¿Dónde se orientan los extremos negativos de los filamentos de actina en estereocilios?	Hacia la base.
+Capítulo 5	Estereocilios	¿Qué longitud pueden alcanzar los estereocilios?	Hasta 120 µm.
+Capítulo 5	Estereocilios	¿Qué estructura apical origina los estereocilios?	Microvellosidades.
+Capítulo 5	Estereocilios	¿Cómo se desarrollan los estereocilios a partir de microvellosidades?	Por adición lateral y alargamiento de filamentos de actina.
+Capítulo 5	Estereocilios	¿Qué proteína fija los filamentos de actina a la membrana del estereocilio?	Ezrina.
+Capítulo 5	Estereocilios	¿Qué proteína está presente en estereocilios pero no es característica del extremo de microvellosidades?	Ezrina.
+Capítulo 5	Estereocilios	¿Qué proteína formadora de puentes cruzados aparece en pedúnculos de estereocilios?	Actinina alfa.
+Capítulo 5	Estereocilios	¿Qué proteína falta en los extremos de los estereocilios?	Villina.
+Capítulo 5	Estereocilios	¿Cuál es una diferencia molecular clave entre microvellosidades y estereocilios?	Los estereocilios carecen de villina.
+Capítulo 5	Estereocilios	¿Qué sitios tienen estereocilios en el aparato genital masculino?	Epidídimo y segmento proximal del conducto deferente.
+Capítulo 5	Estereocilios	¿Qué función cumplen los estereocilios en las vías espermáticas?	Facilitan la absorción.
+Capítulo 5	Estereocilios	¿Qué células sensoriales tienen estereocilios?	Las células ciliadas del oído interno.
+Capítulo 5	Estereocilios	¿Qué función cumplen los estereocilios del oído interno?	Mecanorrecepción sensorial.
+Capítulo 5	Estereocilios	¿Qué organización tienen los estereocilios del oído interno?	Fascículos escalonados de alturas crecientes.
+Capítulo 5	Estereocilios	¿Qué patrón forman los estereocilios del oído interno?	Un patrón en escalera.
+Capítulo 5	Estereocilios	¿Qué proteína estabiliza los filamentos de actina en estereocilios sensoriales?	Espina.
+Capítulo 5	Estereocilios	¿Qué proteínas faltan en los estereocilios sensoriales del oído interno?	Ezrina y actinina alfa.
+Capítulo 5	Estereocilios	¿Por qué los estereocilios del oído interno requieren renovación continua?	Porque pueden lesionarse con facilidad por sobreestimulación.
+Capítulo 5	Estereocilios	¿Dónde se añaden monómeros de actina en estereocilios sensoriales?	En la punta.
+Capítulo 5	Estereocilios	¿Dónde se eliminan monómeros de actina en estereocilios sensoriales?	En la base.
+Capítulo 5	Estereocilios	¿Qué mantiene constante la longitud de los estereocilios sensoriales?	El equilibrio entre ensamblaje apical y desensamblaje basal.
+Capítulo 5	Estereocilios	¿Qué mecanismo renueva el eje de actina de los estereocilios sensoriales?	Recambio rotatorio de actina.
+Capítulo 5	Estereocilios	¿Qué especialización apical parece un conjunto de cerdas al microscopio óptico?	Los estereocilios.
+Capítulo 5	Cilios	¿Qué son los cilios?	Evaginaciones apicales con un eje de microtúbulos.
+Capítulo 5	Cilios	¿Qué estructura forma el eje interno de un cilio?	El axonema.
+Capítulo 5	Cilios	¿Qué estructura origina el axonema ciliar?	El cuerpo basal.
+Capítulo 5	Cilios	¿Qué estructura celular modificada es el cuerpo basal?	Un centriolo modificado.
+Capítulo 5	Cilios	¿Qué diámetro aproximado tienen los cilios móviles?	0.25 µm.
+Capítulo 5	Cilios	¿Qué longitud aproximada tienen los cilios móviles?	5 a 10 µm.
+Capítulo 5	Cilios	¿Qué aspecto dan los cilios móviles a la superficie epitelial?	Aspecto de cabellos cortos.
+Capítulo 5	Cilios móviles	¿Qué función general cumplen los cilios móviles?	Mueven líquido y partículas sobre superficies epiteliales.
+Capítulo 5	Cilios móviles	¿Qué epitelios suelen tener cilios móviles?	Tráquea, bronquios y trompas uterinas.
+Capítulo 5	Cilios móviles	¿Qué transportan los cilios móviles del árbol traqueobronquial?	Moco y partículas hacia la bucofaringe.
+Capítulo 5	Cilios móviles	¿Qué transportan los cilios móviles de las trompas uterinas?	Óvulo y líquido hacia el útero.
+Capítulo 5	Cilios móviles	¿Qué patrón microtubular tiene el axonema de un cilio móvil típico?	9 + 2.
+Capítulo 5	Cilios móviles	¿Qué significa el patrón 9 + 2 del axonema ciliar?	Nueve dobletes periféricos y dos microtúbulos centrales.
+Capítulo 5	Cilios móviles	¿Qué microtúbulos forman cada doblete periférico del cilio móvil?	Microtúbulos A y B.
+Capítulo 5	Cilios móviles	¿Qué proteína motora genera el movimiento de los cilios móviles?	Dineína ciliar.
+Capítulo 5	Cilios móviles	¿Qué actividad enzimática de la dineína ciliar permite el movimiento?	Actividad ATPasa.
+Capítulo 5	Cilios móviles	¿Qué produce la hidrólisis de ATP por la dineína ciliar?	Deslizamiento entre dobletes de microtúbulos.
+Capítulo 5	Cilios móviles	¿Qué convierte el deslizamiento microtubular en flexión del cilio?	Nexina y enlaces radiales.
+Capítulo 5	Cilios móviles	¿Qué proteína mantiene unidos los dobletes periféricos contiguos?	Nexina.
+Capítulo 5	Cilios móviles	¿Qué estructuras conectan dobletes periféricos con el par central?	Enlaces radiales.
+Capítulo 5	Cilios móviles	¿Qué estructura rodea al par central del axonema?	La vaina proteínica central.
+Capítulo 5	Cilios móviles	¿Qué movimiento ciliar desplaza líquido sobre la superficie epitelial?	El golpe efectivo.
+Capítulo 5	Cilios móviles	¿Qué movimiento devuelve el cilio a su posición inicial?	El golpe de recuperación.
+Capítulo 5	Cilios móviles	¿Qué dos fases forman el ciclo de batido ciliar?	Golpe efectivo y golpe de recuperación.
+Capítulo 5	Cilios móviles	¿Qué fase del movimiento ciliar depende directamente de la actividad de dineína?	El golpe efectivo.
+Capítulo 5	Cilios móviles	¿Qué estructuras estabilizan el cilio durante el golpe de recuperación?	Nexina y enlaces radiales.
+Capítulo 5	Cilios móviles	¿Qué estructura coordina qué dineína se activa durante el batido ciliar?	El par central del axonema.
+Capítulo 5	Cilios móviles	¿Qué proteínas motoras participan en la rotación del par central?	Cinesinas.
+Capítulo 5	Cilios móviles	¿Por qué los cilios móviles tienen movimiento coordinado?	Porque sus cuerpos basales están orientados en la misma dirección.
+Capítulo 5	Cuerpo basal	¿Qué patrón microtubular tiene el cuerpo basal?	Nueve tripletes de microtúbulos.
+Capítulo 5	Cuerpo basal	¿Qué microtúbulos del cuerpo basal continúan con el axonema?	Los microtúbulos A y B.
+Capítulo 5	Cuerpo basal	¿Qué microtúbulo del triplete basal no continúa en todo el axonema?	El microtúbulo C.
+Capítulo 5	Cuerpo basal	¿Dónde termina el microtúbulo C del cuerpo basal?	En la zona de transición.
+Capítulo 5	Cuerpo basal	¿Dónde se originan los microtúbulos centrales del cilio móvil?	En la zona de transición.
+Capítulo 5	Cuerpo basal	¿Qué estructura separa cuerpo basal y axonema?	La zona de transición.
+Capítulo 5	Cuerpo basal	¿Qué estructuras accesorias se asocian con los cuerpos basales?	Láminas alares, pedículos basales y raíces estriadas.
+Capítulo 5	Cuerpo basal	¿Qué estructura fija el cuerpo basal a la membrana plasmática apical?	La lámina alar.
+Capítulo 5	Cuerpo basal	¿Qué otro nombre reciben las láminas alares?	Fibras transicionales.
+Capítulo 5	Cuerpo basal	¿Dónde se ubica la lámina alar?	Entre la zona de transición y la membrana plasmática.
+Capítulo 5	Cuerpo basal	¿Qué estructura accesoria orienta el movimiento ciliar?	El pedículo basal.
+Capítulo 5	Cuerpo basal	¿Qué proteína se asocia con el pedículo basal para orientar cuerpos basales?	Miosina.
+Capítulo 5	Cuerpo basal	¿Qué estructura ancla el cuerpo basal al citoplasma apical?	La raíz estriada.
+Capítulo 5	Cuerpo basal	¿Qué proteína principal contiene la raíz estriada?	Rootletina.
+Capítulo 5	Cilios primarios	¿Qué otro nombre reciben los cilios primarios?	Monocilios.
+Capítulo 5	Cilios primarios	¿Qué patrón microtubular tienen los cilios primarios?	9 + 0.
+Capítulo 5	Cilios primarios	¿Qué estructura falta en el axonema 9 + 0 del cilio primario?	El par central de microtúbulos.
+Capítulo 5	Cilios primarios	¿Por qué los cilios primarios suelen ser inmóviles?	Porque carecen de proteínas motoras axonémicas.
+Capítulo 5	Cilios primarios	¿Cuántos cilios primarios suele tener una célula?	Uno.
+Capítulo 5	Cilios primarios	¿En qué tipos celulares pueden encontrarse cilios primarios?	En casi todas las células eucariotas.
+Capítulo 5	Cilios primarios	¿Qué funciones sensoriales pueden cumplir los cilios primarios?	Mecanorrecepción, quimiorrecepción y osmorrecepción.
+Capítulo 5	Cilios primarios	¿Qué tipo de receptor es el cilio primario renal frente al flujo tubular?	Mecanorreceptor.
+Capítulo 5	Cilios primarios	¿Qué señal intracelular puede activarse cuando el cilio renal detecta flujo?	Entrada de calcio.
+Capítulo 5	Cilios primarios	¿De qué estructura celular crece el cilio primario?	Del par de centriolos.
+Capítulo 5	Cilios primarios	¿Qué relación tiene el cilio primario con el ciclo celular?	Su formación está vinculada al ciclo celular.
+Capítulo 5	Cilios primarios	¿Cómo se mueve un cilio primario típico?	Pasivamente por acción del flujo.
+Capítulo 5	Cilios nodales	¿Qué tipo especial de cilio 9 + 0 puede ser móvil durante el desarrollo embrionario?	El cilio nodal.
+Capítulo 5	Cilios nodales	¿Dónde se encuentran los cilios nodales?	En el nodo primitivo.
+Capítulo 5	Cilios nodales	¿Qué patrón microtubular tienen los cilios nodales?	9 + 0.
+Capítulo 5	Cilios nodales	¿Qué función embrionaria cumplen los cilios nodales?	Establecen la asimetría izquierda-derecha.
+Capítulo 5	Cilios nodales	¿Qué tipo de movimiento realizan los cilios nodales?	Movimiento rotatorio.
+Capítulo 5	Cilios nodales	¿Qué flujo generan los cilios nodales en el embrión?	Flujo nodal hacia la izquierda.
+Capítulo 5	Cilios nodales	¿Qué consecuencia tiene el flujo nodal hacia la izquierda?	Inicia señalización asimétrica izquierda-derecha.
+Capítulo 5	Cilios nodales	¿Qué alteración puede ocurrir si fallan los cilios nodales?	Situs inversus o lateralidad anómala.
+Capítulo 5	Ciliogénesis	¿Qué proceso forma los cilios?	Ciliogénesis.
+Capítulo 5	Ciliogénesis	¿Qué estructura se adhiere a la membrana apical para iniciar un cuerpo basal?	Un centriolo.
+Capítulo 5	Ciliogénesis	¿Qué estructura fija el centriolo a la membrana apical durante la ciliogénesis?	Láminas alares.
+Capítulo 5	Ciliogénesis	¿Qué función adoptan los centriolos al fijarse a la membrana apical?	Función de cuerpos basales.
+Capítulo 5	Ciliogénesis	¿Qué estructuras accesorias se forman después de fijarse los cuerpos basales?	Pedículos basales y raíces estriadas.
+Capítulo 5	Ciliogénesis	¿Qué moléculas polimerizan para formar los microtúbulos del axonema?	Tubulina alfa y beta.
+Capítulo 5	Ciliogénesis	¿Desde qué estructura crece el axonema durante la ciliogénesis?	Desde el cuerpo basal.
+Capítulo 5	Ciliogénesis	¿Qué estructura empuja el axonema hacia afuera al crecer?	La membrana celular apical.
+Capítulo 5	Ciliogénesis	¿Qué mecanismo entrega proteínas al cilio en crecimiento?	Transporte intraflagelar.
+Capítulo 5	Ciliogénesis	¿Qué sigla se usa para transporte intraflagelar?	TIF.
+Capítulo 5	Ciliogénesis	¿Por qué el transporte intraflagelar es esencial para el cilio?	Porque el cilio no sintetiza sus propias proteínas.
+Capítulo 5	Ciliogénesis	¿Qué transporta el TIF hacia el extremo distal del axonema?	Moléculas precursoras para el ensamblaje ciliar.
+Capítulo 5	Ciliogénesis	¿Qué tipo de transporte intraflagelar va de la base a la punta del cilio?	Transporte anterógrado.
+Capítulo 5	Ciliogénesis	¿Qué proteína motora mueve el TIF anterógrado?	Cinesina II.
+Capítulo 5	Ciliogénesis	¿Qué tipo de transporte intraflagelar va de la punta a la base del cilio?	Transporte retrógrado.
+Capítulo 5	Ciliogénesis	¿Qué proteína motora mueve el TIF retrógrado?	Dineína citoplasmática.
+Capítulo 5	Ciliogénesis	¿Dónde se descargan los precursores transportados por TIF anterógrado?	En el extremo del cilio.
+Capítulo 5	Ciliogénesis	¿Qué sitio del cilio funciona como zona de ensamble axonémico?	El extremo distal.
+Capítulo 5	Discinesia ciliar primaria	¿Qué enfermedad se asocia con alteración de la motilidad de cilios móviles?	Discinesia ciliar primaria.
+Capítulo 5	Discinesia ciliar primaria	¿Qué nombre clásico recibe la discinesia ciliar primaria?	Síndrome de los cilios inmóviles.
+Capítulo 5	Discinesia ciliar primaria	¿Qué sistema se afecta por falla del movimiento ciliar respiratorio?	El sistema respiratorio.
+Capítulo 5	Discinesia ciliar primaria	¿Por qué la discinesia ciliar primaria favorece infecciones respiratorias?	Porque falla la eliminación mucociliar.
+Capítulo 5	Discinesia ciliar primaria	¿Qué problema reproductivo masculino puede asociarse a defectos de dineína?	Inmovilidad espermática.
+Capítulo 5	Discinesia ciliar primaria	¿Por qué pueden aparecer defectos de lateralidad en discinesia ciliar primaria?	Por falla de cilios nodales durante el desarrollo.
+Capítulo 5	Metaplasia epitelial	¿Qué es la metaplasia epitelial?	Conversión reversible de un tipo epitelial maduro en otro.
+Capítulo 5	Metaplasia epitelial	¿Qué suele desencadenar metaplasia epitelial?	Estrés, inflamación crónica o estímulo anómalo.
+Capítulo 5	Metaplasia epitelial	¿Qué ventaja adaptativa puede tener la metaplasia?	Produce células más resistentes al estímulo adverso.
+Capítulo 5	Metaplasia epitelial	¿Qué células se reprograman durante la metaplasia epitelial?	Células madre epiteliales.
+Capítulo 5	Metaplasia epitelial	¿Cuál es la metaplasia epitelial más frecuente?	De epitelio cilíndrico a epitelio plano.
+Capítulo 5	Metaplasia epitelial	¿Qué cambio epitelial puede causar el humo crónico del cigarrillo en vías respiratorias?	Metaplasia escamosa.
+Capítulo 5	Metaplasia epitelial	¿Qué epitelio respiratorio puede sufrir metaplasia escamosa por humo?	El epitelio seudoestratificado de tráquea y bronquios.
+Capítulo 5	Metaplasia epitelial	¿Qué cambio epitelial caracteriza al esófago de Barrett?	Epitelio plano estratificado se transforma en epitelio cilíndrico simple similar al intestinal.
+Capítulo 5	Metaplasia epitelial	¿Por qué la metaplasia puede revertir?	Porque puede desaparecer si se elimina el estímulo causal.
+chapter	subtopic	front	back
+Capítulo 5	Región lateral	¿Qué región de la célula epitelial contacta células vecinas?	La región lateral.
+Capítulo 5	Región lateral	¿Qué función general cumple la región lateral del epitelio?	Adhesión y comunicación entre células epiteliales.
+Capítulo 5	Región lateral	¿Qué estructuras especializadas se encuentran en la región lateral de células epiteliales?	Complejos de unión.
+Capítulo 5	Región lateral	¿Qué estructura mantiene unidas a células epiteliales contiguas?	Las uniones célula-célula.
+Capítulo 5	Región lateral	¿Qué región epitelial participa en la barrera paracelular?	La región lateral.
+Capítulo 5	Región lateral	¿Qué tipo de moléculas permiten adhesión entre células epiteliales?	Moléculas de adhesión celular.
+Capítulo 5	Región lateral	¿Qué sigla se usa para moléculas de adhesión celular?	CAM.
+Capítulo 5	Región lateral	¿Qué tipo de proteína son las CAM?	Proteínas transmembrana.
+Capítulo 5	Región lateral	¿Qué función general tienen las CAM en epitelios?	Permiten adhesión célula-célula o célula-matriz.
+Capítulo 5	Región lateral	¿Qué enlace ocurre entre CAM del mismo tipo?	Enlace homotípico.
+Capítulo 5	Región lateral	¿Qué enlace ocurre entre CAM de tipos diferentes?	Enlace heterotípico.
+Capítulo 5	Región lateral	¿Qué ventaja funcional tiene la adhesión débil de muchas CAM?	Permite unión y separación celular regulada.
+Capítulo 5	Región lateral	¿Qué conectan las CAM por su dominio citoplasmático?	El citoesqueleto celular.
+Capítulo 5	Región lateral	¿Qué procesos celulares pueden regular las CAM?	Adhesión, proliferación y migración celular.
+Capítulo 5	Región lateral	¿Qué familias principales de CAM se describen en epitelios?	Cadherinas, nectinas, integrinas, selectinas e inmunoglobulinas.
+Capítulo 5	Complejo de unión	¿Qué es un complejo de unión epitelial?	Conjunto de uniones especializadas entre células epiteliales.
+Capítulo 5	Complejo de unión	¿Dónde se ubica típicamente el complejo de unión epitelial?	Cerca de la superficie apical.
+Capítulo 5	Complejo de unión	¿Qué unión es la más apical del complejo de unión?	La zónula ocluyente.
+Capítulo 5	Complejo de unión	¿Qué unión se ubica debajo de la zónula ocluyente?	La zónula adherente.
+Capítulo 5	Complejo de unión	¿Qué unión puntiforme refuerza la adhesión célula-célula?	La mácula adherente o desmosoma.
+Capítulo 5	Complejo de unión	¿Qué tipo de unión permite comunicación directa entre células?	La unión comunicante.
+Capítulo 5	Complejo de unión	¿Cuáles son los tres componentes clásicos del complejo de unión apical?	Zónula ocluyente, zónula adherente y mácula adherente.
+Capítulo 5	Complejo de unión	¿Qué función combinada cumple el complejo de unión?	Barrera, adhesión y comunicación intercelular.
+Capítulo 5	Uniones ocluyentes	¿Qué otro nombre recibe la unión ocluyente?	Zónula ocluyente.
+Capítulo 5	Uniones ocluyentes	¿Qué otro nombre recibe la zónula ocluyente?	Unión estrecha.
+Capítulo 5	Uniones ocluyentes	¿Qué unión sella el espacio intercelular apical?	La zónula ocluyente.
+Capítulo 5	Uniones ocluyentes	¿Qué vía de transporte regula la zónula ocluyente?	La vía paracelular.
+Capítulo 5	Uniones ocluyentes	¿Qué función tiene la zónula ocluyente en la polaridad epitelial?	Separa el dominio apical del dominio lateral.
+Capítulo 5	Uniones ocluyentes	¿Qué impide la zónula ocluyente entre luz y tejido conjuntivo?	El paso libre de sustancias por el espacio intercelular.
+Capítulo 5	Uniones ocluyentes	¿La zónula ocluyente forma un sellado continuo perfecto?	No; forma fusiones focales.
+Capítulo 5	Uniones ocluyentes	¿Qué forman las proteínas transmembrana de la zónula ocluyente?	Hebras de sellado.
+Capítulo 5	Uniones ocluyentes	¿Qué técnica muestra crestas y surcos de la zónula ocluyente?	Criofractura.
+Capítulo 5	Uniones ocluyentes	¿Qué cara de membrana muestra crestas en criofractura de la ZO?	La cara P.
+Capítulo 5	Uniones ocluyentes	¿Qué cara de membrana muestra surcos complementarios en criofractura de la ZO?	La cara E.
+Capítulo 5	Uniones ocluyentes	¿Qué proteínas transmembrana principales forman la zónula ocluyente?	Claudinas, ocludinas, JAM y tricelulina.
+Capítulo 5	Uniones ocluyentes	¿Qué proteína forma la columna vertebral de las hebras de la ZO?	Claudina.
+Capítulo 5	Uniones ocluyentes	¿Qué proteína de la ZO forma y regula conductos acuosos paracelulares?	Claudina.
+Capítulo 5	Uniones ocluyentes	¿Qué proteína de la ZO mantiene la barrera entre superficies apical y lateral?	Ocludina.
+Capítulo 5	Uniones ocluyentes	¿Qué proteína de la ZO está presente en la mayoría de uniones ocluyentes?	Ocludina.
+Capítulo 5	Uniones ocluyentes	¿Qué proteína de la ZO media adhesión entre células endoteliales y monocitos?	JAM.
+Capítulo 5	Uniones ocluyentes	¿Qué significa JAM en uniones ocluyentes?	Molécula adhesiva de la unión.
+Capítulo 5	Uniones ocluyentes	¿Qué proteína de la ZO se localiza en contactos tricelulares?	Tricelulina.
+Capítulo 5	Uniones ocluyentes	¿Qué proteína mantiene la barrera epitelial en contactos tricelulares?	Tricelulina.
+Capítulo 5	Uniones ocluyentes	¿Qué proteínas se asocian con tricelulina en contactos tricelulares?	Angulinas.
+Capítulo 5	Uniones ocluyentes	¿Qué proteínas de la ZO tienen cuatro dominios transmembrana?	Claudina y ocludina.
+Capítulo 5	Uniones ocluyentes	¿Qué proteína de la ZO tiene una región extracelular tipo inmunoglobulina?	JAM.
+Capítulo 5	Uniones ocluyentes	¿Qué proteína citoplasmática conecta proteínas transmembrana de la ZO con actina?	ZO-1.
+Capítulo 5	Uniones ocluyentes	¿Qué proteína ZO tiene función supresora tumoral?	ZO-1.
+Capítulo 5	Uniones ocluyentes	¿Qué proteína ZO participa en transducción de señales de proteínas transmembrana de la ZO?	ZO-1.
+Capítulo 5	Uniones ocluyentes	¿Qué proteína ZO es necesaria para señalización del receptor de EGF?	ZO-2.
+Capítulo 5	Uniones ocluyentes	¿Qué proteína ZO interactúa con ZO-1, ocludina y filamentos de actina?	ZO-3.
+Capítulo 5	Uniones ocluyentes	¿Qué proteína pequeña de la ZO participa en transporte molecular y señalización?	AF-6.
+Capítulo 5	Uniones ocluyentes	¿Qué proteína de la ZO se asocia con RAS y ZO-1?	AF-6.
+Capítulo 5	Uniones ocluyentes	¿Qué estructura aumenta la impermeabilidad en contactos tricelulares?	El tubo central sellado por tricelulina.
+Capítulo 5	Uniones ocluyentes	¿Qué ocurre con las hebras de ZO en una unión tricelular?	Cambian de orientación para sellar la esquina intercelular.
+Capítulo 5	Uniones ocluyentes	¿Qué determina en parte la permeabilidad de una zónula ocluyente?	El número y composición de sus hebras.
+Capítulo 5	Uniones ocluyentes	¿Qué proteínas determinan selectividad iónica en la vía paracelular?	Claudinas.
+Capítulo 5	Uniones ocluyentes	¿Qué vía atraviesa sustancias a través del citoplasma celular?	Vía transcelular.
+Capítulo 5	Uniones ocluyentes	¿Qué vía atraviesa sustancias entre células epiteliales?	Vía paracelular.
+Capítulo 5	Uniones ocluyentes	¿Qué unión regula principalmente la vía paracelular?	Zónula ocluyente.
+Capítulo 5	Uniones ocluyentes	¿Qué vía depende de transportadores y vesículas celulares?	Vía transcelular.
+Capítulo 5	Uniones ocluyentes	¿Qué vía depende del hermetismo de la zónula ocluyente?	Vía paracelular.
+Capítulo 5	Uniones adherentes	¿Qué tipo de unión aporta resistencia mecánica al epitelio?	Unión adherente.
+Capítulo 5	Uniones adherentes	¿Qué unión adherente forma un cinturón alrededor de la célula?	Zónula adherente.
+Capítulo 5	Uniones adherentes	¿Qué unión adherente forma puntos de adhesión fuertes?	Mácula adherente o desmosoma.
+Capítulo 5	Uniones adherentes	¿Qué unión adherente se asocia con filamentos de actina?	Zónula adherente.
+Capítulo 5	Uniones adherentes	¿Qué unión adherente se asocia con filamentos intermedios?	Mácula adherente.
+Capítulo 5	Uniones adherentes	¿Qué dos tipos de uniones adherentes célula-célula hay en la región lateral?	Zónula adherente y mácula adherente.
+Capítulo 5	Uniones adherentes	¿Qué uniones adherentes célula-matriz se ubican en la región basal?	Adhesiones focales y hemidesmosomas.
+Capítulo 5	Zónula adherente	¿Qué unión se encuentra justo debajo de la zónula ocluyente?	Zónula adherente.
+Capítulo 5	Zónula adherente	¿Qué forma tiene la zónula adherente alrededor de la célula?	Forma de cinturón.
+Capítulo 5	Zónula adherente	¿Qué función mecánica cumple la zónula adherente?	Refuerza la adhesión lateral entre células.
+Capítulo 5	Zónula adherente	¿Qué filamentos del citoesqueleto se anclan a la zónula adherente?	Filamentos de actina.
+Capítulo 5	Zónula adherente	¿Qué dos familias transmembrana forman la zónula adherente?	Cadherinas y nectinas.
+Capítulo 5	Zónula adherente	¿Qué cadherina predomina en la zónula adherente epitelial?	Cadherina E.
+Capítulo 5	Zónula adherente	¿De qué ion depende la adhesión mediada por cadherina E?	Calcio.
+Capítulo 5	Zónula adherente	¿Qué ocurre con la cadherina E si falta calcio?	Se disocia y se pierde la unión.
+Capítulo 5	Zónula adherente	¿Qué proteínas citoplasmáticas se unen al extremo intracelular de cadherina E?	Cateninas.
+Capítulo 5	Zónula adherente	¿Qué complejo une cadherina E con proteínas citoplasmáticas?	Complejo cadherina E-catenina.
+Capítulo 5	Zónula adherente	¿Qué proteínas conectan el complejo cadherina E-catenina con actina?	Vinculina y actinina alfa.
+Capítulo 5	Zónula adherente	¿Qué une los dominios extracelulares de cadherina E entre células vecinas?	Iones calcio o proteínas de unión extracelular.
+Capítulo 5	Zónula adherente	¿Qué funciones regula el complejo cadherina E-catenina además de adhesión?	Polaridad, diferenciación, migración, proliferación y supervivencia.
+Capítulo 5	Zónula adherente	¿Qué CAM de la zónula adherente es independiente de calcio?	Nectina.
+Capítulo 5	Zónula adherente	¿Qué tipo de adhesión producen las nectinas comparadas con cadherinas?	Adhesión más débil.
+Capítulo 5	Zónula adherente	¿Qué proteína conecta nectina con actina?	Afadina.
+Capítulo 5	Zónula adherente	¿Qué tipo de enlaces pueden formar las nectinas entre células?	Homofílicos y heterofílicos.
+Capítulo 5	Zónula adherente	¿En qué situaciones son útiles las uniones basadas en nectina?	En tejidos con remodelación rápida o regulación dinámica.
+Capítulo 5	Zónula adherente	¿Qué células testiculares tienen uniones dependientes de nectina?	Células de Sertoli y espermátides.
+Capítulo 5	Zónula adherente	¿Qué tejido ocular presenta uniones basadas en nectina?	Epitelio ciliar.
+Capítulo 5	Zónula adherente	¿Qué estructura embrionaria puede usar uniones basadas en nectina?	Tubo neural.
+Capítulo 5	Zónula adherente	¿Qué estructura se observa como material electrodenso citoplasmático en la zónula adherente?	La placa filamentosa.
+Capítulo 5	Zónula adherente	¿Qué proteínas forman parte de la placa filamentosa de la zónula adherente?	Vinculina, actinina alfa y afadina.
+Capítulo 5	Zónula adherente	¿Qué tipo de espacio se observa entre membranas en la zónula adherente?	Un espacio intercelular relativamente uniforme.
+Capítulo 5	Fascia adherente	¿Qué tipo de unión adherente no forma cinturón completo?	Fascia adherente.
+Capítulo 5	Fascia adherente	¿Dónde se encuentra un ejemplo clásico de fascia adherente?	En discos intercalares del músculo cardíaco.
+Capítulo 5	Fascia adherente	¿Qué estructura cardíaca fija filamentos delgados mediante fascia adherente?	El disco intercalar.
+Capítulo 5	Desmosomas	¿Qué otro nombre recibe el desmosoma?	Mácula adherente.
+Capítulo 5	Desmosomas	¿Qué tipo de unión es el desmosoma por su distribución?	Una unión puntual o focal.
+Capítulo 5	Desmosomas	¿Qué función principal cumplen los desmosomas?	Proveen adhesión mecánica fuerte entre células.
+Capítulo 5	Desmosomas	¿Qué filamentos se anclan a los desmosomas?	Filamentos intermedios.
+Capítulo 5	Desmosomas	¿Qué tipo de filamentos intermedios se anclan a desmosomas en epitelio?	Filamentos de queratina.
+Capítulo 5	Desmosomas	¿Qué estructura citoplasmática densa tiene el desmosoma?	Placa de adhesión desmosómica.
+Capítulo 5	Desmosomas	¿Qué proteínas transmembrana forman la adhesión extracelular del desmosoma?	Desmogleínas y desmocolinas.
+Capítulo 5	Desmosomas	¿A qué familia pertenecen desmogleínas y desmocolinas?	Cadherinas.
+Capítulo 5	Desmosomas	¿De qué ion dependen las cadherinas desmosómicas?	Calcio.
+Capítulo 5	Desmosomas	¿Qué proteína de placa desmosómica une cadherinas desmosómicas con proteínas intracelulares?	Placoglobina.
+Capítulo 5	Desmosomas	¿Qué proteína de placa desmosómica se une a filamentos intermedios?	Desmoplaquina.
+Capítulo 5	Desmosomas	¿Qué proteínas principales de la placa desmosómica se asocian con filamentos intermedios?	Desmoplaquina y placoglobina.
+Capítulo 5	Desmosomas	¿Qué tipo de tejido necesita muchos desmosomas por estrés mecánico?	Epitelio sometido a fricción.
+Capítulo 5	Desmosomas	¿Qué diferencia principal hay entre zónula adherente y desmosoma?	La zónula adherente se ancla a actina; el desmosoma a filamentos intermedios.
+Capítulo 5	Desmosomas	¿Qué diferencia espacial hay entre zónula adherente y mácula adherente?	La zónula forma cinturón; la mácula forma puntos.
+Capítulo 5	Desmosomas	¿Qué enfermedad autoinmunitaria puede afectar proteínas desmosómicas?	Pénfigo.
+Capítulo 5	Desmosomas	¿Qué consecuencia epitelial produce la pérdida de adhesión desmosómica?	Separación de células epiteliales.
+Capítulo 5	Uniones comunicantes	¿Qué otro nombre reciben las uniones comunicantes?	Uniones de hendidura.
+Capítulo 5	Uniones comunicantes	¿Qué función principal tienen las uniones comunicantes?	Comunicación directa entre células vecinas.
+Capítulo 5	Uniones comunicantes	¿Qué moléculas pueden pasar por uniones comunicantes?	Moléculas pequeñas e iones.
+Capítulo 5	Uniones comunicantes	¿Qué tamaño máximo aproximado permite una unión comunicante?	Menos de 1.2 kDa.
+Capítulo 5	Uniones comunicantes	¿Qué tipo de actividad celular permiten coordinar las uniones comunicantes?	Actividad celular sincronizada.
+Capítulo 5	Uniones comunicantes	¿Qué proteína forma las unidades de las uniones comunicantes?	Conexina.
+Capítulo 5	Uniones comunicantes	¿Qué estructura forman seis conexinas?	Un conexón.
+Capítulo 5	Uniones comunicantes	¿Qué otro nombre recibe un conexón?	Hemiconducto.
+Capítulo 5	Uniones comunicantes	¿Qué estructura se forma al alinearse dos conexones de células vecinas?	Un conducto de unión comunicante.
+Capítulo 5	Uniones comunicantes	¿Cuántas conexinas forman un conducto completo de unión comunicante?	Doce conexinas.
+Capítulo 5	Uniones comunicantes	¿Cuántas conexinas aporta cada célula a un conducto comunicante?	Seis conexinas.
+Capítulo 5	Uniones comunicantes	¿Qué tipo de canal se forma si ambos conexones tienen la misma conexina?	Canal homotípico.
+Capítulo 5	Uniones comunicantes	¿Qué tipo de canal se forma si los conexones tienen conexinas diferentes?	Canal heterotípico.
+Capítulo 5	Uniones comunicantes	¿Qué puede cambiar cuando una unión comunicante es heterotípica?	La selectividad o dirección preferente del flujo.
+Capítulo 5	Uniones comunicantes	¿Qué ion elevado puede cerrar un conducto de unión comunicante?	Calcio.
+Capítulo 5	Uniones comunicantes	¿Qué efecto tiene el aumento de Ca2+ intracelular en las conexinas?	Cierra los conductos comunicantes.
+Capítulo 5	Uniones comunicantes	¿Qué ventaja tiene cerrar uniones comunicantes ante daño celular?	Aísla la célula lesionada de células vecinas.
+Capítulo 5	Uniones comunicantes	¿Qué células musculares usan uniones comunicantes para sincronizar contracción?	Células musculares cardíacas.
+Capítulo 5	Uniones comunicantes	¿Qué tipo de señal puede difundirse por uniones comunicantes?	Señales iónicas o metabólicas pequeñas.
+Capítulo 5	Uniones comunicantes	¿Qué diferencia funcional existe entre unión comunicante y zónula ocluyente?	La comunicante permite paso intercelular; la ocluyente lo restringe.
+Capítulo 5	Interdigitaciones laterales	¿Qué son las interdigitaciones laterales?	Pliegues entre membranas laterales de células vecinas.
+Capítulo 5	Interdigitaciones laterales	¿Qué otro nombre reciben las interdigitaciones laterales?	Plicas o pliegues laterales.
+Capítulo 5	Interdigitaciones laterales	¿Qué función tienen las interdigitaciones laterales?	Aumentan el área de superficie lateral.
+Capítulo 5	Interdigitaciones laterales	¿Qué tipo de transporte favorecen las interdigitaciones laterales?	Transporte transepitelial de líquidos e iones.
+Capítulo 5	Interdigitaciones laterales	¿Qué bomba se localiza en membrana lateral para transporte activo de líquidos?	ATPasa Na+/K+.
+Capítulo 5	Interdigitaciones laterales	¿Qué ion bombea fuera del citoplasma la ATPasa Na+/K+ lateral?	Sodio.
+Capítulo 5	Interdigitaciones laterales	¿Qué ocurre con el agua cuando se acumulan solutos en el espacio intercelular?	Entra por ósmosis al espacio intercelular.
+Capítulo 5	Interdigitaciones laterales	¿Qué impide que el líquido intercelular regrese hacia la luz?	La zónula ocluyente.
+Capítulo 5	Interdigitaciones laterales	¿Qué fuerza impulsa líquido desde el espacio intercelular hacia el tejido conjuntivo?	Presión hidrostática.
+Capítulo 5	Interdigitaciones laterales	¿Hacia dónde se mueve finalmente el líquido acumulado en el espacio intercelular lateral?	Hacia el tejido conjuntivo subyacente.
+Capítulo 5	Interdigitaciones laterales	¿Qué especialización apical facilita reponer agua y solutos durante transporte transepitelial?	Microvellosidades.
+Capítulo 5	Interdigitaciones laterales	¿Qué epitelios suelen tener interdigitaciones laterales desarrolladas?	Epitelios que transportan líquidos.
+Capítulo 5	Patógenos y complejos de unión	¿Por qué los complejos de unión pueden ser dianas de patógenos?	Porque controlan adhesión y barrera epitelial.
+Capítulo 5	Patógenos y complejos de unión	¿Qué pasa si un patógeno altera la zónula ocluyente?	Aumenta la permeabilidad paracelular.
+Capítulo 5	Patógenos y complejos de unión	¿Qué consecuencia tiene alterar uniones adherentes?	Disminuye la cohesión del epitelio.
+Capítulo 5	Patógenos y complejos de unión	¿Qué consecuencia tiene alterar desmosomas?	Se debilita la resistencia mecánica epitelial.
+chapter	subtopic	front	back
+Capítulo 5	Región basal	¿Qué región de la célula epitelial se relaciona con el tejido conjuntivo subyacente?	La región basal.
+Capítulo 5	Región basal	¿Qué estructura especializada se ubica entre el epitelio y el estroma conjuntivo?	La membrana basal.
+Capítulo 5	Región basal	¿Qué uniones fijan las células epiteliales a la matriz extracelular?	Uniones célula-matriz extracelular.
+Capítulo 5	Región basal	¿Qué dos uniones célula-matriz extracelular se encuentran en la región basal?	Adhesiones focales y hemidesmosomas.
+Capítulo 5	Región basal	¿Qué modificación basal aumenta la superficie de membrana?	Pliegues basales.
+Capítulo 5	Región basal	¿Qué función general cumplen los pliegues basales?	Aumentan la superficie para transporte e interacción con la matriz.
+Capítulo 5	Membrana basal	¿Qué es la membrana basal en microscopía óptica?	Una capa extracelular especializada bajo el epitelio.
+Capítulo 5	Membrana basal	¿Dónde se localiza la membrana basal?	Entre el epitelio y el tejido conjuntivo.
+Capítulo 5	Membrana basal	¿Qué superficie epitelial se apoya sobre la membrana basal?	La superficie basal.
+Capítulo 5	Membrana basal	¿Qué función estructural tiene la membrana basal?	Une el epitelio con el tejido conjuntivo subyacente.
+Capítulo 5	Membrana basal	¿Qué función de barrera cumple la membrana basal?	Separa epitelio y tejido conjuntivo.
+Capítulo 5	Membrana basal	¿Qué tinción permite ver la membrana basal como una línea rojo-púrpura?	PAS.
+Capítulo 5	Membrana basal	¿Por qué la membrana basal es PAS positiva?	Por los sacáridos de proteoglucanos y glucoproteínas.
+Capítulo 5	Membrana basal	¿Qué técnica metálica puede demostrar la membrana basal?	Impregnación argéntica.
+Capítulo 5	Membrana basal	¿Qué significa que la membrana basal sea argentófila?	Que puede teñirse con sales de plata.
+Capítulo 5	Membrana basal	¿Por qué la membrana basal puede ser difícil de ver con H&E?	Porque es delgada y puede confundirse con tejido conjuntivo adyacente.
+Capítulo 5	Membrana basal	¿Qué estructura visible en MO puede incluir lámina basal y lámina reticular?	La membrana basal.
+Capítulo 5	Membrana basal	¿Qué término se prefiere para la capa ultraestructural vista con microscopía electrónica?	Lámina basal.
+Capítulo 5	Membrana basal	¿Qué término se usa para la lámina basal alrededor de células musculares o células de sostén nerviosas?	Lámina externa.
+Capítulo 5	Membrana basal	¿Qué células no epiteliales pueden estar rodeadas por lámina externa?	Células musculares, adipocitos y células de sostén del SNP.
+Capítulo 5	Membrana basal	¿Qué células conjuntivas suelen carecer de material de membrana basal?	La mayoría de células conjuntivas no adipocíticas.
+Capítulo 5	Lámina basal	¿Qué es la lámina basal?	La capa extracelular especializada en la interfaz entre células y tejido conjuntivo.
+Capítulo 5	Lámina basal	¿Qué células producen los componentes de la lámina basal?	Las células suprayacentes.
+Capítulo 5	Lámina basal	¿Qué principales moléculas forman la lámina basal?	Colágeno tipo IV, lamininas, entactina/nidógeno y proteoglucanos.
+Capítulo 5	Lámina basal	¿Qué colágeno forma la red principal de la lámina basal?	Colágeno tipo IV.
+Capítulo 5	Lámina basal	¿Qué glucoproteínas inician el armado de la lámina basal?	Lamininas.
+Capítulo 5	Lámina basal	¿Qué glucoproteína une laminina con colágeno tipo IV?	Entactina/nidógeno.
+Capítulo 5	Lámina basal	¿Qué proteoglucano de heparán-sulfato es frecuente en láminas basales?	Perlecano.
+Capítulo 5	Lámina basal	¿Qué proteoglucano de heparán-sulfato es importante en la membrana basal glomerular?	Agrina.
+Capítulo 5	Lámina basal	¿Qué moléculas aportan carga negativa a la lámina basal?	Proteoglucanos.
+Capítulo 5	Lámina basal	¿Qué función filtrativa se asocia a la carga negativa de proteoglucanos?	Regulación del paso de iones.
+Capítulo 5	Lámina basal	¿Qué proteoglucano enlaza laminina, colágeno IV y entactina/nidógeno?	Perlecano.
+Capítulo 5	Lámina basal	¿Qué proteoglucano participa en filtración renal?	Agrina.
+Capítulo 5	Lámina basal	¿Qué glucoproteína de la lámina basal tiene forma de cruz?	Laminina.
+Capítulo 5	Lámina basal	¿Qué función tiene la laminina frente a integrinas epiteliales?	Se une a receptores de integrina en la región basal.
+Capítulo 5	Lámina basal	¿Qué procesos epiteliales pueden regular las lamininas?	Desarrollo, diferenciación y remodelado.
+Capítulo 5	Lámina basal	¿Qué proteína pequeña sulfatada sirve de puente entre laminina y colágeno IV?	Entactina/nidógeno.
+Capítulo 5	Lámina basal	¿Qué estructura se encuentra debajo de la lámina basal?	La lámina reticular.
+Capítulo 5	Lámina reticular	¿Qué tejido produce la lámina reticular?	El tejido conjuntivo.
+Capítulo 5	Lámina reticular	¿Qué tipo de colágeno predomina en la lámina reticular?	Colágeno tipo III.
+Capítulo 5	Lámina reticular	¿Qué fibras forman la lámina reticular?	Fibras reticulares.
+Capítulo 5	Lámina reticular	¿La lámina reticular es producto del epitelio?	No; pertenece al tejido conjuntivo.
+Capítulo 5	Lámina reticular	¿Qué estructura une la lámina basal con la lámina reticular?	Fibrillas de anclaje.
+Capítulo 5	Lámina reticular	¿Qué colágeno forma fibrillas de anclaje?	Colágeno tipo VII.
+Capítulo 5	Lámina reticular	¿Qué función tiene el colágeno tipo VII?	Une la lámina basal con la lámina reticular.
+Capítulo 5	Lámina reticular	¿Qué estructura conectan las fibrillas de anclaje?	Lámina basal y fibras reticulares subyacentes.
+Capítulo 5	Colágeno tipo IV	¿Qué colágeno caracteriza la lámina basal?	Colágeno tipo IV.
+Capítulo 5	Colágeno tipo IV	¿Cuántas cadenas polipeptídicas forman una molécula de colágeno tipo IV?	Tres cadenas.
+Capítulo 5	Colágeno tipo IV	¿Qué tres dominios tiene cada cadena de colágeno tipo IV?	Dominio 7S, dominio helicoidal colagenoso y dominio NC1.
+Capítulo 5	Colágeno tipo IV	¿Qué dominio del colágeno IV está en el extremo aminoterminal?	Dominio 7S.
+Capítulo 5	Colágeno tipo IV	¿Qué dominio del colágeno IV está en el extremo carboxiterminal?	Dominio NC1.
+Capítulo 5	Colágeno tipo IV	¿Qué dominio inicia el ensamblaje del protómero de colágeno IV?	Dominio NC1.
+Capítulo 5	Colágeno tipo IV	¿Qué se forma cuando se unen tres dominios NC1?	Un trímero NC1.
+Capítulo 5	Colágeno tipo IV	¿Qué estructura forman tres cadenas alfa de colágeno IV?	Un protómero de colágeno IV.
+Capítulo 5	Colágeno tipo IV	¿Qué se forma al unirse dos protómeros de colágeno IV por sus dominios NC1?	Un dímero de colágeno IV.
+Capítulo 5	Colágeno tipo IV	¿Qué estructura forman dos trímeros NC1 unidos?	Un hexámero NC1.
+Capítulo 5	Colágeno tipo IV	¿Qué estructura se forma cuando cuatro dímeros se conectan por dominios 7S?	Un tetrámero de colágeno IV.
+Capítulo 5	Colágeno tipo IV	¿Qué estructura conecta tetrámeros de colágeno IV?	La caja 7S.
+Capítulo 5	Colágeno tipo IV	¿Qué dominio determina la geometría del tetrámero de colágeno IV?	El dominio 7S.
+Capítulo 5	Colágeno tipo IV	¿Qué forman los tetrámeros de colágeno IV al interactuar entre sí?	La supraestructura de colágeno tipo IV.
+Capítulo 5	Colágeno tipo IV	¿Qué aporta la supraestructura de colágeno IV a la lámina basal?	Una red estructural de soporte.
+Capítulo 5	Colágeno tipo IV	¿Qué isoforma de colágeno IV se encuentra en todas las láminas basales?	[a1(IV)]2 a2(IV).
+Capítulo 5	Colágeno tipo IV	¿Qué isoformas de colágeno IV predominan en riñón y pulmón?	a3(IV), a4(IV) y a5(IV).
+Capítulo 5	Colágeno tipo IV	¿Qué isoformas de colágeno IV aparecen en piel, esófago y cápsula de Bowman?	[a5(IV)]2 a6(IV).
+Capítulo 5	Colágeno tipo IV	¿Qué función general tienen las isoformas de colágeno IV?	Dar especificidad tisular a la lámina basal.
+Capítulo 5	Otros colágenos de lámina basal	¿Qué colágeno estabiliza la lámina externa de músculo esquelético y cardíaco?	Colágeno tipo XV.
+Capítulo 5	Otros colágenos de lámina basal	¿Qué colágeno está presente en láminas basales vasculares y epiteliales?	Colágeno tipo XVIII.
+Capítulo 5	Otros colágenos de lámina basal	¿Qué colágeno se relaciona con angiogénesis en láminas basales?	Colágeno tipo XVIII.
+Capítulo 5	Otros colágenos de lámina basal	¿Qué colágeno forma fibrillas de anclaje entre lámina basal y lámina reticular?	Colágeno tipo VII.
+Capítulo 5	Autoensamblado de lámina basal	¿Qué moléculas inician el autoensamblado de la lámina basal?	Lamininas y colágeno tipo IV.
+Capítulo 5	Autoensamblado de lámina basal	¿Qué moléculas de la lámina basal pueden formar estructuras laminares por sí solas?	Lamininas y colágeno tipo IV.
+Capítulo 5	Autoensamblado de lámina basal	¿Cuál es el primer paso del autoensamblado de la lámina basal?	Polimerización de lamininas en la superficie basal.
+Capítulo 5	Autoensamblado de lámina basal	¿Qué ion requiere la polimerización de laminina?	Calcio.
+Capítulo 5	Autoensamblado de lámina basal	¿Qué receptores fijan polímeros de laminina a la superficie celular?	Integrinas.
+Capítulo 5	Autoensamblado de lámina basal	¿Qué supraestructura se asocia con los polímeros de laminina?	Supraestructura de colágeno tipo IV.
+Capítulo 5	Autoensamblado de lámina basal	¿Qué molécula conecta laminina con colágeno IV durante el autoensamblado?	Entactina/nidógeno.
+Capítulo 5	Autoensamblado de lámina basal	¿Qué moléculas refuerzan la unión laminina-colágeno IV?	Perlecano, agrina y fibronectina.
+Capítulo 5	Autoensamblado de lámina basal	¿Dónde ocurre el ensamblado de la lámina basal?	Fuera de la célula, en el dominio basal.
+Capítulo 5	Funciones de la lámina basal	¿Qué función adhesiva tiene la lámina basal?	Fija células al tejido conjuntivo subyacente.
+Capítulo 5	Funciones de la lámina basal	¿Qué función de compartimentalización tiene la lámina basal?	Separa epitelio y tejido conjuntivo.
+Capítulo 5	Funciones de la lámina basal	¿Qué función filtrante tiene la lámina basal?	Regula el paso de moléculas e iones.
+Capítulo 5	Funciones de la lámina basal	¿Qué función tiene la lámina basal durante reparación tisular?	Sirve como armazón para regeneración.
+Capítulo 5	Funciones de la lámina basal	¿Qué función señalizadora tiene la lámina basal?	Interactúa con receptores celulares para regular conducta celular.
+Capítulo 5	Funciones de la lámina basal	¿Qué procesos celulares puede regular la lámina basal?	Polaridad, proliferación, diferenciación y migración.
+Capítulo 5	Funciones de la lámina basal	¿Por qué la lámina basal ayuda a conservar la organización tisular durante regeneración?	Porque guía el crecimiento celular sobre un armazón preexistente.
+Capítulo 5	Funciones de la lámina basal	¿Qué función cumple la lámina basal en el glomérulo renal?	Filtración.
+Capítulo 5	Funciones de la lámina basal	¿Qué característica permite a la lámina basal actuar como filtro?	Espacios moleculares y cargas iónicas.
+Capítulo 5	Adhesiones focales	¿Qué son las adhesiones focales?	Uniones dinámicas entre célula y matriz extracelular.
+Capítulo 5	Adhesiones focales	¿Qué filamentos del citoesqueleto se asocian con adhesiones focales?	Filamentos de actina.
+Capítulo 5	Adhesiones focales	¿Qué proteína transmembrana principal forma adhesiones focales?	Integrina.
+Capítulo 5	Adhesiones focales	¿Qué conectan las integrinas en adhesiones focales?	Actina intracelular con matriz extracelular.
+Capítulo 5	Adhesiones focales	¿Qué proteínas enlazan integrina con actina en adhesiones focales?	Talina, vinculina, paxilina y actinina alfa.
+Capítulo 5	Adhesiones focales	¿Qué proteína de adhesión focal une integrina con actina?	Talina.
+Capítulo 5	Adhesiones focales	¿Qué proteína de adhesión focal ayuda a reclutar actina?	Vinculina.
+Capítulo 5	Adhesiones focales	¿Qué proteína de adhesión focal actúa como adaptador de señalización?	Paxilina.
+Capítulo 5	Adhesiones focales	¿Qué proteína de adhesión focal enlaza filamentos de actina?	Actinina alfa.
+Capítulo 5	Adhesiones focales	¿Qué enzima se asocia a adhesiones focales como marcador funcional?	Cinasa de adhesión focal.
+Capítulo 5	Adhesiones focales	¿Qué sigla se usa para cinasa de adhesión focal?	FAK.
+Capítulo 5	Adhesiones focales	¿Qué molécula fosforilada permite detectar adhesiones focales por inmunofluorescencia?	Fosfotirosina.
+Capítulo 5	Adhesiones focales	¿Qué función mecánica tienen las adhesiones focales?	Actúan como mecanorreceptores.
+Capítulo 5	Adhesiones focales	¿Qué función señalizadora tienen las adhesiones focales?	Sirven como puntos de entrada para señales de crecimiento.
+Capítulo 5	Adhesiones focales	¿Qué característica diferencia adhesiones focales de hemidesmosomas?	Las adhesiones focales son dinámicas y se unen a actina.
+Capítulo 5	Adhesiones focales	¿En qué proceso celular son importantes las adhesiones focales?	Migración celular.
+Capítulo 5	Adhesiones focales	¿Qué tipo de unión célula-matriz se reorganiza durante migración celular?	Adhesión focal.
+Capítulo 5	Hemidesmosomas	¿Qué son los hemidesmosomas?	Uniones célula-matriz que anclan epitelio a la lámina basal.
+Capítulo 5	Hemidesmosomas	¿Qué filamentos se asocian con hemidesmosomas?	Filamentos intermedios.
+Capítulo 5	Hemidesmosomas	¿Qué filamentos intermedios se anclan a hemidesmosomas epiteliales?	Filamentos de queratina.
+Capítulo 5	Hemidesmosomas	¿Qué función mecánica cumplen los hemidesmosomas?	Evitan que el epitelio se separe del tejido conjuntivo.
+Capítulo 5	Hemidesmosomas	¿En qué tejidos son especialmente importantes los hemidesmosomas?	Tejidos sometidos a fuerzas mecánicas.
+Capítulo 5	Hemidesmosomas	¿Qué estructura intracelular contiene el hemidesmosoma?	Placa de adhesión intracelular.
+Capítulo 5	Hemidesmosomas	¿Qué proteínas citoplasmáticas principales contiene el hemidesmosoma?	Plectina, BP230 y erbina.
+Capítulo 5	Hemidesmosomas	¿Qué proteína hemidesmosómica integra filamentos intermedios con otros elementos del citoesqueleto?	Plectina.
+Capítulo 5	Hemidesmosomas	¿Qué proteína fija filamentos intermedios a la placa hemidesmosómica?	BP230.
+Capítulo 5	Hemidesmosomas	¿Qué proteína une BP230 con integrinas?	Erbina.
+Capítulo 5	Hemidesmosomas	¿Qué proteínas transmembrana principales contiene el hemidesmosoma?	Integrina α6β4, colágeno XVII y CD151.
+Capítulo 5	Hemidesmosomas	¿Qué integrina caracteriza al hemidesmosoma?	Integrina α6β4.
+Capítulo 5	Hemidesmosomas	¿Qué proteína hemidesmosómica se une a laminina 332?	Integrina α6β4.
+Capítulo 5	Hemidesmosomas	¿Qué laminina se asocia con hemidesmosomas?	Laminina 332.
+Capítulo 5	Hemidesmosomas	¿Qué colágeno transmembrana aparece en hemidesmosomas?	Colágeno tipo XVII.
+Capítulo 5	Hemidesmosomas	¿Qué otro nombre recibe el colágeno tipo XVII?	BP180 o BPAG2.
+Capítulo 5	Hemidesmosomas	¿Qué función tiene el colágeno XVII en hemidesmosomas?	Regula expresión y función de lamininas.
+Capítulo 5	Hemidesmosomas	¿Qué glucoproteína agrupa receptores de integrina?	CD151.
+Capítulo 5	Hemidesmosomas	¿Qué función tiene CD151?	Facilita interacciones célula-matriz extracelular.
+Capítulo 5	Hemidesmosomas	¿Qué proteínas forman filamentos de anclaje en hemidesmosomas?	Laminina y colágeno XVII.
+Capítulo 5	Hemidesmosomas	¿Qué conectan los filamentos de anclaje?	Membrana celular epitelial con lámina basal.
+Capítulo 5	Hemidesmosomas	¿Qué conectan las fibrillas de anclaje?	Lámina basal con fibras reticulares.
+Capítulo 5	Hemidesmosomas	¿Qué diferencia hay entre filamentos de anclaje y fibrillas de anclaje?	Los filamentos fijan célula a lámina basal; las fibrillas fijan lámina basal a fibras reticulares.
+Capítulo 5	Hemidesmosomas	¿Qué colágeno forma fibrillas de anclaje?	Colágeno tipo VII.
+Capítulo 5	Hemidesmosomas	¿Qué enfermedad cutánea se asocia con defectos de laminina 332?	Epidermólisis ampollosa de la unión.
+Capítulo 5	Hemidesmosomas	¿Qué enfermedad autoinmunitaria se asocia con anticuerpos contra hemidesmosomas?	Penfigoide ampolloso.
+Capítulo 5	Hemidesmosomas	¿Qué proteínas son dianas en penfigoide ampolloso?	BP230 y colágeno XVII.
+Capítulo 5	Hemidesmosomas	¿Qué consecuencia clínica causa falla de hemidesmosomas?	Formación de ampollas.
+Capítulo 5	Hemidesmosomas	¿Qué diferencia principal hay entre desmosoma y hemidesmosoma?	El desmosoma une célula-célula; el hemidesmosoma une célula-matriz.
+Capítulo 5	Hemidesmosomas	¿Qué diferencia hay entre proteínas transmembrana de desmosomas y hemidesmosomas?	Desmosomas usan cadherinas; hemidesmosomas usan integrinas y colágeno XVII.
+Capítulo 5	Hemidesmosomas	¿Qué diferencia de citoesqueleto hay entre adhesión focal y hemidesmosoma?	Adhesión focal se une a actina; hemidesmosoma a filamentos intermedios.
+Capítulo 5	Pliegues basales	¿Qué son los pliegues basales?	Repliegues internos de la membrana plasmática basal.
+Capítulo 5	Pliegues basales	¿Qué función tienen los pliegues basales?	Aumentan la superficie basal para transporte activo.
+Capítulo 5	Pliegues basales	¿Qué tipo de células suelen tener pliegues basales prominentes?	Células que transportan líquidos e iones.
+Capítulo 5	Pliegues basales	¿Qué transporte favorecen los pliegues basales?	Transporte activo de iones.
+Capítulo 5	Pliegues basales	¿Qué organelos se concentran entre pliegues basales?	Mitocondrias.
+Capítulo 5	Pliegues basales	¿Por qué hay muchas mitocondrias en células con pliegues basales?	Para aportar ATP al transporte activo.
+Capítulo 5	Pliegues basales	¿Qué orientación suelen tener las mitocondrias entre pliegues basales?	Orientación vertical.
+Capítulo 5	Pliegues basales	¿Qué apariencia dan los pliegues basales y mitocondrias al microscopio óptico?	Apariencia estriada basal.
+Capítulo 5	Pliegues basales	¿Qué conductos glandulares reciben su nombre por estriaciones basales?	Conductos estriados.
+Capítulo 5	Pliegues basales	¿En qué glándulas son típicos los conductos estriados?	Glándulas salivales.
+Capítulo 5	Pliegues basales	¿Qué túbulos renales presentan pliegues basales por transporte activo?	Túbulos proximales y distales.
+Capítulo 5	Pliegues basales	¿Qué estructura permite más proteínas transportadoras en la región basal?	Pliegues basales.
+Capítulo 5	Pliegues basales	¿Qué bomba suele asociarse al transporte activo en células con pliegues basales?	ATPasa Na+/K+.
+Capítulo 5	Pliegues basales	¿Qué relación funcional hay entre microvellosidades apicales y pliegues basales?	Ambas aumentan superficie para transporte transepitelial.
+Capítulo 5	Pliegues basales	¿Qué región celular reabastece agua y solutos durante transporte transepitelial?	La región apical.
+Capítulo 5	Pliegues basales	¿Qué región celular expulsa iones hacia el espacio intercelular durante transporte?	La región lateral-basal.
+chapter	subtopic	front	back
+Capítulo 5	Glándulas	¿Qué tejido forma las glándulas?	El tejido epitelial.
+Capítulo 5	Glándulas	¿Qué parte de una glándula corresponde a sus células secretoras?	El parénquima.
+Capítulo 5	Glándulas	¿Qué función general tienen las glándulas?	Producir y liberar sustancias.
+Capítulo 5	Glándulas	¿Qué dos tipos principales de glándulas existen según hacia dónde liberan su producto?	Exocrinas y endocrinas.
+Capítulo 5	Glándulas exocrinas	¿Qué define a una glándula exocrina?	Libera su producto hacia una superficie libre o una luz.
+Capítulo 5	Glándulas exocrinas	¿Qué estructura puede conducir la secreción de una glándula exocrina hasta la superficie?	Un conducto.
+Capítulo 5	Glándulas exocrinas	¿Qué pueden hacer los conductos además de transportar secreciones?	Modificar la secreción.
+Capítulo 5	Glándulas exocrinas	¿Qué modificaciones pueden hacer los conductos sobre una secreción?	Concentrarla, añadir sustancias o reabsorber sustancias.
+Capítulo 5	Glándulas exocrinas	¿Qué glándulas conservan conexión con la superficie epitelial?	Las glándulas exocrinas.
+Capítulo 5	Glándulas exocrinas	¿Qué tipo de glándula libera su producto directamente o por conductos?	Glándula exocrina.
+Capítulo 5	Glándulas endocrinas	¿Qué define a una glándula endocrina?	Libera su producto al tejido conjuntivo para que entre a la sangre.
+Capítulo 5	Glándulas endocrinas	¿Qué tipo de glándula carece de conductos?	Glándula endocrina.
+Capítulo 5	Glándulas endocrinas	¿Cómo se llaman los productos de las glándulas endocrinas?	Hormonas.
+Capítulo 5	Glándulas endocrinas	¿Qué vía usan las hormonas endocrinas para llegar a células diana lejanas?	El torrente sanguíneo.
+Capítulo 5	Glándulas endocrinas	¿Qué tipo de señalización alcanza células diana por sangre?	Señalización endocrina.
+Capítulo 5	Señalización paracrina	¿Qué es la señalización paracrina?	Secreción que actúa sobre células cercanas.
+Capítulo 5	Señalización paracrina	¿Dónde liberan su producto las células paracrinas?	En la matriz extracelular cercana.
+Capítulo 5	Señalización paracrina	¿Cómo alcanzan sus células diana las señales paracrinas?	Por difusión local.
+Capítulo 5	Señalización paracrina	¿Qué alcance tiene la señalización paracrina?	Alcance limitado y local.
+Capítulo 5	Señalización paracrina	¿Qué células vasculares pueden recibir señales paracrinas del endotelio?	Células musculares lisas vasculares.
+Capítulo 5	Señalización autocrina	¿Qué es la señalización autocrina?	Secreción que actúa sobre la misma célula que la libera.
+Capítulo 5	Señalización autocrina	¿Qué tipo de automensaje celular usa receptores de la misma célula secretora?	Señalización autocrina.
+Capítulo 5	Señalización autocrina	¿Qué función reguladora suele cumplir la señalización autocrina?	Retroalimentación para modular la propia secreción.
+Capítulo 5	Señalización autocrina	¿Qué sistema usa con frecuencia señalización autocrina mediante interleucinas?	El sistema inmunitario.
+Capítulo 5	Mecanismos de secreción exocrina	¿Cuáles son los tres mecanismos básicos de secreción exocrina?	Merocrina, apocrina y holocrina.
+Capítulo 5	Secreción merocrina	¿Qué define la secreción merocrina?	Exocitosis de vesículas secretoras hacia la superficie celular.
+Capítulo 5	Secreción merocrina	¿Qué ocurre con la membrana de la vesícula en secreción merocrina?	Se fusiona con la membrana plasmática.
+Capítulo 5	Secreción merocrina	¿Qué mecanismo de secreción exocrina es el más frecuente?	Secreción merocrina.
+Capítulo 5	Secreción merocrina	¿Qué ejemplo clásico usa secreción merocrina?	Células acinares pancreáticas.
+Capítulo 5	Secreción merocrina	¿La secreción merocrina libera citoplasma junto con el producto?	No.
+Capítulo 5	Secreción merocrina	¿Qué mecanismo secretor conserva la célula intacta tras liberar el producto?	Secreción merocrina.
+Capítulo 5	Secreción apocrina	¿Qué define la secreción apocrina?	Se libera la porción apical con producto, citoplasma y membrana.
+Capítulo 5	Secreción apocrina	¿Qué parte celular se desprende durante secreción apocrina?	La porción apical.
+Capítulo 5	Secreción apocrina	¿Qué glándula usa secreción apocrina para liberar gotas lipídicas?	La glándula mamaria lactante.
+Capítulo 5	Secreción apocrina	¿Qué componente de la leche se libera por mecanismo apocrino?	Gotas grandes de lípidos.
+Capítulo 5	Secreción apocrina	¿La secreción apocrina elimina toda la célula secretora?	No, solo la porción apical.
+Capítulo 5	Secreción holocrina	¿Qué define la secreción holocrina?	La célula acumula producto, muere y libera su contenido.
+Capítulo 5	Secreción holocrina	¿Qué tipo de muerte celular acompaña a la secreción holocrina?	Muerte celular programada.
+Capítulo 5	Secreción holocrina	¿Qué se libera en la secreción holocrina además del producto secretor?	Detritos celulares.
+Capítulo 5	Secreción holocrina	¿Qué glándulas cutáneas usan secreción holocrina?	Glándulas sebáceas.
+Capítulo 5	Secreción holocrina	¿Qué glándulas del párpado usan secreción holocrina?	Glándulas tarsales o de Meibomio.
+Capítulo 5	Secreción holocrina	¿Qué mecanismo secretor destruye la célula secretora?	Secreción holocrina.
+Capítulo 5	Secreción holocrina	¿Qué diferencia principal hay entre secreción apocrina y holocrina?	La apocrina libera solo ápice; la holocrina libera toda la célula.
+Capítulo 5	Secreción holocrina	¿Qué diferencia principal hay entre secreción merocrina y holocrina?	La merocrina usa exocitosis; la holocrina destruye la célula.
+Capítulo 5	Glándulas unicelulares	¿Qué son las glándulas unicelulares?	Células secretoras individuales entre células no secretoras.
+Capítulo 5	Glándulas unicelulares	¿Cuál es el ejemplo típico de glándula unicelular?	La célula caliciforme.
+Capítulo 5	Glándulas unicelulares	¿Qué secreta la célula caliciforme?	Moco.
+Capítulo 5	Glándulas unicelulares	¿Entre qué células suelen estar las células caliciformes?	Entre células cilíndricas.
+Capítulo 5	Glándulas unicelulares	¿Dónde se encuentran células caliciformes?	Intestino y segmentos de vías respiratorias.
+Capítulo 5	Glándulas unicelulares	¿Por qué una célula caliciforme puede considerarse una glándula?	Porque es una unidad secretora individual.
+Capítulo 5	Glándulas multicelulares	¿Qué son las glándulas multicelulares?	Glándulas compuestas por más de una célula secretora.
+Capítulo 5	Glándulas multicelulares	¿Qué criterios estructurales clasifican glándulas multicelulares?	Disposición secretora y ramificación de conductos.
+Capítulo 5	Glándulas multicelulares	¿Qué parte de una glándula multicelular contiene las células secretoras?	La porción secretora.
+Capítulo 5	Glándulas multicelulares	¿Qué parte conecta la porción secretora con la superficie?	El conducto.
+Capítulo 5	Glándulas multicelulares	¿Qué glándula multicelular tiene cada célula superficial como secretora?	La lámina secretora.
+Capítulo 5	Glándulas multicelulares	¿Qué epitelio forma una lámina de células mucosas secretoras?	El epitelio superficial del estómago.
+Capítulo 5	Clasificación de glándulas exocrinas	¿Qué define una glándula simple?	Conducto no ramificado.
+Capítulo 5	Clasificación de glándulas exocrinas	¿Qué define una glándula compuesta?	Conducto ramificado.
+Capítulo 5	Clasificación de glándulas exocrinas	¿Qué define una glándula tubular?	Porción secretora en forma de tubo.
+Capítulo 5	Clasificación de glándulas exocrinas	¿Qué define una glándula acinar o alveolar?	Porción secretora en forma de saco, matraz o uva.
+Capítulo 5	Clasificación de glándulas exocrinas	¿Qué define una glándula tubuloacinar?	Tiene porciones secretoras tubulares y acinares.
+Capítulo 5	Clasificación de glándulas exocrinas	¿Qué tipo de glándula tiene conducto no ramificado y porción tubular recta?	Tubular simple.
+Capítulo 5	Clasificación de glándulas exocrinas	¿Qué ejemplo corresponde a glándula tubular simple?	Glándulas intestinales del colon.
+Capítulo 5	Clasificación de glándulas exocrinas	¿Qué tipo de glándula tiene conducto no ramificado y porción tubular enrollada?	Tubular simple enrollada.
+Capítulo 5	Clasificación de glándulas exocrinas	¿Qué ejemplo corresponde a glándula tubular simple enrollada?	Glándulas sudoríparas ecrinas.
+Capítulo 5	Clasificación de glándulas exocrinas	¿Qué tipo de glándula tiene conducto no ramificado y porción tubular ramificada?	Tubular simple ramificada.
+Capítulo 5	Clasificación de glándulas exocrinas	¿Qué ejemplos corresponden a glándulas tubulares simples ramificadas?	Glándulas mucosas pilóricas y glándulas endometriales.
+Capítulo 5	Clasificación de glándulas exocrinas	¿Qué tipo de glándula tiene porción secretora acinar con conducto no ramificado?	Acinar simple.
+Capítulo 5	Clasificación de glándulas exocrinas	¿Qué ejemplo corresponde a glándula acinar simple?	Glándulas parauretrales y periuretrales.
+Capítulo 5	Clasificación de glándulas exocrinas	¿Qué tipo de glándula tiene varias porciones acinares hacia un conducto común?	Acinar ramificada.
+Capítulo 5	Clasificación de glándulas exocrinas	¿Qué ejemplos corresponden a glándulas acinares ramificadas?	Glándulas mucosas del cardias y glándulas sebáceas.
+Capítulo 5	Clasificación de glándulas exocrinas	¿Qué tipo de glándula tiene conductos ramificados y porciones secretoras tubulares?	Tubular compuesta.
+Capítulo 5	Clasificación de glándulas exocrinas	¿Qué ejemplo corresponde a glándula tubular compuesta?	Glándulas submucosas de Brunner.
+Capítulo 5	Clasificación de glándulas exocrinas	¿Qué tipo de glándula tiene conductos ramificados y porciones secretoras acinares?	Acinar compuesta.
+Capítulo 5	Clasificación de glándulas exocrinas	¿Qué ejemplo corresponde a glándula acinar compuesta?	Porción exocrina del páncreas.
+Capítulo 5	Clasificación de glándulas exocrinas	¿Qué tipo de glándula tiene conductos ramificados y porciones tubulares y acinares?	Tubuloacinar compuesta.
+Capítulo 5	Clasificación de glándulas exocrinas	¿Qué ejemplo corresponde a glándula tubuloacinar compuesta?	Glándula salival submandibular.
+Capítulo 5	Secreciones mucosas	¿Qué tipo de secreción exocrina es viscosa y resbaladiza?	Secreción mucosa.
+Capítulo 5	Secreciones mucosas	¿Qué moléculas predominan en las secreciones mucosas?	Proteínas muy glucosiladas.
+Capítulo 5	Secreciones mucosas	¿Qué producto intracelular almacenan las células mucosas?	Mucinógeno.
+Capítulo 5	Secreciones mucosas	¿Por qué los gránulos de mucinógeno son PAS positivos?	Por su alto contenido de carbohidratos.
+Capítulo 5	Secreciones mucosas	¿Por qué el citoplasma de células mucosas puede verse vacío en H&E?	Porque el mucinógeno se pierde durante la preparación.
+Capítulo 5	Secreciones mucosas	¿Qué forma suele tener el núcleo de una célula mucosa?	Aplanado.
+Capítulo 5	Secreciones mucosas	¿Dónde suele ubicarse el núcleo de una célula mucosa?	Contra la base celular.
+Capítulo 5	Secreciones mucosas	¿Qué desplaza el núcleo hacia la base en células mucosas?	La acumulación de gránulos de mucinógeno.
+Capítulo 5	Secreciones mucosas	¿Qué células epiteliales son ejemplo de secreción mucosa unicelular?	Células caliciformes.
+Capítulo 5	Secreciones mucosas	¿Qué glándula salival tiene predominio mucoso?	Glándula sublingual.
+Capítulo 5	Secreciones mucosas	¿Qué células gástricas producen secreción mucosa?	Células superficiales del estómago.
+Capítulo 5	Secreciones serosas	¿Qué tipo de secreción exocrina es acuosa?	Secreción serosa.
+Capítulo 5	Secreciones serosas	¿Qué tipo de proteínas producen las células serosas?	Proteínas no glucosiladas o poco glucosiladas.
+Capítulo 5	Secreciones serosas	¿Qué forma suele tener el núcleo de una célula serosa?	Redondeado u ovalado.
+Capítulo 5	Secreciones serosas	¿Por qué el citoplasma perinuclear de células serosas suele ser basófilo?	Por abundante retículo endoplasmático rugoso.
+Capítulo 5	Secreciones serosas	¿Qué indica la basofilia perinuclear en células serosas?	Síntesis activa de proteínas.
+Capítulo 5	Secreciones serosas	¿Qué gránulos apicales pueden verse en células serosas?	Gránulos de cimógeno.
+Capítulo 5	Secreciones serosas	¿Qué glándulas tienen acinos serosos?	Parótida y páncreas.
+Capítulo 5	Secreciones serosas	¿Qué diferencia histológica clave hay entre célula mucosa y serosa?	La mucosa tiene núcleo basal aplanado; la serosa tiene núcleo redondo u oval.
+Capítulo 5	Glándulas mixtas	¿Qué es una glándula mixta?	Glándula con células mucosas y serosas.
+Capítulo 5	Glándulas mixtas	¿Qué glándula salival es ejemplo de glándula mixta?	Glándula submandibular.
+Capítulo 5	Glándulas mixtas	¿Qué son las semilunas serosas?	Conjuntos de células serosas en forma de media luna alrededor de acinos mucosos.
+Capítulo 5	Glándulas mixtas	¿Qué causa la apariencia de semiluna serosa en preparados rutinarios?	Artefacto de preparación que desplaza células serosas.
+Capítulo 5	Glándulas mixtas	¿Dónde se observan típicamente semilunas serosas?	En glándulas mixtas como la submandibular.
+Capítulo 5	Células mioepiteliales	¿Qué son las células mioepiteliales?	Células contráctiles asociadas al epitelio glandular.
+Capítulo 5	Células mioepiteliales	¿Dónde se localizan las células mioepiteliales en glándulas?	Entre células secretoras y lámina basal.
+Capítulo 5	Células mioepiteliales	¿Qué función tienen las células mioepiteliales?	Ayudan a expulsar secreciones.
+Capítulo 5	Células mioepiteliales	¿Qué propiedad funcional tienen las células mioepiteliales?	Contractilidad.
+Capítulo 5	Células mioepiteliales	¿Por qué se consideran epiteliales las células mioepiteliales?	Porque están asociadas al compartimento epitelial.
+Capítulo 5	Renovación epitelial	¿Qué característica temporal tiene la mayoría de células epiteliales?	Vida finita menor que la del organismo.
+Capítulo 5	Renovación epitelial	¿Qué epitelios pertenecen a poblaciones de renovación continua?	Epitelios superficiales y muchas glándulas simples.
+Capítulo 5	Renovación epitelial	¿Qué es el ritmo de recambio celular?	La proporción de reemplazo de células en un epitelio.
+Capítulo 5	Renovación epitelial	¿El ritmo de recambio celular es igual en todos los epitelios?	No; es característico de cada epitelio.
+Capítulo 5	Renovación epitelial	¿Qué células producen reemplazos en epitelios de renovación continua?	Células madre adultas autorrenovables.
+Capítulo 5	Renovación epitelial	¿Cómo se llaman los sitios donde residen células madre epiteliales?	Nichos.
+Capítulo 5	Renovación epitelial	¿Dónde están los nichos de células madre en intestino delgado?	En la porción inferior de las glándulas intestinales.
+Capítulo 5	Renovación epitelial	¿Cuánto tarda en renovarse el epitelio del intestino delgado humano?	4 a 6 días.
+Capítulo 5	Renovación epitelial	¿Qué células intestinales migran hacia las vellosidades?	Enterocitos, células caliciformes y células enteroendocrinas.
+Capítulo 5	Renovación epitelial	¿Qué células intestinales migran hacia el fondo de la cripta?	Células de Paneth.
+Capítulo 5	Renovación epitelial	¿Qué ocurre con células intestinales al llegar al extremo de las vellosidades?	Sufren apoptosis y se exfolian hacia la luz.
+Capítulo 5	Renovación epitelial	¿Qué factor de transcripción determina destino celular en epitelio intestinal?	Math1.
+Capítulo 5	Renovación epitelial	¿Qué linaje intestinal se asocia con aumento de Math1?	Linaje secretor.
+Capítulo 5	Renovación epitelial	¿Qué células intestinales pertenecen al linaje secretor asociado a Math1?	Caliciformes, enteroendocrinas y Paneth.
+Capítulo 5	Renovación epitelial	¿Qué destino celular favorece la inhibición de Math1?	Enterocitos absortivos.
+Capítulo 5	Renovación epitelial	¿Cuánto tarda aproximadamente en renovarse la epidermis?	47 días.
+Capítulo 5	Renovación epitelial	¿Qué capa epidérmica contiene células mitóticas para renovación?	Estrato basal o germinativo.
+Capítulo 5	Renovación epitelial	¿Qué ocurre con las células epidérmicas al diferenciarse?	Son empujadas hacia la superficie.
+Capítulo 5	Renovación epitelial	¿Qué ocurre finalmente con las células epidérmicas diferenciadas?	Se queratinizan y se exfolian.
+Capítulo 5	Renovación epitelial	¿Qué mantiene estable el espesor del epitelio en renovación?	Equilibrio entre producción y exfoliación celular.
+Capítulo 5	Renovación epitelial	¿Qué son las células iPS?	Células madre pluripotentes inducidas.
+Capítulo 5	Renovación epitelial	¿Qué demuestra la generación de células iPS desde queratinocitos?	Que células somáticas adultas pueden reprogramarse a pluripotencia.
+Capítulo 5	Renovación epitelial	¿Qué se induce para reprogramar células adultas a iPS?	Factores de transcripción embrionarios.
+Capítulo 5	Membranas mucosas y serosas	¿Qué dos membranas combinan epitelio con tejido conjuntivo subyacente?	Mucosas y serosas.
+Capítulo 5	Membranas mucosas y serosas	¿Qué es una membrana mucosa?	Unidad formada por epitelio y lámina propia que reviste cavidades abiertas al exterior.
+Capítulo 5	Membranas mucosas y serosas	¿Qué cavidades recubre la mucosa?	Tubo digestivo, vías respiratorias y vías genitourinarias.
+Capítulo 5	Membranas mucosas y serosas	¿Qué tejido conjuntivo sostiene al epitelio de una mucosa?	Lámina propia.
+Capítulo 5	Membranas mucosas y serosas	¿Qué estructura separa epitelio y lámina propia en una mucosa?	Membrana basal.
+Capítulo 5	Membranas mucosas y serosas	¿Qué capa muscular puede formar parte de una mucosa?	Muscular de la mucosa.
+Capítulo 5	Membranas mucosas y serosas	¿Qué es una membrana serosa?	Unidad formada por mesotelio, tejido conjuntivo y membrana basal.
+Capítulo 5	Membranas mucosas y serosas	¿Qué cavidades recubre la serosa?	Peritoneal, pericárdica y pleural.
+Capítulo 5	Membranas mucosas y serosas	¿Qué epitelio forma la serosa?	Mesotelio.
+Capítulo 5	Membranas mucosas y serosas	¿Las membranas serosas contienen glándulas?	No.
+Capítulo 5	Membranas mucosas y serosas	¿Qué tipo de líquido hay sobre la superficie serosa?	Líquido acuoso.
+Capítulo 5	Membranas mucosas y serosas	¿Qué diferencia clave hay entre mucosa y serosa?	La mucosa reviste cavidades abiertas al exterior; la serosa reviste cavidades cerradas.
+cd ~/odontoma
+
+python3 << 'PY'
+from pathlib import Path
+import csv
+
+raw_dir = Path("src/content/flashcards/histologia/raw")
+
+pairs = [
+    ("cap4_raw.txt", "cap4.csv"),
+    ("cap5_raw.txt", "cap5.csv"),
+]
+
+expected_header = ["chapter", "subtopic", "front", "back"]
+
+for raw_name, csv_name in pairs:
+    raw_path = raw_dir / raw_name
+    csv_path = raw_dir / csv_name
+
+    if not raw_path.exists():
+        print(f"No existe {raw_path}")
+        continue
+
+    lines = raw_path.read_text(encoding="utf-8-sig").splitlines()
+
+    rows = []
+
+    for line in lines:
+        line = line.strip()
+
+        if not line:
+            continue
+
+        if line.lower() == "chapter\tsubtopic\tfront\tback":
+            continue
+
+        parts = line.split("\t")
+
+        if len(parts) < 4:
+            continue
+
+        chapter = parts[0].strip()
+        subtopic = parts[1].strip()
+        front = parts[2].strip()
+        back = "\t".join(parts[3:]).strip()
+
+        if not chapter or not subtopic or not front or not back:
+            continue
+
+        rows.append([chapter, subtopic, front, back])
+
+    with csv_path.open("w", encoding="utf-8-sig", newline="") as f:
+        writer = csv.writer(f)
+        writer.writerow(expected_header)
+        writer.writerows(rows)
+
+    print(f"{csv_name}: {len(rows)} flashcards")
+
+print("CSV listos.")
+PY
+
+open src/content/flashcards/histologia/raw/cap4.csv
+open src/content/flashcards/histologia/raw/cap5.csv
+cd ~/odontoma
+
+python3 << 'PY'
+from pathlib import Path
+import csv
+import json
+
+raw_dir = Path("src/content/flashcards/histologia/raw")
+out_path = Path("src/content/flashcards/histologia/cards.ts")
+
+files = [
+    raw_dir / "cap4.csv",
+    raw_dir / "cap5.csv",
+]
+
+def read_csv(path):
+    rows = []
+
+    with path.open("r", encoding="utf-8-sig", newline="") as f:
+        reader = csv.DictReader(f)
+
+        for row in reader:
+            chapter = (row.get("chapter") or "").strip()
+            subtopic = (row.get("subtopic") or "").strip()
+            front = (row.get("front") or "").strip()
+            back = (row.get("back") or "").strip()
+
+            if not chapter or not subtopic or not front or not back:
+                continue
+
+            rows.append({
+                "chapter": chapter,
+                "subtopic": subtopic,
+                "front": front,
+                "back": back,
+            })
+
+    return rows
+
+all_rows = []
+
+for path in files:
+    if path.exists():
+        all_rows.extend(read_csv(path))
+
+if not all_rows:
+    raise SystemExit("No encontré flashcards válidas en cap4.csv o cap5.csv.")
+
+def chapter_number(chapter):
+    digits = "".join(ch for ch in chapter if ch.isdigit())
+    return digits or "x"
+
+def slug(text):
+    text = text.lower()
+    replacements = {
+        "á": "a",
+        "é": "e",
+        "í": "i",
+        "ó": "o",
+        "ú": "u",
+        "ü": "u",
+        "ñ": "n",
+    }
+
+    for old, new in replacements.items():
+        text = text.replace(old, new)
+
+    return "".join(
+        ch if ch.isalnum() else "-"
+        for ch in text
+    ).strip("-")
+
+cards = []
+seen = set()
+
+for index, row in enumerate(all_rows, start=1):
+    key = (
+        row["chapter"],
+        row["subtopic"],
+        row["front"],
+        row["back"],
+    )
+
+    if key in seen:
+        continue
+
+    seen.add(key)
+
+    cap = chapter_number(row["chapter"])
+    topic_slug = slug(row["subtopic"])
+
+    cards.append({
+        "id": f"histo-cap{cap}-{topic_slug}-{index:04d}",
+        "subject": "Histología",
+        "book": "Ross",
+        "chapter": row["chapter"],
+        "topic": row["subtopic"],
+        "subtopic": row["subtopic"],
+        "front": row["front"],
+        "back": row["back"],
+        "tags": [
+            row["chapter"],
+            row["subtopic"],
+        ],
+    })
+
+content = """export type Flashcard = {
+  id: string
+  subject: string
+  book: string
+  chapter: string
+  topic: string
+  subtopic: string
+  front: string
+  back: string
+  tags: string[]
+}
+
+export const histologiaFlashcards: Flashcard[] = """
+
+content += json.dumps(cards, ensure_ascii=False, indent=2)
+content += "\n"
+
+out_path.write_text(content, encoding="utf-8")
+
+print(f"Listo: {len(cards)} flashcards integradas en {out_path}")
+PY
+
+npm run build
+npm run dev
+

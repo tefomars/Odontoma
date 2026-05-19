@@ -1,0 +1,755 @@
+chapter	subtopic	front	back
+Capítulo 6	Fundamentos del tejido conjuntivo	¿Qué dos componentes generales forman el tejido conjuntivo?	Células y matriz extracelular.
+Capítulo 6	Fundamentos del tejido conjuntivo	¿Qué componente define principalmente al tejido conjuntivo?	La matriz extracelular.
+Capítulo 6	Fundamentos del tejido conjuntivo	¿Qué contiene la matriz extracelular del tejido conjuntivo?	Fibras proteínicas y sustancia fundamental.
+Capítulo 6	Fundamentos del tejido conjuntivo	¿Qué tipos principales de fibras contiene la matriz extracelular del tejido conjuntivo?	Colágenas, reticulares y elásticas.
+Capítulo 6	Fundamentos del tejido conjuntivo	¿Qué componente amorfo de la MEC contiene proteoglucanos, glucoproteínas multiadhesivas y GAG?	La sustancia fundamental.
+Capítulo 6	Fundamentos del tejido conjuntivo	¿Qué significa MEC?	Matriz extracelular.
+Capítulo 6	Fundamentos del tejido conjuntivo	¿Qué moléculas especializadas forman la sustancia fundamental?	Proteoglucanos, glucoproteínas multiadhesivas y glucosaminoglucanos.
+Capítulo 6	Fundamentos del tejido conjuntivo	¿Qué tejido forma un compartimento continuo por todo el cuerpo?	El tejido conjuntivo.
+Capítulo 6	Fundamentos del tejido conjuntivo	¿Qué estructuras delimitan el compartimento de tejido conjuntivo frente a epitelios?	Láminas basales.
+Capítulo 6	Fundamentos del tejido conjuntivo	¿Qué estructuras delimitan el tejido conjuntivo frente a células musculares?	Láminas externas.
+Capítulo 6	Fundamentos del tejido conjuntivo	¿Qué estructuras delimitan el tejido conjuntivo frente a células de sostén nerviosas?	Láminas externas.
+Capítulo 6	Fundamentos del tejido conjuntivo	¿De qué dependen las funciones de cada tipo de tejido conjuntivo?	De sus células, fibras y sustancia fundamental.
+Capítulo 6	Fundamentos del tejido conjuntivo	¿Qué célula produce fibras extracelulares en el tejido conjuntivo laxo?	El fibroblasto.
+Capítulo 6	Fundamentos del tejido conjuntivo	¿Qué célula mantiene la sustancia fundamental del tejido conjuntivo laxo?	El fibroblasto.
+Capítulo 6	Fundamentos del tejido conjuntivo	¿Qué tipos celulares del tejido conjuntivo participan en defensa inmunitaria?	Linfocitos, células plasmáticas, macrófagos y eosinófilos.
+Capítulo 6	Fundamentos del tejido conjuntivo	¿Qué característica del hueso lo distingue como tejido conjuntivo especializado?	Matriz extracelular calcificada.
+Capítulo 6	Fundamentos del tejido conjuntivo	¿Qué característica de tendones y ligamentos permite máxima resistencia?	Fibras paralelas densamente agrupadas.
+Capítulo 6	Clasificación del tejido conjuntivo	¿En qué se basa principalmente la clasificación del tejido conjuntivo?	En la composición y organización de sus elementos extracelulares y sus funciones.
+Capítulo 6	Clasificación del tejido conjuntivo	¿Cuáles son las tres categorías generales de tejido conjuntivo?	Embrionario, del adulto y especializado.
+Capítulo 6	Clasificación del tejido conjuntivo	¿Cuáles son los dos tipos de tejido conjuntivo embrionario?	Mesénquima y tejido conjuntivo mucoso.
+Capítulo 6	Clasificación del tejido conjuntivo	¿Cuáles son los dos tipos principales de tejido conjuntivo del adulto?	Laxo y denso.
+Capítulo 6	Clasificación del tejido conjuntivo	¿Qué dos subtipos tiene el tejido conjuntivo denso?	Regular e irregular.
+Capítulo 6	Clasificación del tejido conjuntivo	¿Qué tejidos conjuntivos especializados se mencionan en la clasificación general?	Cartilaginoso, óseo, adiposo, sanguíneo, hematopoyético y linfático.
+Capítulo 6	Clasificación del tejido conjuntivo	¿Por qué el tejido reticular ya no suele clasificarse como categoría separada?	Porque se considera según su estroma de fibras y células reticulares dentro de órganos.
+Capítulo 6	Clasificación del tejido conjuntivo	¿Qué tejido conjuntivo forma estroma en médula ósea roja y órganos linfáticos?	Tejido reticular.
+Capítulo 6	Clasificación del tejido conjuntivo	¿Qué órganos linfáticos tienen estroma reticular?	Ganglios linfáticos y bazo.
+Capítulo 6	Clasificación del tejido conjuntivo	¿Qué órgano linfoide no tiene estroma reticular típico?	El timo.
+Capítulo 6	Clasificación del tejido conjuntivo	¿Qué tejidos se mencionan como ejemplos clásicos de tejido elástico?	Ligamentos vertebrales y túnica media de arterias elásticas.
+Capítulo 6	Tejido conjuntivo embrionario	¿De qué capa germinal deriva casi todo el tejido conjuntivo del cuerpo?	Del mesodermo.
+Capítulo 6	Tejido conjuntivo embrionario	¿Qué región corporal tiene tejido conjuntivo con aporte importante de cresta neural?	La cabeza.
+Capítulo 6	Tejido conjuntivo embrionario	¿Qué tejido conjuntivo primitivo aparece en el embrión temprano?	Mesénquima.
+Capítulo 6	Tejido conjuntivo embrionario	¿Cómo se llama el mesénquima derivado de cresta neural en la cabeza?	Ectomesénquima.
+Capítulo 6	Tejido conjuntivo embrionario	¿Qué origina el mesénquima además de tejidos conjuntivos adultos?	Sistemas muscular, vascular y urogenital, y membranas serosas.
+Capítulo 6	Tejido conjuntivo embrionario	¿Qué determina el tipo de tejido conjuntivo maduro que se formará?	La proliferación y organización de células mesenquimatosas.
+Capítulo 6	Tejido conjuntivo embrionario	¿Dónde se encuentra el tejido conjuntivo embrionario?	En el embrión y el cordón umbilical.
+Capítulo 6	Mesénquima	¿Qué tejido conjuntivo embrionario se encuentra principalmente en el embrión?	Mesénquima.
+Capítulo 6	Mesénquima	¿Qué forma tienen las células mesenquimatosas?	Fusiforme.
+Capítulo 6	Mesénquima	¿Qué aspecto tienen las células del mesénquima?	Pequeñas, fusiformes y relativamente uniformes.
+Capítulo 6	Mesénquima	¿Qué forman las evaginaciones de células mesenquimatosas al contactar entre sí?	Una red celular tridimensional.
+Capítulo 6	Mesénquima	¿Qué unión conecta evaginaciones de células mesenquimatosas?	Uniones de hendidura.
+Capítulo 6	Mesénquima	¿Qué ocupa el espacio extracelular del mesénquima?	Sustancia fundamental viscosa.
+Capítulo 6	Mesénquima	¿Qué fibras hay en el mesénquima?	Fibras reticulares y de colágeno finas y escasas.
+Capítulo 6	Mesénquima	¿Por qué el mesénquima tiene pocas fibras de colágeno?	Porque el feto soporta poco estrés físico.
+Capítulo 6	Mesénquima	¿Qué tipo de matriz tiene el mesénquima?	Sustancia fundamental viscosa con fibras finas escasas.
+Capítulo 6	Tejido conjuntivo mucoso	¿Dónde se encuentra el tejido conjuntivo mucoso embrionario?	En el cordón umbilical.
+Capítulo 6	Tejido conjuntivo mucoso	¿Qué aspecto tiene la MEC del tejido conjuntivo mucoso?	Gelatinoso.
+Capítulo 6	Tejido conjuntivo mucoso	¿Qué GAG predomina en el tejido conjuntivo mucoso?	Ácido hialurónico.
+Capítulo 6	Tejido conjuntivo mucoso	¿Qué otro nombre recibe el ácido hialurónico?	Hialuronato.
+Capítulo 6	Tejido conjuntivo mucoso	¿Cómo se llama la sustancia fundamental del tejido conjuntivo mucoso?	Gelatina de Wharton.
+Capítulo 6	Tejido conjuntivo mucoso	¿Qué células contiene el tejido conjuntivo mucoso?	Células fusiformes muy separadas.
+Capítulo 6	Tejido conjuntivo mucoso	¿A qué células adultas se parecen las células fusiformes del tejido conjuntivo mucoso?	Fibroblastos.
+Capítulo 6	Tejido conjuntivo mucoso	¿Qué estructura del cordón umbilical ocupa grandes espacios entre fibras finas?	Gelatina de Wharton.
+Capítulo 6	Tejido conjuntivo del adulto	¿Cuáles son los dos grandes subtipos del tejido conjuntivo del adulto?	Tejido conjuntivo laxo y denso.
+Capítulo 6	Tejido conjuntivo del adulto	¿Qué otro nombre recibe el tejido conjuntivo laxo?	Tejido areolar.
+Capítulo 6	Tejido conjuntivo del adulto	¿Cómo se subclasifica el tejido conjuntivo denso?	En denso regular y denso irregular.
+Capítulo 6	Tejido conjuntivo laxo	¿Qué caracteriza al tejido conjuntivo laxo?	Fibras poco ordenadas y abundantes células de varios tipos.
+Capítulo 6	Tejido conjuntivo laxo	¿Qué componente ocupa más volumen que las fibras en el tejido conjuntivo laxo?	La sustancia fundamental.
+Capítulo 6	Tejido conjuntivo laxo	¿Qué consistencia tiene la sustancia fundamental del tejido conjuntivo laxo?	Viscosa a gelatinosa.
+Capítulo 6	Tejido conjuntivo laxo	¿Qué fibras predominan de forma escasa y delgada en el tejido conjuntivo laxo?	Fibras de colágeno delgadas.
+Capítulo 6	Tejido conjuntivo laxo	¿Qué tejido conjuntivo suele ubicarse debajo de epitelios?	Tejido conjuntivo laxo.
+Capítulo 6	Tejido conjuntivo laxo	¿Qué tejido conjuntivo se asocia al epitelio de las glándulas?	Tejido conjuntivo laxo.
+Capítulo 6	Tejido conjuntivo laxo	¿Qué tejido conjuntivo rodea vasos sanguíneos pequeños?	Tejido conjuntivo laxo.
+Capítulo 6	Tejido conjuntivo laxo	¿Qué tejido conjuntivo forma la lámina propia de mucosas?	Tejido conjuntivo laxo.
+Capítulo 6	Tejido conjuntivo laxo	¿Qué función de difusión cumple el tejido conjuntivo laxo?	Permite difusión de oxígeno, nutrientes, CO₂ y desechos.
+Capítulo 6	Tejido conjuntivo laxo	¿Qué estructura vascular permite intercambio de sustancias en el tejido conjuntivo laxo?	Vasos sanguíneos pequeños.
+Capítulo 6	Tejido conjuntivo laxo	¿Por qué el tejido conjuntivo laxo es un sitio frecuente de inflamación?	Porque contiene muchas células inmunitarias migrantes.
+Capítulo 6	Tejido conjuntivo laxo	¿Qué tejido es primer sitio de defensa frente a patógenos que atraviesan epitelios?	Tejido conjuntivo laxo.
+Capítulo 6	Tejido conjuntivo laxo	¿Qué células del tejido conjuntivo laxo suelen migrar desde vasos sanguíneos?	Células inmunitarias transitorias.
+Capítulo 6	Tejido conjuntivo laxo	¿Qué células pueden encontrarse en el tejido conjuntivo laxo?	Fibroblastos, linfocitos, macrófagos, células plasmáticas, mastocitos y eosinófilos.
+Capítulo 6	Tejido conjuntivo laxo	¿Qué célula produce colágeno en el tejido conjuntivo laxo?	Fibroblasto.
+Capítulo 6	Tejido conjuntivo laxo	¿Qué células abundan en la lámina propia por exposición constante a sustancias extrañas?	Células del sistema inmunitario.
+Capítulo 6	Tejido conjuntivo laxo	¿Qué tejido conjuntivo es más celular: laxo o denso irregular?	Laxo.
+Capítulo 6	Tejido conjuntivo laxo	¿Qué tejido conjuntivo tiene menos fibras: laxo o denso irregular?	Laxo.
+Capítulo 6	Tejido conjuntivo laxo	¿Qué tejido conjuntivo tiene más sustancia fundamental: laxo o denso irregular?	Laxo.
+Capítulo 6	Tejido conjuntivo laxo	¿Qué tipo de fibras de colágeno tiene el tejido conjuntivo laxo?	Delgadas y laxamente distribuidas.
+Capítulo 6	Tejido conjuntivo denso irregular	¿Qué caracteriza al tejido conjuntivo denso irregular?	Abundantes fibras de colágeno y pocas células.
+Capítulo 6	Tejido conjuntivo denso irregular	¿Qué célula predomina en el tejido conjuntivo denso irregular?	Fibroblasto.
+Capítulo 6	Tejido conjuntivo denso irregular	¿Qué fibras predominan en el tejido conjuntivo denso irregular?	Fibras de colágeno.
+Capítulo 6	Tejido conjuntivo denso irregular	¿Cómo se orientan las fibras en el tejido conjuntivo denso irregular?	En haces orientados en distintas direcciones.
+Capítulo 6	Tejido conjuntivo denso irregular	¿Qué componente es relativamente escaso en tejido conjuntivo denso irregular?	Sustancia fundamental.
+Capítulo 6	Tejido conjuntivo denso irregular	¿Qué propiedad mecánica aporta el tejido conjuntivo denso irregular?	Resistencia considerable frente a fuerzas tensoras.
+Capítulo 6	Tejido conjuntivo denso irregular	¿Qué tipo de fuerzas resiste el tejido conjuntivo denso irregular?	Fuerzas tensoras en múltiples direcciones.
+Capítulo 6	Tejido conjuntivo denso irregular	¿Qué capa de la dermis está formada por tejido conjuntivo denso irregular?	Capa reticular.
+Capítulo 6	Tejido conjuntivo denso irregular	¿Qué función tiene la capa reticular de la dermis?	Resistir desgarro por fuerzas de estiramiento.
+Capítulo 6	Tejido conjuntivo denso irregular	¿Qué capa de órganos huecos como el intestino contiene tejido conjuntivo denso irregular?	Submucosa.
+Capítulo 6	Tejido conjuntivo denso irregular	¿Qué función tiene la submucosa de órganos huecos?	Resistir estiramiento y distensión excesivos.
+Capítulo 6	Tejido conjuntivo denso irregular	¿Qué tejido conjuntivo tiene más colágeno: laxo o denso irregular?	Denso irregular.
+Capítulo 6	Tejido conjuntivo denso irregular	¿Qué tejido conjuntivo tiene menos células: laxo o denso irregular?	Denso irregular.
+Capítulo 6	Tejido conjuntivo denso irregular	¿Por qué el tejido conjuntivo denso irregular se llama “irregular”?	Porque sus fibras se orientan en múltiples direcciones.
+Capítulo 6	Tejido conjuntivo denso regular	¿Qué caracteriza al tejido conjuntivo denso regular?	Haces paralelos densos de colágeno con células alineadas.
+Capítulo 6	Tejido conjuntivo denso regular	¿Qué tejido conjuntivo tiene fibras de colágeno ordenadas en paralelo?	Tejido conjuntivo denso regular.
+Capítulo 6	Tejido conjuntivo denso regular	¿Qué componente funcional principal forma tendones, ligamentos y aponeurosis?	Tejido conjuntivo denso regular.
+Capítulo 6	Tejido conjuntivo denso regular	¿Qué célula especializada se encuentra entre haces de colágeno en tendones?	Tendinocito.
+Capítulo 6	Tejido conjuntivo denso regular	¿Qué son los tendinocitos?	Fibroblastos especializados del tendón.
+Capítulo 6	Tejido conjuntivo denso regular	¿Qué propiedad mecánica aporta el tejido conjuntivo denso regular?	Resistencia máxima a tensión en una dirección.
+Capítulo 6	Tejido conjuntivo denso regular	¿Por qué el tejido conjuntivo denso regular resiste bien tensión unidireccional?	Porque sus fibras de colágeno están paralelas.
+Capítulo 6	Tejido conjuntivo denso regular	¿Qué tejido conjuntivo tiene menos sustancia fundamental: laxo o denso regular?	Denso regular.
+Capítulo 6	Tendones	¿Qué estructura une músculo con hueso?	Tendón.
+Capítulo 6	Tendones	¿Qué tejido forma principalmente los tendones?	Tejido conjuntivo denso regular.
+Capítulo 6	Tendones	¿Qué fibras forman la mayor parte del tendón?	Fibras de colágeno paralelas.
+Capítulo 6	Tendones	¿Qué células se alinean entre haces de colágeno del tendón?	Tendinocitos.
+Capítulo 6	Tendones	¿Qué tejido conjuntivo rodea externamente al tendón?	Epitendón.
+Capítulo 6	Tendones	¿Qué tejido conjuntivo separa fascículos dentro del tendón?	Endotendón.
+Capítulo 6	Tendones	¿Qué contiene el endotendón?	Vasos sanguíneos y nervios.
+Capítulo 6	Tendones	¿Qué diferencia al colágeno del epitendón respecto al colágeno tendinoso interno?	Está menos ordenado.
+Capítulo 6	Ligamentos	¿Qué estructura une hueso con hueso?	Ligamento.
+Capítulo 6	Ligamentos	¿Qué tejido forma principalmente los ligamentos?	Tejido conjuntivo denso regular.
+Capítulo 6	Ligamentos	¿En qué se parecen tendones y ligamentos?	Ambos tienen haces paralelos de colágeno.
+Capítulo 6	Ligamentos	¿Qué diferencia general tienen los ligamentos respecto a los tendones?	Pueden tener más fibras elásticas.
+Capítulo 6	Ligamentos	¿Qué ligamentos tienen abundantes fibras elásticas?	Ligamentos asociados a la columna vertebral.
+Capítulo 6	Aponeurosis	¿Qué es una aponeurosis?	Lámina ancha de tejido conjuntivo denso regular.
+Capítulo 6	Aponeurosis	¿Qué tipo de tejido conjuntivo forma las aponeurosis?	Tejido conjuntivo denso regular.
+Capítulo 6	Aponeurosis	¿Cómo se organizan las fibras en una aponeurosis?	En varias capas orientadas en diferentes direcciones.
+Capítulo 6	Comparación laxo-denso	¿Qué tejido conjuntivo tiene más tipos celulares?	Tejido conjuntivo laxo.
+Capítulo 6	Comparación laxo-denso	¿Qué tejido conjuntivo tiene más fibras de colágeno gruesas?	Tejido conjuntivo denso.
+Capítulo 6	Comparación laxo-denso	¿Qué tejido conjuntivo es mejor para difusión?	Tejido conjuntivo laxo.
+Capítulo 6	Comparación laxo-denso	¿Qué tejido conjuntivo es mejor para resistencia mecánica?	Tejido conjuntivo denso.
+Capítulo 6	Comparación laxo-denso	¿Qué tejido conjuntivo se inflama con más facilidad?	Tejido conjuntivo laxo.
+Capítulo 6	Comparación laxo-denso	¿Qué tejido conjuntivo tiene fibroblastos como célula predominante?	Tejido conjuntivo denso.
+Capítulo 6	Comparación laxo-denso	¿Qué tejido conjuntivo se localiza bajo epitelios?	Tejido conjuntivo laxo.
+Capítulo 6	Comparación laxo-denso	¿Qué tejido conjuntivo forma tendones?	Tejido conjuntivo denso regular.
+Capítulo 6	Comparación laxo-denso	¿Qué tejido conjuntivo forma submucosa intestinal?	Tejido conjuntivo denso irregular.
+chapter	subtopic	front	back
+Capítulo 6	Fibras del tejido conjuntivo	¿Cuáles son los tres tipos principales de fibras del tejido conjuntivo?	Fibras de colágeno, fibras reticulares y fibras elásticas.
+Capítulo 6	Fibras del tejido conjuntivo	¿Qué célula produce la mayoría de fibras del tejido conjuntivo?	El fibroblasto.
+Capítulo 6	Fibras del tejido conjuntivo	¿Qué tipo de fibra es más abundante en el tejido conjuntivo?	Fibra de colágeno.
+Capítulo 6	Fibras del tejido conjuntivo	¿Qué fibra del tejido conjuntivo aporta mayor resistencia tensora?	Fibra de colágeno.
+Capítulo 6	Fibras del tejido conjuntivo	¿Qué fibra del tejido conjuntivo forma redes finas de sostén?	Fibra reticular.
+Capítulo 6	Fibras del tejido conjuntivo	¿Qué fibra permite estiramiento y retorno a la forma original?	Fibra elástica.
+Capítulo 6	Fibras de colágeno	¿Qué proteína forma las fibras de colágeno?	Colágeno.
+Capítulo 6	Fibras de colágeno	¿Qué propiedad mecánica caracteriza a las fibras de colágeno?	Alta resistencia tensora.
+Capítulo 6	Fibras de colágeno	¿Cómo suelen verse las fibras de colágeno con microscopía óptica?	Onduladas, de espesor variable y longitud indeterminada.
+Capítulo 6	Fibras de colágeno	¿Qué tinción rutinaria tiñe fácilmente las fibras de colágeno?	Eosina.
+Capítulo 6	Fibras de colágeno	¿Qué tipo de colorantes tiñen fácilmente el colágeno?	Colorantes ácidos.
+Capítulo 6	Fibras de colágeno	¿Qué colorante tricrómico tiñe colágeno con azul de anilina?	Tricrómico de Mallory.
+Capítulo 6	Fibras de colágeno	¿Qué técnica usa verde luz para teñir colágeno?	Tricrómico de Masson.
+Capítulo 6	Fibras de colágeno	¿Qué se observa con MET dentro de una fibra de colágeno?	Fibrillas de colágeno.
+Capítulo 6	Fibras de colágeno	¿Qué estructura forma una fibra de colágeno?	Haces de fibrillas de colágeno.
+Capítulo 6	Fibrillas de colágeno	¿Qué patrón ultraestructural presentan las fibrillas de colágeno?	Bandas transversales periódicas.
+Capítulo 6	Fibrillas de colágeno	¿Cuál es la periodicidad típica de bandas en fibrillas de colágeno?	68 nm.
+Capítulo 6	Fibrillas de colágeno	¿Qué moléculas forman las fibrillas de colágeno?	Moléculas de tropocolágeno.
+Capítulo 6	Fibrillas de colágeno	¿Qué forma molecular tiene el tropocolágeno?	Triple hélice.
+Capítulo 6	Fibrillas de colágeno	¿Cuántas cadenas alfa forman una molécula de tropocolágeno?	Tres cadenas alfa.
+Capítulo 6	Fibrillas de colágeno	¿Qué aminoácido aparece cada tercer residuo en colágeno?	Glicina.
+Capítulo 6	Fibrillas de colágeno	¿Por qué la glicina se repite cada tercer residuo en el colágeno?	Porque permite el empaquetamiento estrecho de la triple hélice.
+Capítulo 6	Fibrillas de colágeno	¿Qué aminoácidos son frecuentes en colágeno además de glicina?	Prolina e hidroxiprolina.
+Capítulo 6	Fibrillas de colágeno	¿Qué aminoácido modificado es característico del colágeno?	Hidroxiprolina.
+Capítulo 6	Fibrillas de colágeno	¿Qué otro aminoácido modificado aparece en colágeno?	Hidroxilisina.
+Capítulo 6	Fibrillas de colágeno	¿Qué estructura se forma por ensamblaje lateral de moléculas de colágeno?	Fibrilla de colágeno.
+Capítulo 6	Fibrillas de colágeno	¿Qué estructura se forma por agrupación de fibrillas de colágeno?	Fibra de colágeno.
+Capítulo 6	Fibrillas de colágeno	¿Qué estructura se forma por agrupación de fibras de colágeno?	Haz de colágeno.
+Capítulo 6	Tipos de colágeno	¿Qué tipo de colágeno es el más abundante del organismo?	Colágeno tipo I.
+Capítulo 6	Tipos de colágeno	¿Qué porcentaje aproximado del colágeno corporal corresponde al tipo I?	90%.
+Capítulo 6	Tipos de colágeno	¿Dónde se encuentra colágeno tipo I?	Piel, hueso, tendones, ligamentos, dentina, esclera, fascias y cápsulas orgánicas.
+Capítulo 6	Tipos de colágeno	¿Qué función tiene el colágeno tipo I?	Resistir fuerzas tensiles y estiramiento.
+Capítulo 6	Tipos de colágeno	¿Qué colágeno predomina en cartílago hialino y elástico?	Colágeno tipo II.
+Capítulo 6	Tipos de colágeno	¿Qué función tiene el colágeno tipo II?	Resistir compresión intermitente.
+Capítulo 6	Tipos de colágeno	¿Qué colágeno forma fibras reticulares?	Colágeno tipo III.
+Capítulo 6	Tipos de colágeno	¿Dónde es prominente el colágeno tipo III?	Tejido conjuntivo laxo de vísceras, músculo liso, endoneuro, vasos y piel fetal.
+Capítulo 6	Tipos de colágeno	¿Qué función tiene el colágeno tipo III?	Formar una malla laxa de sostén.
+Capítulo 6	Tipos de colágeno	¿Qué colágeno forma láminas basales?	Colágeno tipo IV.
+Capítulo 6	Tipos de colágeno	¿Qué función tiene el colágeno tipo IV?	Sostén y barrera de filtración.
+Capítulo 6	Tipos de colágeno	¿Qué colágeno se ubica en la superficie de fibrillas de colágeno tipo I?	Colágeno tipo V.
+Capítulo 6	Tipos de colágeno	¿Qué función tiene el colágeno tipo V?	Modula propiedades biomecánicas de fibrillas de colágeno tipo I.
+Capítulo 6	Tipos de colágeno	¿Qué colágeno fija condrocitos a la matriz cartilaginosa?	Colágeno tipo VI.
+Capítulo 6	Tipos de colágeno	¿Qué colágeno forma fibrillas de anclaje?	Colágeno tipo VII.
+Capítulo 6	Tipos de colágeno	¿Dónde se encuentra colágeno tipo VII?	Piel, ojos y mucosa oral.
+Capítulo 6	Tipos de colágeno	¿Qué colágeno se asocia a fibrillas de colágeno tipo II?	Colágeno tipo IX.
+Capítulo 6	Tipos de colágeno	¿Qué colágeno se encuentra en cartílago hipertrófico durante osificación endocondral?	Colágeno tipo X.
+Capítulo 6	Tipos de colágeno	¿Qué colágeno se asocia a fibrillas de colágeno tipo I?	Colágeno tipo XII.
+Capítulo 6	Tipos de colágeno	¿Qué colágeno se asocia a fibrillas de colágeno tipo I y V?	Colágeno tipo XIV.
+Capítulo 6	Tipos de colágeno	¿Qué colágeno estabiliza la lámina externa de músculo cardíaco y esquelético?	Colágeno tipo XV.
+Capítulo 6	Tipos de colágeno	¿Qué colágeno transmembrana aparece en hemidesmosomas?	Colágeno tipo XVII.
+Capítulo 6	Tipos de colágeno	¿Qué colágeno se encuentra en láminas basales vasculares y epiteliales?	Colágeno tipo XVIII.
+Capítulo 6	Colágenos fibrilares	¿Qué colágenos forman fibrillas clásicas?	Tipos I, II, III, V y XI.
+Capítulo 6	Colágenos fibrilares	¿Qué tipo de colágeno fibrilar predomina en tendón?	Colágeno tipo I.
+Capítulo 6	Colágenos fibrilares	¿Qué tipo de colágeno fibrilar predomina en cartílago?	Colágeno tipo II.
+Capítulo 6	Colágenos fibrilares	¿Qué tipo de colágeno fibrilar forma redes reticulares?	Colágeno tipo III.
+Capítulo 6	Colágenos FACIT	¿Qué significa FACIT en colágeno?	Colágenos asociados a fibrillas con triple hélice interrumpida.
+Capítulo 6	Colágenos FACIT	¿Qué función general tienen los colágenos FACIT?	Asociarse a fibrillas y modular interacciones con la matriz.
+Capítulo 6	Colágenos FACIT	¿Qué ejemplos de colágenos FACIT se mencionan?	Tipos IX, XII y XIV.
+Capítulo 6	Colágeno tipo IV	¿Por qué el colágeno tipo IV no forma fibrillas clásicas?	Porque forma redes laminares en láminas basales.
+Capítulo 6	Colágeno tipo IV	¿Qué estructura forma el colágeno tipo IV?	Una red o malla laminar.
+Capítulo 6	Colágeno tipo VII	¿Qué estructura forma el colágeno tipo VII?	Fibrillas de anclaje.
+Capítulo 6	Colágeno tipo VII	¿Qué conecta el colágeno tipo VII?	Lámina basal con tejido conjuntivo subyacente.
+Capítulo 6	Colágeno tipo XVII	¿Qué tipo de colágeno es el colágeno XVII por su localización?	Transmembrana.
+Capítulo 6	Colágeno tipo XVII	¿En qué unión se localiza el colágeno XVII?	Hemidesmosoma.
+Capítulo 6	Colágeno tipo XVIII	¿Qué fragmento antiangiogénico deriva del colágeno tipo XVIII?	Endostatina.
+Capítulo 6	Colágeno tipo XVIII	¿Qué proceso inhibe la endostatina?	Angiogénesis.
+Capítulo 6	Biosíntesis del colágeno	¿Qué célula sintetiza colágeno en la mayoría del tejido conjuntivo?	Fibroblasto.
+Capítulo 6	Biosíntesis del colágeno	¿Dónde inicia la síntesis de cadenas alfa del colágeno?	En el RER.
+Capítulo 6	Biosíntesis del colágeno	¿Qué estructura celular traduce las cadenas alfa del colágeno?	Ribosomas del RER.
+Capítulo 6	Biosíntesis del colágeno	¿Qué molécula inicial se forma dentro del RER durante síntesis de colágeno?	Preprocolágeno.
+Capítulo 6	Biosíntesis del colágeno	¿Qué se forma al retirar el péptido señal del preprocolágeno?	Procolágeno.
+Capítulo 6	Biosíntesis del colágeno	¿Qué modificación ocurre sobre prolina y lisina en el RER?	Hidroxilación.
+Capítulo 6	Biosíntesis del colágeno	¿Qué enzimas hidroxilan prolina y lisina durante síntesis de colágeno?	Prolil-hidroxilasa y lisil-hidroxilasa.
+Capítulo 6	Biosíntesis del colágeno	¿Qué vitamina es necesaria para hidroxilar prolina y lisina?	Vitamina C.
+Capítulo 6	Biosíntesis del colágeno	¿Qué enfermedad se produce por déficit de vitamina C que altera colágeno?	Escorbuto.
+Capítulo 6	Biosíntesis del colágeno	¿Qué modificación ocurre sobre algunas hidroxilisinas del procolágeno?	Glucosilación.
+Capítulo 6	Biosíntesis del colágeno	¿Qué se une a algunas hidroxilisinas del procolágeno?	Galactosa y glucosa.
+Capítulo 6	Biosíntesis del colágeno	¿Qué estructura estabiliza la triple hélice del procolágeno?	Puentes de hidrógeno entre cadenas alfa.
+Capítulo 6	Biosíntesis del colágeno	¿Qué dominios terminales impiden el ensamblaje prematuro dentro de la célula?	Propéptidos N-terminales y C-terminales.
+Capítulo 6	Biosíntesis del colágeno	¿Qué orgánulo modifica y empaqueta el procolágeno?	Aparato de Golgi.
+Capítulo 6	Biosíntesis del colágeno	¿Cómo sale el procolágeno de la célula?	Por exocitosis.
+Capítulo 6	Biosíntesis del colágeno	¿Dónde ocurre el ensamblaje final de fibrillas de colágeno?	En la matriz extracelular.
+Capítulo 6	Biosíntesis del colágeno	¿Qué enzimas extracelulares cortan propéptidos del procolágeno?	Procolágeno peptidasas.
+Capítulo 6	Biosíntesis del colágeno	¿Qué molécula se forma al retirar los propéptidos del procolágeno?	Tropocolágeno.
+Capítulo 6	Biosíntesis del colágeno	¿Qué proceso organiza tropocolágeno en fibrillas?	Fibrilogénesis.
+Capítulo 6	Biosíntesis del colágeno	¿Qué enzima forma enlaces cruzados covalentes entre moléculas de colágeno?	Lisil oxidasa.
+Capítulo 6	Biosíntesis del colágeno	¿Qué cofactor requiere la lisil oxidasa?	Cobre.
+Capítulo 6	Biosíntesis del colágeno	¿Qué función tienen los enlaces cruzados del colágeno?	Aumentan resistencia y estabilidad de la fibra.
+Capítulo 6	Biosíntesis del colágeno	¿Qué paso de síntesis de colágeno ocurre fuera del fibroblasto?	Polimerización de colágeno en fibrillas.
+Capítulo 6	Biosíntesis del colágeno	¿Qué paso de síntesis de colágeno ocurre dentro del fibroblasto?	Producción de procolágeno.
+Capítulo 6	Biosíntesis del colágeno	¿Qué alteración causa defectos en hidroxilación del colágeno?	Colágeno débil e inestable.
+Capítulo 6	Biosíntesis del colágeno	¿Qué alteración causa defectos en enlaces cruzados del colágeno?	Disminución de resistencia tensora.
+Capítulo 6	Degradación del colágeno	¿Qué enzimas degradan colágeno extracelular?	Metaloproteinasas de matriz.
+Capítulo 6	Degradación del colágeno	¿Qué sigla se usa para metaloproteinasas de matriz?	MMP.
+Capítulo 6	Degradación del colágeno	¿Qué tipo de enzimas son las colagenasas?	Metaloproteinasas de matriz.
+Capítulo 6	Degradación del colágeno	¿Qué células pueden degradar colágeno?	Fibroblastos, macrófagos, neutrófilos, osteoclastos y otras células.
+Capítulo 6	Degradación del colágeno	¿Qué vía degrada colágeno tras fagocitosis?	Vía lisosómica.
+Capítulo 6	Degradación del colágeno	¿Qué proceso permite remodelar el tejido conjuntivo?	Síntesis y degradación equilibradas de matriz extracelular.
+Capítulo 6	Colagenopatías	¿Qué son las colagenopatías?	Enfermedades causadas por defectos del colágeno.
+Capítulo 6	Colagenopatías	¿Qué enfermedad se asocia con defectos del colágeno tipo I?	Osteogénesis imperfecta.
+Capítulo 6	Colagenopatías	¿Qué rasgo óseo caracteriza a la osteogénesis imperfecta?	Huesos frágiles.
+Capítulo 6	Colagenopatías	¿Qué enfermedad puede asociarse a defectos de colágeno tipo III?	Síndrome de Ehlers-Danlos vascular.
+Capítulo 6	Colagenopatías	¿Qué enfermedad se asocia con anticuerpos contra colágeno tipo IV?	Síndrome de Goodpasture.
+Capítulo 6	Colagenopatías	¿Qué estructuras afecta el síndrome de Goodpasture?	Membranas basales glomerular y alveolar.
+Capítulo 6	Colagenopatías	¿Qué enfermedad se asocia con mutación de colágeno tipo VII?	Epidermólisis ampollosa distrófica.
+Capítulo 6	Colagenopatías	¿Qué ocurre en epidermólisis ampollosa distrófica?	El epitelio se desprende por debajo de la membrana basal.
+Capítulo 6	Fibras reticulares	¿Qué colágeno forma las fibras reticulares?	Colágeno tipo III.
+Capítulo 6	Fibras reticulares	¿Qué tipo de red forman las fibras reticulares?	Una malla laxa de fibras delgadas.
+Capítulo 6	Fibras reticulares	¿Qué función principal tienen las fibras reticulares?	Formar un armazón de sostén para células.
+Capítulo 6	Fibras reticulares	¿Qué tinción demuestra fibras reticulares?	Impregnación argéntica.
+Capítulo 6	Fibras reticulares	¿Por qué las fibras reticulares son argirófilas?	Por su alto contenido de glucoproteínas asociadas.
+Capítulo 6	Fibras reticulares	¿Qué tejido contiene fibras reticulares abundantes como estroma?	Tejido linfático.
+Capítulo 6	Fibras reticulares	¿Qué tejido hematopoyético usa fibras reticulares como estroma?	Médula ósea roja.
+Capítulo 6	Fibras reticulares	¿Qué órganos linfáticos tienen estroma de fibras reticulares?	Ganglios linfáticos y bazo.
+Capítulo 6	Fibras reticulares	¿Qué órgano linfoide no tiene estroma reticular típico?	Timo.
+Capítulo 6	Fibras reticulares	¿Qué células producen fibras reticulares en tejidos linfáticos y hematopoyéticos?	Células reticulares.
+Capítulo 6	Fibras reticulares	¿Qué células producen fibras reticulares en la mayoría de otros sitios?	Fibroblastos.
+Capítulo 6	Fibras reticulares	¿Qué célula produce fibras reticulares en el endoneuro?	Célula de Schwann.
+Capítulo 6	Fibras reticulares	¿Qué célula produce fibras reticulares en túnica media vascular?	Célula muscular lisa.
+Capítulo 6	Fibras reticulares	¿Qué célula produce fibras reticulares en la muscular del tubo digestivo?	Célula muscular lisa.
+Capítulo 6	Fibras reticulares	¿Qué relación especial tiene la célula reticular con la fibra reticular?	La rodea con citoplasma y la aísla del resto del tejido.
+Capítulo 6	Fibras reticulares	¿Qué indican muchas fibras reticulares en tejido en desarrollo o reparación?	Inmadurez relativa del tejido.
+Capítulo 6	Fibras reticulares	¿Qué función tienen las fibras reticulares en heridas tempranas?	Aportan fuerza mecánica inicial.
+Capítulo 6	Fibras reticulares	¿Qué reemplaza gradualmente a las fibras reticulares durante maduración o cicatrización?	Fibras de colágeno tipo I.
+Capítulo 6	Fibras reticulares	¿Qué fibra es más fuerte que la fibra reticular en tejido maduro?	Fibra de colágeno tipo I.
+Capítulo 6	Fibras reticulares	¿Qué fibras rodean adipocitos, vasos pequeños y células musculares?	Fibras reticulares.
+Capítulo 6	Fibras reticulares	¿Qué función tienen las fibras reticulares alrededor de vasos pequeños?	Sostén estructural fino.
+Capítulo 6	Fibras reticulares	¿Qué fibra es más delgada: colágena tipo I o reticular?	Reticular.
+Capítulo 6	Fibras reticulares	¿Qué diferencia molecular principal hay entre fibra colágena tipo I y fibra reticular?	La reticular contiene colágeno tipo III.
+Capítulo 6	Fibras elásticas	¿Qué función principal tienen las fibras elásticas?	Permiten estiramiento y retorno elástico.
+Capítulo 6	Fibras elásticas	¿Qué propiedad mecánica permite la elastina?	Elasticidad.
+Capítulo 6	Fibras elásticas	¿Qué fibras limitan la distensibilidad excesiva de un tejido?	Fibras elásticas entrelazadas con colágeno.
+Capítulo 6	Fibras elásticas	¿Cómo suelen organizarse las fibras elásticas?	En una red ramificada tridimensional.
+Capítulo 6	Fibras elásticas	¿Cómo son las fibras elásticas en comparación con las fibras de colágeno?	Generalmente más delgadas.
+Capítulo 6	Fibras elásticas	¿Qué células producen fibras elásticas?	Fibroblastos, células musculares lisas, células endoteliales y condrocitos.
+Capítulo 6	Fibras elásticas	¿Qué tinciones especiales tiñen fibras elásticas?	Orceína y resorcina-fucsina.
+Capítulo 6	Fibras elásticas	¿Por qué las fibras elásticas no siempre se distinguen bien en H&E?	Porque se tiñen mal con eosina.
+Capítulo 6	Fibras elásticas	¿Qué componente principal forma el centro amorfo de la fibra elástica?	Elastina.
+Capítulo 6	Fibras elásticas	¿Qué estructuras rodean el centro de elastina en una fibra elástica?	Microfibrillas de fibrilina.
+Capítulo 6	Fibras elásticas	¿Qué proteína forma las microfibrillas de la fibra elástica?	Fibrilina.
+Capítulo 6	Fibras elásticas	¿Qué proteína aporta elasticidad principal a la fibra elástica?	Elastina.
+Capítulo 6	Fibras elásticas	¿Qué proteína organiza el depósito de elastina durante formación de fibras elásticas?	Fibrilina.
+Capítulo 6	Fibras elásticas	¿Qué molécula se secreta como precursor soluble de elastina?	Tropoelastina.
+Capítulo 6	Fibras elásticas	¿Qué se forma por polimerización y enlaces cruzados de tropoelastina?	Elastina.
+Capítulo 6	Fibras elásticas	¿Qué aminoácidos exclusivos de elastina participan en enlaces cruzados?	Desmosina e isodesmosina.
+Capítulo 6	Fibras elásticas	¿Qué unen los enlaces cruzados de desmosina o isodesmosina?	Cuatro moléculas de elastina.
+Capítulo 6	Fibras elásticas	¿Qué aminoácidos abundan en elastina?	Prolina y glicina.
+Capítulo 6	Fibras elásticas	¿Qué aminoácidos hidrófobos abundan en elastina?	Glicina, valina, prolina y leucina.
+Capítulo 6	Fibras elásticas	¿Qué característica molecular permite el enrollamiento aleatorio de la elastina?	Abundantes regiones hidrófobas.
+Capítulo 6	Fibras elásticas	¿Qué permite el enrollamiento aleatorio de la elastina?	Estiramiento y retorno a la forma original.
+Capítulo 6	Fibras elásticas	¿Qué aminoácido hidroxilado es escaso en elastina comparada con colágeno?	Hidroxiprolina.
+Capítulo 6	Fibras elásticas	¿Qué aminoácido hidroxilado falta por completo en elastina?	Hidroxilisina.
+Capítulo 6	Fibras elásticas	¿Qué dominios de elastina participan en enlaces cruzados?	Dominios hidrófilos ricos en lisina y alanina.
+Capítulo 6	Fibras elásticas	¿Qué gen codifica elastina?	ELN.
+Capítulo 6	Fibras elásticas	¿En qué cromosoma se localiza el gen de elastina?	Cromosoma 7.
+Capítulo 6	Fibras elásticas	¿Qué enfermedad puede producir una alteración del gen ELN?	Estenosis aórtica supravalvular.
+Capítulo 6	Fibras elásticas	¿Qué otra enfermedad puede asociarse a defectos del gen ELN?	Síndrome de cutis laxo.
+Capítulo 6	Fibras elásticas	¿Qué gen codifica fibrilina 1?	FBN1.
+Capítulo 6	Fibras elásticas	¿Qué enfermedad se asocia con mutación de FBN1?	Síndrome de Marfan.
+Capítulo 6	Fibras elásticas	¿Qué estructura de la fibra elástica se afecta en síndrome de Marfan?	Microfibrillas de fibrilina.
+Capítulo 6	Material elástico	¿Dónde es primordial el material elástico extracelular?	Ligamentos vertebrales, laringe y arterias elásticas.
+Capítulo 6	Material elástico	¿Qué ligamentos vertebrales tienen abundante material elástico?	Ligamentos amarillos y ligamento nucal.
+Capítulo 6	Material elástico	¿Qué estructura laríngea contiene fibras elásticas finas?	Cuerdas vocales.
+Capítulo 6	Material elástico	¿Qué forma adopta el material elástico en arterias elásticas?	Laminillas fenestradas.
+Capítulo 6	Material elástico	¿Qué son las laminillas fenestradas?	Láminas de elastina con aberturas.
+Capítulo 6	Material elástico	¿Dónde se ubican las laminillas elásticas en arterias?	Entre capas concéntricas de músculo liso.
+Capítulo 6	Material elástico	¿Qué célula produce material elástico en arterias elásticas?	Célula muscular lisa.
+Capítulo 6	Material elástico	¿Qué diferencia tienen las laminillas elásticas arteriales frente a fibras elásticas?	No contienen microfibrillas.
+Capítulo 6	Material elástico	¿Qué componente se observa en MET en laminillas elásticas arteriales?	Elastina amorfa.
+Capítulo 6	Comparación de fibras	¿Qué fibra es más abundante en tejido conjuntivo?	Colágena.
+Capítulo 6	Comparación de fibras	¿Qué fibra forma mallas finas de sostén?	Reticular.
+Capítulo 6	Comparación de fibras	¿Qué fibra se ramifica y permite elasticidad?	Elástica.
+Capítulo 6	Comparación de fibras	¿Qué fibra se tiñe bien con eosina?	Colágena.
+Capítulo 6	Comparación de fibras	¿Qué fibra se tiñe bien con impregnación argéntica?	Reticular.
+Capítulo 6	Comparación de fibras	¿Qué fibra se tiñe con orceína o resorcina-fucsina?	Elástica.
+Capítulo 6	Comparación de fibras	¿Qué fibra contiene colágeno tipo III?	Reticular.
+Capítulo 6	Comparación de fibras	¿Qué fibra contiene elastina y fibrilina?	Elástica.
+Capítulo 6	Comparación de fibras	¿Qué fibra aporta más resistencia a tensión?	Colágena.
+Capítulo 6	Comparación de fibras	¿Qué fibra aporta elasticidad?	Elástica.
+chapter	subtopic	front	back
+Capítulo 6	Matriz extracelular	¿Qué es la matriz extracelular del tejido conjuntivo?	Una red estructural que rodea y sostiene las células.
+Capítulo 6	Matriz extracelular	¿Qué componentes generales forman la matriz extracelular?	Fibras y sustancia fundamental.
+Capítulo 6	Matriz extracelular	¿Qué fibras contiene la matriz extracelular?	Colágenas, reticulares y elásticas.
+Capítulo 6	Matriz extracelular	¿Qué moléculas forman la sustancia fundamental?	Proteoglucanos, glucosaminoglucanos y glucoproteínas multiadhesivas.
+Capítulo 6	Matriz extracelular	¿Qué función mecánica cumple la matriz extracelular?	Proporciona sostén estructural y fuerza tensora.
+Capítulo 6	Matriz extracelular	¿Qué función bioquímica cumple la matriz extracelular?	Actúa como barrera bioquímica y regula funciones celulares.
+Capítulo 6	Matriz extracelular	¿Qué función migratoria cumple la matriz extracelular?	Ofrece vías para migración celular.
+Capítulo 6	Matriz extracelular	¿En qué proceso de reparación es importante la migración celular por la matriz extracelular?	Cicatrización de heridas.
+Capítulo 6	Matriz extracelular	¿Qué puede retener la matriz extracelular para modular proliferación celular?	Factores de crecimiento.
+Capítulo 6	Matriz extracelular	¿Qué proceso embrionario puede regular la matriz extracelular?	Desarrollo embrionario.
+Capítulo 6	Matriz extracelular	¿Qué proceso celular puede regular la matriz extracelular?	Diferenciación celular.
+Capítulo 6	Matriz extracelular	¿Qué tipo de información transmite la matriz extracelular a las células?	Cambios bioquímicos y mecánicos del entorno.
+Capítulo 6	Matriz extracelular	¿Por qué la matriz extracelular se considera un sistema dinámico?	Porque interactúa con células y cambia su función según el entorno.
+Capítulo 6	Matriz extracelular	¿Por qué la MEC del tejido conjuntivo laxo difiere de la del cartílago o hueso?	Porque cada tejido secreta proporciones distintas de moléculas de MEC.
+Capítulo 6	Matriz extracelular	¿Qué receptores permiten transmitir señales desde la MEC hacia la célula?	Moléculas de adhesión célula-matriz.
+Capítulo 6	Matriz extracelular	¿Qué moléculas de adhesión conectan células con la matriz extracelular?	Integrinas.
+Capítulo 6	Sustancia fundamental	¿Qué es la sustancia fundamental?	La parte amorfa de la MEC entre células y fibras.
+Capítulo 6	Sustancia fundamental	¿Qué consistencia tiene la sustancia fundamental?	Viscosa, transparente y resbalosa.
+Capítulo 6	Sustancia fundamental	¿Qué contenido explica la hidratación de la sustancia fundamental?	Alto contenido de agua.
+Capítulo 6	Sustancia fundamental	¿Qué tres grupos moleculares forman la sustancia fundamental?	GAG, proteoglucanos y glucoproteínas multiadhesivas.
+Capítulo 6	Sustancia fundamental	¿Qué ocurre con la sustancia fundamental en preparados H&E rutinarios?	Se pierde durante fijación y deshidratación.
+Capítulo 6	Sustancia fundamental	¿Cómo se ve la sustancia fundamental en H&E rutinaria?	Como un fondo vacío entre células y fibras.
+Capítulo 6	Sustancia fundamental	¿Qué técnica puede conservar mejor la sustancia fundamental?	Congelación y desecación.
+Capítulo 6	Sustancia fundamental	¿Qué tinciones pueden demostrar sustancia fundamental?	Colorantes básicos o PAS.
+Capítulo 6	Sustancia fundamental	¿Por qué la sustancia fundamental se subestima en histología rutinaria?	Porque suele extraerse y no se ve bien.
+Capítulo 6	Sustancia fundamental	¿Qué componente de la MEC ocupa espacios entre células y fibras?	La sustancia fundamental.
+Capítulo 6	Sustancia fundamental	¿Qué componente de la MEC permite difusión de nutrientes y desechos?	La sustancia fundamental hidratada.
+Capítulo 6	Sustancia fundamental	¿Qué componente de la MEC resiste compresión por su hidratación?	Sustancia fundamental rica en GAG y proteoglucanos.
+Capítulo 6	Glucosaminoglucanos	¿Qué significa GAG?	Glucosaminoglucano.
+Capítulo 6	Glucosaminoglucanos	¿Qué son los GAG?	Polisacáridos largos, no ramificados, con disacáridos repetidos.
+Capítulo 6	Glucosaminoglucanos	¿Qué tipo de moléculas son los GAG?	Heteropolisacáridos.
+Capítulo 6	Glucosaminoglucanos	¿Qué moléculas son los heteropolisacáridos más abundantes de la sustancia fundamental?	GAG.
+Capítulo 6	Glucosaminoglucanos	¿Qué unidades forman los GAG?	Disacáridos repetidos.
+Capítulo 6	Glucosaminoglucanos	¿Qué dos tipos de azúcares modificados pueden aparecer en los GAG?	N-acetilgalactosamina o N-acetilglucosamina.
+Capítulo 6	Glucosaminoglucanos	¿Qué ácido urónico puede aparecer en los GAG?	Glucuronato o iduronato.
+Capítulo 6	Glucosaminoglucanos	¿Qué grupos dan carga negativa a muchos GAG?	Grupos sulfato y carboxilo.
+Capítulo 6	Glucosaminoglucanos	¿Qué carga eléctrica tienen los GAG?	Carga negativa alta.
+Capítulo 6	Glucosaminoglucanos	¿Qué atraen los GAG por su carga negativa?	Cationes y agua.
+Capítulo 6	Glucosaminoglucanos	¿Qué propiedad física aportan los GAG a la sustancia fundamental?	Hidratación y resistencia a compresión.
+Capítulo 6	Glucosaminoglucanos	¿Por qué los GAG forman geles hidratados?	Porque atraen agua por sus cargas negativas.
+Capítulo 6	Glucosaminoglucanos	¿Qué GAG no se une covalentemente a una proteína central?	Hialuronato.
+Capítulo 6	Glucosaminoglucanos	¿Qué GAG es el más largo y grande?	Hialuronato.
+Capítulo 6	Glucosaminoglucanos	¿Qué otro nombre recibe el hialuronato?	Ácido hialurónico.
+Capítulo 6	Glucosaminoglucanos	¿Qué GAG puede formar agregados enormes con proteoglucanos?	Hialuronato.
+Capítulo 6	Glucosaminoglucanos	¿Qué GAG se encuentra en líquido sinovial?	Hialuronato.
+Capítulo 6	Glucosaminoglucanos	¿Qué GAG aporta viscosidad al líquido sinovial?	Hialuronato.
+Capítulo 6	Glucosaminoglucanos	¿Qué GAG se modifica para formar heparina?	Heparán-sulfato.
+Capítulo 6	Glucosaminoglucanos	¿Qué GAG se modifica a partir de condroitín-sulfato?	Dermatán-sulfato.
+Capítulo 6	Glucosaminoglucanos	¿Dónde se sintetizan la mayoría de GAG sulfatados?	Aparato de Golgi.
+Capítulo 6	Glucosaminoglucanos	¿Qué GAG se sintetiza en la membrana plasmática?	Hialuronato.
+Capítulo 6	Glucosaminoglucanos	¿Qué GAG se asocia a cartílago por resistencia a compresión?	Condroitín-sulfato.
+Capítulo 6	Glucosaminoglucanos	¿Qué GAG se asocia a córnea, cartílago y hueso?	Queratán-sulfato.
+Capítulo 6	Glucosaminoglucanos	¿Qué GAG es abundante en piel, vasos sanguíneos y válvulas cardíacas?	Dermatán-sulfato.
+Capítulo 6	Glucosaminoglucanos	¿Qué GAG es común en láminas basales y superficies celulares?	Heparán-sulfato.
+Capítulo 6	Proteoglucanos	¿Qué es un proteoglucano?	Una proteína central con cadenas de GAG unidas covalentemente.
+Capítulo 6	Proteoglucanos	¿Qué parte proteica tienen los proteoglucanos?	Una proteína central.
+Capítulo 6	Proteoglucanos	¿Qué parte glucídica tienen los proteoglucanos?	Cadenas laterales de GAG.
+Capítulo 6	Proteoglucanos	¿Qué moléculas de la sustancia fundamental están formadas por proteína central y GAG?	Proteoglucanos.
+Capítulo 6	Proteoglucanos	¿Qué moléculas son responsables de muchas propiedades físicas de la sustancia fundamental?	Proteoglucanos.
+Capítulo 6	Proteoglucanos	¿Por qué los proteoglucanos atraen agua?	Porque sus GAG tienen carga negativa.
+Capítulo 6	Proteoglucanos	¿Qué función mecánica tienen los proteoglucanos hidratados?	Resisten fuerzas de compresión.
+Capítulo 6	Proteoglucanos	¿Qué moléculas pueden retener los proteoglucanos además de agua?	Factores de crecimiento.
+Capítulo 6	Proteoglucanos	¿Qué movimiento regulan los agregados de proteoglucanos en la MEC?	Movimiento de macromoléculas, microorganismos y células.
+Capítulo 6	Proteoglucanos	¿Qué papel pueden tener los proteoglucanos frente a células neoplásicas metastásicas?	Regular su migración por la MEC.
+Capítulo 6	Proteoglucanos	¿Qué proteoglucano grande es típico del cartílago?	Agrecano.
+Capítulo 6	Proteoglucanos	¿Qué proteoglucano transmembrana se une al citoesqueleto y a la MEC?	Sindecano.
+Capítulo 6	Proteoglucanos	¿Qué proteoglucano de lámina basal contiene heparán-sulfato?	Perlecano.
+Capítulo 6	Proteoglucanos	¿Qué proteoglucano se une al hialuronato en cartílago?	Agrecano.
+Capítulo 6	Agregados de proteoglucanos	¿Qué es un agregado de proteoglucanos?	Macromolécula gigante formada por proteoglucanos unidos a hialuronato.
+Capítulo 6	Agregados de proteoglucanos	¿Qué GAG sirve como eje de los agregados de proteoglucanos?	Hialuronato.
+Capítulo 6	Agregados de proteoglucanos	¿Qué une proteoglucanos al hialuronato?	Proteínas de enlace.
+Capítulo 6	Agregados de proteoglucanos	¿Qué molécula central sostiene muchos monómeros de proteoglucanos en un agregado?	Hialuronato.
+Capítulo 6	Agregados de proteoglucanos	¿Qué propiedad física aportan los agregados de proteoglucanos?	Alta hidratación y resistencia a compresión.
+Capítulo 6	Agregados de proteoglucanos	¿Por qué los agregados de proteoglucanos dificultan el paso de moléculas grandes?	Porque forman un gel hidratado y denso.
+Capítulo 6	Agregados de proteoglucanos	¿Qué tejido especializado depende mucho de agregados de proteoglucanos?	Cartílago.
+Capítulo 6	Glucoproteínas multiadhesivas	¿Qué son las glucoproteínas multiadhesivas?	Proteínas de la MEC con sitios de unión para varias moléculas.
+Capítulo 6	Glucoproteínas multiadhesivas	¿Qué función general tienen las glucoproteínas multiadhesivas?	Organizan interacciones entre células y MEC.
+Capítulo 6	Glucoproteínas multiadhesivas	¿Qué receptores celulares se unen a glucoproteínas multiadhesivas?	Integrinas.
+Capítulo 6	Glucoproteínas multiadhesivas	¿Qué moléculas de la MEC pueden unirse a glucoproteínas multiadhesivas?	Colágenos, proteoglucanos y GAG.
+Capítulo 6	Glucoproteínas multiadhesivas	¿Qué glucoproteína multiadhesiva es abundante en tejido conjuntivo?	Fibronectina.
+Capítulo 6	Glucoproteínas multiadhesivas	¿Qué glucoproteína multiadhesiva es importante en lámina basal?	Laminina.
+Capítulo 6	Glucoproteínas multiadhesivas	¿Qué glucoproteína multiadhesiva aparece en desarrollo embrionario y reparación tisular?	Tenascina.
+Capítulo 6	Fibronectina	¿Qué glucoproteína multiadhesiva une células con colágeno y proteoglucanos?	Fibronectina.
+Capítulo 6	Fibronectina	¿Qué receptores celulares se unen a fibronectina?	Integrinas.
+Capítulo 6	Fibronectina	¿Qué secuencia de fibronectina reconocen muchas integrinas?	RGD.
+Capítulo 6	Fibronectina	¿Qué significa la secuencia RGD?	Arginina-glicina-ácido aspártico.
+Capítulo 6	Fibronectina	¿Qué función tiene la fibronectina en cicatrización?	Facilita adhesión y migración celular.
+Capítulo 6	Fibronectina	¿Qué función tiene la fibronectina en la MEC?	Conectar células con componentes de la matriz.
+Capítulo 6	Fibronectina	¿Qué forma soluble de fibronectina circula en sangre?	Fibronectina plasmática.
+Capítulo 6	Fibronectina	¿Qué forma de fibronectina se deposita en matriz extracelular?	Fibronectina celular.
+Capítulo 6	Laminina	¿Qué glucoproteína multiadhesiva es esencial en lámina basal?	Laminina.
+Capítulo 6	Laminina	¿Qué forma molecular típica tiene la laminina?	Forma de cruz.
+Capítulo 6	Laminina	¿Qué une la laminina en la lámina basal?	Receptores celulares, colágeno IV, entactina y proteoglucanos.
+Capítulo 6	Laminina	¿Qué receptores celulares se unen a laminina?	Integrinas y receptores de laminina.
+Capítulo 6	Laminina	¿Qué función tiene la laminina en lámina basal?	Organizar adhesión y ensamblaje de la lámina basal.
+Capítulo 6	Tenascina	¿Qué glucoproteína multiadhesiva se expresa durante morfogénesis y reparación?	Tenascina.
+Capítulo 6	Tenascina	¿En qué procesos aumenta la tenascina?	Desarrollo embrionario, cicatrización y crecimiento tumoral.
+Capítulo 6	Tenascina	¿Qué función general cumple la tenascina?	Modula adhesión y migración celular.
+Capítulo 6	MEC y comunicación celular	¿Cómo influye la MEC en la comunicación celular?	Interactúa con receptores y transmite señales al interior celular.
+Capítulo 6	MEC y comunicación celular	¿Qué receptores convierten señales mecánicas de la MEC en respuestas celulares?	Integrinas.
+Capítulo 6	MEC y comunicación celular	¿Qué tipo de señal transmite la MEC durante deformación o tensión?	Señales mecánicas.
+Capítulo 6	MEC y comunicación celular	¿Qué proceso convierte estímulos mecánicos de la MEC en señal celular?	Mecanotransducción.
+Capítulo 6	MEC y comunicación celular	¿Qué moléculas de la MEC pueden modular proliferación al quedar retenidas?	Factores de crecimiento.
+Capítulo 6	MEC y comunicación celular	¿Por qué la MEC influye en diferenciación celular?	Porque presenta señales bioquímicas y mecánicas a las células.
+Capítulo 6	MEC y migración celular	¿Qué función de la MEC permite la reparación de heridas?	Proveer rutas para migración celular.
+Capítulo 6	MEC y migración celular	¿Qué células migran por la MEC durante cicatrización?	Fibroblastos, células endoteliales y células inmunitarias.
+Capítulo 6	MEC y migración celular	¿Qué molécula multiadhesiva ayuda a la migración celular en heridas?	Fibronectina.
+Capítulo 6	MEC y migración celular	¿Qué estructura celular se une a la MEC para migrar?	Adhesiones focales.
+Capítulo 6	MEC y barrera	¿Qué función tiene la MEC como barrera bioquímica?	Regula el paso y distribución de moléculas en el tejido.
+Capítulo 6	MEC y barrera	¿Qué componentes de la MEC dificultan la difusión libre de macromoléculas?	Agregados de proteoglucanos.
+Capítulo 6	MEC y barrera	¿Qué componentes de la MEC retienen gran cantidad de agua?	GAG y proteoglucanos.
+Capítulo 6	MEC y barrera	¿Qué propiedad de los GAG hace que retengan agua?	Su alta carga negativa.
+chapter	subtopic	front	back
+Capítulo 6	Células del tejido conjuntivo	¿Cómo se clasifican las células del tejido conjuntivo según su permanencia?	En residentes y errantes.
+Capítulo 6	Células del tejido conjuntivo	¿Qué son las células residentes del tejido conjuntivo?	Células relativamente estables y poco migrantes.
+Capítulo 6	Células del tejido conjuntivo	¿Qué son las células errantes del tejido conjuntivo?	Células transitorias que migran desde vasos sanguíneos.
+Capítulo 6	Células del tejido conjuntivo	¿Qué células residentes incluye el tejido conjuntivo?	Fibroblastos, miofibroblastos, macrófagos, adipocitos, mastocitos y células madre adultas.
+Capítulo 6	Células del tejido conjuntivo	¿Qué células errantes incluye el tejido conjuntivo?	Linfocitos, células plasmáticas, neutrófilos, eosinófilos, basófilos y monocitos.
+Capítulo 6	Células del tejido conjuntivo	¿Qué célula es la principal del tejido conjuntivo?	El fibroblasto.
+Capítulo 6	Fibroblastos	¿Qué función principal tienen los fibroblastos?	Sintetizar y mantener la matriz extracelular.
+Capítulo 6	Fibroblastos	¿Qué célula sintetiza colágeno en el tejido conjuntivo?	El fibroblasto.
+Capítulo 6	Fibroblastos	¿Qué célula sintetiza fibras elásticas en el tejido conjuntivo?	El fibroblasto.
+Capítulo 6	Fibroblastos	¿Qué célula sintetiza fibras reticulares en el tejido conjuntivo?	El fibroblasto.
+Capítulo 6	Fibroblastos	¿Qué célula sintetiza sustancia fundamental en tejido conjuntivo?	El fibroblasto.
+Capítulo 6	Fibroblastos	¿Qué componentes de la MEC sintetizan los fibroblastos?	Colágeno, elastina, proteoglucanos y glucoproteínas multiadhesivas.
+Capítulo 6	Fibroblastos	¿Qué forma tienen los fibroblastos activos?	Alargada o fusiforme.
+Capítulo 6	Fibroblastos	¿Qué aspecto nuclear tiene un fibroblasto activo?	Núcleo claro y ovoide.
+Capítulo 6	Fibroblastos	¿Por qué el núcleo del fibroblasto activo suele verse pálido?	Porque contiene cromatina laxa.
+Capítulo 6	Fibroblastos	¿Qué organelos abundan en fibroblastos activos?	RER y aparato de Golgi.
+Capítulo 6	Fibroblastos	¿Por qué los fibroblastos activos tienen RER abundante?	Porque sintetizan proteínas de la MEC.
+Capítulo 6	Fibroblastos	¿Qué aspecto citoplasmático puede tener un fibroblasto activado con H&E?	Citoplasma basófilo.
+Capítulo 6	Fibroblastos	¿Qué indica la basofilia citoplasmática en un fibroblasto?	Alta síntesis proteica por abundante RER.
+Capítulo 6	Fibroblastos	¿En qué situaciones se activan los fibroblastos?	Crecimiento activo y cicatrización de heridas.
+Capítulo 6	Fibroblastos	¿Qué forma tiene un fibroblasto inactivo o fibrocito?	Más pequeño y fusiforme.
+Capítulo 6	Fibroblastos	¿Qué aspecto nuclear tiene un fibrocito?	Núcleo alargado y más heterocromático.
+Capítulo 6	Fibroblastos	¿Qué organelos disminuyen en un fibrocito?	RER y aparato de Golgi.
+Capítulo 6	Fibroblastos	¿Qué diferencia funcional hay entre fibroblasto y fibrocito?	El fibroblasto sintetiza MEC activamente; el fibrocito es menos activo.
+Capítulo 6	Fibroblastos	¿Qué célula conjuntiva puede transformarse en miofibroblasto durante reparación?	Fibroblasto.
+Capítulo 6	Fibroblastos	¿Qué célula produce tejido conjuntivo nuevo durante cicatrización?	Fibroblasto activado.
+Capítulo 6	Miofibroblastos	¿Qué es un miofibroblasto?	Célula conjuntiva con propiedades de fibroblasto y músculo liso.
+Capítulo 6	Miofibroblastos	¿Qué propiedad contráctil tienen los miofibroblastos?	Contienen filamentos de actina y miosina no muscular.
+Capítulo 6	Miofibroblastos	¿Qué isoforma de actina expresa el miofibroblasto?	Actina alfa de músculo liso.
+Capítulo 6	Miofibroblastos	¿Qué sigla se usa para actina alfa de músculo liso?	α-SMA.
+Capítulo 6	Miofibroblastos	¿Qué factor regula la expresión de α-SMA en miofibroblastos?	TGF-β1.
+Capítulo 6	Miofibroblastos	¿Qué factor de crecimiento induce diferenciación hacia miofibroblasto?	TGF-β1.
+Capítulo 6	Miofibroblastos	¿Qué forma tienen los miofibroblastos?	Alargada y fusiforme.
+Capítulo 6	Miofibroblastos	¿Qué estructura contráctil atraviesa el citoplasma del miofibroblasto?	Fascículos de actina.
+Capítulo 6	Miofibroblastos	¿Qué unión conecta actina del miofibroblasto con la MEC?	Fibronexo.
+Capítulo 6	Miofibroblastos	¿Qué estructura del miofibroblasto se parece a una adhesión focal?	Fibronexo.
+Capítulo 6	Miofibroblastos	¿Qué función cumple el fibronexo?	Transmite fuerza contráctil del miofibroblasto a la MEC.
+Capítulo 6	Miofibroblastos	¿Qué función tienen los miofibroblastos en heridas?	Contraen la herida.
+Capítulo 6	Miofibroblastos	¿Qué células ayudan a reducir el tamaño de una herida durante cicatrización?	Miofibroblastos.
+Capítulo 6	Miofibroblastos	¿Qué ocurre con los miofibroblastos al finalizar la reparación normal?	Desaparecen por apoptosis.
+Capítulo 6	Miofibroblastos	¿Qué puede causar persistencia anormal de miofibroblastos?	Fibrosis.
+Capítulo 6	Miofibroblastos	¿Por qué los miofibroblastos son difíciles de identificar en H&E?	Porque se parecen a fibroblastos.
+Capítulo 6	Macrófagos	¿De qué célula sanguínea derivan los macrófagos?	Del monocito.
+Capítulo 6	Macrófagos	¿Qué tipo de célula es el macrófago por su función principal?	Célula fagocítica.
+Capítulo 6	Macrófagos	¿Qué organelos abundan en macrófagos?	Lisosomas, endosomas y fagolisosomas.
+Capítulo 6	Macrófagos	¿Qué forma nuclear típica puede tener un macrófago?	Núcleo arriñonado o con escotadura.
+Capítulo 6	Macrófagos	¿Qué estructura superficial ayuda al macrófago a fagocitar?	Evaginaciones o pliegues de la membrana.
+Capítulo 6	Macrófagos	¿Qué función de limpieza tienen los macrófagos?	Fagocitan detritos celulares.
+Capítulo 6	Macrófagos	¿Qué función defensiva tienen los macrófagos?	Fagocitan microorganismos.
+Capítulo 6	Macrófagos	¿Qué función inmunitaria especial tienen los macrófagos además de fagocitar?	Presentan antígenos.
+Capítulo 6	Macrófagos	¿Qué moléculas permiten al macrófago presentar antígenos?	MHC II.
+Capítulo 6	Macrófagos	¿A qué linfocitos presentan antígenos los macrófagos mediante MHC II?	Linfocitos T CD4+.
+Capítulo 6	Macrófagos	¿Cómo se llaman las células que presentan antígeno a linfocitos T?	Células presentadoras de antígeno.
+Capítulo 6	Macrófagos	¿Qué sucede si un linfocito T CD4+ reconoce el antígeno presentado por un macrófago?	Se activa una respuesta inmunitaria.
+Capítulo 6	Macrófagos	¿Qué células llegan primero al sitio de lesión: neutrófilos o macrófagos?	Neutrófilos.
+Capítulo 6	Macrófagos	¿Qué células llegan después de los neutrófilos al sitio de lesión?	Macrófagos.
+Capítulo 6	Macrófagos	¿Qué eliminan los macrófagos después de la acción de neutrófilos?	Microorganismos sobrevivientes, secreciones y detritos celulares.
+Capítulo 6	Macrófagos	¿Qué secreta el macrófago durante inflamación?	Citocinas, enzimas y mediadores inflamatorios.
+Capítulo 6	Macrófagos	¿Qué enzimas secretadas por macrófagos degradan GAG?	GAGasas.
+Capítulo 6	Macrófagos	¿Qué enzimas secretadas por macrófagos ayudan a degradar matriz?	Proteasas neutras.
+Capítulo 6	Macrófagos	¿Por qué las proteasas y GAGasas ayudan a los macrófagos a moverse?	Porque degradan componentes de la MEC.
+Capítulo 6	Macrófagos	¿Qué sistema incluye monocitos y macrófagos tisulares?	Sistema fagocítico mononuclear.
+Capítulo 6	Sistema fagocítico mononuclear	¿Qué células forman la base del sistema fagocítico mononuclear?	Monocitos y macrófagos.
+Capítulo 6	Sistema fagocítico mononuclear	¿Qué macrófagos se encuentran en hígado?	Células de Kupffer.
+Capítulo 6	Sistema fagocítico mononuclear	¿Qué macrófagos se encuentran en sistema nervioso central?	Microglía.
+Capítulo 6	Sistema fagocítico mononuclear	¿Qué macrófagos se encuentran en hueso?	Osteoclastos.
+Capítulo 6	Sistema fagocítico mononuclear	¿Qué macrófagos se encuentran en alvéolos pulmonares?	Macrófagos alveolares.
+Capítulo 6	Sistema fagocítico mononuclear	¿Qué macrófagos se encuentran en epidermis?	Células de Langerhans.
+Capítulo 6	Sistema fagocítico mononuclear	¿Qué macrófagos se encuentran en tejido conjuntivo?	Histiocitos.
+Capítulo 6	Sistema fagocítico mononuclear	¿Qué función común tienen las células del sistema fagocítico mononuclear?	Fagocitosis y defensa inmunitaria.
+Capítulo 6	Mastocitos	¿Dónde se originan los mastocitos?	En la médula ósea.
+Capítulo 6	Mastocitos	¿Dónde se diferencian los mastocitos?	En el tejido conjuntivo.
+Capítulo 6	Mastocitos	¿Qué característica citoplasmática tienen los mastocitos?	Gránulos basófilos abundantes.
+Capítulo 6	Mastocitos	¿Qué almacenan los gránulos del mastocito?	Mediadores de la inflamación.
+Capítulo 6	Mastocitos	¿Qué célula conjuntiva participa de forma importante en reacciones alérgicas?	Mastocito.
+Capítulo 6	Mastocitos	¿Qué mediador preformado del mastocito aumenta permeabilidad vascular?	Histamina.
+Capítulo 6	Mastocitos	¿Qué mediador preformado del mastocito es anticoagulante?	Heparina.
+Capítulo 6	Mastocitos	¿Qué proteasas se encuentran en gránulos de mastocitos?	Triptasa y quimasa.
+Capítulo 6	Mastocitos	¿Qué proteasa mastocítica sirve como marcador de activación mastocítica?	Triptasa.
+Capítulo 6	Mastocitos	¿Qué proteasa mastocítica participa en generación de angiotensina II en lesión vascular?	Quimasa.
+Capítulo 6	Mastocitos	¿Qué mediador mastocítico atrae eosinófilos?	Factor quimiotáctico para eosinófilos.
+Capítulo 6	Mastocitos	¿Qué sigla corresponde al factor quimiotáctico para eosinófilos?	ECF.
+Capítulo 6	Mastocitos	¿Qué mediador mastocítico atrae neutrófilos?	Factor quimiotáctico para neutrófilos.
+Capítulo 6	Mastocitos	¿Qué sigla corresponde al factor quimiotáctico para neutrófilos?	NCF.
+Capítulo 6	Mastocitos	¿Qué mediadores neosintetizados producen mastocitos activados?	Leucotrienos, interleucinas, citocinas y prostaglandina D2.
+Capítulo 6	Mastocitos	¿Qué leucotrieno liberado por mastocitos causa broncoespasmo prolongado?	Leucotrieno C4.
+Capítulo 6	Mastocitos	¿Qué mediadores mastocíticos producen broncoconstricción más lenta y prolongada que histamina?	Leucotrienos.
+Capítulo 6	Mastocitos	¿Qué fármacos pueden bloquear el broncoespasmo por leucotrienos?	Antagonistas del receptor de leucotrieno.
+Capítulo 6	Mastocitos	¿Por qué los antihistamínicos no bloquean bien el broncoespasmo por leucotrienos?	Porque los leucotrienos actúan por receptores distintos.
+Capítulo 6	Mastocitos	¿Qué citocina mastocítica aumenta moléculas de adhesión en endotelio?	TNF-α.
+Capítulo 6	Mastocitos	¿Qué prostaglandina puede liberarse durante activación mastocítica?	PGD2.
+Capítulo 6	Mastocitos	¿Qué inmunoglobulina se une a receptores Fc de mastocitos?	IgE.
+Capítulo 6	Mastocitos	¿Qué ocurre cuando un antígeno entrecruza IgE en mastocitos?	Degranulación.
+Capítulo 6	Mastocitos	¿Qué reacción inmediata produce la degranulación de mastocitos?	Reacción alérgica.
+Capítulo 6	Mastocitos	¿Qué mediador mastocítico causa vasodilatación y edema?	Histamina.
+Capítulo 6	Mastocitos	¿Qué células contrarrestan efectos de histamina y leucotrienos?	Eosinófilos.
+Capítulo 6	Basófilos	¿Dónde se originan y maduran los basófilos?	En la médula ósea.
+Capítulo 6	Basófilos	¿Los basófilos son células residentes del tejido conjuntivo?	No, son células sanguíneas transitorias.
+Capítulo 6	Basófilos	¿Qué característica comparten basófilos y mastocitos?	Gránulos basófilos con mediadores inflamatorios.
+Capítulo 6	Basófilos	¿Qué inmunoglobulina participa en activación de basófilos?	IgE.
+Capítulo 6	Basófilos	¿Qué reacción inmunitaria involucra basófilos y mastocitos?	Reacciones alérgicas.
+Capítulo 6	Basófilos	¿Qué proteasa mastocítica no se encuentra en basófilos humanos?	Triptasa.
+Capítulo 6	Basófilos	¿Qué diferencia básica hay entre mastocito y basófilo?	El mastocito reside en tejido conjuntivo; el basófilo circula en sangre.
+Capítulo 6	Adipocitos	¿Qué son los adipocitos?	Células conjuntivas especializadas en almacenar lípidos neutros.
+Capítulo 6	Adipocitos	¿Qué lípidos almacenan principalmente los adipocitos?	Triglicéridos.
+Capítulo 6	Adipocitos	¿Qué tejido forman los adipocitos cuando son el tipo celular predominante?	Tejido adiposo.
+Capítulo 6	Adipocitos	¿Qué función energética tienen los adipocitos?	Almacenar energía en forma de lípidos.
+Capítulo 6	Adipocitos	¿Qué función endocrina tienen los adipocitos?	Producen hormonas y adipocinas.
+Capítulo 6	Adipocitos	¿Qué hormona producida por adipocitos participa en regulación del apetito?	Leptina.
+Capítulo 6	Adipocitos	¿Qué tipo de adipocito contiene una gran gota lipídica?	Adipocito unilocular.
+Capítulo 6	Adipocitos	¿Qué tipo de adipocito contiene varias gotitas lipídicas?	Adipocito multilocular.
+Capítulo 6	Adipocitos	¿Qué tejido adiposo está formado principalmente por adipocitos uniloculares?	Tejido adiposo blanco.
+Capítulo 6	Adipocitos	¿Qué tejido adiposo está formado principalmente por adipocitos multiloculares?	Tejido adiposo pardo.
+Capítulo 6	Adipocitos	¿Qué forma adopta el núcleo del adipocito blanco?	Aplanado y periférico.
+Capítulo 6	Adipocitos	¿Por qué el adipocito blanco parece vacío en H&E?	Porque la gota lipídica se extrae durante la preparación.
+Capítulo 6	Adipocitos	¿Qué función térmica tiene el tejido adiposo blanco?	Aislamiento térmico.
+Capítulo 6	Adipocitos	¿Qué función mecánica tiene el tejido adiposo blanco?	Amortiguación.
+Capítulo 6	Células madre adultas	¿Dónde residen las células madre adultas?	En nichos específicos de tejidos y órganos.
+Capítulo 6	Células madre adultas	¿Por qué las células madre adultas son difíciles de reconocer en H&E?	Porque se parecen a otras células conjuntivas.
+Capítulo 6	Células madre adultas	¿Qué células madre adultas se encuentran en tejido conjuntivo laxo?	Células madre mesenquimatosas.
+Capítulo 6	Células madre adultas	¿Qué pueden originar las células madre mesenquimatosas?	Fibroblastos, adipocitos, condrocitos, osteoblastos y células musculares.
+Capítulo 6	Células madre adultas	¿Qué función tienen células madre mesenquimatosas en heridas?	Formar nuevas células conjuntivas y vasos.
+Capítulo 6	Células madre adultas	¿Qué reservorio importante de células madre adultas contiene la médula ósea?	HSC, MAPC y células estromales de médula ósea.
+Capítulo 6	Células madre adultas	¿Qué significa HSC?	Célula madre hematopoyética.
+Capítulo 6	Células madre adultas	¿Qué significa MAPC?	Célula progenitora adulta multipotente.
+Capítulo 6	Células madre adultas	¿Qué significa BMSC?	Célula del estroma de médula ósea.
+Capítulo 6	Pericitos	¿Qué son los pericitos?	Células perivasculares asociadas a capilares y vénulas.
+Capítulo 6	Pericitos	¿Qué otro nombre reciben los pericitos?	Células adventicias o perivasculares.
+Capítulo 6	Pericitos	¿Dónde se localizan los pericitos?	Alrededor de capilares y vénulas.
+Capítulo 6	Pericitos	¿Qué lámina rodea a los pericitos junto al endotelio?	Lámina basal continua con la endotelial.
+Capítulo 6	Pericitos	¿Por qué los pericitos no están completamente en el compartimento conjuntivo?	Porque están rodeados por lámina basal vascular.
+Capítulo 6	Pericitos	¿Qué tipo de célula madre pueden representar los pericitos?	Células madre mesenquimatosas.
+Capítulo 6	Pericitos	¿Qué células pueden originar los pericitos?	Osteoblastos, adipocitos, condrocitos y fibroblastos.
+Capítulo 6	Pericitos	¿En qué células pueden diferenciarse los pericitos durante desarrollo vascular?	Células musculares lisas vasculares.
+Capítulo 6	Pericitos	¿Qué función tienen los pericitos durante neovascularización?	Aportar células para nuevos vasos.
+Capítulo 6	Pericitos	¿Qué forma nuclear tienen los pericitos?	Aplanada y curvada alrededor del vaso.
+Capítulo 6	Pericitos	¿Qué células dan origen a fibroblastos y vasos en heridas en cicatrización?	Células madre mesenquimales asociadas a vénulas.
+Capítulo 6	Linfocitos	¿Qué función general tienen los linfocitos en tejido conjuntivo?	Participan en respuestas inmunitarias.
+Capítulo 6	Linfocitos	¿Qué tamaño tienen los linfocitos entre las células libres del tejido conjuntivo?	Son las más pequeñas.
+Capítulo 6	Linfocitos	¿Qué aspecto nuclear tiene un linfocito?	Núcleo heterocromático de tinción intensa.
+Capítulo 6	Linfocitos	¿Qué aspecto citoplasmático tiene un linfocito en H&E?	Un delgado reborde de citoplasma.
+Capítulo 6	Linfocitos	¿Dónde aumentan mucho los linfocitos en tejido conjuntivo?	En sitios de inflamación.
+Capítulo 6	Linfocitos	¿Dónde son abundantes los linfocitos por inmunovigilancia?	Lámina propia del tubo digestivo y vías respiratorias.
+Capítulo 6	Linfocitos	¿Qué función tienen linfocitos en mucosas?	Inmunovigilancia contra patógenos y sustancias extrañas.
+Capítulo 6	Células plasmáticas	¿De qué células derivan las células plasmáticas?	Linfocitos B activados.
+Capítulo 6	Células plasmáticas	¿Qué producen las células plasmáticas?	Anticuerpos.
+Capítulo 6	Células plasmáticas	¿Qué otro nombre reciben los anticuerpos?	Inmunoglobulinas.
+Capítulo 6	Células plasmáticas	¿Qué organelo abunda en células plasmáticas?	Retículo endoplasmático rugoso.
+Capítulo 6	Células plasmáticas	¿Por qué las células plasmáticas tienen citoplasma basófilo?	Por abundante RER para síntesis de anticuerpos.
+Capítulo 6	Células plasmáticas	¿Qué zona clara perinuclear suele verse en células plasmáticas?	El aparato de Golgi.
+Capítulo 6	Células plasmáticas	¿Qué forma nuclear típica tiene una célula plasmática?	Núcleo excéntrico.
+Capítulo 6	Células plasmáticas	¿Qué patrón de cromatina puede tener el núcleo de la célula plasmática?	Patrón en rueda de carro.
+Capítulo 6	Células plasmáticas	¿Dónde son abundantes las células plasmáticas?	Lámina propia de mucosas.
+Capítulo 6	Células plasmáticas	¿Qué tipo de defensa aportan las células plasmáticas?	Inmunidad humoral.
+Capítulo 6	Neutrófilos	¿Qué célula errante llega primero a sitios de lesión o infección?	Neutrófilo.
+Capítulo 6	Neutrófilos	¿Qué función principal tienen los neutrófilos en tejido conjuntivo inflamado?	Fagocitar y destruir bacterias.
+Capítulo 6	Neutrófilos	¿Qué forma nuclear tiene un neutrófilo maduro?	Núcleo segmentado.
+Capítulo 6	Eosinófilos	¿Qué células son atraídas por el factor quimiotáctico para eosinófilos?	Eosinófilos.
+Capítulo 6	Eosinófilos	¿Qué función pueden tener los eosinófilos frente a mediadores mastocíticos?	Contrarrestar histamina y leucotrienos.
+Capítulo 6	Eosinófilos	¿En qué respuestas suelen aumentar los eosinófilos?	Alergias e infecciones parasitarias.
+Capítulo 6	Monocitos	¿Qué célula sanguínea entra al tejido conjuntivo para convertirse en macrófago?	Monocito.
+Capítulo 6	Monocitos	¿Qué célula del tejido conjuntivo deriva directamente del monocito?	Macrófago.
+chapter	subtopic	front	back
+Capítulo 6	Inflamación	¿Qué es la inflamación en el tejido conjuntivo?	Respuesta local frente a lesión, infección o sustancias extrañas.
+Capítulo 6	Inflamación	¿Qué tejido conjuntivo participa más activamente en la inflamación?	Tejido conjuntivo laxo.
+Capítulo 6	Inflamación	¿Por qué el tejido conjuntivo laxo es clave en inflamación?	Porque contiene vasos pequeños y células inmunitarias.
+Capítulo 6	Inflamación	¿Qué células llegan temprano al tejido conjuntivo durante inflamación aguda?	Neutrófilos.
+Capítulo 6	Inflamación	¿Qué células llegan después de neutrófilos en inflamación?	Macrófagos.
+Capítulo 6	Inflamación	¿Qué célula conjuntiva libera histamina en reacciones inflamatorias?	Mastocito.
+Capítulo 6	Inflamación	¿Qué efecto vascular produce la histamina liberada por mastocitos?	Aumenta la permeabilidad vascular.
+Capítulo 6	Inflamación	¿Qué consecuencia tisular tiene el aumento de permeabilidad vascular?	Edema.
+Capítulo 6	Inflamación	¿Qué célula fagocita bacterias en inflamación aguda?	Neutrófilo.
+Capítulo 6	Inflamación	¿Qué célula fagocita detritos celulares durante inflamación?	Macrófago.
+Capítulo 6	Inflamación	¿Qué célula presenta antígenos durante inflamación?	Macrófago.
+Capítulo 6	Inflamación	¿Qué célula produce anticuerpos en inflamación crónica?	Célula plasmática.
+Capítulo 6	Inflamación	¿Qué célula se asocia con alergias y parásitos?	Eosinófilo.
+Capítulo 6	Inflamación	¿Qué célula sanguínea puede entrar al tejido y diferenciarse en macrófago?	Monocito.
+Capítulo 6	Inflamación	¿Qué célula conjuntiva participa en reacciones alérgicas mediadas por IgE?	Mastocito.
+Capítulo 6	Inflamación	¿Qué inmunoglobulina activa mastocitos en alergia inmediata?	IgE.
+Capítulo 6	Inflamación	¿Qué ocurre cuando el antígeno entrecruza IgE en mastocitos?	Degranulación mastocítica.
+Capítulo 6	Inflamación	¿Qué mediadores preformados liberan los mastocitos al degranular?	Histamina, heparina y proteasas.
+Capítulo 6	Inflamación	¿Qué mediadores recién sintetizados liberan mastocitos activados?	Leucotrienos, prostaglandinas y citocinas.
+Capítulo 6	Inflamación	¿Qué mediadores mastocíticos producen broncoconstricción prolongada?	Leucotrienos.
+Capítulo 6	Inflamación	¿Qué citocina mastocítica favorece adhesión de leucocitos al endotelio?	TNF-α.
+Capítulo 6	Inflamación	¿Qué célula puede limitar efectos de histamina en reacciones alérgicas?	Eosinófilo.
+Capítulo 6	Inflamación	¿Qué célula migra al tejido conjuntivo en respuesta a ECF?	Eosinófilo.
+Capítulo 6	Inflamación	¿Qué significa ECF en inflamación?	Factor quimiotáctico para eosinófilos.
+Capítulo 6	Inflamación	¿Qué significa NCF en inflamación?	Factor quimiotáctico para neutrófilos.
+Capítulo 6	Inflamación	¿Qué célula libera ECF y NCF?	Mastocito.
+Capítulo 6	Inflamación	¿Qué células predominan en inflamación crónica?	Linfocitos, células plasmáticas y macrófagos.
+Capítulo 6	Inflamación	¿Qué célula conecta inflamación con respuesta inmunitaria adaptativa?	Macrófago.
+Capítulo 6	Inflamación	¿Qué molécula presenta antígenos a linfocitos T CD4+?	MHC II.
+Capítulo 6	Inflamación	¿Qué célula responde a antígenos presentados por MHC II?	Linfocito T CD4+.
+Capítulo 6	Inflamación	¿Qué célula se diferencia en célula plasmática?	Linfocito B.
+Capítulo 6	Inflamación	¿Qué producto secretan las células plasmáticas?	Anticuerpos.
+Capítulo 6	Inflamación	¿Qué nombre reciben también los anticuerpos?	Inmunoglobulinas.
+Capítulo 6	Inflamación	¿Qué célula tiene núcleo excéntrico y cromatina en “rueda de carro”?	Célula plasmática.
+Capítulo 6	Inflamación	¿Qué célula tiene núcleo segmentado y fagocita bacterias?	Neutrófilo.
+Capítulo 6	Inflamación	¿Qué célula tiene gránulos basófilos y participa en alergia?	Mastocito.
+Capítulo 6	Inflamación	¿Qué célula deriva del monocito y fagocita detritos?	Macrófago.
+Capítulo 6	Inflamación	¿Qué célula pequeña con núcleo denso participa en inmunidad adaptativa?	Linfocito.
+Capítulo 6	Reparación del tejido conjuntivo	¿Qué proceso restaura tejido después de una lesión?	Reparación tisular.
+Capítulo 6	Reparación del tejido conjuntivo	¿Qué célula produce nueva matriz extracelular en reparación?	Fibroblasto.
+Capítulo 6	Reparación del tejido conjuntivo	¿Qué célula contrae la herida durante reparación?	Miofibroblasto.
+Capítulo 6	Reparación del tejido conjuntivo	¿Qué célula elimina detritos celulares durante reparación?	Macrófago.
+Capítulo 6	Reparación del tejido conjuntivo	¿Qué célula promueve angiogénesis y remodelado mediante factores de crecimiento?	Macrófago.
+Capítulo 6	Reparación del tejido conjuntivo	¿Qué célula endotelial participa en formación de nuevos vasos?	Célula endotelial.
+Capítulo 6	Reparación del tejido conjuntivo	¿Qué tipo de tejido conjuntivo se forma primero en una herida?	Tejido de granulación.
+Capítulo 6	Reparación del tejido conjuntivo	¿Qué caracteriza al tejido de granulación?	Nuevos vasos, fibroblastos y matriz extracelular laxa.
+Capítulo 6	Reparación del tejido conjuntivo	¿Qué tipo de colágeno aparece temprano en reparación de heridas?	Colágeno tipo III.
+Capítulo 6	Reparación del tejido conjuntivo	¿Qué tipo de colágeno aumenta durante maduración de la cicatriz?	Colágeno tipo I.
+Capítulo 6	Reparación del tejido conjuntivo	¿Qué reemplaza al colágeno tipo III durante maduración de la cicatriz?	Colágeno tipo I.
+Capítulo 6	Reparación del tejido conjuntivo	¿Qué proceso reorganiza la matriz extracelular de una cicatriz?	Remodelado.
+Capítulo 6	Reparación del tejido conjuntivo	¿Qué enzimas degradan matriz durante remodelado?	Metaloproteinasas de matriz.
+Capítulo 6	Reparación del tejido conjuntivo	¿Qué sigla corresponde a metaloproteinasas de matriz?	MMP.
+Capítulo 6	Reparación del tejido conjuntivo	¿Qué células pueden secretar MMP durante reparación?	Fibroblastos, macrófagos y otras células.
+Capítulo 6	Reparación del tejido conjuntivo	¿Qué equilibrio determina la remodelación normal?	Síntesis y degradación de MEC.
+Capítulo 6	Reparación del tejido conjuntivo	¿Qué pasa si la síntesis de MEC supera su degradación?	Fibrosis.
+Capítulo 6	Reparación del tejido conjuntivo	¿Qué pasa si la degradación de MEC supera su síntesis?	Debilidad tisular.
+Capítulo 6	Reparación del tejido conjuntivo	¿Qué factor de crecimiento estimula formación de miofibroblastos?	TGF-β1.
+Capítulo 6	Reparación del tejido conjuntivo	¿Qué factor promueve depósito de matriz extracelular y fibrosis?	TGF-β.
+Capítulo 6	Reparación del tejido conjuntivo	¿Qué célula desaparece por apoptosis al terminar la contracción normal de la herida?	Miofibroblasto.
+Capítulo 6	Reparación del tejido conjuntivo	¿Qué estructura une actina del miofibroblasto con la MEC?	Fibronexo.
+Capítulo 6	Reparación del tejido conjuntivo	¿Qué función tiene el fibronexo en reparación?	Transmitir fuerza contráctil a la matriz.
+Capítulo 6	Reparación del tejido conjuntivo	¿Qué proteína de MEC facilita migración celular en heridas?	Fibronectina.
+Capítulo 6	Reparación del tejido conjuntivo	¿Qué células migran sobre fibronectina durante reparación?	Fibroblastos y células endoteliales.
+Capítulo 6	Reparación del tejido conjuntivo	¿Qué componente de la MEC guía migración celular?	Glucoproteínas multiadhesivas.
+Capítulo 6	Reparación del tejido conjuntivo	¿Qué célula madre puede aportar fibroblastos durante reparación?	Célula madre mesenquimatosa.
+Capítulo 6	Reparación del tejido conjuntivo	¿Qué célula perivascular puede contribuir a reparación y neovascularización?	Pericito.
+Capítulo 6	Cicatrización	¿Qué es una cicatriz?	Tejido conjuntivo denso que reemplaza tejido lesionado.
+Capítulo 6	Cicatrización	¿Qué célula sintetiza colágeno en una cicatriz?	Fibroblasto.
+Capítulo 6	Cicatrización	¿Qué colágeno predomina en cicatrices maduras?	Colágeno tipo I.
+Capítulo 6	Cicatrización	¿Qué célula contrae la cicatriz en formación?	Miofibroblasto.
+Capítulo 6	Cicatrización	¿Qué proceso aumenta la resistencia mecánica de una cicatriz?	Remodelado y reorganización del colágeno.
+Capítulo 6	Cicatrización	¿Por qué una cicatriz no recupera completamente la fuerza original?	Porque el tejido nuevo no reproduce toda la arquitectura original.
+Capítulo 6	Cicatrización	¿Qué célula regula el paso de inflamación a reparación?	Macrófago.
+Capítulo 6	Cicatrización	¿Qué tejido aparece primero antes de cicatriz madura?	Tejido de granulación.
+Capítulo 6	Cicatrización	¿Qué caracteriza histológicamente al tejido de granulación?	Capilares nuevos y fibroblastos activos.
+Capítulo 6	Cicatrización	¿Qué proceso reduce el tamaño de una herida?	Contracción de la herida.
+Capítulo 6	Cicatrización	¿Qué célula causa contracción de la herida?	Miofibroblasto.
+Capítulo 6	Cicatrización	¿Qué sucede con la vascularización al madurar la cicatriz?	Disminuye.
+Capítulo 6	Cicatrización	¿Qué sucede con la celularidad al madurar la cicatriz?	Disminuye.
+Capítulo 6	Cicatrización	¿Qué sucede con el colágeno al madurar la cicatriz?	Se organiza y aumenta la proporción de tipo I.
+Capítulo 6	Fibrosis	¿Qué es fibrosis?	Depósito excesivo de matriz extracelular, especialmente colágeno.
+Capítulo 6	Fibrosis	¿Qué célula es clave en fibrosis?	Miofibroblasto persistente.
+Capítulo 6	Fibrosis	¿Qué factor favorece fibrosis al estimular fibroblastos y miofibroblastos?	TGF-β.
+Capítulo 6	Fibrosis	¿Qué consecuencia funcional puede tener la fibrosis?	Rigidez y pérdida de función tisular.
+Capítulo 6	Fibrosis	¿Qué tejido reemplaza parénquima funcional en fibrosis?	Tejido conjuntivo colagenoso.
+Capítulo 6	Fibrosis	¿Qué diferencia hay entre reparación normal y fibrosis?	La fibrosis tiene depósito excesivo y persistente de MEC.
+Capítulo 6	Fibrosis	¿Qué componente de la MEC aumenta principalmente en fibrosis?	Colágeno.
+Capítulo 6	Fibrosis	¿Qué enzimas podrían limitar fibrosis si degradan matriz?	MMP.
+Capítulo 6	Fibrosis	¿Qué causa fibrosis si las MMP no compensan el depósito de colágeno?	Acumulación progresiva de MEC.
+Capítulo 6	Fotoenvejecimiento	¿Qué causa principal produce fotoenvejecimiento cutáneo?	Exposición crónica a radiación ultravioleta.
+Capítulo 6	Fotoenvejecimiento	¿Qué tejido conjuntivo se afecta en la piel fotoenvejecida?	Dermis.
+Capítulo 6	Fotoenvejecimiento	¿Qué fibras dérmicas se alteran por exposición solar crónica?	Fibras elásticas y colágenas.
+Capítulo 6	Fotoenvejecimiento	¿Qué cambio de fibras elásticas caracteriza al fotoenvejecimiento?	Elastosis solar.
+Capítulo 6	Fotoenvejecimiento	¿Qué es la elastosis solar?	Acumulación anormal de material elástico en dermis.
+Capítulo 6	Fotoenvejecimiento	¿Qué enzimas aumentan por daño UV y degradan matriz?	Metaloproteinasas de matriz.
+Capítulo 6	Fotoenvejecimiento	¿Qué componente dérmico degradan las MMP inducidas por UV?	Colágeno.
+Capítulo 6	Fotoenvejecimiento	¿Qué consecuencia visible produce pérdida de colágeno dérmico?	Arrugas.
+Capítulo 6	Fotoenvejecimiento	¿Qué célula dérmica responde al daño UV alterando síntesis de MEC?	Fibroblasto.
+Capítulo 6	Fotoenvejecimiento	¿Qué radiación solar se asocia a daño dérmico crónico?	Radiación ultravioleta.
+Capítulo 6	Fotoenvejecimiento	¿Qué diferencia general hay entre envejecimiento intrínseco y fotoenvejecimiento?	El fotoenvejecimiento depende de exposición UV.
+Capítulo 6	Fotoenvejecimiento	¿Qué matriz se desorganiza durante fotoenvejecimiento?	Matriz extracelular dérmica.
+Capítulo 6	Fotoenvejecimiento	¿Qué proteína estructural pierde organización en dermis fotoenvejecida?	Colágeno.
+Capítulo 6	Fotoenvejecimiento	¿Qué proteína elástica se acumula anormalmente en elastosis solar?	Elastina.
+Capítulo 6	Edema	¿Qué es edema en tejido conjuntivo?	Acumulación excesiva de líquido en el espacio extracelular.
+Capítulo 6	Edema	¿Qué componente del tejido conjuntivo se expande durante edema?	Sustancia fundamental.
+Capítulo 6	Edema	¿Qué célula puede iniciar edema al liberar histamina?	Mastocito.
+Capítulo 6	Edema	¿Qué efecto de la histamina favorece edema?	Aumento de permeabilidad vascular.
+Capítulo 6	Edema	¿Qué tejido conjuntivo permite acumular líquido con facilidad?	Tejido conjuntivo laxo.
+Capítulo 6	Edema	¿Por qué el tejido conjuntivo denso se expande menos en edema?	Porque tiene menos sustancia fundamental y más fibras compactas.
+Capítulo 6	Edema	¿Qué moléculas de la sustancia fundamental retienen agua?	GAG y proteoglucanos.
+Capítulo 6	Edema	¿Qué propiedad de los GAG favorece retención de agua?	Carga negativa.
+Capítulo 6	Integración células-MEC	¿Qué célula produce la mayor parte de la MEC del tejido conjuntivo?	Fibroblasto.
+Capítulo 6	Integración células-MEC	¿Qué célula degrada MEC y detritos durante inflamación?	Macrófago.
+Capítulo 6	Integración células-MEC	¿Qué célula contrae MEC durante cicatrización?	Miofibroblasto.
+Capítulo 6	Integración células-MEC	¿Qué célula almacena lípidos dentro del tejido conjuntivo?	Adipocito.
+Capítulo 6	Integración células-MEC	¿Qué célula inicia reacciones alérgicas en tejido conjuntivo?	Mastocito.
+Capítulo 6	Integración células-MEC	¿Qué célula produce anticuerpos en tejido conjuntivo?	Célula plasmática.
+Capítulo 6	Integración células-MEC	¿Qué célula fagocita bacterias temprano en inflamación?	Neutrófilo.
+Capítulo 6	Integración células-MEC	¿Qué célula puede diferenciarse en macrófago al entrar al tejido?	Monocito.
+Capítulo 6	Integración células-MEC	¿Qué célula perivascular puede actuar como progenitora mesenquimatosa?	Pericito.
+Capítulo 6	Integración células-MEC	¿Qué célula conjuntiva tiene función de inmunovigilancia en mucosas?	Linfocito.
+Capítulo 6	Integración fibras-MEC	¿Qué fibra resiste tensión?	Colágena.
+Capítulo 6	Integración fibras-MEC	¿Qué fibra forma redes de sostén fino?	Reticular.
+Capítulo 6	Integración fibras-MEC	¿Qué fibra permite recuperación tras estiramiento?	Elástica.
+Capítulo 6	Integración fibras-MEC	¿Qué componente de la MEC resiste compresión?	Sustancia fundamental hidratada.
+Capítulo 6	Integración fibras-MEC	¿Qué moléculas de la MEC retienen agua?	GAG y proteoglucanos.
+Capítulo 6	Integración fibras-MEC	¿Qué moléculas conectan células con fibras y sustancia fundamental?	Glucoproteínas multiadhesivas.
+Capítulo 6	Integración fibras-MEC	¿Qué glucoproteína multiadhesiva conecta integrinas con colágeno y proteoglucanos?	Fibronectina.
+Capítulo 6	Integración fibras-MEC	¿Qué glucoproteína organiza la lámina basal?	Laminina.
+Capítulo 6	Integración fibras-MEC	¿Qué molécula de MEC tiene secuencia RGD reconocida por integrinas?	Fibronectina.
+Capítulo 6	Integración fibras-MEC	¿Qué componente de la MEC ofrece una vía para migración celular?	Fibronectina.
+Capítulo 6	Identificación histológica	¿Qué tejido conjuntivo tiene muchas células y pocas fibras?	Tejido conjuntivo laxo.
+Capítulo 6	Identificación histológica	¿Qué tejido conjuntivo tiene muchas fibras colágenas en direcciones múltiples?	Tejido conjuntivo denso irregular.
+Capítulo 6	Identificación histológica	¿Qué tejido conjuntivo tiene fibras colágenas paralelas?	Tejido conjuntivo denso regular.
+Capítulo 6	Identificación histológica	¿Qué tejido conjuntivo forma tendones?	Denso regular.
+Capítulo 6	Identificación histológica	¿Qué tejido conjuntivo forma dermis reticular?	Denso irregular.
+Capítulo 6	Identificación histológica	¿Qué tejido conjuntivo forma lámina propia?	Laxo.
+Capítulo 6	Identificación histológica	¿Qué célula conjuntiva tiene núcleo oval claro y RER abundante?	Fibroblasto activo.
+Capítulo 6	Identificación histológica	¿Qué célula conjuntiva tiene núcleo excéntrico y citoplasma basófilo?	Célula plasmática.
+Capítulo 6	Identificación histológica	¿Qué célula conjuntiva tiene gránulos basófilos grandes?	Mastocito.
+Capítulo 6	Identificación histológica	¿Qué célula conjuntiva tiene núcleo arriñonado y muchos lisosomas?	Macrófago.
+Capítulo 6	Identificación histológica	¿Qué célula conjuntiva contiene una gran gota lipídica vacía en H&E?	Adipocito unilocular.
+Capítulo 6	Identificación histológica	¿Qué fibra se observa bien con tricrómicos?	Colágena.
+Capítulo 6	Identificación histológica	¿Qué fibra se observa bien con impregnación argéntica?	Reticular.
+Capítulo 6	Identificación histológica	¿Qué fibra se observa bien con orceína o resorcina-fucsina?	Elástica.
+Capítulo 6	Identificación histológica	¿Qué fibra es eosinófila y gruesa en H&E?	Colágena.
+Capítulo 6	Identificación histológica	¿Qué fibra es fina, ramificada y argirófila?	Reticular.
+Capítulo 6	Identificación histológica	¿Qué fibra es delgada, ramificada y elástica?	Elástica.
+Capítulo 6	Comparaciones clave	¿Qué diferencia principal hay entre tejido conjuntivo laxo y denso?	El laxo tiene más células y sustancia fundamental; el denso tiene más fibras.
+Capítulo 6	Comparaciones clave	¿Qué diferencia principal hay entre denso regular e irregular?	El regular tiene fibras paralelas; el irregular fibras en múltiples direcciones.
+Capítulo 6	Comparaciones clave	¿Qué diferencia principal hay entre fibra colágena y elástica?	La colágena resiste tensión; la elástica permite estiramiento y retorno.
+Capítulo 6	Comparaciones clave	¿Qué diferencia principal hay entre fibra colágena y reticular?	La colágena suele ser tipo I; la reticular es tipo III y forma redes finas.
+Capítulo 6	Comparaciones clave	¿Qué diferencia principal hay entre fibroblasto y miofibroblasto?	El miofibroblasto contrae matriz; el fibroblasto sintetiza matriz.
+Capítulo 6	Comparaciones clave	¿Qué diferencia principal hay entre macrófago y mastocito?	El macrófago fagocita; el mastocito libera mediadores inflamatorios.
+Capítulo 6	Comparaciones clave	¿Qué diferencia principal hay entre mastocito y basófilo?	El mastocito reside en tejido; el basófilo circula en sangre.
+Capítulo 6	Comparaciones clave	¿Qué diferencia principal hay entre linfocito B y célula plasmática?	La célula plasmática secreta anticuerpos.
+Capítulo 6	Comparaciones clave	¿Qué diferencia principal hay entre GAG y proteoglucano?	El GAG es cadena polisacárida; el proteoglucano es proteína central con GAG.
+Capítulo 6	Comparaciones clave	¿Qué diferencia principal hay entre proteoglucano y glucoproteína multiadhesiva?	El proteoglucano hidrata/resiste compresión; la glucoproteína une células y matriz.
+Capítulo 6	Comparaciones clave	¿Qué diferencia principal hay entre colágeno tipo I y tipo III?	Tipo I forma fibras fuertes; tipo III forma fibras reticulares finas.
+Capítulo 6	Comparaciones clave	¿Qué diferencia principal hay entre colágeno tipo I y tipo IV?	Tipo I forma fibrillas; tipo IV forma redes en lámina basal.
+Capítulo 6	Comparaciones clave	¿Qué diferencia principal hay entre colágeno tipo III y tipo IV?	Tipo III forma fibras reticulares; tipo IV forma redes laminares.
+Capítulo 6	Comparaciones clave	¿Qué diferencia principal hay entre elastina y fibrilina?	Elastina aporta elasticidad; fibrilina forma microfibrillas de soporte.
+Capítulo 6	Comparaciones clave	¿Qué diferencia principal hay entre cicatriz y tejido normal?	La cicatriz tiene más colágeno denso y menos organización funcional.
+Capítulo 6	Histología 101	¿Cuál es la idea central del tejido conjuntivo?	Células dispersas dentro de una matriz extracelular abundante.
+Capítulo 6	Histología 101	¿Qué componente del tejido conjuntivo varía más entre subtipos?	La matriz extracelular.
+Capítulo 6	Histología 101	¿Qué célula mantiene la matriz extracelular del tejido conjuntivo?	Fibroblasto.
+Capítulo 6	Histología 101	¿Qué fibras dan resistencia al tejido conjuntivo?	Fibras de colágeno.
+Capítulo 6	Histología 101	¿Qué fibras forman redes de sostén celular?	Fibras reticulares.
+Capítulo 6	Histología 101	¿Qué fibras aportan elasticidad?	Fibras elásticas.
+Capítulo 6	Histología 101	¿Qué moléculas de la sustancia fundamental atraen agua?	GAG.
+Capítulo 6	Histología 101	¿Qué moléculas de la MEC conectan células con matriz?	Glucoproteínas multiadhesivas.
+Capítulo 6	Histología 101	¿Qué célula conjuntiva participa en fagocitosis y presentación de antígeno?	Macrófago.
+Capítulo 6	Histología 101	¿Qué célula conjuntiva participa en reacciones alérgicas?	Mastocito.
+Capítulo 6	Histología 101	¿Qué célula conjuntiva produce anticuerpos?	Célula plasmática.
+Capítulo 6	Histología 101	¿Qué célula conjuntiva contrae heridas?	Miofibroblasto.

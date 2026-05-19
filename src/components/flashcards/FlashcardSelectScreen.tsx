@@ -1,4 +1,8 @@
-import { useMemo } from "react"
+import {
+  useMemo,
+  useState
+} from "react"
+
 import logoImage from "@/assets/logo.png"
 
 import {
@@ -15,9 +19,14 @@ import {
   type FlashcardSource
 } from "@/lib/flashcardDecks"
 
+import {
+  filterActiveFlashcards,
+  loadSuspendedFlashcardIds
+} from "@/lib/suspendedFlashcards"
+
 type Props = {
   onBack: () => void
-  onCreateFlashcard: () => void
+  onShowSuspended: () => void
   onSelectTopic: (
     topic: string,
     source: FlashcardSource
@@ -29,17 +38,261 @@ type Props = {
   ) => void
 }
 
-type TopicGroup = {
-  topic: string
+type BigGroup = {
+  title: string
+  description: string
+  subtopics: string[]
+}
+
+type ChapterMenu = {
   chapter: string
-  book: string
-  count: number
-  dueCount: number
-  subtopics: {
-    subtopic: string
-    count: number
-    dueCount: number
-  }[]
+  title: string
+  groups: BigGroup[]
+}
+
+const CHAPTER_MENUS: ChapterMenu[] = [
+  {
+    chapter: "Capítulo 4",
+    title: "Tejidos",
+    groups: [
+      {
+        title: "Generalidades",
+        description: "Concepto de tejido, clasificación y criterios generales.",
+        subtopics: [
+          "Fundamentos de los tejidos",
+          "Clasificación de los tejidos",
+          "Identificación de los tejidos"
+        ]
+      },
+      {
+        title: "Tejidos básicos",
+        description: "Epitelial, conjuntivo, muscular y nervioso.",
+        subtopics: [
+          "Epitelio",
+          "Tejido conjuntivo",
+          "Tejido muscular",
+          "Tejido nervioso"
+        ]
+      },
+      {
+        title: "Histogénesis y derivados",
+        description: "Capas germinales, derivados embrionarios y teratomas.",
+        subtopics: [
+          "Histogénesis de los tejidos",
+          "Derivados ectodérmicos",
+          "Derivados mesodérmicos",
+          "Derivados endodérmicos",
+          "Teratomas"
+        ]
+      }
+    ]
+  },
+  {
+    chapter: "Capítulo 5",
+    title: "Tejido epitelial",
+    groups: [
+      {
+        title: "Generalidades",
+        description: "Bases del epitelio, clasificación, funciones y polaridad.",
+        subtopics: [
+          "Fundamentos del tejido epitelial",
+          "Tejido epitelioide",
+          "Barrera epitelial",
+          "Clasificación de los epitelios",
+          "Epitelio seudoestratificado",
+          "Urotelio",
+          "Epitelios con nombres especiales",
+          "Funciones epiteliales",
+          "Polaridad celular",
+          "Metaplasia epitelial",
+          "Membranas mucosas y serosas"
+        ]
+      },
+      {
+        title: "Membrana apical",
+        description: "Microvellosidades, estereocilios, cilios y ciliogénesis.",
+        subtopics: [
+          "Región apical",
+          "Microvellosidades",
+          "Estereocilios",
+          "Cilios",
+          "Cilios móviles",
+          "Cuerpo basal",
+          "Cilios primarios",
+          "Cilios nodales",
+          "Ciliogénesis",
+          "Discinesia ciliar primaria"
+        ]
+      },
+      {
+        title: "Membrana lateral",
+        description: "Complejos de unión, zónulas, desmosomas e interdigitaciones.",
+        subtopics: [
+          "Región lateral",
+          "Complejo de unión",
+          "Uniones ocluyentes",
+          "Uniones adherentes",
+          "Zónula adherente",
+          "Zónuladherente",
+          "Fascia adherente",
+          "Desmosomas",
+          "Uniones comunicantes",
+          "Interdigitaciones laterales",
+          "Patógenos y complejos de unión"
+        ]
+      },
+      {
+        title: "Membrana basal",
+        description: "Lámina basal, colágeno IV, adhesiones focales y hemidesmosomas.",
+        subtopics: [
+          "Región basal",
+          "Membrana basal",
+          "Lámina basal",
+          "Lámina reticular",
+          "Colágeno tipo IV",
+          "Otros colágenos de lámina basal",
+          "Autoensamblado de lámina basal",
+          "Funciones de la lámina basal",
+          "Adhesiones focales",
+          "Hemidesmosomas",
+          "Pliegues basales"
+        ]
+      },
+      {
+        title: "Glándulas",
+        description: "Glándulas exocrinas/endocrinas, secreción y renovación epitelial.",
+        subtopics: [
+          "Glándulas",
+          "Glándulas exocrinas",
+          "Glándulas endocrinas",
+          "Señalización paracrina",
+          "Señalización autocrina",
+          "Mecanismos de secreción exocrina",
+          "Secreción merocrina",
+          "Secreción apocrina",
+          "Secreción holocrina",
+          "Glándulas unicelulares",
+          "Glándulas multicelulares",
+          "Clasificación de glándulas exocrinas",
+          "Secreciones mucosas",
+          "Secreciones serosas",
+          "Glándulas mixtas",
+          "Células mioepiteliales",
+          "Renovación epitelial"
+        ]
+      }
+    ]
+  },
+  {
+    chapter: "Capítulo 6",
+    title: "Tejido conjuntivo",
+    groups: [
+      {
+        title: "Generalidades",
+        description: "Concepto, clasificación, tejido embrionario y tejido conjuntivo adulto.",
+        subtopics: [
+          "Fundamentos del tejido conjuntivo",
+          "Clasificación del tejido conjuntivo",
+          "Tejido conjuntivo embrionario",
+          "Mesénquima",
+          "Tejido conjuntivo mucoso",
+          "Tejido conjuntivo del adulto",
+          "Tejido conjuntivo laxo",
+          "Tejido conjuntivo denso irregular",
+          "Tejido conjuntivo denso regular",
+          "Tendones",
+          "Ligamentos",
+          "Aponeurosis",
+          "Comparación laxo-denso",
+          "Histología 101"
+        ]
+      },
+      {
+        title: "Fibras",
+        description: "Colágenas, reticulares, elásticas y tipos de colágeno.",
+        subtopics: [
+          "Fibras del tejido conjuntivo",
+          "Fibras de colágeno",
+          "Fibrillas de colágeno",
+          "Tipos de colágeno",
+          "Colágenos fibrilares",
+          "Colágenos FACIT",
+          "Colágeno tipo IV",
+          "Colágeno tipo VII",
+          "Colágeno tipo XVII",
+          "Colágeno tipo XVIII",
+          "Biosíntesis del colágeno",
+          "Degradación del colágeno",
+          "Colagenopatías",
+          "Fibras reticulares",
+          "Fibras elásticas",
+          "Material elástico",
+          "Comparación de fibras"
+        ]
+      },
+      {
+        title: "Matriz extracelular",
+        description: "Sustancia fundamental, GAG, proteoglucanos y glucoproteínas multiadhesivas.",
+        subtopics: [
+          "Matriz extracelular",
+          "Sustancia fundamental",
+          "Glucosaminoglucanos",
+          "Proteoglucanos",
+          "Agregados de proteoglucanos",
+          "Glucoproteínas multiadhesivas",
+          "Fibronectina",
+          "Laminina",
+          "Tenascina",
+          "MEC y comunicación celular",
+          "MEC y migración celular",
+          "MEC y barrera",
+          "Integración fibras-MEC"
+        ]
+      },
+      {
+        title: "Células",
+        description: "Fibroblastos, macrófagos, mastocitos, adipocitos y células inmunes.",
+        subtopics: [
+          "Células del tejido conjuntivo",
+          "Fibroblastos",
+          "Miofibroblastos",
+          "Macrófagos",
+          "Sistema fagocítico mononuclear",
+          "Mastocitos",
+          "Basófilos",
+          "Adipocitos",
+          "Células madre adultas",
+          "Pericitos",
+          "Linfocitos",
+          "Células plasmáticas",
+          "Neutrófilos",
+          "Eosinófilos",
+          "Monocitos",
+          "Integración células-MEC"
+        ]
+      },
+      {
+        title: "Inflamación y reparación",
+        description: "Inflamación, cicatrización, fibrosis, edema y fotoenvejecimiento.",
+        subtopics: [
+          "Inflamación",
+          "Reparación del tejido conjuntivo",
+          "Cicatrización",
+          "Fibrosis",
+          "Fotoenvejecimiento",
+          "Edema",
+          "Identificación histológica",
+          "Comparaciones clave"
+        ]
+      }
+    ]
+  }
+]
+
+function encodeSubtopicGroup(
+  subtopics: string[]
+) {
+  return `__subtopics:${subtopics.join("||")}`
 }
 
 function formatDuePreview(dueDate: string) {
@@ -94,70 +347,21 @@ function getNextDueDate(
   return new Date(dates[0]).toISOString()
 }
 
-function getTopicGroups(
+function getDueCount(
   cards: any[],
   progress: Record<string, any>
-): TopicGroup[] {
-
-  const groups: Record<string, TopicGroup> = {}
-
-  for (const card of cards) {
-
-    const key =
-      `${card.chapter}__${card.topic}`
-
-    const due =
-      isFsrsCardDue(
-        card.id,
-        progress
-      )
-
-    if (!groups[key]) {
-      groups[key] = {
-        topic: card.topic,
-        chapter: card.chapter,
-        book: card.book,
-        count: 0,
-        dueCount: 0,
-        subtopics: []
-      }
-    }
-
-    groups[key].count += 1
-
-    if (due) {
-      groups[key].dueCount += 1
-    }
-
-    const subtopicName =
-      card.subtopic || "General"
-
-    const existing =
-      groups[key].subtopics.find(
-        item => item.subtopic === subtopicName
-      )
-
-    if (existing) {
-      existing.count += 1
-
-      if (due) {
-        existing.dueCount += 1
-      }
-    } else {
-      groups[key].subtopics.push({
-        subtopic: subtopicName,
-        count: 1,
-        dueCount: due ? 1 : 0
-      })
-    }
-  }
-
-  return Object.values(groups)
+) {
+  return cards.filter(card =>
+    isFsrsCardDue(
+      card.id,
+      progress
+    )
+  ).length
 }
 
 export default function FlashcardSelectScreen({
   onBack,
-  onCreateFlashcard,
+  onShowSuspended,
   onSelectTopic,
   onSelectSubtopic
 }: Props) {
@@ -170,50 +374,55 @@ export default function FlashcardSelectScreen({
 
   const defaultCards =
     useMemo(
-      () => getDefaultFlashcards(),
+      () => filterActiveFlashcards(getDefaultFlashcards()),
       []
     )
 
   const myCards =
     useMemo(
-      () => getMyFlashcards(),
+      () => filterActiveFlashcards(getMyFlashcards()),
       []
     )
 
-  const defaultGroups =
-    getTopicGroups(
-      defaultCards,
-      storage.cards
+  const availableChapterMenus =
+    useMemo(
+      () =>
+        CHAPTER_MENUS.filter(menu =>
+          defaultCards.some(card => card.chapter === menu.chapter)
+        ),
+      [defaultCards]
     )
 
-  const defaultDue =
-    defaultCards.filter(card =>
-      isFsrsCardDue(
-        card.id,
-        storage.cards
-      )
-    ).length
+  const [selectedChapter, setSelectedChapter] =
+    useState(
+      availableChapterMenus[0]?.chapter || "Capítulo 5"
+    )
 
-  const myDue =
-    myCards.filter(card =>
-      isFsrsCardDue(
-        card.id,
-        storage.cards
-      )
-    ).length
+  const currentMenu =
+    availableChapterMenus.find(menu => menu.chapter === selectedChapter) ||
+    availableChapterMenus[0]
 
   const totalReviews =
     storage.reviews.length
 
-  const nextDefaultDue =
-    getNextDueDate(
-      defaultCards.map(card => card.id),
+  const suspendedCount =
+    loadSuspendedFlashcardIds().length
+
+  const defaultDue =
+    getDueCount(
+      defaultCards,
       storage.cards
     )
 
-  const nextMyDue =
+  const myDue =
+    getDueCount(
+      myCards,
+      storage.cards
+    )
+
+  const nextDefaultDue =
     getNextDueDate(
-      myCards.map(card => card.id),
+      defaultCards.map(card => card.id),
       storage.cards
     )
 
@@ -310,7 +519,7 @@ export default function FlashcardSelectScreen({
                 sm:text-4xl
                 lg:text-5xl
               ">
-                Elegí un deck
+                Histología
               </h1>
 
               <p className="
@@ -321,188 +530,23 @@ export default function FlashcardSelectScreen({
                 text-zinc-400
                 sm:text-base
               ">
-                Las flashcards default y tus temas personales se mantienen separados.
+                Elegí un capítulo a la izquierda y repasá por bloques grandes.
               </p>
             </div>
 
             <div className="
-              rounded-3xl
-              border
-              border-zinc-800
-              bg-zinc-950
-              px-5
-              py-4
+              grid
+              gap-3
+              sm:grid-cols-4
             ">
-              <p className="
-                text-xs
-                font-black
-                uppercase
-                tracking-[0.2em]
-                text-zinc-500
-              ">
-                Total reviews
-              </p>
-
-              <p className="
-                mt-1
-                text-3xl
-                font-black
-                text-white
-              ">
-                {totalReviews}
-              </p>
-            </div>
-          </div>
-
-          <div className="
-            mb-8
-            grid
-            gap-4
-            md:grid-cols-2
-          ">
-            <div className="
-              rounded-[1.75rem]
-              border
-              border-zinc-800
-              bg-zinc-950
-              p-5
-            ">
-              <p className="
-                text-xs
-                font-black
-                uppercase
-                tracking-[0.2em]
-                text-violet-300
-              ">
-                Default flashcards
-              </p>
-
-              <h2 className="
-                mt-3
-                text-3xl
-                font-black
-                text-white
-              ">
-                Premade decks
-              </h2>
-
-              <p className="
-                mt-3
-                text-sm
-                text-zinc-400
-              ">
-                {defaultCards.length} tarjetas · {defaultDue} pendientes
-              </p>
-
-              {defaultDue === 0 && nextDefaultDue && (
-                <p className="
-                  mt-3
-                  text-sm
-                  font-black
-                  text-emerald-300
-                ">
-                  Próximo review {formatDuePreview(nextDefaultDue)}
-                </p>
-              )}
-            </div>
-
-            <button
-              type="button"
-              onClick={onCreateFlashcard}
-              className="
-                rounded-[1.75rem]
+              <div className="
+                rounded-3xl
                 border
-                border-emerald-500/30
-                bg-emerald-500/10
-                p-5
-                text-left
-                transition-all
-                hover:bg-emerald-500/20
-              "
-            >
-              <p className="
-                text-xs
-                font-black
-                uppercase
-                tracking-[0.2em]
-                text-emerald-300
+                border-zinc-800
+                bg-zinc-950
+                px-5
+                py-4
               ">
-                My flashcards
-              </p>
-
-              <h2 className="
-                mt-3
-                text-3xl
-                font-black
-                text-white
-              ">
-                Mis temas
-              </h2>
-
-              <p className="
-                mt-3
-                text-sm
-                text-zinc-300
-              ">
-                Crear temas y añadir tarjetas rápido.
-              </p>
-
-              <p className="
-                mt-3
-                text-sm
-                text-zinc-400
-              ">
-                {myCards.length} tarjetas · {myDue} pendientes
-              </p>
-
-              {myDue === 0 && nextMyDue && (
-                <p className="
-                  mt-3
-                  text-sm
-                  font-black
-                  text-emerald-200
-                ">
-                  Próximo review {formatDuePreview(nextMyDue)}
-                </p>
-              )}
-
-              <p className="
-                mt-5
-                text-sm
-                font-black
-                text-emerald-200
-              ">
-                Abrir mis temas →
-              </p>
-            </button>
-          </div>
-
-          <h2 className="
-            mb-4
-            text-2xl
-            font-black
-            text-white
-          ">
-            Default flashcards
-          </h2>
-
-          <div className="
-            grid
-            gap-4
-            md:grid-cols-2
-            xl:grid-cols-3
-          ">
-            {defaultGroups.map(group => (
-              <div
-                key={`${group.chapter}-${group.topic}`}
-                className="
-                  rounded-[1.75rem]
-                  border
-                  border-zinc-800
-                  bg-zinc-950
-                  p-5
-                "
-              >
                 <p className="
                   text-xs
                   font-black
@@ -510,98 +554,415 @@ export default function FlashcardSelectScreen({
                   tracking-[0.2em]
                   text-zinc-500
                 ">
-                  {group.chapter} · {group.book}
+                  Reviews
                 </p>
 
-                <h3 className="
-                  mt-3
-                  text-2xl
+                <p className="
+                  mt-1
+                  text-3xl
                   font-black
                   text-white
                 ">
-                  {group.topic}
-                </h3>
+                  {totalReviews}
+                </p>
+              </div>
 
-                <button
-                  type="button"
-                  disabled={group.dueCount === 0}
-                  onClick={() => onSelectTopic(group.topic, "default")}
-                  className={`
-                    mt-5
-                    w-full
-                    rounded-2xl
-                    px-4
-                    py-3
-                    text-sm
-                    font-black
-
-                    ${
-                      group.dueCount > 0
-                        ? "bg-violet-500/15 text-violet-200 hover:bg-violet-500/25"
-                        : "cursor-not-allowed bg-zinc-900 text-zinc-600"
-                    }
-                  `}
-                >
-                  {group.dueCount > 0
-                    ? `Repasar tema · ${group.dueCount} pendientes`
-                    : "Sin pendientes ahora"}
-                </button>
-
-                <div className="
-                  mt-4
-                  grid
-                  gap-2
+              <div className="
+                rounded-3xl
+                border
+                border-zinc-800
+                bg-zinc-950
+                px-5
+                py-4
+              ">
+                <p className="
+                  text-xs
+                  font-black
+                  uppercase
+                  tracking-[0.2em]
+                  text-zinc-500
                 ">
-                  {group.subtopics.map(subtopic => (
+                  Pendientes
+                </p>
+
+                <p className="
+                  mt-1
+                  text-3xl
+                  font-black
+                  text-white
+                ">
+                  {defaultDue + myDue}
+                </p>
+              </div>
+
+              <button
+                type="button"
+                onClick={onShowSuspended}
+                className="
+                  rounded-3xl
+                  border
+                  border-amber-500/30
+                  bg-amber-500/10
+                  px-5
+                  py-4
+                  text-left
+                  hover:bg-amber-500/20
+                "
+              >
+                <p className="
+                  text-xs
+                  font-black
+                  uppercase
+                  tracking-[0.2em]
+                  text-amber-300
+                ">
+                  Suspendidas
+                </p>
+
+                <p className="
+                  mt-1
+                  text-3xl
+                  font-black
+                  text-white
+                ">
+                  {suspendedCount}
+                </p>
+
+                <p className="
+                  mt-2
+                  text-xs
+                  leading-relaxed
+                  text-amber-100/80
+                ">
+                  Suspende cartas que creas que no te servirán para que no vuelvan a aparecer en tus repasos.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                onClick={() =>
+                  onSelectTopic(
+                    "__reviewed_due",
+                    "default"
+                  )
+                }
+                className="
+                  rounded-3xl
+                  border
+                  border-sky-500/30
+                  bg-sky-500/10
+                  px-5
+                  py-4
+                  text-left
+                  hover:bg-sky-500/20
+                "
+              >
+                <p className="
+                  text-xs
+                  font-black
+                  uppercase
+                  tracking-[0.2em]
+                  text-sky-300
+                ">
+                  Due primero
+                </p>
+
+                <p className="
+                  mt-1
+                  text-3xl
+                  font-black
+                  text-white
+                ">
+                  Repasar
+                </p>
+
+                <p className="
+                  mt-2
+                  text-xs
+                  leading-relaxed
+                  text-sky-100/80
+                ">
+                  Terminá primero las cartas ya repasadas que vencieron antes de hacer nuevas.
+                </p>
+              </button>
+
+            </div>
+          </div>
+
+          {defaultDue === 0 && nextDefaultDue && (
+            <p className="
+              mb-6
+              rounded-2xl
+              border
+              border-emerald-500/20
+              bg-emerald-500/10
+              px-4
+              py-3
+              text-sm
+              font-black
+              text-emerald-300
+            ">
+              No hay pendientes ahora. Próximo review {formatDuePreview(nextDefaultDue)}.
+            </p>
+          )}
+
+          <div className="
+            grid
+            gap-5
+            lg:grid-cols-[280px_1fr]
+          ">
+            <aside className="
+              rounded-[1.75rem]
+              border
+              border-zinc-800
+              bg-zinc-950
+              p-4
+            ">
+              <p className="
+                mb-3
+                text-xs
+                font-black
+                uppercase
+                tracking-[0.2em]
+                text-zinc-500
+              ">
+                Capítulos
+              </p>
+
+              <div className="
+                grid
+                gap-2
+              ">
+                {availableChapterMenus.map(menu => {
+                  const chapterCards =
+                    defaultCards.filter(card =>
+                      card.chapter === menu.chapter
+                    )
+
+                  const chapterDue =
+                    getDueCount(
+                      chapterCards,
+                      storage.cards
+                    )
+
+                  const isSelected =
+                    menu.chapter === currentMenu?.chapter
+
+                  return (
                     <button
-                      key={subtopic.subtopic}
+                      key={menu.chapter}
                       type="button"
-                      disabled={subtopic.dueCount === 0}
+                      onClick={() => setSelectedChapter(menu.chapter)}
+                      className={`
+                        rounded-2xl
+                        border
+                        px-4
+                        py-4
+                        text-left
+                        transition-all
+
+                        ${
+                          isSelected
+                            ? "border-violet-500/40 bg-violet-500/15"
+                            : "border-zinc-800 bg-zinc-900 hover:border-zinc-700"
+                        }
+                      `}
+                    >
+                      <p className="
+                        text-xs
+                        font-black
+                        uppercase
+                        tracking-[0.18em]
+                        text-zinc-500
+                      ">
+                        {menu.chapter}
+                      </p>
+
+                      <p className="
+                        mt-2
+                        text-lg
+                        font-black
+                        text-white
+                      ">
+                        {menu.title}
+                      </p>
+
+                      <p className="
+                        mt-2
+                        text-sm
+                        text-zinc-400
+                      ">
+                        {chapterDue}/{chapterCards.length} pendientes
+                      </p>
+                    </button>
+                  )
+                })}
+              </div>
+            </aside>
+
+            <section className="
+              max-h-[68vh]
+              overflow-y-auto
+              rounded-[1.75rem]
+              border
+              border-zinc-800
+              bg-zinc-950
+              p-4
+            ">
+              {currentMenu && (
+                <>
+                  <div className="
+                    mb-4
+                    flex
+                    flex-col
+                    gap-3
+                    sm:flex-row
+                    sm:items-end
+                    sm:justify-between
+                  ">
+                    <div>
+                      <p className="
+                        text-xs
+                        font-black
+                        uppercase
+                        tracking-[0.2em]
+                        text-violet-300
+                      ">
+                        {currentMenu.chapter}
+                      </p>
+
+                      <h2 className="
+                        mt-2
+                        text-3xl
+                        font-black
+                        text-white
+                      ">
+                        {currentMenu.title}
+                      </h2>
+                    </div>
+
+                    <button
+                      type="button"
                       onClick={() =>
-                        onSelectSubtopic(
-                          group.topic,
-                          subtopic.subtopic,
+                        onSelectTopic(
+                          currentMenu.chapter,
                           "default"
                         )
                       }
-                      className={`
-                        flex
-                        items-center
-                        justify-between
-                        gap-3
+                      className="
                         rounded-2xl
-                        border
+                        bg-violet-500/15
                         px-4
                         py-3
                         text-sm
                         font-black
-
-                        ${
-                          subtopic.dueCount > 0
-                            ? "border-zinc-800 bg-zinc-900 text-zinc-200 hover:border-violet-500/40"
-                            : "cursor-not-allowed border-zinc-900 bg-zinc-950 text-zinc-600"
-                        }
-                      `}
+                        text-violet-200
+                        hover:bg-violet-500/25
+                      "
                     >
-                      <span>
-                        {subtopic.subtopic}
-                      </span>
-
-                      <span className="
-                        rounded-xl
-                        bg-black/30
-                        px-2.5
-                        py-1
-                        text-xs
-                        text-zinc-400
-                      ">
-                        {subtopic.dueCount}/{subtopic.count}
-                      </span>
+                      Repasar todo el capítulo
                     </button>
-                  ))}
-                </div>
-              </div>
-            ))}
+                  </div>
+
+                  <div className="
+                    grid
+                    gap-3
+                  ">
+                    {currentMenu.groups.map(group => {
+                      const groupCards =
+                        defaultCards.filter(card =>
+                          card.chapter === currentMenu.chapter &&
+                          group.subtopics.includes(card.subtopic)
+                        )
+
+                      const groupDue =
+                        getDueCount(
+                          groupCards,
+                          storage.cards
+                        )
+
+                      return (
+                        <button
+                          key={group.title}
+                          type="button"
+                          disabled={groupCards.length === 0}
+                          onClick={() =>
+                            onSelectSubtopic(
+                              currentMenu.chapter,
+                              encodeSubtopicGroup(group.subtopics),
+                              "default"
+                            )
+                          }
+                          className={`
+                            rounded-[1.5rem]
+                            border
+                            p-5
+                            text-left
+                            transition-all
+
+                            ${
+                              groupCards.length > 0
+                                ? "border-zinc-800 bg-zinc-900 hover:border-violet-500/40 hover:bg-zinc-900/80"
+                                : "cursor-not-allowed border-zinc-900 bg-zinc-950 opacity-50"
+                            }
+                          `}
+                        >
+                          <div className="
+                            flex
+                            items-start
+                            justify-between
+                            gap-4
+                          ">
+                            <div>
+                              <h3 className="
+                                text-2xl
+                                font-black
+                                text-white
+                              ">
+                                {group.title}
+                              </h3>
+
+                              <p className="
+                                mt-2
+                                text-sm
+                                leading-relaxed
+                                text-zinc-400
+                              ">
+                                {group.description}
+                              </p>
+                            </div>
+
+                            <span className="
+                              shrink-0
+                              rounded-2xl
+                              bg-black/30
+                              px-3
+                              py-2
+                              text-sm
+                              font-black
+                              text-zinc-300
+                            ">
+                              {groupDue}/{groupCards.length}
+                            </span>
+                          </div>
+
+                          <p className="
+                            mt-4
+                            text-xs
+                            font-black
+                            uppercase
+                            tracking-[0.18em]
+                            text-zinc-500
+                          ">
+                            {group.subtopics.length} subtemas incluidos
+                          </p>
+                        </button>
+                      )
+                    })}
+                  </div>
+                </>
+              )}
+            </section>
           </div>
         </section>
       </div>
