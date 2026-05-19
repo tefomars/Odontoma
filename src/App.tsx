@@ -12,6 +12,10 @@ import FlashcardSubjectScreen from "./components/flashcards/FlashcardSubjectScre
 import MyFlashcardTopicsScreen from "./components/flashcards/MyFlashcardTopicsScreen"
 import UserTopicScreen from "./components/flashcards/UserTopicScreen"
 import UserDeckMenuScreen from "./components/flashcards/UserDeckMenuScreen"
+import SuspendedFlashcardsScreen from "./components/flashcards/SuspendedFlashcardsScreen"
+import MyQuizDecksScreen from "./components/MyQuizDecksScreen"
+import UserQuizDeckScreen from "./components/UserQuizDeckScreen"
+import UserQuizDeckMenuScreen from "./components/UserQuizDeckMenuScreen"
 
 import { questions } from "@/content/histologia"
 
@@ -56,6 +60,15 @@ export default function App() {
     useState<string | null>(null)
 
   const [editingUserTopicId, setEditingUserTopicId] =
+    useState<string | null>(null)
+
+  const [showSuspendedFlashcards, setShowSuspendedFlashcards] =
+    useState(false)
+
+  const [activeUserQuizDeckId, setActiveUserQuizDeckId] =
+    useState<string | null>(null)
+
+  const [editingUserQuizDeckId, setEditingUserQuizDeckId] =
     useState<string | null>(null)
 
   const [started, setStarted] =
@@ -509,6 +522,8 @@ export default function App() {
     setShowMyFlashcardTopics(false)
     setActiveUserTopicId(null)
     setEditingUserTopicId(null)
+    setShowSuspendedFlashcards(false)
+    setActiveUserQuizDeckId(null)
 
     setStarted(false)
     setFinished(false)
@@ -557,6 +572,18 @@ export default function App() {
             setShowMyFlashcardTopics(true)
           }}
           onSelectSubject={(subject) => setSelectedFlashcardSubject(subject)}
+        />
+
+      )
+    }
+
+    if (showSuspendedFlashcards) {
+
+      return (
+
+        <SuspendedFlashcardsScreen
+          onBack={() => setShowSuspendedFlashcards(false)}
+          onMenu={goToMainMenu}
         />
 
       )
@@ -628,7 +655,7 @@ export default function App() {
 
         <FlashcardSelectScreen
           onBack={() => setSelectedFlashcardSubject(null)}
-          onCreateFlashcard={() => setShowMyFlashcardTopics(true)}
+          onShowSuspended={() => setShowSuspendedFlashcards(true)}
           onSelectTopic={(topic, source) => {
             setSelectedFlashcardTopic(topic)
             setSelectedFlashcardSubtopic(null)
@@ -672,9 +699,78 @@ export default function App() {
 
       <HomeScreen
         onMainMenu={goToMainMenu}
+        onSelectMyQuizzes={() => {
+          setSelectedSubject("my-quizzes")
+          setActiveUserQuizDeckId(null)
+        }}
         onSelectSubject={(subject) => {
           setSelectedSubject(subject)
         }}
+      />
+
+    )
+  }
+
+  if (selectedSubject === "my-quizzes" && !started) {
+
+    function startUserQuiz(quizQuestions: any[]) {
+
+      const selected =
+        shuffleArray(quizQuestions)
+          .map(shuffleQuestion)
+
+      setSessionQuestions(selected)
+      setCurrent(0)
+      setScore(0)
+      setFinished(false)
+      setStarted(true)
+      setHasPausedSession(false)
+      setActiveUserQuizDeckId(null)
+      setEditingUserQuizDeckId(null)
+
+      localStorage.removeItem(
+        "odontoma_paused_session"
+      )
+    }
+
+    if (editingUserQuizDeckId) {
+
+      return (
+
+        <UserQuizDeckScreen
+          deckId={editingUserQuizDeckId}
+          onBack={() => setEditingUserQuizDeckId(null)}
+          onMainMenu={goToMainMenu}
+          onReview={startUserQuiz}
+        />
+
+      )
+    }
+
+    if (activeUserQuizDeckId) {
+
+      return (
+
+        <UserQuizDeckMenuScreen
+          deckId={activeUserQuizDeckId}
+          onBack={() => setActiveUserQuizDeckId(null)}
+          onMainMenu={goToMainMenu}
+          onReview={startUserQuiz}
+          onEdit={() => {
+            setEditingUserQuizDeckId(activeUserQuizDeckId)
+            setActiveUserQuizDeckId(null)
+          }}
+        />
+
+      )
+    }
+
+    return (
+
+      <MyQuizDecksScreen
+        onBack={() => setSelectedSubject(null)}
+        onMainMenu={goToMainMenu}
+        onSelectDeck={(deckId) => setActiveUserQuizDeckId(deckId)}
       />
 
     )

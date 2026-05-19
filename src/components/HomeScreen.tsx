@@ -1,6 +1,7 @@
 import logoImage from "@/assets/logo.png"
 type Props = {
   onSelectSubject: (subject: string) => void
+  onSelectMyQuizzes?: () => void
   onMainMenu?: () => void
 }
 
@@ -42,6 +43,7 @@ const subjects = [
 
 export default function HomeScreen({
   onSelectSubject,
+  onSelectMyQuizzes,
   onMainMenu
 }: Props) {
 
@@ -253,6 +255,83 @@ export default function HomeScreen({
             )
           })}
 
+        </div>
+
+        <div className="
+          mt-6
+        ">
+          <button
+            type="button"
+            onClick={onSelectMyQuizzes}
+            className="
+              group
+              w-full
+              overflow-hidden
+              rounded-[2rem]
+              border
+              border-emerald-500/30
+              bg-emerald-500/10
+              p-6
+              text-left
+              transition-all
+              hover:bg-emerald-500/20
+            "
+          >
+            <div className="
+              flex
+              flex-col
+              gap-4
+              sm:flex-row
+              sm:items-center
+              sm:justify-between
+            ">
+              <div>
+                <p className="
+                  text-xs
+                  font-black
+                  uppercase
+                  tracking-[0.25em]
+                  text-emerald-300
+                ">
+                  Personal
+                </p>
+
+                <h2 className="
+                  mt-2
+                  text-3xl
+                  font-black
+                  text-white
+                ">
+                  My quizzes
+                </h2>
+
+                <p className="
+                  mt-2
+                  max-w-2xl
+                  text-sm
+                  leading-relaxed
+                  text-zinc-300
+                ">
+                  Creá tus propios quizzes, importá preguntas y exportá decks individuales.
+                </p>
+              </div>
+
+              <div className="
+                flex
+                h-12
+                w-12
+                items-center
+                justify-center
+                rounded-2xl
+                bg-white/10
+                text-2xl
+                transition-all
+                group-hover:rotate-12
+              ">
+                →
+              </div>
+            </div>
+          </button>
         </div>
 
       </div>

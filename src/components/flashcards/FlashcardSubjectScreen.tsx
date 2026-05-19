@@ -1,5 +1,9 @@
 import logoImage from "@/assets/logo.png"
 
+import {
+  getDefaultFlashcards
+} from "@/lib/flashcardDecks"
+
 import FsrsOptimizerPanel from "@/components/flashcards/FsrsOptimizerPanel"
 
 import {
@@ -29,7 +33,6 @@ const subjects = [
     description:
       "Flashcards premade de tejidos, epitelio, conjuntivo, cartílago y hueso.",
     available: true,
-    count: 3,
     accent: "from-violet-500/20 to-fuchsia-500/10"
   },
   {
@@ -39,7 +42,6 @@ const subjects = [
     description:
       "Decks premade de enzimas, proteínas, metabolismo y caries dental.",
     available: false,
-    count: 0,
     accent: "from-emerald-500/20 to-teal-500/10"
   },
   {
@@ -49,10 +51,19 @@ const subjects = [
     description:
       "Decks premade de anatomía general, cabeza, cuello y odontología.",
     available: false,
-    count: 0,
     accent: "from-amber-500/20 to-orange-500/10"
   }
 ]
+
+const premadeDeckCount =
+  Math.max(
+    1,
+    new Set(
+      getDefaultFlashcards()
+        .map(card => card.topic)
+        .filter(Boolean)
+    ).size
+  )
 
 export default function FlashcardSubjectScreen({
   onBack,
@@ -422,7 +433,7 @@ export default function FlashcardSubjectScreen({
                       text-zinc-200
                     ">
                       {subject.available
-                        ? `${subject.count} cards`
+                        ? `${premadeDeckCount} mazos`
                         : "Próximamente"}
                     </span>
 

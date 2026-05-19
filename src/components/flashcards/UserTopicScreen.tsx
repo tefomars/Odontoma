@@ -18,6 +18,11 @@ import {
   isFsrsCardDue
 } from "@/lib/fsrs"
 
+import {
+  filterActiveFlashcards,
+  suspendFlashcard
+} from "@/lib/suspendedFlashcards"
+
 type Props = {
   topicId: string
   onBack: () => void
@@ -67,7 +72,7 @@ export default function UserTopicScreen({
 
   const cards =
     useMemo(
-      () => getUserFlashcardsByTopic(topicId),
+      () => filterActiveFlashcards(getUserFlashcardsByTopic(topicId)),
       [topicId, refreshKey]
     )
 
@@ -141,6 +146,22 @@ export default function UserTopicScreen({
       top: 0,
       behavior: "smooth"
     })
+  }
+
+  function suspendCard(cardId: string) {
+
+    const confirmed =
+      window.confirm("¿Suspender esta flashcard? No aparecerá en repasos hasta que la reactives.")
+
+    if (!confirmed) return
+
+    suspendFlashcard(cardId)
+
+    if (editingCardId === cardId) {
+      clearForm()
+    }
+
+    setRefreshKey(prev => prev + 1)
   }
 
   function removeCard(cardId: string) {

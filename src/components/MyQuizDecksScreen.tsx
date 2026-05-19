@@ -1,80 +1,24 @@
 import { useMemo, useState } from "react"
+
 import logoImage from "@/assets/logo.png"
 
 import {
-  createUserFlashcardTopic,
-  loadUserFlashcardTopics,
-  loadUserFlashcards,
-  deleteUserFlashcardTopic
-} from "@/lib/userFlashcards"
-
-import {
-  loadFsrsStorage
-} from "@/lib/flashcardStorage"
-
-import {
-  isFsrsCardDue
-} from "@/lib/fsrs"
-
-import {
-  filterActiveFlashcards
-} from "@/lib/suspendedFlashcards"
+  createUserQuizDeck,
+  deleteUserQuizDeck,
+  getUserQuizQuestionsByDeck,
+  loadUserQuizDecks
+} from "@/lib/userQuizzes"
 
 type Props = {
   onBack: () => void
-  onMenu: () => void
-  onSelectTopic: (topicId: string) => void
+  onMainMenu: () => void
+  onSelectDeck: (deckId: string) => void
 }
 
-function formatDuePreview(dueDate: string) {
-
-  const diffMinutes =
-    Math.max(
-      1,
-      Math.ceil(
-        (new Date(dueDate).getTime() - Date.now()) / 60000
-      )
-    )
-
-  if (diffMinutes < 60) {
-    return `en ${diffMinutes} min`
-  }
-
-  const diffHours =
-    Math.ceil(diffMinutes / 60)
-
-  if (diffHours < 24) {
-    return `en ${diffHours} hora${diffHours === 1 ? "" : "s"}`
-  }
-
-  const diffDays =
-    Math.ceil(diffHours / 24)
-
-  return `en ${diffDays} día${diffDays === 1 ? "" : "s"}`
-}
-
-function getNextDueDate(
-  cardIds: string[],
-  cardsProgress: Record<string, any>
-) {
-
-  const dates =
-    cardIds
-      .map(id => cardsProgress[id]?.dueDate)
-      .filter(Boolean)
-      .map(date => new Date(date).getTime())
-      .filter(time => time > Date.now())
-      .sort((a, b) => a - b)
-
-  if (dates.length === 0) return null
-
-  return new Date(dates[0]).toISOString()
-}
-
-export default function MyFlashcardTopicsScreen({
+export default function MyQuizDecksScreen({
   onBack,
-  onMenu,
-  onSelectTopic
+  onMainMenu,
+  onSelectDeck
 }: Props) {
 
   const [name, setName] =
@@ -86,29 +30,17 @@ export default function MyFlashcardTopicsScreen({
   const [refreshKey, setRefreshKey] =
     useState(0)
 
-  const topics =
+  const decks =
     useMemo(
-      () => loadUserFlashcardTopics(),
+      () => loadUserQuizDecks(),
       [refreshKey]
     )
 
-  const cards =
-    useMemo(
-      () => filterActiveFlashcards(loadUserFlashcards()),
-      [refreshKey]
-    )
-
-  const storage =
-    useMemo(
-      () => loadFsrsStorage(),
-      [refreshKey]
-    )
-
-  function createTopic() {
+  function createDeck() {
 
     if (!name.trim()) return
 
-    createUserFlashcardTopic({
+    createUserQuizDeck({
       name,
       description
     })
@@ -118,20 +50,19 @@ export default function MyFlashcardTopicsScreen({
     setRefreshKey(prev => prev + 1)
   }
 
-  function deleteTopic(
-    topicId: string,
-    topicName: string
+  function deleteDeck(
+    deckId: string,
+    deckName: string
   ) {
 
     const confirmed =
       window.confirm(
-        `¿Borrar el deck "${topicName}"? También se borrarán todas sus flashcards.`
+        `¿Borrar el quiz "${deckName}"? También se borrarán sus preguntas.`
       )
 
     if (!confirmed) return
 
-    deleteUserFlashcardTopic(topicId)
-
+    deleteUserQuizDeck(deckId)
     setRefreshKey(prev => prev + 1)
   }
 
@@ -149,11 +80,12 @@ export default function MyFlashcardTopicsScreen({
     ">
       <div className="
         mx-auto
-        max-w-5xl
+        max-w-6xl
       ">
         <div className="
           mb-5
           flex
+          flex-wrap
           gap-2
         ">
           <button
@@ -178,7 +110,7 @@ export default function MyFlashcardTopicsScreen({
 
           <button
             type="button"
-            onClick={onMenu}
+            onClick={onMainMenu}
             className="
               rounded-2xl
               border
@@ -192,7 +124,7 @@ export default function MyFlashcardTopicsScreen({
               hover:bg-violet-500/20
             "
           >
-            Menú
+            Menú principal
           </button>
         </div>
 
@@ -231,7 +163,7 @@ export default function MyFlashcardTopicsScreen({
                 tracking-[0.25em]
                 text-violet-300
               ">
-                My flashcards
+                My quizzes
               </p>
 
               <h1 className="
@@ -240,7 +172,7 @@ export default function MyFlashcardTopicsScreen({
                 tracking-tight
                 sm:text-4xl
               ">
-                Mis temas
+                Mis quizzes
               </h1>
             </div>
           </div>
@@ -258,7 +190,7 @@ export default function MyFlashcardTopicsScreen({
               font-black
               text-violet-200
             ">
-              Crear tema
+              Crear quiz
             </p>
 
             <div className="
@@ -270,7 +202,7 @@ export default function MyFlashcardTopicsScreen({
               <input
                 value={name}
                 onChange={(event) => setName(event.target.value)}
-                placeholder="Ej: Epitelio examen 1"
+                placeholder="Ej: Parcial 1 histología"
                 className="
                   rounded-2xl
                   border
@@ -303,7 +235,7 @@ export default function MyFlashcardTopicsScreen({
 
               <button
                 type="button"
-                onClick={createTopic}
+                onClick={createDeck}
                 disabled={!name.trim()}
                 className={`
                   rounded-2xl
@@ -328,39 +260,16 @@ export default function MyFlashcardTopicsScreen({
             grid
             gap-4
             md:grid-cols-2
+            xl:grid-cols-3
           ">
-            {topics.length === 0 && (
-              <div className="
-                rounded-[1.5rem]
-                border
-                border-zinc-800
-                bg-zinc-950
-                p-6
-                text-zinc-400
-              ">
-                Todavía no tenés temas. Creá uno arriba para empezar.
-              </div>
-            )}
+            {decks.map(deck => {
 
-            {topics.map(topic => {
-
-              const topicCards =
-                cards.filter(card => card.topic === topic.id)
-
-              const dueCount =
-                topicCards.filter(card =>
-                  isFsrsCardDue(card.id, storage.cards)
-                ).length
-
-              const nextDueDate =
-                getNextDueDate(
-                  topicCards.map(card => card.id),
-                  storage.cards
-                )
+              const count =
+                getUserQuizQuestionsByDeck(deck.id).length
 
               return (
                 <div
-                  key={topic.id}
+                  key={deck.id}
                   className="
                     rounded-[1.5rem]
                     border
@@ -374,85 +283,54 @@ export default function MyFlashcardTopicsScreen({
                 >
                   <button
                     type="button"
-                    onClick={() => onSelectTopic(topic.id)}
+                    onClick={() => onSelectDeck(deck.id)}
                     className="
                       w-full
                       text-left
                     "
                   >
-                  <p className="
-                    text-xs
-                    font-black
-                    uppercase
-                    tracking-[0.2em]
-                    text-zinc-500
-                  ">
-                    Tema personal
-                  </p>
-
-                  <h2 className="
-                    mt-3
-                    text-2xl
-                    font-black
-                    text-white
-                  ">
-                    {topic.name}
-                  </h2>
-
-                  {topic.description && (
                     <p className="
-                      mt-2
-                      text-sm
-                      text-zinc-400
+                      text-xs
+                      font-black
+                      uppercase
+                      tracking-[0.2em]
+                      text-zinc-500
                     ">
-                      {topic.description}
+                      Quiz personal
                     </p>
-                  )}
 
-                  <div className="
-                    mt-5
-                    flex
-                    flex-wrap
-                    gap-2
-                  ">
-                    <span className="
+                    <h2 className="
+                      mt-3
+                      text-2xl
+                      font-black
+                      text-white
+                    ">
+                      {deck.name}
+                    </h2>
+
+                    {deck.description && (
+                      <p className="
+                        mt-2
+                        text-sm
+                        text-zinc-400
+                      ">
+                        {deck.description}
+                      </p>
+                    )}
+
+                    <p className="
+                      mt-5
+                      inline-flex
                       rounded-2xl
                       bg-black/30
-                      px-3
-                      py-1.5
-                      text-xs
+                      px-4
+                      py-2
+                      text-sm
                       font-black
-                      text-zinc-300
+                      text-zinc-200
                     ">
-                      {topicCards.length} tarjetas
-                    </span>
-
-                    <span className="
-                      rounded-2xl
-                      bg-violet-500/15
-                      px-3
-                      py-1.5
-                      text-xs
-                      font-black
-                      text-violet-200
-                    ">
-                      {dueCount} pendientes
-                    </span>
-
-                    {dueCount === 0 && nextDueDate && (
-                      <span className="
-                        rounded-2xl
-                        bg-emerald-500/15
-                        px-3
-                        py-1.5
-                        text-xs
-                        font-black
-                        text-emerald-200
-                      ">
-                        Próximo {formatDuePreview(nextDueDate)}
-                      </span>
-                    )}
-                  </div>
+                      {count} preguntas
+                    </p>
                   </button>
 
                   <div className="
@@ -462,7 +340,7 @@ export default function MyFlashcardTopicsScreen({
                   ">
                     <button
                       type="button"
-                      onClick={() => deleteTopic(topic.id, topic.name)}
+                      onClick={() => deleteDeck(deck.id, deck.name)}
                       className="
                         rounded-2xl
                         border
@@ -476,13 +354,23 @@ export default function MyFlashcardTopicsScreen({
                         hover:bg-red-500/20
                       "
                     >
-                      Borrar deck
+                      Borrar quiz
                     </button>
                   </div>
                 </div>
               )
             })}
           </div>
+
+          {decks.length === 0 && (
+            <p className="
+              mt-6
+              text-sm
+              text-zinc-500
+            ">
+              Todavía no tenés quizzes personales.
+            </p>
+          )}
         </section>
       </div>
     </main>

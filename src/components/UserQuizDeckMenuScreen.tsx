@@ -1,63 +1,40 @@
 import { useMemo } from "react"
 
 import {
-  getUserFlashcardsByTopic,
-  loadUserFlashcardTopics
-} from "@/lib/userFlashcards"
-
-import {
-  loadFsrsStorage
-} from "@/lib/flashcardStorage"
-
-import {
-  isFsrsCardDue
-} from "@/lib/fsrs"
-
-import {
-  filterActiveFlashcards
-} from "@/lib/suspendedFlashcards"
+  getUserQuizQuestionsByDeck,
+  loadUserQuizDecks
+} from "@/lib/userQuizzes"
 
 type Props = {
-  topicId: string
+  deckId: string
   onBack: () => void
-  onMenu: () => void
-  onReview: () => void
+  onMainMenu: () => void
+  onReview: (questions: any[]) => void
   onEdit: () => void
 }
 
-export default function UserDeckMenuScreen({
-  topicId,
+export default function UserQuizDeckMenuScreen({
+  deckId,
   onBack,
-  onMenu,
+  onMainMenu,
   onReview,
   onEdit
 }: Props) {
 
-  const topic =
+  const deck =
     useMemo(
       () =>
-        loadUserFlashcardTopics().find(
-          item => item.id === topicId
+        loadUserQuizDecks().find(
+          item => item.id === deckId
         ),
-      [topicId]
+      [deckId]
     )
 
-  const cards =
+  const questions =
     useMemo(
-      () => filterActiveFlashcards(getUserFlashcardsByTopic(topicId)),
-      [topicId]
+      () => getUserQuizQuestionsByDeck(deckId),
+      [deckId]
     )
-
-  const storage =
-    useMemo(
-      () => loadFsrsStorage(),
-      []
-    )
-
-  const dueCount =
-    cards.filter(card =>
-      isFsrsCardDue(card.id, storage.cards)
-    ).length
 
   return (
     <main className="
@@ -78,6 +55,7 @@ export default function UserDeckMenuScreen({
         <div className="
           mb-5
           flex
+          flex-wrap
           gap-2
         ">
           <button
@@ -97,12 +75,12 @@ export default function UserDeckMenuScreen({
               hover:text-white
             "
           >
-            ← Volver
+            ← My quizzes
           </button>
 
           <button
             type="button"
-            onClick={onMenu}
+            onClick={onMainMenu}
             className="
               rounded-2xl
               border
@@ -116,7 +94,7 @@ export default function UserDeckMenuScreen({
               hover:bg-violet-500/20
             "
           >
-            Menú
+            Menú principal
           </button>
         </div>
 
@@ -138,7 +116,7 @@ export default function UserDeckMenuScreen({
             tracking-[0.25em]
             text-violet-300
           ">
-            My deck
+            My quiz
           </p>
 
           <h1 className="
@@ -147,17 +125,17 @@ export default function UserDeckMenuScreen({
             font-black
             tracking-tight
           ">
-            {topic?.name || "Deck"}
+            {deck?.name || "Quiz"}
           </h1>
 
-          {topic?.description && (
+          {deck?.description && (
             <p className="
               mt-3
               text-sm
               leading-relaxed
               text-zinc-400
             ">
-              {topic.description}
+              {deck.description}
             </p>
           )}
 
@@ -176,19 +154,7 @@ export default function UserDeckMenuScreen({
               font-black
               text-zinc-300
             ">
-              {cards.length} cartas
-            </span>
-
-            <span className="
-              rounded-2xl
-              bg-violet-500/15
-              px-4
-              py-2
-              text-sm
-              font-black
-              text-violet-200
-            ">
-              {dueCount} pendientes
+              {questions.length} preguntas
             </span>
           </div>
 
@@ -200,8 +166,8 @@ export default function UserDeckMenuScreen({
           ">
             <button
               type="button"
-              disabled={dueCount === 0}
-              onClick={onReview}
+              disabled={questions.length === 0}
+              onClick={() => onReview(questions)}
               className={`
                 rounded-[1.75rem]
                 border
@@ -210,7 +176,7 @@ export default function UserDeckMenuScreen({
                 transition-all
 
                 ${
-                  dueCount > 0
+                  questions.length > 0
                     ? "border-emerald-500/30 bg-emerald-500/10 hover:bg-emerald-500/20"
                     : "cursor-not-allowed border-zinc-800 bg-zinc-950 opacity-60"
                 }
@@ -223,7 +189,7 @@ export default function UserDeckMenuScreen({
                 tracking-[0.2em]
                 text-emerald-300
               ">
-                Estudiar
+                Practicar
               </p>
 
               <h2 className="
@@ -241,7 +207,7 @@ export default function UserDeckMenuScreen({
                 leading-relaxed
                 text-zinc-400
               ">
-                Repasar las cartas pendientes con FSRS.
+                Empezar un quiz con las preguntas de este deck.
               </p>
 
               <p className="
@@ -250,9 +216,9 @@ export default function UserDeckMenuScreen({
                 font-black
                 text-emerald-200
               ">
-                {dueCount > 0
-                  ? `${dueCount} pendientes →`
-                  : "Sin pendientes ahora"}
+                {questions.length > 0
+                  ? `${questions.length} preguntas →`
+                  : "Agregá preguntas primero"}
               </p>
             </button>
 
@@ -286,7 +252,7 @@ export default function UserDeckMenuScreen({
                 font-black
                 text-white
               ">
-                Modificar / Agregar cartas
+                Modificar / Agregar preguntas
               </h2>
 
               <p className="
@@ -295,7 +261,7 @@ export default function UserDeckMenuScreen({
                 leading-relaxed
                 text-zinc-400
               ">
-                Crear cartas nuevas, editar cartas existentes o borrar cartas.
+                Crear preguntas, borrar, importar o exportar este deck.
               </p>
 
               <p className="
