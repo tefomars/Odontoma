@@ -1,0 +1,324 @@
+chapter	subtopic	front	back
+Capítulo 7	Fundamentos del cartílago	¿Qué tipo de tejido es el cartílago?	Un tejido conjuntivo especializado.
+Capítulo 7	Fundamentos del cartílago	¿Qué células forman el tejido cartilaginoso?	Condrocitos.
+Capítulo 7	Fundamentos del cartílago	¿Qué componente ocupa la mayor parte del volumen del cartílago?	La matriz extracelular.
+Capítulo 7	Fundamentos del cartílago	¿Qué porcentaje aproximado del volumen del cartílago corresponde a matriz extracelular?	Más del 95%.
+Capítulo 7	Fundamentos del cartílago	¿Qué función tienen los condrocitos en el cartílago?	Producen y mantienen la matriz extracelular.
+Capítulo 7	Fundamentos del cartílago	¿Por qué los condrocitos son indispensables aunque sean escasos?	Porque mantienen la matriz cartilaginosa.
+Capítulo 7	Fundamentos del cartílago	¿Qué característica vascular tiene el cartílago?	Es avascular.
+Capítulo 7	Fundamentos del cartílago	¿Por qué la matriz cartilaginosa es crucial para la supervivencia de los condrocitos?	Porque permite difusión de nutrientes y desechos en un tejido avascular.
+Capítulo 7	Fundamentos del cartílago	¿Desde dónde difunden sustancias hacia los condrocitos?	Desde vasos del tejido conjuntivo circundante.
+Capítulo 7	Fundamentos del cartílago	¿Qué propiedad física tiene la matriz cartilaginosa?	Es sólida, firme y maleable.
+Capítulo 7	Fundamentos del cartílago	¿Qué propiedad funcional explica la maleabilidad del cartílago?	Flexibilidad.
+Capítulo 7	Fundamentos del cartílago	¿Qué moléculas hidratadas ayudan al cartílago a soportar peso?	Agregados de proteoglucanos.
+Capítulo 7	Fundamentos del cartílago	¿Qué fibras aportan resistencia tensora a la matriz cartilaginosa?	Fibrillas de colágeno.
+Capítulo 7	Fundamentos del cartílago	¿Qué tipo de colágeno predomina en el cartílago hialino?	Colágeno tipo II.
+Capítulo 7	Fundamentos del cartílago	¿Qué componente de la matriz cartilaginosa permite difusión de metabolitos?	Agua asociada a GAG y proteoglucanos.
+Capítulo 7	Fundamentos del cartílago	¿Por qué el cartílago es importante en articulaciones sinoviales?	Porque soporta peso y distribuye fuerzas.
+Capítulo 7	Fundamentos del cartílago	¿Qué papel tiene el cartílago en el desarrollo fetal?	Forma un molde para gran parte del esqueleto.
+Capítulo 7	Fundamentos del cartílago	¿Qué proceso reemplaza cartílago hialino por hueso durante desarrollo?	Osificación endocondral.
+Capítulo 7	Fundamentos del cartílago	¿Qué cartílago permite crecimiento longitudinal de huesos largos?	Cartílago de la placa epifisaria.
+Capítulo 7	Tipos de cartílago	¿Cuáles son los tres tipos principales de cartílago?	Hialino, elástico y fibrocartílago.
+Capítulo 7	Tipos de cartílago	¿En qué se basa la clasificación de los cartílagos?	En las características de su matriz extracelular.
+Capítulo 7	Tipos de cartílago	¿Qué cartílago tiene matriz con colágeno tipo II, GAG, proteoglucanos y glucoproteínas multiadhesivas?	Cartílago hialino.
+Capítulo 7	Tipos de cartílago	¿Qué cartílago añade fibras elásticas a una matriz parecida a la hialina?	Cartílago elástico.
+Capítulo 7	Tipos de cartílago	¿Qué cartílago añade abundante colágeno tipo I a una matriz parecida a la hialina?	Fibrocartílago.
+Capítulo 7	Tipos de cartílago	¿Qué cartílago tiene la matriz más homogénea y vítrea?	Cartílago hialino.
+Capítulo 7	Tipos de cartílago	¿Qué cartílago contiene elastina en la matriz?	Cartílago elástico.
+Capítulo 7	Tipos de cartílago	¿Qué cartílago combina tejido conjuntivo denso con cartílago hialino?	Fibrocartílago.
+Capítulo 7	Cartílago hialino	¿Qué tipo de cartílago tiene matriz amorfa homogénea?	Cartílago hialino.
+Capítulo 7	Cartílago hialino	¿Qué significa “hialino” por el aspecto de su matriz?	Vítreo o semejante al vidrio.
+Capítulo 7	Cartílago hialino	¿Qué estructuras alojan a los condrocitos en la matriz cartilaginosa?	Lagunas.
+Capítulo 7	Cartílago hialino	¿Qué célula ocupa una laguna cartilaginosa?	Condrocito.
+Capítulo 7	Cartílago hialino	¿Qué cartílago proporciona una superficie de baja fricción?	Cartílago hialino articular.
+Capítulo 7	Cartílago hialino	¿Qué función tiene el cartílago hialino en articulaciones sinoviales?	Lubricación, baja fricción y distribución de fuerzas.
+Capítulo 7	Cartílago hialino	¿Qué cartílago distribuye fuerzas hacia el hueso subyacente?	Cartílago hialino articular.
+Capítulo 7	Cartílago hialino	¿Qué tipo de cartílago se degrada con frecuencia con la edad?	Cartílago articular.
+Capítulo 7	Cartílago hialino	¿Qué capacidad de reparación tiene el cartílago hialino?	Limitada.
+Capítulo 7	Cartílago hialino	¿Por qué el cartílago hialino repara mal?	Porque es avascular.
+Capítulo 7	Cartílago hialino	¿Qué suele reemplazar al cartílago hialino lesionado durante reparación?	Tejido conjuntivo denso.
+Capítulo 7	Cartílago hialino	¿Qué puede ocurrir con el cartílago hialino durante el envejecimiento?	Calcificación y reemplazo por hueso.
+Capítulo 7	Matriz del cartílago hialino	¿Qué porcentaje del peso neto del cartílago hialino corresponde a agua?	60-80%.
+Capítulo 7	Matriz del cartílago hialino	¿Qué moléculas retienen gran parte del agua del cartílago hialino?	Agregados de agrecano-hialuronato.
+Capítulo 7	Matriz del cartílago hialino	¿Qué proteoglucano predomina en la matriz del cartílago hialino?	Agrecano.
+Capítulo 7	Matriz del cartílago hialino	¿Qué GAG largo sirve como eje para agregados de agrecano?	Hialuronato.
+Capítulo 7	Matriz del cartílago hialino	¿Qué efecto osmótico generan los agregados de agrecano-hialuronato?	Alta presión osmótica.
+Capítulo 7	Matriz del cartílago hialino	¿Qué propiedad del cartílago depende de su matriz muy hidratada?	Elasticidad.
+Capítulo 7	Matriz del cartílago hialino	¿Qué permite la fracción de agua más laxa del cartílago?	Difusión de metabolitos pequeños.
+Capítulo 7	Matriz del cartílago hialino	¿Qué red molecular resiste la presión osmótica del agrecano?	Red de fibrillas de colágeno tipo II.
+Capítulo 7	Matriz del cartílago hialino	¿Qué colágeno da forma y resistencia tensora al cartílago hialino?	Colágeno tipo II.
+Capítulo 7	Matriz del cartílago hialino	¿Qué moléculas aportan basofilia a la matriz cartilaginosa?	Proteoglucanos sulfatados.
+Capítulo 7	Matriz del cartílago hialino	¿Por qué la matriz cartilaginosa puede teñirse basófila?	Por sus GAG sulfatados con carga negativa.
+Capítulo 7	Matriz del cartílago hialino	¿Qué pasa con la tinción de la matriz si se pierden grupos sulfato durante preparación?	Disminuye la basofilia.
+Capítulo 7	Matriz del cartílago hialino	¿Qué glucoproteínas multiadhesivas aparecen en matriz cartilaginosa?	Condronectina, fibronectina y laminina.
+Capítulo 7	Matriz del cartílago hialino	¿Qué glucoproteína ayuda a unir condrocitos con colágeno tipo II?	Condronectina.
+Capítulo 7	Matriz del cartílago hialino	¿Qué función tiene la condronectina?	Adherir condrocitos a la matriz cartilaginosa.
+Capítulo 7	Matriz del cartílago hialino	¿Qué colágeno del cartílago hialino forma la mayor parte de las fibrillas?	Colágeno tipo II.
+Capítulo 7	Matriz del cartílago hialino	¿Qué colágenos específicos del cartílago acompañan al colágeno II?	Tipos VI, IX, X y XI.
+Capítulo 7	Matriz del cartílago hialino	¿Qué colágeno cartilaginoso fija condrocitos a la matriz mediante integrinas?	Colágeno tipo VI.
+Capítulo 7	Matriz del cartílago hialino	¿Qué colágeno se concentra en la matriz capsular junto al condrocito?	Colágeno tipo VI.
+Capítulo 7	Matriz del cartílago hialino	¿Qué colágeno cartilaginoso se asocia a fibrillas de colágeno II?	Colágeno tipo IX.
+Capítulo 7	Matriz del cartílago hialino	¿Qué colágeno cartilaginoso se asocia a cartílago hipertrófico?	Colágeno tipo X.
+Capítulo 7	Matriz del cartílago hialino	¿Qué colágeno ayuda a regular el diámetro de fibrillas de colágeno II?	Colágeno tipo XI.
+Capítulo 7	Condrocitos	¿Qué célula produce la matriz cartilaginosa?	Condrocito.
+Capítulo 7	Condrocitos	¿Qué célula mantiene la matriz cartilaginosa?	Condrocito.
+Capítulo 7	Condrocitos	¿Qué forma pueden tener los condrocitos maduros?	Redondeada u ovalada.
+Capítulo 7	Condrocitos	¿Qué organelos abundan en condrocitos activos?	RER y aparato de Golgi.
+Capítulo 7	Condrocitos	¿Por qué los condrocitos activos tienen mucho RER y Golgi?	Porque sintetizan matriz cartilaginosa.
+Capítulo 7	Condrocitos	¿Qué indican las regiones claras junto al núcleo del condrocito?	Aparato de Golgi.
+Capítulo 7	Condrocitos	¿Qué contienen las partículas oscuras de la matriz cerca de condrocitos en MET?	Proteoglucanos.
+Capítulo 7	Condrocitos	¿Qué nombre recibe un cúmulo de condrocitos derivados de una misma célula?	Grupo isógeno.
+Capítulo 7	Condrocitos	¿Qué indican los grupos isógenos en cartílago?	División reciente de condrocitos.
+Capítulo 7	Condrocitos	¿Qué tipo de crecimiento se refleja por grupos isógenos?	Crecimiento intersticial.
+Capítulo 7	Condrocitos	¿Qué ocurre cuando un condrocito se divide dentro de su laguna?	Forma un grupo isógeno.
+Capítulo 7	Condrocitos	¿Qué produce la separación progresiva de células dentro de un grupo isógeno?	Secreción de nueva matriz entre ellas.
+Capítulo 7	Condrocitos	¿Qué nombre recibe el espacio donde se aloja cada condrocito?	Laguna.
+Capítulo 7	Condrocitos	¿Por qué las lagunas pueden verse vacías en preparados histológicos?	Por retracción o pérdida del condrocito durante preparación.
+Capítulo 7	Condrocitos	¿Qué células del cartílago se originan de condroblastos rodeados por matriz?	Condrocitos.
+Capítulo 7	Condrocitos	¿Qué diferencia principal hay entre condroblasto y condrocito?	El condroblasto secreta matriz en la superficie; el condrocito queda rodeado por matriz.
+Capítulo 7	Regiones de matriz	¿Qué tres regiones tintoriales se describen en la matriz del cartílago hialino?	Capsular, territorial e interterritorial.
+Capítulo 7	Regiones de matriz	¿Qué matriz se encuentra justo alrededor del condrocito?	Matriz capsular.
+Capítulo 7	Regiones de matriz	¿Qué otro nombre recibe la matriz capsular?	Matriz pericelular.
+Capítulo 7	Regiones de matriz	¿Qué región de matriz se tiñe con mayor intensidad alrededor del condrocito?	Matriz capsular.
+Capítulo 7	Regiones de matriz	¿Qué matriz contiene la mayor concentración de proteoglucanos sulfatados?	Matriz capsular.
+Capítulo 7	Regiones de matriz	¿Qué matriz contiene hialuronato, biglicano y glucoproteínas multiadhesivas?	Matriz capsular.
+Capítulo 7	Regiones de matriz	¿Qué colágeno predomina alrededor inmediato del condrocito?	Colágeno tipo VI.
+Capítulo 7	Regiones de matriz	¿Qué matriz fija el condrocito a su entorno mediante colágeno VI e integrinas?	Matriz capsular.
+Capítulo 7	Regiones de matriz	¿Qué matriz rodea al grupo isógeno?	Matriz territorial.
+Capítulo 7	Regiones de matriz	¿Qué tipo de colágeno predomina en la matriz territorial?	Colágeno tipo II.
+Capítulo 7	Regiones de matriz	¿Qué colágeno aparece en menor cantidad dentro de la matriz territorial?	Colágeno tipo IX.
+Capítulo 7	Regiones de matriz	¿Cómo se tiñe la matriz territorial respecto a la capsular?	Con menor intensidad.
+Capítulo 7	Regiones de matriz	¿Qué matriz ocupa el espacio entre grupos de condrocitos?	Matriz interterritorial.
+Capítulo 7	Regiones de matriz	¿Qué matriz está más alejada de los condrocitos?	Matriz interterritorial.
+Capítulo 7	Regiones de matriz	¿Qué región de matriz ocupa la mayor parte del cartílago?	Matriz interterritorial.
+Capítulo 7	Regiones de matriz	¿Qué diferencia principal hay entre matriz capsular y territorial?	La capsular rodea al condrocito; la territorial rodea al grupo isógeno.
+Capítulo 7	Regiones de matriz	¿Qué diferencia principal hay entre matriz territorial e interterritorial?	La territorial rodea grupos isógenos; la interterritorial está entre grupos.
+Capítulo 7	Pericondrio	¿Qué es el pericondrio?	Tejido conjuntivo denso que rodea la mayoría de cartílagos.
+Capítulo 7	Pericondrio	¿Qué cartílago hialino carece de pericondrio?	Cartílago articular.
+Capítulo 7	Pericondrio	¿Qué cartílago carece de pericondrio?	Fibrocartílago.
+Capítulo 7	Pericondrio	¿Qué cartílago elástico suele estar rodeado por pericondrio?	Cartílago elástico.
+Capítulo 7	Pericondrio	¿Qué función tiene el pericondrio durante crecimiento cartilaginoso?	Aporta condroblastos para crecimiento por aposición.
+Capítulo 7	Pericondrio	¿Qué capa del pericondrio contiene fibroblastos y colágeno tipo I?	Capa fibrosa externa.
+Capítulo 7	Pericondrio	¿Qué capa del pericondrio contiene células condroprogenitoras?	Capa celular interna.
+Capítulo 7	Pericondrio	¿Qué capa del pericondrio permite crecimiento externo del cartílago?	Capa celular interna.
+Capítulo 7	Pericondrio	¿Qué células de la capa interna del pericondrio originan condroblastos?	Células condroprogenitoras.
+Capítulo 7	Pericondrio	¿Qué función nutricional tiene el pericondrio?	Contiene vasos que nutren al cartílago por difusión.
+Capítulo 7	Pericondrio	¿Por qué el pericondrio es importante en un tejido avascular?	Porque aporta vasos para difusión de nutrientes.
+Capítulo 7	Pericondrio	¿Qué estructura rodea el cartílago hialino en casi todas las áreas excepto superficies articulares?	Pericondrio.
+Capítulo 7	Pericondrio	¿Qué tipo de tejido conjuntivo forma el pericondrio?	Tejido conjuntivo denso irregular.
+Capítulo 7	Cartílago hialino: localización	¿Dónde se encuentra cartílago hialino en vías respiratorias?	Laringe, tráquea y bronquios.
+Capítulo 7	Cartílago hialino: localización	¿Qué cartílago forma anillos o placas de soporte en tráquea y bronquios?	Cartílago hialino.
+Capítulo 7	Cartílago hialino: localización	¿Qué cartílago se encuentra en extremos articulares de huesos?	Cartílago hialino articular.
+Capítulo 7	Cartílago hialino: localización	¿Qué cartílago une las costillas con el esternón?	Cartílago hialino costal.
+Capítulo 7	Cartílago hialino: localización	¿Qué cartílago constituye la mayor parte del esqueleto fetal?	Cartílago hialino.
+Capítulo 7	Cartílago hialino: localización	¿Qué cartílago participa en el crecimiento longitudinal de huesos?	Cartílago hialino de la placa epifisaria.
+Capítulo 7	Cartílago hialino: función	¿Qué función tiene el cartílago hialino en tráquea?	Sostén flexible de la vía aérea.
+Capítulo 7	Cartílago hialino: función	¿Qué función tiene el cartílago hialino en articulaciones?	Reducir fricción y distribuir cargas.
+Capítulo 7	Cartílago hialino: función	¿Qué función tiene el cartílago hialino en el desarrollo óseo fetal?	Actuar como molde para hueso endocondral.
+Capítulo 7	Cartílago hialino: función	¿Qué función tiene el cartílago hialino en la placa epifisaria?	Permitir crecimiento longitudinal del hueso.
+Capítulo 7	Cartílago articular	¿Qué tipo de cartílago cubre superficies articulares sinoviales?	Cartílago hialino articular.
+Capítulo 7	Cartílago articular	¿Qué característica superficial tiene el cartílago articular?	Superficie libre sin pericondrio.
+Capítulo 7	Cartílago articular	¿Por qué el cartílago articular depende del líquido sinovial?	Porque carece de pericondrio y vasos propios.
+Capítulo 7	Cartílago articular	¿Qué tejido se encuentra debajo del cartílago articular?	Hueso subcondral.
+Capítulo 7	Cartílago articular	¿Qué función tiene el cartílago articular frente a compresión?	Distribuye cargas y amortigua fuerzas.
+Capítulo 7	Cartílago articular	¿Qué propiedad de la matriz cartilaginosa permite compresión reversible?	Hidratación por proteoglucanos.
+Capítulo 7	Cartílago articular	¿Qué células mantienen la matriz del cartílago articular?	Condrocitos.
+Capítulo 7	Cartílago articular	¿Qué cambia en el cartílago articular durante envejecimiento?	Disminuye la capacidad de respuesta de condrocitos.
+Capítulo 7	Cartílago articular	¿Qué puede degradarse en cartílago articular con la edad?	Matriz extracelular.
+Capítulo 7	Cartílago articular	¿Qué enfermedad se asocia con degradación del cartílago articular?	Artrosis.
+Capítulo 7	Cartílago articular	¿Qué estructura separa zona calcificada y zona profunda del cartílago articular?	Marca de marea.
+Capítulo 7	Cartílago articular	¿Qué zona del cartílago articular descansa sobre hueso subcondral?	Zona calcificada.
+Capítulo 7	Cartílago articular	¿Qué línea delimita la unión entre zona calcificada y hueso subcondral?	Línea de cemento.
+Capítulo 7	Cartílago articular	¿Qué región contiene condrocitos pequeños en matriz calcificada?	Zona calcificada.
+Capítulo 7	Cartílago articular	¿Qué zona del cartílago articular tiene condrocitos en columnas perpendiculares a la superficie?	Zona profunda o radial.
+Capítulo 7	Cartílago articular	¿Qué zona del cartílago articular tiene condrocitos redondos y al azar?	Zona intermedia o de transición.
+Capítulo 7	Cartílago articular	¿Qué zona del cartílago articular está más cercana a la superficie libre?	Zona superficial o tangencial.
+Capítulo 7	Cartílago articular	¿Qué zona del cartílago articular contiene fibras de colágeno paralelas a la superficie?	Zona superficial.
+Capítulo 7	Cartílago articular	¿Qué zona contiene fibras de colágeno oblicuas respecto a la superficie?	Zona intermedia.
+Capítulo 7	Cartílago articular	¿Qué zona contiene fibras de colágeno paralelas al eje longitudinal del hueso?	Zona profunda.
+Capítulo 7	Artrosis	¿Qué es la artrosis?	Degeneración progresiva del cartílago articular.
+Capítulo 7	Artrosis	¿Qué tejido se afecta primariamente en la artrosis?	Cartílago articular.
+Capítulo 7	Artrosis	¿Qué cambios de matriz se asocian con artrosis?	Pérdida de proteoglucanos y degradación del colágeno.
+Capítulo 7	Artrosis	¿Qué célula pierde capacidad de mantener matriz en artrosis?	Condrocito.
+Capítulo 7	Artrosis	¿Qué consecuencia mecánica tiene la pérdida de proteoglucanos en artrosis?	Menor resistencia a compresión.
+Capítulo 7	Artrosis	¿Qué consecuencia tiene la degradación de colágeno en artrosis?	Pérdida de integridad estructural.
+Capítulo 7	Artrosis	¿Qué superficie articular se vuelve irregular durante artrosis?	Cartílago articular.
+Capítulo 7	Artrosis	¿Por qué el cartílago articular se repara mal en artrosis?	Porque es avascular y tiene baja capacidad regenerativa.
+chapter	subtopic	front	back
+Capítulo 7	Cartílago elástico	¿Qué distingue al cartílago elástico frente al cartílago hialino?	La presencia de elastina en la matriz.
+Capítulo 7	Cartílago elástico	¿Qué fibras adicionales contiene el cartílago elástico?	Fibras elásticas.
+Capítulo 7	Cartílago elástico	¿Qué material elástico contiene la matriz del cartílago elástico?	Fibras elásticas y láminas de material elástico.
+Capítulo 7	Cartílago elástico	¿Qué componentes comparte el cartílago elástico con el cartílago hialino?	Colágeno tipo II, GAG, proteoglucanos y glucoproteínas multiadhesivas.
+Capítulo 7	Cartílago elástico	¿Qué propiedad aporta la elastina al cartílago elástico?	Elasticidad.
+Capítulo 7	Cartílago elástico	¿Qué propiedades mantiene el cartílago elástico además de elasticidad?	Distensibilidad y maleabilidad.
+Capítulo 7	Cartílago elástico	¿Qué tinción permite visualizar fibras elásticas en cartílago elástico?	Orceína.
+Capítulo 7	Cartílago elástico	¿Qué otra tinción permite visualizar fibras elásticas en cartílago elástico?	Resorcina-fucsina.
+Capítulo 7	Cartílago elástico	¿Qué estructura rodea al cartílago elástico?	Pericondrio.
+Capítulo 7	Cartílago elástico	¿Qué capa de tejido conjuntivo rodea el cartílago elástico?	Pericondrio similar al del cartílago hialino.
+Capítulo 7	Cartílago elástico	¿Qué ocurre con la matriz del cartílago elástico durante el envejecimiento?	No se calcifica normalmente.
+Capítulo 7	Cartílago elástico	¿Qué diferencia hay entre cartílago hialino y elástico durante envejecimiento?	El hialino puede calcificarse; el elástico generalmente no.
+Capítulo 7	Cartílago elástico	¿Dónde se encuentra cartílago elástico en el oído externo?	Pabellón auricular y conducto auditivo externo.
+Capítulo 7	Cartílago elástico	¿Qué cartílago se encuentra en la trompa auditiva?	Cartílago elástico.
+Capítulo 7	Cartílago elástico	¿Qué cartílago se encuentra en la epiglotis?	Cartílago elástico.
+Capítulo 7	Cartílago elástico	¿Qué tipo de cartílago da soporte flexible al pabellón auricular?	Cartílago elástico.
+Capítulo 7	Cartílago elástico	¿Qué tipo de cartílago permite que la epiglotis sea flexible?	Cartílago elástico.
+Capítulo 7	Cartílago elástico	¿Qué célula se encuentra en lagunas del cartílago elástico?	Condrocito.
+Capítulo 7	Cartílago elástico	¿Qué tipo de crecimiento puede mostrar el cartílago elástico?	Intersticial y por aposición.
+Capítulo 7	Cartílago elástico	¿Qué indica encontrar dos condrocitos en una laguna del cartílago elástico?	Crecimiento intersticial.
+Capítulo 7	Cartílago elástico	¿Qué matriz cartilaginosa contiene fibras elásticas visibles como siluetas alargadas con orceína?	Matriz de cartílago elástico.
+Capítulo 7	Cartílago elástico	¿Qué estructura cartilaginosa puede contener perforaciones con tejido adiposo en la epiglotis?	Cartílago elástico.
+Capítulo 7	Cartílago elástico	¿Qué epitelio puede cubrir superficies de la epiglotis cerca del cartílago elástico?	Epitelio plano estratificado sin estrato córneo.
+Capítulo 7	Cartílago elástico	¿Qué glándulas pueden observarse en tejido conjuntivo cercano a la epiglotis?	Glándulas mucosas.
+Capítulo 7	Fibrocartílago	¿Qué dos tejidos combina el fibrocartílago?	Tejido conjuntivo denso regular y cartílago hialino.
+Capítulo 7	Fibrocartílago	¿Qué célula cartilaginosa se encuentra en fibrocartílago?	Condrocito.
+Capítulo 7	Fibrocartílago	¿Qué célula conjuntiva se encuentra en regiones fibrosas del fibrocartílago?	Fibroblasto.
+Capítulo 7	Fibrocartílago	¿Qué tipo de colágeno del tejido conjuntivo abunda en fibrocartílago?	Colágeno tipo I.
+Capítulo 7	Fibrocartílago	¿Qué tipo de colágeno cartilaginoso también contiene el fibrocartílago?	Colágeno tipo II.
+Capítulo 7	Fibrocartílago	¿Qué colágenos caracterizan la matriz del fibrocartílago?	Colágeno tipo I y tipo II.
+Capítulo 7	Fibrocartílago	¿Qué cartílago tiene abundantes haces gruesos de colágeno tipo I?	Fibrocartílago.
+Capítulo 7	Fibrocartílago	¿Qué cartílago carece de pericondrio?	Fibrocartílago.
+Capítulo 7	Fibrocartílago	¿Qué diferencia clave hay entre fibrocartílago y cartílago hialino respecto al pericondrio?	El fibrocartílago no tiene pericondrio.
+Capítulo 7	Fibrocartílago	¿Cómo pueden organizarse los condrocitos en el fibrocartílago?	Solos, en hileras o en grupos isógenos.
+Capítulo 7	Fibrocartílago	¿Cómo se ven los núcleos de condrocitos en fibrocartílago?	Redondeados.
+Capítulo 7	Fibrocartílago	¿Cómo se ven los núcleos de fibroblastos en fibrocartílago?	Aplanados o alargados.
+Capítulo 7	Fibrocartílago	¿Qué tipo de célula del fibrocartílago tiene núcleo redondeado?	Condrocito.
+Capítulo 7	Fibrocartílago	¿Qué tipo de célula del fibrocartílago tiene núcleo alargado o fusiforme?	Fibroblasto.
+Capítulo 7	Fibrocartílago	¿Qué cantidad de matriz cartilaginosa rodea a los condrocitos del fibrocartílago?	Poca matriz cartilaginosa.
+Capítulo 7	Fibrocartílago	¿Qué cartílago presenta aspecto fibroso al microscopio?	Fibrocartílago.
+Capítulo 7	Fibrocartílago	¿Qué tinción tricrómica puede mostrar colágeno del fibrocartílago de color verde?	Tricrómica de Gomori.
+Capítulo 7	Fibrocartílago	¿Qué tinción puede mostrar colágeno del fibrocartílago de color azul claro?	Tricrómica de Mallory.
+Capítulo 7	Fibrocartílago	¿Qué proteoglucano predomina relativamente en fibrocartílago frente a agrecano?	Versicano.
+Capítulo 7	Fibrocartílago	¿Qué célula produce versicano en fibrocartílago?	Fibroblasto.
+Capítulo 7	Fibrocartílago	¿Qué célula produce agrecano en fibrocartílago?	Condrocito.
+Capítulo 7	Fibrocartílago	¿Qué proteoglucano puede unirse a hialuronato en el fibrocartílago?	Versicano.
+Capítulo 7	Fibrocartílago	¿Qué permite al fibrocartílago responder a cambios mecánicos y nutricionales?	Sus células sintetizan moléculas de MEC durante desarrollo y madurez.
+Capítulo 7	Fibrocartílago	¿Qué fuerzas soporta principalmente el fibrocartílago?	Compresión y distensión.
+Capítulo 7	Fibrocartílago	¿Qué función mecánica cumple el fibrocartílago?	Actúa como amortiguador.
+Capítulo 7	Fibrocartílago	¿Qué indica la presencia de fibrocartílago en un sitio anatómico?	Que el tejido soporta compresión y distensión.
+Capítulo 7	Fibrocartílago	¿Qué proporción de colágeno tipo I y II puede variar en fibrocartílago?	Varía según sitio y edad.
+Capítulo 7	Fibrocartílago	¿Qué fibrocartílago puede contener cantidades similares de colágeno I y II?	Disco intervertebral.
+Capítulo 7	Fibrocartílago	¿Qué fibrocartílago contiene poca cantidad de colágeno tipo II?	Meniscos de la rodilla.
+Capítulo 7	Fibrocartílago	¿Qué cambio de colágeno ocurre en fibrocartílago con la edad?	Aumenta el colágeno tipo II.
+Capítulo 7	Fibrocartílago	¿Por qué puede aumentar colágeno tipo II en fibrocartílago envejecido?	Por actividad metabólica continua de condrocitos.
+Capítulo 7	Fibrocartílago: localización	¿Dónde se encuentra fibrocartílago entre cuerpos vertebrales?	Discos intervertebrales.
+Capítulo 7	Fibrocartílago: localización	¿Qué tipo de cartílago se encuentra en la sínfisis del pubis?	Fibrocartílago.
+Capítulo 7	Fibrocartílago: localización	¿Qué tipo de cartílago forma los meniscos de la rodilla?	Fibrocartílago.
+Capítulo 7	Fibrocartílago: localización	¿Qué tipo de cartílago se encuentra en la articulación temporomandibular?	Fibrocartílago.
+Capítulo 7	Fibrocartílago: localización	¿Qué tipo de cartílago se encuentra en discos articulares esternoclaviculares?	Fibrocartílago.
+Capítulo 7	Fibrocartílago: localización	¿Qué tipo de cartílago se encuentra en el complejo fibrocartilaginoso triangular de la muñeca?	Fibrocartílago.
+Capítulo 7	Fibrocartílago: localización	¿Qué tipo de cartílago puede aparecer donde tendones se insertan en hueso?	Fibrocartílago.
+Capítulo 7	Fibrocartílago: localización	¿Qué cartílago aparece en correderas de tendones y ligamentos?	Fibrocartílago.
+Capítulo 7	Disco intervertebral	¿Qué tipo de cartílago forma parte del disco intervertebral?	Fibrocartílago.
+Capítulo 7	Disco intervertebral	¿Qué componente del disco intervertebral es fibrocartilaginoso?	Anillo fibroso.
+Capítulo 7	Disco intervertebral	¿Qué estructura gelatinosa ocupa el centro del disco intervertebral?	Núcleo pulposo.
+Capítulo 7	Disco intervertebral	¿Qué función mecánica cumple el disco intervertebral?	Amortiguación entre vértebras.
+Capítulo 7	Disco intervertebral	¿Qué cambio molecular se asocia con degeneración del disco intervertebral?	Degradación proteolítica de agregados de proteoglucanos.
+Capítulo 7	Disco intervertebral	¿Qué componente de la MEC se degrada en la degeneración del disco intervertebral?	Agregados de proteoglucanos.
+Capítulo 7	Condrogénesis	¿Qué es la condrogénesis?	Proceso de desarrollo del cartílago.
+Capítulo 7	Condrogénesis	¿De qué tejido embrionario se origina la mayoría del cartílago?	Mesénquima.
+Capítulo 7	Condrogénesis	¿De qué derivan muchos cartílagos de la cabeza?	Ectomesénquima de la cresta neural.
+Capítulo 7	Condrogénesis	¿Qué estructura inicial marca el sitio donde se formará cartílago hialino?	Nódulo condrogénico.
+Capítulo 7	Condrogénesis	¿Qué forma un nódulo condrogénico?	Aglomeración de células mesenquimatosas o ectomesenquimatosas.
+Capítulo 7	Condrogénesis	¿Qué factor de transcripción desencadena diferenciación hacia condroblastos?	SOX-9.
+Capítulo 7	Condrogénesis	¿Qué célula se forma cuando SOX-9 induce diferenciación mesenquimatosa?	Condroblasto.
+Capítulo 7	Condrogénesis	¿Qué colágeno se secreta junto con la expresión de SOX-9?	Colágeno tipo II.
+Capítulo 7	Condrogénesis	¿Qué célula secreta matriz cartilaginosa durante condrogénesis?	Condroblasto.
+Capítulo 7	Condrogénesis	¿Qué ocurre con los condroblastos al secretar matriz alrededor de sí mismos?	Se separan progresivamente.
+Capítulo 7	Condrogénesis	¿Cuándo un condroblasto pasa a llamarse condrocito?	Cuando queda rodeado por matriz.
+Capítulo 7	Condrogénesis	¿Qué tejido origina el pericondrio alrededor del nódulo condrogénico?	Mesénquima circundante.
+Capítulo 7	Condrogénesis	¿Qué moléculas regulan la condrogénesis?	Ligandos extracelulares, receptores nucleares, factores de transcripción, moléculas adhesivas y proteínas de matriz.
+Capítulo 7	Condrogénesis	¿Qué fuerzas modifican el crecimiento y desarrollo del cartílago?	Fuerzas biomecánicas.
+Capítulo 7	Condrogénesis	¿Qué pueden regular las fuerzas biomecánicas en cartílago?	Forma, regeneración, envejecimiento e interacciones célula-MEC.
+Capítulo 7	Condrogénesis	¿Qué célula cartilaginosa inmadura produce matriz activamente antes de quedar atrapada?	Condroblasto.
+Capítulo 7	Condrogénesis	¿Qué célula cartilaginosa madura queda dentro de una laguna?	Condrocito.
+Capítulo 7	Crecimiento del cartílago	¿Cuáles son los dos tipos de crecimiento del cartílago?	Por aposición e intersticial.
+Capítulo 7	Crecimiento por aposición	¿Qué es el crecimiento por aposición?	Adición de cartílago nuevo sobre la superficie de cartílago preexistente.
+Capítulo 7	Crecimiento por aposición	¿Qué célula produce matriz en el crecimiento por aposición?	Condroblasto.
+Capítulo 7	Crecimiento por aposición	¿Desde dónde se originan los condroblastos del crecimiento por aposición?	Desde células condroprogenitoras del pericondrio.
+Capítulo 7	Crecimiento por aposición	¿Qué capa del pericondrio aporta células para crecimiento por aposición?	Capa celular interna.
+Capítulo 7	Crecimiento por aposición	¿Qué ocurre con células condroprogenitoras durante crecimiento por aposición?	Se dividen y se diferencian en condroblastos.
+Capítulo 7	Crecimiento por aposición	¿Qué ocurre con los condroblastos al secretar matriz sobre la superficie?	Quedan rodeados y se convierten en condrocitos.
+Capítulo 7	Crecimiento por aposición	¿Qué tipo de crecimiento aumenta el cartílago desde su superficie?	Crecimiento por aposición.
+Capítulo 7	Crecimiento por aposición	¿Qué estructura permite crecimiento por aposición?	Pericondrio.
+Capítulo 7	Crecimiento por aposición	¿Por qué el cartílago articular no crece bien por aposición?	Porque carece de pericondrio.
+Capítulo 7	Crecimiento por aposición	¿Qué células se renuevan para mantener el pericondrio durante crecimiento?	Fibroblastos.
+Capítulo 7	Crecimiento intersticial	¿Qué es el crecimiento intersticial?	Formación de cartílago nuevo dentro de cartílago preexistente.
+Capítulo 7	Crecimiento intersticial	¿Qué célula se divide durante crecimiento intersticial?	Condrocito.
+Capítulo 7	Crecimiento intersticial	¿Dónde ocurre la división celular del crecimiento intersticial?	Dentro de lagunas.
+Capítulo 7	Crecimiento intersticial	¿Qué tipo de crecimiento aumenta el cartílago desde el interior?	Crecimiento intersticial.
+Capítulo 7	Crecimiento intersticial	¿Qué estructura celular evidencia crecimiento intersticial?	Grupo isógeno.
+Capítulo 7	Crecimiento intersticial	¿Qué permite que el crecimiento intersticial ocurra dentro de la matriz?	Distensibilidad de la matriz cartilaginosa.
+Capítulo 7	Crecimiento intersticial	¿Qué retienen los condrocitos para poder crecer intersticialmente?	Capacidad limitada de dividirse.
+Capítulo 7	Crecimiento intersticial	¿Qué ocurre primero con las células hijas del condrocito en crecimiento intersticial?	Ocupan la misma laguna.
+Capítulo 7	Crecimiento intersticial	¿Qué separa a las células hijas durante crecimiento intersticial?	Nueva matriz cartilaginosa.
+Capítulo 7	Crecimiento intersticial	¿Qué ocurre cuando se secreta más matriz entre células hijas?	Las células se separan progresivamente.
+Capítulo 7	Crecimiento intersticial	¿Qué crecimiento forma grupos isógenos?	Crecimiento intersticial.
+Capítulo 7	Crecimiento intersticial	¿Qué crecimiento permite aumentar volumen del cartílago desde dentro?	Crecimiento intersticial.
+Capítulo 7	Crecimiento del cartílago	¿Qué combinación explica el crecimiento total del cartílago?	Secreción intersticial de matriz por condrocitos y aposición de matriz por condroblastos.
+Capítulo 7	Crecimiento del cartílago	¿Qué crecimiento depende del pericondrio?	Crecimiento por aposición.
+Capítulo 7	Crecimiento del cartílago	¿Qué crecimiento depende de condrocitos dentro de la matriz?	Crecimiento intersticial.
+Capítulo 7	Crecimiento del cartílago	¿Qué crecimiento es más importante en cartílago joven?	Crecimiento intersticial.
+Capítulo 7	Crecimiento del cartílago	¿Qué crecimiento permite ampliar la superficie externa del cartílago?	Crecimiento por aposición.
+Capítulo 7	Crecimiento del cartílago	¿Qué crecimiento permite expandir la matriz desde el interior?	Crecimiento intersticial.
+Capítulo 7	Reparación del cartílago	¿Qué capacidad de reparación tiene el cartílago?	Limitada.
+Capítulo 7	Reparación del cartílago	¿Por qué el cartílago tiene poca capacidad de autorreparación?	Por avascularidad, inmovilidad de condrocitos y baja proliferación de condrocitos maduros.
+Capítulo 7	Reparación del cartílago	¿Qué característica vascular limita la reparación del cartílago?	Avascularidad.
+Capítulo 7	Reparación del cartílago	¿Qué característica celular limita la reparación del cartílago?	Inmovilidad de condrocitos.
+Capítulo 7	Reparación del cartílago	¿Qué limitación proliferativa afecta reparación cartilaginosa?	Baja capacidad de proliferación de condrocitos maduros.
+Capítulo 7	Reparación del cartílago	¿Qué tejido suele reemplazar al cartílago hialino lesionado?	Tejido conjuntivo denso.
+Capítulo 7	Reparación del cartílago	¿Qué tipo de reparación suele formar el cartílago lesionado?	Cicatriz de tejido conjuntivo denso.
+Capítulo 7	Reparación del cartílago	¿Qué puede formarse en reparación de lesiones cartilaginosas?	Fibrocartílago o tejido conjuntivo denso.
+Capítulo 7	Reparación del cartílago	¿Por qué una lesión cartilaginosa leve puede sanar mal?	Porque el cartílago no tiene vasos y condrocitos migran poco.
+Capítulo 7	Reparación del cartílago	¿Qué células pueden participar en reparación si la lesión alcanza el pericondrio?	Células condroprogenitoras.
+Capítulo 7	Reparación del cartílago	¿Qué estructura mejora la reparación cartilaginosa si está presente?	Pericondrio.
+Capítulo 7	Reparación del cartílago	¿Qué cartílago repara especialmente mal por ausencia de pericondrio?	Cartílago articular.
+Capítulo 7	Reparación del cartílago	¿Qué ocurre con el cartílago hialino durante envejecimiento?	Puede calcificarse y ser reemplazado por hueso.
+Capítulo 7	Reparación del cartílago	¿Qué células reabsorben cartílago en procesos de eliminación?	Condroclastos.
+Capítulo 7	Reparación del cartílago	¿Qué fenotipo expresan los condroclastos?	Fenotipo tipo osteoclasto.
+Capítulo 7	Reparación del cartílago	¿Qué son probablemente los condroclastos?	Osteoclastos maduros capaces de reabsorber cartílago.
+Capítulo 7	Reparación del cartílago	¿Dónde se han observado condroclastos en enfermedad articular?	En erosiones del cartílago articular.
+Capítulo 7	Reparación del cartílago	¿Qué enfermedad articular puede presentar condroclastos en erosiones cartilaginosas?	Artritis reumatoide.
+Capítulo 7	Condrosarcoma	¿Qué es un condrosarcoma?	Tumor maligno productor de matriz cartilaginosa.
+Capítulo 7	Condrosarcoma	¿Qué matriz secretan los condrosarcomas?	Matriz cartilaginosa.
+Capítulo 7	Condrosarcoma	¿Qué tipo de crecimiento suelen tener los condrosarcomas?	Crecimiento lento.
+Capítulo 7	Condrosarcoma	¿Qué tumor maligno productor de matriz es más frecuente que el condrosarcoma?	Osteosarcoma.
+Capítulo 7	Condrosarcoma	¿Qué lugar ocupa el condrosarcoma entre tumores malignos productores de matriz ósea/cartilaginosa?	Segundo después del osteosarcoma.
+Capítulo 7	Condrosarcoma	¿En qué sexo son más frecuentes los condrosarcomas?	En hombres.
+Capítulo 7	Condrosarcoma	¿En qué edad suelen aparecer condrosarcomas?	En personas de 45 años o más.
+Capítulo 7	Condrosarcoma	¿Qué región esquelética afecta con frecuencia el condrosarcoma?	Esqueleto axial.
+Capítulo 7	Condrosarcoma	¿Qué huesos axiales pueden afectarse por condrosarcoma?	Vértebras, pelvis, costillas, escápulas y esternón.
+Capítulo 7	Comparación de cartílagos	¿Qué cartílago tiene matriz vítrea homogénea?	Hialino.
+Capítulo 7	Comparación de cartílagos	¿Qué cartílago tiene fibras elásticas abundantes?	Elástico.
+Capítulo 7	Comparación de cartílagos	¿Qué cartílago tiene colágeno tipo I abundante?	Fibrocartílago.
+Capítulo 7	Comparación de cartílagos	¿Qué cartílago carece de pericondrio?	Fibrocartílago.
+Capítulo 7	Comparación de cartílagos	¿Qué cartílago articular carece de pericondrio?	Hialino articular.
+Capítulo 7	Comparación de cartílagos	¿Qué cartílago puede calcificarse con la edad?	Hialino.
+Capítulo 7	Comparación de cartílagos	¿Qué cartílago normalmente no se calcifica con la edad?	Elástico.
+Capítulo 7	Comparación de cartílagos	¿Qué cartílago actúa como amortiguador ante compresión y distensión?	Fibrocartílago.
+Capítulo 7	Comparación de cartílagos	¿Qué cartílago aporta soporte flexible en vías respiratorias?	Hialino.
+Capítulo 7	Comparación de cartílagos	¿Qué cartílago aporta soporte flexible y elástico al pabellón auricular?	Elástico.
+Capítulo 7	Comparación de cartílagos	¿Qué cartílago combina condrocitos con fibroblastos?	Fibrocartílago.
+Capítulo 7	Comparación de cartílagos	¿Qué cartílago presenta condrocitos en hileras entre haces de colágeno?	Fibrocartílago.
+Capítulo 7	Comparación de cartílagos	¿Qué cartílago tiene más matriz amorfa alrededor de condrocitos: hialino o fibrocartílago?	Hialino.
+Capítulo 7	Comparación de cartílagos	¿Qué cartílago tiene menos matriz cartilaginosa alrededor de condrocitos?	Fibrocartílago.
+Capítulo 7	Comparación de cartílagos	¿Qué cartílago tiene condrocitos en lagunas y fibras elásticas visibles con orceína?	Elástico.
+Capítulo 7	Comparación de cartílagos	¿Qué cartílago tiene condrocitos en lagunas y colágeno tipo II en matriz homogénea?	Hialino.
+Capítulo 7	Comparación de cartílagos	¿Qué cartílago tiene condrocitos en lagunas entre haces de colágeno tipo I?	Fibrocartílago.
+Capítulo 7	Comparación de cartílagos	¿Qué cartílago depende más de líquido sinovial para nutrición en articulaciones?	Hialino articular.
+Capítulo 7	Comparación de cartílagos	¿Qué cartílago se encuentra en meniscos?	Fibrocartílago.
+Capítulo 7	Comparación de cartílagos	¿Qué cartílago se encuentra en epiglotis?	Elástico.
+Capítulo 7	Comparación de cartílagos	¿Qué cartílago se encuentra en tráquea?	Hialino.
+Capítulo 7	Comparación de cartílagos	¿Qué cartílago se encuentra en discos intervertebrales?	Fibrocartílago.
+Capítulo 7	Comparación de cartílagos	¿Qué cartílago se encuentra en pabellón auricular?	Elástico.
+Capítulo 7	Comparación de cartílagos	¿Qué cartílago se encuentra en extremos articulares de huesos largos?	Hialino articular.
+Capítulo 7	Comparación de cartílagos	¿Qué cartílago se encuentra en cartílagos costales?	Hialino.
+Capítulo 7	Histología 101	¿Cuál es la idea central del cartílago?	Condrocitos escasos dentro de abundante matriz extracelular especializada.
+Capítulo 7	Histología 101	¿Qué propiedad del cartílago depende de su matriz hidratada?	Resistencia a compresión.
+Capítulo 7	Histología 101	¿Qué propiedad del cartílago depende de sus fibrillas de colágeno?	Resistencia tensora.
+Capítulo 7	Histología 101	¿Qué limita la reparación del cartílago?	Avascularidad y baja movilidad/proliferación de condrocitos.
+Capítulo 7	Histología 101	¿Qué tipo de crecimiento cartilaginoso depende del pericondrio?	Crecimiento por aposición.
+Capítulo 7	Histología 101	¿Qué tipo de crecimiento cartilaginoso depende de condrocitos internos?	Crecimiento intersticial.
+Capítulo 7	Histología 101	¿Qué factor de transcripción inicia diferenciación condrogénica?	SOX-9.
+Capítulo 7	Histología 101	¿Qué célula cartilaginosa secreta matriz antes de quedar rodeada por ella?	Condroblasto.
+Capítulo 7	Histología 101	¿Qué célula cartilaginosa queda dentro de una laguna?	Condrocito.
+Capítulo 7	Histología 101	¿Qué estructura evidencia proliferación de condrocitos desde una célula precursora?	Grupo isógeno.

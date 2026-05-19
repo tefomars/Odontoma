@@ -1,0 +1,680 @@
+chapter	subtopic	front	back
+Capítulo 8	Fundamentos del tejido óseo	¿Qué tipo de tejido es el tejido óseo?	Un tejido conjuntivo especializado.
+Capítulo 8	Fundamentos del tejido óseo	¿Qué característica distingue al tejido óseo de otros tejidos conjuntivos?	Su matriz extracelular mineralizada.
+Capítulo 8	Fundamentos del tejido óseo	¿Qué produce la mineralización de la matriz ósea?	Un tejido duro capaz de sostén y protección.
+Capítulo 8	Fundamentos del tejido óseo	¿Qué mineral predomina en la matriz ósea?	Fosfato de calcio.
+Capítulo 8	Fundamentos del tejido óseo	¿En qué forma cristalina está el fosfato de calcio del hueso?	Hidroxiapatita.
+Capítulo 8	Fundamentos del tejido óseo	¿Qué fórmula representa la hidroxiapatita?	Ca10(PO4)6(OH)2.
+Capítulo 8	Fundamentos del tejido óseo	¿Qué función mecánica cumple el tejido óseo?	Sostén, protección y base para el movimiento.
+Capítulo 8	Fundamentos del tejido óseo	¿Qué función metabólica cumple el tejido óseo?	Almacena calcio y fosfato.
+Capítulo 8	Fundamentos del tejido óseo	¿Qué iones puede movilizar el hueso hacia la sangre?	Calcio y fosfato.
+Capítulo 8	Fundamentos del tejido óseo	¿Qué concentración sanguínea ayuda a regular el tejido óseo?	Calcio.
+Capítulo 8	Fundamentos del tejido óseo	¿Por qué el hueso participa en homeostasis mineral?	Porque almacena y libera calcio y fosfato.
+Capítulo 8	Fundamentos del tejido óseo	¿Qué estructura esquelética alberga la médula ósea?	El hueso.
+Capítulo 8	Fundamentos del tejido óseo	¿Qué tejido conjuntivo especializado forma el componente estructural principal de los huesos?	Tejido óseo.
+Capítulo 8	Fundamentos del tejido óseo	¿Qué componentes no óseos puede contener un hueso como órgano?	Tejido hematopoyético, adiposo, vasos sanguíneos y nervios.
+Capítulo 8	Fundamentos del tejido óseo	¿Qué tejido cubre superficies articulares de huesos en articulaciones sinoviales?	Cartílago hialino articular.
+Capítulo 8	Matriz ósea	¿Qué componente orgánico principal contiene la matriz ósea?	Colágeno tipo I.
+Capítulo 8	Matriz ósea	¿Qué colágeno predomina en la matriz ósea?	Colágeno tipo I.
+Capítulo 8	Matriz ósea	¿Qué colágeno aparece en menor cantidad junto al tipo I en matriz ósea?	Colágeno tipo V.
+Capítulo 8	Matriz ósea	¿Qué colágenos aparecen en trazas en matriz ósea?	Tipos III, XI y XIII.
+Capítulo 8	Matriz ósea	¿Qué porcentaje aproximado del peso proteico de la matriz ósea corresponde a colágeno?	90%.
+Capítulo 8	Matriz ósea	¿Qué proteínas forman la sustancia fundamental del tejido óseo?	Proteínas no colágenas.
+Capítulo 8	Matriz ósea	¿Qué porcentaje aproximado del peso proteico de la matriz ósea corresponde a proteínas no colágenas?	10%.
+Capítulo 8	Matriz ósea	¿Por qué son importantes las proteínas no colágenas de la matriz ósea?	Regulan desarrollo, crecimiento, remodelado y reparación ósea.
+Capítulo 8	Matriz ósea	¿Qué ocurre con el colágeno y la sustancia fundamental en la matriz ósea?	Se mineralizan.
+Capítulo 8	Matriz ósea	¿Qué propiedad aporta el colágeno tipo I al hueso?	Resistencia tensora.
+Capítulo 8	Matriz ósea	¿Qué propiedad aporta la hidroxiapatita al hueso?	Dureza y resistencia a compresión.
+Capítulo 8	Matriz ósea	¿Qué pasa si falta el componente mineral de la matriz ósea?	El hueso pierde dureza.
+Capítulo 8	Matriz ósea	¿Qué pasa si falla el colágeno tipo I de la matriz ósea?	Disminuye la resistencia tensora.
+Capítulo 8	Proteínas no colágenas	¿Cuáles son los cuatro grupos principales de proteínas no colágenas de matriz ósea?	Proteoglucanos, glucoproteínas multiadhesivas, proteínas dependientes de vitamina K y factores de crecimiento/citocinas.
+Capítulo 8	Proteínas no colágenas	¿Qué proteínas no colágenas de matriz ósea contienen GAG?	Proteoglucanos.
+Capítulo 8	Proteínas no colágenas	¿Qué GAG se encuentran en proteoglucanos de matriz ósea?	Hialuronato, condroitín-sulfato y queratán-sulfato.
+Capítulo 8	Proteínas no colágenas	¿Qué proteína específica del hueso se une a cristales de hidroxiapatita?	Osteoadherina.
+Capítulo 8	Proteínas no colágenas	¿Qué proteoglucano óseo contiene osteoadherina?	Queratán-sulfato.
+Capítulo 8	Proteínas no colágenas	¿Qué función mecánica tienen los proteoglucanos en el hueso?	Contribuyen a la resistencia a compresión.
+Capítulo 8	Proteínas no colágenas	¿Qué pueden fijar los proteoglucanos de matriz ósea?	Factores de crecimiento.
+Capítulo 8	Proteínas no colágenas	¿Qué efecto pueden tener algunos proteoglucanos sobre mineralización?	Pueden inhibirla.
+Capítulo 8	Proteínas no colágenas	¿Qué proteínas de matriz ósea intervienen en adhesión celular?	Glucoproteínas multiadhesivas.
+Capítulo 8	Proteínas no colágenas	¿Qué glucoproteína une colágeno con cristales de hidroxiapatita?	Osteonectina.
+Capítulo 8	Proteínas no colágenas	¿Qué función tiene la osteonectina?	Adhiere colágeno a hidroxiapatita.
+Capítulo 8	Proteínas no colágenas	¿Qué glucoproteína es producida por osteocitos ante estrés mecánico?	Podoplanina.
+Capítulo 8	Proteínas no colágenas	¿Qué proteína de matriz dentinaria es crítica para mineralización?	DMP.
+Capítulo 8	Proteínas no colágenas	¿Qué sialoproteína media adhesión celular a matriz ósea?	Osteopontina.
+Capítulo 8	Proteínas no colágenas	¿Qué otro nombre recibe la osteopontina?	BSP-1.
+Capítulo 8	Proteínas no colágenas	¿Qué sialoproteína regula adhesión celular e inicia formación de fosfato de calcio?	BSP-2.
+Capítulo 8	Proteínas no colágenas	¿Qué proteína dependiente de vitamina K captura calcio de la circulación?	Osteocalcina.
+Capítulo 8	Proteínas no colágenas	¿Qué proteína dependiente de vitamina K atrae y estimula osteoclastos?	Osteocalcina.
+Capítulo 8	Proteínas no colágenas	¿Qué proteína dependiente de vitamina K ayuda a eliminar células apoptóticas?	Proteína S.
+Capítulo 8	Proteínas no colágenas	¿Qué proteína dependiente de vitamina K participa en calcificaciones vasculares?	Proteína Gla de la matriz.
+Capítulo 8	Proteínas no colágenas	¿Qué sigla corresponde a proteína Gla de la matriz?	MGP.
+Capítulo 8	Proteínas no colágenas	¿Qué factores de crecimiento inducen diferenciación mesenquimatosa hacia osteoblastos?	BMP.
+Capítulo 8	Proteínas no colágenas	¿Qué significa BMP?	Proteínas morfogénicas óseas.
+Capítulo 8	Proteínas no colágenas	¿Qué proteína antagoniza BMP en matriz ósea?	Esclerostina.
+Capítulo 8	Proteínas no colágenas	¿Qué BMP recombinante se usa clínicamente para inducir crecimiento óseo?	BMP-7.
+Capítulo 8	Proteínas no colágenas	¿Qué otro nombre recibe BMP-7?	Proteína osteogénica 1 u OP-1.
+Capítulo 8	Preparación histológica del hueso	¿Por qué el hueso suele descalcificarse para cortes histológicos?	Para poder cortarlo como tejido blando.
+Capítulo 8	Preparación histológica del hueso	¿Qué componente se elimina en preparados de hueso descalcificado?	Calcio mineral.
+Capítulo 8	Preparación histológica del hueso	¿Qué se conserva principalmente en un preparado de hueso descalcificado?	La matriz orgánica y las células.
+Capítulo 8	Preparación histológica del hueso	¿Qué tipo de preparado permite observar mineralización del hueso?	Preparado por desgaste.
+Capítulo 8	Preparación histológica del hueso	¿Qué estructura suele observarse mejor en hueso desgastado que en descalcificado?	Lagunas y canalículos.
+Capítulo 8	Lagunas y canalículos	¿Qué espacio de la matriz ósea contiene un osteocito?	Laguna.
+Capítulo 8	Lagunas y canalículos	¿Qué túneles pequeños conectan lagunas óseas?	Canalículos.
+Capítulo 8	Lagunas y canalículos	¿Qué prolongaciones ocupan los canalículos?	Evaginaciones de osteocitos.
+Capítulo 8	Lagunas y canalículos	¿Qué conectan los canalículos?	Lagunas vecinas.
+Capítulo 8	Lagunas y canalículos	¿Qué permiten los canalículos entre osteocitos?	Contacto y comunicación celular.
+Capítulo 8	Lagunas y canalículos	¿Qué uniones comunican evaginaciones de osteocitos?	Uniones de hendidura.
+Capítulo 8	Lagunas y canalículos	¿Por qué los canalículos son esenciales en hueso mineralizado?	Permiten intercambio de sustancias entre osteocitos.
+Capítulo 8	Lagunas y canalículos	¿Qué red forma el sistema laguna-canalículo?	Una red continua de osteocitos y evaginaciones en matriz mineralizada.
+Capítulo 8	Lagunas y canalículos	¿De qué células depende la viabilidad del tejido óseo?	De los osteocitos.
+Capítulo 8	Células óseas	¿Cuáles son los cinco tipos celulares principales del tejido óseo?	Células osteoprogenitoras, osteoblastos, osteocitos, células de revestimiento óseo y osteoclastos.
+Capítulo 8	Células óseas	¿Qué células derivan de células madre mesenquimatosas y originan osteoblastos?	Células osteoprogenitoras.
+Capítulo 8	Células óseas	¿Qué célula secreta la matriz extracelular del hueso?	Osteoblasto.
+Capítulo 8	Células óseas	¿Qué célula ósea queda rodeada por matriz mineralizada?	Osteocito.
+Capítulo 8	Células óseas	¿Qué células cubren superficies óseas cuando no hay crecimiento activo?	Células de revestimiento óseo.
+Capítulo 8	Células óseas	¿Qué células reabsorben hueso?	Osteoclastos.
+Capítulo 8	Células óseas	¿Qué células son precursoras directas de osteocitos?	Osteoblastos.
+Capítulo 8	Células óseas	¿Qué células óseas no derivan del linaje osteoprogenitor mesenquimatoso?	Osteoclastos.
+Capítulo 8	Células óseas	¿De qué linaje derivan los osteoclastos?	Progenitores hematopoyéticos mononucleares.
+Capítulo 8	Células óseas	¿Qué célula ósea deriva por fusión de progenitores hematopoyéticos?	Osteoclasto.
+Capítulo 8	Hueso como órgano	¿Qué es el hueso desde el punto de vista anatómico?	Un órgano del sistema esquelético.
+Capítulo 8	Hueso como órgano	¿Qué tejido es el componente estructural de los huesos?	Tejido óseo.
+Capítulo 8	Hueso como órgano	¿Qué otros tejidos forman parte del hueso como órgano?	Tejido hematopoyético, adiposo, vasos sanguíneos, nervios y cartílago articular si corresponde.
+Capítulo 8	Hueso como órgano	¿Qué estructuras permiten que el hueso funcione como parte del sistema esquelético?	Tejido óseo, ligamentos y cartílago articular cuando está presente.
+Capítulo 8	Hueso como órgano	¿Qué tejido contiene la cavidad medular?	Médula ósea.
+Capítulo 8	Hueso como órgano	¿Qué tejido puede ocupar médula ósea amarilla?	Tejido adiposo.
+Capítulo 8	Clasificación de huesos	¿Cómo se clasifican los huesos según su forma?	Largos, cortos, planos e irregulares.
+Capítulo 8	Clasificación de huesos	¿Qué forma general tienen los huesos largos?	Tubular.
+Capítulo 8	Clasificación de huesos	¿Qué partes principales tiene un hueso largo?	Diáfisis, epífisis y metáfisis.
+Capítulo 8	Clasificación de huesos	¿Qué es la diáfisis?	El eje o cuerpo largo del hueso largo.
+Capítulo 8	Clasificación de huesos	¿Qué son las epífisis?	Los extremos proximal y distal del hueso largo.
+Capítulo 8	Clasificación de huesos	¿Qué es la metáfisis?	La región entre diáfisis y epífisis.
+Capítulo 8	Clasificación de huesos	¿Qué región contiene la placa epifisaria durante crecimiento?	Metáfisis.
+Capítulo 8	Clasificación de huesos	¿Qué tipo de huesos tienen dimensiones semejantes?	Huesos cortos.
+Capítulo 8	Clasificación de huesos	¿Qué tipo de huesos son delgados y anchos?	Huesos planos.
+Capítulo 8	Clasificación de huesos	¿Qué tipo de huesos tienen formas complejas no agrupables en otros tipos?	Huesos irregulares.
+Capítulo 8	Hueso compacto y esponjoso	¿Qué dos arreglos estructurales tiene el tejido óseo?	Compacto y esponjoso.
+Capítulo 8	Hueso compacto y esponjoso	¿Qué otro nombre recibe el hueso compacto?	Hueso denso.
+Capítulo 8	Hueso compacto y esponjoso	¿Qué otro nombre recibe el hueso esponjoso?	Hueso trabecular.
+Capítulo 8	Hueso compacto y esponjoso	¿Qué tejido óseo forma la superficie externa densa del hueso?	Hueso compacto.
+Capítulo 8	Hueso compacto y esponjoso	¿Qué tejido óseo forma una red interna de trabéculas?	Hueso esponjoso.
+Capítulo 8	Hueso compacto y esponjoso	¿Qué son las trabéculas óseas?	Espículas delgadas anastomosadas de tejido óseo.
+Capítulo 8	Hueso compacto y esponjoso	¿Qué espacios hay entre trabéculas del hueso esponjoso?	Espacios medulares.
+Capítulo 8	Hueso compacto y esponjoso	¿Qué estructura llena los espacios del hueso esponjoso?	Médula ósea.
+Capítulo 8	Hueso compacto y esponjoso	¿Dónde es más evidente el hueso compacto en un hueso largo?	En la diáfisis.
+Capítulo 8	Hueso compacto y esponjoso	¿Qué tejido óseo rodea la cavidad medular de la diáfisis?	Hueso compacto.
+Capítulo 8	Hueso compacto y esponjoso	¿Qué tejido óseo predomina en epífisis de huesos largos?	Hueso esponjoso.
+Capítulo 8	Hueso compacto y esponjoso	¿Cómo se orientan las trabéculas del hueso esponjoso?	Según la magnitud y dirección de las cargas mecánicas.
+Capítulo 8	Hueso compacto y esponjoso	¿Qué característica funcional tiene la orientación de trabéculas?	Distribuye fuerzas mecánicas.
+Capítulo 8	Hueso compacto y esponjoso	¿Qué diferencia principal hay entre hueso compacto y esponjoso?	El compacto es una masa densa; el esponjoso forma trabéculas con espacios medulares.
+Capítulo 8	Periostio	¿Qué membrana cubre la superficie externa del hueso?	Periostio.
+Capítulo 8	Periostio	¿Qué tipo de tejido forma el periostio?	Tejido conjuntivo.
+Capítulo 8	Periostio	¿Qué fibras fijan el periostio al hueso?	Fibras de Sharpey.
+Capítulo 8	Periostio	¿Qué otro nombre reciben las fibras de Sharpey?	Fibras perforantes.
+Capítulo 8	Periostio	¿Qué tipo de colágeno forman principalmente las fibras de Sharpey?	Colágeno tipo I.
+Capítulo 8	Periostio	¿Qué células osteogénicas contiene el periostio?	Células osteoprogenitoras.
+Capítulo 8	Periostio	¿Qué células pueden originarse de células osteoprogenitoras del periostio?	Osteoblastos.
+Capítulo 8	Periostio	¿Qué función tiene el periostio en crecimiento y reparación?	Aporta células osteoprogenitoras.
+Capítulo 8	Periostio	¿Qué capa externa del periostio es más fibrosa?	Capa fibrosa.
+Capítulo 8	Periostio	¿Qué capa interna del periostio tiene potencial osteogénico?	Capa osteogénica o celular.
+Capítulo 8	Periostio	¿Qué capa del periostio contiene vasos y nervios?	Capa fibrosa externa.
+Capítulo 8	Periostio	¿Qué capa del periostio contiene células osteoprogenitoras?	Capa interna osteogénica.
+Capítulo 8	Periostio	¿Qué superficie ósea no está cubierta por periostio en articulaciones sinoviales?	Superficie articular.
+Capítulo 8	Periostio	¿Qué cubre las superficies articulares en lugar de periostio?	Cartílago hialino articular.
+Capítulo 8	Endostio	¿Qué membrana reviste las cavidades óseas internas?	Endostio.
+Capítulo 8	Endostio	¿Qué superficies reviste el endostio?	Cavidad medular, trabéculas y conductos del hueso compacto.
+Capítulo 8	Endostio	¿Qué células contiene el endostio?	Células osteoprogenitoras, osteoblastos y osteoclastos.
+Capítulo 8	Endostio	¿Qué grosor celular tiene el endostio?	Una capa delgada de células.
+Capítulo 8	Endostio	¿Qué función tiene el endostio?	Crecimiento, remodelado y reparación de superficies internas.
+Capítulo 8	Endostio	¿Qué membrana reviste conductos de Havers y Volkmann?	Endostio.
+Capítulo 8	Endostio	¿Qué diferencia principal hay entre periostio y endostio?	El periostio cubre superficie externa; el endostio reviste superficies internas.
+Capítulo 8	Endostio	¿Qué membrana tiene capa fibrosa más gruesa: periostio o endostio?	Periostio.
+Capítulo 8	Endostio	¿Qué membrana es más delgada: periostio o endostio?	Endostio.
+Capítulo 8	Irrigación ósea	¿Qué orificio permite entrada de vasos hacia la médula ósea?	Foramen nutricio.
+Capítulo 8	Irrigación ósea	¿Qué arterias entran por forámenes nutricios?	Arterias nutricias.
+Capítulo 8	Irrigación ósea	¿Qué arterias irrigan principalmente diáfisis y epífisis?	Arterias nutricias.
+Capítulo 8	Irrigación ósea	¿Qué arterias complementan irrigación en metáfisis?	Arterias metafisarias.
+Capítulo 8	Irrigación ósea	¿De dónde derivan las arterias metafisarias?	De vasos del periostio incorporados durante crecimiento.
+Capítulo 8	Irrigación ósea	¿Qué vasos irrigan principalmente la porción externa del hueso compacto?	Vasos del periostio.
+Capítulo 8	Irrigación ósea	¿Qué conductos llevan vasos pequeños dentro del hueso compacto?	Conductos de Havers y Volkmann.
+Capítulo 8	Irrigación ósea	¿Qué contienen los conductos de Havers?	Una arteriola y una vénula o un capilar.
+Capítulo 8	Irrigación ósea	¿Qué conductos sirven como vía principal de entrada vascular al hueso compacto?	Conductos de Volkmann.
+Capítulo 8	Irrigación ósea	¿Qué dirección general tiene el flujo sanguíneo nutritivo del hueso compacto desde médula hacia periostio?	Centrífuga.
+Capítulo 8	Irrigación ósea	¿El tejido óseo tiene vasos linfáticos?	No.
+Capítulo 8	Irrigación ósea	¿Qué cubierta ósea sí posee drenaje linfático?	Periostio.
+Capítulo 8	Tejido óseo maduro	¿Qué otro nombre recibe el hueso maduro?	Hueso laminillar.
+Capítulo 8	Tejido óseo maduro	¿Qué organización tiene el hueso maduro?	Laminillas organizadas.
+Capítulo 8	Tejido óseo maduro	¿Qué son las laminillas óseas?	Capas organizadas de matriz ósea.
+Capítulo 8	Tejido óseo maduro	¿Cómo se orientan los osteocitos en hueso maduro?	Con su eje mayor paralelo a las laminillas.
+Capítulo 8	Tejido óseo maduro	¿Qué tipo de hueso predomina en el adulto?	Hueso maduro.
+Capítulo 8	Tejido óseo maduro	¿Qué matriz se tiñe más con eosina: hueso maduro o inmaduro?	Hueso maduro.
+Capítulo 8	Tejido óseo inmaduro	¿Qué otro nombre recibe el hueso inmaduro?	Hueso no laminillar.
+Capítulo 8	Tejido óseo inmaduro	¿Qué otros nombres recibe el hueso no laminillar?	Hueso entretejido o fasciculado.
+Capítulo 8	Tejido óseo inmaduro	¿Qué tejido óseo se forma primero durante desarrollo fetal?	Hueso inmaduro.
+Capítulo 8	Tejido óseo inmaduro	¿Qué organización tiene el colágeno en hueso inmaduro?	Entrelazada y no laminillar.
+Capítulo 8	Tejido óseo inmaduro	¿Qué cantidad celular tiene el hueso inmaduro frente al maduro?	Mayor cantidad de células por volumen.
+Capítulo 8	Tejido óseo inmaduro	¿Cómo se distribuyen las células en hueso inmaduro?	De forma aleatoria.
+Capítulo 8	Tejido óseo inmaduro	¿Qué matriz tiene más sustancia fundamental: hueso inmaduro o maduro?	Hueso inmaduro.
+Capítulo 8	Tejido óseo inmaduro	¿Qué matriz se tiñe mejor con hematoxilina: hueso inmaduro o maduro?	Hueso inmaduro.
+Capítulo 8	Tejido óseo inmaduro	¿Qué tipo de hueso se forma más rápido?	Hueso inmaduro.
+Capítulo 8	Tejido óseo inmaduro	¿Dónde puede aparecer hueso inmaduro en el adulto?	En sitios de remodelado o reparación.
+Capítulo 8	Tejido óseo inmaduro	¿Qué tipo de hueso aparece frecuentemente en alvéolos dentarios adultos?	Hueso inmaduro.
+Capítulo 8	Tejido óseo inmaduro	¿Qué tipo de hueso aparece inicialmente en una fractura en reparación?	Hueso inmaduro.
+Capítulo 8	Tejido óseo inmaduro	¿Qué diferencia de mineralización tiene el hueso inmaduro al inicio?	No se mineraliza completamente desde el inicio.
+Capítulo 8	Comparación hueso maduro-inmaduro	¿Qué hueso tiene organización laminillar?	Hueso maduro.
+Capítulo 8	Comparación hueso maduro-inmaduro	¿Qué hueso tiene colágeno entretejido?	Hueso inmaduro.
+Capítulo 8	Comparación hueso maduro-inmaduro	¿Qué hueso tiene más células por unidad de volumen?	Hueso inmaduro.
+Capítulo 8	Comparación hueso maduro-inmaduro	¿Qué hueso tiene osteocitos alineados con laminillas?	Hueso maduro.
+Capítulo 8	Comparación hueso maduro-inmaduro	¿Qué hueso se forma más rápido?	Hueso inmaduro.
+Capítulo 8	Comparación hueso maduro-inmaduro	¿Qué hueso predomina en el adulto sano?	Hueso maduro.
+Capítulo 8	Comparación hueso maduro-inmaduro	¿Qué hueso predomina en el feto?	Hueso inmaduro.
+Capítulo 8	Comparación hueso maduro-inmaduro	¿Qué hueso tiene más sustancia fundamental?	Hueso inmaduro.
+Capítulo 8	Comparación hueso maduro-inmaduro	¿Qué hueso se tiñe más con eosina?	Hueso maduro.
+Capítulo 8	Comparación hueso maduro-inmaduro	¿Qué hueso se tiñe mejor con hematoxilina?	Hueso inmaduro.
+Capítulo 8	Osteona	¿Qué unidad estructural forma el hueso compacto maduro?	Osteona.
+Capítulo 8	Osteona	¿Qué otro nombre recibe la osteona?	Sistema de Havers.
+Capítulo 8	Osteona	¿Qué estructura central contiene la osteona?	Conducto de Havers.
+Capítulo 8	Osteona	¿Qué rodea concéntricamente al conducto de Havers?	Laminillas concéntricas.
+Capítulo 8	Osteona	¿Qué contiene el conducto de Havers?	Vasos sanguíneos y nervios.
+Capítulo 8	Osteona	¿Qué células se ubican en lagunas entre laminillas de la osteona?	Osteocitos.
+Capítulo 8	Osteona	¿Qué conecta osteocitos dentro de una osteona?	Canalículos.
+Capítulo 8	Osteona	¿Qué laminillas quedan entre osteonas por remodelado previo?	Laminillas intersticiales.
+Capítulo 8	Osteona	¿Qué laminillas rodean toda la diáfisis por fuera?	Laminillas circunferenciales externas.
+Capítulo 8	Osteona	¿Qué laminillas rodean la cavidad medular por dentro?	Laminillas circunferenciales internas.
+Capítulo 8	Osteona	¿Qué conductos conectan conductos de Havers entre sí o con superficies óseas?	Conductos de Volkmann.
+Capítulo 8	Osteona	¿Qué dirección suelen tener los conductos de Volkmann respecto a las osteonas?	Perpendicular u oblicua.
+Capítulo 8	Osteona	¿Qué diferencia histológica clave tienen los conductos de Volkmann?	No están rodeados por laminillas concéntricas.
+Capítulo 8	Osteona	¿Qué conducto está rodeado por laminillas concéntricas?	Conducto de Havers.
+Capítulo 8	Osteona	¿Qué conducto no está rodeado por laminillas concéntricas?	Conducto de Volkmann.
+Capítulo 8	Hueso esponjoso maduro	¿Qué estructura forma el hueso esponjoso maduro?	Trabéculas o espículas.
+Capítulo 8	Hueso esponjoso maduro	¿Qué ocupa los espacios entre trabéculas?	Médula ósea.
+Capítulo 8	Hueso esponjoso maduro	¿Qué organización tiene la matriz del hueso esponjoso maduro?	Laminillar.
+Capítulo 8	Hueso esponjoso maduro	¿El hueso esponjoso maduro tiene osteonas típicas?	No suele tener osteonas completas.
+Capítulo 8	Hueso esponjoso maduro	¿Cómo se nutren los osteocitos en trabéculas delgadas?	Por difusión desde vasos de la médula ósea.
+Capítulo 8	Hueso esponjoso maduro	¿Qué reviste las superficies de las trabéculas?	Endostio.
+chapter	subtopic	front	back
+Capítulo 8	Células osteoprogenitoras	¿Qué son las células osteoprogenitoras?	Células precursoras que pueden diferenciarse en osteoblastos.
+Capítulo 8	Células osteoprogenitoras	¿De qué células derivan las células osteoprogenitoras?	Células madre mesenquimatosas.
+Capítulo 8	Células osteoprogenitoras	¿Qué célula ósea origina directamente al osteoblasto?	Célula osteoprogenitora.
+Capítulo 8	Células osteoprogenitoras	¿Qué potencial tienen las células osteoprogenitoras?	Potencial osteogénico.
+Capítulo 8	Células osteoprogenitoras	¿Dónde se localizan las células osteoprogenitoras?	En periostio, endostio y conductos vasculares del hueso.
+Capítulo 8	Células osteoprogenitoras	¿Qué capa del periostio contiene células osteoprogenitoras?	Capa interna osteogénica.
+Capítulo 8	Células osteoprogenitoras	¿Qué membrana interna del hueso contiene células osteoprogenitoras?	Endostio.
+Capítulo 8	Células osteoprogenitoras	¿Qué células se activan durante crecimiento o reparación ósea?	Células osteoprogenitoras.
+Capítulo 8	Células osteoprogenitoras	¿Qué factor de transcripción es esencial para diferenciación osteoblástica?	CBFA1/Runx2.
+Capítulo 8	Células osteoprogenitoras	¿Qué otro nombre recibe CBFA1?	Runx2.
+Capítulo 8	Células osteoprogenitoras	¿Qué factor de transcripción dirige células mesenquimatosas hacia linaje osteoblástico?	Runx2.
+Capítulo 8	Células osteoprogenitoras	¿Qué proteína morfogénica ósea induce diferenciación hacia osteoblastos?	BMP.
+Capítulo 8	Células osteoprogenitoras	¿Qué célula ósea es más abundante en superficies óseas durante desarrollo?	Célula osteoprogenitora.
+Capítulo 8	Células osteoprogenitoras	¿Qué forma tienen las células osteoprogenitoras en reposo?	Aplanada o fusiforme.
+Capítulo 8	Células osteoprogenitoras	¿Qué aspecto nuclear tienen las células osteoprogenitoras?	Núcleo ovalado o alargado.
+Capítulo 8	Células osteoprogenitoras	¿Qué ocurre con células osteoprogenitoras durante reparación de fracturas?	Proliferan y se diferencian en osteoblastos.
+Capítulo 8	Osteoblastos	¿Qué son los osteoblastos?	Células formadoras de hueso.
+Capítulo 8	Osteoblastos	¿Qué función principal tienen los osteoblastos?	Secretar matriz ósea.
+Capítulo 8	Osteoblastos	¿Qué célula sintetiza osteoide?	Osteoblasto.
+Capítulo 8	Osteoblastos	¿Qué es el osteoide?	Matriz ósea recién secretada aún no mineralizada.
+Capítulo 8	Osteoblastos	¿Qué componente orgánico principal secreta el osteoblasto?	Colágeno tipo I.
+Capítulo 8	Osteoblastos	¿Qué proteínas no colágenas secreta el osteoblasto?	Proteoglucanos, osteocalcina, osteonectina, osteopontina y factores de crecimiento.
+Capítulo 8	Osteoblastos	¿Qué célula inicia la mineralización de la matriz ósea?	Osteoblasto.
+Capítulo 8	Osteoblastos	¿Qué forma tienen los osteoblastos activos?	Cúbica o poliédrica.
+Capítulo 8	Osteoblastos	¿Cómo se disponen los osteoblastos activos sobre superficies óseas?	En una capa epitelioide.
+Capítulo 8	Osteoblastos	¿Qué organelos abundan en osteoblastos activos?	RER y aparato de Golgi.
+Capítulo 8	Osteoblastos	¿Por qué los osteoblastos activos tienen citoplasma basófilo?	Por abundante RER.
+Capítulo 8	Osteoblastos	¿Qué indica la basofilia citoplasmática del osteoblasto?	Síntesis activa de proteínas.
+Capítulo 8	Osteoblastos	¿Qué estructura clara perinuclear puede verse en osteoblastos?	Aparato de Golgi.
+Capítulo 8	Osteoblastos	¿Qué tipo de secreción realiza el osteoblasto?	Secreción de matriz extracelular.
+Capítulo 8	Osteoblastos	¿Qué célula ósea tiene prolongaciones hacia osteoblastos vecinos y osteocitos?	Osteoblasto.
+Capítulo 8	Osteoblastos	¿Qué uniones comunican osteoblastos con osteocitos?	Uniones de hendidura.
+Capítulo 8	Osteoblastos	¿Qué célula se forma cuando un osteoblasto queda rodeado por matriz?	Osteocito.
+Capítulo 8	Osteoblastos	¿Qué puede ocurrir con un osteoblasto al terminar formación ósea?	Convertirse en osteocito, célula de revestimiento óseo o sufrir apoptosis.
+Capítulo 8	Osteoblastos	¿Qué célula ósea expresa fosfatasa alcalina durante formación de hueso?	Osteoblasto.
+Capítulo 8	Osteoblastos	¿Qué enzima osteoblástica participa en mineralización?	Fosfatasa alcalina.
+Capítulo 8	Osteoblastos	¿Qué función tiene la fosfatasa alcalina en matriz ósea?	Aumenta fosfato disponible para mineralización.
+Capítulo 8	Osteoblastos	¿Qué hormona puede actuar sobre receptores de osteoblastos para regular remodelado?	Hormona paratiroidea.
+Capítulo 8	Osteoblastos	¿Qué sigla corresponde a hormona paratiroidea?	PTH.
+Capítulo 8	Osteoblastos	¿Qué célula ósea expresa RANKL para estimular osteoclastos?	Osteoblasto.
+Capítulo 8	Osteoblastos	¿Qué molécula osteoblástica estimula diferenciación de osteoclastos?	RANKL.
+Capítulo 8	Osteoblastos	¿Qué molécula osteoblástica inhibe diferenciación de osteoclastos?	Osteoprotegerina.
+Capítulo 8	Osteoblastos	¿Qué sigla corresponde a osteoprotegerina?	OPG.
+Capítulo 8	Osteoblastos	¿Qué hace la osteoprotegerina respecto a RANKL?	Actúa como receptor señuelo y bloquea RANKL.
+Capítulo 8	Osteoblastos	¿Qué interacción molecular activa precursores de osteoclastos?	RANKL-RANK.
+Capítulo 8	Osteoblastos	¿Qué receptor tienen los precursores de osteoclastos para RANKL?	RANK.
+Capítulo 8	Osteoblastos	¿Qué equilibrio regula formación y actividad de osteoclastos?	Relación RANKL/OPG.
+Capítulo 8	Osteoblastos	¿Qué pasa si aumenta RANKL relativo a OPG?	Aumenta formación y actividad de osteoclastos.
+Capítulo 8	Osteoblastos	¿Qué pasa si aumenta OPG relativo a RANKL?	Disminuye formación y actividad de osteoclastos.
+Capítulo 8	Osteoblastos	¿Qué célula formadora de hueso también regula reabsorción ósea?	Osteoblasto.
+Capítulo 8	Osteoblastos	¿Por qué el osteoblasto puede regular osteoclastos?	Porque produce RANKL y OPG.
+Capítulo 8	Osteoide	¿Qué matriz ósea aún no está mineralizada?	Osteoide.
+Capítulo 8	Osteoide	¿Qué célula deposita osteoide sobre superficies óseas?	Osteoblasto.
+Capítulo 8	Osteoide	¿Qué colágeno predomina en osteoide?	Colágeno tipo I.
+Capítulo 8	Osteoide	¿Qué ocurre con el osteoide después de ser secretado?	Se mineraliza.
+Capítulo 8	Osteoide	¿Qué diferencia hay entre osteoide y matriz ósea mineralizada?	El osteoide aún no contiene mineral suficiente.
+Capítulo 8	Osteoide	¿Qué banda pálida puede verse entre osteoblastos y hueso mineralizado?	Osteoide.
+Capítulo 8	Osteoide	¿Por qué el osteoide se tiñe distinto al hueso mineralizado?	Porque carece de mineral.
+Capítulo 8	Osteocitos	¿Qué son los osteocitos?	Células óseas maduras rodeadas por matriz mineralizada.
+Capítulo 8	Osteocitos	¿De qué célula deriva el osteocito?	Del osteoblasto.
+Capítulo 8	Osteocitos	¿Qué célula ósea reside en lagunas?	Osteocito.
+Capítulo 8	Osteocitos	¿Qué estructuras alojan las prolongaciones de osteocitos?	Canalículos.
+Capítulo 8	Osteocitos	¿Qué uniones conectan prolongaciones de osteocitos vecinos?	Uniones de hendidura.
+Capítulo 8	Osteocitos	¿Qué función principal tienen los osteocitos?	Mantener la matriz ósea y responder a fuerzas mecánicas.
+Capítulo 8	Osteocitos	¿Qué célula ósea actúa como mecanosensor?	Osteocito.
+Capítulo 8	Osteocitos	¿Qué detectan los osteocitos?	Estrés o carga mecánica.
+Capítulo 8	Osteocitos	¿Qué célula coordina remodelado óseo según carga mecánica?	Osteocito.
+Capítulo 8	Osteocitos	¿Qué ocurre con los osteocitos si se interrumpe el intercambio por canalículos?	Pueden morir.
+Capítulo 8	Osteocitos	¿Qué mantiene viable al osteocito dentro de matriz mineralizada?	La red de canalículos.
+Capítulo 8	Osteocitos	¿Qué espacio existe entre el osteocito y la matriz de su laguna?	Espacio periosteocítico.
+Capítulo 8	Osteocitos	¿Qué líquido ocupa el sistema laguna-canalículo?	Líquido extracelular.
+Capítulo 8	Osteocitos	¿Qué permite el líquido del sistema laguna-canalículo?	Intercambio de nutrientes, desechos y señales.
+Capítulo 8	Osteocitos	¿Qué célula ósea puede regular concentración local de calcio?	Osteocito.
+Capítulo 8	Osteocitos	¿Qué célula ósea participa en osteólisis osteocítica?	Osteocito.
+Capítulo 8	Osteocitos	¿Qué es la osteólisis osteocítica?	Remodelado local limitado de matriz alrededor del osteocito.
+Capítulo 8	Osteocitos	¿Qué proteína produce el osteocito para inhibir osteoblastos?	Esclerostina.
+Capítulo 8	Osteocitos	¿Qué efecto tiene la esclerostina sobre formación ósea?	La inhibe.
+Capítulo 8	Osteocitos	¿Qué vía de señalización inhibe la esclerostina?	Wnt/β-catenina.
+Capítulo 8	Osteocitos	¿Qué produce el osteocito en respuesta a carga mecánica?	Señales que favorecen formación o remodelado óseo.
+Capítulo 8	Osteocitos	¿Qué sucede con la esclerostina ante carga mecánica?	Disminuye.
+Capítulo 8	Osteocitos	¿Qué efecto tiene disminuir esclerostina por carga mecánica?	Aumenta formación ósea.
+Capítulo 8	Osteocitos	¿Qué sucede con la esclerostina ante falta de carga mecánica?	Aumenta.
+Capítulo 8	Osteocitos	¿Qué efecto tiene aumentar esclerostina por falta de carga?	Disminuye formación ósea.
+Capítulo 8	Osteocitos	¿Qué célula ósea produce podoplanina ante estrés mecánico?	Osteocito.
+Capítulo 8	Osteocitos	¿Qué proteína de matriz ósea es producida exclusivamente por osteocitos en respuesta a estrés mecánico?	Podoplanina.
+Capítulo 8	Osteocitos	¿Qué forma tiene un osteocito maduro?	Aplanada con prolongaciones.
+Capítulo 8	Osteocitos	¿Qué orientación tienen los osteocitos en hueso laminillar?	Paralela a las laminillas.
+Capítulo 8	Osteocitos	¿Qué diferencia celular hay entre osteoblasto y osteocito?	El osteoblasto está en superficie; el osteocito está rodeado por matriz.
+Capítulo 8	Osteocitos	¿Qué diferencia funcional hay entre osteoblasto y osteocito?	El osteoblasto forma matriz; el osteocito mantiene y detecta carga mecánica.
+Capítulo 8	Células de revestimiento óseo	¿Qué son las células de revestimiento óseo?	Osteoblastos inactivos que cubren superficies óseas.
+Capítulo 8	Células de revestimiento óseo	¿De qué derivan las células de revestimiento óseo?	De osteoblastos.
+Capítulo 8	Células de revestimiento óseo	¿Dónde se localizan las células de revestimiento óseo?	En superficies óseas sin actividad formadora.
+Capítulo 8	Células de revestimiento óseo	¿Qué forma tienen las células de revestimiento óseo?	Aplanada.
+Capítulo 8	Células de revestimiento óseo	¿Qué actividad sintética tienen las células de revestimiento óseo?	Baja actividad sintética.
+Capítulo 8	Células de revestimiento óseo	¿Qué nombre reciben las células de revestimiento en superficies externas?	Células periosteales.
+Capítulo 8	Células de revestimiento óseo	¿Qué nombre reciben las células de revestimiento en superficies internas?	Células endosteales.
+Capítulo 8	Células de revestimiento óseo	¿Qué función cumplen las células de revestimiento óseo?	Mantienen y protegen superficies óseas inactivas.
+Capítulo 8	Células de revestimiento óseo	¿Qué célula regula el intercambio entre líquido óseo y sangre?	Célula de revestimiento óseo.
+Capítulo 8	Células de revestimiento óseo	¿Qué célula puede reactivarse durante remodelado óseo?	Célula de revestimiento óseo.
+Capítulo 8	Células de revestimiento óseo	¿Qué hacen las células de revestimiento antes de reabsorción ósea?	Se retraen y exponen matriz ósea.
+Capítulo 8	Células de revestimiento óseo	¿Qué célula separa el espacio medular del tejido óseo mineralizado?	Célula de revestimiento óseo.
+Capítulo 8	Osteoclastos	¿Qué son los osteoclastos?	Células multinucleadas que reabsorben hueso.
+Capítulo 8	Osteoclastos	¿Qué función principal tienen los osteoclastos?	Resorción ósea.
+Capítulo 8	Osteoclastos	¿De qué linaje derivan los osteoclastos?	Linaje monocito-macrófago.
+Capítulo 8	Osteoclastos	¿Qué células se fusionan para formar osteoclastos?	Precursores hematopoyéticos mononucleares.
+Capítulo 8	Osteoclastos	¿Por qué los osteoclastos son multinucleados?	Porque se forman por fusión de precursores.
+Capítulo 8	Osteoclastos	¿Qué tamaño tienen los osteoclastos comparados con otras células óseas?	Son grandes.
+Capítulo 8	Osteoclastos	¿Dónde se localizan los osteoclastos activos?	En superficies de resorción ósea.
+Capítulo 8	Osteoclastos	¿Qué depresión ocupa un osteoclasto activo?	Laguna de Howship.
+Capítulo 8	Osteoclastos	¿Qué es una laguna de Howship?	Depresión de resorción ósea producida por osteoclasto.
+Capítulo 8	Osteoclastos	¿Qué superficie especializada tiene el osteoclasto hacia el hueso?	Borde festoneado o rizado.
+Capítulo 8	Osteoclastos	¿Qué función tiene el borde festoneado del osteoclasto?	Aumenta superficie para resorción.
+Capítulo 8	Osteoclastos	¿Qué zona rodea el borde festoneado del osteoclasto?	Zona clara o zona de sellado.
+Capítulo 8	Osteoclastos	¿Qué función tiene la zona de sellado del osteoclasto?	Aísla el microambiente de resorción.
+Capítulo 8	Osteoclastos	¿Qué estructura citoesquelética forma la zona de sellado?	Anillo de actina.
+Capítulo 8	Osteoclastos	¿Qué moléculas de adhesión fijan osteoclasto a matriz ósea?	Integrinas.
+Capítulo 8	Osteoclastos	¿Qué integrina es importante para fijación del osteoclasto al hueso?	Integrina αvβ3.
+Capítulo 8	Osteoclastos	¿Qué crea el osteoclasto bajo su borde festoneado?	Un compartimento ácido de resorción.
+Capítulo 8	Osteoclastos	¿Qué componente mineral disuelve el ácido secretado por osteoclastos?	Hidroxiapatita.
+Capítulo 8	Osteoclastos	¿Qué bomba secreta protones en el compartimento de resorción?	Bomba H+-ATPasa.
+Capítulo 8	Osteoclastos	¿Qué enzima ayuda a producir protones dentro del osteoclasto?	Anhidrasa carbónica II.
+Capítulo 8	Osteoclastos	¿Qué intercambiador permite salida de bicarbonato durante acidificación osteoclástica?	Intercambiador Cl-/HCO3-.
+Capítulo 8	Osteoclastos	¿Qué ion acompaña a protones hacia la laguna de resorción?	Cloruro.
+Capítulo 8	Osteoclastos	¿Qué canal permite paso de cloruro hacia la laguna de resorción?	Canal de Cl-.
+Capítulo 8	Osteoclastos	¿Qué enzimas degradan la matriz orgánica del hueso?	Hidrolasas lisosómicas y metaloproteinasas.
+Capítulo 8	Osteoclastos	¿Qué enzima osteoclástica degrada colágeno tipo I?	Catepsina K.
+Capítulo 8	Osteoclastos	¿Qué marcador enzimático caracteriza a osteoclastos?	Fosfatasa ácida resistente a tartrato.
+Capítulo 8	Osteoclastos	¿Qué sigla corresponde a fosfatasa ácida resistente a tartrato?	TRAP.
+Capítulo 8	Osteoclastos	¿Qué célula ósea es TRAP positiva?	Osteoclasto.
+Capítulo 8	Osteoclastos	¿Qué ocurre con los productos degradados de la matriz ósea dentro del osteoclasto?	Se endocitan y transitan por vesículas.
+Capítulo 8	Osteoclastos	¿Cómo se eliminan productos de resorción desde el osteoclasto?	Por transcitosis hacia el lado opuesto a la matriz.
+Capítulo 8	Osteoclastos	¿Qué hormona inhibe directamente la actividad osteoclástica?	Calcitonina.
+Capítulo 8	Osteoclastos	¿Qué célula ósea tiene receptores para calcitonina?	Osteoclasto.
+Capítulo 8	Osteoclastos	¿Qué efecto tiene calcitonina sobre osteoclastos?	Reduce su actividad de resorción.
+Capítulo 8	Osteoclastos	¿La PTH estimula directamente receptores en osteoclastos?	No.
+Capítulo 8	Osteoclastos	¿Cómo estimula PTH la resorción ósea?	Actúa sobre osteoblastos para aumentar señalización RANKL.
+Capítulo 8	Osteoclastos	¿Qué molécula osteoblástica estimula diferenciación osteoclástica?	RANKL.
+Capítulo 8	Osteoclastos	¿Qué receptor osteoclástico reconoce RANKL?	RANK.
+Capítulo 8	Osteoclastos	¿Qué molécula bloquea RANKL e inhibe osteoclastogénesis?	OPG.
+Capítulo 8	Osteoclastos	¿Qué citocina es necesaria para supervivencia de precursores osteoclásticos?	M-CSF.
+Capítulo 8	Osteoclastos	¿Qué célula produce M-CSF para linaje osteoclástico?	Osteoblasto o célula estromal.
+Capítulo 8	Osteoclastos	¿Qué significa M-CSF?	Factor estimulante de colonias de macrófagos.
+Capítulo 8	Osteoclastos	¿Qué célula ósea aumenta en hiperparatiroidismo por estimulación indirecta?	Osteoclasto.
+Capítulo 8	Osteoclastos	¿Qué célula causa resorción de hueso mineralizado?	Osteoclasto.
+Capítulo 8	Osteoclastos	¿Qué diferencia principal hay entre osteoblasto y osteoclasto?	El osteoblasto forma hueso; el osteoclasto lo reabsorbe.
+Capítulo 8	Osteoclastos	¿Qué diferencia de origen hay entre osteoblasto y osteoclasto?	Osteoblasto deriva de mesénquima; osteoclasto de linaje hematopoyético.
+Capítulo 8	Osteoclastos	¿Qué diferencia morfológica hay entre osteoblasto y osteoclasto?	El osteoblasto suele ser mononuclear; el osteoclasto es multinucleado.
+Capítulo 8	Osteoclastos	¿Qué diferencia hay entre laguna osteocítica y laguna de Howship?	La laguna osteocítica aloja osteocito; la de Howship es depresión de resorción.
+Capítulo 8	Remodelado óseo	¿Qué es el remodelado óseo?	Proceso coordinado de resorción y formación de hueso.
+Capítulo 8	Remodelado óseo	¿Qué células realizan la resorción durante remodelado?	Osteoclastos.
+Capítulo 8	Remodelado óseo	¿Qué células realizan la formación durante remodelado?	Osteoblastos.
+Capítulo 8	Remodelado óseo	¿Qué célula coordina remodelado según carga mecánica?	Osteocito.
+Capítulo 8	Remodelado óseo	¿Qué ocurre primero en una unidad de remodelado?	Resorción osteoclástica.
+Capítulo 8	Remodelado óseo	¿Qué ocurre después de la resorción osteoclástica?	Formación osteoblástica.
+Capítulo 8	Remodelado óseo	¿Qué reemplaza hueso viejo o dañado durante remodelado?	Hueso nuevo.
+Capítulo 8	Remodelado óseo	¿Qué función mecánica tiene el remodelado óseo?	Adaptar el hueso a cargas mecánicas.
+Capítulo 8	Remodelado óseo	¿Qué función metabólica tiene el remodelado óseo?	Regular calcio y fosfato.
+Capítulo 8	Remodelado óseo	¿Qué ocurre si resorción supera formación ósea?	Disminuye masa ósea.
+Capítulo 8	Remodelado óseo	¿Qué ocurre si formación supera resorción ósea?	Aumenta masa ósea.
+Capítulo 8	Remodelado óseo	¿Qué enfermedad se asocia con resorción mayor que formación?	Osteoporosis.
+Capítulo 8	Remodelado óseo	¿Qué señal osteocítica inhibe formación ósea?	Esclerostina.
+Capítulo 8	Remodelado óseo	¿Qué señal osteoblástica inhibe osteoclastos?	OPG.
+Capítulo 8	Remodelado óseo	¿Qué señal osteoblástica activa osteoclastos?	RANKL.
+Capítulo 8	Remodelado óseo	¿Qué hormona aumenta resorción ósea de forma indirecta?	PTH.
+Capítulo 8	Remodelado óseo	¿Qué hormona disminuye resorción ósea al actuar sobre osteoclastos?	Calcitonina.
+Capítulo 8	Comparación de células óseas	¿Qué célula ósea forma matriz?	Osteoblasto.
+Capítulo 8	Comparación de células óseas	¿Qué célula ósea mantiene matriz y detecta carga?	Osteocito.
+Capítulo 8	Comparación de células óseas	¿Qué célula ósea cubre superficies inactivas?	Célula de revestimiento óseo.
+Capítulo 8	Comparación de células óseas	¿Qué célula ósea reabsorbe matriz?	Osteoclasto.
+Capítulo 8	Comparación de células óseas	¿Qué célula ósea origina osteoblastos?	Célula osteoprogenitora.
+Capítulo 8	Comparación de células óseas	¿Qué célula ósea deriva del linaje monocito-macrófago?	Osteoclasto.
+Capítulo 8	Comparación de células óseas	¿Qué célula ósea deriva de osteoblastos atrapados en matriz?	Osteocito.
+Capítulo 8	Comparación de células óseas	¿Qué célula ósea deriva de osteoblastos inactivos?	Célula de revestimiento óseo.
+Capítulo 8	Comparación de células óseas	¿Qué célula ósea expresa Runx2 durante diferenciación?	Célula osteoprogenitora/linaje osteoblástico.
+Capítulo 8	Comparación de células óseas	¿Qué célula ósea expresa fosfatasa alcalina?	Osteoblasto.
+Capítulo 8	Comparación de células óseas	¿Qué célula ósea expresa TRAP?	Osteoclasto.
+Capítulo 8	Comparación de células óseas	¿Qué célula ósea expresa esclerostina?	Osteocito.
+Capítulo 8	Comparación de células óseas	¿Qué célula ósea expresa RANKL y OPG?	Osteoblasto.
+Capítulo 8	Comparación de células óseas	¿Qué célula ósea tiene borde festoneado?	Osteoclasto.
+Capítulo 8	Comparación de células óseas	¿Qué célula ósea está en una laguna?	Osteocito.
+Capítulo 8	Comparación de células óseas	¿Qué célula ósea ocupa una laguna de Howship?	Osteoclasto.
+Capítulo 8	Comparación de células óseas	¿Qué célula ósea tiene citoplasma basófilo por RER abundante?	Osteoblasto.
+Capítulo 8	Comparación de células óseas	¿Qué célula ósea es grande y multinucleada?	Osteoclasto.
+Capítulo 8	Comparación de células óseas	¿Qué célula ósea es aplanada y cubre hueso inactivo?	Célula de revestimiento óseo.
+Capítulo 8	Comparación de células óseas	¿Qué célula ósea se comunica mediante canalículos?	Osteocito.
+chapter	subtopic	front	back
+Capítulo 8	Formación del hueso	¿Cuáles son los dos mecanismos principales de formación inicial del hueso?	Osificación intramembranosa y osificación endocondral.
+Capítulo 8	Formación del hueso	¿Qué diferencia central hay entre osificación intramembranosa y endocondral?	La endocondral usa un modelo cartilaginoso; la intramembranosa no.
+Capítulo 8	Formación del hueso	¿Qué tipo de osificación no requiere un precursor cartilaginoso?	Osificación intramembranosa.
+Capítulo 8	Formación del hueso	¿Qué tipo de osificación requiere un modelo de cartílago hialino?	Osificación endocondral.
+Capítulo 8	Formación del hueso	¿Qué huesos se desarrollan por osificación intramembranosa?	Huesos planos del cráneo, mandíbula y clavícula.
+Capítulo 8	Formación del hueso	¿Qué huesos se desarrollan principalmente por osificación endocondral?	Huesos de extremidades y esqueleto axial que soporta peso.
+Capítulo 8	Formación del hueso	¿Qué huesos axiales que soportan peso se forman por osificación endocondral?	Vértebras.
+Capítulo 8	Formación del hueso	¿Los términos “endocondral” e “intramembranoso” describen huesos adultos distintos?	No; describen el mecanismo inicial de formación.
+Capítulo 8	Formación del hueso	¿Por qué el hueso formado por ambos mecanismos termina siendo similar?	Porque luego se remodela y se reemplaza por hueso de aposición.
+Capítulo 8	Formación del hueso	¿Qué tipo de crecimiento produce hueso nuevo sobre hueso preexistente?	Crecimiento por aposición.
+Capítulo 8	Formación del hueso	¿Qué mecanismo participa en el desarrollo continuo de huesos largos además del endocondral?	Osificación intramembranosa del periostio.
+Capítulo 8	Osificación intramembranosa	¿Qué inicia la osificación intramembranosa?	Acumulación de células mesenquimatosas que se diferencian en osteoblastos.
+Capítulo 8	Osificación intramembranosa	¿En qué tejido ocurre la osificación intramembranosa?	Mesénquima.
+Capítulo 8	Osificación intramembranosa	¿Aproximadamente cuándo aparece la primera evidencia de osificación intramembranosa humana?	Alrededor de la octava semana de gestación.
+Capítulo 8	Osificación intramembranosa	¿Cómo se llaman las áreas donde se acumulan células mesenquimatosas para formar hueso?	Centros de osificación.
+Capítulo 8	Osificación intramembranosa	¿Qué células forman inicialmente los centros de osificación intramembranosa?	Células mesenquimatosas.
+Capítulo 8	Osificación intramembranosa	¿En qué se diferencian primero las células mesenquimatosas del centro de osificación?	En células osteoprogenitoras.
+Capítulo 8	Osificación intramembranosa	¿Qué factor de transcripción expresan las células osteoprogenitoras durante osificación?	CBFA1/Runx2.
+Capítulo 8	Osificación intramembranosa	¿Qué factor es esencial para diferenciación de osteoblastos durante osificación?	CBFA1/Runx2.
+Capítulo 8	Osificación intramembranosa	¿Qué cambio tintorial ocurre cuando células osteoprogenitoras se diferencian en osteoblastos?	El citoplasma cambia de eosinófilo a basófilo.
+Capítulo 8	Osificación intramembranosa	¿Qué organelo se vuelve evidente como zona clara en osteoblastos diferenciados?	Aparato de Golgi.
+Capítulo 8	Osificación intramembranosa	¿Qué célula secreta osteoide en el centro de osificación intramembranosa?	Osteoblasto.
+Capítulo 8	Osificación intramembranosa	¿Qué matriz secreta el osteoblasto durante osificación intramembranosa?	Osteoide.
+Capítulo 8	Osificación intramembranosa	¿Qué componente principal del osteoide se secreta durante osificación intramembranosa?	Colágeno tipo I.
+Capítulo 8	Osificación intramembranosa	¿Qué proteínas no colágenas se secretan durante osificación intramembranosa?	Sialoproteínas óseas y osteocalcina.
+Capítulo 8	Osificación intramembranosa	¿Qué ocurre con el osteoide tras ser secretado?	Se mineraliza.
+Capítulo 8	Osificación intramembranosa	¿Qué célula se forma cuando un osteoblasto queda atrapado en matriz ósea?	Osteocito.
+Capítulo 8	Osificación intramembranosa	¿Qué estructuras contienen las prolongaciones de osteocitos al calcificarse la matriz?	Canalículos.
+Capítulo 8	Osificación intramembranosa	¿Qué estructura histológica aparece inicialmente en el hueso intramembranoso?	Espículas y trabéculas irregulares.
+Capítulo 8	Osificación intramembranosa	¿Qué tipo de hueso se forma inicialmente por osificación intramembranosa?	Hueso inmaduro o entretejido.
+Capítulo 8	Osificación intramembranosa	¿Cómo crecen las espículas óseas intramembranosas?	Por aposición.
+Capítulo 8	Osificación intramembranosa	¿Qué ocurre cuando las espículas óseas aumentan y se unen?	Forman una red trabecular.
+Capítulo 8	Osificación intramembranosa	¿Qué células se adosan a espículas y producen más matriz?	Osteoblastos derivados de células osteoprogenitoras.
+Capítulo 8	Osificación intramembranosa	¿Qué espacios quedan entre trabéculas durante osificación intramembranosa?	Espacios con tejido conjuntivo y vasos sanguíneos.
+Capítulo 8	Osificación intramembranosa	¿Qué tejido puede ocupar los espacios entre trabéculas en desarrollo?	Médula ósea.
+Capítulo 8	Osificación intramembranosa	¿Qué ocurre con el hueso inmaduro intramembranoso durante remodelado posterior?	Se reemplaza por hueso maduro.
+Capítulo 8	Osificación intramembranosa	¿Qué hueso se forma por remodelado de trabéculas periféricas en huesos planos?	Hueso compacto.
+Capítulo 8	Osificación intramembranosa	¿Qué hueso queda entre tablas compactas en huesos planos del cráneo?	Hueso esponjoso o diploe.
+Capítulo 8	Osificación intramembranosa	¿Qué proceso convierte espículas iniciales en hueso compacto y esponjoso organizado?	Remodelado óseo.
+Capítulo 8	Osificación endocondral	¿Qué inicia la osificación endocondral?	Formación de un modelo de cartílago hialino.
+Capítulo 8	Osificación endocondral	¿Qué tejido sirve como precursor del hueso endocondral?	Cartílago hialino.
+Capítulo 8	Osificación endocondral	¿Qué célula forma inicialmente el modelo de cartílago hialino?	Condroblasto.
+Capítulo 8	Osificación endocondral	¿Qué estructura cartilaginosa se parece al futuro hueso?	Modelo de cartílago hialino.
+Capítulo 8	Osificación endocondral	¿Qué tejido rodea inicialmente al modelo cartilaginoso?	Pericondrio.
+Capítulo 8	Osificación endocondral	¿Qué ocurre con el pericondrio cuando inicia depósito óseo?	Se transforma en periostio.
+Capítulo 8	Osificación endocondral	¿Qué estructura ósea se deposita inicialmente sobre la superficie del modelo cartilaginoso?	Collar óseo periosteal.
+Capítulo 8	Osificación endocondral	¿Qué célula forma el collar óseo periosteal?	Osteoblastos del periostio.
+Capítulo 8	Osificación endocondral	¿Dónde se forma inicialmente el collar óseo periosteal?	Alrededor de la diáfisis.
+Capítulo 8	Osificación endocondral	¿Qué ocurre con los condrocitos de la diáfisis tras formarse el collar óseo?	Se hipertrofian.
+Capítulo 8	Osificación endocondral	¿Qué ocurre con la matriz cartilaginosa alrededor de condrocitos hipertróficos?	Se calcifica.
+Capítulo 8	Osificación endocondral	¿Qué consecuencia tiene la calcificación de la matriz cartilaginosa para condrocitos?	Impide difusión y causa muerte celular.
+Capítulo 8	Osificación endocondral	¿Qué queda tras la muerte de condrocitos en cartílago calcificado?	Espículas de cartílago calcificado.
+Capítulo 8	Osificación endocondral	¿Qué estructura invade la diáfisis durante osificación endocondral?	Brotes vasculares.
+Capítulo 8	Osificación endocondral	¿Qué células entran con los vasos al modelo cartilaginoso?	Células osteoprogenitoras y células hematopoyéticas.
+Capítulo 8	Osificación endocondral	¿En qué se diferencian las células osteoprogenitoras al llegar al cartílago calcificado?	En osteoblastos.
+Capítulo 8	Osificación endocondral	¿Sobre qué armazón depositan osteoide los osteoblastos en osificación endocondral?	Sobre espículas de cartílago calcificado.
+Capítulo 8	Osificación endocondral	¿Cómo se llama el primer sitio de formación ósea en la diáfisis?	Centro primario de osificación.
+Capítulo 8	Osificación endocondral	¿Dónde aparece el centro primario de osificación?	En la diáfisis.
+Capítulo 8	Osificación endocondral	¿Qué estructura resulta de hueso depositado sobre cartílago calcificado?	Espícula mixta.
+Capítulo 8	Osificación endocondral	¿Qué dos componentes tiene una espícula mixta?	Cartílago calcificado y hueso recién formado.
+Capítulo 8	Osificación endocondral	¿Cómo se tiñe típicamente el cartílago calcificado en espículas mixtas?	Basófilo.
+Capítulo 8	Osificación endocondral	¿Cómo se tiñe típicamente el hueso recién formado en espículas mixtas?	Eosinófilo.
+Capítulo 8	Osificación endocondral	¿Qué componente de la espícula mixta carece de células vivas?	Cartílago calcificado.
+Capítulo 8	Osificación endocondral	¿Qué componente de la espícula mixta contiene osteocitos?	Hueso recién formado.
+Capítulo 8	Osificación endocondral	¿Qué ocurre con el cartílago calcificado de las espículas mixtas?	Se elimina con el tiempo.
+Capítulo 8	Osificación endocondral	¿Qué ocurre con el componente óseo de las espículas mixtas?	Crece por aposición o se remodela.
+Capítulo 8	Osificación endocondral	¿Qué estructura se forma al ampliarse la diáfisis por resorción interna?	Cavidad medular.
+Capítulo 8	Osificación endocondral	¿Qué células reabsorben hueso y cartílago calcificado durante formación de cavidad medular?	Osteoclastos/condroclastos.
+Capítulo 8	Centro secundario de osificación	¿Dónde se forman los centros secundarios de osificación?	En las epífisis.
+Capítulo 8	Centro secundario de osificación	¿Cuándo se forman los centros secundarios de osificación?	Después del centro primario, principalmente alrededor del nacimiento o después.
+Capítulo 8	Centro secundario de osificación	¿Qué tejido queda entre centro primario y secundario de osificación?	Disco epifisario.
+Capítulo 8	Centro secundario de osificación	¿Qué tejido queda en la superficie articular tras osificación epifisaria?	Cartílago articular.
+Capítulo 8	Centro secundario de osificación	¿Qué función tiene el cartílago articular remanente?	Reducir fricción y distribuir cargas en la articulación.
+Capítulo 8	Centro secundario de osificación	¿Qué estructura permite crecimiento longitudinal entre diáfisis y epífisis?	Disco epifisario.
+Capítulo 8	Disco epifisario	¿Qué es el disco epifisario?	Placa de cartílago hialino entre epífisis y diáfisis en huesos en crecimiento.
+Capítulo 8	Disco epifisario	¿Qué función tiene el disco epifisario?	Permitir crecimiento longitudinal del hueso.
+Capítulo 8	Disco epifisario	¿De qué depende el alargamiento del hueso endocondral?	Del crecimiento intersticial del cartílago en el disco epifisario.
+Capítulo 8	Disco epifisario	¿Qué ocurre con el cartílago del disco epifisario durante crecimiento?	Se produce, calcifica, reabsorbe y reemplaza por hueso.
+Capítulo 8	Disco epifisario	¿Qué separa los centros primario y secundario de osificación?	Disco epifisario.
+Capítulo 8	Disco epifisario	¿Qué ocurre cuando se cierra el disco epifisario?	Se detiene el crecimiento longitudinal.
+Capítulo 8	Disco epifisario	¿Qué queda como evidencia del cierre del disco epifisario?	Línea epifisaria.
+Capítulo 8	Disco epifisario	¿Qué tipo de cartílago forma el disco epifisario?	Cartílago hialino.
+Capítulo 8	Zonas del disco epifisario	¿Cuáles son las zonas del disco epifisario?	Reserva, proliferación, hipertrofia, cartílago calcificado y resorción.
+Capítulo 8	Zona de reserva	¿Qué zona del disco epifisario contiene cartílago hialino sin cambios proliferativos evidentes?	Zona de reserva.
+Capítulo 8	Zona de reserva	¿Qué función tiene la zona de reserva del disco epifisario?	Servir como fuente de condrocitos para crecimiento.
+Capítulo 8	Zona de reserva	¿Cómo son los condrocitos en la zona de reserva?	Pequeños y distribuidos al azar.
+Capítulo 8	Zona de proliferación	¿Qué ocurre en la zona de proliferación del disco epifisario?	Los condrocitos se dividen y forman columnas.
+Capítulo 8	Zona de proliferación	¿Qué organización tienen los condrocitos en la zona de proliferación?	Columnas longitudinales.
+Capítulo 8	Zona de proliferación	¿Qué tipo de crecimiento cartilaginoso ocurre en la zona de proliferación?	Crecimiento intersticial.
+Capítulo 8	Zona de proliferación	¿Qué zona del disco epifisario impulsa principalmente el alargamiento óseo?	Zona de proliferación.
+Capítulo 8	Zona de hipertrofia	¿Qué ocurre con los condrocitos en la zona de hipertrofia?	Aumentan de tamaño.
+Capítulo 8	Zona de hipertrofia	¿Qué ocurre con la matriz entre condrocitos en la zona de hipertrofia?	Se adelgaza.
+Capítulo 8	Zona de hipertrofia	¿Qué aspecto tienen las lagunas en la zona de hipertrofia?	Aumentadas de tamaño.
+Capítulo 8	Zona de cartílago calcificado	¿Qué ocurre en la zona de cartílago calcificado?	La matriz cartilaginosa se calcifica.
+Capítulo 8	Zona de cartílago calcificado	¿Qué les ocurre a los condrocitos en la zona de cartílago calcificado?	Mueren por falta de difusión.
+Capítulo 8	Zona de cartílago calcificado	¿Qué estructura queda después de la muerte de condrocitos en cartílago calcificado?	Tabiques de cartílago calcificado.
+Capítulo 8	Zona de resorción	¿Qué ocurre en la zona de resorción del disco epifisario?	El cartílago calcificado se resorbe y se reemplaza por hueso.
+Capítulo 8	Zona de resorción	¿Qué células depositan hueso sobre cartílago calcificado en zona de resorción?	Osteoblastos.
+Capítulo 8	Zona de resorción	¿Qué células eliminan cartílago calcificado en zona de resorción?	Condroclastos/osteoclastos.
+Capítulo 8	Zona de resorción	¿Qué estructura se forma cuando el osteoide se deposita sobre cartílago calcificado?	Espícula mixta.
+Capítulo 8	Zonas del disco epifisario	¿Qué zona contiene condrocitos en reposo?	Zona de reserva.
+Capítulo 8	Zonas del disco epifisario	¿Qué zona contiene condrocitos en columnas?	Zona de proliferación.
+Capítulo 8	Zonas del disco epifisario	¿Qué zona contiene condrocitos agrandados?	Zona de hipertrofia.
+Capítulo 8	Zonas del disco epifisario	¿Qué zona contiene matriz cartilaginosa mineralizada?	Zona de cartílago calcificado.
+Capítulo 8	Zonas del disco epifisario	¿Qué zona reemplaza cartílago calcificado por hueso?	Zona de resorción.
+Capítulo 8	Crecimiento óseo	¿Cómo aumenta el hueso en longitud?	Por crecimiento intersticial del cartílago del disco epifisario.
+Capítulo 8	Crecimiento óseo	¿Cómo aumenta el hueso en ancho o diámetro?	Por crecimiento aposicional bajo el periostio.
+Capítulo 8	Crecimiento óseo	¿Qué células producen crecimiento en ancho del hueso?	Osteoblastos del periostio.
+Capítulo 8	Crecimiento óseo	¿Qué superficie deposita hueso nuevo durante crecimiento en diámetro?	Superficie externa bajo el periostio.
+Capítulo 8	Crecimiento óseo	¿Qué superficie se reabsorbe para ampliar la cavidad medular durante crecimiento?	Superficie endosteal.
+Capítulo 8	Crecimiento óseo	¿Qué células reabsorben hueso en la superficie endosteal durante crecimiento?	Osteoclastos.
+Capítulo 8	Crecimiento óseo	¿Qué equilibrio permite que la diáfisis aumente diámetro sin engrosarse excesivamente?	Formación periosteal y resorción endosteal.
+Capítulo 8	Crecimiento óseo	¿Qué estructura cartilaginosa permite crecimiento longitudinal en niños y adolescentes?	Disco epifisario.
+Capítulo 8	Crecimiento óseo	¿Qué estructura ósea permite crecimiento en ancho durante toda la remodelación?	Periostio.
+Capítulo 8	Crecimiento óseo	¿Qué hormona favorece crecimiento longitudinal al estimular hígado y producción de IGF-1?	Hormona de crecimiento.
+Capítulo 8	Crecimiento óseo	¿Qué factor media muchos efectos de hormona de crecimiento sobre cartílago de crecimiento?	IGF-1.
+Capítulo 8	Crecimiento óseo	¿Qué hormonas aceleran cierre del disco epifisario en pubertad?	Hormonas sexuales.
+Capítulo 8	Crecimiento óseo	¿Qué ocurre con el crecimiento longitudinal cuando se fusionan epífisis y diáfisis?	Se detiene.
+Capítulo 8	Crecimiento óseo	¿Qué proceso reemplaza cartílago calcificado por hueso en crecimiento endocondral?	Osificación endocondral.
+Capítulo 8	Crecimiento óseo	¿Qué tipo de crecimiento cartilaginoso ocurre en el disco epifisario?	Intersticial.
+Capítulo 8	Crecimiento óseo	¿Qué tipo de crecimiento óseo ocurre en superficies ya formadas?	Aposicional.
+Capítulo 8	Comparación de osificación	¿Qué osificación usa células mesenquimatosas que se diferencian directamente en osteoblastos?	Intramembranosa.
+Capítulo 8	Comparación de osificación	¿Qué osificación usa un molde de cartílago hialino?	Endocondral.
+Capítulo 8	Comparación de osificación	¿Qué osificación forma huesos planos del cráneo?	Intramembranosa.
+Capítulo 8	Comparación de osificación	¿Qué osificación forma la mayoría de huesos largos?	Endocondral.
+Capítulo 8	Comparación de osificación	¿Qué osificación forma primero espículas trabeculares en mesénquima?	Intramembranosa.
+Capítulo 8	Comparación de osificación	¿Qué osificación forma primero un collar óseo periosteal?	Endocondral.
+Capítulo 8	Comparación de osificación	¿Qué osificación presenta centros primario y secundario?	Endocondral.
+Capítulo 8	Comparación de osificación	¿Qué osificación presenta disco epifisario?	Endocondral.
+Capítulo 8	Comparación de osificación	¿Qué osificación depende de condrocitos hipertróficos?	Endocondral.
+Capítulo 8	Comparación de osificación	¿Qué osificación depende de centros de osificación mesenquimatosos?	Intramembranosa.
+Capítulo 8	Comparación de osificación	¿Qué osificación produce inicialmente hueso inmaduro?	Ambas.
+Capítulo 8	Comparación de osificación	¿Qué osificación termina siendo reemplazada por hueso maduro por remodelado?	Ambas.
+Capítulo 8	Comparación de osificación	¿Qué osificación genera espículas mixtas de cartílago calcificado y hueso?	Endocondral.
+Capítulo 8	Comparación de osificación	¿Qué osificación carece de espículas de cartílago calcificado?	Intramembranosa.
+chapter	subtopic	front	back
+Capítulo 8	Mineralización ósea	¿Qué es la mineralización ósea?	Depósito de cristales de hidroxiapatita en la matriz ósea.
+Capítulo 8	Mineralización ósea	¿Qué cristal mineral se deposita en la matriz ósea?	Hidroxiapatita.
+Capítulo 8	Mineralización ósea	¿Qué iones forman los cristales de hidroxiapatita?	Calcio y fosfato.
+Capítulo 8	Mineralización ósea	¿Qué componente orgánico sirve como armazón para depósito mineral?	Colágeno tipo I.
+Capítulo 8	Mineralización ósea	¿Qué célula inicia la mineralización de la matriz ósea?	Osteoblasto.
+Capítulo 8	Mineralización ósea	¿Qué matriz debe mineralizarse para convertirse en hueso?	Osteoide.
+Capítulo 8	Mineralización ósea	¿Qué enzima osteoblástica aumenta el fosfato local para mineralización?	Fosfatasa alcalina.
+Capítulo 8	Mineralización ósea	¿Qué célula libera vesículas matriciales durante mineralización?	Osteoblasto.
+Capítulo 8	Vesículas matriciales	¿Qué son las vesículas matriciales?	Pequeñas vesículas extracelulares liberadas por osteoblastos.
+Capítulo 8	Vesículas matriciales	¿Qué función tienen las vesículas matriciales en el hueso?	Iniciar la mineralización.
+Capítulo 8	Vesículas matriciales	¿Qué enzimas contienen las vesículas matriciales?	Fosfatasa alcalina y pirofosfatasa.
+Capítulo 8	Vesículas matriciales	¿Qué acumulan las vesículas matriciales para iniciar cristales minerales?	Calcio y fosfato.
+Capítulo 8	Vesículas matriciales	¿Qué se forma dentro de las vesículas matriciales?	Cristales iniciales de hidroxiapatita.
+Capítulo 8	Vesículas matriciales	¿Qué ocurre cuando los cristales crecen y rompen la vesícula matricial?	Se propagan hacia la matriz extracelular.
+Capítulo 8	Vesículas matriciales	¿Qué estructura extracelular ayuda a concentrar minerales durante mineralización?	Vesícula matricial.
+Capítulo 8	Vesículas matriciales	¿Qué tipo de mineralización ocurre inicialmente dentro de vesículas matriciales?	Mineralización nucleada.
+Capítulo 8	Vesículas matriciales	¿Qué pasa después de la ruptura de vesículas matriciales?	Los cristales se extienden entre fibrillas de colágeno.
+Capítulo 8	Mineralización ósea	¿Qué proteína une colágeno con hidroxiapatita?	Osteonectina.
+Capítulo 8	Mineralización ósea	¿Qué proteína ósea captura calcio de la circulación?	Osteocalcina.
+Capítulo 8	Mineralización ósea	¿Qué vitamina es necesaria para activar osteocalcina?	Vitamina K.
+Capítulo 8	Mineralización ósea	¿Qué proteína de matriz dentinaria es crítica para mineralización ósea?	DMP.
+Capítulo 8	Mineralización ósea	¿Qué sialoproteína inicia formación de fosfato de calcio?	BSP-2.
+Capítulo 8	Mineralización ósea	¿Qué proteínas pueden inhibir mineralización excesiva?	Proteoglucanos y MGP.
+Capítulo 8	Mineralización ósea	¿Qué proteína Gla ayuda a limitar calcificación vascular?	MGP.
+Capítulo 8	Mineralización ósea	¿Por qué la mineralización debe regularse?	Porque el mineral debe depositarse en matriz ósea y no en tejidos blandos.
+Capítulo 8	Mineralización ósea	¿Qué componente da dureza al hueso mineralizado?	Hidroxiapatita.
+Capítulo 8	Mineralización ósea	¿Qué componente da flexibilidad relativa al hueso?	Colágeno tipo I.
+Capítulo 8	Mineralización ósea	¿Qué combinación da resistencia mecánica al hueso?	Colágeno tipo I e hidroxiapatita.
+Capítulo 8	Mineralización ósea	¿Qué ocurre si la matriz ósea tiene colágeno pero poco mineral?	El hueso es blando.
+Capítulo 8	Mineralización ósea	¿Qué ocurre si la matriz ósea tiene mineral pero colágeno defectuoso?	El hueso es frágil.
+Capítulo 8	Hormonas y hueso	¿Qué hormona aumenta calcio sanguíneo al estimular resorción ósea indirecta?	PTH.
+Capítulo 8	Hormonas y hueso	¿Qué significa PTH?	Hormona paratiroidea.
+Capítulo 8	Hormonas y hueso	¿Qué célula ósea tiene receptores para PTH?	Osteoblasto.
+Capítulo 8	Hormonas y hueso	¿La PTH actúa directamente sobre osteoclastos?	No.
+Capítulo 8	Hormonas y hueso	¿Cómo aumenta la PTH la actividad osteoclástica?	Estimula osteoblastos para aumentar RANKL.
+Capítulo 8	Hormonas y hueso	¿Qué señal osteoblástica aumenta con PTH para estimular osteoclastos?	RANKL.
+Capítulo 8	Hormonas y hueso	¿Qué efecto tiene PTH sostenida sobre hueso?	Aumenta resorción ósea.
+Capítulo 8	Hormonas y hueso	¿Qué efecto puede tener PTH intermitente sobre hueso?	Estimular formación ósea.
+Capítulo 8	Hormonas y hueso	¿Qué hormona disminuye calcio sanguíneo al inhibir osteoclastos?	Calcitonina.
+Capítulo 8	Hormonas y hueso	¿Qué célula ósea tiene receptores para calcitonina?	Osteoclasto.
+Capítulo 8	Hormonas y hueso	¿Qué efecto tiene la calcitonina sobre osteoclastos?	Reduce su actividad de resorción.
+Capítulo 8	Hormonas y hueso	¿Qué célula endocrina secreta calcitonina?	Célula parafolicular tiroidea.
+Capítulo 8	Hormonas y hueso	¿Qué otro nombre reciben las células parafoliculares tiroideas?	Células C.
+Capítulo 8	Hormonas y hueso	¿Qué hormona tiroidea favorece crecimiento esquelético normal?	Tiroxina.
+Capítulo 8	Hormonas y hueso	¿Qué efecto tiene la hormona de crecimiento sobre huesos largos?	Estimula crecimiento longitudinal.
+Capítulo 8	Hormonas y hueso	¿Qué factor hepático media muchos efectos de la hormona de crecimiento?	IGF-1.
+Capítulo 8	Hormonas y hueso	¿Qué hormona estimula producción de IGF-1?	Hormona de crecimiento.
+Capítulo 8	Hormonas y hueso	¿Qué factor estimula proliferación de condrocitos en placa epifisaria?	IGF-1.
+Capítulo 8	Hormonas y hueso	¿Qué hormonas aceleran el cierre epifisario en la pubertad?	Hormonas sexuales.
+Capítulo 8	Hormonas y hueso	¿Qué efecto tienen estrógenos sobre osteoclastos?	Disminuyen resorción ósea.
+Capítulo 8	Hormonas y hueso	¿Por qué disminuye la masa ósea tras la menopausia?	Por reducción de estrógenos.
+Capítulo 8	Hormonas y hueso	¿Qué efecto tienen glucocorticoides altos sobre hueso?	Disminuyen formación ósea y favorecen osteoporosis.
+Capítulo 8	Hormonas y hueso	¿Qué vitamina-hormona favorece absorción intestinal de calcio y fosfato?	Vitamina D activa.
+Capítulo 8	Hormonas y hueso	¿Qué forma activa de vitamina D regula calcio y fosfato?	Calcitriol.
+Capítulo 8	Hormonas y hueso	¿Qué efecto tiene calcitriol en intestino?	Aumenta absorción de calcio y fosfato.
+Capítulo 8	Hormonas y hueso	¿Qué efecto tiene déficit de vitamina D sobre mineralización?	Disminuye mineralización del osteoide.
+Capítulo 8	Hueso como órgano endocrino	¿Qué hormona endocrina produce el hueso?	Osteocalcina.
+Capítulo 8	Hueso como órgano endocrino	¿Qué célula ósea produce osteocalcina?	Osteoblasto.
+Capítulo 8	Hueso como órgano endocrino	¿Por qué el hueso puede considerarse órgano endocrino?	Porque produce osteocalcina con efectos sistémicos.
+Capítulo 8	Hueso como órgano endocrino	¿Qué proteína ósea se relaciona con regulación del metabolismo energético?	Osteocalcina.
+Capítulo 8	Hueso como órgano endocrino	¿Qué hormona osteocítica inhibe formación ósea?	Esclerostina.
+Capítulo 8	Hueso como órgano endocrino	¿Qué vía bloquea la esclerostina para inhibir osteoblastos?	Wnt/β-catenina.
+Capítulo 8	Hueso como órgano endocrino	¿Qué efecto tiene bloquear esclerostina?	Aumenta formación ósea.
+Capítulo 8	Osteoporosis	¿Qué es la osteoporosis?	Disminución de masa ósea con deterioro microarquitectónico.
+Capítulo 8	Osteoporosis	¿Qué consecuencia mecánica tiene la osteoporosis?	Aumenta fragilidad ósea.
+Capítulo 8	Osteoporosis	¿Qué riesgo clínico aumenta en osteoporosis?	Fracturas.
+Capítulo 8	Osteoporosis	¿Qué tipo de hueso se afecta mucho en osteoporosis por su alta remodelación?	Hueso esponjoso.
+Capítulo 8	Osteoporosis	¿Qué ocurre con las trabéculas en osteoporosis?	Se adelgazan y pueden perder conectividad.
+Capítulo 8	Osteoporosis	¿Qué desequilibrio celular causa pérdida ósea en osteoporosis?	Resorción supera formación.
+Capítulo 8	Osteoporosis	¿Qué célula predomina funcionalmente cuando aumenta resorción ósea?	Osteoclasto.
+Capítulo 8	Osteoporosis	¿Qué célula no compensa adecuadamente la resorción en osteoporosis?	Osteoblasto.
+Capítulo 8	Osteoporosis	¿Qué cambio hormonal favorece osteoporosis posmenopáusica?	Disminución de estrógenos.
+Capítulo 8	Osteoporosis	¿Por qué la disminución de estrógenos favorece osteoporosis?	Aumenta actividad osteoclástica.
+Capítulo 8	Osteoporosis	¿Qué fármacos crónicos pueden favorecer osteoporosis?	Glucocorticoides.
+Capítulo 8	Osteoporosis	¿Qué efecto tienen glucocorticoides crónicos sobre osteoblastos?	Disminuyen formación ósea.
+Capítulo 8	Osteoporosis	¿Qué regiones son frecuentes en fracturas osteoporóticas?	Vértebras, cuello femoral y radio distal.
+Capítulo 8	Osteoporosis	¿Qué estructura vertebral se colapsa en fracturas osteoporóticas?	Cuerpo vertebral.
+Capítulo 8	Osteoporosis	¿Qué examen evalúa densidad mineral ósea?	Densitometría ósea.
+Capítulo 8	Osteoporosis	¿Qué medida se usa comúnmente para diagnosticar osteoporosis?	Densidad mineral ósea.
+Capítulo 8	Osteoporosis	¿Qué tratamiento puede inhibir osteoclastos en osteoporosis?	Bisfosfonatos.
+Capítulo 8	Osteoporosis	¿Qué terapia anabólica puede estimular formación ósea?	PTH intermitente.
+Capítulo 8	Osteoporosis	¿Qué diana terapéutica anabólica es inhibir esclerostina?	Esclerostina.
+Capítulo 8	Factores nutricionales	¿Qué vitamina es necesaria para síntesis normal de colágeno óseo?	Vitamina C.
+Capítulo 8	Factores nutricionales	¿Qué defecto produce déficit de vitamina C en hueso?	Defecto en colágeno y matriz orgánica.
+Capítulo 8	Factores nutricionales	¿Qué enfermedad se asocia a déficit de vitamina C?	Escorbuto.
+Capítulo 8	Factores nutricionales	¿Qué vitamina es necesaria para absorción de calcio?	Vitamina D.
+Capítulo 8	Factores nutricionales	¿Qué enfermedad infantil se asocia a déficit de vitamina D?	Raquitismo.
+Capítulo 8	Factores nutricionales	¿Qué enfermedad adulta se asocia a déficit de vitamina D?	Osteomalacia.
+Capítulo 8	Factores nutricionales	¿Qué defecto común tienen raquitismo y osteomalacia?	Mineralización insuficiente del osteoide.
+Capítulo 8	Factores nutricionales	¿Qué ocurre en el raquitismo con las placas epifisarias?	Se alteran por mineralización deficiente.
+Capítulo 8	Factores nutricionales	¿Qué ocurre en osteomalacia con la matriz ósea?	Aumenta osteoide no mineralizado.
+Capítulo 8	Factores nutricionales	¿Qué mineral es esencial para formar hidroxiapatita?	Calcio.
+Capítulo 8	Factores nutricionales	¿Qué otro ion es esencial para formar hidroxiapatita?	Fosfato.
+Capítulo 8	Factores nutricionales	¿Qué vitamina activa proteínas dependientes de vitamina K como osteocalcina?	Vitamina K.
+Capítulo 8	Factores nutricionales	¿Qué proteína ósea dependiente de vitamina K captura calcio?	Osteocalcina.
+Capítulo 8	Factores nutricionales	¿Qué déficit afecta la carboxilación de osteocalcina?	Déficit de vitamina K.
+Capítulo 8	Reparación ósea	¿Qué capacidad de reparación tiene el hueso comparado con cartílago?	Muy alta.
+Capítulo 8	Reparación ósea	¿Por qué el hueso repara mejor que el cartílago?	Porque está vascularizado y tiene células osteoprogenitoras.
+Capítulo 8	Reparación ósea	¿Qué células aportan nuevos osteoblastos durante reparación ósea?	Células osteoprogenitoras.
+Capítulo 8	Reparación ósea	¿Qué membranas aportan células osteoprogenitoras en fractura?	Periostio y endostio.
+Capítulo 8	Reparación ósea	¿Qué ocurre primero tras una fractura?	Ruptura vascular y formación de hematoma.
+Capítulo 8	Reparación ósea	¿Qué estructura inicial se forma por sangrado en el sitio de fractura?	Hematoma de fractura.
+Capítulo 8	Reparación ósea	¿Qué células limpian detritos en el hematoma de fractura?	Macrófagos.
+Capítulo 8	Reparación ósea	¿Qué tejido reemplaza al hematoma durante reparación temprana?	Tejido de granulación.
+Capítulo 8	Reparación ósea	¿Qué células invaden el sitio de fractura para formar vasos nuevos?	Células endoteliales.
+Capítulo 8	Reparación ósea	¿Qué proceso forma nuevos vasos en la fractura?	Angiogénesis.
+Capítulo 8	Reparación ósea	¿Qué estructura estabiliza inicialmente la fractura?	Callo blando.
+Capítulo 8	Reparación ósea	¿De qué se compone principalmente el callo blando?	Tejido conjuntivo y cartílago.
+Capítulo 8	Reparación ósea	¿Qué tipo de cartílago puede formarse en el callo blando?	Cartílago hialino.
+Capítulo 8	Reparación ósea	¿Qué reemplaza al callo blando durante reparación?	Callo duro.
+Capítulo 8	Reparación ósea	¿De qué se compone el callo duro?	Hueso inmaduro.
+Capítulo 8	Reparación ósea	¿Qué tipo de hueso se forma primero en el callo duro?	Hueso inmaduro o entretejido.
+Capítulo 8	Reparación ósea	¿Qué proceso reemplaza cartílago del callo por hueso?	Osificación endocondral.
+Capítulo 8	Reparación ósea	¿Qué proceso puede formar hueso directamente desde periostio en fractura?	Osificación intramembranosa.
+Capítulo 8	Reparación ósea	¿Qué ocurre con el hueso inmaduro del callo durante la fase final?	Se remodela a hueso maduro.
+Capítulo 8	Reparación ósea	¿Qué células reabsorben hueso inmaduro durante remodelado del callo?	Osteoclastos.
+Capítulo 8	Reparación ósea	¿Qué células forman hueso maduro durante remodelado del callo?	Osteoblastos.
+Capítulo 8	Reparación ósea	¿Qué determina la orientación del hueso remodelado tras fractura?	Cargas mecánicas.
+Capítulo 8	Reparación ósea	¿Qué célula detecta las cargas que guían remodelado del callo?	Osteocito.
+Capítulo 8	Reparación ósea	¿Qué sucede con el callo cuando termina el remodelado?	Se reduce y recupera la forma del hueso.
+Capítulo 8	Reparación ósea	¿Qué factor local favorece diferenciación osteoblástica en reparación?	BMP.
+Capítulo 8	Reparación ósea	¿Qué factor estimula angiogénesis durante reparación ósea?	VEGF.
+Capítulo 8	Reparación ósea	¿Qué puede retrasar la reparación ósea?	Mala irrigación, inmovilización inadecuada o déficit nutricional.
+Capítulo 8	Reparación ósea	¿Qué tejido puede predominar si hay mala vascularización en una fractura?	Cartílago o tejido fibroso.
+Capítulo 8	Reparación ósea	¿Qué tipo de osificación predomina donde hay buena vascularización y células osteoprogenitoras?	Intramembranosa.
+Capítulo 8	Reparación ósea	¿Qué tipo de osificación predomina donde se forma cartílago en el callo?	Endocondral.
+Capítulo 8	Reparación ósea	¿Qué diferencia clave hay entre cicatrización ósea y cicatrización de muchos tejidos blandos?	El hueso puede recuperar arquitectura casi normal.
+Capítulo 8	Reparación ósea	¿Qué estructura se forma primero: callo blando o callo duro?	Callo blando.
+Capítulo 8	Reparación ósea	¿Qué estructura contiene hueso inmaduro: callo blando o callo duro?	Callo duro.
+Capítulo 8	Reparación ósea	¿Qué fase de reparación restaura hueso laminillar?	Remodelado.
+Capítulo 8	Regulación del crecimiento óseo	¿Qué hormona estimula crecimiento de cartílago epifisario mediante IGF-1?	Hormona de crecimiento.
+Capítulo 8	Regulación del crecimiento óseo	¿Qué hormona tiroidea se requiere para crecimiento esquelético normal?	Tiroxina.
+Capítulo 8	Regulación del crecimiento óseo	¿Qué hormonas sexuales favorecen maduración y cierre de placas epifisarias?	Estrógenos y andrógenos.
+Capítulo 8	Regulación del crecimiento óseo	¿Qué alteración produce exceso de GH antes del cierre epifisario?	Gigantismo.
+Capítulo 8	Regulación del crecimiento óseo	¿Qué alteración produce exceso de GH después del cierre epifisario?	Acromegalia.
+Capítulo 8	Regulación del crecimiento óseo	¿Qué alteración produce déficit de GH en infancia?	Enanismo hipofisario.
+Capítulo 8	Regulación del crecimiento óseo	¿Qué defecto produce hipotiroidismo infantil sobre crecimiento óseo?	Retraso del crecimiento esquelético.
+Capítulo 8	Regulación del crecimiento óseo	¿Qué efecto tiene exceso de glucocorticoides en crecimiento infantil?	Inhibe crecimiento óseo.
+Capítulo 8	Artropatías	¿Qué tipo de cartílago cubre superficies articulares sinoviales?	Cartílago hialino articular.
+Capítulo 8	Artropatías	¿Qué tejido se afecta en artropatías degenerativas como artrosis?	Cartílago articular y hueso subcondral.
+Capítulo 8	Artropatías	¿Qué hueso se ubica inmediatamente bajo el cartílago articular?	Hueso subcondral.
+Capítulo 8	Artropatías	¿Qué tejido óseo responde a cambios de carga en articulaciones dañadas?	Hueso subcondral.
+Capítulo 8	Integración del capítulo	¿Qué célula forma osteoide?	Osteoblasto.
+Capítulo 8	Integración del capítulo	¿Qué célula mineraliza osteoide indirectamente mediante vesículas matriciales?	Osteoblasto.
+Capítulo 8	Integración del capítulo	¿Qué célula mantiene matriz ósea mineralizada?	Osteocito.
+Capítulo 8	Integración del capítulo	¿Qué célula detecta carga mecánica en hueso?	Osteocito.
+Capítulo 8	Integración del capítulo	¿Qué célula reabsorbe hueso?	Osteoclasto.
+Capítulo 8	Integración del capítulo	¿Qué hormona activa resorción ósea de forma indirecta?	PTH.
+Capítulo 8	Integración del capítulo	¿Qué hormona inhibe resorción ósea directamente?	Calcitonina.
+Capítulo 8	Integración del capítulo	¿Qué vitamina permite mineralizar osteoide al favorecer calcio y fosfato?	Vitamina D.
+Capítulo 8	Integración del capítulo	¿Qué vitamina permite síntesis normal de colágeno tipo I?	Vitamina C.
+Capítulo 8	Integración del capítulo	¿Qué vitamina activa osteocalcina?	Vitamina K.
+Capítulo 8	Integración del capítulo	¿Qué proteína inhibe formación ósea desde osteocitos?	Esclerostina.
+Capítulo 8	Integración del capítulo	¿Qué molécula estimula osteoclastogénesis?	RANKL.
+Capítulo 8	Integración del capítulo	¿Qué molécula inhibe osteoclastogénesis al bloquear RANKL?	OPG.
+Capítulo 8	Integración del capítulo	¿Qué célula produce RANKL y OPG?	Osteoblasto.
+Capítulo 8	Integración del capítulo	¿Qué célula produce esclerostina?	Osteocito.
+Capítulo 8	Integración del capítulo	¿Qué célula es inhibida por calcitonina?	Osteoclasto.
+Capítulo 8	Integración del capítulo	¿Qué defecto produce osteomalacia?	Osteoide poco mineralizado.
+Capítulo 8	Integración del capítulo	¿Qué defecto produce osteoporosis?	Pérdida de masa ósea con mineralización relativamente normal del tejido restante.
+Capítulo 8	Integración del capítulo	¿Qué diferencia clave hay entre osteoporosis y osteomalacia?	Osteoporosis pierde masa ósea; osteomalacia falla la mineralización.
+Capítulo 8	Integración del capítulo	¿Qué diferencia clave hay entre callo blando y callo duro?	El callo blando contiene cartílago/tejido fibroso; el duro contiene hueso inmaduro.
+Capítulo 8	Integración del capítulo	¿Qué diferencia clave hay entre osificación endocondral y reparación con callo cartilaginoso?	Ambas reemplazan cartílago por hueso, pero la reparación ocurre tras fractura.

@@ -286,6 +286,669 @@ const CHAPTER_MENUS: ChapterMenu[] = [
         ]
       }
     ]
+  },
+  {
+    chapter: "Capítulo 7",
+    title: "Cartílago",
+    groups: [
+      {
+        title: "Generalidades",
+        description: "Concepto, funciones, tipos y estructura general del cartílago.",
+        subtopics: [
+          "Fundamentos del cartílago",
+          "Tipos de cartílago",
+          "Cartílago hialino",
+          "Condrocitos",
+          "Regiones de matriz",
+          "Pericondrio",
+          "Histología 101"
+        ]
+      },
+      {
+        title: "Cartílago hialino",
+        description: "Matriz, localización, función, cartílago articular y artrosis.",
+        subtopics: [
+          "Matriz del cartílago hialino",
+          "Cartílago hialino: localización",
+          "Cartílago hialino: función",
+          "Cartílago articular",
+          "Artrosis"
+        ]
+      },
+      {
+        title: "Cartílago elástico",
+        description: "Elastina, pericondrio, localización y función elástica.",
+        subtopics: [
+          "Cartílago elástico"
+        ]
+      },
+      {
+        title: "Fibrocartílago",
+        description: "Colágeno tipo I, condrocitos, fibroblastos y discos articulares.",
+        subtopics: [
+          "Fibrocartílago",
+          "Fibrocartílago: localización",
+          "Disco intervertebral"
+        ]
+      },
+      {
+        title: "Desarrollo y crecimiento",
+        description: "Condrogénesis, crecimiento por aposición e intersticial.",
+        subtopics: [
+          "Condrogénesis",
+          "Crecimiento del cartílago",
+          "Crecimiento por aposición",
+          "Crecimiento intersticial"
+        ]
+      },
+      {
+        title: "Reparación y clínica",
+        description: "Reparación limitada, condroclastos, condrosarcoma y comparaciones.",
+        subtopics: [
+          "Reparación del cartílago",
+          "Condrosarcoma",
+          "Comparación de cartílagos"
+        ]
+      }
+    ]
+  },
+  {
+    chapter: "Capítulo 8",
+    title: "Tejido óseo",
+    groups: [
+      {
+        title: "Generalidades",
+        description: "Matriz ósea, proteínas, lagunas, canalículos y hueso como órgano.",
+        subtopics: [
+          "Fundamentos del tejido óseo",
+          "Matriz ósea",
+          "Proteínas no colágenas",
+          "Preparación histológica del hueso",
+          "Lagunas y canalículos",
+          "Hueso como órgano",
+          "Clasificación de huesos"
+        ]
+      },
+      {
+        title: "Organización del hueso",
+        description: "Hueso compacto, esponjoso, periostio, endostio, irrigación y osteonas.",
+        subtopics: [
+          "Hueso compacto y esponjoso",
+          "Periostio",
+          "Endostio",
+          "Irrigación ósea",
+          "Tejido óseo maduro",
+          "Tejido óseo inmaduro",
+          "Comparación hueso maduro-inmaduro",
+          "Osteona",
+          "Hueso esponjoso maduro"
+        ]
+      },
+      {
+        title: "Células óseas",
+        description: "Osteoprogenitoras, osteoblastos, osteocitos, revestimiento y osteoclastos.",
+        subtopics: [
+          "Células óseas",
+          "Células osteoprogenitoras",
+          "Osteoblastos",
+          "Osteoide",
+          "Osteocitos",
+          "Células de revestimiento óseo",
+          "Osteoclastos",
+          "Comparación de células óseas"
+        ]
+      },
+      {
+        title: "Formación y crecimiento",
+        description: "Osificación intramembranosa, endocondral, disco epifisario y crecimiento.",
+        subtopics: [
+          "Formación del hueso",
+          "Osificación intramembranosa",
+          "Osificación endocondral",
+          "Centro secundario de osificación",
+          "Disco epifisario",
+          "Zonas del disco epifisario",
+          "Zona de reserva",
+          "Zona de proliferación",
+          "Zona de hipertrofia",
+          "Zona de cartílago calcificado",
+          "Zona de resorción",
+          "Crecimiento óseo",
+          "Comparación de osificación",
+          "Regulación del crecimiento óseo"
+        ]
+      },
+      {
+        title: "Mineralización y regulación",
+        description: "Mineralización, vesículas matriciales, hormonas, vitaminas y metabolismo.",
+        subtopics: [
+          "Mineralización ósea",
+          "Vesículas matriciales",
+          "Hormonas y hueso",
+          "Hueso como órgano endocrino",
+          "Factores nutricionales",
+          "Remodelado óseo"
+        ]
+      },
+      {
+        title: "Clínica y reparación",
+        description: "Osteoporosis, reparación ósea, artropatías e integración del capítulo.",
+        subtopics: [
+          "Osteoporosis",
+          "Reparación ósea",
+          "Artropatías",
+          "Integración del capítulo"
+        ]
+      }
+    ]
+  },
+  {
+    chapter: "Capítulo 9",
+    title: "Tejido adiposo",
+    groups: [
+      {
+        title: "Generalidades",
+        description: "Concepto, adipocitos, triglicéridos, funciones y tipos de tejido adiposo.",
+        subtopics: [
+          "Fundamentos del tejido adiposo",
+          "Tipos de tejido adiposo",
+          "Tejido adiposo blanco",
+          "Tejido adiposo pardo"
+        ]
+      },
+      {
+        title: "Tejido adiposo blanco",
+        description: "Adipocito unilocular, adipocinas, leptina, diferenciación y metabolismo.",
+        subtopics: [
+          "Adipocinas",
+          "Leptina",
+          "Metabolismo de esteroides",
+          "Obesidad y adipocinas",
+          "Diferenciación del adipocito blanco",
+          "Lipoblastos",
+          "Adipocito unilocular"
+        ]
+      },
+      {
+        title: "Regulación metabólica",
+        description: "Eje encefaloenteroadiposo, hambre, saciedad, insulina y movilización lipídica.",
+        subtopics: [
+          "Regulación del tejido adiposo",
+          "Regulación a corto plazo",
+          "Grelina",
+          "Péptido YY",
+          "Regulación a largo plazo",
+          "Insulina y tejido adiposo",
+          "Movilización lipídica",
+          "Obesidad"
+        ]
+      },
+      {
+        title: "Tejido adiposo pardo",
+        description: "Adipocito multilocular, diferenciación, UCP, termogénesis y regulación simpática.",
+        subtopics: [
+          "Adipocito multilocular",
+          "Diferenciación del adipocito pardo",
+          "UCP",
+          "Termogénesis",
+          "Regulación simpática del tejido adiposo pardo"
+        ]
+      },
+      {
+        title: "Transdiferenciación y clínica",
+        description: "Pardeamiento, PET, tumores adiposos y comparaciones clave.",
+        subtopics: [
+          "Transdiferenciación adiposa",
+          "PET y tejido adiposo pardo",
+          "Tumores del tejido adiposo",
+          "Comparación tejido adiposo blanco-pardo",
+          "Histología 101"
+        ]
+      }
+    ]
+  },
+  {
+    chapter: "Capítulo 10",
+    title: "Sangre",
+    groups: [
+      {
+        title: "Generalidades",
+        description: "Sangre, plasma, hematócrito, suero, frotis y composición general.",
+        subtopics: [
+          "Fundamentos de la sangre",
+          "Hematócrito",
+          "Composición celular de la sangre",
+          "Plasma",
+          "Albúmina",
+          "Globulinas",
+          "Fibrinógeno",
+          "Suero",
+          "Líquido intersticial",
+          "Frotis sanguíneo",
+          "Leucocitos: clasificación básica"
+        ]
+      },
+      {
+        title: "Eritrocitos",
+        description: "Morfología, membrana, hemoglobina, HbA1c, anemia y grupos sanguíneos.",
+        subtopics: [
+          "Eritrocitos",
+          "Membrana del eritrocito",
+          "Hemoglobina",
+          "HbA1c",
+          "Anemia",
+          "Drepanocitosis",
+          "Grupos sanguíneos ABO",
+          "Grupos sanguíneos Rh"
+        ]
+      },
+      {
+        title: "Leucocitos",
+        description: "Neutrófilos, eosinófilos, basófilos, linfocitos, monocitos y comparación morfológica.",
+        subtopics: [
+          "Leucocitos",
+          "Neutrófilos",
+          "Gránulos de neutrófilos",
+          "Diapédesis",
+          "Fagocitosis neutrofílica",
+          "Estallido respiratorio",
+          "Eosinófilos",
+          "Basófilos",
+          "Linfocitos",
+          "Linfocitos T",
+          "Linfocitos B",
+          "Linfocitos NK",
+          "Monocitos",
+          "Comparación de leucocitos"
+        ]
+      },
+      {
+        title: "Plaquetas y hemostasia",
+        description: "Trombocitos, zonas plaquetarias, gránulos, activación, hemostasia y hemograma.",
+        subtopics: [
+          "Trombocitos",
+          "Zonas del trombocito",
+          "Zona periférica del trombocito",
+          "Zona estructural del trombocito",
+          "Zona de orgánulos del trombocito",
+          "Zona de membrana del trombocito",
+          "Hemostasia plaquetaria",
+          "Hemograma"
+        ]
+      },
+      {
+        title: "Hematopoyesis",
+        description: "Médula ósea, linajes, eritropoyesis, trombopoyesis, granulocitopoyesis y citocinas.",
+        subtopics: [
+          "Hematopoyesis",
+          "Hematopoyesis fetal",
+          "Teoría monofilética",
+          "Factores hematopoyéticos",
+          "Eritropoyesis",
+          "Cinética eritrocitaria",
+          "Trombopoyesis",
+          "Comparación eritropoyesis-trombopoyesis",
+          "Granulocitopoyesis",
+          "Mieloblasto",
+          "Promielocito",
+          "Mielocito",
+          "Metamielocito",
+          "Célula en banda",
+          "Granulocito maduro",
+          "Cinética de la granulocitopoyesis",
+          "Monopoyesis",
+          "Linfopoyesis",
+          "Citocinas hematopoyéticas"
+        ]
+      },
+      {
+        title: "Médula ósea e integración",
+        description: "Sinusoides, cordones hematopoyéticos, médula amarilla y repaso integrado.",
+        subtopics: [
+          "Médula ósea",
+          "Sinusoides medulares",
+          "Células adventicias medulares",
+          "Cordones hematopoyéticos",
+          "Médula ósea amarilla",
+          "Examen de médula ósea",
+          "Celularidad medular",
+          "Integración de hematopoyesis",
+          "Repaso morfológico",
+          "Comparaciones clave",
+          "Histología 101"
+        ]
+      }
+    ]
+  },
+  {
+    chapter: "Capítulo 11",
+    title: "Tejido muscular",
+    groups: [
+      {
+        title: "Generalidades",
+        description: "Tipos musculares, miofilamentos, sarcoplasma y organización básica.",
+        subtopics: [
+          "Fundamentos del tejido muscular",
+          "Filamentos delgados",
+          "Filamentos gruesos",
+          "Sarcoplasma",
+          "Miocitos",
+          "Actina y miosina",
+          "Clasificación del músculo",
+          "Músculo estriado",
+          "Músculo liso",
+          "Músculo esquelético",
+          "Músculo estriado visceral",
+          "Músculo cardíaco",
+          "Comparación de tipos musculares"
+        ]
+      },
+      {
+        title: "Músculo esquelético",
+        description: "Fibra muscular, sarcolema, endomisio, perimisio, epimisio y tipos de fibras.",
+        subtopics: [
+          "Músculo esquelético: fibra muscular",
+          "Músculo esquelético: núcleos",
+          "Sarcolema",
+          "Organización del músculo esquelético",
+          "Endomisio",
+          "Perimisio",
+          "Epimisio",
+          "Comparación endomisio-perimisio-epimisio",
+          "Fibras musculares esqueléticas",
+          "Tipos de fibras esqueléticas",
+          "Fibras tipo I",
+          "Fibras tipo IIa",
+          "Fibras tipo IIb",
+          "Comparación de fibras esqueléticas",
+          "Metabolismo muscular",
+          "Identificación histológica"
+        ]
+      },
+      {
+        title: "Sarcómero y contracción",
+        description: "Miofibrillas, bandas, líneas, filamentos, troponina, tropomiosina y puentes transversales.",
+        subtopics: [
+          "Miofibrillas",
+          "Miofilamentos",
+          "Retículo sarcoplasmático",
+          "Sarcómero",
+          "Banda A",
+          "Banda I",
+          "Banda H",
+          "Línea M",
+          "Línea Z",
+          "Estados del sarcómero",
+          "Organización hexagonal",
+          "Filamento delgado",
+          "Troponina",
+          "Tropomiosina",
+          "Filamento grueso",
+          "Proteínas accesorias",
+          "Distrofina",
+          "Ciclo de puentes transversales",
+          "Adhesión actomiosina",
+          "Separación actomiosina",
+          "Flexión actomiosina",
+          "Generación de fuerza",
+          "Readhesión actomiosina",
+          "Regulación de la contracción",
+          "Cisternas terminales",
+          "Túbulos T",
+          "Tríada",
+          "Acoplamiento excitación-contracción",
+          "Relajación muscular",
+          "Comparación sarcomérica"
+        ]
+      },
+      {
+        title: "Inervación y reparación",
+        description: "Unión neuromuscular, unidad motora, propiocepción, células satélite y distrofias.",
+        subtopics: [
+          "Inervación motora",
+          "Unión neuromuscular",
+          "Unidad motora",
+          "Inervación y atrofia",
+          "Miastenia grave",
+          "Inervación sensitiva",
+          "Huso muscular",
+          "Órgano tendinoso de Golgi",
+          "Comparación propioceptores",
+          "Histogénesis del músculo esquelético",
+          "Células satélite",
+          "Reparación del músculo esquelético",
+          "Renovación muscular",
+          "Distrofias musculares",
+          "Integración músculo esquelético"
+        ]
+      },
+      {
+        title: "Músculo cardíaco",
+        description: "Cardiomiocitos, discos intercalares, díadas, contracción, conducción y lesión cardíaca.",
+        subtopics: [
+          "Músculo cardíaco",
+          "Discos intercalares",
+          "Díadas cardíacas",
+          "Contracción cardíaca",
+          "Sistema de conducción cardíaco",
+          "Fibras de Purkinje",
+          "Nodo SA y nodo AV",
+          "Lesión cardíaca",
+          "Comparación cardíaco-esquelético"
+        ]
+      },
+      {
+        title: "Músculo liso",
+        description: "Cavéolas, cuerpos densos, calmodulina, MLCK, contracción, relajación y renovación.",
+        subtopics: [
+          "Músculo liso",
+          "Cavéolas",
+          "Aparato contráctil del músculo liso",
+          "Cuerpos densos",
+          "Filamentos intermedios del músculo liso",
+          "Filamentos gruesos del músculo liso",
+          "Contracción del músculo liso",
+          "Estimulación del músculo liso",
+          "Relajación del músculo liso",
+          "Función secretora del músculo liso",
+          "Renovación del músculo liso",
+          "Diferenciación del músculo liso",
+          "Músculo liso vascular",
+          "Músculo liso visceral",
+          "Identificación histológica del músculo liso",
+          "Histología 101"
+        ]
+      }
+    ]
+  },
+  {
+    chapter: "Capítulo 12",
+    title: "Sistema nervioso",
+    groups: [
+      {
+        title: "Generalidades",
+        description: "Divisiones del sistema nervioso, vías, tejido nervioso, neuronas y glía básica.",
+        subtopics: [
+          "Fundamentos del sistema nervioso",
+          "División anatómica del sistema nervioso",
+          "Sistema nervioso central",
+          "Sistema nervioso periférico",
+          "Vías nerviosas",
+          "Arco reflejo",
+          "División funcional del sistema nervioso",
+          "Sistema nervioso somático",
+          "Sistema nervioso autónomo",
+          "Efectores autónomos",
+          "Tejido neuroendocrino",
+          "Composición del tejido nervioso",
+          "Funciones de la glía",
+          "Neuroglía central",
+          "Neuroglía periférica"
+        ]
+      },
+      {
+        title: "Neuronas",
+        description: "Tipos neuronales, soma, dendritas, axón, Nissl, cono axónico y regeneración.",
+        subtopics: [
+          "Neuronas",
+          "Neuronas sensitivas",
+          "Motoneuronas",
+          "Interneuronas",
+          "Componentes de la neurona",
+          "Soma neuronal",
+          "Axón",
+          "Dendritas",
+          "Sinapsis",
+          "Clasificación anatómica de neuronas",
+          "Neuronas multipolares",
+          "Neuronas bipolares",
+          "Neuronas seudounipolares",
+          "Comparación de neuronas",
+          "Corpúsculos de Nissl",
+          "Cono axónico",
+          "Actividad neuronal",
+          "Regeneración neuronal",
+          "Parkinson"
+        ]
+      },
+      {
+        title: "Dendritas, axón y sinapsis",
+        description: "Espinas dendríticas, segmento inicial, microtúbulos, transporte neuronal y transmisión sináptica.",
+        subtopics: [
+          "Dendritas",
+          "Espinas dendríticas",
+          "Axón",
+          "Cono axónico",
+          "Segmento inicial del axón",
+          "Polaridad neuronal",
+          "Microtúbulos neuronales",
+          "Microtúbulos axónicos",
+          "Microtúbulos dendríticos",
+          "Síntesis proteica axónica local",
+          "Transporte neuronal",
+          "Transporte anterógrado",
+          "Transporte retrógrado",
+          "Transporte lento anterógrado",
+          "Transporte rápido",
+          "Transporte rápido anterógrado",
+          "Transporte rápido retrógrado",
+          "Transporte dendrítico",
+          "Transporte neuronal y enfermedad",
+          "Sinapsis",
+          "Sinapsis morfológicas",
+          "Sinapsis axodendrítica",
+          "Sinapsis axosomática",
+          "Sinapsis axoaxónica",
+          "Clasificación funcional de sinapsis",
+          "Sinapsis químicas",
+          "Sinapsis eléctricas",
+          "Sinapsis química",
+          "Elemento presináptico",
+          "Vesículas sinápticas",
+          "Zona activa",
+          "Hendidura sináptica",
+          "Membrana postsináptica",
+          "Transmisión sináptica",
+          "Receptores postsinápticos",
+          "Comparación sináptica"
+        ]
+      },
+      {
+        title: "Neuroglía y mielina",
+        description: "Schwann, células satélite, astrocitos, oligodendrocitos, microglía, ependimocitos y conducción.",
+        subtopics: [
+          "Neuroglía",
+          "Neuroglía periférica",
+          "Células de Schwann",
+          "Mielina periférica",
+          "Nódulo de Ranvier",
+          "Incisuras de Schmidt-Lanterman",
+          "Axones no mielinizados del SNP",
+          "Células satélite",
+          "Células neurogliales entéricas",
+          "Neuroglía central",
+          "Astrocitos",
+          "Astrocitos protoplasmáticos",
+          "Astrocitos fibrosos",
+          "Oligodendrocitos",
+          "Mielina central",
+          "Microglía",
+          "Ependimocitos",
+          "Conducción del impulso",
+          "Enfermedades desmielinizantes",
+          "Origen de células nerviosas",
+          "Comparación de glía"
+        ]
+      },
+      {
+        title: "Sistema nervioso periférico",
+        description: "Nervios periféricos, ganglios, endoneuro, perineuro, epineuro, receptores y SNA.",
+        subtopics: [
+          "Organización del SNP",
+          "Nervios periféricos",
+          "Ganglios periféricos",
+          "Ganglios sensitivos",
+          "Ganglios autónomos",
+          "Motoneuronas periféricas",
+          "Tejido conjuntivo del nervio",
+          "Endoneuro",
+          "Perineuro",
+          "Epineuro",
+          "Endoneuro y vascularización",
+          "Comparación endoneuro-perineuro-epineuro",
+          "Receptores aferentes",
+          "Exterorreceptores",
+          "Interorreceptores",
+          "Propiorreceptores",
+          "Terminaciones nerviosas libres",
+          "Terminaciones encapsuladas",
+          "Sistema nervioso autónomo",
+          "Vía eferente autónoma",
+          "División simpática",
+          "División parasimpática",
+          "División entérica",
+          "Neurotransmisores autónomos",
+          "Comparación simpático-parasimpático",
+          "Comparación somático-autónomo",
+          "Identificación histológica del nervio periférico"
+        ]
+      },
+      {
+        title: "Sistema nervioso central",
+        description: "Sustancia gris y blanca, médula espinal, barrera hematoencefálica, LCR y lesión neuronal.",
+        subtopics: [
+          "Sistema nervioso central",
+          "Sustancia gris",
+          "Neurópilo",
+          "Sustancia blanca",
+          "Tractos del SNC",
+          "Núcleos del SNC",
+          "Corteza cerebral",
+          "Corteza cerebelosa",
+          "Médula espinal",
+          "Raíz dorsal",
+          "Raíz ventral",
+          "Astas medulares",
+          "Sustancia blanca medular",
+          "Tronco encefálico",
+          "Barrera hematoencefálica",
+          "Líquido cefalorraquídeo",
+          "Plexo coroideo",
+          "Lesión neuronal",
+          "Degeneración walleriana",
+          "Degeneración retrógrada",
+          "Degeneración traumática",
+          "Cromatólisis",
+          "Regeneración en SNP",
+          "Regeneración en SNC",
+          "Gliosis",
+          "Comparación lesión SNP-SNC",
+          "Identificación histológica del SNC",
+          "Integración del capítulo",
+          "Histología 101"
+        ]
+      }
+    ]
   }
 ]
 

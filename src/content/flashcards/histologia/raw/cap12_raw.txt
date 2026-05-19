@@ -1,0 +1,797 @@
+chapter	subtopic	front	back
+Capítulo 12	Fundamentos del sistema nervioso	¿Qué función general tiene el sistema nervioso?	Permite responder a cambios del medio externo e interno.
+Capítulo 12	Fundamentos del sistema nervioso	¿Qué actividades controla e integra el sistema nervioso?	Las funciones de órganos y sistemas orgánicos.
+Capítulo 12	División anatómica del sistema nervioso	¿Cuáles son las dos divisiones anatómicas del sistema nervioso?	Sistema nervioso central y sistema nervioso periférico.
+Capítulo 12	Sistema nervioso central	¿Qué estructuras forman el sistema nervioso central?	Encéfalo y médula espinal.
+Capítulo 12	Sistema nervioso central	¿Dónde se encuentra el encéfalo?	En la cavidad craneal.
+Capítulo 12	Sistema nervioso central	¿Dónde se encuentra la médula espinal?	En el conducto vertebral.
+Capítulo 12	Sistema nervioso periférico	¿Qué estructuras forman el sistema nervioso periférico?	Nervios craneales, espinales, periféricos, ganglios y terminaciones nerviosas.
+Capítulo 12	Sistema nervioso periférico	¿Qué nervios conducen impulsos desde el SNC?	Nervios eferentes o motores.
+Capítulo 12	Sistema nervioso periférico	¿Qué nervios conducen impulsos hacia el SNC?	Nervios aferentes o sensitivos.
+Capítulo 12	Sistema nervioso periférico	¿Qué son los ganglios?	Conjuntos de somas neuronales ubicados fuera del SNC.
+Capítulo 12	Sistema nervioso periférico	¿Qué estructura nerviosa especializada puede ser motora o sensitiva?	Terminación nerviosa.
+Capítulo 12	Vías nerviosas	¿Qué forman las interacciones entre nervios sensitivos, SNC y nervios motores?	Vías nerviosas.
+Capítulo 12	Arco reflejo	¿Qué es un arco reflejo?	Vía nerviosa que media una acción refleja.
+Capítulo 12	Arco reflejo	¿Qué neuronas suelen participar en muchos reflejos espinales humanos?	Neuronas sensitivas, interneuronas y motoneuronas.
+Capítulo 12	División funcional del sistema nervioso	¿Cuáles son las dos divisiones funcionales principales del sistema nervioso?	Sistema nervioso somático y sistema nervioso autónomo.
+Capítulo 12	Sistema nervioso somático	¿Qué controla el sistema nervioso somático?	Funciones bajo control voluntario consciente.
+Capítulo 12	Sistema nervioso somático	¿Qué excepción importante tiene el control voluntario del sistema nervioso somático?	Los arcos reflejos.
+Capítulo 12	Sistema nervioso somático	¿Qué partes del cuerpo inerva el sistema nervioso somático?	Todas excepto vísceras, músculo liso, músculo cardíaco y glándulas.
+Capítulo 12	Sistema nervioso somático	¿Qué tipo de inervación proporciona el sistema nervioso somático?	Sensitiva y motora.
+Capítulo 12	Sistema nervioso autónomo	¿Qué controla el sistema nervioso autónomo?	Funciones involuntarias viscerales.
+Capítulo 12	Sistema nervioso autónomo	¿Qué estructuras reciben inervación motora involuntaria del SNA?	Músculo liso, sistema de conducción cardíaca y glándulas.
+Capítulo 12	Sistema nervioso autónomo	¿Qué información aferente recibe el SNA desde vísceras?	Dolor y reflejos autónomos.
+Capítulo 12	Sistema nervioso autónomo	¿Cuáles son las divisiones del sistema nervioso autónomo?	Simpática, parasimpática y entérica.
+Capítulo 12	Sistema nervioso autónomo	¿Qué división autónoma inerva el tubo digestivo?	División entérica.
+Capítulo 12	Sistema nervioso autónomo	¿Con qué divisiones se comunica la división entérica?	Simpática y parasimpática.
+Capítulo 12	Sistema nervioso autónomo	¿Qué división autónoma puede funcionar de forma independiente?	División entérica.
+Capítulo 12	Efectores autónomos	¿Qué efectores responden a información transportada por neuronas autónomas?	Músculo liso, células de conducción cardíaca y epitelio glandular.
+Capítulo 12	Efectores autónomos	¿Qué efecto tiene el SNA sobre músculo liso?	Modifica diámetro o forma de vísceras huecas o tubulares.
+Capítulo 12	Efectores autónomos	¿Qué células cardíacas modifica el sistema nervioso autónomo?	Células de conducción cardíaca.
+Capítulo 12	Efectores autónomos	¿Qué aspecto glandular regula el SNA?	Síntesis, composición y liberación de secreciones.
+Capítulo 12	Tejido neuroendocrino	¿Qué es el tejido neuroendocrino?	Neuronas que se comportan como células secretoras.
+Capítulo 12	Tejido neuroendocrino	¿Por qué el sistema nervioso coopera con el sistema endocrino?	Para regular funciones de órganos internos.
+Capítulo 12	Composición del tejido nervioso	¿Cuáles son los dos tipos celulares principales del tejido nervioso?	Neuronas y células de sostén.
+Capítulo 12	Composición del tejido nervioso	¿Cuál es la unidad funcional del sistema nervioso?	Neurona.
+Capítulo 12	Composición del tejido nervioso	¿Qué otro nombre reciben las células de sostén del tejido nervioso?	Células gliales o glía.
+Capítulo 12	Composición del tejido nervioso	¿Qué células del tejido nervioso conducen impulsos eléctricos?	Neuronas.
+Capítulo 12	Composición del tejido nervioso	¿Qué células del tejido nervioso no conducen impulsos eléctricos?	Células de sostén o glía.
+Capítulo 12	Composición del tejido nervioso	¿Qué componente vascular tiene el tejido nervioso?	Una red vascular extensa.
+Capítulo 12	Composición del tejido nervioso	¿Qué separa los vasos sanguíneos del tejido nervioso?	Láminas basales y cantidades variables de tejido conjuntivo.
+Capítulo 12	Composición del tejido nervioso	¿Qué barrera restringe selectivamente sustancias sanguíneas en el SNC?	Barrera hematoencefálica.
+Capítulo 12	Funciones de la glía	¿Qué función física cumple la glía para las neuronas?	Sostén y protección.
+Capítulo 12	Funciones de la glía	¿Qué función aislante cumple la glía?	Aísla somas y evaginaciones neuronales.
+Capítulo 12	Funciones de la glía	¿Por qué el aislamiento glial facilita la función nerviosa?	Porque favorece transmisión rápida de impulsos.
+Capítulo 12	Funciones de la glía	¿Qué papel tiene la glía en lesión neuronal?	Participa en reparación.
+Capítulo 12	Funciones de la glía	¿Qué regula la glía en el SNC?	El medio líquido interno.
+Capítulo 12	Funciones de la glía	¿Qué elimina la glía de hendiduras sinápticas?	Neurotransmisores.
+Capítulo 12	Funciones de la glía	¿Qué intercambio facilita la glía?	Intercambio metabólico entre vasos y neuronas.
+Capítulo 12	Neuroglía central	¿Qué es la neuroglía central?	Conjunto de células gliales del SNC.
+Capítulo 12	Neuroglía central	¿Cuáles son los cuatro tipos de neuroglía central?	Oligodendrocitos, astrocitos, microglía y ependimocitos.
+Capítulo 12	Neuroglía periférica	¿Qué es la neuroglía periférica?	Células de sostén del SNP.
+Capítulo 12	Neuroglía periférica	¿Qué células forman parte de la neuroglía periférica?	Células de Schwann, células satélite y células neurogliales entéricas.
+Capítulo 12	Células de Schwann	¿Qué rodean las células de Schwann?	Evaginaciones neuronales en el SNP.
+Capítulo 12	Células de Schwann	¿Qué función general tienen las células de Schwann?	Aíslan axones de células y matriz extracelular vecinas.
+Capítulo 12	Células satélite	¿Qué rodean las células satélite?	Somas neuronales en ganglios del SNP.
+Capítulo 12	Células satélite	¿Dónde se encuentran las células satélite?	En ganglios del sistema nervioso periférico.
+Capítulo 12	Células satélite	¿A qué células son análogas las células satélite?	A células de Schwann.
+Capítulo 12	Células neurogliales entéricas	¿Dónde se encuentran las células neurogliales entéricas?	En ganglios de la pared del tubo digestivo.
+Capítulo 12	Células neurogliales entéricas	¿A qué tipo de glía se parecen las células neurogliales entéricas?	A la neuroglía central.
+Capítulo 12	Neuronas	¿Qué es una neurona?	Célula nerviosa especializada en recibir, conducir y transmitir impulsos.
+Capítulo 12	Neuronas	¿Cuántas neuronas contiene aproximadamente el sistema nervioso humano?	Más de 10 000 millones.
+Capítulo 12	Neuronas	¿Por qué las neuronas varían mucho morfológicamente?	Porque son el grupo celular con mayor variación de tamaño y forma.
+Capítulo 12	Neuronas	¿Cuáles son las tres categorías funcionales generales de neuronas?	Sensitivas, motoras e interneuronas.
+Capítulo 12	Neuronas sensitivas	¿Qué hacen las neuronas sensitivas?	Transmiten impulsos desde receptores hacia el SNC.
+Capítulo 12	Neuronas sensitivas	¿Qué fibras incluyen evaginaciones de neuronas sensitivas?	Fibras aferentes somáticas y viscerales.
+Capítulo 12	Neuronas sensitivas	¿Qué transmiten las fibras aferentes somáticas desde la superficie corporal?	Dolor, temperatura, tacto y presión.
+Capítulo 12	Neuronas sensitivas	¿Qué transmiten las fibras aferentes somáticas desde músculos, tendones y articulaciones?	Dolor y propiocepción.
+Capítulo 12	Neuronas sensitivas	¿Qué transmiten las fibras aferentes viscerales?	Dolor y otras sensaciones desde órganos internos, mucosas, glándulas y vasos.
+Capítulo 12	Motoneuronas	¿Qué hacen las motoneuronas?	Transmiten impulsos desde el SNC o ganglios hacia células efectoras.
+Capítulo 12	Motoneuronas	¿Qué fibras incluyen evaginaciones de motoneuronas?	Fibras eferentes somáticas y viscerales.
+Capítulo 12	Motoneuronas	¿Qué inervan las neuronas eferentes somáticas?	Músculo esquelético.
+Capítulo 12	Motoneuronas	¿Qué transmiten las neuronas eferentes somáticas?	Impulsos voluntarios hacia músculo esquelético.
+Capítulo 12	Motoneuronas	¿Qué inervan las neuronas eferentes viscerales?	Músculo liso, células de conducción cardíaca y glándulas.
+Capítulo 12	Motoneuronas	¿Qué tipo de impulsos transmiten las neuronas eferentes viscerales?	Impulsos involuntarios.
+Capítulo 12	Interneuronas	¿Qué son las interneuronas?	Neuronas que integran y comunican neuronas sensitivas y motoras.
+Capítulo 12	Interneuronas	¿Qué otro nombre reciben las interneuronas?	Neuronas intercalares.
+Capítulo 12	Interneuronas	¿Qué proporción aproximada de neuronas son interneuronas?	Más del 99.9%.
+Capítulo 12	Interneuronas	¿Qué función principal tiene la red de interneuronas?	Comunicación e integración neuronal.
+Capítulo 12	Componentes de la neurona	¿Cuáles son los componentes funcionales de una neurona?	Soma, axón, dendritas y uniones sinápticas.
+Capítulo 12	Soma neuronal	¿Qué es el soma neuronal?	Región de la neurona que contiene núcleo y organelos de mantenimiento.
+Capítulo 12	Soma neuronal	¿Qué otro nombre recibe el soma neuronal?	Pericarion.
+Capítulo 12	Soma neuronal	¿Qué contiene el soma neuronal?	Núcleo, citoplasma perinuclear y organelos.
+Capítulo 12	Soma neuronal	¿Qué región neuronal mantiene la célula?	Soma.
+Capítulo 12	Axón	¿Qué es el axón?	Evaginación que transmite impulsos desde el soma hacia otra célula.
+Capítulo 12	Axón	¿Cuántos axones suele tener una neurona?	Uno.
+Capítulo 12	Axón	¿Qué evaginación neuronal suele ser la más larga?	Axón.
+Capítulo 12	Axón	¿Hacia dónde transmite impulsos el axón?	Desde la célula hacia otra neurona o célula efectora.
+Capítulo 12	Axón	¿Qué estructura especializada suele tener el extremo del axón?	Terminación sináptica.
+Capítulo 12	Dendritas	¿Qué son las dendritas?	Evaginaciones receptoras que transmiten impulsos hacia el soma.
+Capítulo 12	Dendritas	¿Cuántas dendritas suele tener una neurona?	Muchas.
+Capítulo 12	Dendritas	¿Qué evaginaciones neuronales suelen ser más cortas que el axón?	Dendritas.
+Capítulo 12	Dendritas	¿Hacia dónde transmiten impulsos las dendritas?	Desde la periferia hacia el soma.
+Capítulo 12	Sinapsis	¿Qué es una sinapsis?	Contacto especializado que transmite información entre neuronas o hacia células efectoras.
+Capítulo 12	Sinapsis	¿Qué permite la sinapsis?	Transmisión especializada de información de una célula a otra.
+Capítulo 12	Clasificación anatómica de neuronas	¿Según qué criterio anatómico se clasifican muchas neuronas?	Según la cantidad de evaginaciones que salen del soma.
+Capítulo 12	Neuronas multipolares	¿Qué es una neurona multipolar?	Neurona con un axón y dos o más dendritas.
+Capítulo 12	Neuronas multipolares	¿Qué dirección sigue el impulso en una neurona multipolar típica?	Dendritas/soma → axón.
+Capítulo 12	Neuronas multipolares	¿Qué porciones son receptoras en una neurona multipolar?	Dendritas y soma.
+Capítulo 12	Neuronas multipolares	¿Qué porción es conductora en una neurona multipolar?	Axón.
+Capítulo 12	Neuronas multipolares	¿Qué parte terminal del axón contiene neurotransmisores?	Terminación sináptica.
+Capítulo 12	Neuronas multipolares	¿Qué neuronas son principalmente multipolares?	Motoneuronas e interneuronas.
+Capítulo 12	Neuronas bipolares	¿Qué es una neurona bipolar?	Neurona con un axón y una dendrita.
+Capítulo 12	Neuronas bipolares	¿Con qué función se asocian muchas neuronas bipolares?	Sentidos especiales.
+Capítulo 12	Neuronas bipolares	¿Dónde se encuentran ejemplos de neuronas bipolares?	Retina y ganglios del nervio vestibulococlear.
+Capítulo 12	Neuronas bipolares	¿Con qué sentidos se asocian neuronas bipolares?	Gusto, olfato, oído, vista y equilibrio.
+Capítulo 12	Neuronas seudounipolares	¿Qué es una neurona seudounipolar?	Neurona con una prolongación que se divide en dos ramas axónicas largas.
+Capítulo 12	Neuronas seudounipolares	¿Cuáles son las dos ramas de una neurona seudounipolar?	Rama dendrítica periférica y rama axónica central.
+Capítulo 12	Neuronas seudounipolares	¿Hacia dónde se dirige la rama dendrítica periférica?	Hacia la periferia.
+Capítulo 12	Neuronas seudounipolares	¿Hacia dónde se dirige la rama axónica central?	Hacia el SNC.
+Capítulo 12	Neuronas seudounipolares	¿Qué parte de la neurona seudounipolar genera impulsos?	Arborizaciones periféricas.
+Capítulo 12	Neuronas seudounipolares	¿Qué tipo funcional suele ser la mayoría de neuronas seudounipolares?	Sensitivas.
+Capítulo 12	Neuronas seudounipolares	¿Dónde se ubican los somas de muchas neuronas seudounipolares?	Ganglios de raíz dorsal y ganglios de nervios craneales.
+Capítulo 12	Neuronas seudounipolares	¿De qué neurona embrionaria deriva una neurona seudounipolar?	De una neurona bipolar.
+Capítulo 12	Comparación de neuronas	¿Qué neurona tiene un axón y varias dendritas?	Neurona multipolar.
+Capítulo 12	Comparación de neuronas	¿Qué neurona tiene un axón y una dendrita?	Neurona bipolar.
+Capítulo 12	Comparación de neuronas	¿Qué neurona tiene una prolongación que se bifurca?	Neurona seudounipolar.
+Capítulo 12	Comparación de neuronas	¿Qué neurona se asocia más con ganglios sensitivos de raíz dorsal?	Neurona seudounipolar.
+Capítulo 12	Comparación de neuronas	¿Qué neurona se asocia más con sentidos especiales?	Neurona bipolar.
+Capítulo 12	Comparación de neuronas	¿Qué neurona representa la mayoría de motoneuronas e interneuronas?	Neurona multipolar.
+Capítulo 12	Soma neuronal	¿Qué aspecto tiene el núcleo del soma neuronal?	Grande, eucromático y con nucléolo prominente.
+Capítulo 12	Soma neuronal	¿Qué indica un núcleo eucromático grande en el soma neuronal?	Alta actividad sintética.
+Capítulo 12	Soma neuronal	¿Qué indica un nucléolo prominente en el soma neuronal?	Síntesis activa de ribosomas/proteínas.
+Capítulo 12	Soma neuronal	¿Qué organelos abundan en el citoplasma perinuclear neuronal?	RER y ribosomas libres.
+Capítulo 12	Soma neuronal	¿Por qué el soma neuronal tiene mucho RER y ribosomas libres?	Porque sintetiza muchas proteínas.
+Capítulo 12	Corpúsculos de Nissl	¿Qué son los corpúsculos de Nissl?	Acúmulos de RER y ribosomas en neuronas.
+Capítulo 12	Corpúsculos de Nissl	¿Qué estructura ultrastructural corresponde a cada corpúsculo de Nissl?	Una pila de RER.
+Capítulo 12	Corpúsculos de Nissl	¿Cómo se tiñen los corpúsculos de Nissl?	Intensamente con colorantes básicos.
+Capítulo 12	Corpúsculos de Nissl	¿Qué colorante puede teñir metacromáticamente los corpúsculos de Nissl?	Tionina.
+Capítulo 12	Corpúsculos de Nissl	¿Qué indican los corpúsculos de Nissl prominentes?	Alta síntesis proteica neuronal.
+Capítulo 12	Corpúsculos de Nissl	¿Dónde se encuentran corpúsculos de Nissl?	Soma y dendritas proximales.
+Capítulo 12	Corpúsculos de Nissl	¿Dónde no se encuentran corpúsculos de Nissl?	Axón y cono axónico.
+Capítulo 12	Soma neuronal	¿Qué otros organelos contiene el soma neuronal?	Mitocondrias, Golgi, lisosomas, microtúbulos y vesículas.
+Capítulo 12	Soma neuronal	¿Qué filamentos intermedios contiene el soma neuronal?	Neurofilamentos.
+Capítulo 12	Soma neuronal	¿Qué estructura del soma neuronal organiza microtúbulos?	MTOC o centrosoma.
+Capítulo 12	Soma neuronal	¿Qué significa MTOC?	Centro organizador de microtúbulos.
+Capítulo 12	Cono axónico	¿Qué es el cono axónico?	Región del soma desde donde se origina el axón.
+Capítulo 12	Cono axónico	¿Qué estructura suele corresponder al sitio de origen del axón?	MTOC en el citoplasma perinuclear.
+Capítulo 12	Cono axónico	¿Qué organelos grandes faltan en el cono axónico?	Corpúsculos de Nissl y cisternas de Golgi.
+Capítulo 12	Cono axónico	¿Por qué el cono axónico ayuda a distinguir axón de dendrita?	Porque carece de corpúsculos de Nissl.
+Capítulo 12	Actividad neuronal	¿Por qué las neuronas necesitan transporte axónico?	Porque muchas proteínas se sintetizan en el soma y deben llegar a sitios distantes.
+Capítulo 12	Actividad neuronal	¿Qué componentes neuronales se recambian constantemente?	Enzimas, neurotransmisores, membranas y complejos moleculares.
+Capítulo 12	Regeneración neuronal	¿Las neuronas maduras se dividen normalmente?	No.
+Capítulo 12	Regeneración neuronal	¿Qué células pueden generar nuevas neuronas en ciertas regiones encefálicas?	Células madre neurales.
+Capítulo 12	Regeneración neuronal	¿En qué regiones se mencionan células madre neurales adultas?	Bulbo olfatorio y giro dentado del hipocampo.
+Capítulo 12	Regeneración neuronal	¿Qué proteína de filamento intermedio identifica células madre neurales?	Nestina.
+Capítulo 12	Regeneración neuronal	¿Qué masa aproximada tiene la nestina?	240 kDa.
+Capítulo 12	Regeneración neuronal	¿Qué pueden hacer las células madre neurales ante lesión?	Migrar al sitio lesionado y diferenciarse en neuronas nuevas.
+Capítulo 12	Parkinson	¿Qué causa principal describe el Parkinson?	Pérdida de neuronas secretoras de dopamina en sustancia negra y ganglios basales.
+Capítulo 12	Parkinson	¿Qué neurotransmisor se pierde funcionalmente en enfermedad de Parkinson?	Dopamina.
+Capítulo 12	Parkinson	¿Qué región encefálica pierde pigmentación en Parkinson?	Sustancia negra.
+Capítulo 12	Parkinson	¿Qué inclusiones intracelulares se asocian con Parkinson?	Cuerpos de Lewy.
+Capítulo 12	Parkinson	¿Qué proteínas se asocian con cuerpos de Lewy?	α-sinucleína y ubiquitina.
+Capítulo 12	Parkinson	¿Qué síntoma motor clásico produce Parkinson?	Temblor de reposo.
+Capítulo 12	Parkinson	¿Qué alteración del movimiento implica lentitud en Parkinson?	Bradicinesia.
+Capítulo 12	Parkinson	¿Qué alteración implica incapacidad para iniciar movimiento en Parkinson?	Acinesia.
+Capítulo 12	Parkinson	¿Qué precursor de dopamina puede cruzar la barrera hematoencefálica?	L-dopa.
+Capítulo 12	Parkinson	¿Qué tratamiento quirúrgico puede reducir temblor y rigidez en Parkinson?	Estimulación encefálica profunda.
+chapter	subtopic	front	back
+Capítulo 12	Dendritas	¿Qué función principal tienen las dendritas?	Recibir información y conducirla hacia el soma.
+Capítulo 12	Dendritas	¿Qué tipo de evaginaciones neuronales son las dendritas?	Evaginaciones receptoras.
+Capítulo 12	Dendritas	¿Dónde suelen ubicarse las dendritas respecto al soma?	Cerca del soma neuronal.
+Capítulo 12	Dendritas	¿Cómo es el diámetro de las dendritas comparado con el axón?	Suele ser mayor.
+Capítulo 12	Dendritas	¿Las dendritas suelen estar mielinizadas?	No.
+Capítulo 12	Dendritas	¿Qué forma general tienen las dendritas?	Son ramificadas y se afinan hacia sus extremos.
+Capítulo 12	Dendritas	¿Qué son los árboles dendríticos?	Arborizaciones extensas formadas por dendritas.
+Capítulo 12	Dendritas	¿Qué función tiene el árbol dendrítico?	Aumentar el área receptora de la neurona.
+Capítulo 12	Dendritas	¿Qué organelos del soma también pueden encontrarse en dendritas proximales?	RER, ribosomas y a veces Golgi.
+Capítulo 12	Dendritas	¿Qué estructuras de Golgi pueden aparecer en dendritas?	Puestos de avanzada de Golgi.
+Capítulo 12	Dendritas	¿Qué función tienen los puestos de avanzada de Golgi en dendritas?	Actúan como centros locales de nucleación de microtúbulos.
+Capítulo 12	Espinas dendríticas	¿Qué son las espinas dendríticas?	Pequeñas protrusiones de la membrana dendrítica.
+Capítulo 12	Espinas dendríticas	¿Qué contienen las espinas dendríticas?	Actina y densidad postsináptica.
+Capítulo 12	Espinas dendríticas	¿Qué tipo de neuronas suelen tener espinas dendríticas?	Neuronas excitadoras del SNC.
+Capítulo 12	Espinas dendríticas	¿Qué forma pueden tener las espinas dendríticas?	Filopodios delgados o forma de hongo.
+Capítulo 12	Espinas dendríticas	¿Qué forma tienen muchas espinas dendríticas maduras?	Forma de hongo.
+Capítulo 12	Espinas dendríticas	¿Qué porcentaje aproximado de espinas dendríticas son maduras con forma de hongo?	70-80%.
+Capítulo 12	Espinas dendríticas	¿Qué estructura postsináptica contienen las espinas maduras?	Densidad postsináptica.
+Capítulo 12	Espinas dendríticas	¿Qué contiene la densidad postsináptica de una espina?	Receptores de neurotransmisores y canales regulados por voltaje.
+Capítulo 12	Espinas dendríticas	¿Qué neurotransmisor excitador suele participar en sinapsis sobre espinas dendríticas?	Glutamato.
+Capítulo 12	Espinas dendríticas	¿Qué función neuronal se asocia con espinas dendríticas?	Plasticidad sináptica.
+Capítulo 12	Espinas dendríticas	¿Qué procesos cognitivos se asocian con espinas dendríticas?	Aprendizaje y memoria.
+Capítulo 12	Espinas dendríticas	¿Qué ocurre con espinas dendríticas durante aprendizaje?	Pueden formarse espinas estables nuevas.
+Capítulo 12	Espinas dendríticas	¿Por qué las espinas dendríticas son dinámicas?	Porque pueden formarse o eliminarse rápidamente.
+Capítulo 12	Axón	¿Qué función principal tiene el axón?	Transmitir información desde el soma hacia otra neurona o célula efectora.
+Capítulo 12	Axón	¿Qué tipo de evaginación neuronal es el axón?	Evaginación efectora o conductora.
+Capítulo 12	Axón	¿Cuántos axones tiene una neurona típica?	Uno.
+Capítulo 12	Axón	¿Qué tan largo puede ser un axón de neurona motora del SNC?	Más de 1 m.
+Capítulo 12	Axón	¿Qué neuronas tienen axones largos que alcanzan dianas efectoras distantes?	Neuronas de Golgi tipo I.
+Capítulo 12	Axón	¿Qué neuronas tienen axones cortos en el SNC?	Neuronas de Golgi tipo II.
+Capítulo 12	Axón	¿Qué tipo neuronal incluye muchas interneuronas del SNC?	Neuronas de Golgi tipo II.
+Capítulo 12	Axón	¿Qué puede emitir un axón cerca del soma?	Una rama recurrente.
+Capítulo 12	Axón	¿Qué son las ramas colaterales axónicas?	Ramas laterales del axón.
+Capítulo 12	Axón	¿Dónde suele ser más extensa la ramificación del axón?	Cerca de su terminación.
+Capítulo 12	Cono axónico	¿Desde dónde se origina el axón?	Desde el cono axónico.
+Capítulo 12	Cono axónico	¿Qué estructuras atraviesan el cono axónico hacia el axón?	Microtúbulos, neurofilamentos, mitocondrias y vesículas.
+Capítulo 12	Cono axónico	¿Qué organelos faltan en el cono axónico?	Corpúsculos de Nissl y cisternas de Golgi.
+Capítulo 12	Segmento inicial del axón	¿Qué es el segmento inicial del axón?	Región entre el cono axónico y el inicio de la vaina de mielina.
+Capítulo 12	Segmento inicial del axón	¿Qué función de barrera tiene el segmento inicial del axón?	Separa proteínas y lípidos axónicos del resto de la membrana neuronal.
+Capítulo 12	Segmento inicial del axón	¿Qué función selectiva tiene el segmento inicial del axón?	Filtra orgánulos y vesículas que ingresan al axón.
+Capítulo 12	Segmento inicial del axón	¿Dónde se genera normalmente el potencial de acción del axón?	En el segmento inicial.
+Capítulo 12	Segmento inicial del axón	¿Qué estímulos llegan al cono axónico antes de generar el potencial de acción?	Impulsos recibidos en dendritas y soma.
+Capítulo 12	Polaridad neuronal	¿Qué estructura citoesquelética regula la polaridad neuronal?	Microtúbulos.
+Capítulo 12	Microtúbulos neuronales	¿De qué están compuestos los microtúbulos?	Dímeros de tubulina.
+Capítulo 12	Microtúbulos neuronales	¿Qué extremos tienen los microtúbulos?	Extremo más y extremo menos.
+Capítulo 12	Microtúbulos neuronales	¿Dónde suele ocurrir la elongación de microtúbulos?	En el extremo más.
+Capítulo 12	Microtúbulos neuronales	¿Qué extremo suele anclarse al MTOC?	Extremo menos.
+Capítulo 12	Microtúbulos axónicos	¿Cómo se orientan los microtúbulos en axones?	Uniformemente, con el extremo más hacia distal.
+Capítulo 12	Microtúbulos axónicos	¿Hacia dónde apunta el extremo más de microtúbulos axónicos?	Hacia la terminal axónica.
+Capítulo 12	Microtúbulos axónicos	¿Por qué los microtúbulos axónicos favorecen transporte dirigido?	Porque tienen orientación uniforme.
+Capítulo 12	Microtúbulos dendríticos	¿Cómo se orientan los microtúbulos en dendritas?	Con polaridad mixta.
+Capítulo 12	Microtúbulos dendríticos	¿Qué orientación predomina en microtúbulos dendríticos?	Extremo menos dirigido distalmente.
+Capítulo 12	Microtúbulos dendríticos	¿Por qué el transporte dendrítico es más complejo que el axónico?	Porque los microtúbulos dendríticos tienen polaridad mixta.
+Capítulo 12	Microtúbulos neuronales	¿Qué proteínas estabilizan y protegen microtúbulos neuronales?	Proteínas asociadas con microtúbulos.
+Capítulo 12	Microtúbulos neuronales	¿Qué sigla corresponde a proteínas asociadas con microtúbulos?	MAP.
+Capítulo 12	Síntesis proteica axónica local	¿Dónde se sintetizan la mayoría de proteínas neuronales?	En el soma.
+Capítulo 12	Síntesis proteica axónica local	¿Qué terminales axónicas pueden sintetizar proteínas localmente?	Algunas terminales axónicas grandes.
+Capítulo 12	Síntesis proteica axónica local	¿Qué son las placas periaxoplasmáticas?	Áreas de terminales axónicas con maquinaria para síntesis proteica local.
+Capítulo 12	Síntesis proteica axónica local	¿Con qué proceso podrían relacionarse las proteínas sintetizadas localmente en axones?	Memoria celular neuronal.
+Capítulo 12	Transporte neuronal	¿Qué es el transporte neuronal?	Movimiento de moléculas y orgánulos por microtúbulos dentro de neuronas.
+Capítulo 12	Transporte neuronal	¿Por qué las neuronas dependen mucho del transporte neuronal?	Porque sus evaginaciones pueden ser muy largas.
+Capítulo 12	Transporte neuronal	¿Qué permite el transporte neuronal?	Comunicación intracelular entre soma, axón y dendritas.
+Capítulo 12	Transporte neuronal	¿Qué proteína motora participa principalmente en transporte anterógrado axónico?	Cinesina.
+Capítulo 12	Transporte neuronal	¿Qué proteína motora participa principalmente en transporte retrógrado axónico?	Dineína.
+Capítulo 12	Transporte neuronal	¿Qué energía usan los motores moleculares del transporte neuronal?	ATP.
+Capítulo 12	Transporte anterógrado	¿Qué es el transporte anterógrado?	Transporte desde el soma hacia la periferia neuronal.
+Capítulo 12	Transporte anterógrado	¿Qué motor realiza transporte axónico anterógrado?	Cinesina.
+Capítulo 12	Transporte anterógrado	¿Hacia qué extremo del microtúbulo se mueve la cinesina?	Hacia el extremo más.
+Capítulo 12	Transporte anterógrado	¿Qué dirección tiene el transporte anterógrado en axones?	Del soma hacia la terminal axónica.
+Capítulo 12	Transporte retrógrado	¿Qué es el transporte retrógrado?	Transporte desde la terminal axónica o dendritas hacia el soma.
+Capítulo 12	Transporte retrógrado	¿Qué motor realiza transporte axónico retrógrado?	Dineína.
+Capítulo 12	Transporte retrógrado	¿Hacia qué extremo del microtúbulo se mueve la dineína?	Hacia el extremo menos.
+Capítulo 12	Transporte retrógrado	¿Qué dirección tiene el transporte retrógrado axónico?	De la terminal axónica hacia el soma.
+Capítulo 12	Transporte retrógrado	¿Qué patógenos pueden usar transporte retrógrado para entrar al SNC?	Virus y toxinas.
+Capítulo 12	Transporte retrógrado	¿Qué herramienta experimental puede usar transporte retrógrado para rastrear vías nerviosas?	Peroxidasa del rábano o trazadores marcados.
+Capítulo 12	Transporte lento anterógrado	¿Qué velocidad tiene el transporte lento anterógrado?	0.2-4 mm/día.
+Capítulo 12	Transporte lento anterógrado	¿Qué transporta el sistema lento anterógrado?	Elementos estructurales y proteínas citoplasmáticas.
+Capítulo 12	Transporte lento anterógrado	¿Qué precursores de microtúbulos viajan por transporte lento?	Tubulina.
+Capítulo 12	Transporte lento anterógrado	¿Qué proteínas del citoesqueleto viajan por transporte lento?	Actina y proteínas de neurofilamentos.
+Capítulo 12	Transporte lento anterógrado	¿Qué proteínas citoplasmáticas pueden viajar por transporte lento?	Calmodulina y enzimas metabólicas.
+Capítulo 12	Transporte rápido	¿Qué velocidad tiene el transporte rápido neuronal?	20-400 mm/día.
+Capítulo 12	Transporte rápido	¿En qué direcciones funciona el transporte rápido?	Anterógrada y retrógrada.
+Capítulo 12	Transporte rápido anterógrado	¿Qué transporta el sistema rápido anterógrado?	Orgánulos membranosos y moléculas pequeñas hacia la terminal axónica.
+Capítulo 12	Transporte rápido anterógrado	¿Qué orgánulos viajan por transporte rápido anterógrado?	Componentes del RER, vesículas sinápticas y mitocondrias.
+Capítulo 12	Transporte rápido anterógrado	¿Qué moléculas pequeñas pueden viajar por transporte rápido anterógrado?	Monosacáridos, aminoácidos, nucleótidos, neurotransmisores y calcio.
+Capítulo 12	Transporte rápido retrógrado	¿Qué transporta el sistema rápido retrógrado?	Material endocitado, proteínas y orgánulos envejecidos hacia el soma.
+Capítulo 12	Transporte rápido retrógrado	¿Por qué el transporte retrógrado ayuda al mantenimiento neuronal?	Lleva material envejecido al soma para degradación o reciclaje.
+Capítulo 12	Transporte dendrítico	¿Qué motor molecular es muy importante en transporte dendrítico?	Dineína.
+Capítulo 12	Transporte dendrítico	¿Por qué una misma dineína puede mover vesículas en ambas direcciones dentro de dendritas?	Porque los microtúbulos dendríticos tienen polaridad mixta.
+Capítulo 12	Transporte neuronal y enfermedad	¿Qué trastornos se asocian con alteraciones del transporte neuronal?	Parkinson, Alzheimer, Huntington y ELA.
+Capítulo 12	Transporte neuronal y enfermedad	¿Por qué el transporte neuronal defectuoso daña neuronas?	Porque acumula proteínas, citoesqueleto y orgánulos anómalos en axones.
+Capítulo 12	Sinapsis	¿Qué son las sinapsis?	Uniones especializadas para transmitir impulsos entre neuronas o hacia células efectoras.
+Capítulo 12	Sinapsis	¿Qué célula libera el neurotransmisor en una sinapsis?	Neurona presináptica.
+Capítulo 12	Sinapsis	¿Qué célula recibe la señal en una sinapsis?	Neurona postsináptica o célula diana.
+Capítulo 12	Sinapsis	¿Qué células efectoras pueden recibir sinapsis?	Células musculares y glandulares.
+Capítulo 12	Sinapsis morfológicas	¿Cuáles son los tipos morfológicos de sinapsis entre neuronas?	Axodendríticas, axosomáticas y axoaxónicas.
+Capítulo 12	Sinapsis axodendrítica	¿Qué es una sinapsis axodendrítica?	Sinapsis entre un axón y una dendrita.
+Capítulo 12	Sinapsis axodendrítica	¿Cuál es el tipo más frecuente de sinapsis entre neuronas?	Axodendrítica.
+Capítulo 12	Sinapsis axodendrítica	¿Dónde pueden ocurrir algunas sinapsis axodendríticas en el SNC?	Sobre espinas dendríticas.
+Capítulo 12	Sinapsis axosomática	¿Qué es una sinapsis axosomática?	Sinapsis entre un axón y el soma neuronal.
+Capítulo 12	Sinapsis axoaxónica	¿Qué es una sinapsis axoaxónica?	Sinapsis entre un axón y otro axón.
+Capítulo 12	Sinapsis axoaxónica	¿Qué puede hacer una sinapsis axoaxónica?	Mejorar o inhibir la transmisión de otra sinapsis.
+Capítulo 12	Sinapsis	¿Las sinapsis se observan bien en H&E de rutina?	No.
+Capítulo 12	Sinapsis	¿Qué método puede mostrar la forma general de neuronas y sinapsis?	Método de Golgi.
+Capítulo 12	Sinapsis	¿Qué son los boutons en passant?	Contactos sinápticos en forma de botones a lo largo de un axón.
+Capítulo 12	Sinapsis	¿Qué es el botón terminal?	Extremo dilatado terminal del axón.
+Capítulo 12	Sinapsis	¿De qué depende en parte el número de sinapsis de una neurona?	De la cantidad de impulsos que recibe y procesa.
+Capítulo 12	Clasificación funcional de sinapsis	¿Cuáles son los dos tipos funcionales de sinapsis?	Químicas y eléctricas.
+Capítulo 12	Sinapsis químicas	¿Qué es una sinapsis química?	Sinapsis que usa neurotransmisores para transmitir la señal.
+Capítulo 12	Sinapsis químicas	¿Qué debe atravesar el neurotransmisor en una sinapsis química?	Hendidura sináptica.
+Capítulo 12	Sinapsis químicas	¿Qué tipo especializado de sinapsis química aparece en oído interno y retina?	Sinapsis en cinta.
+Capítulo 12	Sinapsis eléctricas	¿Qué es una sinapsis eléctrica?	Sinapsis que transmite corriente mediante uniones de hendidura.
+Capítulo 12	Sinapsis eléctricas	¿Las sinapsis eléctricas requieren neurotransmisores?	No.
+Capítulo 12	Sinapsis eléctricas	¿Qué permiten las uniones de hendidura en sinapsis eléctricas?	Movimiento directo de iones entre células.
+Capítulo 12	Sinapsis eléctricas	¿Qué equivalentes mamíferos menciona el texto para sinapsis eléctricas?	Uniones comunicantes en músculo liso y cardíaco.
+Capítulo 12	Sinapsis química	¿Cuáles son los tres componentes de una sinapsis química típica?	Elemento presináptico, hendidura sináptica y membrana postsináptica.
+Capítulo 12	Elemento presináptico	¿Qué es el elemento presináptico?	Extremo neuronal desde donde se liberan neurotransmisores.
+Capítulo 12	Elemento presináptico	¿Qué otro nombre recibe el elemento presináptico?	Botón sináptico o bulbo presináptico.
+Capítulo 12	Elemento presináptico	¿Qué estructuras contiene el botón presináptico?	Vesículas sinápticas y mitocondrias pequeñas.
+Capítulo 12	Vesículas sinápticas	¿Qué contienen las vesículas sinápticas?	Neurotransmisores.
+Capítulo 12	Vesículas sinápticas	¿Qué diámetro aproximado tienen las vesículas sinápticas?	30-100 nm.
+Capítulo 12	Vesículas sinápticas	¿Qué proteínas median unión y fusión de vesículas sinápticas?	Proteínas SNARE.
+Capítulo 12	Vesículas sinápticas	¿Qué v-SNARE se une a vesículas sinápticas?	Sinaptobrevina.
+Capítulo 12	Vesículas sinápticas	¿Qué t-SNARE se une a la membrana presináptica?	Sintaxina.
+Capítulo 12	Vesículas sinápticas	¿Qué proteína t-SNARE participa con sintaxina en membrana presináptica?	SNAP-25.
+Capítulo 12	Vesículas sinápticas	¿Qué proteína vesicular participa como sensor de Ca2+ en liberación sináptica?	Sinaptotagmina 1.
+Capítulo 12	Zona activa	¿Qué es la zona activa presináptica?	Área donde se acoplan vesículas y se liberan neurotransmisores.
+Capítulo 12	Zona activa	¿Qué estructuras se concentran en la zona activa?	Proteínas de acoplamiento y vesículas sinápticas listas para liberar transmisor.
+Capítulo 12	Hendidura sináptica	¿Qué es la hendidura sináptica?	Espacio entre elemento presináptico y membrana postsináptica.
+Capítulo 12	Hendidura sináptica	¿Cuánto mide aproximadamente la hendidura sináptica?	20-30 nm.
+Capítulo 12	Hendidura sináptica	¿Qué atraviesa la hendidura sináptica?	Neurotransmisor.
+Capítulo 12	Membrana postsináptica	¿Qué contiene la membrana postsináptica?	Receptores para neurotransmisores.
+Capítulo 12	Membrana postsináptica	¿Qué es la densidad postsináptica?	Capa densa proteica bajo la membrana postsináptica.
+Capítulo 12	Membrana postsináptica	¿Qué función tiene la densidad postsináptica?	Organiza receptores y traduce señales intracelulares.
+Capítulo 12	Membrana postsináptica	¿Qué fija receptores de neurotransmisores a la membrana postsináptica?	Densidad postsináptica.
+Capítulo 12	Transmisión sináptica	¿Qué evento abre canales de Ca2+ en el botón presináptico?	Despolarización por llegada del impulso nervioso.
+Capítulo 12	Transmisión sináptica	¿Qué causa la entrada de Ca2+ en el botón presináptico?	Migración, fijación y fusión de vesículas sinápticas.
+Capítulo 12	Transmisión sináptica	¿Cómo se libera el neurotransmisor hacia la hendidura sináptica?	Por exocitosis.
+Capítulo 12	Transmisión sináptica	¿Qué proteínas impulsan principalmente el acoplamiento y fusión vesicular?	SNARE y sinaptotagmina.
+Capítulo 12	Transmisión sináptica	¿Qué es la porocitosis sináptica?	Liberación de neurotransmisor por un poro transitorio sin fusión completa masiva.
+Capítulo 12	Transmisión sináptica	¿Qué ocurre con la membrana presináptica tras liberar neurotransmisor?	Se recicla mediante vesículas endocíticas.
+Capítulo 12	Receptores postsinápticos	¿Qué dos tipos principales de receptores postsinápticos menciona el texto?	Canales regulados por transmisor y receptores acoplados a proteína G.
+Capítulo 12	Receptores postsinápticos	¿Qué son los canales regulados por transmisor?	Canales que se abren al unirse neurotransmisor.
+Capítulo 12	Receptores postsinápticos	¿Qué produce la entrada de Na+ por canales regulados por transmisor?	Despolarización local postsináptica.
+Capítulo 12	Receptores postsinápticos	¿Qué puede generar una despolarización postsináptica suficiente?	Un potencial de acción.
+Capítulo 12	Receptores postsinápticos	¿Qué producen los receptores acoplados a proteína G?	Respuestas postsinápticas más diversas y duraderas.
+Capítulo 12	Receptores postsinápticos	¿Qué pueden activar receptores acoplados a proteína G?	Canales iónicos o enzimas productoras de segundos mensajeros.
+Capítulo 12	Comparación sináptica	¿Qué sinapsis usa neurotransmisores?	Sinapsis química.
+Capítulo 12	Comparación sináptica	¿Qué sinapsis usa uniones de hendidura?	Sinapsis eléctrica.
+Capítulo 12	Comparación sináptica	¿Qué sinapsis tiene hendidura con vesículas presinápticas?	Sinapsis química.
+Capítulo 12	Comparación sináptica	¿Qué sinapsis permite corriente iónica directa entre células?	Sinapsis eléctrica.
+Capítulo 12	Comparación sináptica	¿Qué sinapsis suele tener más modulación y retraso sináptico?	Sinapsis química.
+Capítulo 12	Comparación sináptica	¿Qué receptor postsináptico genera respuesta rápida por apertura directa de canal?	Canal regulado por transmisor.
+Capítulo 12	Comparación sináptica	¿Qué receptor postsináptico genera respuesta más prolongada mediante segundos mensajeros?	Receptor acoplado a proteína G.
+chapter	subtopic	front	back
+Capítulo 12	Neuroglía	¿Qué es la neuroglía?	Conjunto de células de sostén del tejido nervioso.
+Capítulo 12	Neuroglía	¿Qué característica funcional distingue a la glía de las neuronas?	La glía no conduce impulsos nerviosos.
+Capítulo 12	Neuroglía	¿Qué función general cumple la neuroglía?	Sostén, protección, aislamiento, reparación y regulación del microambiente neuronal.
+Capítulo 12	Neuroglía	¿Qué dos grandes grupos de neuroglía existen?	Neuroglía periférica y neuroglía central.
+Capítulo 12	Neuroglía periférica	¿Qué es la neuroglía periférica?	Glía del sistema nervioso periférico.
+Capítulo 12	Neuroglía periférica	¿Qué células principales forman la neuroglía periférica?	Células de Schwann, células satélite y células neurogliales entéricas.
+Capítulo 12	Neuroglía periférica	¿Qué célula glial periférica se asocia con axones?	Célula de Schwann.
+Capítulo 12	Neuroglía periférica	¿Qué célula glial periférica rodea somas neuronales en ganglios?	Célula satélite.
+Capítulo 12	Neuroglía periférica	¿Qué célula glial periférica se encuentra en ganglios del tubo digestivo?	Célula neuroglial entérica.
+Capítulo 12	Células de Schwann	¿Qué son las células de Schwann?	Células gliales periféricas que rodean axones.
+Capítulo 12	Células de Schwann	¿En qué sistema nervioso se encuentran las células de Schwann?	Sistema nervioso periférico.
+Capítulo 12	Células de Schwann	¿Qué función general tienen las células de Schwann?	Aislar y sostener evaginaciones neuronales del SNP.
+Capítulo 12	Células de Schwann	¿Qué célula produce mielina en el SNP?	Célula de Schwann.
+Capítulo 12	Células de Schwann	¿Qué célula envuelve axones no mielinizados en el SNP?	Célula de Schwann.
+Capítulo 12	Células de Schwann	¿Qué forma tienen las células de Schwann?	Alargada.
+Capítulo 12	Células de Schwann	¿Cómo se orientan las células de Schwann respecto al axón?	Paralelas al eje longitudinal del axón.
+Capítulo 12	Células de Schwann	¿Dónde se alojan los axones en células de Schwann no mielinizantes?	En surcos de la superficie celular.
+Capítulo 12	Células de Schwann	¿Qué puede formarse cuando los bordes del surco de Schwann contactan?	Mesaxón.
+Capítulo 12	Células de Schwann	¿Qué es el mesaxón?	Doble membrana de la célula de Schwann que conecta superficie y axón envuelto.
+Capítulo 12	Mielina periférica	¿Qué es la mielina periférica?	Capas compactadas de membrana de célula de Schwann alrededor de un axón.
+Capítulo 12	Mielina periférica	¿Qué estructura celular forma la vaina de mielina periférica?	Membrana plasmática de célula de Schwann.
+Capítulo 12	Mielina periférica	¿Cómo se forma la mielina en el SNP?	Por enrollamiento concéntrico de la célula de Schwann alrededor del axón.
+Capítulo 12	Mielina periférica	¿Qué ocurre con el citoplasma entre membranas durante compactación de mielina?	Se exprime o desaparece casi por completo.
+Capítulo 12	Mielina periférica	¿Qué proteínas participan en compactación de mielina periférica?	P0, PMP22 y MBP.
+Capítulo 12	Mielina periférica	¿Qué significa P0 en mielina periférica?	Proteína cero.
+Capítulo 12	Mielina periférica	¿Qué significa PMP22?	Proteína periférica de mielina de 22 kDa.
+Capítulo 12	Mielina periférica	¿Qué significa MBP?	Proteína básica de mielina.
+Capítulo 12	Mielina periférica	¿Qué proteína estructural clave media adhesión fuerte en mielina periférica?	Proteína P0.
+Capítulo 12	Mielina periférica	¿Qué masa aproximada tiene la proteína P0?	30 kDa.
+Capítulo 12	Mielina periférica	¿Qué proteína de mielina periférica es una molécula de adhesión celular?	P0.
+Capítulo 12	Mielina periférica	¿Qué mutaciones pueden producir mielina periférica inestable?	Mutaciones en genes de P0.
+Capítulo 12	Mielina periférica	¿Qué determina el espesor de la vaina de mielina periférica?	El diámetro del axón.
+Capítulo 12	Mielina periférica	¿Qué célula no determina por sí sola el espesor de mielina periférica?	Célula de Schwann.
+Capítulo 12	Mielina periférica	¿Qué factor axonal regula espesor de mielina periférica?	Neurregulina 1.
+Capítulo 12	Mielina periférica	¿Qué sigla corresponde a neurregulina 1?	Nrg1.
+Capítulo 12	Mielina periférica	¿Dónde se expresa Nrg1?	En el axolema.
+Capítulo 12	Mielina periférica	¿Qué membrana neuronal expresa Nrg1?	Axolema.
+Capítulo 12	Mielina periférica	¿Qué relación hay entre diámetro axonal y mielina?	Axones más gruesos suelen tener más mielina.
+Capítulo 12	Nódulo de Ranvier	¿Qué es el nódulo de Ranvier?	Región sin mielina entre dos células de Schwann adyacentes.
+Capítulo 12	Nódulo de Ranvier	¿Qué estructura separa segmentos internodulares de mielina?	Nódulo de Ranvier.
+Capítulo 12	Nódulo de Ranvier	¿Qué es un segmento internodular?	Segmento de mielina entre dos nódulos de Ranvier.
+Capítulo 12	Nódulo de Ranvier	¿Qué función tiene el nódulo de Ranvier?	Regenerar el impulso eléctrico para conducción rápida.
+Capítulo 12	Nódulo de Ranvier	¿Qué canales abundan en el nódulo de Ranvier?	Canales de Na+ activados por voltaje.
+Capítulo 12	Nódulo de Ranvier	¿Qué tipo de conducción permite la mielina con nódulos de Ranvier?	Conducción saltatoria.
+Capítulo 12	Nódulo de Ranvier	¿Por qué el impulso “salta” en fibras mielinizadas?	Porque se regenera principalmente en los nódulos de Ranvier.
+Capítulo 12	Incisuras de Schmidt-Lanterman	¿Qué son las incisuras de Schmidt-Lanterman?	Canales citoplasmáticos dentro de la mielina periférica.
+Capítulo 12	Incisuras de Schmidt-Lanterman	¿Qué conectan las incisuras de Schmidt-Lanterman?	Citoplasma interno y externo de la célula de Schwann.
+Capítulo 12	Incisuras de Schmidt-Lanterman	¿Qué relación tienen las incisuras con el diámetro axonal?	Axones más gruesos presentan más incisuras.
+Capítulo 12	Axones no mielinizados del SNP	¿Los axones no mielinizados del SNP están desnudos?	No, están envueltos por células de Schwann.
+Capítulo 12	Axones no mielinizados del SNP	¿Cómo se relacionan axones no mielinizados con células de Schwann?	Se alojan en surcos de su citoplasma.
+Capítulo 12	Axones no mielinizados del SNP	¿Cuántos axones puede contener una célula de Schwann grande en surcos?	20 surcos o más, cada uno con uno o más axones.
+Capítulo 12	Axones no mielinizados del SNP	¿Qué axones suelen agruparse en un solo surco de Schwann?	Haces de axones no mielinizados del SNA.
+Capítulo 12	Axones no mielinizados del SNP	¿Qué diferencia central hay entre axón mielinizado y no mielinizado en el SNP?	El mielinizado está rodeado por capas compactas; el no mielinizado solo está envuelto en surcos.
+Capítulo 12	Células satélite	¿Qué son las células satélite?	Células gliales periféricas que rodean somas neuronales en ganglios.
+Capítulo 12	Células satélite	¿Qué forma tienen las células satélite?	Pequeñas células cúbicas.
+Capítulo 12	Células satélite	¿Qué estructura forman las células satélite alrededor del soma ganglionar?	Una cubierta completa.
+Capítulo 12	Células satélite	¿Qué suele observarse de las células satélite en H&E?	Solo sus núcleos.
+Capítulo 12	Células satélite	¿Qué función microambiental tienen las células satélite?	Mantienen un medio controlado alrededor del soma neuronal.
+Capítulo 12	Células satélite	¿Qué tipo de aislamiento proveen las células satélite?	Aislamiento eléctrico.
+Capítulo 12	Células satélite	¿Qué intercambio permiten las células satélite?	Intercambio metabólico alrededor del soma ganglionar.
+Capítulo 12	Células satélite	¿Las células satélite producen mielina?	No.
+Capítulo 12	Células satélite	¿Qué célula glial periférica es funcionalmente análoga a la célula satélite?	Célula de Schwann.
+Capítulo 12	Células satélite	¿Qué diferencia clave hay entre célula satélite y célula de Schwann?	La célula satélite rodea somas y no produce mielina.
+Capítulo 12	Células satélite	¿Hay sinapsis en ganglios sensitivos?	No.
+Capítulo 12	Células satélite	¿En qué ganglios las evaginaciones neuronales deben atravesar células satélite para sinaptar?	Ganglios paravertebrales y periféricos autónomos.
+Capítulo 12	Células neurogliales entéricas	¿Qué son las células neurogliales entéricas?	Glía asociada a neuronas y evaginaciones en ganglios entéricos.
+Capítulo 12	Células neurogliales entéricas	¿Dónde se ubican las células neurogliales entéricas?	En ganglios de la división entérica del SNA.
+Capítulo 12	Células neurogliales entéricas	¿A qué células del SNC se parecen las células neurogliales entéricas?	Astrocitos.
+Capítulo 12	Células neurogliales entéricas	¿Qué funciones comparten células neurogliales entéricas y astrocitos?	Sostén estructural y metabólico y protección neuronal.
+Capítulo 12	Células neurogliales entéricas	¿En qué proceso podrían participar las células neurogliales entéricas?	Neurotransmisión entérica.
+Capítulo 12	Células neurogliales entéricas	¿Qué sistemas intestinales podrían coordinar las células neurogliales entéricas?	Sistema nervioso e inmunitario.
+Capítulo 12	Neuroglía central	¿Qué es la neuroglía central?	Glía del sistema nervioso central.
+Capítulo 12	Neuroglía central	¿Cuáles son los cuatro tipos de neuroglía central?	Astrocitos, oligodendrocitos, microglía y ependimocitos.
+Capítulo 12	Neuroglía central	¿Qué glía central brinda sostén físico y metabólico?	Astrocito.
+Capítulo 12	Neuroglía central	¿Qué glía central forma mielina en el SNC?	Oligodendrocito.
+Capítulo 12	Neuroglía central	¿Qué glía central tiene propiedades fagocíticas?	Microglía.
+Capítulo 12	Neuroglía central	¿Qué glía central reviste ventrículos y conducto central?	Ependimocito.
+Capítulo 12	Neuroglía central	¿Qué suele verse de la glía central con tinciones de rutina?	Solo los núcleos.
+Capítulo 12	Neuroglía central	¿Qué técnicas ayudan a identificar la forma completa de células gliales?	Inmunocitoquímica o impregnación con metales pesados.
+Capítulo 12	Astrocitos	¿Qué son los astrocitos?	Las células gliales más grandes del SNC.
+Capítulo 12	Astrocitos	¿Qué función general tienen los astrocitos?	Sostener y modular la actividad neuronal.
+Capítulo 12	Astrocitos	¿Qué tipo de sostén proporcionan los astrocitos?	Físico y metabólico.
+Capítulo 12	Astrocitos	¿Qué red forman los astrocitos en el SNC?	Una red celular de sostén y comunicación.
+Capítulo 12	Astrocitos	¿Qué hacen algunos astrocitos durante el desarrollo encefálico?	Proporcionan andamiaje para migración neuronal.
+Capítulo 12	Astrocitos	¿Qué son los pies terminales astrocitarios?	Extremos expandidos de prolongaciones astrocitarias.
+Capítulo 12	Astrocitos	¿Qué superficies cubren los pies terminales astrocitarios?	Vasos sanguíneos y axolema.
+Capítulo 12	Astrocitos	¿Los astrocitos producen mielina?	No.
+Capítulo 12	Astrocitos	¿Cuáles son los dos tipos principales de astrocitos?	Protoplasmáticos y fibrosos.
+Capítulo 12	Astrocitos protoplasmáticos	¿Dónde predominan los astrocitos protoplasmáticos?	Sustancia gris.
+Capítulo 12	Astrocitos protoplasmáticos	¿Qué morfología tienen los astrocitos protoplasmáticos?	Muchas evaginaciones cortas y ramificadas.
+Capítulo 12	Astrocitos fibrosos	¿Dónde predominan los astrocitos fibrosos?	Sustancia blanca.
+Capítulo 12	Astrocitos fibrosos	¿Qué morfología tienen los astrocitos fibrosos?	Menos evaginaciones, relativamente rectas.
+Capítulo 12	Astrocitos	¿Qué proteína de filamento intermedio caracteriza a los astrocitos?	GFAP.
+Capítulo 12	Astrocitos	¿Qué significa GFAP?	Proteína ácida fibrilar glial.
+Capítulo 12	Astrocitos	¿Qué célula glial se identifica por GFAP?	Astrocito.
+Capítulo 12	Astrocitos	¿Qué función tienen astrocitos en la barrera hematoencefálica?	Contribuyen mediante pies terminales y señales al endotelio.
+Capítulo 12	Astrocitos	¿Qué neurotransmisores pueden captar o eliminar los astrocitos?	Neurotransmisores de hendiduras sinápticas.
+Capítulo 12	Astrocitos	¿Qué papel tienen astrocitos en el equilibrio iónico del SNC?	Regulan el microambiente extracelular.
+Capítulo 12	Oligodendrocitos	¿Qué son los oligodendrocitos?	Células gliales centrales que forman y mantienen mielina en el SNC.
+Capítulo 12	Oligodendrocitos	¿Qué célula produce mielina en el SNC?	Oligodendrocito.
+Capítulo 12	Oligodendrocitos	¿Qué tamaño tienen los oligodendrocitos comparados con astrocitos?	Son más pequeños.
+Capítulo 12	Oligodendrocitos	¿Cómo son las evaginaciones de los oligodendrocitos?	Relativamente escasas.
+Capítulo 12	Oligodendrocitos	¿Cómo se disponen con frecuencia los oligodendrocitos?	En hileras entre axones.
+Capítulo 12	Oligodendrocitos	¿Qué forma tienen las prolongaciones mielinizantes del oligodendrocito?	Lengüetas.
+Capítulo 12	Oligodendrocitos	¿Qué forma cada prolongación de oligodendrocito sobre un axón?	Un segmento internodular de mielina.
+Capítulo 12	Oligodendrocitos	¿Cuántos axones puede mielinizar un oligodendrocito?	Uno o varios axones cercanos.
+Capítulo 12	Oligodendrocitos	¿Qué diferencia clave hay entre oligodendrocito y célula de Schwann en mielinización?	Un oligodendrocito mieliniza varios segmentos; una célula de Schwann mieliniza un segmento.
+Capítulo 12	Oligodendrocitos	¿Dónde puede estar el soma del oligodendrocito respecto al axón que mieliniza?	Algo distante.
+Capítulo 12	Oligodendrocitos	¿Por qué el oligodendrocito no incorpora axones dentro de su citoplasma como la célula de Schwann?	Porque puede mielinizar varios axones simultáneamente.
+Capítulo 12	Mielina central	¿Qué célula forma mielina central?	Oligodendrocito.
+Capítulo 12	Mielina central	¿Qué estructura mielínica del SNP no existe igual en la mielina central?	Lámina externa de célula de Schwann.
+Capítulo 12	Mielina central	¿Qué diferencia existe entre mielina central y periférica respecto a células productoras?	Central: oligodendrocito; periférica: célula de Schwann.
+Capítulo 12	Microglía	¿Qué es la microglía?	Glía central con función fagocítica e inmunitaria.
+Capítulo 12	Microglía	¿Qué propiedad funcional caracteriza a la microglía?	Fagocitosis.
+Capítulo 12	Microglía	¿Qué reacciones media la microglía?	Reacciones neuroinmunitarias.
+Capítulo 12	Microglía	¿Cómo son los núcleos de la microglía?	Pequeños, oscuros y alargados.
+Capítulo 12	Microglía	¿Cuál es el origen embrionario de la microglía?	Mesenquimatoso.
+Capítulo 12	Microglía	¿Qué célula glial tiene origen mesenquimatoso?	Microglía.
+Capítulo 12	Microglía	¿Qué filamento intermedio puede identificar microglía?	Vimentina.
+Capítulo 12	Microglía	¿Qué célula glial se activa ante daño o inflamación del SNC?	Microglía.
+Capítulo 12	Microglía	¿Qué célula del SNC elimina detritos celulares?	Microglía.
+Capítulo 12	Ependimocitos	¿Qué son los ependimocitos?	Células gliales que revisten cavidades del SNC.
+Capítulo 12	Ependimocitos	¿Qué revisten los ependimocitos en el encéfalo?	Ventrículos.
+Capítulo 12	Ependimocitos	¿Qué revisten los ependimocitos en médula espinal?	Conducto central.
+Capítulo 12	Ependimocitos	¿Qué forma tienen los ependimocitos?	Cilíndrica o cúbica.
+Capítulo 12	Ependimocitos	¿Qué tipo de superficie pueden tener los ependimocitos?	Ciliada.
+Capítulo 12	Ependimocitos	¿Qué ayudan a mover los cilios ependimarios?	Líquido cefalorraquídeo.
+Capítulo 12	Ependimocitos	¿Qué células participan en el revestimiento del sistema ventricular?	Ependimocitos.
+Capítulo 12	Conducción del impulso	¿Qué propiedad aumenta la mielina en axones?	Velocidad de conducción del impulso.
+Capítulo 12	Conducción del impulso	¿Qué conducción ocurre en axones mielinizados?	Conducción saltatoria.
+Capítulo 12	Conducción del impulso	¿Qué conducción ocurre en axones no mielinizados?	Conducción continua.
+Capítulo 12	Conducción del impulso	¿Por qué la conducción saltatoria es rápida?	Porque el potencial se regenera solo en nódulos de Ranvier.
+Capítulo 12	Conducción del impulso	¿Qué estructura concentra canales de Na+ en axones mielinizados?	Nódulo de Ranvier.
+Capítulo 12	Conducción del impulso	¿Qué regiones mielinizadas actúan como aislante eléctrico?	Segmentos internodulares.
+Capítulo 12	Conducción del impulso	¿Qué axones conducen más rápido: mielinizados o no mielinizados?	Mielinizados.
+Capítulo 12	Conducción del impulso	¿Qué factores aumentan la velocidad de conducción axónica?	Mielinización y mayor diámetro axonal.
+Capítulo 12	Enfermedades desmielinizantes	¿Qué son las enfermedades desmielinizantes?	Trastornos con pérdida o alteración de la mielina.
+Capítulo 12	Enfermedades desmielinizantes	¿Qué consecuencia funcional tiene perder mielina?	Disminuye o bloquea la conducción nerviosa.
+Capítulo 12	Enfermedades desmielinizantes	¿Qué enfermedad desmielinizante afecta principalmente al SNC?	Esclerosis múltiple.
+Capítulo 12	Enfermedades desmielinizantes	¿Qué célula se afecta funcionalmente en desmielinización del SNC?	Oligodendrocito.
+Capítulo 12	Enfermedades desmielinizantes	¿Qué célula se afecta funcionalmente en desmielinización del SNP?	Célula de Schwann.
+Capítulo 12	Origen de células nerviosas	¿De dónde derivan muchas células ganglionares del SNP?	Cresta neural.
+Capítulo 12	Origen de células nerviosas	¿De dónde derivan las células de Schwann?	Cresta neural.
+Capítulo 12	Origen de células nerviosas	¿Qué factor de transcripción es necesario para generar glía periférica desde cresta neural?	Sox10.
+Capítulo 12	Origen de células nerviosas	¿Qué señal axonal sostiene precursores de células de Schwann?	Neurregulina 1.
+Capítulo 12	Origen de células nerviosas	¿Qué determina si una célula de Schwann inmadura será mielinizante o amielínica?	El tipo y diámetro del axón con que contacta.
+Capítulo 12	Origen de células nerviosas	¿Con qué axones se asocian las células de Schwann que maduran como mielinizantes?	Axones de gran diámetro.
+Capítulo 12	Origen de células nerviosas	¿Con qué axones se asocian las células de Schwann que maduran como amielínicas?	Axones de menor diámetro.
+Capítulo 12	Comparación de glía	¿Qué glía forma mielina en el SNP?	Célula de Schwann.
+Capítulo 12	Comparación de glía	¿Qué glía forma mielina en el SNC?	Oligodendrocito.
+Capítulo 12	Comparación de glía	¿Qué glía rodea somas neuronales en ganglios del SNP?	Célula satélite.
+Capítulo 12	Comparación de glía	¿Qué glía se parece a astrocitos en el sistema entérico?	Célula neuroglial entérica.
+Capítulo 12	Comparación de glía	¿Qué glía central es la más grande?	Astrocito.
+Capítulo 12	Comparación de glía	¿Qué glía central es fagocítica?	Microglía.
+Capítulo 12	Comparación de glía	¿Qué glía central reviste ventrículos?	Ependimocito.
+Capítulo 12	Comparación de glía	¿Qué glía central se identifica con GFAP?	Astrocito.
+Capítulo 12	Comparación de glía	¿Qué glía central tiene origen mesenquimatoso?	Microglía.
+Capítulo 12	Comparación de glía	¿Qué glía periférica no produce mielina?	Célula satélite.
+Capítulo 12	Comparación de glía	¿Qué célula puede mielinizar varios axones en el SNC?	Oligodendrocito.
+Capítulo 12	Comparación de glía	¿Qué célula mieliniza un solo segmento internodular en el SNP?	Célula de Schwann.
+chapter	subtopic	front	back
+Capítulo 12	Organización del SNP	¿Qué estructuras componen el sistema nervioso periférico?	Nervios periféricos, terminaciones nerviosas especializadas y ganglios.
+Capítulo 12	Organización del SNP	¿Qué contienen los ganglios periféricos?	Somas neuronales ubicados fuera del SNC.
+Capítulo 12	Nervios periféricos	¿Qué es un nervio periférico?	Un haz de fibras nerviosas unidas por tejido conjuntivo.
+Capítulo 12	Nervios periféricos	¿Qué transportan los nervios periféricos?	Información sensitiva y motora entre órganos, tejidos, encéfalo y médula espinal.
+Capítulo 12	Nervios periféricos	¿Qué puede significar “fibra nerviosa”?	Axón con cubiertas, axón solo o prolongación neuronal no identificada.
+Capítulo 12	Nervios periféricos	¿Qué células de sostén se asocian con fibras nerviosas periféricas?	Células de Schwann.
+Capítulo 12	Nervios periféricos	¿Qué mantiene juntas a las fibras nerviosas en un nervio periférico?	Tejido conjuntivo.
+Capítulo 12	Ganglios periféricos	¿Qué son los ganglios periféricos?	Acumulaciones de somas neuronales y fibras nerviosas entrantes o salientes.
+Capítulo 12	Ganglios sensitivos	¿Qué ganglios contienen somas de neuronas sensitivas?	Ganglios de raíz dorsal y ganglios sensitivos de nervios craneales.
+Capítulo 12	Ganglios sensitivos	¿Los ganglios sensitivos son estaciones sinápticas?	No.
+Capítulo 12	Ganglios sensitivos	¿Qué tipo de neuronas contienen los ganglios de raíz dorsal?	Neuronas sensitivas.
+Capítulo 12	Ganglios sensitivos	¿Qué tipo de fibras se relacionan con ganglios sensitivos?	Aferentes somáticas y aferentes viscerales.
+Capítulo 12	Ganglios autónomos	¿Qué ganglios contienen somas de neuronas motoras postsinápticas autónomas?	Ganglios paravertebrales, prevertebrales y terminales.
+Capítulo 12	Ganglios autónomos	¿Qué tipo funcional de neuronas contienen los ganglios autónomos?	Neuronas eferentes viscerales postsinápticas.
+Capítulo 12	Motoneuronas periféricas	¿Dónde están los somas de motoneuronas somáticas que inervan músculo esquelético?	En encéfalo, tronco encefálico y médula espinal.
+Capítulo 12	Motoneuronas periféricas	¿Cómo llegan los axones de motoneuronas somáticas al músculo esquelético?	Abandonan el SNC y viajan por nervios periféricos.
+Capítulo 12	Motoneuronas periféricas	¿Cuántas neuronas transmiten el impulso motor somático desde SNC hasta músculo esquelético?	Una neurona.
+Capítulo 12	Tejido conjuntivo del nervio	¿Cuáles son los tres componentes conjuntivos de un nervio periférico?	Endoneuro, perineuro y epineuro.
+Capítulo 12	Endoneuro	¿Qué es el endoneuro?	Tejido conjuntivo laxo alrededor de cada fibra nerviosa individual.
+Capítulo 12	Endoneuro	¿Qué estructura rodea directamente cada fibra nerviosa individual?	Endoneuro.
+Capítulo 12	Endoneuro	¿Qué tipo de tejido conjuntivo forma el endoneuro?	Tejido conjuntivo laxo.
+Capítulo 12	Endoneuro	¿El endoneuro se ve fácilmente con H&E de rutina?	No.
+Capítulo 12	Endoneuro	¿Qué fibras forman parte importante del endoneuro?	Fibrillas de colágeno.
+Capítulo 12	Endoneuro	¿Cómo se orientan las fibrillas de colágeno del endoneuro?	Paralelas a las fibras nerviosas.
+Capítulo 12	Endoneuro	¿Qué función tienen las fibrillas de colágeno endoneurales?	Rodean y unen fibras nerviosas en un fascículo funcional.
+Capítulo 12	Endoneuro	¿Qué células probablemente secretan muchas fibrillas colágenas del endoneuro?	Células de Schwann y neuronas de raíz dorsal.
+Capítulo 12	Endoneuro	¿Por qué se cree que células de Schwann secretan colágeno endoneural?	Porque hay pocos fibroblastos en los intersticios.
+Capítulo 12	Endoneuro	¿Qué células conjuntivas pueden encontrarse dentro del endoneuro?	Fibroblastos ocasionales, mastocitos y macrófagos.
+Capítulo 12	Endoneuro	¿Qué células inmunitarias residentes participan en reparación nerviosa dentro del endoneuro?	Macrófagos.
+Capítulo 12	Endoneuro	¿Qué hacen los macrófagos endoneurales tras lesión nerviosa?	Proliferan y fagocitan detritos de mielina.
+Capítulo 12	Endoneuro	¿Qué porcentaje aproximado de núcleos en cortes transversales de nervios periféricos pertenece a células de Schwann?	90%.
+Capítulo 12	Endoneuro	¿Qué células forman el 10% restante de núcleos en cortes transversales de nervios periféricos?	Fibroblastos, células endoteliales, macrófagos y mastocitos.
+Capítulo 12	Perineuro	¿Qué es el perineuro?	Tejido conjuntivo especializado que rodea cada fascículo nervioso.
+Capítulo 12	Perineuro	¿Qué estructura rodea un fascículo nervioso?	Perineuro.
+Capítulo 12	Perineuro	¿Qué función de barrera tiene el perineuro?	Contribuye a la barrera hematonerviosa.
+Capítulo 12	Perineuro	¿Qué mantiene la barrera hematonerviosa?	El medio iónico de las fibras nerviosas envainadas.
+Capítulo 12	Perineuro	¿Qué tipo de barrera forma el perineuro?	Barrera de difusión metabólicamente activa.
+Capítulo 12	Perineuro	¿Qué propiedades tienen las células perineurales para transporte activo?	Receptores, transportadores y enzimas.
+Capítulo 12	Perineuro	¿Cómo son las células perineurales?	Planas.
+Capítulo 12	Perineuro	¿Qué superficie celular tienen las células perineurales?	Lámina externa en ambas superficies.
+Capítulo 12	Perineuro	¿Qué tipo de filamentos abundan en células perineurales?	Filamentos de actina.
+Capítulo 12	Perineuro	¿Qué propiedad mecánica tienen las células perineurales?	Son contráctiles.
+Capítulo 12	Perineuro	¿Qué uniones forman la base de la barrera hematonerviosa?	Uniones estrechas entre células perineurales.
+Capítulo 12	Perineuro	¿Qué células inmunitarias típicas faltan en endoneuro y perineuro?	Linfocitos y plasmocitos.
+Capítulo 12	Perineuro	¿Por qué hay pocas células inmunitarias en el compartimento nervioso?	Por la barrera protectora perineural.
+Capítulo 12	Perineuro	¿Cuántas capas celulares puede tener el perineuro en nervios grandes?	Hasta cinco o seis capas.
+Capítulo 12	Perineuro	¿Qué hay entre capas perineurales cuando hay varias capas?	Fibrillas de colágeno sin fibroblastos.
+Capítulo 12	Epineuro	¿Qué es el epineuro?	Tejido conjuntivo denso irregular que rodea todo el nervio periférico.
+Capítulo 12	Epineuro	¿Qué estructura rodea todo el nervio periférico?	Epineuro.
+Capítulo 12	Epineuro	¿Qué tejido forma el epineuro?	Tejido conjuntivo denso irregular.
+Capítulo 12	Epineuro	¿Qué espacios llena el epineuro?	Espacios entre fascículos nerviosos.
+Capítulo 12	Epineuro	¿Qué tejido puede asociarse con el epineuro en nervios grandes?	Tejido adiposo.
+Capítulo 12	Epineuro	¿Dónde discurren los vasos sanguíneos que irrigan los nervios?	En el epineuro.
+Capítulo 12	Epineuro	¿Dónde penetran las ramificaciones vasculares desde el epineuro?	En el perineuro.
+Capítulo 12	Endoneuro y vascularización	¿Cómo está vascularizado el endoneuro?	Muy poco vascularizado.
+Capítulo 12	Endoneuro y vascularización	¿De qué depende el intercambio metabólico en el endoneuro?	Difusión a través de la vaina perineural.
+Capítulo 12	Comparación endoneuro-perineuro-epineuro	¿Qué capa rodea cada fibra nerviosa individual?	Endoneuro.
+Capítulo 12	Comparación endoneuro-perineuro-epineuro	¿Qué capa rodea cada fascículo nervioso?	Perineuro.
+Capítulo 12	Comparación endoneuro-perineuro-epineuro	¿Qué capa rodea todo el nervio periférico?	Epineuro.
+Capítulo 12	Comparación endoneuro-perineuro-epineuro	¿Qué capa forma barrera hematonerviosa?	Perineuro.
+Capítulo 12	Comparación endoneuro-perineuro-epineuro	¿Qué capa contiene vasos sanguíneos principales del nervio?	Epineuro.
+Capítulo 12	Comparación endoneuro-perineuro-epineuro	¿Qué capa es tejido conjuntivo laxo?	Endoneuro.
+Capítulo 12	Comparación endoneuro-perineuro-epineuro	¿Qué capa es tejido conjuntivo denso irregular?	Epineuro.
+Capítulo 12	Comparación endoneuro-perineuro-epineuro	¿Qué capa está formada por células planas con uniones estrechas?	Perineuro.
+Capítulo 12	Receptores aferentes	¿Qué son los receptores aferentes?	Estructuras especializadas en extremos distales de neuronas sensitivas.
+Capítulo 12	Receptores aferentes	¿Qué función común tienen todos los receptores sensitivos?	Iniciar un impulso nervioso en respuesta a un estímulo.
+Capítulo 12	Receptores aferentes	¿Qué otro nombre reciben los receptores aferentes?	Receptores sensitivos.
+Capítulo 12	Exterorreceptores	¿Qué son los exterorreceptores?	Receptores que responden a estímulos del medio externo.
+Capítulo 12	Exterorreceptores	¿Qué estímulos detectan los exterorreceptores?	Térmicos, olfatorios, táctiles, auditivos y visuales.
+Capítulo 12	Interorreceptores	¿Qué son los interorreceptores?	Receptores que responden a estímulos internos del organismo.
+Capítulo 12	Interorreceptores	¿Qué estímulos detectan los interorreceptores?	Distensión o llenado de tubo digestivo, vejiga y vasos sanguíneos.
+Capítulo 12	Propiorreceptores	¿Qué son los propiorreceptores?	Receptores que perciben posición corporal, tono y movimiento muscular.
+Capítulo 12	Propiorreceptores	¿Qué estímulos detectan los propiorreceptores?	Posición, tono y movimiento muscular.
+Capítulo 12	Terminaciones nerviosas libres	¿Cuál es el receptor sensitivo más simple?	Terminación nerviosa libre.
+Capítulo 12	Terminaciones nerviosas libres	¿Qué es una terminación nerviosa libre?	Axón desnudo no encapsulado.
+Capítulo 12	Terminaciones nerviosas libres	¿Dónde se encuentran terminaciones nerviosas libres?	Epitelios, tejido conjuntivo y folículos pilosos.
+Capítulo 12	Terminaciones encapsuladas	¿Qué son las terminaciones encapsuladas?	Terminaciones sensitivas con cápsula o vaina de tejido conjuntivo.
+Capítulo 12	Terminaciones encapsuladas	¿Qué tipo funcional suelen ser muchas terminaciones encapsuladas?	Mecanorreceptores.
+Capítulo 12	Terminaciones encapsuladas	¿Dónde se encuentran muchas terminaciones encapsuladas?	Piel y cápsulas articulares.
+Capítulo 12	Terminaciones encapsuladas	¿Qué ejemplos de terminaciones encapsuladas menciona el texto?	Krause, Ruffini, Meissner y Pacini.
+Capítulo 12	Terminaciones encapsuladas	¿Qué receptor encapsulado detecta vibración y presión profunda?	Corpúsculo de Pacini.
+Capítulo 12	Terminaciones encapsuladas	¿Qué receptor encapsulado se asocia con tacto fino en piel?	Corpúsculo de Meissner.
+Capítulo 12	Terminaciones encapsuladas	¿Qué receptor encapsulado se asocia con estiramiento cutáneo?	Corpúsculo de Ruffini.
+Capítulo 12	Terminaciones encapsuladas	¿Qué receptor propioceptivo está en músculo esquelético?	Huso muscular.
+Capítulo 12	Sistema nervioso autónomo	¿Qué es el sistema nervioso autónomo?	Parte del sistema nervioso que regula funciones viscerales involuntarias.
+Capítulo 12	Sistema nervioso autónomo	¿Qué efectores controla el SNA?	Músculo liso, células de conducción cardíaca y glándulas.
+Capítulo 12	Sistema nervioso autónomo	¿Qué tres divisiones tiene el SNA?	Simpática, parasimpática y entérica.
+Capítulo 12	Sistema nervioso autónomo	¿Qué tipo de eferencia usa el SNA?	Eferencia visceral.
+Capítulo 12	Vía eferente autónoma	¿Cuántas neuronas usa una vía eferente autónoma típica?	Dos neuronas.
+Capítulo 12	Vía eferente autónoma	¿Cuáles son las dos neuronas de una vía eferente autónoma?	Neurona presináptica y neurona postsináptica.
+Capítulo 12	Vía eferente autónoma	¿Dónde está el soma de la neurona autónoma presináptica?	En el SNC.
+Capítulo 12	Vía eferente autónoma	¿Dónde está el soma de la neurona autónoma postsináptica?	En un ganglio autónomo.
+Capítulo 12	Vía eferente autónoma	¿Dónde ocurre la sinapsis de una vía autónoma eferente?	En un ganglio autónomo.
+Capítulo 12	Vía eferente autónoma	¿Qué neurona autónoma envía el axón al órgano efector?	Neurona postsináptica.
+Capítulo 12	Vía eferente autónoma	¿Qué neurona autónoma sale del SNC hacia el ganglio?	Neurona presináptica.
+Capítulo 12	Vía eferente autónoma	¿Qué diferencia clave hay entre vía motora somática y vía motora autónoma?	La somática usa una neurona; la autónoma usa dos.
+Capítulo 12	División simpática	¿Qué división autónoma prepara al cuerpo para actividad intensa?	Simpática.
+Capítulo 12	División simpática	¿Qué otro nombre funcional recibe la respuesta simpática?	Lucha o huida.
+Capítulo 12	División simpática	¿Dónde están los somas presinápticos simpáticos?	En segmentos torácicos y lumbares superiores de la médula espinal.
+Capítulo 12	División simpática	¿Qué nombre anatómico recibe la salida simpática?	Toracolumbar.
+Capítulo 12	División simpática	¿Qué ganglios pertenecen al sistema simpático?	Paravertebrales y prevertebrales.
+Capítulo 12	División simpática	¿Qué son los ganglios paravertebrales?	Ganglios del tronco simpático.
+Capítulo 12	División simpática	¿Qué ganglio paravertebral es el más alto?	Ganglio cervical superior.
+Capítulo 12	División simpática	¿Dónde están los ganglios prevertebrales?	Junto al origen de ramas mayores no apareadas de la aorta abdominal.
+Capítulo 12	División simpática	¿Qué ejemplos de ganglios prevertebrales menciona el texto?	Celíaco, mesentérico superior, mesentérico inferior y aorticorrenales.
+Capítulo 12	División simpática	¿Cómo suelen ser las fibras simpáticas presinápticas comparadas con las postsinápticas?	Cortas.
+Capítulo 12	División simpática	¿Cómo suelen ser las fibras simpáticas postsinápticas comparadas con las presinápticas?	Largas.
+Capítulo 12	División parasimpática	¿Qué división autónoma predomina en reposo y digestión?	Parasimpática.
+Capítulo 12	División parasimpática	¿Qué nombre funcional recibe la respuesta parasimpática?	Reposo y digestión.
+Capítulo 12	División parasimpática	¿Dónde están los somas presinápticos parasimpáticos?	Tronco encefálico y segmentos sacros de médula espinal.
+Capítulo 12	División parasimpática	¿Qué nombre anatómico recibe la salida parasimpática?	Craneosacra.
+Capítulo 12	División parasimpática	¿Dónde suelen ubicarse los ganglios parasimpáticos?	Cerca o dentro de los órganos efectores.
+Capítulo 12	División parasimpática	¿Cómo suelen ser las fibras parasimpáticas presinápticas?	Largas.
+Capítulo 12	División parasimpática	¿Cómo suelen ser las fibras parasimpáticas postsinápticas?	Cortas.
+Capítulo 12	División entérica	¿Qué división autónoma inerva el tubo digestivo?	Entérica.
+Capítulo 12	División entérica	¿Qué puede hacer el sistema nervioso entérico de forma independiente?	Regular funciones digestivas locales.
+Capítulo 12	División entérica	¿Con qué divisiones autónomas se comunica la división entérica?	Simpática y parasimpática.
+Capítulo 12	División entérica	¿Qué células gliales acompañan al sistema nervioso entérico?	Células neurogliales entéricas.
+Capítulo 12	Neurotransmisores autónomos	¿Qué neurotransmisor liberan usualmente neuronas autónomas presinápticas?	Acetilcolina.
+Capítulo 12	Neurotransmisores autónomos	¿Qué neurotransmisor liberan usualmente neuronas parasimpáticas postsinápticas?	Acetilcolina.
+Capítulo 12	Neurotransmisores autónomos	¿Qué neurotransmisor liberan usualmente neuronas simpáticas postsinápticas?	Noradrenalina.
+Capítulo 12	Neurotransmisores autónomos	¿Qué neurotransmisor libera la mayoría de fibras simpáticas hacia glándulas sudoríparas?	Acetilcolina.
+Capítulo 12	Neurotransmisores autónomos	¿Qué neurotransmisor predomina en ganglios autónomos?	Acetilcolina.
+Capítulo 12	Comparación simpático-parasimpático	¿Qué división autónoma tiene salida toracolumbar?	Simpática.
+Capítulo 12	Comparación simpático-parasimpático	¿Qué división autónoma tiene salida craneosacra?	Parasimpática.
+Capítulo 12	Comparación simpático-parasimpático	¿Qué división tiene ganglios cerca de la médula espinal?	Simpática.
+Capítulo 12	Comparación simpático-parasimpático	¿Qué división tiene ganglios cerca o dentro del órgano efector?	Parasimpática.
+Capítulo 12	Comparación simpático-parasimpático	¿Qué división suele tener fibras presinápticas cortas y postsinápticas largas?	Simpática.
+Capítulo 12	Comparación simpático-parasimpático	¿Qué división suele tener fibras presinápticas largas y postsinápticas cortas?	Parasimpática.
+Capítulo 12	Comparación simpático-parasimpático	¿Qué división se asocia con lucha o huida?	Simpática.
+Capítulo 12	Comparación simpático-parasimpático	¿Qué división se asocia con reposo y digestión?	Parasimpática.
+Capítulo 12	Comparación somático-autónomo	¿Qué sistema inerva músculo esquelético voluntario?	Sistema nervioso somático.
+Capítulo 12	Comparación somático-autónomo	¿Qué sistema inerva músculo liso, conducción cardíaca y glándulas?	Sistema nervioso autónomo.
+Capítulo 12	Comparación somático-autónomo	¿Qué vía motora usa una sola neurona desde SNC hasta efector?	Somática.
+Capítulo 12	Comparación somático-autónomo	¿Qué vía motora usa neurona presináptica y postsináptica?	Autónoma.
+Capítulo 12	Comparación somático-autónomo	¿Qué sistema tiene ganglios motores periféricos?	Autónomo.
+Capítulo 12	Comparación somático-autónomo	¿Qué sistema controla funciones voluntarias conscientes?	Somático.
+Capítulo 12	Comparación somático-autónomo	¿Qué sistema controla funciones viscerales involuntarias?	Autónomo.
+Capítulo 12	Identificación histológica del nervio periférico	¿Qué estructura histológica tiene fascículos rodeados por perineuro?	Nervio periférico.
+Capítulo 12	Identificación histológica del nervio periférico	¿Qué capa se identifica por núcleos planos alrededor de un fascículo nervioso?	Perineuro.
+Capítulo 12	Identificación histológica del nervio periférico	¿Qué capa externa puede contener vasos y adipocitos en un nervio?	Epineuro.
+Capítulo 12	Identificación histológica del nervio periférico	¿Qué células constituyen la mayoría de núcleos dentro de un fascículo nervioso?	Células de Schwann.
+Capítulo 12	Identificación histológica del nervio periférico	¿Qué capa conjuntiva suele ser difícil de ver en H&E entre fibras individuales?	Endoneuro.
+chapter	subtopic	front	back
+Capítulo 12	Sistema nervioso central	¿Qué estructuras forman el sistema nervioso central?	Encéfalo y médula espinal.
+Capítulo 12	Sistema nervioso central	¿Qué tejido conjuntivo hay dentro del SNC?	Muy poco tejido conjuntivo.
+Capítulo 12	Sistema nervioso central	¿Qué sostiene principalmente el tejido nervioso del SNC?	Neuroglía.
+Capítulo 12	Sistema nervioso central	¿Qué células forman el soporte principal del SNC?	Células gliales.
+Capítulo 12	Sistema nervioso central	¿Qué dos componentes macroscópicos se distinguen en el SNC?	Sustancia gris y sustancia blanca.
+Capítulo 12	Sustancia gris	¿Qué es la sustancia gris?	Región del SNC rica en somas neuronales, dendritas, axones no mielinizados, glía y sinapsis.
+Capítulo 12	Sustancia gris	¿Qué estructuras neuronales abundan en la sustancia gris?	Somas neuronales y dendritas.
+Capítulo 12	Sustancia gris	¿Qué tipo de actividad predomina en la sustancia gris?	Procesamiento e integración sináptica.
+Capítulo 12	Sustancia gris	¿Por qué la sustancia gris se ve más oscura que la blanca?	Porque contiene muchos somas neuronales y menos mielina.
+Capítulo 12	Sustancia gris	¿Qué red microscópica caracteriza a la sustancia gris?	Neurópilo.
+Capítulo 12	Neurópilo	¿Qué es el neurópilo?	Red de evaginaciones axónicas, dendríticas y gliales de la sustancia gris.
+Capítulo 12	Neurópilo	¿Qué contiene el neurópilo?	Axones, dendritas, prolongaciones gliales y sinapsis.
+Capítulo 12	Neurópilo	¿El neurópilo se aprecia claramente con H&E?	No.
+Capítulo 12	Neurópilo	¿Por qué el neurópilo no se interpreta bien en H&E?	Porque su organización fina requiere métodos especiales.
+Capítulo 12	Sustancia blanca	¿Qué es la sustancia blanca?	Región del SNC formada principalmente por axones y glía asociada.
+Capítulo 12	Sustancia blanca	¿Qué estructura neuronal predomina en la sustancia blanca?	Axones.
+Capítulo 12	Sustancia blanca	¿Por qué la sustancia blanca tiene aspecto blanquecino?	Por abundante mielina.
+Capítulo 12	Sustancia blanca	¿Qué células gliales abundan en sustancia blanca por su función mielinizante?	Oligodendrocitos.
+Capítulo 12	Sustancia blanca	¿Qué células además de axones hay en sustancia blanca?	Células gliales y vasos sanguíneos.
+Capítulo 12	Sustancia blanca	¿La sustancia blanca contiene muchos somas neuronales?	No.
+Capítulo 12	Tractos del SNC	¿Qué son los tractos en el SNC?	Grupos funcionales de axones que viajan juntos en sustancia blanca.
+Capítulo 12	Tractos del SNC	¿Los tractos del SNC tienen límites histológicos nítidos?	No.
+Capítulo 12	Tractos del SNC	¿Por qué es difícil identificar tractos en H&E?	Porque no tienen límites claros entre sí.
+Capítulo 12	Tractos del SNC	¿Qué método puede ayudar a rastrear tractos del SNC?	Métodos de tinción o marcado tras lesión experimental.
+Capítulo 12	Núcleos del SNC	¿Qué son los núcleos en el SNC?	Agrupaciones de somas neuronales dentro del SNC.
+Capítulo 12	Núcleos del SNC	¿Dónde pueden encontrarse núcleos de sustancia gris?	En profundidad del cerebro, cerebelo y tronco encefálico.
+Capítulo 12	Núcleos del SNC	¿Qué contienen los núcleos de nervios craneales del tronco encefálico?	Somas de motoneuronas de nervios craneales.
+Capítulo 12	Núcleos del SNC	¿A qué estructura medular equivalen los núcleos motores de nervios craneales?	A las astas anteriores de la médula espinal.
+Capítulo 12	Corteza cerebral	¿Qué es la corteza cerebral?	Capa superficial de sustancia gris del cerebro.
+Capítulo 12	Corteza cerebral	¿Dónde se localiza la sustancia gris en el cerebro?	En la corteza y en núcleos profundos.
+Capítulo 12	Corteza cerebral	¿Qué tipo de organización presenta la corteza cerebral?	Organización en capas.
+Capítulo 12	Corteza cerebral	¿Cuántas capas principales tiene la corteza cerebral típica?	Seis.
+Capítulo 12	Corteza cerebral	¿Qué neuronas grandes características hay en la corteza cerebral?	Células piramidales.
+Capítulo 12	Corteza cerebral	¿Qué células corticales suelen ser eferentes?	Células piramidales.
+Capítulo 12	Corteza cerebelosa	¿Qué es la corteza cerebelosa?	Capa superficial de sustancia gris del cerebelo.
+Capítulo 12	Corteza cerebelosa	¿Qué neurona característica tiene la corteza cerebelosa?	Célula de Purkinje.
+Capítulo 12	Corteza cerebelosa	¿Qué células grandes se alinean entre capas cerebelosas?	Células de Purkinje.
+Capítulo 12	Corteza cerebelosa	¿Qué región del SNC tiene células de Purkinje?	Corteza cerebelosa.
+Capítulo 12	Corteza cerebelosa	¿Qué diferencia hay entre fibra de Purkinje cardíaca y célula de Purkinje cerebelosa?	La fibra cardíaca conduce impulsos en corazón; la célula cerebelosa es una neurona.
+Capítulo 12	Médula espinal	¿Qué forma tiene la médula espinal?	Estructura cilíndrica aplanada.
+Capítulo 12	Médula espinal	¿Con qué estructura encefálica continúa directamente la médula espinal?	Tronco encefálico.
+Capítulo 12	Médula espinal	¿Cuántos segmentos tiene la médula espinal?	31 segmentos.
+Capítulo 12	Médula espinal	¿Cuántos segmentos cervicales tiene la médula espinal?	8.
+Capítulo 12	Médula espinal	¿Cuántos segmentos torácicos tiene la médula espinal?	12.
+Capítulo 12	Médula espinal	¿Cuántos segmentos lumbares tiene la médula espinal?	5.
+Capítulo 12	Médula espinal	¿Cuántos segmentos sacros tiene la médula espinal?	5.
+Capítulo 12	Médula espinal	¿Cuántos segmentos coccígeos tiene la médula espinal?	1.
+Capítulo 12	Médula espinal	¿Con qué se conecta cada segmento medular?	Con un par de nervios espinales.
+Capítulo 12	Médula espinal	¿Qué raíces conectan un nervio espinal con la médula?	Raíces dorsales y ventrales.
+Capítulo 12	Raíz dorsal	¿Qué tipo de información lleva la raíz dorsal?	Información sensitiva aferente.
+Capítulo 12	Raíz dorsal	¿Qué ganglio se asocia con la raíz dorsal?	Ganglio de raíz dorsal.
+Capítulo 12	Raíz dorsal	¿Qué contiene el ganglio de raíz dorsal?	Somas de neuronas sensitivas.
+Capítulo 12	Raíz ventral	¿Qué tipo de información lleva la raíz ventral?	Información motora eferente.
+Capítulo 12	Raíz ventral	¿Qué axones salen por la raíz ventral?	Axones de motoneuronas.
+Capítulo 12	Médula espinal	¿Cómo se dispone la sustancia gris en corte transversal de médula espinal?	En forma de mariposa o H central.
+Capítulo 12	Médula espinal	¿Dónde se localiza la sustancia gris en la médula espinal?	En el centro.
+Capítulo 12	Médula espinal	¿Dónde se localiza la sustancia blanca en la médula espinal?	En la periferia.
+Capítulo 12	Médula espinal	¿Qué estructura atraviesa el centro de la sustancia gris medular?	Conducto central.
+Capítulo 12	Médula espinal	¿Qué células revisten el conducto central?	Ependimocitos.
+Capítulo 12	Astas medulares	¿Qué contiene el asta anterior de la médula espinal?	Somas de motoneuronas.
+Capítulo 12	Astas medulares	¿Qué función tiene el asta anterior medular?	Función motora.
+Capítulo 12	Astas medulares	¿Qué contiene el asta posterior de la médula espinal?	Neuronas relacionadas con información sensitiva.
+Capítulo 12	Astas medulares	¿Qué función tiene el asta posterior medular?	Procesamiento sensitivo.
+Capítulo 12	Astas medulares	¿Qué contiene el asta lateral medular?	Somas de neuronas autónomas presinápticas.
+Capítulo 12	Astas medulares	¿En qué regiones medulares es evidente el asta lateral simpática?	Torácica y lumbar superior.
+Capítulo 12	Sustancia blanca medular	¿Qué contiene la sustancia blanca medular?	Tractos ascendentes y descendentes.
+Capítulo 12	Sustancia blanca medular	¿Qué hacen los tractos ascendentes?	Llevan información sensitiva hacia el encéfalo.
+Capítulo 12	Sustancia blanca medular	¿Qué hacen los tractos descendentes?	Llevan información motora o moduladora desde el encéfalo.
+Capítulo 12	Tronco encefálico	¿Qué característica tiene el tronco encefálico respecto a sustancia gris y blanca?	No tiene separación tan clara como la médula espinal.
+Capítulo 12	Tronco encefálico	¿Qué núcleos se observan como islotes en el tronco encefálico?	Núcleos de nervios craneales.
+Capítulo 12	Tronco encefálico	¿Qué región del tronco encefálico tiene distinción gris-blanca menos evidente?	Formación reticular.
+Capítulo 12	Barrera hematoencefálica	¿Qué es la barrera hematoencefálica?	Barrera selectiva entre sangre y tejido nervioso del SNC.
+Capítulo 12	Barrera hematoencefálica	¿Qué función general tiene la barrera hematoencefálica?	Restringir el paso de sustancias desde la sangre al SNC.
+Capítulo 12	Barrera hematoencefálica	¿Qué protege la barrera hematoencefálica?	El microambiente neuronal del SNC.
+Capítulo 12	Barrera hematoencefálica	¿Qué componentes forman la barrera hematoencefálica?	Endotelio con uniones estrechas, lámina basal y pies terminales astrocitarios.
+Capítulo 12	Barrera hematoencefálica	¿Qué componente celular vascular es esencial en la barrera hematoencefálica?	Célula endotelial capilar.
+Capítulo 12	Barrera hematoencefálica	¿Qué tipo de unión endotelial restringe el paso paracelular en la barrera hematoencefálica?	Unión estrecha.
+Capítulo 12	Barrera hematoencefálica	¿Qué estructura glial cubre los capilares del SNC?	Pies terminales de astrocitos.
+Capítulo 12	Barrera hematoencefálica	¿Qué glía contribuye a la barrera hematoencefálica mediante pies terminales?	Astrocitos.
+Capítulo 12	Barrera hematoencefálica	¿El componente principal de sellado de la barrera hematoencefálica son los pies astrocitarios?	No; son las uniones estrechas endoteliales.
+Capítulo 12	Barrera hematoencefálica	¿Qué gases atraviesan fácilmente la barrera hematoencefálica?	O2 y CO2.
+Capítulo 12	Barrera hematoencefálica	¿Qué moléculas liposolubles atraviesan relativamente fácil la barrera hematoencefálica?	Etanol y hormonas esteroideas.
+Capítulo 12	Barrera hematoencefálica	¿Qué nutriente energético atraviesa la barrera hematoencefálica mediante transportadores?	Glucosa.
+Capítulo 12	Barrera hematoencefálica	¿Por qué la glucosa necesita transporte específico a través de la barrera hematoencefálica?	Porque la neurona depende casi exclusivamente de glucosa para energía.
+Capítulo 12	Barrera hematoencefálica	¿Qué otras moléculas pueden transportarse activamente por la barrera hematoencefálica?	Aminoácidos, nucleósidos y vitaminas.
+Capítulo 12	Barrera hematoencefálica	¿Por qué la barrera hematoencefálica limita el movimiento de K+?	Porque las neuronas son muy sensibles a cambios de K+ extracelular.
+Capítulo 12	Barrera hematoencefálica	¿Qué célula glial ayuda a amortiguar K+ extracelular en el SNC?	Astrocito.
+Capítulo 12	Barrera hematoencefálica	¿Qué fármaco precursor atraviesa la barrera hematoencefálica mejor que la dopamina?	L-dopa.
+Capítulo 12	Barrera hematoencefálica	¿Por qué se usa L-dopa en vez de dopamina para Parkinson?	Porque L-dopa atraviesa la barrera hematoencefálica y dopamina no.
+Capítulo 12	Barrera hematoencefálica	¿Qué tipo de transporte permite entrada de macromoléculas específicas necesarias?	Endocitosis mediada por receptor.
+Capítulo 12	Barrera hematoencefálica	¿Qué células pueden metabolizar fármacos y proteínas extrañas en la barrera?	Células endoteliales.
+Capítulo 12	Barrera hematoencefálica	¿Qué efecto tienen algunas proteínas endoteliales sobre fármacos?	Los metabolizan o impiden que entren al SNC.
+Capítulo 12	Barrera hematoencefálica	¿Qué región tiene barrera hematoencefálica menos estricta por función neuroendocrina?	Órganos circunventriculares.
+Capítulo 12	Líquido cefalorraquídeo	¿Qué es el líquido cefalorraquídeo?	Líquido que circula por ventrículos, conducto central y espacio subaracnoideo.
+Capítulo 12	Líquido cefalorraquídeo	¿Qué sigla corresponde a líquido cefalorraquídeo?	LCR.
+Capítulo 12	Líquido cefalorraquídeo	¿Qué células ayudan a mover el LCR en cavidades del SNC?	Ependimocitos ciliados.
+Capítulo 12	Líquido cefalorraquídeo	¿Qué estructura produce gran parte del LCR?	Plexo coroideo.
+Capítulo 12	Plexo coroideo	¿Qué es el plexo coroideo?	Estructura ventricular especializada en producción de LCR.
+Capítulo 12	Plexo coroideo	¿Qué células epiteliales especializadas cubren el plexo coroideo?	Células ependimarias modificadas.
+Capítulo 12	Plexo coroideo	¿Qué barrera regula el paso desde sangre hacia LCR?	Barrera hematocefalorraquídea.
+Capítulo 12	Lesión neuronal	¿Qué ocurre con el segmento distal de un axón lesionado?	Degeneración anterógrada o walleriana.
+Capítulo 12	Degeneración walleriana	¿Qué es la degeneración walleriana?	Degeneración del segmento distal del axón separado del soma.
+Capítulo 12	Degeneración walleriana	¿Qué parte del axón degenera en la degeneración walleriana?	La porción distal a la lesión.
+Capítulo 12	Degeneración walleriana	¿Qué ocurre con la mielina distal en degeneración walleriana?	Se fragmenta y debe eliminarse.
+Capítulo 12	Degeneración retrógrada	¿Qué es la degeneración retrógrada?	Cambios degenerativos que se extienden hacia el soma desde el sitio de lesión.
+Capítulo 12	Degeneración traumática	¿Qué es la degeneración traumática?	Degeneración retrógrada del axón proximal tras lesión.
+Capítulo 12	Degeneración traumática	¿Cuánto suele extenderse la degeneración traumática?	Uno o pocos segmentos internodales.
+Capítulo 12	Degeneración traumática	¿Qué puede ocurrir si la degeneración traumática se extiende demasiado?	Puede causar muerte del soma neuronal.
+Capítulo 12	Lesión neuronal	¿Qué ocurre con el músculo si se corta una fibra motora?	Atrofia del músculo inervado.
+Capítulo 12	Lesión neuronal	¿Qué señal retrógrada activa cambios génicos tras lesión axónica?	Señal hacia el soma que estimula c-jun.
+Capítulo 12	Lesión neuronal	¿Qué factor de transcripción participa en regeneración nerviosa tras lesión?	c-jun.
+Capítulo 12	Cromatólisis	¿Qué es la cromatólisis?	Desaparición central de corpúsculos de Nissl y desplazamiento hacia la periferia tras lesión neuronal.
+Capítulo 12	Cromatólisis	¿Qué ocurre con el soma durante cromatólisis?	Aumenta de tamaño.
+Capítulo 12	Cromatólisis	¿Qué ocurre con el núcleo durante cromatólisis?	Se desplaza hacia la periferia.
+Capítulo 12	Cromatólisis	¿Qué ocurre con los corpúsculos de Nissl durante cromatólisis?	Desaparecen del centro y se desplazan hacia la periferia.
+Capítulo 12	Cromatólisis	¿Cuándo se observa por primera vez la cromatólisis tras lesión?	1-2 días después.
+Capítulo 12	Cromatólisis	¿Cuándo alcanza su pico la cromatólisis?	Alrededor de 2 semanas.
+Capítulo 12	Cromatólisis	¿De qué depende la magnitud de los cambios del soma tras lesión?	De la cantidad de axoplasma destruido.
+Capítulo 12	Cromatólisis	¿Qué puede causar una gran pérdida de axoplasma?	Muerte neuronal.
+Capítulo 12	Regeneración en SNP	¿Qué células son clave para regeneración axonal en el SNP?	Células de Schwann.
+Capítulo 12	Regeneración en SNP	¿Qué ocurre con las células de Schwann tras lesión axonal periférica?	Se desdiferencian, proliferan y guían el crecimiento axonal.
+Capítulo 12	Regeneración en SNP	¿Qué barrera se interrumpe durante lesión axonal periférica?	Barrera hematonerviosa.
+Capítulo 12	Regeneración en SNP	¿Qué permite la interrupción de la barrera hematonerviosa en el SNP?	Infiltración de macrófagos derivados de monocitos.
+Capítulo 12	Regeneración en SNP	¿Qué células eliminan detritos de mielina en lesión periférica?	Macrófagos y células de Schwann.
+Capítulo 12	Regeneración en SNP	¿Por qué la eliminación rápida de mielina favorece regeneración en el SNP?	Porque despeja el camino para crecimiento axonal.
+Capítulo 12	Regeneración en SNP	¿Qué estructura formada por células de Schwann guía axones regenerantes?	Tubos o bandas de Büngner.
+Capítulo 12	Regeneración en SNP	¿Qué ocurre si el axón periférico encuentra su tubo endoneural?	Puede regenerarse hacia su diana.
+Capítulo 12	Regeneración en SNP	¿Qué se restaura tras regeneración periférica exitosa?	La barrera hematonerviosa.
+Capítulo 12	Regeneración en SNC	¿Por qué falla con frecuencia la regeneración axonal en el SNC?	Por eliminación lenta de mielina, apoptosis de oligodendrocitos, microglía poco eficaz y cicatriz astrocitaria.
+Capítulo 12	Regeneración en SNC	¿Qué barrera limita la infiltración de macrófagos en lesión del SNC?	Barrera hematoencefálica.
+Capítulo 12	Regeneración en SNC	¿Qué efecto tiene la barrera hematoencefálica sobre eliminación de mielina lesionada?	La vuelve más lenta al restringir macrófagos derivados de monocitos.
+Capítulo 12	Regeneración en SNC	¿Qué célula glial puede sufrir apoptosis tras lesión del SNC?	Oligodendrocito.
+Capítulo 12	Regeneración en SNC	¿Qué célula fagocítica del SNC elimina detritos con eficacia limitada?	Microglía.
+Capítulo 12	Regeneración en SNC	¿Qué célula forma la cicatriz glial tras lesión del SNC?	Astrocito.
+Capítulo 12	Gliosis	¿Qué es la gliosis?	Respuesta cicatricial glial del SNC, principalmente por astrocitos.
+Capítulo 12	Gliosis	¿Qué célula protagoniza la gliosis?	Astrocito.
+Capítulo 12	Gliosis	¿Qué efecto tiene la gliosis sobre regeneración axonal?	La dificulta.
+Capítulo 12	Gliosis	¿Qué estructura resultante de astrocitos contribuye al fallo regenerativo del SNC?	Cicatriz glial.
+Capítulo 12	Comparación lesión SNP-SNC	¿Qué sistema elimina más rápido los detritos de mielina tras lesión?	SNP.
+Capítulo 12	Comparación lesión SNP-SNC	¿Qué sistema regenera axones con mayor facilidad?	SNP.
+Capítulo 12	Comparación lesión SNP-SNC	¿Qué sistema tiene regeneración axonal limitada?	SNC.
+Capítulo 12	Comparación lesión SNP-SNC	¿Qué glía guía regeneración en el SNP?	Célula de Schwann.
+Capítulo 12	Comparación lesión SNP-SNC	¿Qué glía forma cicatriz que inhibe regeneración en el SNC?	Astrocito.
+Capítulo 12	Comparación lesión SNP-SNC	¿Qué fagocitos predominan en eliminación rápida de mielina periférica?	Macrófagos derivados de monocitos.
+Capítulo 12	Comparación lesión SNP-SNC	¿Qué fagocito residente actúa en lesión del SNC?	Microglía.
+Capítulo 12	Comparación lesión SNP-SNC	¿Qué barrera se interrumpe ampliamente en lesión periférica?	Barrera hematonerviosa.
+Capítulo 12	Comparación lesión SNP-SNC	¿Qué barrera limita infiltración de macrófagos en lesión central?	Barrera hematoencefálica.
+Capítulo 12	Identificación histológica del SNC	¿Qué región del SNC tiene muchos somas neuronales?	Sustancia gris.
+Capítulo 12	Identificación histológica del SNC	¿Qué región del SNC tiene muchos axones mielinizados?	Sustancia blanca.
+Capítulo 12	Identificación histológica del SNC	¿Qué región medular central tiene forma de mariposa?	Sustancia gris.
+Capítulo 12	Identificación histológica del SNC	¿Qué células revisten el conducto central medular?	Ependimocitos.
+Capítulo 12	Identificación histológica del SNC	¿Qué célula grande del asta anterior corresponde a motoneurona?	Neurona multipolar motora.
+Capítulo 12	Identificación histológica del SNC	¿Qué célula del cerebelo se reconoce por su gran soma alineado en la corteza?	Célula de Purkinje.
+Capítulo 12	Identificación histológica del SNC	¿Qué glía suele identificarse mejor con GFAP?	Astrocito.
+Capítulo 12	Identificación histológica del SNC	¿Qué glía suele verse como núcleo pequeño oscuro alargado?	Microglía.
+Capítulo 12	Identificación histológica del SNC	¿Qué glía se asocia a axones mielinizados de sustancia blanca?	Oligodendrocito.
+Capítulo 12	Integración del capítulo	¿Qué célula conduce impulsos nerviosos?	Neurona.
+Capítulo 12	Integración del capítulo	¿Qué células sostienen y regulan el ambiente neuronal?	Glía.
+Capítulo 12	Integración del capítulo	¿Qué prolongación lleva información hacia el soma?	Dendrita.
+Capítulo 12	Integración del capítulo	¿Qué prolongación lleva información desde el soma?	Axón.
+Capítulo 12	Integración del capítulo	¿Qué estructura contiene RER neuronal en soma y dendritas?	Corpúsculos de Nissl.
+Capítulo 12	Integración del capítulo	¿Qué región inicia normalmente el potencial de acción?	Segmento inicial del axón.
+Capítulo 12	Integración del capítulo	¿Qué glía mieliniza el SNP?	Célula de Schwann.
+Capítulo 12	Integración del capítulo	¿Qué glía mieliniza el SNC?	Oligodendrocito.
+Capítulo 12	Integración del capítulo	¿Qué glía central es fagocítica?	Microglía.
+Capítulo 12	Integración del capítulo	¿Qué glía central forma pies perivasculares?	Astrocito.
+Capítulo 12	Integración del capítulo	¿Qué glía reviste ventrículos y conducto central?	Ependimocito.
+Capítulo 12	Integración del capítulo	¿Qué capa conjuntiva rodea una fibra nerviosa periférica?	Endoneuro.
+Capítulo 12	Integración del capítulo	¿Qué capa conjuntiva rodea un fascículo nervioso?	Perineuro.
+Capítulo 12	Integración del capítulo	¿Qué capa conjuntiva rodea todo el nervio periférico?	Epineuro.
+Capítulo 12	Integración del capítulo	¿Qué barrera protege el microambiente del SNC?	Barrera hematoencefálica.
+Capítulo 12	Integración del capítulo	¿Qué lesión axonal distal se llama degeneración walleriana?	Degeneración anterógrada.
+Capítulo 12	Integración del capítulo	¿Qué respuesta del soma neuronal elimina centralmente Nissl?	Cromatólisis.
+Capítulo 12	Histología 101	¿Cuál es la idea central del tejido nervioso?	Neuronas transmiten información y glía sostiene, aísla y regula su ambiente.
+Capítulo 12	Histología 101	¿Qué diferencia central hay entre sustancia gris y blanca?	La gris integra señales con somas y sinapsis; la blanca conduce señales con axones.
+Capítulo 12	Histología 101	¿Qué diferencia central hay entre SNC y SNP en regeneración?	El SNP regenera mejor por células de Schwann; el SNC falla por gliosis y eliminación lenta de mielina.
+Capítulo 12	Histología 101	¿Qué diferencia central hay entre célula de Schwann y oligodendrocito?	Schwann mieliniza un segmento periférico; oligodendrocito mieliniza varios segmentos centrales.
+Capítulo 12	Histología 101	¿Qué diferencia central hay entre sinapsis química y eléctrica?	La química usa neurotransmisor; la eléctrica usa uniones de hendidura.
+Capítulo 12	Histología 101	¿Qué diferencia central hay entre vía somática y autónoma motora?	La somática usa una neurona; la autónoma usa dos.

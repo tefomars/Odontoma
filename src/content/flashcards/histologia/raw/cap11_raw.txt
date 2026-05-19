@@ -1,0 +1,798 @@
+chapter	subtopic	front	back
+Capítulo 11	Fundamentos del tejido muscular	¿Qué función general tiene el tejido muscular?	Producir movimiento mediante contracción.
+Capítulo 11	Fundamentos del tejido muscular	¿Qué cambios corporales produce el tejido muscular?	Movimiento del cuerpo y cambios de tamaño o forma de órganos internos.
+Capítulo 11	Fundamentos del tejido muscular	¿Qué característica celular general tiene el tejido muscular?	Células alargadas especializadas en contracción.
+Capítulo 11	Fundamentos del tejido muscular	¿Cómo suelen organizarse las células musculares?	En haces paralelos.
+Capítulo 11	Fundamentos del tejido muscular	¿Qué estructura intracelular causa la contracción muscular?	La interacción de miofilamentos.
+Capítulo 11	Fundamentos del tejido muscular	¿Qué dos tipos principales de miofilamentos participan en contracción?	Filamentos delgados y filamentos gruesos.
+Capítulo 11	Filamentos delgados	¿Qué proteína forma principalmente los filamentos delgados?	Actina.
+Capítulo 11	Filamentos delgados	¿Qué diámetro aproximado tienen los filamentos delgados?	6-8 nm.
+Capítulo 11	Filamentos delgados	¿Qué longitud aproximada tienen los filamentos delgados?	1 µm.
+Capítulo 11	Filamentos delgados	¿Qué es la actina F?	Actina filamentosa.
+Capítulo 11	Filamentos delgados	¿Qué es la actina G?	Actina globular.
+Capítulo 11	Filamentos delgados	¿De qué está formada principalmente la actina F?	De moléculas de actina G.
+Capítulo 11	Filamentos gruesos	¿Qué proteína forma principalmente los filamentos gruesos?	Miosina II.
+Capítulo 11	Filamentos gruesos	¿Qué diámetro aproximado tienen los filamentos gruesos?	15 nm.
+Capítulo 11	Filamentos gruesos	¿Qué longitud aproximada tienen los filamentos gruesos?	1.5 µm.
+Capítulo 11	Filamentos gruesos	¿Cuántas moléculas de miosina II forman un filamento grueso?	200-300 moléculas.
+Capítulo 11	Filamentos gruesos	¿Qué parte de la miosina II se aglomera para formar el centro del filamento grueso?	Las colas.
+Capítulo 11	Filamentos gruesos	¿Qué parte de la miosina II se proyecta hacia afuera del filamento grueso?	Las cabezas.
+Capítulo 11	Filamentos gruesos	¿Qué patrón siguen las cabezas de miosina en el filamento grueso?	Un patrón helicoidal regular.
+Capítulo 11	Sarcoplasma	¿Cómo se llama el citoplasma de una célula muscular?	Sarcoplasma.
+Capítulo 11	Sarcoplasma	¿Qué ocupa casi todo el sarcoplasma de una célula muscular?	Miofilamentos.
+Capítulo 11	Miocitos	¿Qué otro nombre reciben las células musculares?	Miocitos.
+Capítulo 11	Miocitos	¿Qué característica tienen los miocitos respecto a filamentos contráctiles?	Contienen muchos filamentos contráctiles alineados.
+Capítulo 11	Actina y miosina	¿La actina y la miosina existen solo en células musculares?	No, también existen en muchos otros tipos celulares.
+Capítulo 11	Actina y miosina	¿Qué funciones no musculares pueden cumplir actina y miosina?	Citocinesis, exocitosis y migración celular.
+Capítulo 11	Clasificación del músculo	¿En qué se basa la clasificación principal del músculo?	En el aspecto de las células contráctiles.
+Capítulo 11	Clasificación del músculo	¿Cuáles son los dos tipos principales de músculo?	Estriado y liso.
+Capítulo 11	Músculo estriado	¿Qué caracteriza al músculo estriado al microscopio?	Estriaciones transversales.
+Capítulo 11	Músculo estriado	¿Qué causa las estriaciones transversales del músculo estriado?	La disposición ordenada de filamentos delgados y gruesos.
+Capítulo 11	Músculo estriado	¿Qué tipos de músculo pertenecen al músculo estriado?	Esquelético, estriado visceral y cardíaco.
+Capítulo 11	Músculo estriado	¿Qué tienen en común los tipos de músculo estriado?	Organización ordenada de miofilamentos en estriaciones transversales.
+Capítulo 11	Músculo liso	¿Qué caracteriza al músculo liso al microscopio?	No tiene estriaciones transversales.
+Capítulo 11	Músculo liso	¿Por qué el músculo liso no presenta estriaciones transversales?	Porque sus miofilamentos no tienen el mismo grado de orden.
+Capítulo 11	Músculo liso	¿Qué característica tienen los miofilamentos con miosina en músculo liso?	Son muy lábiles.
+Capítulo 11	Músculo liso	¿Dónde se encuentra el músculo liso?	Vísceras, sistema vascular, músculos erectores del pelo y músculos intrínsecos del ojo.
+Capítulo 11	Músculo esquelético	¿Qué tipo de músculo se fija al hueso?	Músculo esquelético.
+Capítulo 11	Músculo esquelético	¿Qué músculo mueve los esqueletos axial y apendicular?	Músculo esquelético.
+Capítulo 11	Músculo esquelético	¿Qué tipo de músculo mantiene posición y postura corporal?	Músculo esquelético.
+Capítulo 11	Músculo esquelético	¿Qué músculos esqueléticos producen movimientos oculares precisos?	Músculos oculares extrínsecos.
+Capítulo 11	Músculo estriado visceral	¿Qué es el músculo estriado visceral?	Músculo estriado morfológicamente idéntico al esquelético, ubicado en tejidos blandos.
+Capítulo 11	Músculo estriado visceral	¿Dónde se encuentra músculo estriado visceral?	Lengua, faringe, parte lumbar del diafragma y parte superior del esófago.
+Capítulo 11	Músculo estriado visceral	¿Qué funciones realiza el músculo estriado visceral?	Habla, respiración y deglución.
+Capítulo 11	Músculo cardíaco	¿Dónde se encuentra el músculo cardíaco?	En la pared del corazón y desembocadura de grandes venas.
+Capítulo 11	Músculo cardíaco	¿Qué tipo de músculo es el músculo cardíaco?	Músculo estriado.
+Capítulo 11	Comparación de tipos musculares	¿Qué músculo es estriado y se fija al hueso?	Músculo esquelético.
+Capítulo 11	Comparación de tipos musculares	¿Qué músculo es estriado y se encuentra en el corazón?	Músculo cardíaco.
+Capítulo 11	Comparación de tipos musculares	¿Qué músculo no presenta estriaciones?	Músculo liso.
+Capítulo 11	Comparación de tipos musculares	¿Qué músculo estriado se encuentra en tejidos blandos como lengua y faringe?	Músculo estriado visceral.
+Capítulo 11	Comparación de tipos musculares	¿Qué músculo se limita a vísceras y vasos?	Músculo liso.
+Capítulo 11	Músculo esquelético: fibra muscular	¿Qué es una fibra muscular esquelética?	Una célula muscular esquelética multinucleada.
+Capítulo 11	Músculo esquelético: fibra muscular	¿Por qué la fibra muscular esquelética es un sincitio?	Porque se forma por fusión de mioblastos.
+Capítulo 11	Músculo esquelético: fibra muscular	¿Qué células se fusionan para formar una fibra muscular esquelética?	Mioblastos.
+Capítulo 11	Músculo esquelético: fibra muscular	¿Qué forma tiene una fibra muscular esquelética en corte transversal?	Poligonal.
+Capítulo 11	Músculo esquelético: fibra muscular	¿Qué diámetro aproximado tiene una fibra muscular esquelética madura?	10-100 µm.
+Capítulo 11	Músculo esquelético: fibra muscular	¿Qué tan larga puede ser una fibra muscular esquelética?	Desde pocos milímetros hasta casi un metro.
+Capítulo 11	Músculo esquelético: fibra muscular	¿Qué músculo tiene fibras que pueden aproximarse a un metro de longitud?	Músculo sartorio.
+Capítulo 11	Músculo esquelético: fibra muscular	¿Qué músculo tiene fibras de pocos milímetros de longitud?	Músculo estapedio.
+Capítulo 11	Músculo esquelético: fibra muscular	¿Una fibra muscular esquelética es una fibra extracelular de tejido conjuntivo?	No, es una célula muscular.
+Capítulo 11	Músculo esquelético: núcleos	¿Dónde se ubican los núcleos de la fibra muscular esquelética?	En la periferia, justo debajo de la membrana plasmática.
+Capítulo 11	Músculo esquelético: núcleos	¿Qué músculo tiene fibras multinucleadas con núcleos periféricos?	Músculo esquelético.
+Capítulo 11	Músculo esquelético: núcleos	¿Qué localización nuclear ayuda a identificar músculo esquelético?	Núcleos periféricos submembranosos.
+Capítulo 11	Sarcolema	¿Qué es el sarcolema?	La membrana plasmática de la célula muscular y sus cubiertas externas.
+Capítulo 11	Sarcolema	¿Qué componentes forman el sarcolema según Ross?	Membrana plasmática, lámina externa y lámina reticular.
+Capítulo 11	Sarcolema	¿Qué lámina extracelular forma parte del sarcolema?	Lámina externa.
+Capítulo 11	Sarcolema	¿Qué capa reticular rodea la lámina externa del sarcolema?	Lámina reticular.
+Capítulo 11	Organización del músculo esquelético	¿Cómo se organizan las fibras musculares esqueléticas?	En fascículos paralelos.
+Capítulo 11	Organización del músculo esquelético	¿Qué mantiene juntas a las fibras musculares esqueléticas?	Tejido conjuntivo.
+Capítulo 11	Organización del músculo esquelético	¿Qué función mecánica tiene el tejido conjuntivo asociado al músculo?	Transducción de fuerzas.
+Capítulo 11	Organización del músculo esquelético	¿En qué estructura continúa el tejido conjuntivo muscular en los extremos del músculo?	Tendón u otra estructura de colágeno.
+Capítulo 11	Organización del músculo esquelético	¿Qué función tiene el tendón respecto al músculo esquelético?	Fijarlo generalmente al hueso.
+Capítulo 11	Organización del músculo esquelético	¿Qué estructuras viajan por el tejido conjuntivo del músculo?	Vasos sanguíneos y nervios.
+Capítulo 11	Endomisio	¿Qué es el endomisio?	Capa fina de fibras reticulares que rodea cada fibra muscular individual.
+Capítulo 11	Endomisio	¿Qué estructura rodea directamente una fibra muscular esquelética individual?	Endomisio.
+Capítulo 11	Endomisio	¿Qué tipo de fibras contiene principalmente el endomisio?	Fibras reticulares.
+Capítulo 11	Endomisio	¿Qué vasos se encuentran en el endomisio?	Vasos sanguíneos pequeños.
+Capítulo 11	Endomisio	¿Qué nervios se encuentran en el endomisio?	Ramificaciones nerviosas muy finas.
+Capítulo 11	Endomisio	¿Cómo discurren vasos pequeños y nervios finos del endomisio?	Paralelos a las fibras musculares.
+Capítulo 11	Perimisio	¿Qué es el perimisio?	Capa de tejido conjuntivo que rodea un fascículo muscular.
+Capítulo 11	Perimisio	¿Qué estructura rodea grupos de fibras musculares?	Perimisio.
+Capítulo 11	Perimisio	¿Qué forma un grupo de fibras musculares rodeado por perimisio?	Un fascículo.
+Capítulo 11	Perimisio	¿Qué son los fascículos musculares?	Unidades funcionales de fibras musculares que trabajan juntas.
+Capítulo 11	Perimisio	¿Qué contiene el perimisio?	Vasos sanguíneos y nervios grandes.
+Capítulo 11	Perimisio	¿Qué capa conjuntiva es más gruesa que el endomisio?	Perimisio.
+Capítulo 11	Epimisio	¿Qué es el epimisio?	Vaina de tejido conjuntivo denso que rodea todo el músculo.
+Capítulo 11	Epimisio	¿Qué estructura rodea todo el conjunto de fascículos de un músculo?	Epimisio.
+Capítulo 11	Epimisio	¿Qué otro nombre macroscópico recibe el epimisio?	Fascia profunda.
+Capítulo 11	Epimisio	¿Qué estructuras penetran el músculo a través del epimisio?	Componentes principales de irrigación e inervación.
+Capítulo 11	Epimisio	¿Qué capa de tejido conjuntivo rodea el músculo completo?	Epimisio.
+Capítulo 11	Comparación endomisio-perimisio-epimisio	¿Qué capa rodea una fibra muscular individual?	Endomisio.
+Capítulo 11	Comparación endomisio-perimisio-epimisio	¿Qué capa rodea un fascículo muscular?	Perimisio.
+Capítulo 11	Comparación endomisio-perimisio-epimisio	¿Qué capa rodea todo el músculo?	Epimisio.
+Capítulo 11	Comparación endomisio-perimisio-epimisio	¿Qué capa tiene vasos pequeños y ramificaciones nerviosas finas?	Endomisio.
+Capítulo 11	Comparación endomisio-perimisio-epimisio	¿Qué capa tiene vasos y nervios más grandes?	Perimisio.
+Capítulo 11	Comparación endomisio-perimisio-epimisio	¿Qué capa se continúa con tendones?	Epimisio y tejido conjuntivo intramuscular.
+Capítulo 11	Comparación endomisio-perimisio-epimisio	¿Qué capa se llama también fascia profunda?	Epimisio.
+Capítulo 11	Fibras musculares esqueléticas	¿Qué criterios clasifican las fibras musculares esqueléticas?	Rapidez de contracción, actividad ATPasa miosínica y perfil metabólico.
+Capítulo 11	Fibras musculares esqueléticas	¿Qué indica la rapidez de contracción de una fibra muscular?	Qué tan rápido puede contraerse y relajarse.
+Capítulo 11	Fibras musculares esqueléticas	¿Qué indica la actividad ATPasa de miosina en una fibra muscular?	La velocidad con que escinde ATP durante el ciclo contráctil.
+Capítulo 11	Fibras musculares esqueléticas	¿Qué indica el perfil metabólico de una fibra muscular?	Su capacidad de producir ATP por fosforilación oxidativa o glucólisis.
+Capítulo 11	Fibras musculares esqueléticas	¿Qué molécula almacena oxígeno en fibras musculares oxidativas?	Mioglobina.
+Capítulo 11	Fibras musculares esqueléticas	¿Qué masa aproximada tiene la mioglobina?	17.8 kDa.
+Capítulo 11	Fibras musculares esqueléticas	¿Qué metal contiene la mioglobina?	Hierro ferroso.
+Capítulo 11	Fibras musculares esqueléticas	¿Qué proteína sanguínea se parece funcionalmente a la mioglobina?	Hemoglobina.
+Capítulo 11	Fibras musculares esqueléticas	¿Qué función principal tiene la mioglobina?	Almacenar oxígeno en fibras musculares.
+Capítulo 11	Fibras musculares esqueléticas	¿Qué fibras musculares tienen muchas mitocondrias y mioglobina?	Fibras oxidativas.
+Capítulo 11	Fibras musculares esqueléticas	¿Qué organelos abundan en fibras musculares oxidativas?	Mitocondrias.
+Capítulo 11	Fibras musculares esqueléticas	¿Qué pigmento contribuye al color rojizo de fibras oxidativas?	Mioglobina.
+Capítulo 11	Tipos de fibras esqueléticas	¿Cuáles son los tres tipos principales de fibras musculares esqueléticas?	Tipo I, tipo IIa y tipo IIb.
+Capítulo 11	Fibras tipo I	¿Qué otro nombre reciben las fibras musculares tipo I?	Fibras oxidativas lentas.
+Capítulo 11	Fibras tipo I	¿Qué tipo de metabolismo predomina en fibras tipo I?	Oxidativo.
+Capítulo 11	Fibras tipo I	¿Qué velocidad de contracción tienen las fibras tipo I?	Lenta.
+Capítulo 11	Fibras tipo I	¿Qué resistencia a la fatiga tienen las fibras tipo I?	Alta resistencia.
+Capítulo 11	Fibras tipo I	¿Qué contenido de mioglobina tienen las fibras tipo I?	Alto.
+Capítulo 11	Fibras tipo I	¿Qué cantidad de mitocondrias tienen las fibras tipo I?	Alta.
+Capítulo 11	Fibras tipo I	¿Qué color suelen tener las fibras tipo I?	Rojo.
+Capítulo 11	Fibras tipo I	¿Para qué tipo de actividad sirven mejor las fibras tipo I?	Actividad sostenida y resistencia.
+Capítulo 11	Fibras tipo IIa	¿Qué otro nombre reciben las fibras musculares tipo IIa?	Fibras glucolíticas oxidativas rápidas.
+Capítulo 11	Fibras tipo IIa	¿Qué velocidad de contracción tienen las fibras tipo IIa?	Rápida.
+Capítulo 11	Fibras tipo IIa	¿Qué metabolismo usan las fibras tipo IIa?	Oxidativo y glucolítico.
+Capítulo 11	Fibras tipo IIa	¿Qué resistencia a la fatiga tienen las fibras tipo IIa?	Intermedia.
+Capítulo 11	Fibras tipo IIa	¿Qué cantidad de glucógeno tienen las fibras tipo IIa?	Abundante.
+Capítulo 11	Fibras tipo IIa	¿Qué cantidad de mitocondrias tienen las fibras tipo IIa?	Moderada a alta.
+Capítulo 11	Fibras tipo IIa	¿Para qué tipo de actividad sirven las fibras tipo IIa?	Contracciones rápidas con resistencia moderada.
+Capítulo 11	Fibras tipo IIb	¿Qué otro nombre reciben las fibras musculares tipo IIb?	Fibras glucolíticas rápidas.
+Capítulo 11	Fibras tipo IIb	¿Qué velocidad de contracción tienen las fibras tipo IIb?	Muy rápida.
+Capítulo 11	Fibras tipo IIb	¿Qué metabolismo predomina en fibras tipo IIb?	Glucolítico.
+Capítulo 11	Fibras tipo IIb	¿Qué resistencia a la fatiga tienen las fibras tipo IIb?	Baja.
+Capítulo 11	Fibras tipo IIb	¿Qué contenido de mioglobina tienen las fibras tipo IIb?	Bajo.
+Capítulo 11	Fibras tipo IIb	¿Qué cantidad de mitocondrias tienen las fibras tipo IIb?	Baja.
+Capítulo 11	Fibras tipo IIb	¿Qué cantidad de glucógeno tienen las fibras tipo IIb?	Alta.
+Capítulo 11	Fibras tipo IIb	¿Qué color suelen tener las fibras tipo IIb?	Pálido o blanco.
+Capítulo 11	Fibras tipo IIb	¿Para qué tipo de actividad sirven mejor las fibras tipo IIb?	Movimientos rápidos, intensos y breves.
+Capítulo 11	Comparación de fibras esqueléticas	¿Qué fibra muscular es más resistente a la fatiga?	Tipo I.
+Capítulo 11	Comparación de fibras esqueléticas	¿Qué fibra muscular se fatiga más rápido?	Tipo IIb.
+Capítulo 11	Comparación de fibras esqueléticas	¿Qué fibra tiene más mioglobina?	Tipo I.
+Capítulo 11	Comparación de fibras esqueléticas	¿Qué fibra tiene menos mioglobina?	Tipo IIb.
+Capítulo 11	Comparación de fibras esqueléticas	¿Qué fibra tiene metabolismo más glucolítico?	Tipo IIb.
+Capítulo 11	Comparación de fibras esqueléticas	¿Qué fibra tiene metabolismo más oxidativo?	Tipo I.
+Capítulo 11	Comparación de fibras esqueléticas	¿Qué fibra tiene contracción más lenta?	Tipo I.
+Capítulo 11	Comparación de fibras esqueléticas	¿Qué fibra tiene contracción más rápida?	Tipo IIb.
+Capítulo 11	Comparación de fibras esqueléticas	¿Qué fibra tiene metabolismo mixto oxidativo-glucolítico?	Tipo IIa.
+Capítulo 11	Comparación de fibras esqueléticas	¿Qué fibra es intermedia entre tipo I y tipo IIb?	Tipo IIa.
+Capítulo 11	Metabolismo muscular	¿Qué produce ATP en fibras oxidativas?	Fosforilación oxidativa.
+Capítulo 11	Metabolismo muscular	¿Qué produce ATP en fibras glucolíticas?	Glucólisis.
+Capítulo 11	Metabolismo muscular	¿Qué fibra depende más de oxígeno para producir ATP?	Tipo I.
+Capítulo 11	Metabolismo muscular	¿Qué fibra depende más de glucógeno para energía rápida?	Tipo IIb.
+Capítulo 11	Metabolismo muscular	¿Qué molécula muscular almacena oxígeno para metabolismo aeróbico?	Mioglobina.
+Capítulo 11	Metabolismo muscular	¿Qué células musculares tienen más complejos de citocromos transportadores de electrones?	Fibras oxidativas.
+Capítulo 11	Identificación histológica	¿Qué tejido tiene fibras largas, multinucleadas, estriadas y con núcleos periféricos?	Músculo esquelético.
+Capítulo 11	Identificación histológica	¿Qué tejido muscular se organiza en fascículos rodeados por perimisio?	Músculo esquelético.
+Capítulo 11	Identificación histológica	¿Qué tejido muscular muestra estriaciones transversales visibles en fibras paralelas largas?	Músculo esquelético.
+Capítulo 11	Identificación histológica	¿Qué característica nuclear distingue al músculo esquelético del cardíaco?	Núcleos múltiples y periféricos.
+Capítulo 11	Identificación histológica	¿Qué capa conjuntiva se ve entre fibras musculares individuales?	Endomisio.
+Capítulo 11	Identificación histológica	¿Qué capa conjuntiva se ve entre fascículos musculares?	Perimisio.
+Capítulo 11	Identificación histológica	¿Qué capa conjuntiva se ve alrededor del músculo completo?	Epimisio.
+chapter	subtopic	front	back
+Capítulo 11	Miofibrillas	¿Cuál es la subunidad estructural y funcional de la fibra muscular?	Miofibrilla.
+Capítulo 11	Miofibrillas	¿Qué estructuras longitudinales llenan la fibra muscular esquelética?	Miofibrillas.
+Capítulo 11	Miofibrillas	¿En qué dirección se extienden las miofibrillas dentro de la fibra muscular?	A lo largo de toda la célula muscular.
+Capítulo 11	Miofibrillas	¿Cómo se ven las miofibrillas en cortes transversales de fibras musculares?	Como un aspecto punteado.
+Capítulo 11	Miofibrillas	¿De qué están compuestas las miofibrillas?	De haces de miofilamentos.
+Capítulo 11	Miofilamentos	¿Qué son los miofilamentos?	Polímeros filamentosos contráctiles de actina y miosina II.
+Capítulo 11	Miofilamentos	¿Cuáles son los verdaderos elementos contráctiles del músculo estriado?	Miofilamentos.
+Capítulo 11	Miofilamentos	¿Qué dos tipos de miofilamentos componen la miofibrilla?	Filamentos delgados y filamentos gruesos.
+Capítulo 11	Miofilamentos	¿Qué proteína principal contienen los filamentos delgados?	Actina.
+Capítulo 11	Miofilamentos	¿Qué proteína principal contienen los filamentos gruesos?	Miosina II.
+Capítulo 11	Miofilamentos	¿Qué organelo rodea los haces de miofilamentos en músculo estriado?	Retículo sarcoplasmático.
+Capítulo 11	Retículo sarcoplasmático	¿Qué es el retículo sarcoplasmático?	Retículo endoplasmático liso especializado de la célula muscular.
+Capítulo 11	Retículo sarcoplasmático	¿Qué forma el retículo sarcoplasmático alrededor de los elementos contráctiles?	Una red tubular organizada.
+Capítulo 11	Retículo sarcoplasmático	¿Qué función principal tiene el retículo sarcoplasmático?	Almacenar y liberar calcio.
+Capítulo 11	Retículo sarcoplasmático	¿Qué estructuras se localizan entre miofibrillas asociadas al retículo sarcoplasmático?	Mitocondrias y depósitos de glucógeno.
+Capítulo 11	Retículo sarcoplasmático	¿Por qué las mitocondrias y glucógeno se ubican entre miofibrillas?	Para aportar energía a la contracción.
+Capítulo 11	Sarcómero	¿Cuál es la unidad contráctil más pequeña del músculo estriado?	Sarcómero.
+Capítulo 11	Sarcómero	¿Qué límites definen un sarcómero?	Una línea Z y la siguiente línea Z.
+Capítulo 11	Sarcómero	¿Entre qué estructuras se extiende un sarcómero?	Entre dos líneas Z contiguas.
+Capítulo 11	Sarcómero	¿Qué patrón produce la repetición de sarcómeros en registro?	Estriaciones transversales.
+Capítulo 11	Sarcómero	¿Qué pasa con el sarcómero durante la contracción?	Se acorta.
+Capítulo 11	Sarcómero	¿Qué causa el acortamiento del sarcómero?	Mayor interdigitación entre filamentos delgados y gruesos.
+Capítulo 11	Sarcómero	¿Qué teoría explica la contracción del sarcómero?	Teoría del deslizamiento de filamentos.
+Capítulo 11	Banda A	¿Qué representa la banda A del sarcómero?	La longitud de los filamentos gruesos.
+Capítulo 11	Banda A	¿Qué filamentos contiene principalmente la banda A?	Filamentos gruesos de miosina.
+Capítulo 11	Banda A	¿Qué banda del sarcómero es anisotrópica y oscura?	Banda A.
+Capítulo 11	Banda A	¿Qué ocurre con la longitud de la banda A durante la contracción?	Permanece constante.
+Capítulo 11	Banda A	¿Por qué la banda A no cambia de longitud durante la contracción?	Porque corresponde a la longitud de los filamentos gruesos.
+Capítulo 11	Banda A	¿Qué región de la banda A contiene superposición entre actina y miosina?	Las zonas laterales de la banda A.
+Capítulo 11	Banda I	¿Qué representa la banda I del sarcómero?	La región con filamentos delgados sin filamentos gruesos.
+Capítulo 11	Banda I	¿Qué filamentos contiene principalmente la banda I?	Filamentos delgados.
+Capítulo 11	Banda I	¿Qué banda del sarcómero es isotrópica y clara?	Banda I.
+Capítulo 11	Banda I	¿Qué estructura atraviesa el centro de la banda I?	Línea Z.
+Capítulo 11	Banda I	¿Qué ocurre con la banda I durante la contracción?	Se acorta.
+Capítulo 11	Banda I	¿Por qué la banda I se acorta durante la contracción?	Porque aumenta la superposición entre filamentos delgados y gruesos.
+Capítulo 11	Banda H	¿Qué es la banda H?	Región central de la banda A con solo filamentos gruesos.
+Capítulo 11	Banda H	¿Qué filamentos contiene la banda H?	Solo filamentos gruesos.
+Capítulo 11	Banda H	¿Qué ocurre con la banda H durante la contracción?	Se estrecha o desaparece.
+Capítulo 11	Banda H	¿Por qué la banda H se estrecha durante la contracción?	Porque los filamentos delgados se deslizan hacia el centro del sarcómero.
+Capítulo 11	Línea M	¿Qué es la línea M?	Línea central del sarcómero donde se vinculan filamentos gruesos.
+Capítulo 11	Línea M	¿Dónde se ubica la línea M?	En el centro de la banda H.
+Capítulo 11	Línea M	¿Qué filamentos se organizan en la línea M?	Filamentos gruesos.
+Capítulo 11	Línea Z	¿Qué es la línea Z?	Estructura que fija filamentos delgados de sarcómeros contiguos.
+Capítulo 11	Línea Z	¿Qué filamentos se fijan a la línea Z?	Filamentos delgados.
+Capítulo 11	Línea Z	¿Qué proteína fija actina en la línea Z?	Actinina alfa.
+Capítulo 11	Línea Z	¿Qué aspecto tiene la línea Z en corte longitudinal?	Zigzag.
+Capítulo 11	Línea Z	¿Qué región del sarcómero divide la línea Z?	Banda I.
+Capítulo 11	Línea Z	¿Qué proteínas de matriz Z ayudan a sujetar líneas Z a miofibrillas vecinas y sarcolema?	Teletonina, talina, desmina, miotilina y filamina C.
+Capítulo 11	Línea Z	¿Qué filamento intermedio ayuda a unir líneas Z con miofibrillas vecinas?	Desmina.
+Capítulo 11	Línea Z	¿Qué función general tiene la matriz Z?	Sujetar y alinear sarcómeros.
+Capítulo 11	Estados del sarcómero	¿Qué caracteriza al sarcómero relajado?	Interdigitación incompleta y bandas H e I relativamente amplias.
+Capítulo 11	Estados del sarcómero	¿Qué caracteriza al sarcómero contraído?	Mayor interdigitación entre filamentos delgados y gruesos.
+Capítulo 11	Estados del sarcómero	¿Qué caracteriza al sarcómero distendido?	Los filamentos delgados y gruesos no interactúan.
+Capítulo 11	Estados del sarcómero	¿Qué bandas son muy amplias en un sarcómero distendido?	Bandas H e I.
+Capítulo 11	Estados del sarcómero	¿Qué banda permanece constante en sarcómero relajado, contraído y distendido?	Banda A.
+Capítulo 11	Estados del sarcómero	¿Qué bandas cambian con el grado de contracción del sarcómero?	Bandas H e I.
+Capítulo 11	Organización hexagonal	¿Cómo se organiza cada filamento grueso en la zona de superposición?	En el centro de una formación hexagonal de filamentos delgados.
+Capítulo 11	Organización hexagonal	¿Qué región del sarcómero contiene filamentos delgados y gruesos superpuestos?	Banda A con superposición.
+Capítulo 11	Organización hexagonal	¿Qué región contiene solo filamentos delgados?	Banda I.
+Capítulo 11	Organización hexagonal	¿Qué región contiene solo filamentos gruesos?	Banda H.
+Capítulo 11	Filamento delgado	¿Qué proteínas principales forman el filamento delgado?	Actina, tropomiosina y troponina.
+Capítulo 11	Filamento delgado	¿Qué proteína estructural principal forma el filamento delgado?	Actina.
+Capítulo 11	Filamento delgado	¿Qué dos proteínas reguladoras principales tiene el filamento delgado?	Tropomiosina y troponina.
+Capítulo 11	Filamento delgado	¿Cómo se organiza la actina en el filamento delgado?	Dos hebras helicoidales de actina F.
+Capítulo 11	Filamento delgado	¿Qué tiene cada molécula de actina G del filamento delgado?	Un sitio de unión para miosina.
+Capítulo 11	Filamento delgado	¿Qué bloquea el sitio de unión a miosina en reposo?	Tropomiosina.
+Capítulo 11	Filamento delgado	¿Qué proteína forma un casquete en el extremo negativo del filamento delgado?	Tropomodulina.
+Capítulo 11	Filamento delgado	¿Qué proteína regula la posición de la tropomiosina?	Complejo de troponina.
+Capítulo 11	Troponina	¿Qué componente de la troponina fija calcio?	Troponina C.
+Capítulo 11	Troponina	¿Qué sigla corresponde a troponina C?	TnC.
+Capítulo 11	Troponina	¿Qué componente de la troponina se une a actina?	Troponina I.
+Capítulo 11	Troponina	¿Qué sigla corresponde a troponina I?	TnI.
+Capítulo 11	Troponina	¿Qué componente de la troponina se une a tropomiosina?	Troponina T.
+Capítulo 11	Troponina	¿Qué sigla corresponde a troponina T?	TnT.
+Capítulo 11	Troponina	¿Qué ocurre cuando Ca2+ se une a troponina C?	Cambia la configuración del complejo troponina-tropomiosina.
+Capítulo 11	Troponina	¿Qué efecto tiene el cambio de troponina-tropomiosina por calcio?	Expone sitios de unión para miosina en actina.
+Capítulo 11	Tropomiosina	¿Qué función tiene la tropomiosina en músculo relajado?	Bloquea físicamente los sitios de unión de miosina en actina.
+Capítulo 11	Tropomiosina	¿Qué debe ocurrir con la tropomiosina para permitir contracción?	Debe desplazarse fuera de los sitios de unión a miosina.
+Capítulo 11	Tropomiosina	¿Qué complejo desplaza la tropomiosina al unirse calcio?	Complejo de troponina.
+Capítulo 11	Filamento grueso	¿Qué proteína principal forma el filamento grueso?	Miosina II.
+Capítulo 11	Filamento grueso	¿Qué parte de la miosina II se une a actina?	Cabeza de miosina.
+Capítulo 11	Filamento grueso	¿Qué parte de la miosina II tiene actividad ATPasa?	Cabeza de miosina.
+Capítulo 11	Filamento grueso	¿Qué convierte energía química en fuerza mecánica en el filamento grueso?	Cabeza de miosina.
+Capítulo 11	Filamento grueso	¿Qué parte de la miosina II forma el eje del filamento grueso?	Cola.
+Capítulo 11	Filamento grueso	¿Cómo se organizan las cabezas de miosina a ambos lados de la banda H?	En orientación antiparalela.
+Capítulo 11	Filamento grueso	¿Qué efecto tiene la orientación antiparalela de cabezas de miosina?	Arrastra filamentos delgados hacia el centro de la banda A.
+Capítulo 11	Proteínas accesorias	¿Qué proteína gigante ayuda a centrar el filamento grueso en el sarcómero?	Titina.
+Capítulo 11	Proteínas accesorias	¿Qué proteína impide el estiramiento excesivo del sarcómero?	Titina.
+Capítulo 11	Proteínas accesorias	¿Qué proteína aporta fuerza de recuperación pasiva al sarcómero?	Titina.
+Capítulo 11	Proteínas accesorias	¿Qué proteína une filamentos delgados a la línea Z?	Actinina alfa.
+Capítulo 11	Proteínas accesorias	¿Qué proteína estabiliza el extremo negativo del filamento delgado?	Tropomodulina.
+Capítulo 11	Proteínas accesorias	¿Qué proteína ayuda a alinear miofibrillas a nivel de líneas Z?	Desmina.
+Capítulo 11	Proteínas accesorias	¿Qué proteína conecta el citoesqueleto subsarcolemal con la matriz extracelular?	Distrofina.
+Capítulo 11	Distrofina	¿Qué es la distrofina?	Proteína que conecta filamentos de actina con proteínas del sarcolema y MEC.
+Capítulo 11	Distrofina	¿Qué función mecánica tiene la distrofina?	Estabiliza el sarcolema durante la contracción.
+Capítulo 11	Distrofina	¿Qué enfermedad se asocia con defecto de distrofina?	Distrofia muscular de Duchenne.
+Capítulo 11	Distrofina	¿Qué distrofia muscular se parece a Duchenne pero progresa más lento?	Distrofia muscular de Becker.
+Capítulo 11	Ciclo de puentes transversales	¿Qué nombre recibe el ciclo contráctil entre actina y miosina en músculo esquelético?	Ciclo de los puentes transversales de actomiosina.
+Capítulo 11	Ciclo de puentes transversales	¿Qué es el ciclo de puentes transversales de actomiosina?	Serie de fenómenos bioquímicos y mecánicos acoplados.
+Capítulo 11	Ciclo de puentes transversales	¿Qué proteína convierte energía química en fuerza mecánica durante el ciclo?	Miosina.
+Capítulo 11	Ciclo de puentes transversales	¿Qué actividad enzimática de la miosina impulsa el ciclo?	Actividad ATPasa.
+Capítulo 11	Ciclo de puentes transversales	¿Cuántas etapas tiene el ciclo de puentes transversales?	Cinco.
+Capítulo 11	Ciclo de puentes transversales	¿Cuáles son las etapas del ciclo de puentes transversales?	Adhesión, separación, flexión, generación de fuerza y readhesión.
+Capítulo 11	Ciclo de puentes transversales	¿Cuál es la primera etapa del ciclo de puentes transversales?	Adhesión.
+Capítulo 11	Ciclo de puentes transversales	¿Cuál es la segunda etapa del ciclo de puentes transversales?	Separación.
+Capítulo 11	Ciclo de puentes transversales	¿Cuál es la tercera etapa del ciclo de puentes transversales?	Flexión.
+Capítulo 11	Ciclo de puentes transversales	¿Cuál es la cuarta etapa del ciclo de puentes transversales?	Generación de fuerza.
+Capítulo 11	Ciclo de puentes transversales	¿Cuál es la quinta etapa del ciclo de puentes transversales?	Readhesión.
+Capítulo 11	Adhesión actomiosina	¿Qué ocurre en la etapa de adhesión del ciclo actomiosina?	La cabeza de miosina está unida fuertemente a actina.
+Capítulo 11	Adhesión actomiosina	¿Qué molécula está ausente en la etapa de adhesión inicial?	ATP.
+Capítulo 11	Adhesión actomiosina	¿Qué conformación tiene la cabeza de miosina durante la adhesión?	Erguida.
+Capítulo 11	Adhesión actomiosina	¿Qué configuración de actomiosina se asocia con ausencia de ATP?	Configuración de rigidez.
+Capítulo 11	Adhesión actomiosina	¿Qué causa la rigidez cadavérica en términos de actomiosina?	Falta de ATP para separar miosina de actina.
+Capítulo 11	Separación actomiosina	¿Qué inicia la etapa de separación del ciclo actomiosina?	Unión de ATP a la cabeza de miosina.
+Capítulo 11	Separación actomiosina	¿Qué efecto tiene ATP sobre la unión actina-miosina?	Disminuye la afinidad de miosina por actina.
+Capítulo 11	Separación actomiosina	¿Qué ocurre cuando la miosina disminuye su afinidad por actina?	La cabeza de miosina se separa del filamento delgado.
+Capítulo 11	Flexión actomiosina	¿Qué ocurre en la etapa de flexión del ciclo actomiosina?	La cabeza de miosina se reposiciona tras hidrólisis de ATP.
+Capítulo 11	Flexión actomiosina	¿Qué reacción energética ocurre durante la flexión?	Hidrólisis de ATP a ADP y fosfato inorgánico.
+Capítulo 11	Flexión actomiosina	¿Qué queda unido a la cabeza de miosina tras hidrólisis de ATP?	ADP y fosfato inorgánico.
+Capítulo 11	Flexión actomiosina	¿Qué hace funcionalmente la flexión de la cabeza de miosina?	“Recarga” el motor de miosina.
+Capítulo 11	Generación de fuerza	¿Qué ocurre en la generación de fuerza del ciclo actomiosina?	La cabeza de miosina impulsa el desplazamiento del filamento delgado.
+Capítulo 11	Generación de fuerza	¿Qué otro nombre recibe el movimiento de generación de fuerza?	Golpe activo.
+Capítulo 11	Generación de fuerza	¿Qué se libera al iniciar el golpe activo?	Fosfato inorgánico.
+Capítulo 11	Generación de fuerza	¿Qué se libera al final del golpe activo?	ADP.
+Capítulo 11	Generación de fuerza	¿Hacia dónde se mueven los filamentos delgados durante el golpe activo?	Hacia el centro de la banda A.
+Capítulo 11	Readhesión actomiosina	¿Qué ocurre en la readhesión del ciclo actomiosina?	La cabeza de miosina vuelve a unirse fuertemente a una nueva actina.
+Capítulo 11	Readhesión actomiosina	¿Qué permite la readhesión de miosina a actina?	Que el ciclo se repita.
+Capítulo 11	Ciclo de puentes transversales	¿Por qué las dos cabezas de miosina permiten movimiento continuo?	Porque una puede estar adherida mientras otra se separa.
+Capítulo 11	Ciclo de puentes transversales	¿Qué se acorta directamente durante el ciclo de puentes transversales?	El sarcómero.
+Capítulo 11	Ciclo de puentes transversales	¿Qué filamentos cambian de longitud durante la contracción?	Ninguno; se deslizan unos sobre otros.
+Capítulo 11	Ciclo de puentes transversales	¿Qué cambia durante la contracción si los filamentos no se acortan?	El grado de superposición entre filamentos.
+Capítulo 11	Regulación de la contracción	¿Qué tres elementos participan en la regulación de la contracción muscular?	Ca2+, retículo sarcoplasmático y sistema de túbulos T.
+Capítulo 11	Regulación de la contracción	¿Qué ion debe estar disponible para la interacción actina-miosina?	Ca2+.
+Capítulo 11	Regulación de la contracción	¿Qué debe ocurrir con Ca2+ después de la contracción?	Debe eliminarse del sarcoplasma.
+Capítulo 11	Regulación de la contracción	¿Qué ocurre si aumenta Ca2+ citosólico en la fibra muscular?	Se inicia la contracción.
+Capítulo 11	Regulación de la contracción	¿Qué ocurre si disminuye Ca2+ citosólico libre?	Se produce relajación.
+Capítulo 11	Cisternas terminales	¿Qué son las cisternas terminales?	Expansiones del retículo sarcoplasmático que almacenan Ca2+.
+Capítulo 11	Cisternas terminales	¿Dónde se ubican las cisternas terminales en músculo esquelético?	A la altura de la unión entre bandas A e I.
+Capítulo 11	Cisternas terminales	¿Qué canales liberadores de Ca2+ contienen las cisternas terminales?	Receptores de rianodina.
+Capítulo 11	Cisternas terminales	¿Qué isoforma de receptor de rianodina predomina en músculo esquelético?	RyR1.
+Capítulo 11	Cisternas terminales	¿Qué proteína luminal fija Ca2+ dentro del retículo sarcoplasmático?	Calsecuestrina.
+Capítulo 11	Cisternas terminales	¿Qué función tiene la calsecuestrina?	Permite almacenar mucho Ca2+ manteniendo bajo el Ca2+ libre luminal.
+Capítulo 11	Cisternas terminales	¿Cuántos iones Ca2+ puede fijar aproximadamente la calsecuestrina?	Hasta 50 iones Ca2+.
+Capítulo 11	Túbulos T	¿Qué son los túbulos T?	Invaginaciones del sarcolema que penetran la fibra muscular.
+Capítulo 11	Túbulos T	¿Qué sistema forman los túbulos transversos?	Sistema T.
+Capítulo 11	Túbulos T	¿Dónde se ubican los túbulos T en músculo esquelético?	En la unión entre bandas A e I.
+Capítulo 11	Túbulos T	¿Cuántos túbulos T corresponden a cada sarcómero en músculo esquelético?	Dos.
+Capítulo 11	Túbulos T	¿Qué función tienen los túbulos T?	Conducir la despolarización hacia el interior de la fibra.
+Capítulo 11	Túbulos T	¿Qué receptores sensibles a voltaje tienen los túbulos T?	Receptores de dihidropiridina.
+Capítulo 11	Túbulos T	¿Qué sigla corresponde a receptor sensible a dihidropiridina?	DHPR.
+Capítulo 11	Túbulos T	¿Qué desencadena la despolarización del túbulo T?	Liberación de Ca2+ desde el retículo sarcoplasmático.
+Capítulo 11	Tríada	¿Qué es una tríada muscular?	Un túbulo T flanqueado por dos cisternas terminales.
+Capítulo 11	Tríada	¿Qué estructuras forman una tríada?	Dos cisternas terminales y un túbulo T.
+Capítulo 11	Tríada	¿Dónde se localiza la tríada en músculo esquelético?	En la unión A-I.
+Capítulo 11	Tríada	¿Cuántas tríadas hay por sarcómero en músculo esquelético?	Dos.
+Capítulo 11	Tríada	¿Qué función tiene la tríada?	Acoplar excitación eléctrica con liberación de Ca2+.
+Capítulo 11	Tríada	¿Qué evento inicia la liberación de Ca2+ desde la tríada?	Despolarización del túbulo T.
+Capítulo 11	Acoplamiento excitación-contracción	¿Qué es el acoplamiento excitación-contracción?	Conversión de despolarización de membrana en contracción muscular.
+Capítulo 11	Acoplamiento excitación-contracción	¿Qué estructura lleva la despolarización al interior de la fibra?	Túbulo T.
+Capítulo 11	Acoplamiento excitación-contracción	¿Qué estructura libera Ca2+ para iniciar contracción?	Cisterna terminal del retículo sarcoplasmático.
+Capítulo 11	Acoplamiento excitación-contracción	¿Qué receptor del túbulo T detecta voltaje?	DHPR.
+Capítulo 11	Acoplamiento excitación-contracción	¿Qué receptor del retículo sarcoplasmático libera Ca2+?	RyR1.
+Capítulo 11	Acoplamiento excitación-contracción	¿Qué proteína del filamento delgado recibe Ca2+ para iniciar contracción?	Troponina C.
+Capítulo 11	Acoplamiento excitación-contracción	¿Qué ocurre después de que Ca2+ se une a troponina C?	La tropomiosina deja expuestos los sitios de unión de miosina en actina.
+Capítulo 11	Relajación muscular	¿Qué causa la relajación muscular?	Disminución del Ca2+ citosólico libre.
+Capítulo 11	Relajación muscular	¿Qué estructura recupera Ca2+ hacia el retículo sarcoplasmático?	Bombas Ca2+-ATPasa.
+Capítulo 11	Relajación muscular	¿Qué ocurre con los sitios de unión a miosina cuando disminuye Ca2+?	La tropomiosina vuelve a bloquearlos.
+Capítulo 11	Relajación muscular	¿Qué proteína vuelve a bloquear actina durante la relajación?	Tropomiosina.
+Capítulo 11	Relajación muscular	¿Qué complejo regula el bloqueo y desbloqueo de actina?	Troponina-tropomiosina.
+Capítulo 11	Comparación sarcomérica	¿Qué banda contiene solo actina?	Banda I.
+Capítulo 11	Comparación sarcomérica	¿Qué banda contiene solo miosina en su región central?	Banda H.
+Capítulo 11	Comparación sarcomérica	¿Qué banda corresponde a toda la longitud de miosina?	Banda A.
+Capítulo 11	Comparación sarcomérica	¿Qué línea fija actina?	Línea Z.
+Capítulo 11	Comparación sarcomérica	¿Qué línea organiza miosina?	Línea M.
+Capítulo 11	Comparación sarcomérica	¿Qué banda se acorta durante contracción?	Banda I.
+Capítulo 11	Comparación sarcomérica	¿Qué región se estrecha o desaparece durante contracción?	Banda H.
+Capítulo 11	Comparación sarcomérica	¿Qué banda permanece constante durante contracción?	Banda A.
+Capítulo 11	Comparación sarcomérica	¿Qué límites se acercan durante contracción?	Líneas Z.
+Capítulo 11	Comparación sarcomérica	¿Qué zona representa superposición actina-miosina?	Parte lateral de la banda A.
+chapter	subtopic	front	back
+Capítulo 11	Inervación motora	¿Qué neuronas inervan las fibras musculares esqueléticas?	Motoneuronas.
+Capítulo 11	Inervación motora	¿Dónde se originan las motoneuronas que inervan músculo esquelético?	Médula espinal o tronco encefálico.
+Capítulo 11	Inervación motora	¿Qué hacen los axones motores al acercarse al músculo?	Se ramifican en ramos terminales.
+Capítulo 11	Inervación motora	¿Dónde terminan los ramos terminales de motoneuronas?	Sobre fibras musculares individuales.
+Capítulo 11	Inervación motora	¿Qué tipo de músculo requiere inervación motora para contraerse voluntariamente?	Músculo esquelético.
+Capítulo 11	Unión neuromuscular	¿Qué es la unión neuromuscular?	Contacto entre una terminación axónica motora y una fibra muscular.
+Capítulo 11	Unión neuromuscular	¿Qué otro nombre recibe la unión neuromuscular?	Placa motora terminal.
+Capítulo 11	Unión neuromuscular	¿Qué estructura nerviosa forma la parte presináptica de la unión neuromuscular?	Terminación axónica motora.
+Capítulo 11	Unión neuromuscular	¿Qué estructura muscular forma la parte postsináptica de la unión neuromuscular?	Región especializada del sarcolema.
+Capítulo 11	Unión neuromuscular	¿Qué ocurre con la vaina de mielina al llegar a la unión neuromuscular?	Termina antes de la placa motora.
+Capítulo 11	Unión neuromuscular	¿Qué célula cubre la terminación axónica en la unión neuromuscular?	Célula de Schwann.
+Capítulo 11	Unión neuromuscular	¿Qué contiene la terminación presináptica motora?	Mitocondrias y vesículas con acetilcolina.
+Capítulo 11	Unión neuromuscular	¿Qué neurotransmisor se libera en la unión neuromuscular?	Acetilcolina.
+Capítulo 11	Unión neuromuscular	¿Qué sigla corresponde a acetilcolina?	ACh.
+Capítulo 11	Unión neuromuscular	¿Dónde se libera la acetilcolina en la unión neuromuscular?	En la hendidura sináptica.
+Capítulo 11	Unión neuromuscular	¿Qué aumenta el área postsináptica en la placa motora?	Pliegues subneurales.
+Capítulo 11	Unión neuromuscular	¿Qué otro nombre reciben los pliegues subneurales?	Pliegues de unión.
+Capítulo 11	Unión neuromuscular	¿Qué contiene la porción apical de los pliegues subneurales?	Receptores nicotínicos de acetilcolina.
+Capítulo 11	Unión neuromuscular	¿Qué tipo de receptor de ACh tiene el músculo esquelético?	Receptor nicotínico.
+Capítulo 11	Unión neuromuscular	¿Qué tipo de canal es el receptor nicotínico de ACh muscular?	Canal iónico regulado por neurotransmisor.
+Capítulo 11	Unión neuromuscular	¿Qué ion entra principalmente al abrirse receptores nicotínicos de ACh?	Sodio.
+Capítulo 11	Unión neuromuscular	¿Qué causa la entrada de sodio por receptores nicotínicos?	Despolarización del sarcolema.
+Capítulo 11	Unión neuromuscular	¿Qué inicia la despolarización del sarcolema en la unión neuromuscular?	Unión de ACh a receptores nicotínicos.
+Capítulo 11	Unión neuromuscular	¿Qué propaga la despolarización desde la placa motora hacia el interior de la fibra?	Túbulos T.
+Capítulo 11	Unión neuromuscular	¿Qué estructura de la unión neuromuscular contiene lámina externa?	La hendidura sináptica y los pliegues subneurales.
+Capítulo 11	Unión neuromuscular	¿Qué enzima degrada acetilcolina en la unión neuromuscular?	Acetilcolinesterasa.
+Capítulo 11	Unión neuromuscular	¿Qué función tiene la acetilcolinesterasa?	Terminar la señal y prevenir estimulación continua.
+Capítulo 11	Unión neuromuscular	¿Qué pasaría si no se degradara acetilcolina en la placa motora?	Estimulación muscular continua.
+Capítulo 11	Unión neuromuscular	¿Qué complejo vesicular permite liberación presináptica de ACh?	Complejo SNARE.
+Capítulo 11	Unión neuromuscular	¿Qué toxina bloquea liberación de ACh al escindir proteínas SNARE?	Toxina botulínica.
+Capítulo 11	Unión neuromuscular	¿Qué efecto tiene la toxina botulínica en músculo esquelético?	Parálisis flácida.
+Capítulo 11	Unión neuromuscular	¿Qué fármaco despolarizante puede actuar como relajante muscular de corta duración?	Succinilcolina.
+Capítulo 11	Unión neuromuscular	¿Qué efecto tiene la succinilcolina en receptores nicotínicos?	Activa canales y produce bloqueo despolarizante.
+Capítulo 11	Unidad motora	¿Qué es una unidad motora?	Una motoneurona y todas las fibras musculares que inerva.
+Capítulo 11	Unidad motora	¿Qué determina el tamaño de una unidad motora?	Número de fibras musculares inervadas por una motoneurona.
+Capítulo 11	Unidad motora	¿Qué tipo de unidad motora permite movimientos finos?	Unidad motora pequeña.
+Capítulo 11	Unidad motora	¿Qué tipo de unidad motora permite movimientos potentes pero menos precisos?	Unidad motora grande.
+Capítulo 11	Unidad motora	¿Por qué los músculos oculares tienen control fino?	Porque tienen unidades motoras pequeñas.
+Capítulo 11	Unidad motora	¿Por qué músculos grandes de postura pueden tener unidades motoras grandes?	Porque requieren fuerza más que precisión fina.
+Capítulo 11	Unidad motora	¿Cómo se gradúa la fuerza muscular si cada fibra responde todo o nada?	Reclutando más o menos unidades motoras.
+Capítulo 11	Unidad motora	¿Qué significa que una fibra muscular responda “todo o nada”?	Se contrae si alcanza umbral; si no, no se contrae.
+Capítulo 11	Unidad motora	¿Qué permite una respuesta muscular gradual?	Activación variable de unidades motoras.
+Capítulo 11	Unidad motora	¿Qué ocurre si se activan más unidades motoras?	Aumenta la fuerza de contracción.
+Capítulo 11	Unidad motora	¿Qué relación hay entre precisión y número de fibras por motoneurona?	A menor número de fibras por motoneurona, mayor precisión.
+Capítulo 11	Inervación y atrofia	¿Qué necesita la fibra muscular esquelética para mantener su integridad estructural?	Inervación motora.
+Capítulo 11	Inervación y atrofia	¿Qué ocurre si se interrumpe la inervación de un músculo esquelético?	Atrofia muscular.
+Capítulo 11	Inervación y atrofia	¿Qué es la atrofia muscular por denervación?	Adelgazamiento de fibras musculares por pérdida de inervación.
+Capítulo 11	Inervación y atrofia	¿Cuál es un signo histológico evidente de atrofia muscular?	Disminución del diámetro de las fibras musculares.
+Capítulo 11	Inervación y atrofia	¿Por qué la denervación produce atrofia?	Porque se pierde el estímulo trófico de la motoneurona.
+Capítulo 11	Miastenia grave	¿Qué es la miastenia grave?	Enfermedad autoinmunitaria de la unión neuromuscular.
+Capítulo 11	Miastenia grave	¿Qué estructura ataca la miastenia grave?	Receptores nicotínicos de acetilcolina.
+Capítulo 11	Miastenia grave	¿Dónde están los receptores afectados en miastenia grave?	En la membrana postsináptica de la placa motora.
+Capítulo 11	Miastenia grave	¿Qué consecuencia funcional tiene destruir receptores de ACh?	Debilidad muscular.
+Capítulo 11	Miastenia grave	¿Por qué la miastenia grave causa fatigabilidad?	Porque disminuye la transmisión neuromuscular efectiva con actividad repetida.
+Capítulo 11	Miastenia grave	¿Qué molécula puede inhibirse para aumentar ACh disponible en miastenia grave?	Acetilcolinesterasa.
+Capítulo 11	Miastenia grave	¿Qué efecto buscan los inhibidores de acetilcolinesterasa?	Aumentar acetilcolina en la hendidura sináptica.
+Capítulo 11	Inervación sensitiva	¿Qué tipo de información sensitiva aporta el músculo esquelético?	Propiocepción.
+Capítulo 11	Inervación sensitiva	¿Qué es la propiocepción?	Información sobre posición y movimiento corporal.
+Capítulo 11	Inervación sensitiva	¿Qué receptores musculares informan al SNC sobre estiramiento y tensión?	Husos musculares y órganos tendinosos de Golgi.
+Capítulo 11	Huso muscular	¿Qué es el huso muscular?	Receptor de estiramiento dentro del músculo esquelético.
+Capítulo 11	Huso muscular	¿Dónde se ubica el huso muscular?	Dentro del músculo esquelético.
+Capítulo 11	Huso muscular	¿Qué detecta el huso muscular?	Grado y velocidad de estiramiento muscular.
+Capítulo 11	Huso muscular	¿Qué tipo de fibras musculares modificadas contiene el huso muscular?	Células fusales.
+Capítulo 11	Huso muscular	¿Qué otro nombre reciben las células fusales?	Fibras intrafusales.
+Capítulo 11	Huso muscular	¿Qué fibras musculares normales rodean al huso muscular?	Fibras extrafusales.
+Capítulo 11	Huso muscular	¿Qué rodea a las fibras intrafusales?	Cápsula interna.
+Capítulo 11	Huso muscular	¿Qué separa la cápsula interna de la cápsula externa del huso?	Un espacio lleno de líquido.
+Capítulo 11	Huso muscular	¿Qué dos tipos de fibras intrafusales hay en el huso muscular?	Fibras de saco nuclear y fibras de cadena nuclear.
+Capítulo 11	Huso muscular	¿Qué caracteriza a la fibra de saco nuclear?	Núcleos agrupados en una región central expandida.
+Capítulo 11	Huso muscular	¿Qué caracteriza a la fibra de cadena nuclear?	Núcleos dispuestos en cadena en la región central.
+Capítulo 11	Huso muscular	¿Cuántas fibras de saco nuclear tiene aproximadamente un huso muscular normal?	2-4.
+Capítulo 11	Huso muscular	¿Cuántas fibras de cadena nuclear tiene aproximadamente un huso muscular normal?	6-8.
+Capítulo 11	Huso muscular	¿Qué fibras sensitivas aferentes transmiten información desde el huso muscular?	Fibras Ia y II.
+Capítulo 11	Huso muscular	¿Qué terminaciones tienen las fibras Ia del huso muscular?	Terminaciones anuloespirales.
+Capítulo 11	Huso muscular	¿Dónde se ubican las terminaciones anuloespirales del huso muscular?	Alrededor de la región media de células fusales.
+Capítulo 11	Huso muscular	¿Qué terminaciones tienen las fibras tipo II del huso muscular?	Terminaciones en arreglo floral.
+Capítulo 11	Huso muscular	¿Dónde se ubican las terminaciones en arreglo floral?	Sobre porciones estriadas de fibras intrafusales.
+Capítulo 11	Huso muscular	¿Qué ocurre con las terminales sensitivas del huso cuando el músculo se estira?	Se activan.
+Capítulo 11	Huso muscular	¿Qué información transmiten las terminales del huso durante estiramiento?	Longitud muscular y velocidad de estiramiento.
+Capítulo 11	Huso muscular	¿Qué fibras motoras eferentes inervan células fusales?	Fibras gamma.
+Capítulo 11	Huso muscular	¿Qué regulan las fibras motoras gamma del huso?	Sensibilidad del receptor de estiramiento.
+Capítulo 11	Huso muscular	¿Qué tipos de fibras gamma regulan el huso muscular?	Gamma dinámicas y gamma estáticas.
+Capítulo 11	Huso muscular	¿Qué regulan las fibras gamma dinámicas?	Sensibilidad durante la fase dinámica del estiramiento.
+Capítulo 11	Huso muscular	¿Qué regulan las fibras gamma estáticas?	Sensibilidad durante la fase estática del estiramiento.
+Capítulo 11	Huso muscular	¿Qué función refleja permite el huso muscular?	Reflejo de estiramiento.
+Capítulo 11	Huso muscular	¿Qué estructura ayuda a mantener tono muscular mediante retroalimentación sensitiva?	Huso muscular.
+Capítulo 11	Órgano tendinoso de Golgi	¿Qué es el órgano tendinoso de Golgi?	Receptor sensitivo encapsulado en tendones musculares.
+Capítulo 11	Órgano tendinoso de Golgi	¿Dónde se ubica el órgano tendinoso de Golgi?	En tendones, cerca de la unión músculo-tendón.
+Capítulo 11	Órgano tendinoso de Golgi	¿Qué detecta el órgano tendinoso de Golgi?	Aumento de tensión.
+Capítulo 11	Órgano tendinoso de Golgi	¿Qué tipo de fibras nerviosas tiene el órgano tendinoso de Golgi?	Fibras aferentes Ib.
+Capítulo 11	Órgano tendinoso de Golgi	¿Qué función protectora tiene el órgano tendinoso de Golgi?	Inhibir contracción excesiva ante tensión elevada.
+Capítulo 11	Órgano tendinoso de Golgi	¿Qué receptor responde principalmente a tensión tendinosa?	Órgano tendinoso de Golgi.
+Capítulo 11	Órgano tendinoso de Golgi	¿Qué receptor responde principalmente a estiramiento muscular?	Huso muscular.
+Capítulo 11	Comparación propioceptores	¿Qué receptor mide longitud muscular?	Huso muscular.
+Capítulo 11	Comparación propioceptores	¿Qué receptor mide tensión tendinosa?	Órgano tendinoso de Golgi.
+Capítulo 11	Comparación propioceptores	¿Qué receptor contiene fibras intrafusales?	Huso muscular.
+Capítulo 11	Comparación propioceptores	¿Qué receptor tiene fibras aferentes Ib?	Órgano tendinoso de Golgi.
+Capítulo 11	Comparación propioceptores	¿Qué receptor recibe inervación motora gamma?	Huso muscular.
+Capítulo 11	Comparación propioceptores	¿Qué receptor se encuentra dentro del vientre muscular?	Huso muscular.
+Capítulo 11	Comparación propioceptores	¿Qué receptor se encuentra en el tendón?	Órgano tendinoso de Golgi.
+Capítulo 11	Histogénesis del músculo esquelético	¿De qué células se originan las fibras musculares esqueléticas?	Mioblastos.
+Capítulo 11	Histogénesis del músculo esquelético	¿Qué ocurre con los mioblastos durante el desarrollo del músculo esquelético?	Se fusionan para formar miotubos.
+Capítulo 11	Histogénesis del músculo esquelético	¿Qué son los miotubos?	Células musculares multinucleadas inmaduras.
+Capítulo 11	Histogénesis del músculo esquelético	¿Qué estructura madura se forma a partir de miotubos?	Fibra muscular esquelética.
+Capítulo 11	Histogénesis del músculo esquelético	¿Qué cambia en los núcleos durante maduración de miotubos?	Se desplazan hacia la periferia.
+Capítulo 11	Histogénesis del músculo esquelético	¿Qué aumenta durante maduración de miotubos?	Cantidad de miofibrillas.
+Capítulo 11	Histogénesis del músculo esquelético	¿Qué característica adulta aparece cuando los núcleos se vuelven periféricos?	Fibra muscular esquelética madura.
+Capítulo 11	Células satélite	¿Qué son las células satélite?	Células madre musculares ubicadas junto a fibras esqueléticas.
+Capítulo 11	Células satélite	¿Dónde se localizan las células satélite?	Entre sarcolema y lámina externa de la fibra muscular.
+Capítulo 11	Células satélite	¿Qué función tienen las células satélite?	Reparación y regeneración limitada del músculo esquelético.
+Capítulo 11	Células satélite	¿Qué ocurre con células satélite tras lesión muscular?	Se activan, proliferan y se diferencian.
+Capítulo 11	Células satélite	¿En qué células pueden diferenciarse las células satélite activadas?	Mioblastos.
+Capítulo 11	Células satélite	¿Qué pueden formar los mioblastos derivados de células satélite?	Nuevas fibras o reparar fibras dañadas.
+Capítulo 11	Células satélite	¿Por qué la regeneración del músculo esquelético es limitada?	Porque depende de células satélite y del grado de lesión.
+Capítulo 11	Reparación del músculo esquelético	¿Qué ocurre en lesiones leves del músculo esquelético?	Puede haber reparación por células satélite.
+Capítulo 11	Reparación del músculo esquelético	¿Qué ocurre en lesiones extensas del músculo esquelético?	Suele predominar cicatrización con tejido conjuntivo.
+Capítulo 11	Reparación del músculo esquelético	¿Qué tejido reemplaza músculo destruido cuando la regeneración es insuficiente?	Tejido conjuntivo cicatricial.
+Capítulo 11	Reparación del músculo esquelético	¿Qué célula conjuntiva forma cicatriz en lesión muscular extensa?	Fibroblasto.
+Capítulo 11	Reparación del músculo esquelético	¿Qué célula muscular permite regeneración parcial del músculo esquelético?	Célula satélite.
+Capítulo 11	Reparación del músculo esquelético	¿Qué limita la recuperación funcional tras cicatrización muscular?	La sustitución por tejido conjuntivo no contráctil.
+Capítulo 11	Reparación del músculo esquelético	¿Qué proceso aumenta si se destruye mucho endomisio y lámina externa?	Cicatrización fibrosa.
+Capítulo 11	Reparación del músculo esquelético	¿Por qué la lámina externa es importante en reparación muscular?	Sirve como guía para regeneración de fibras.
+Capítulo 11	Reparación del músculo esquelético	¿Qué estructura facilita que mioblastos reparadores se organicen tras lesión?	Lámina externa conservada.
+Capítulo 11	Renovación muscular	¿El músculo esquelético tiene alta renovación celular continua?	No.
+Capítulo 11	Renovación muscular	¿Qué células permiten renovación limitada del músculo esquelético?	Células satélite.
+Capítulo 11	Renovación muscular	¿Qué ocurre con la capacidad regenerativa muscular con lesiones repetidas o envejecimiento?	Disminuye.
+Capítulo 11	Distrofias musculares	¿Qué son las distrofias musculares?	Enfermedades hereditarias con degeneración progresiva de músculo esquelético.
+Capítulo 11	Distrofias musculares	¿Qué proteína se afecta en la distrofia muscular de Duchenne?	Distrofina.
+Capítulo 11	Distrofias musculares	¿Qué función cumple la distrofina en la fibra muscular?	Estabiliza el sarcolema durante contracción.
+Capítulo 11	Distrofias musculares	¿Qué ocurre si falta distrofina funcional?	El sarcolema se lesiona con la contracción.
+Capítulo 11	Distrofias musculares	¿Qué consecuencia tisular tiene la lesión repetida del sarcolema en distrofias?	Degeneración muscular y reemplazo por grasa o tejido conjuntivo.
+Capítulo 11	Distrofias musculares	¿Qué distrofia muscular es más grave: Duchenne o Becker?	Duchenne.
+Capítulo 11	Distrofias musculares	¿Qué distrofia muscular conserva algo de distrofina funcional?	Becker.
+Capítulo 11	Integración músculo esquelético	¿Qué estructura transmite señal nerviosa a fibra muscular?	Unión neuromuscular.
+Capítulo 11	Integración músculo esquelético	¿Qué receptor muscular recibe acetilcolina?	Receptor nicotínico de ACh.
+Capítulo 11	Integración músculo esquelético	¿Qué estructura lleva despolarización al interior de la fibra?	Túbulo T.
+Capítulo 11	Integración músculo esquelético	¿Qué estructura libera Ca2+ para contracción?	Retículo sarcoplasmático.
+Capítulo 11	Integración músculo esquelético	¿Qué proteína del filamento delgado fija Ca2+?	Troponina C.
+Capítulo 11	Integración músculo esquelético	¿Qué proteína bloquea actina en reposo?	Tropomiosina.
+Capítulo 11	Integración músculo esquelético	¿Qué proteína motora produce fuerza al unirse a actina?	Miosina II.
+Capítulo 11	Integración músculo esquelético	¿Qué receptor detecta estiramiento del músculo?	Huso muscular.
+Capítulo 11	Integración músculo esquelético	¿Qué receptor detecta tensión del tendón?	Órgano tendinoso de Golgi.
+Capítulo 11	Integración músculo esquelético	¿Qué célula permite reparación limitada del músculo esquelético?	Célula satélite.
+chapter	subtopic	front	back
+Capítulo 11	Músculo cardíaco	¿Qué tipo de músculo es el músculo cardíaco?	Músculo estriado.
+Capítulo 11	Músculo cardíaco	¿Dónde se encuentra el músculo cardíaco?	En el corazón y desembocadura de grandes venas.
+Capítulo 11	Músculo cardíaco	¿Qué filamentos contráctiles tiene el músculo cardíaco?	Los mismos tipos que el músculo esquelético.
+Capítulo 11	Músculo cardíaco	¿Por qué el músculo cardíaco presenta estriaciones?	Porque sus filamentos contráctiles están organizados en sarcómeros.
+Capítulo 11	Músculo cardíaco	¿Cómo son las células musculares cardíacas?	Cilíndricas, cortas, ramificadas y estriadas.
+Capítulo 11	Músculo cardíaco	¿Qué otro nombre reciben las células musculares cardíacas?	Cardiomiocitos.
+Capítulo 11	Músculo cardíaco	¿Qué diámetro aproximado tienen los cardiomiocitos?	Alrededor de 15 µm.
+Capítulo 11	Músculo cardíaco	¿Qué longitud aproximada tienen los cardiomiocitos?	Alrededor de 80 µm.
+Capítulo 11	Músculo cardíaco	¿Cuántos núcleos suele tener un cardiomiocito?	Uno.
+Capítulo 11	Músculo cardíaco	¿Dónde se localiza el núcleo del cardiomiocito?	En el centro de la célula.
+Capítulo 11	Músculo cardíaco	¿Qué célula muscular puede ser binucleada con cierta frecuencia?	Cardiomiocito.
+Capítulo 11	Músculo cardíaco	¿Qué diferencia nuclear clave hay entre músculo cardíaco y esquelético?	El cardíaco tiene núcleo central; el esquelético tiene núcleos periféricos.
+Capítulo 11	Músculo cardíaco	¿Qué diferencia celular clave hay entre fibra esquelética y fibra cardíaca?	La fibra esquelética es una célula multinucleada; la cardíaca está formada por muchas células unidas.
+Capítulo 11	Músculo cardíaco	¿Qué característica tienen las fibras musculares cardíacas?	Son ramificadas.
+Capítulo 11	Músculo cardíaco	¿Qué rodea a las fibras musculares cardíacas?	Una capa delgada de endomisio.
+Capítulo 11	Músculo cardíaco	¿Qué contiene el endomisio del músculo cardíaco?	Abundantes capilares.
+Capítulo 11	Músculo cardíaco	¿Por qué el músculo cardíaco necesita muchos capilares?	Porque tiene alta demanda metabólica continua.
+Capítulo 11	Músculo cardíaco	¿Qué organelo es abundante en cardiomiocitos?	Mitocondrias.
+Capítulo 11	Músculo cardíaco	¿Dónde se concentran muchos organelos en el cardiomiocito?	Alrededor del núcleo.
+Capítulo 11	Músculo cardíaco	¿Qué zona clara puede verse alrededor del núcleo del cardiomiocito?	Región yuxtanuclear.
+Capítulo 11	Músculo cardíaco	¿Qué pigmento puede acumularse en la región yuxtanuclear de cardiomiocitos envejecidos?	Lipofuscina.
+Capítulo 11	Músculo cardíaco	¿Qué indica la lipofuscina en cardiomiocitos?	Acumulación de pigmento de desgaste con la edad.
+Capítulo 11	Discos intercalares	¿Qué son los discos intercalares?	Uniones especializadas entre cardiomiocitos contiguos.
+Capítulo 11	Discos intercalares	¿Qué estructura une extremo con extremo a los cardiomiocitos?	Disco intercalar.
+Capítulo 11	Discos intercalares	¿Cómo se observan los discos intercalares en cortes longitudinales?	Como bandas transversales oscuras.
+Capítulo 11	Discos intercalares	¿Qué forma pueden adoptar los discos intercalares?	Lineal o escalonada.
+Capítulo 11	Discos intercalares	¿Qué función general tienen los discos intercalares?	Unir mecánica y eléctricamente cardiomiocitos.
+Capítulo 11	Discos intercalares	¿Qué tipos de uniones contiene un disco intercalar?	Fascia adherente, mácula adherente y uniones comunicantes.
+Capítulo 11	Discos intercalares	¿Qué unión del disco intercalar ancla filamentos de actina?	Fascia adherente.
+Capítulo 11	Discos intercalares	¿Qué unión del disco intercalar equivale a la zónula adherente epitelial?	Fascia adherente.
+Capítulo 11	Discos intercalares	¿Qué unión del disco intercalar da adhesión fuerte célula-célula?	Mácula adherente.
+Capítulo 11	Discos intercalares	¿Qué otro nombre recibe la mácula adherente?	Desmosoma.
+Capítulo 11	Discos intercalares	¿Qué unión del disco intercalar permite acoplamiento eléctrico?	Unión comunicante.
+Capítulo 11	Discos intercalares	¿Qué unión del disco intercalar permite paso de iones entre cardiomiocitos?	Unión comunicante.
+Capítulo 11	Discos intercalares	¿Qué unión permite que el miocardio funcione como sincitio funcional?	Uniones comunicantes.
+Capítulo 11	Discos intercalares	¿Por qué el músculo cardíaco es un sincitio funcional?	Porque los cardiomiocitos están acoplados eléctricamente por uniones comunicantes.
+Capítulo 11	Discos intercalares	¿El músculo cardíaco es un sincitio anatómico como el músculo esquelético?	No.
+Capítulo 11	Discos intercalares	¿Qué diferencia hay entre sincitio anatómico y funcional en músculo?	El anatómico comparte citoplasma; el funcional tiene células separadas acopladas eléctricamente.
+Capítulo 11	Discos intercalares	¿Qué componente del disco intercalar transmite fuerza contráctil entre células?	Fascia adherente y desmosomas.
+Capítulo 11	Discos intercalares	¿Qué componente del disco intercalar sincroniza contracción?	Uniones comunicantes.
+Capítulo 11	Discos intercalares	¿Qué parte del disco intercalar suele contener fascia adherente y desmosomas?	Componente transversal.
+Capítulo 11	Discos intercalares	¿Qué parte del disco intercalar suele contener uniones comunicantes?	Componente lateral.
+Capítulo 11	Díadas cardíacas	¿Qué estructura reemplaza a la tríada en músculo cardíaco?	Díada.
+Capítulo 11	Díadas cardíacas	¿Qué es una díada cardíaca?	Un túbulo T asociado a una cisterna terminal pequeña.
+Capítulo 11	Díadas cardíacas	¿Cuántas cisternas terminales tiene una díada cardíaca?	Una.
+Capítulo 11	Díadas cardíacas	¿Dónde se localizan las díadas en músculo cardíaco?	A la altura de la línea Z.
+Capítulo 11	Díadas cardíacas	¿Cuántos túbulos T hay por sarcómero en músculo cardíaco?	Uno.
+Capítulo 11	Díadas cardíacas	¿Qué diferencia hay entre tríada esquelética y díada cardíaca?	La tríada tiene dos cisternas; la díada tiene una.
+Capítulo 11	Díadas cardíacas	¿Dónde están los túbulos T en músculo esquelético?	En la unión A-I.
+Capítulo 11	Díadas cardíacas	¿Dónde están los túbulos T en músculo cardíaco?	En la línea Z.
+Capítulo 11	Díadas cardíacas	¿Qué estructura cardíaca tiene cisternas terminales más pequeñas que el músculo esquelético?	Retículo sarcoplasmático cardíaco.
+Capítulo 11	Díadas cardíacas	¿Qué músculo tiene túbulos T más grandes y abundantes: cardíaco ventricular o esquelético?	Cardíaco ventricular.
+Capítulo 11	Díadas cardíacas	¿Qué región cardíaca tiene menos túbulos T que el ventrículo?	Aurícula.
+Capítulo 11	Díadas cardíacas	¿Qué tipo de músculo cardíaco tiene túbulos T más desarrollados?	Músculo cardíaco ventricular.
+Capítulo 11	Contracción cardíaca	¿Qué evento inicia la contracción del cardiomiocito?	Despolarización de la membrana celular.
+Capítulo 11	Contracción cardíaca	¿Qué células propagan la despolarización hacia cardiomiocitos?	Células de conducción cardíaca.
+Capítulo 11	Contracción cardíaca	¿Qué ocurre cuando la despolarización alcanza el sarcolema cardíaco?	Se abren canales de Na+ regulados por voltaje.
+Capítulo 11	Contracción cardíaca	¿Qué ion entra primero durante la despolarización rápida del cardiomiocito?	Na+.
+Capítulo 11	Contracción cardíaca	¿Qué estructura lleva la despolarización al interior del cardiomiocito?	Túbulos T.
+Capítulo 11	Contracción cardíaca	¿Qué receptor sensible a voltaje se activa en túbulos T cardíacos?	DHPR.
+Capítulo 11	Contracción cardíaca	¿Qué hacen los DHPR cardíacos al activarse?	Funcionan como canales de Ca2+.
+Capítulo 11	Contracción cardíaca	¿Qué ion entra desde la luz del túbulo T al sarcoplasma cardíaco?	Ca2+.
+Capítulo 11	Contracción cardíaca	¿Por qué la entrada de Ca2+ desde túbulos T es esencial en músculo cardíaco?	Porque inicia liberación adicional de Ca2+ desde el retículo sarcoplasmático.
+Capítulo 11	Contracción cardíaca	¿Qué receptor del retículo sarcoplasmático cardíaco libera Ca2+?	RyR2.
+Capítulo 11	Contracción cardíaca	¿Qué significa RyR2?	Receptor de rianodina tipo 2.
+Capítulo 11	Contracción cardíaca	¿Qué mecanismo describe la liberación de Ca2+ por RyR2 inducida por entrada de Ca2+?	Liberación de calcio inducida por calcio.
+Capítulo 11	Contracción cardíaca	¿Qué diferencia clave hay entre liberación de Ca2+ en músculo esquelético y cardíaco?	En cardíaco requiere entrada de Ca2+ extracelular; en esquelético no.
+Capítulo 11	Contracción cardíaca	¿Qué proteína del filamento delgado fija Ca2+ en músculo cardíaco?	Troponina C.
+Capítulo 11	Contracción cardíaca	¿Qué ocurre después de que Ca2+ se une a troponina C en cardiomiocitos?	Se inicia el ciclo de puentes cruzados.
+Capítulo 11	Contracción cardíaca	¿El ciclo de actomiosina cardíaco es similar al esquelético?	Sí.
+Capítulo 11	Contracción cardíaca	¿Qué ion extracelular es indispensable para iniciar contracción cardíaca?	Ca2+.
+Capítulo 11	Contracción cardíaca	¿Qué canal cardíaco permite entrada lenta de Ca2+ durante despolarización?	DHPR.
+Capítulo 11	Contracción cardíaca	¿Qué mutación del receptor RyR2 puede asociarse con taquicardia ventricular inducida por esfuerzo?	Mutaciones del gen RyR2.
+Capítulo 11	Contracción cardíaca	¿Qué arritmia se asocia con mutaciones de RyR2 según el texto?	Taquicardia ventricular polimórfica inducida por esfuerzo.
+Capítulo 11	Contracción cardíaca	¿Qué estructura devuelve Ca2+ al retículo sarcoplasmático para relajación?	Bomba Ca2+-ATPasa.
+Capítulo 11	Contracción cardíaca	¿Qué proceso permite la relajación del cardiomiocito?	Disminución del Ca2+ citosólico.
+Capítulo 11	Sistema de conducción cardíaco	¿Qué células inician y coordinan el latido cardíaco?	Células cardíacas conductoras.
+Capítulo 11	Sistema de conducción cardíaco	¿Qué son las células cardíacas conductoras?	Cardiomiocitos modificados especializados en generar y transmitir impulsos.
+Capítulo 11	Sistema de conducción cardíaco	¿Qué forman las células cardíacas conductoras?	Nódulos y fibras de Purkinje.
+Capítulo 11	Sistema de conducción cardíaco	¿Dónde se localizan los nódulos del sistema de conducción mencionados en el capítulo?	En la aurícula derecha.
+Capítulo 11	Sistema de conducción cardíaco	¿Qué función tienen las fibras de Purkinje?	Generar y transmitir rápidamente el impulso contráctil.
+Capítulo 11	Sistema de conducción cardíaco	¿Qué característica tiene la contracción de células de conducción cardíaca?	Es rítmica y espontánea.
+Capítulo 11	Sistema de conducción cardíaco	¿El latido cardíaco necesita un estímulo nervioso para iniciarse?	No.
+Capítulo 11	Sistema de conducción cardíaco	¿Qué regula el sistema nervioso autónomo en el corazón?	La frecuencia de contracción.
+Capítulo 11	Sistema de conducción cardíaco	¿Qué hace la estimulación simpática sobre el latido cardíaco?	Lo acelera.
+Capítulo 11	Sistema de conducción cardíaco	¿Qué hace la estimulación parasimpática sobre el latido cardíaco?	Lo vuelve más lento.
+Capítulo 11	Sistema de conducción cardíaco	¿Los nervios simpáticos y parasimpáticos inician la contracción cardíaca?	No, solo modifican la frecuencia.
+Capítulo 11	Sistema de conducción cardíaco	¿Qué sistema modula pero no inicia el latido cardíaco?	Sistema nervioso autónomo.
+Capítulo 11	Sistema de conducción cardíaco	¿Qué nodo inicia normalmente el impulso cardíaco?	Nodo sinoauricular.
+Capítulo 11	Sistema de conducción cardíaco	¿Qué sigla corresponde al nodo sinoauricular?	Nodo SA.
+Capítulo 11	Sistema de conducción cardíaco	¿Qué nodo recibe el impulso después de propagarse por aurículas?	Nodo auriculoventricular.
+Capítulo 11	Sistema de conducción cardíaco	¿Qué sigla corresponde al nodo auriculoventricular?	Nodo AV.
+Capítulo 11	Sistema de conducción cardíaco	¿Qué estructura conduce el impulso desde el nodo AV hacia ventrículos?	Haz de His.
+Capítulo 11	Sistema de conducción cardíaco	¿Qué otro nombre recibe el haz de His?	Haz AV.
+Capítulo 11	Sistema de conducción cardíaco	¿Qué fibras subendocárdicas distribuyen el impulso en ventrículos?	Fibras de Purkinje.
+Capítulo 11	Sistema de conducción cardíaco	¿Qué elementos conducen impulsos a través del esqueleto fibroso cardíaco?	Componentes del sistema de conducción.
+Capítulo 11	Fibras de Purkinje	¿Qué son las fibras de Purkinje cardíacas?	Células musculares cardíacas modificadas de conducción.
+Capítulo 11	Fibras de Purkinje	¿Qué tamaño tienen las fibras de Purkinje comparadas con cardiomiocitos comunes?	Son más grandes.
+Capítulo 11	Fibras de Purkinje	¿Dónde se localizan sus miofibrillas en fibras de Purkinje?	Principalmente en la periferia.
+Capítulo 11	Fibras de Purkinje	¿Por qué el citoplasma central de fibras de Purkinje se tiñe poco?	Por abundante glucógeno.
+Capítulo 11	Fibras de Purkinje	¿Qué reserva energética abunda en fibras de Purkinje?	Glucógeno.
+Capítulo 11	Fibras de Purkinje	¿Qué estructura suelen carecer muchas fibras de Purkinje?	Túbulos T.
+Capítulo 11	Fibras de Purkinje	¿Qué determina la presencia ocasional de túbulos T en fibras de Purkinje?	El tamaño del corazón.
+Capítulo 11	Fibras de Purkinje	¿Qué función eléctrica tienen las fibras de Purkinje?	Conducen impulsos rápidamente por el miocardio.
+Capítulo 11	Fibras de Purkinje	¿Qué diferencia histológica ayuda a identificar fibras de Purkinje?	Células grandes, pálidas, con miofibrillas periféricas.
+Capítulo 11	Fibras de Purkinje	¿Dónde se ubican muchas fibras de Purkinje?	En región subendocárdica.
+Capítulo 11	Fibras de Purkinje	¿Qué fibra cardíaca puede confundirse por su nombre con neuronas cerebelosas?	Fibra de Purkinje cardíaca.
+Capítulo 11	Fibras de Purkinje	¿Cuál es la frecuencia intrínseca más baja del sistema de conducción cardíaco?	La de las fibras de Purkinje.
+Capítulo 11	Fibras de Purkinje	¿Qué ocurre si se bloquea la conducción hacia ventrículos?	Los ventrículos pueden latir por despolarización de fibras de Purkinje.
+Capítulo 11	Nodo SA y nodo AV	¿Qué células nodales tienen función de marcapasos intrínseca?	Células P.
+Capítulo 11	Nodo SA y nodo AV	¿Qué células nodales propagan impulsos hacia la aurícula derecha?	Células T.
+Capítulo 11	Nodo SA y nodo AV	¿Qué son las células P?	Células marcapasos nodales.
+Capítulo 11	Nodo SA y nodo AV	¿Qué son las células T nodales?	Células transicionales que propagan impulsos.
+Capítulo 11	Nodo SA y nodo AV	¿Qué enfermedad del nodo SA puede requerir marcapasos electrónico?	Síndrome del seno enfermo.
+Capítulo 11	Nodo SA y nodo AV	¿Qué causa el síndrome del seno enfermo?	Degeneración de miocitos nodales del nodo SA.
+Capítulo 11	Nodo SA y nodo AV	¿Qué alteración del ritmo produce síndrome del seno enfermo?	Bradiarritmia.
+Capítulo 11	Lesión cardíaca	¿Cuál es una causa frecuente de muerte necrótica de cardiomiocitos?	Infarto de miocardio.
+Capítulo 11	Lesión cardíaca	¿Qué tipo de lesión celular produce el infarto de miocardio en cardiomiocitos?	Necrosis.
+Capítulo 11	Lesión cardíaca	¿Qué capacidad regenerativa tiene el músculo cardíaco adulto?	Muy limitada.
+Capítulo 11	Lesión cardíaca	¿Cómo se reparan usualmente lesiones necróticas del músculo cardíaco?	Con tejido conjuntivo cicatricial.
+Capítulo 11	Lesión cardíaca	¿Qué tejido reemplaza cardiomiocitos muertos tras infarto?	Tejido conjuntivo fibroso.
+Capítulo 11	Lesión cardíaca	¿Por qué una cicatriz cardíaca no recupera contracción normal?	Porque el tejido conjuntivo no es contráctil.
+Capítulo 11	Lesión cardíaca	¿Qué célula produce matriz en la cicatriz cardíaca?	Fibroblasto.
+Capítulo 11	Lesión cardíaca	¿Qué consecuencia funcional tiene una cicatriz miocárdica extensa?	Disminución de la función contráctil.
+Capítulo 11	Lesión cardíaca	¿Qué células cardíacas adultas tienen escasa capacidad de división?	Cardiomiocitos.
+Capítulo 11	Comparación cardíaco-esquelético	¿Qué músculo tiene discos intercalares?	Músculo cardíaco.
+Capítulo 11	Comparación cardíaco-esquelético	¿Qué músculo tiene tríadas?	Músculo esquelético.
+Capítulo 11	Comparación cardíaco-esquelético	¿Qué músculo tiene díadas?	Músculo cardíaco.
+Capítulo 11	Comparación cardíaco-esquelético	¿Qué músculo tiene túbulos T en la unión A-I?	Músculo esquelético.
+Capítulo 11	Comparación cardíaco-esquelético	¿Qué músculo tiene túbulos T en la línea Z?	Músculo cardíaco.
+Capítulo 11	Comparación cardíaco-esquelético	¿Qué músculo tiene un túbulo T por sarcómero?	Músculo cardíaco.
+Capítulo 11	Comparación cardíaco-esquelético	¿Qué músculo tiene dos túbulos T por sarcómero?	Músculo esquelético.
+Capítulo 11	Comparación cardíaco-esquelético	¿Qué músculo tiene núcleos periféricos múltiples?	Músculo esquelético.
+Capítulo 11	Comparación cardíaco-esquelético	¿Qué músculo tiene núcleo central único o doble?	Músculo cardíaco.
+Capítulo 11	Comparación cardíaco-esquelético	¿Qué músculo forma fibras por fusión de mioblastos?	Músculo esquelético.
+Capítulo 11	Comparación cardíaco-esquelético	¿Qué músculo forma fibras por unión extremo con extremo de células separadas?	Músculo cardíaco.
+Capítulo 11	Comparación cardíaco-esquelético	¿Qué músculo depende de entrada extracelular de Ca2+ para iniciar contracción?	Músculo cardíaco.
+Capítulo 11	Comparación cardíaco-esquelético	¿Qué músculo puede contraerse de manera rítmica espontánea?	Músculo cardíaco.
+Capítulo 11	Comparación cardíaco-esquelético	¿Qué músculo se repara principalmente por cicatriz tras necrosis?	Músculo cardíaco.
+Capítulo 11	Identificación histológica	¿Qué tejido muscular tiene células estriadas ramificadas con núcleo central?	Músculo cardíaco.
+Capítulo 11	Identificación histológica	¿Qué estructura oscura transversal identifica músculo cardíaco?	Disco intercalar.
+Capítulo 11	Identificación histológica	¿Qué músculo tiene fibras ramificadas unidas por discos intercalares?	Músculo cardíaco.
+Capítulo 11	Identificación histológica	¿Qué célula cardíaca grande y pálida tiene miofibrillas periféricas?	Fibra de Purkinje.
+Capítulo 11	Identificación histológica	¿Qué tejido tiene endomisio con red capilar abundante entre fibras?	Músculo cardíaco.
+Capítulo 11	Identificación histológica	¿Qué músculo estriado tiene núcleos centrales y discos intercalares?	Músculo cardíaco.
+chapter	subtopic	front	back
+Capítulo 11	Músculo liso	¿Qué tipo de músculo no tiene estriaciones transversales?	Músculo liso.
+Capítulo 11	Músculo liso	¿Dónde se encuentra el músculo liso?	Vísceras, vasos sanguíneos, músculos erectores del pelo e iris.
+Capítulo 11	Músculo liso	¿Qué órganos huecos contienen músculo liso en sus paredes?	Vasos sanguíneos, tubo digestivo, vías respiratorias y sistema genitourinario.
+Capítulo 11	Músculo liso	¿Qué componente cutáneo contiene músculo liso?	Músculo erector del pelo.
+Capítulo 11	Músculo liso	¿Qué componente ocular contiene músculo liso?	Iris.
+Capítulo 11	Músculo liso	¿Qué forma tienen las células musculares lisas?	Fusiforme.
+Capítulo 11	Músculo liso	¿Cómo son los extremos de una célula muscular lisa?	Estrechos o afinados.
+Capítulo 11	Músculo liso	¿Qué longitud pueden tener las células musculares lisas en vasos pequeños?	Alrededor de 20 µm.
+Capítulo 11	Músculo liso	¿Qué longitud pueden tener las células musculares lisas en pared intestinal?	Alrededor de 200 µm.
+Capítulo 11	Músculo liso	¿Qué longitud pueden alcanzar células musculares lisas uterinas durante gestación?	Hasta 500 µm.
+Capítulo 11	Músculo liso	¿Cuántos núcleos tiene una célula muscular lisa?	Uno.
+Capítulo 11	Músculo liso	¿Dónde se localiza el núcleo de la célula muscular lisa?	En el centro de la célula.
+Capítulo 11	Músculo liso	¿Qué forma tiene el núcleo de una célula muscular lisa no contraída?	Alargada con extremos romos.
+Capítulo 11	Músculo liso	¿Qué forma puede adoptar el núcleo de músculo liso contraído?	Forma de tirabuzón u ondulada.
+Capítulo 11	Músculo liso	¿Por qué el núcleo del músculo liso puede verse en tirabuzón?	Por contracción de la célula durante la fijación.
+Capítulo 11	Músculo liso	¿Qué rasgo nuclear ayuda a distinguir músculo liso de fibroblastos?	Núcleo central alargado u ondulado en tirabuzón.
+Capítulo 11	Músculo liso	¿Cómo se ve el núcleo de músculo liso en corte transversal?	Redondo o circular.
+Capítulo 11	Músculo liso	¿Por qué algunas células musculares lisas en corte transversal parecen sin núcleo?	Porque el corte atraviesa un extremo celular sin núcleo.
+Capítulo 11	Músculo liso	¿Cómo se tiñe el citoplasma del músculo liso en H&E?	De forma bastante uniforme.
+Capítulo 11	Músculo liso	¿Por qué el músculo liso no muestra bandas visibles?	Porque sus filamentos no se organizan en sarcómeros.
+Capítulo 11	Músculo liso	¿Qué rodea a cada célula muscular lisa?	Lámina externa.
+Capítulo 11	Músculo liso	¿Qué interruppe localmente la lámina externa del músculo liso?	Uniones comunicantes.
+Capítulo 11	Músculo liso	¿Qué uniones conectan células musculares lisas entre sí?	Uniones comunicantes.
+Capítulo 11	Músculo liso	¿Qué función tienen las uniones comunicantes en músculo liso?	Permiten paso de iones y coordinación de la contracción.
+Capítulo 11	Músculo liso	¿Qué permiten las uniones comunicantes en fascículos de músculo liso?	Contracción coordinada de toda la lámina o fascículo.
+Capítulo 11	Músculo liso	¿Dónde se concentran la mayoría de orgánulos en células musculares lisas?	En los extremos del núcleo.
+Capítulo 11	Músculo liso	¿Qué orgánulos se encuentran cerca de los polos nucleares del músculo liso?	Mitocondrias, RER, ribosomas libres, glucógeno y Golgi pequeño.
+Capítulo 11	Músculo liso	¿Qué estructura membranosa característica sustituye al sistema T en músculo liso?	Cavéolas.
+Capítulo 11	Músculo liso	¿Las células musculares lisas tienen túbulos T?	No.
+Capítulo 11	Cavéolas	¿Qué son las cavéolas del músculo liso?	Invaginaciones pequeñas del sarcolema.
+Capítulo 11	Cavéolas	¿Qué función tienen las cavéolas en músculo liso?	Ayudan a entregar Ca2+ al sarcoplasma.
+Capítulo 11	Cavéolas	¿Qué sistema membranoso no posee el músculo liso?	Sistema T.
+Capítulo 11	Cavéolas	¿Qué estructuras del músculo liso se asocian con vesículas citoplasmáticas para regular Ca2+?	Cavéolas.
+Capítulo 11	Aparato contráctil del músculo liso	¿Qué filamentos forman el aparato contráctil del músculo liso?	Filamentos delgados y gruesos.
+Capítulo 11	Aparato contráctil del músculo liso	¿Qué proteína principal contienen los filamentos delgados del músculo liso?	Actina.
+Capítulo 11	Aparato contráctil del músculo liso	¿Qué proteína principal contienen los filamentos gruesos del músculo liso?	Miosina II de músculo liso.
+Capítulo 11	Aparato contráctil del músculo liso	¿Qué sigla se usa para miosina de músculo liso?	SMM.
+Capítulo 11	Aparato contráctil del músculo liso	¿Qué proteínas reguladoras específicas tienen los filamentos delgados del músculo liso?	Caldesmona y calponina.
+Capítulo 11	Aparato contráctil del músculo liso	¿Qué proteína reguladora de músculo estriado falta en músculo liso?	Troponina.
+Capítulo 11	Aparato contráctil del músculo liso	¿Qué proteína del filamento delgado está presente en músculo liso sin troponina asociada?	Tropomiosina.
+Capítulo 11	Aparato contráctil del músculo liso	¿Qué hacen caldesmona y calponina en reposo?	Bloquean el sitio de unión de miosina en actina.
+Capítulo 11	Aparato contráctil del músculo liso	¿De qué depende la acción de caldesmona y calponina?	Ca2+ y fosforilación de miosina.
+Capítulo 11	Cuerpos densos	¿Qué estructuras anclan filamentos delgados en músculo liso?	Cuerpos densos.
+Capítulo 11	Cuerpos densos	¿Qué estructura del músculo estriado se parece funcionalmente a los cuerpos densos?	Línea Z.
+Capítulo 11	Cuerpos densos	¿Qué proteína estructural abunda en cuerpos densos?	Actinina alfa.
+Capítulo 11	Cuerpos densos	¿Qué se fija a los cuerpos densos en músculo liso?	Filamentos delgados e intermedios.
+Capítulo 11	Cuerpos densos	¿Qué estructuras conectan el aparato contráctil con el sarcolema?	Densidades de adhesión.
+Capítulo 11	Cuerpos densos	¿Qué función tienen los cuerpos densos?	Transmiten fuerza contráctil dentro de la célula.
+Capítulo 11	Cuerpos densos	¿Qué función tienen las densidades de adhesión del sarcolema?	Transmiten fuerza hacia la superficie celular y células vecinas.
+Capítulo 11	Filamentos intermedios del músculo liso	¿Qué filamentos intermedios tiene el músculo liso?	Desmina y vimentina.
+Capítulo 11	Filamentos intermedios del músculo liso	¿Qué conectan desmina y vimentina en músculo liso?	Cuerpos densos, citoesqueleto y sarcolema.
+Capítulo 11	Filamentos intermedios del músculo liso	¿Qué función mecánica tienen desmina y vimentina en músculo liso?	Facilitan transmisión de fuerza durante la contracción.
+Capítulo 11	Filamentos gruesos del músculo liso	¿Qué diferencia tienen los filamentos gruesos del músculo liso frente a los estriados?	Son polares laterales, no bipolares.
+Capítulo 11	Filamentos gruesos del músculo liso	¿Qué músculo tiene filamentos gruesos bipolares?	Músculo esquelético y cardíaco.
+Capítulo 11	Filamentos gruesos del músculo liso	¿Qué músculo tiene filamentos gruesos polares laterales?	Músculo liso.
+Capítulo 11	Filamentos gruesos del músculo liso	¿Los filamentos gruesos de músculo liso tienen zona desnuda central?	No.
+Capítulo 11	Filamentos gruesos del músculo liso	¿Qué tienen los filamentos gruesos de músculo liso en lugar de zona desnuda central?	Extremos desnudos adelgazados asimétricos.
+Capítulo 11	Filamentos gruesos del músculo liso	¿Qué ventaja funcional da la disposición polar lateral de SMM?	Maximiza la interacción entre filamentos delgados y gruesos.
+Capítulo 11	Filamentos gruesos del músculo liso	¿Qué permite la disposición polar lateral durante contracción?	Arrastrar filamentos delgados a lo largo de casi todo el filamento grueso.
+Capítulo 11	Contracción del músculo liso	¿Qué ion inicia la contracción del músculo liso?	Ca2+.
+Capítulo 11	Contracción del músculo liso	¿Qué proteína fija Ca2+ en músculo liso?	Calmodulina.
+Capítulo 11	Contracción del músculo liso	¿Qué proteína del músculo estriado se parece funcionalmente a la calmodulina?	Troponina C.
+Capítulo 11	Contracción del músculo liso	¿Qué complejo activa la contracción en músculo liso?	Complejo Ca2+-calmodulina.
+Capítulo 11	Contracción del músculo liso	¿Qué enzima activa el complejo Ca2+-calmodulina?	MLCK.
+Capítulo 11	Contracción del músculo liso	¿Qué significa MLCK?	Cinasa de cadena ligera de miosina.
+Capítulo 11	Contracción del músculo liso	¿Qué hace la MLCK activada?	Fosforila una cadena ligera reguladora de miosina.
+Capítulo 11	Contracción del músculo liso	¿Qué permite la fosforilación de la cadena ligera de miosina?	Formación de enlaces cruzados con actina.
+Capítulo 11	Contracción del músculo liso	¿Qué cambio conformacional ocurre en SMM al fosforilarse?	Pasa de plegada inactiva a desplegada activa.
+Capítulo 11	Contracción del músculo liso	¿Qué se activa en la cabeza de miosina tras fosforilación?	Su sitio de fijación para actina.
+Capítulo 11	Contracción del músculo liso	¿Qué hace la cabeza de miosina de músculo liso en presencia de ATP?	Se flexiona y produce contracción.
+Capítulo 11	Contracción del músculo liso	¿Qué ocurre cuando la miosina de músculo liso se desfosforila?	Se disocia de la actina.
+Capítulo 11	Contracción del músculo liso	¿Qué enzima desfosforila la cadena ligera de miosina?	Fosfatasa de cadena ligera de miosina.
+Capítulo 11	Contracción del músculo liso	¿Qué efecto tiene la desfosforilación de miosina en músculo liso?	Favorece relajación.
+Capítulo 11	Contracción del músculo liso	¿Por qué la contracción del músculo liso es más lenta que la estriada?	Porque la hidrólisis de ATP ocurre más lentamente.
+Capítulo 11	Contracción del músculo liso	¿Por qué el músculo liso puede contraerse por períodos prolongados?	Porque consume ATP más lentamente.
+Capítulo 11	Contracción del músculo liso	¿Qué ventaja funcional tiene la contracción lenta del músculo liso?	Mantener tono con bajo gasto energético.
+Capítulo 11	Contracción del músculo liso	¿Qué sucede con la célula muscular lisa durante contracción?	Se acorta y adopta forma más globular.
+Capítulo 11	Contracción del músculo liso	¿Qué ocurre con el núcleo durante contracción del músculo liso?	Se enrolla o se ondula.
+Capítulo 11	Estimulación del músculo liso	¿Qué tipos de estímulos pueden desencadenar contracción del músculo liso?	Mecánicos, eléctricos y químicos.
+Capítulo 11	Estimulación del músculo liso	¿Qué estímulo mecánico puede activar músculo liso?	Estiramiento pasivo.
+Capítulo 11	Estimulación del músculo liso	¿Qué canales activa el estiramiento pasivo en músculo liso?	Canales iónicos mecanosensibles.
+Capítulo 11	Estimulación del músculo liso	¿Qué es el reflejo miógeno?	Contracción espontánea del músculo liso por estiramiento.
+Capítulo 11	Estimulación del músculo liso	¿Qué estímulo eléctrico puede iniciar contracción de músculo liso?	Despolarización de membrana.
+Capítulo 11	Estimulación del músculo liso	¿Qué canales se abren por despolarización en músculo liso?	Canales de Ca2+ sensibles a voltaje.
+Capítulo 11	Estimulación del músculo liso	¿Qué neurotransmisores pueden estimular músculo liso?	Acetilcolina y noradrenalina.
+Capítulo 11	Estimulación del músculo liso	¿Qué tipo de estímulos químicos pueden activar músculo liso sin potencial de acción?	Agonistas que actúan por segundos mensajeros.
+Capítulo 11	Estimulación del músculo liso	¿Qué ejemplos de estímulos químicos activan músculo liso?	Angiotensina II, vasopresina y tromboxano A2.
+Capítulo 11	Estimulación del músculo liso	¿Qué vías de segundo mensajero se usan en músculo liso?	IP3, vías acopladas a proteína G y NO-GMPc.
+Capítulo 11	Estimulación del músculo liso	¿Qué significa IP3?	Inositol 1,4,5-trifosfato.
+Capítulo 11	Estimulación del músculo liso	¿Qué vía de segundo mensajero puede mediar relajación del músculo liso?	NO-GMPc.
+Capítulo 11	Estimulación del músculo liso	¿Qué fuente intracelular libera Ca2+ en músculo liso?	Retículo endoplasmático liso.
+Capítulo 11	Estimulación del músculo liso	¿Qué segundo mensajero puede inducir liberación de Ca2+ desde REL?	IP3.
+Capítulo 11	Estimulación del músculo liso	¿Por qué la entrada de Ca2+ extracelular puede no ser suficiente para contraer músculo liso?	Porque también suele requerir liberación de Ca2+ desde REL.
+Capítulo 11	Estimulación del músculo liso	¿Qué ocurre después de liberar Ca2+ desde REL en músculo liso?	Ca2+ se une a calmodulina y activa MLCK.
+Capítulo 11	Relajación del músculo liso	¿Qué causa la relajación del músculo liso?	Disminución de Ca2+ intracelular y desfosforilación de miosina.
+Capítulo 11	Relajación del músculo liso	¿Qué elimina Ca2+ del sarcoplasma en músculo liso?	Bombas de Ca2+ dependientes de ATP.
+Capítulo 11	Relajación del músculo liso	¿Qué vía endotelial relaja músculo liso vascular?	NO-GMPc.
+Capítulo 11	Relajación del músculo liso	¿Qué molécula endotelial activa guanilato ciclasa en músculo liso?	Óxido nítrico.
+Capítulo 11	Relajación del músculo liso	¿Qué segundo mensajero aumenta por acción de NO en músculo liso?	GMPc.
+Capítulo 11	Relajación del músculo liso	¿Qué proteína cinasa se activa por GMPc en relajación del músculo liso?	PKG.
+Capítulo 11	Relajación del músculo liso	¿Qué efecto tiene PKG sobre músculo liso?	Disminuye Ca2+ intracelular y causa relajación.
+Capítulo 11	Relajación del músculo liso	¿Qué prostaglandina endotelial relaja músculo liso vascular?	Prostaciclina.
+Capítulo 11	Relajación del músculo liso	¿Qué efecto tiene la prostaciclina además de relajar músculo liso?	Inhibe agregación plaquetaria.
+Capítulo 11	Relajación del músculo liso	¿Qué vía activa la prostaciclina en músculo liso?	Vía cAMP-PKA.
+Capítulo 11	Relajación del músculo liso	¿Qué factor hiperpolarizante derivado del endotelio favorece relajación?	EDHF.
+Capítulo 11	Relajación del músculo liso	¿Qué efecto produce EDHF en la membrana del músculo liso?	Hiperpolarización.
+Capítulo 11	Función secretora del músculo liso	¿Qué puede sintetizar la célula muscular lisa además de contraerse?	Componentes de matriz extracelular.
+Capítulo 11	Función secretora del músculo liso	¿Qué componentes de MEC puede secretar músculo liso?	Colágeno, elastina, proteoglucanos y glucoproteínas multiadhesivas.
+Capítulo 11	Función secretora del músculo liso	¿Qué tipo de músculo liso secreta mucho colágeno I y elastina?	Músculo liso vascular y uterino.
+Capítulo 11	Función secretora del músculo liso	¿Qué función tiene la síntesis de MEC por músculo liso?	Mantener y remodelar su entorno extracelular.
+Capítulo 11	Renovación del músculo liso	¿Qué capacidad proliferativa tiene el músculo liso?	Puede dividirse por mitosis.
+Capítulo 11	Renovación del músculo liso	¿Qué diferencia proliferativa hay entre músculo liso y estriado?	El músculo liso puede duplicarse con regularidad.
+Capítulo 11	Renovación del músculo liso	¿Cómo responde el músculo liso ante lesión?	Con mitosis y reparación.
+Capítulo 11	Renovación del músculo liso	¿Qué permite la mitosis del músculo liso en estómago y colon?	Engrosamiento por hiperplasia durante la vida.
+Capítulo 11	Renovación del músculo liso	¿Qué ocurre con el músculo liso uterino durante gestación?	Aumenta por hipertrofia e hiperplasia.
+Capítulo 11	Renovación del músculo liso	¿De dónde pueden derivar nuevas células musculares lisas?	Células madre mesenquimatosas en adventicia de vasos.
+Capítulo 11	Renovación del músculo liso	¿Qué células pueden diferenciarse en músculo liso nuevo?	Células madre mesenquimatosas indiferenciadas.
+Capítulo 11	Diferenciación del músculo liso	¿Qué factor regula la mayoría de genes de diferenciación muscular lisa?	SRF.
+Capítulo 11	Diferenciación del músculo liso	¿Qué significa SRF?	Factor de respuesta sérica.
+Capítulo 11	Diferenciación del músculo liso	¿Qué activa SRF durante diferenciación de músculo liso?	Genes propios del fenotipo contráctil liso.
+Capítulo 11	Diferenciación del músculo liso	¿Qué propiedad fenotípica especial tienen las células musculares lisas?	Plasticidad fenotípica.
+Capítulo 11	Diferenciación del músculo liso	¿Qué significa plasticidad fenotípica en músculo liso?	Puede cambiar entre estado contráctil y sintético.
+Capítulo 11	Diferenciación del músculo liso	¿Qué estado del músculo liso produce más matriz extracelular?	Fenotipo sintético.
+Capítulo 11	Diferenciación del músculo liso	¿Qué estado del músculo liso está más especializado en contracción?	Fenotipo contráctil.
+Capítulo 11	Músculo liso vascular	¿Qué función tiene el músculo liso vascular?	Regular el diámetro de los vasos.
+Capítulo 11	Músculo liso vascular	¿Qué efecto tiene la contracción del músculo liso vascular?	Vasoconstricción.
+Capítulo 11	Músculo liso vascular	¿Qué efecto tiene la relajación del músculo liso vascular?	Vasodilatación.
+Capítulo 11	Músculo liso vascular	¿Qué ocurre con la presión arterial al relajarse músculo liso vascular?	Disminuye la resistencia vascular.
+Capítulo 11	Músculo liso visceral	¿Qué función tiene el músculo liso del tubo digestivo?	Producir movimientos peristálticos y mezcla.
+Capítulo 11	Músculo liso visceral	¿Qué función tiene el músculo liso de vías urinarias?	Impulsar orina por contracciones peristálticas.
+Capítulo 11	Músculo liso visceral	¿Qué función tiene el músculo liso respiratorio?	Regular calibre de vías respiratorias.
+Capítulo 11	Identificación histológica del músculo liso	¿Qué tejido muscular tiene células fusiformes sin estriaciones?	Músculo liso.
+Capítulo 11	Identificación histológica del músculo liso	¿Qué tejido muscular tiene núcleos centrales alargados en corte longitudinal?	Músculo liso.
+Capítulo 11	Identificación histológica del músculo liso	¿Qué tejido muscular puede mostrar núcleos en tirabuzón?	Músculo liso.
+Capítulo 11	Identificación histológica del músculo liso	¿Qué tejido muscular muestra núcleos redondos dispersos en corte transversal?	Músculo liso.
+Capítulo 11	Identificación histológica del músculo liso	¿Por qué los núcleos del músculo liso no se ven en todas las células de un corte transversal?	Porque las células fusiformes pueden cortarse lejos del núcleo.
+Capítulo 11	Identificación histológica del músculo liso	¿Qué músculo tiene límites celulares poco definidos en cortes longitudinales?	Músculo liso.
+Capítulo 11	Identificación histológica del músculo liso	¿Qué músculo se tiñe uniformemente con eosina y carece de estrías?	Músculo liso.
+Capítulo 11	Comparación de tipos musculares	¿Qué músculo tiene fibras largas multinucleadas con núcleos periféricos?	Músculo esquelético.
+Capítulo 11	Comparación de tipos musculares	¿Qué músculo tiene células ramificadas con discos intercalares?	Músculo cardíaco.
+Capítulo 11	Comparación de tipos musculares	¿Qué músculo tiene células fusiformes con núcleo central?	Músculo liso.
+Capítulo 11	Comparación de tipos musculares	¿Qué músculo tiene sarcómeros y control voluntario?	Músculo esquelético.
+Capítulo 11	Comparación de tipos musculares	¿Qué músculo tiene sarcómeros y contracción rítmica involuntaria?	Músculo cardíaco.
+Capítulo 11	Comparación de tipos musculares	¿Qué músculo no tiene sarcómeros y es involuntario?	Músculo liso.
+Capítulo 11	Comparación de tipos musculares	¿Qué músculo tiene tríadas?	Músculo esquelético.
+Capítulo 11	Comparación de tipos musculares	¿Qué músculo tiene díadas?	Músculo cardíaco.
+Capítulo 11	Comparación de tipos musculares	¿Qué músculo tiene cavéolas en lugar de túbulos T?	Músculo liso.
+Capítulo 11	Comparación de tipos musculares	¿Qué músculo usa troponina para regular contracción?	Esquelético y cardíaco.
+Capítulo 11	Comparación de tipos musculares	¿Qué músculo usa calmodulina y MLCK para regular contracción?	Músculo liso.
+Capítulo 11	Comparación de tipos musculares	¿Qué músculo se regenera mediante células satélite?	Músculo esquelético.
+Capítulo 11	Comparación de tipos musculares	¿Qué músculo adulto se repara principalmente por cicatriz tras necrosis?	Músculo cardíaco.
+Capítulo 11	Comparación de tipos musculares	¿Qué músculo conserva capacidad mitótica notable?	Músculo liso.
+Capítulo 11	Comparación de tipos musculares	¿Qué músculo tiene discos intercalares?	Músculo cardíaco.
+Capítulo 11	Comparación de tipos musculares	¿Qué músculo tiene cuerpos densos?	Músculo liso.
+Capítulo 11	Comparación de tipos musculares	¿Qué músculo tiene líneas Z?	Músculo esquelético y cardíaco.
+Capítulo 11	Comparación de tipos musculares	¿Qué músculo contiene filamentos gruesos polares laterales?	Músculo liso.
+Capítulo 11	Comparación de tipos musculares	¿Qué músculo contiene filamentos gruesos bipolares?	Músculo esquelético y cardíaco.
+Capítulo 11	Comparación de tipos musculares	¿Qué músculo puede mantener contracción prolongada con bajo gasto de ATP?	Músculo liso.
+Capítulo 11	Comparación de tipos musculares	¿Qué músculo requiere entrada extracelular de Ca2+ para contracción?	Músculo cardíaco y músculo liso.
+Capítulo 11	Histología 101	¿Cuál es la idea central del tejido muscular?	Células especializadas convierten energía química en trabajo mecánico.
+Capítulo 11	Histología 101	¿Qué proteínas generan fuerza contráctil en músculo?	Actina y miosina.
+Capítulo 11	Histología 101	¿Qué músculo tiene estriaciones y núcleos periféricos?	Músculo esquelético.
+Capítulo 11	Histología 101	¿Qué músculo tiene estriaciones y discos intercalares?	Músculo cardíaco.
+Capítulo 11	Histología 101	¿Qué músculo no tiene estriaciones y tiene cuerpos densos?	Músculo liso.
+Capítulo 11	Histología 101	¿Qué estructura es la unidad contráctil del músculo estriado?	Sarcómero.
+Capítulo 11	Histología 101	¿Qué estructura transmite señal motora al músculo esquelético?	Unión neuromuscular.
+Capítulo 11	Histología 101	¿Qué célula permite regeneración limitada del músculo esquelético?	Célula satélite.
+Capítulo 11	Histología 101	¿Qué estructura une cardiomiocitos mecánica y eléctricamente?	Disco intercalar.
+Capítulo 11	Histología 101	¿Qué proteína fija Ca2+ en músculo liso?	Calmodulina.
+Capítulo 11	Histología 101	¿Qué enzima activa la contracción del músculo liso?	MLCK.
+Capítulo 11	Histología 101	¿Qué estructura ancla actina en músculo liso?	Cuerpo denso.
