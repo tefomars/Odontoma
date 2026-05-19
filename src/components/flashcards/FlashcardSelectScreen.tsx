@@ -530,7 +530,7 @@ export default function FlashcardSelectScreen({
                 text-zinc-400
                 sm:text-base
               ">
-                Elegí un capítulo a la izquierda y repasá por bloques grandes.
+                Elegí un capítulo y repasá por bloques grandes.
               </p>
             </div>
 
@@ -732,6 +732,9 @@ export default function FlashcardSelectScreen({
               <div className="
                 grid
                 gap-2
+                sm:max-h-none
+                lg:max-h-[68vh]
+                lg:overflow-y-auto
               ">
                 {availableChapterMenus.map(menu => {
                   const chapterCards =
@@ -801,13 +804,13 @@ export default function FlashcardSelectScreen({
             </aside>
 
             <section className="
-              max-h-[68vh]
-              overflow-y-auto
               rounded-[1.75rem]
               border
               border-zinc-800
               bg-zinc-950
               p-4
+              lg:max-h-[68vh]
+              lg:overflow-y-auto
             ">
               {currentMenu && (
                 <>
