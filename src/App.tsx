@@ -18,6 +18,8 @@ import MyQuizDecksScreen from "./components/MyQuizDecksScreen"
 import UserQuizDeckScreen from "./components/UserQuizDeckScreen"
 import UserQuizDeckMenuScreen from "./components/UserQuizDeckMenuScreen"
 
+import packageJson from "../package.json"
+
 import { questions } from "@/content/histologia"
 
 import {
@@ -34,14 +36,24 @@ import type {
   FlashcardSource
 } from "@/lib/flashcardDecks"
 
+const APP_VERSION = "v0.8.40"
 
+
+
+function VersionBadge() {
+  return (
+    <div className="app-version-badge">
+      Odontoma {APP_VERSION}
+    </div>
+  )
+}
 
 function ScreenTransition({
   children,
   screenKey
 }: {
-  children: any
-  screenKey?: string
+  children: ReactNode
+  screenKey: string
 }) {
   return (
     <div
@@ -49,11 +61,45 @@ function ScreenTransition({
       className="screen-transition"
     >
       {children}
+      <VersionBadge />
+    </div>
+  )
+}
+
+function AppVersion() {
+  return (
+    <div className="
+      fixed
+      bottom-2
+      right-3
+      z-50
+      rounded-full
+      border
+      border-zinc-800
+      bg-black/40
+      px-2.5
+      py-1
+      text-[10px]
+      font-black
+      tracking-wide
+      text-zinc-500
+      backdrop-blur
+      pointer-events-none
+    ">
+      v{packageJson.version}
     </div>
   )
 }
 
 export default function App() {
+
+  useSwipeBack({
+    onBack: goBack,
+    enabled: true,
+    minDistance: 105,
+    maxVerticalDrift: 75
+  })
+
 
   const [selectedStudyMethod, setSelectedStudyMethod] =
     useState<"quizzes" | "flashcards" | null>(null)
@@ -630,13 +676,6 @@ export default function App() {
     goToMainMenu()
   }
 
-  useSwipeBack({
-    onBack: goBack,
-    enabled: true,
-    minDistance: 70,
-    maxVerticalDrift: 90
-  })
-
   const question =
     sessionQuestions[current]
 
@@ -658,10 +697,13 @@ export default function App() {
     return (
 
       <ScreenTransition screenKey="study-method">
-        <StudyMethodScreen
-          onSelectQuizzes={() => setSelectedStudyMethod("quizzes")}
-          onSelectFlashcards={() => setSelectedStudyMethod("flashcards")}
-        />
+        <>
+          <StudyMethodScreen
+            onSelectQuizzes={() => setSelectedStudyMethod("quizzes")}
+            onSelectFlashcards={() => setSelectedStudyMethod("flashcards")}
+          />
+          <AppVersion />
+        </>
       </ScreenTransition>
 
     )

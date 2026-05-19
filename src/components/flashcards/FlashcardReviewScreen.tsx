@@ -369,6 +369,12 @@ export default function FlashcardReviewScreen({
     if (!currentCard) return
     if (event.pointerType !== "touch") return
 
+    if (
+      document.documentElement.classList.contains("is-swiping-back")
+    ) {
+      return
+    }
+
     const target =
       event.target as HTMLElement
 
@@ -376,7 +382,8 @@ export default function FlashcardReviewScreen({
       target.closest("button") ||
       target.closest("input") ||
       target.closest("textarea") ||
-      target.closest("select")
+      target.closest("select") ||
+      target.closest("a")
     ) {
       return
     }
