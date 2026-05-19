@@ -2,12 +2,14 @@ type Props = {
   score: number
   total: number
   onRestart: () => void
+  onMainMenu: () => void
 }
 
 export default function ResultsScreen({
   score,
   total,
-  onRestart
+  onRestart,
+  onMainMenu
 }: Props) {
 
   return (
@@ -24,12 +26,27 @@ export default function ResultsScreen({
           {score}/{total}
         </p>
 
-        <button
-          onClick={onRestart}
-          className="bg-cyan-500 hover:bg-cyan-400 text-black px-8 py-4 rounded-2xl font-black"
-        >
-          Volver
-        </button>
+        <div className="
+          flex
+          flex-col
+          gap-3
+          sm:flex-row
+          sm:justify-center
+        ">
+          <button
+            onClick={onRestart}
+            className="bg-cyan-500 hover:bg-cyan-400 text-black px-8 py-4 rounded-2xl font-black"
+          >
+            Volver
+          </button>
+
+          <button
+            onClick={onMainMenu}
+            className="border border-violet-500/30 bg-violet-500/10 hover:bg-violet-500/20 text-violet-200 px-8 py-4 rounded-2xl font-black"
+          >
+            Menú principal
+          </button>
+        </div>
 
       </div>
 

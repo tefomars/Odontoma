@@ -1,10 +1,17 @@
 import { useMemo, useState } from "react"
 
 import HomeScreen from "./components/HomeScreen"
+import StudyMethodScreen from "./components/StudyMethodScreen"
 import SetupScreen from "./components/SetupScreen"
 import QuizScreen from "./components/QuizScreen"
 import ResultsScreen from "./components/ResultsScreen"
 import WeakTopicsScreen from "./components/WeakTopicsScreen"
+import FlashcardReviewScreen from "./components/flashcards/FlashcardReviewScreen"
+import FlashcardSelectScreen from "./components/flashcards/FlashcardSelectScreen"
+import FlashcardSubjectScreen from "./components/flashcards/FlashcardSubjectScreen"
+import MyFlashcardTopicsScreen from "./components/flashcards/MyFlashcardTopicsScreen"
+import UserTopicScreen from "./components/flashcards/UserTopicScreen"
+import UserDeckMenuScreen from "./components/flashcards/UserDeckMenuScreen"
 
 import { questions } from "@/content/histologia"
 
@@ -18,9 +25,37 @@ import {
   shuffleQuestion
 } from "@/lib/shuffleQuestion"
 
+import type {
+  FlashcardSource
+} from "@/lib/flashcardDecks"
+
 export default function App() {
 
+  const [selectedStudyMethod, setSelectedStudyMethod] =
+    useState<"quizzes" | "flashcards" | null>(null)
+
   const [selectedSubject, setSelectedSubject] =
+    useState<string | null>(null)
+
+  const [selectedFlashcardSubject, setSelectedFlashcardSubject] =
+    useState<string | null>(null)
+
+  const [selectedFlashcardTopic, setSelectedFlashcardTopic] =
+    useState<string | null>(null)
+
+  const [selectedFlashcardSubtopic, setSelectedFlashcardSubtopic] =
+    useState<string | null>(null)
+
+  const [selectedFlashcardSource, setSelectedFlashcardSource] =
+    useState<FlashcardSource>("default")
+
+  const [showMyFlashcardTopics, setShowMyFlashcardTopics] =
+    useState(false)
+
+  const [activeUserTopicId, setActiveUserTopicId] =
+    useState<string | null>(null)
+
+  const [editingUserTopicId, setEditingUserTopicId] =
     useState<string | null>(null)
 
   const [started, setStarted] =
@@ -462,6 +497,25 @@ export default function App() {
     setCurrent(prev => prev + 1)
   }
 
+  function goToMainMenu() {
+
+    setSelectedStudyMethod(null)
+    setSelectedSubject(null)
+
+    setSelectedFlashcardSubject(null)
+    setSelectedFlashcardTopic(null)
+    setSelectedFlashcardSubtopic(null)
+    setSelectedFlashcardSource("default")
+    setShowMyFlashcardTopics(false)
+    setActiveUserTopicId(null)
+    setEditingUserTopicId(null)
+
+    setStarted(false)
+    setFinished(false)
+    setCurrent(0)
+    setScore(0)
+  }
+
   const question =
     sessionQuestions[current]
 
@@ -478,11 +532,146 @@ export default function App() {
   }
 
 
+  if (!selectedStudyMethod) {
+
+    return (
+
+      <StudyMethodScreen
+        onSelectQuizzes={() => setSelectedStudyMethod("quizzes")}
+        onSelectFlashcards={() => setSelectedStudyMethod("flashcards")}
+      />
+
+    )
+  }
+
+  if (selectedStudyMethod === "flashcards") {
+
+    if (!selectedFlashcardSubject) {
+
+      return (
+
+        <FlashcardSubjectScreen
+          onBack={() => setSelectedStudyMethod(null)}
+          onSelectMyDecks={() => {
+            setSelectedFlashcardSubject("my")
+            setShowMyFlashcardTopics(true)
+          }}
+          onSelectSubject={(subject) => setSelectedFlashcardSubject(subject)}
+        />
+
+      )
+    }
+
+    if (editingUserTopicId) {
+
+      return (
+
+        <UserTopicScreen
+          topicId={editingUserTopicId}
+          onBack={() => setEditingUserTopicId(null)}
+          onMenu={goToMainMenu}
+          onReview={() => {
+            setSelectedFlashcardSource("user")
+            setSelectedFlashcardTopic(editingUserTopicId)
+            setSelectedFlashcardSubtopic(null)
+            setEditingUserTopicId(null)
+            setShowMyFlashcardTopics(false)
+          }}
+        />
+
+      )
+    }
+
+    if (activeUserTopicId) {
+
+      return (
+
+        <UserDeckMenuScreen
+          topicId={activeUserTopicId}
+          onBack={() => setActiveUserTopicId(null)}
+          onMenu={goToMainMenu}
+          onEdit={() => {
+            setEditingUserTopicId(activeUserTopicId)
+            setActiveUserTopicId(null)
+          }}
+          onReview={() => {
+            setSelectedFlashcardSource("user")
+            setSelectedFlashcardTopic(activeUserTopicId)
+            setSelectedFlashcardSubtopic(null)
+            setActiveUserTopicId(null)
+            setShowMyFlashcardTopics(false)
+          }}
+        />
+
+      )
+    }
+
+    if (showMyFlashcardTopics) {
+
+      return (
+
+        <MyFlashcardTopicsScreen
+          onBack={() => {
+            setShowMyFlashcardTopics(false)
+            setSelectedFlashcardSubject(null)
+          }}
+          onMenu={goToMainMenu}
+          onSelectTopic={(topicId) => setActiveUserTopicId(topicId)}
+        />
+
+      )
+    }
+
+    if (!selectedFlashcardTopic) {
+
+      return (
+
+        <FlashcardSelectScreen
+          onBack={() => setSelectedFlashcardSubject(null)}
+          onCreateFlashcard={() => setShowMyFlashcardTopics(true)}
+          onSelectTopic={(topic, source) => {
+            setSelectedFlashcardTopic(topic)
+            setSelectedFlashcardSubtopic(null)
+            setSelectedFlashcardSource(source)
+          }}
+          onSelectSubtopic={(topic, subtopic, source) => {
+            setSelectedFlashcardTopic(topic)
+            setSelectedFlashcardSubtopic(subtopic)
+            setSelectedFlashcardSource(source)
+          }}
+        />
+
+      )
+    }
+
+    return (
+
+      <FlashcardReviewScreen
+        selectedTopic={selectedFlashcardTopic}
+        selectedSubtopic={selectedFlashcardSubtopic || undefined}
+        source={selectedFlashcardSource}
+        onMenu={goToMainMenu}
+        onBack={() => {
+
+          if (selectedFlashcardSource === "user") {
+            setActiveUserTopicId(selectedFlashcardTopic)
+            setShowMyFlashcardTopics(true)
+          }
+
+          setSelectedFlashcardTopic(null)
+          setSelectedFlashcardSubtopic(null)
+        }}
+      />
+
+    )
+  }
+
   if (!selectedSubject) {
 
     return (
 
       <HomeScreen
+        onMainMenu={goToMainMenu}
         onSelectSubject={(subject) => {
           setSelectedSubject(subject)
         }}
@@ -510,6 +699,7 @@ export default function App() {
         onBackHome={() => {
           setSelectedSubject(null)
         }}
+        onMainMenu={goToMainMenu}
         onStart={startPractice}
         onMastery={() => setShowMastery(true)}
         onContinueSession={continuePausedSession}
@@ -527,6 +717,7 @@ export default function App() {
         score={score}
         total={sessionQuestions.length}
         onRestart={restart}
+        onMainMenu={goToMainMenu}
       />
 
     )
@@ -559,6 +750,7 @@ export default function App() {
       total={sessionQuestions.length}
       score={score}
       onBack={pauseSession}
+      onMainMenu={goToMainMenu}
       onCorrect={handleCorrect}
       onIncorrect={handleIncorrect}
       onNext={handleNext}

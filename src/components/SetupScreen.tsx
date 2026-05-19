@@ -34,6 +34,7 @@ type Props = {
   hasPausedSession?: boolean
 
   onBackHome?: () => void
+  onMainMenu?: () => void
   onStart: () => void
   onMastery?: () => void
   onContinueSession?: () => void
@@ -107,6 +108,7 @@ export default function SetupScreen({
   hasPausedSession,
 
   onBackHome,
+  onMainMenu,
   onStart,
   onMastery,
   onContinueSession,
@@ -280,26 +282,51 @@ export default function SetupScreen({
 
               <div>
 
-                <button
-                  type="button"
-                  onClick={onBackHome}
-                  className="
-                    mb-4
-                    rounded-2xl
-                    border
-                    border-zinc-800
-                    bg-zinc-950
-                    px-4
-                    py-2
-                    text-xs
-                    font-black
-                    text-zinc-400
-                    hover:bg-zinc-900
-                    hover:text-white
-                  "
-                >
-                  ← Materias
-                </button>
+                <div className="
+                  mb-4
+                  flex
+                  flex-wrap
+                  gap-2
+                ">
+                  <button
+                    type="button"
+                    onClick={onBackHome}
+                    className="
+                      rounded-2xl
+                      border
+                      border-zinc-800
+                      bg-zinc-950
+                      px-4
+                      py-2
+                      text-xs
+                      font-black
+                      text-zinc-400
+                      hover:bg-zinc-900
+                      hover:text-white
+                    "
+                  >
+                    ← Materias
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={onMainMenu}
+                    className="
+                      rounded-2xl
+                      border
+                      border-violet-500/30
+                      bg-violet-500/10
+                      px-4
+                      py-2
+                      text-xs
+                      font-black
+                      text-violet-200
+                      hover:bg-violet-500/20
+                    "
+                  >
+                    Menú principal
+                  </button>
+                </div>
 
                 <p className="
                   mb-2
@@ -427,6 +454,7 @@ export default function SetupScreen({
               </div>
 
             )}
+
 
             <div className="
               grid

@@ -1,6 +1,7 @@
 import logoImage from "@/assets/logo.png"
 type Props = {
   onSelectSubject: (subject: string) => void
+  onMainMenu?: () => void
 }
 
 const subjects = [
@@ -40,7 +41,8 @@ const subjects = [
 ]
 
 export default function HomeScreen({
-  onSelectSubject
+  onSelectSubject,
+  onMainMenu
 }: Props) {
 
   return (
@@ -52,6 +54,33 @@ export default function HomeScreen({
       px-5
       py-8
     ">
+
+      <div className="
+        mb-5
+        flex
+        justify-start
+      ">
+        {onMainMenu && (
+          <button
+            type="button"
+            onClick={onMainMenu}
+            className="
+              rounded-2xl
+              border
+              border-violet-500/30
+              bg-violet-500/10
+              px-4
+              py-2
+              text-sm
+              font-black
+              text-violet-200
+              hover:bg-violet-500/20
+            "
+          >
+            Menú principal
+          </button>
+        )}
+      </div>
 
       <div className="
         mx-auto

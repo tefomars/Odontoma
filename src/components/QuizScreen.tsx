@@ -13,6 +13,7 @@ type Props = {
   score: number
 
   onBack?: () => void
+  onMainMenu?: () => void
 
   onNext: () => void
   onCorrect: () => void
@@ -92,6 +93,7 @@ export default function QuizScreen({
   score,
 
   onBack,
+  onMainMenu,
 
   onNext,
   onCorrect,
@@ -268,39 +270,57 @@ export default function QuizScreen({
           lg:justify-between
         ">
 
-          <button
-            onClick={onBack}
+          <div className="
+            relative
+            z-50
+            mb-3
+            flex
+            flex-wrap
+            gap-2
+            self-start
+            lg:absolute
+            lg:top-6
+            lg:left-6
+            lg:mb-0
+          ">
+            <button
+              onClick={onBack}
+              className="
+                rounded-2xl
+                border
+                border-zinc-700
+                bg-zinc-900/80
+                px-4
+                py-2
+                text-sm
+                font-semibold
+                hover:bg-zinc-800
+                transition-all
+              "
+            >
+              ← Volver
+            </button>
 
-            className="
-              relative
-              z-50
-              mb-3
-              self-start
-              lg:absolute
-              lg:top-6
-              lg:left-6
-              lg:mb-0
-
-              rounded-2xl
-
-              border
-              border-zinc-700
-
-              bg-zinc-900/80
-
-              px-4
-              py-2
-
-              text-sm
-              font-semibold
-
-              hover:bg-zinc-800
-
-              transition-all
-            "
-          >
-            ← Volver
-          </button>
+            <button
+              type="button"
+              onClick={onMainMenu}
+              className="
+                rounded-2xl
+                border
+                border-violet-500/30
+                bg-violet-500/10
+                px-4
+                py-2
+                text-sm
+                font-semibold
+                text-violet-200
+                hover:bg-violet-500/20
+                transition-all
+              "
+            >
+              Menú
+            </button>
+          </div>
 
           <div>
 
