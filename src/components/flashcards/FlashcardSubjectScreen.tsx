@@ -90,8 +90,7 @@ export default function FlashcardSubjectScreen({
 
   return (
     <main className="
-      min-h-screen
-      overflow-y-auto
+      flashcard-book-shell
       bg-[#09090b]
       px-4
       py-5
@@ -101,32 +100,38 @@ export default function FlashcardSubjectScreen({
       lg:py-10
     ">
       <div className="
+        flashcard-book-frame
         mx-auto
         max-w-6xl
       ">
 
-        <button
-          type="button"
-          onClick={onBack}
-          className="
-            mb-5
-            rounded-2xl
-            border
-            border-zinc-800
-            bg-zinc-950
-            px-4
-            py-2
-            text-sm
-            font-black
-            text-zinc-400
-            hover:bg-zinc-900
-            hover:text-white
-          "
-        >
-          ← Volver
-        </button>
+        <div className="
+          flashcard-book-topbar
+          pb-5
+        ">
+          <button
+            type="button"
+            onClick={onBack}
+            className="
+              rounded-2xl
+              border
+              border-zinc-800
+              bg-zinc-950
+              px-4
+              py-2
+              text-sm
+              font-black
+              text-zinc-400
+              hover:bg-zinc-900
+              hover:text-white
+            "
+          >
+            ← Volver
+          </button>
+        </div>
 
         <section className="
+          flashcard-book-scroll
           rounded-[2rem]
           border
           border-zinc-800
@@ -179,27 +184,25 @@ export default function FlashcardSubjectScreen({
                 text-3xl
                 font-black
                 leading-tight
-                tracking-tight
-                sm:text-4xl
-                lg:text-5xl
+                sm:text-5xl
               ">
                 Elegí un deck
               </h1>
 
               <p className="
-                mt-3
+                mt-4
                 max-w-2xl
-                text-sm
+                text-base
+                font-medium
                 leading-relaxed
                 text-zinc-400
-                sm:text-base
               ">
                 Tus decks personales van separados de los decks premade por materia.
               </p>
             </div>
 
             <div className="
-              rounded-3xl
+              rounded-[1.5rem]
               border
               border-zinc-800
               bg-zinc-950
@@ -210,17 +213,16 @@ export default function FlashcardSubjectScreen({
                 text-xs
                 font-black
                 uppercase
-                tracking-[0.2em]
+                tracking-[0.25em]
                 text-zinc-500
               ">
                 Sistema
               </p>
 
               <p className="
-                mt-1
+                mt-2
                 text-2xl
                 font-black
-                text-white
               ">
                 FSRS
               </p>
@@ -231,35 +233,33 @@ export default function FlashcardSubjectScreen({
             type="button"
             onClick={onSelectMyDecks}
             className="
-              mb-6
+              mb-8
               w-full
-              overflow-hidden
-              rounded-[1.75rem]
+              rounded-[2rem]
               border
               border-emerald-500/30
               bg-emerald-500/10
-              p-5
+              p-6
               text-left
-              transition-all
-              hover:border-emerald-400/50
-              hover:bg-emerald-500/20
-              sm:p-6
+              transition
+              hover:border-emerald-400/60
+              hover:bg-emerald-500/15
             "
           >
             <div className="
               flex
               flex-col
               gap-5
-              sm:flex-row
-              sm:items-center
-              sm:justify-between
+              lg:flex-row
+              lg:items-center
+              lg:justify-between
             ">
               <div>
                 <p className="
                   text-xs
                   font-black
                   uppercase
-                  tracking-[0.2em]
+                  tracking-[0.25em]
                   text-emerald-300
                 ">
                   Personal
@@ -269,18 +269,14 @@ export default function FlashcardSubjectScreen({
                   mt-3
                   text-3xl
                   font-black
-                  leading-tight
-                  text-white
-                  sm:text-4xl
                 ">
                   My decks
                 </h2>
 
                 <p className="
                   mt-3
-                  max-w-2xl
                   text-sm
-                  leading-relaxed
+                  font-bold
                   text-zinc-300
                 ">
                   Crear tus propios temas y agregar flashcards rápido.
@@ -291,10 +287,9 @@ export default function FlashcardSubjectScreen({
                 flex
                 flex-wrap
                 gap-2
-                sm:justify-end
               ">
                 <span className="
-                  rounded-2xl
+                  rounded-full
                   bg-black/30
                   px-4
                   py-2
@@ -306,7 +301,7 @@ export default function FlashcardSubjectScreen({
                 </span>
 
                 <span className="
-                  rounded-2xl
+                  rounded-full
                   bg-black/30
                   px-4
                   py-2
@@ -318,7 +313,7 @@ export default function FlashcardSubjectScreen({
                 </span>
 
                 <span className="
-                  rounded-2xl
+                  rounded-full
                   bg-emerald-500/20
                   px-4
                   py-2
@@ -334,9 +329,8 @@ export default function FlashcardSubjectScreen({
 
           <h2 className="
             mb-4
-            text-xl
+            text-2xl
             font-black
-            text-white
           ">
             Premade decks
           </h2>
@@ -344,113 +338,96 @@ export default function FlashcardSubjectScreen({
           <div className="
             grid
             gap-4
-            md:grid-cols-2
-            xl:grid-cols-3
+            lg:grid-cols-3
           ">
-
             {subjects.map(subject => (
               <button
                 key={subject.id}
                 type="button"
                 disabled={!subject.available}
-                onClick={() => onSelectSubject(subject.id)}
+                onClick={() => {
+                  if (subject.available) {
+                    onSelectSubject(subject.id)
+                  }
+                }}
                 className={`
-                  relative
-                  min-h-[210px]
-                  overflow-hidden
                   rounded-[1.75rem]
                   border
+                  border-zinc-800
+                  bg-gradient-to-br
+                  ${subject.accent}
                   p-5
                   text-left
-                  transition-all
-
+                  transition
                   ${
                     subject.available
-                      ? "border-zinc-800 bg-zinc-950 hover:border-violet-500/50"
-                      : "cursor-not-allowed border-zinc-900 bg-zinc-950/50 opacity-60"
+                      ? "hover:border-violet-400/60 hover:brightness-110"
+                      : "cursor-not-allowed opacity-45"
                   }
                 `}
               >
-                <div className={`
-                  absolute
-                  inset-0
-                  bg-gradient-to-br
-                  ${subject.accent}
-                `} />
+                <p className="
+                  text-xs
+                  font-black
+                  uppercase
+                  tracking-[0.25em]
+                  text-zinc-500
+                ">
+                  {subject.subtitle}
+                </p>
+
+                <h3 className="
+                  mt-4
+                  text-3xl
+                  font-black
+                ">
+                  {subject.title}
+                </h3>
+
+                <p className="
+                  mt-3
+                  min-h-[3rem]
+                  text-sm
+                  font-medium
+                  leading-relaxed
+                  text-zinc-300
+                ">
+                  {subject.description}
+                </p>
 
                 <div className="
-                  relative
+                  mt-5
                   flex
-                  min-h-[170px]
-                  flex-col
+                  items-center
                   justify-between
+                  gap-3
                 ">
-                  <div>
-                    <p className="
-                      text-xs
-                      font-black
-                      uppercase
-                      tracking-[0.2em]
-                      text-zinc-400
-                    ">
-                      {subject.subtitle}
-                    </p>
-
-                    <h2 className="
-                      mt-3
-                      text-3xl
-                      font-black
-                      leading-tight
-                      text-white
-                    ">
-                      {subject.title}
-                    </h2>
-
-                    <p className="
-                      mt-3
-                      text-sm
-                      leading-relaxed
-                      text-zinc-300
-                    ">
-                      {subject.description}
-                    </p>
-                  </div>
-
-                  <div className="
-                    mt-5
-                    flex
-                    items-center
-                    justify-between
-                    gap-3
+                  <span className="
+                    rounded-full
+                    bg-black/30
+                    px-4
+                    py-2
+                    text-sm
+                    font-black
+                    text-zinc-200
                   ">
+                    {subject.available
+                      ? `${premadeDeckCount} mazos`
+                      : "Próximamente"}
+                  </span>
+
+                  {subject.available && (
                     <span className="
-                      rounded-2xl
-                      bg-black/30
-                      px-4
-                      py-2
                       text-sm
                       font-black
-                      text-zinc-200
+                      text-violet-200
                     ">
-                      {subject.available
-                        ? `${premadeDeckCount} mazos`
-                        : "Próximamente"}
+                      Entrar →
                     </span>
-
-                    {subject.available && (
-                      <span className="
-                        text-sm
-                        font-black
-                        text-violet-200
-                      ">
-                        Entrar →
-                      </span>
-                    )}
-                  </div>
+                  )}
                 </div>
               </button>
             ))}
-
           </div>
 
           <div className="
@@ -465,3 +442,4 @@ export default function FlashcardSubjectScreen({
     </main>
   )
 }
+

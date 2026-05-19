@@ -425,10 +425,6 @@ button:active:not(:disabled) {
   }
 }
 
-.screen-transition main > div,
-.screen-transition section {
-  animation: contentLift 300ms cubic-bezier(0.16, 1, 0.3, 1) both;
-}
 
 @keyframes contentLift {
   0% {
@@ -710,3 +706,261 @@ button:active:not(:disabled) {
     transition: none !important;
   }
 }
+
+/* Desktop fixed shell: evita que botones superiores desaparezcan con scroll */
+@media (min-width: 1024px) {
+  .screen-transition {
+    height: 100dvh;
+    overflow: hidden;
+  }
+
+  .screen-transition > main,
+  .screen-transition-inner > main {
+    height: 100dvh;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+}
+
+/* Mobile queda normal */
+@media (max-width: 1023px) {
+  .screen-transition {
+    min-height: 100dvh;
+    overflow: visible;
+  }
+
+  .screen-transition > main,
+  .screen-transition-inner > main {
+    min-height: 100dvh;
+    height: auto;
+    overflow: visible;
+  }
+}
+
+
+/* Fixed shell real: el main no scrollea; solo scrollea el contenido interno */
+.screen-transition-inner > .flashcard-subject-screen,
+.screen-transition-inner > .quiz-screen {
+  height: 100dvh !important;
+  min-height: 100dvh !important;
+  overflow: hidden !important;
+}
+
+/* Flashcards subject/deck menu: Volver queda fuera del scroll */
+.flashcard-subject-screen > div {
+  height: 100% !important;
+  min-height: 0 !important;
+  overflow: hidden !important;
+}
+
+.flashcard-subject-screen > div > button {
+  flex-shrink: 0 !important;
+}
+
+.flashcard-subject-screen > div > section {
+  min-height: 0 !important;
+  flex: 1 1 0% !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Quiz: evita scroll global y mantiene pregunta/opciones/footer dentro del viewport */
+.quiz-screen {
+  height: 100dvh !important;
+  min-height: 100dvh !important;
+  overflow: hidden !important;
+}
+
+.quiz-screen > div:first-child {
+  height: 100% !important;
+  min-height: 0 !important;
+  overflow: hidden !important;
+}
+
+.quiz-screen > div:first-child > div:first-child {
+  flex-shrink: 0 !important;
+  margin-bottom: 0.75rem !important;
+}
+
+.quiz-screen > div:first-child > div:nth-child(2) {
+  flex-shrink: 0 !important;
+  margin-bottom: 0.75rem !important;
+}
+
+.quiz-screen [data-slot="card"],
+.quiz-screen .rounded-\[28px\] {
+  min-height: 0 !important;
+  flex: 1 1 0% !important;
+  overflow: hidden !important;
+}
+
+@media (max-height: 760px) and (min-width: 768px) {
+  .quiz-screen {
+    padding-top: 0.75rem !important;
+    padding-bottom: 0.75rem !important;
+  }
+
+  .quiz-screen h2 {
+    font-size: clamp(1.25rem, 2.35vh, 2rem) !important;
+  }
+
+  .quiz-screen [data-slot="card"] > div:first-child,
+  .quiz-screen .rounded-\[28px\] > div:first-child {
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+  }
+
+  .quiz-screen [data-slot="card"] > div:last-child,
+  .quiz-screen .rounded-\[28px\] > div:last-child {
+    padding-top: 0.75rem !important;
+    padding-bottom: 0.75rem !important;
+  }
+}
+
+/* Quiz card: quitar borde/outline blanco heredado */
+.quiz-screen [data-slot="card"],
+.quiz-screen .rounded-\[28px\] {
+  border-color: rgb(39 39 42) !important;
+  outline: none !important;
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.3) !important;
+  --tw-ring-color: transparent !important;
+  --tw-ring-offset-color: transparent !important;
+}
+
+
+/* Evita que el wrapper global vuelva a hacer scroll toda la pantalla */
+.screen-transition:has(.flashcard-fixed-shell),
+.screen-transition:has(.flashcard-fixed-shell) .screen-transition-inner {
+  height: 100dvh !important;
+  overflow: hidden !important;
+}
+
+.screen-transition-inner > .flashcard-fixed-shell {
+  height: 100dvh !important;
+  overflow: hidden !important;
+}
+
+/* En mobile dejamos respirar un poco el header fijo */
+@media (max-width: 767px) {
+  .flashcard-fixed-shell {
+    padding-top: max(12px, env(safe-area-inset-top)) !important;
+  }
+
+  .flashcard-fixed-header {
+    padding-bottom: 10px !important;
+  }
+}
+
+
+/* Flashcards book screen: layout fijo limpio */
+.flashcard-book-shell {
+  height: 100dvh !important;
+  min-height: 100dvh !important;
+  overflow: hidden !important;
+  background: #09090b !important;
+}
+
+.flashcard-book-frame {
+  height: 100% !important;
+  min-height: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+}
+
+.flashcard-book-topbar {
+  flex-shrink: 0 !important;
+  position: relative !important;
+  z-index: 50 !important;
+  background: #09090b !important;
+}
+
+.flashcard-book-scroll {
+  min-height: 0 !important;
+  flex: 1 1 0% !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Quita el look de textbox/highlight feo dentro de cards */
+.flashcard-book-shell button,
+.flashcard-book-shell h1,
+.flashcard-book-shell h2,
+.flashcard-book-shell h3,
+.flashcard-book-shell p,
+.flashcard-book-shell span,
+.flashcard-book-shell div {
+  background-clip: padding-box;
+}
+
+.flashcard-book-shell h1,
+.flashcard-book-shell h2,
+.flashcard-book-shell h3,
+.flashcard-book-shell p,
+.flashcard-book-shell span {
+  box-shadow: none !important;
+}
+
+/* El wrapper global no debe volver scrolleable toda la pantalla */
+.screen-transition:has(.flashcard-book-shell),
+.screen-transition:has(.flashcard-book-shell) .screen-transition-inner {
+  height: 100dvh !important;
+  overflow: hidden !important;
+}
+
+.screen-transition-inner > .flashcard-book-shell {
+  height: 100dvh !important;
+  overflow: hidden !important;
+}
+
+/* Ocultar badge inferior en mobile/tablet */
+@media (max-width: 1023px) {
+  .app-version-badge {
+    display: none !important;
+  }
+}
+
+/* Ocultar badge inferior viejo si aparece */
+@media (max-width: 1023px) {
+  .fixed.bottom-2.right-3 {
+    display: none !important;
+  }
+}
+
+/* Version badge: ocultar en mobile/tablet */
+@media (max-width: 1023px) {
+  .app-version-badge,
+  .screen-transition > .app-version-badge,
+  .screen-transition-inner ~ .app-version-badge,
+  .fixed.bottom-2.right-3.z-50,
+  div[class*="bottom-2"][class*="right-3"][class*="z-50"] {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
+}
+
+/* FINAL: ocultar versión en mobile/tablet */
+@media (max-width: 1023px) {
+  .app-version-badge {
+    display: none !important;
+  }
+
+  .screen-transition .app-version-badge {
+    display: none !important;
+  }
+
+  div[class~="fixed"][class~="bottom-2"][class~="right-3"] {
+    display: none !important;
+  }
+
+  div[class*="bottom-2"][class*="right-3"] {
+    display: none !important;
+  }
+}
+

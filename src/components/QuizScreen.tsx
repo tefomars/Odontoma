@@ -238,28 +238,26 @@ export default function QuizScreen({
   return (
 
     <main className="quiz-screen 
-      min-h-screen
+      h-[100dvh]
+      overflow-hidden
       bg-[#09090b]
-      text-white
       px-4
-      py-5
-      overflow-y-auto
-      lg:h-screen
-      lg:overflow-hidden
-      lg:py-6
+      py-4
+      text-white
+      lg:py-5
     ">
 
       <div className="
         mx-auto
-        max-w-5xl
-        min-h-screen
         flex
+        h-full
+        min-h-0
+        max-w-5xl
         flex-col
-        lg:h-full
       ">
 
         <div className="
-          mb-4
+          mb-3
           shrink-0
           flex
           flex-col
@@ -278,9 +276,6 @@ export default function QuizScreen({
             flex-wrap
             gap-2
             self-start
-            lg:absolute
-            lg:top-6
-            lg:left-6
             lg:mb-0
           ">
             <button
@@ -394,17 +389,23 @@ export default function QuizScreen({
         </div>
 
         <Card className="
-          flex-none
+          flex
+          min-h-0
+          flex-1
+          flex-col
+          overflow-hidden
           rounded-[28px]
+          border
           border-zinc-800
           bg-[#111118]
-          overflow-visible
-          flex
-          flex-col
-          lg:flex-1
-          lg:min-h-0
+          text-white
+          shadow-2xl
+          shadow-black/30
+          outline-none
+          ring-0
+          focus:outline-none
+          focus:ring-0
           lg:rounded-[32px]
-          lg:overflow-hidden
         ">
 
           <div className="
@@ -459,12 +460,12 @@ export default function QuizScreen({
             " />
 
             <div className="
-              overflow-visible
+              h-full
+              min-h-0
+              overflow-y-auto
               p-5
               pr-3
               md:p-6
-              lg:h-full
-              lg:overflow-y-auto
             ">
 
               <div className="
@@ -580,8 +581,9 @@ export default function QuizScreen({
             ">
 
               <div className="
+                min-w-0
                 flex-1
-                min-h-[72px]
+                min-h-[64px]
                 rounded-2xl
                 border
                 border-zinc-800
@@ -680,8 +682,8 @@ export default function QuizScreen({
 
                       className="
                         rounded-2xl
-                        px-8
-                        py-6
+                        px-6
+                        py-5
                         text-base
                         font-black
                         bg-white
@@ -701,8 +703,8 @@ export default function QuizScreen({
 
                       className="
                         rounded-2xl
-                        px-8
-                        py-6
+                        px-6
+                        py-5
                         text-base
                         font-black
                         bg-violet-500

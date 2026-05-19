@@ -1029,6 +1029,7 @@ export default function FlashcardSelectScreen({
   onSelectSubtopic
 }: Props) {
 
+
   const storage =
     useMemo(
       () => loadFsrsStorage(),
@@ -1061,9 +1062,16 @@ export default function FlashcardSelectScreen({
       availableChapterMenus[0]?.chapter || "Capítulo 5"
     )
 
+  const [mobileChapterMenu, setMobileChapterMenu] =
+    useState<string | null>(null)
+
   const currentMenu =
     availableChapterMenus.find(menu => menu.chapter === selectedChapter) ||
     availableChapterMenus[0]
+
+  const mobileMenu =
+    availableChapterMenus.find(menu => menu.chapter === mobileChapterMenu) ||
+    null
 
   const totalReviews =
     storage.reviews.length
@@ -1088,12 +1096,8 @@ export default function FlashcardSelectScreen({
       defaultCards.map(card => card.id),
       storage.cards
     )
-
   return (
-    <main className="
-      min-h-screen
-      overflow-y-auto
-      bg-[#09090b]
+    <main className="flashcard-book-shell bg-[#09090b]
       px-4
       py-5
       text-white
@@ -1101,12 +1105,12 @@ export default function FlashcardSelectScreen({
       lg:px-8
       lg:py-10
     ">
-      <div className="
-        mx-auto
+      <div className="flashcard-book-frame mx-auto
         max-w-6xl
       ">
 
-        <button
+        <div className="flashcard-book-topbar pb-5">
+<button
           type="button"
           onClick={onBack}
           className="
@@ -1126,8 +1130,9 @@ export default function FlashcardSelectScreen({
         >
           ← Volver
         </button>
+</div>
 
-        <section className="
+        <section className="flashcard-book-scroll 
           rounded-[2rem]
           border
           border-zinc-800
@@ -1418,7 +1423,14 @@ export default function FlashcardSelectScreen({
                     <button
                       key={menu.chapter}
                       type="button"
-                      onClick={() => setSelectedChapter(menu.chapter)}
+                      onClick={() => {
+                        if (window.innerWidth < 768) {
+                          setMobileChapterMenu(menu.chapter)
+                          return
+                        }
+
+                        setSelectedChapter(menu.chapter)
+                      }}
                       className={`
                         rounded-2xl
                         border
@@ -1632,6 +1644,216 @@ export default function FlashcardSelectScreen({
           </div>
         </section>
       </div>
+
+
+      {mobileMenu && (
+        <div className="
+          fixed
+          inset-0
+          z-[999]
+          flex
+          items-center
+          justify-center
+          bg-black/75
+          p-4
+          backdrop-blur-sm
+          md:hidden
+        ">
+          <div className="
+            w-full
+            max-w-md
+            overflow-hidden
+            rounded-[2rem]
+            border
+            border-zinc-800
+            bg-[#111113]
+            shadow-2xl
+            shadow-black/70
+          ">
+            <div className="
+              flex
+              items-start
+              justify-between
+              gap-4
+              border-b
+              border-zinc-800
+              p-5
+            ">
+              <div>
+                <p className="
+                  text-xs
+                  font-black
+                  uppercase
+                  tracking-[0.22em]
+                  text-violet-300
+                ">
+                  {mobileMenu.chapter}
+                </p>
+
+                <h2 className="
+                  mt-1
+                  text-2xl
+                  font-black
+                  text-white
+                ">
+                  Elegí qué repasar
+                </h2>
+
+                <p className="
+                  mt-1
+                  text-sm
+                  font-bold
+                  text-zinc-400
+                ">
+                  {mobileMenu.title}
+                </p>
+              </div>
+
+              <button
+                type="button"
+                onClick={() => setMobileChapterMenu(null)}
+                className="
+                  rounded-full
+                  border
+                  border-zinc-800
+                  bg-zinc-950
+                  px-3
+                  py-1.5
+                  text-sm
+                  font-black
+                  text-zinc-400
+                "
+              >
+                ✕
+              </button>
+            </div>
+
+            <div className="
+              max-h-[65dvh]
+              overflow-y-auto
+              p-4
+            ">
+              <button
+                type="button"
+                onClick={() => {
+                  onSelectTopic(
+                    mobileMenu.chapter,
+                    "default"
+                  )
+                  setMobileChapterMenu(null)
+                }}
+                className="
+                  mb-3
+                  w-full
+                  rounded-2xl
+                  border
+                  border-violet-500/30
+                  bg-violet-500/15
+                  px-4
+                  py-4
+                  text-left
+                  text-base
+                  font-black
+                  text-violet-100
+                  active:scale-[0.99]
+                "
+              >
+                Repasar todo el capítulo →
+              </button>
+
+              <div className="
+                grid
+                gap-3
+              ">
+                {mobileMenu.groups.map(group => {
+                  const groupCards =
+                    defaultCards.filter(card =>
+                      card.chapter === mobileMenu.chapter &&
+                      group.subtopics.includes(card.subtopic)
+                    )
+
+                  const groupDue =
+                    getDueCount(
+                      groupCards,
+                      storage.cards
+                    )
+
+                  return (
+                    <button
+                      key={group.title}
+                      type="button"
+                      disabled={groupCards.length === 0}
+                      onClick={() => {
+                        onSelectSubtopic(
+                          mobileMenu.chapter,
+                          encodeSubtopicGroup(group.subtopics),
+                          "default"
+                        )
+                        setMobileChapterMenu(null)
+                      }}
+                      className={`
+                        w-full
+                        rounded-2xl
+                        border
+                        p-4
+                        text-left
+                        active:scale-[0.99]
+
+                        ${
+                          groupCards.length > 0
+                            ? "border-zinc-800 bg-zinc-900"
+                            : "cursor-not-allowed border-zinc-900 bg-zinc-950 opacity-50"
+                        }
+                      `}
+                    >
+                      <div className="
+                        flex
+                        items-start
+                        justify-between
+                        gap-3
+                      ">
+                        <div>
+                          <h3 className="
+                            text-lg
+                            font-black
+                            text-white
+                          ">
+                            {group.title}
+                          </h3>
+
+                          <p className="
+                            mt-1
+                            text-sm
+                            font-semibold
+                            leading-relaxed
+                            text-zinc-400
+                          ">
+                            {group.description}
+                          </p>
+                        </div>
+
+                        <span className="
+                          shrink-0
+                          rounded-xl
+                          bg-black/35
+                          px-2.5
+                          py-1.5
+                          text-xs
+                          font-black
+                          text-zinc-200
+                        ">
+                          {groupDue}/{groupCards.length}
+                        </span>
+                      </div>
+                    </button>
+                  )
+                })}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
     </main>
   )
 }

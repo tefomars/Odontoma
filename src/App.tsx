@@ -36,13 +36,13 @@ import type {
   FlashcardSource
 } from "@/lib/flashcardDecks"
 
-const APP_VERSION = "v0.8.40"
+const APP_VERSION = "v0.8.41"
 
 
 
 function VersionBadge() {
   return (
-    <div className="app-version-badge">
+    <div className="app-version-badge hidden lg:block">
       Odontoma {APP_VERSION}
     </div>
   )
@@ -60,8 +60,13 @@ function ScreenTransition({
       key={screenKey}
       className="screen-transition"
     >
-      {children}
-      <VersionBadge />
+      <div className="screen-transition-inner">
+        {children}
+      </div>
+
+      <div className="hidden lg:block">
+        <VersionBadge />
+      </div>
     </div>
   )
 }
@@ -69,6 +74,8 @@ function ScreenTransition({
 function AppVersion() {
   return (
     <div className="
+      hidden
+      lg:block
       fixed
       bottom-2
       right-3
@@ -94,11 +101,12 @@ function AppVersion() {
 export default function App() {
 
   useSwipeBack({
-    onBack: goBack,
+    onBack: goToMainMenu,
     enabled: true,
-    minDistance: 105,
-    maxVerticalDrift: 75
+    minDistance: 90,
+    maxVerticalDrift: 80
   })
+
 
 
   const [selectedStudyMethod, setSelectedStudyMethod] =
