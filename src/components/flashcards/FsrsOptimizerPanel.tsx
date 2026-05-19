@@ -182,7 +182,7 @@ export default function FsrsOptimizerPanel() {
           `}
           onClick={() => {
             alert(
-              "Todavía falta conectar el optimizador real. El scheduler FSRS ya está activo."
+              "FSRS está activo. Tus respuestas ya ajustan los próximos repasos automáticamente."
             )
           }}
         >

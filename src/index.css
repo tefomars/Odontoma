@@ -359,3 +359,295 @@ body,
     align-content: start !important;
   }
 }
+
+/* Microinteracciones limpias: sin movimiento, sin drag, sin blur */
+button {
+  transition:
+    background-color 120ms ease,
+    border-color 120ms ease,
+    color 120ms ease,
+    box-shadow 120ms ease,
+    opacity 120ms ease;
+}
+
+button:hover:not(:disabled) {
+  filter: brightness(1.04);
+}
+
+button:active:not(:disabled) {
+  filter: brightness(0.96);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  button {
+    transition: none !important;
+  }
+}
+
+/* Screen fade limpio */
+.screen-fade {
+  animation: screenFadeIn 160ms ease-out both;
+}
+
+@keyframes screenFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .screen-fade {
+    animation: none !important;
+  }
+}
+
+/* Screen transition limpio */
+.screen-transition {
+  min-height: 100%;
+  animation: screenEnter 260ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  transform-origin: center top;
+  will-change: opacity, transform;
+}
+
+@keyframes screenEnter {
+  0% {
+    opacity: 0;
+    transform: scale(0.982);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.screen-transition main > div,
+.screen-transition section {
+  animation: contentLift 300ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes contentLift {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+button {
+  transition:
+    background-color 150ms ease,
+    border-color 150ms ease,
+    color 150ms ease,
+    box-shadow 150ms ease,
+    filter 150ms ease,
+    transform 150ms ease;
+}
+
+button:hover:not(:disabled) {
+  filter: brightness(1.06);
+}
+
+button:active:not(:disabled) {
+  transform: scale(0.985);
+  filter: brightness(0.94);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .screen-transition,
+  .screen-transition main > div,
+  .screen-transition section,
+  button {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Flashcard whole-card mini bounce */
+.flashcard-whole-bounce {
+  animation: flashcardWholeMiniBounce 260ms cubic-bezier(0.22, 1, 0.36, 1) both !important;
+  transform-origin: center center !important;
+  will-change: transform !important;
+}
+
+@keyframes flashcardWholeMiniBounce {
+  0% {
+    transform: scale(1);
+  }
+
+  38% {
+    transform: scale(0.992);
+  }
+
+  72% {
+    transform: scale(1.008);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Flashcard change bounce: pop limpio solo al cambiar de carta */
+.flashcard-change-bounce {
+  animation: flashcard-change-bounce 340ms cubic-bezier(0.16, 1, 0.3, 1) both !important;
+  transform-origin: center center;
+  will-change: transform;
+}
+
+@keyframes flashcard-change-bounce {
+  0% {
+    transform: scale(1);
+  }
+
+  38% {
+    transform: scale(1.045);
+  }
+
+  72% {
+    transform: scale(0.995);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flashcard-change-bounce {
+    animation: none !important;
+  }
+}
+
+
+/* Quiz desktop header overlap fix */
+@media (min-width: 1024px) {
+  .quiz-screen > div:first-child {
+    position: relative !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.25rem !important;
+  }
+
+  .quiz-screen > div:first-child > div:first-child {
+    position: relative !important;
+    inset: auto !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    z-index: 20 !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 1rem !important;
+
+    width: 100% !important;
+    margin-bottom: 0.75rem !important;
+  }
+
+  .quiz-screen > div:first-child > div:first-child button {
+    position: relative !important;
+    z-index: 30 !important;
+    flex-shrink: 0 !important;
+  }
+
+  .quiz-screen img,
+  .quiz-screen [alt="Odontoma"] {
+    position: relative !important;
+    z-index: 10 !important;
+  }
+}
+
+
+/* QUIZ HEADER FIX FINAL */
+.quiz-screen {
+  padding-top: 24px !important;
+}
+
+.quiz-screen header,
+.quiz-screen .quiz-header {
+  position: relative !important;
+}
+
+/* En escritorio: evita que Volver/Menu se monten sobre Odontoma */
+@media (min-width: 768px) {
+  .quiz-screen > div:first-child {
+    padding-top: 0 !important;
+  }
+
+  .quiz-screen > div:first-child > div:first-child {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    inset: auto !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    gap: 12px !important;
+
+    width: 100% !important;
+    height: auto !important;
+    min-height: auto !important;
+    margin-bottom: 28px !important;
+    padding-top: 0 !important;
+    transform: none !important;
+  }
+
+  /* Si el logo/Odontoma y los botones están dentro del mismo bloque */
+  .quiz-screen > div:first-child > div:first-child > div {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    inset: auto !important;
+    transform: none !important;
+  }
+
+  /* Botones Volver/Menu */
+  .quiz-screen > div:first-child > div:first-child button {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    inset: auto !important;
+    transform: none !important;
+    z-index: 30 !important;
+  }
+
+  /* Fila de botones debajo del logo */
+  .quiz-screen > div:first-child > div:first-child button:first-of-type {
+    margin-left: 0 !important;
+  }
+
+  /* Logo/Odontoma arriba */
+  .quiz-screen img,
+  .quiz-screen [alt="Odontoma"] {
+    position: relative !important;
+    z-index: 20 !important;
+    display: block !important;
+  }
+}
+
+/* En pantallas chicas se mantiene compacto */
+@media (max-width: 767px) {
+  .quiz-screen {
+    padding-top: 12px !important;
+  }
+
+  .quiz-screen > div:first-child > div:first-child {
+    gap: 8px !important;
+  }
+}

@@ -114,8 +114,15 @@ export default function FlashcardReviewScreen({
   const [showAnswer, setShowAnswer] =
     useState(false)
 
+  const [cardAnimationKey, setCardAnimationKey] =
+    useState(0)
+
+  const [isCardChanging, setIsCardChanging] =
+    useState(false)
   const [currentIndex, setCurrentIndex] =
     useState(0)
+
+
 
   const allCards =
     useMemo(
@@ -267,7 +274,7 @@ export default function FlashcardReviewScreen({
         event.preventDefault()
 
         if (!showAnswer) {
-          setShowAnswer(true)
+          revealAnswer()
           return
         }
 
@@ -319,6 +326,10 @@ export default function FlashcardReviewScreen({
     currentIndex
   ])
 
+  function revealAnswer() {
+    setShowAnswer(true)
+  }
+
   function undoLastReview() {
 
     const lastReview =
@@ -345,6 +356,8 @@ export default function FlashcardReviewScreen({
     setStorage(nextStorage)
     saveFsrsStorage(nextStorage)
     setShowAnswer(false)
+
+
     setCurrentIndex(0)
   }
 
@@ -418,17 +431,23 @@ export default function FlashcardReviewScreen({
     setStorage(nextStorage)
     saveFsrsStorage(nextStorage)
     setShowAnswer(false)
-
     setCurrentIndex(prev => {
 
       const nextLength =
         dueCards.length - 1
 
-      if (nextLength <= 0) return 0
+      const nextIndex =
+        nextLength <= 0
+          ? 0
+          : prev >= nextLength
+          ? 0
+          : prev
 
-      if (prev >= nextLength) return 0
+      window.requestAnimationFrame(() => {
+        setCardAnimationKey(value => value + 1)
+      })
 
-      return prev
+      return nextIndex
     })
   }
 
@@ -645,7 +664,9 @@ export default function FlashcardReviewScreen({
           </div>
         </div>
 
-        <section className="
+        <section
+          key={`${currentCard.id}-${cardAnimationKey}`}
+          className={`
           flex
           flex-1
           flex-col
@@ -657,7 +678,8 @@ export default function FlashcardReviewScreen({
           shadow-2xl
           shadow-black/30
           md:p-8
-        ">
+          ${cardAnimationKey > 0 ? "flashcard-change-bounce" : ""}
+        `}>
           <div className="
             mb-5
             flex
@@ -820,7 +842,7 @@ export default function FlashcardReviewScreen({
           {!showAnswer ? (
             <button
               type="button"
-              onClick={() => setShowAnswer(true)}
+              onClick={revealAnswer}
               className="
                 mt-5
                 w-full

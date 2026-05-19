@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react"
+import { useMemo, useState, type ReactNode } from "react"
 
 import HomeScreen from "./components/HomeScreen"
 import StudyMethodScreen from "./components/StudyMethodScreen"
@@ -32,6 +32,25 @@ import {
 import type {
   FlashcardSource
 } from "@/lib/flashcardDecks"
+
+
+
+function ScreenTransition({
+  children,
+  screenKey
+}: {
+  children: any
+  screenKey?: string
+}) {
+  return (
+    <div
+      key={screenKey}
+      className="screen-transition"
+    >
+      {children}
+    </div>
+  )
+}
 
 export default function App() {
 
@@ -551,10 +570,12 @@ export default function App() {
 
     return (
 
-      <StudyMethodScreen
-        onSelectQuizzes={() => setSelectedStudyMethod("quizzes")}
-        onSelectFlashcards={() => setSelectedStudyMethod("flashcards")}
-      />
+      <ScreenTransition screenKey="study-method">
+        <StudyMethodScreen
+          onSelectQuizzes={() => setSelectedStudyMethod("quizzes")}
+          onSelectFlashcards={() => setSelectedStudyMethod("flashcards")}
+        />
+      </ScreenTransition>
 
     )
   }
@@ -565,14 +586,16 @@ export default function App() {
 
       return (
 
-        <FlashcardSubjectScreen
-          onBack={() => setSelectedStudyMethod(null)}
-          onSelectMyDecks={() => {
-            setSelectedFlashcardSubject("my")
-            setShowMyFlashcardTopics(true)
-          }}
-          onSelectSubject={(subject) => setSelectedFlashcardSubject(subject)}
-        />
+        <ScreenTransition screenKey="flashcard-subject">
+          <FlashcardSubjectScreen
+            onBack={() => setSelectedStudyMethod(null)}
+            onSelectMyDecks={() => {
+              setSelectedFlashcardSubject("my")
+              setShowMyFlashcardTopics(true)
+            }}
+            onSelectSubject={(subject) => setSelectedFlashcardSubject(subject)}
+          />
+        </ScreenTransition>
 
       )
     }
@@ -581,10 +604,12 @@ export default function App() {
 
       return (
 
-        <SuspendedFlashcardsScreen
-          onBack={() => setShowSuspendedFlashcards(false)}
-          onMenu={goToMainMenu}
-        />
+        <ScreenTransition screenKey="suspended-flashcards">
+          <SuspendedFlashcardsScreen
+            onBack={() => setShowSuspendedFlashcards(false)}
+            onMenu={goToMainMenu}
+          />
+        </ScreenTransition>
 
       )
     }
@@ -593,18 +618,20 @@ export default function App() {
 
       return (
 
-        <UserTopicScreen
-          topicId={editingUserTopicId}
-          onBack={() => setEditingUserTopicId(null)}
-          onMenu={goToMainMenu}
-          onReview={() => {
-            setSelectedFlashcardSource("user")
-            setSelectedFlashcardTopic(editingUserTopicId)
-            setSelectedFlashcardSubtopic(null)
-            setEditingUserTopicId(null)
-            setShowMyFlashcardTopics(false)
-          }}
-        />
+        <ScreenTransition screenKey={`edit-user-topic-${editingUserTopicId}`}>
+          <UserTopicScreen
+            topicId={editingUserTopicId}
+            onBack={() => setEditingUserTopicId(null)}
+            onMenu={goToMainMenu}
+            onReview={() => {
+              setSelectedFlashcardSource("user")
+              setSelectedFlashcardTopic(editingUserTopicId)
+              setSelectedFlashcardSubtopic(null)
+              setEditingUserTopicId(null)
+              setShowMyFlashcardTopics(false)
+            }}
+          />
+        </ScreenTransition>
 
       )
     }
@@ -613,22 +640,24 @@ export default function App() {
 
       return (
 
-        <UserDeckMenuScreen
-          topicId={activeUserTopicId}
-          onBack={() => setActiveUserTopicId(null)}
-          onMenu={goToMainMenu}
-          onEdit={() => {
-            setEditingUserTopicId(activeUserTopicId)
-            setActiveUserTopicId(null)
-          }}
-          onReview={() => {
-            setSelectedFlashcardSource("user")
-            setSelectedFlashcardTopic(activeUserTopicId)
-            setSelectedFlashcardSubtopic(null)
-            setActiveUserTopicId(null)
-            setShowMyFlashcardTopics(false)
-          }}
-        />
+        <ScreenTransition screenKey={`user-deck-menu-${activeUserTopicId}`}>
+          <UserDeckMenuScreen
+            topicId={activeUserTopicId}
+            onBack={() => setActiveUserTopicId(null)}
+            onMenu={goToMainMenu}
+            onEdit={() => {
+              setEditingUserTopicId(activeUserTopicId)
+              setActiveUserTopicId(null)
+            }}
+            onReview={() => {
+              setSelectedFlashcardSource("user")
+              setSelectedFlashcardTopic(activeUserTopicId)
+              setSelectedFlashcardSubtopic(null)
+              setActiveUserTopicId(null)
+              setShowMyFlashcardTopics(false)
+            }}
+          />
+        </ScreenTransition>
 
       )
     }
@@ -637,14 +666,16 @@ export default function App() {
 
       return (
 
-        <MyFlashcardTopicsScreen
-          onBack={() => {
-            setShowMyFlashcardTopics(false)
-            setSelectedFlashcardSubject(null)
-          }}
-          onMenu={goToMainMenu}
-          onSelectTopic={(topicId) => setActiveUserTopicId(topicId)}
-        />
+        <ScreenTransition screenKey="my-flashcard-topics">
+          <MyFlashcardTopicsScreen
+            onBack={() => {
+              setShowMyFlashcardTopics(false)
+              setSelectedFlashcardSubject(null)
+            }}
+            onMenu={goToMainMenu}
+            onSelectTopic={(topicId) => setActiveUserTopicId(topicId)}
+          />
+        </ScreenTransition>
 
       )
     }
@@ -653,42 +684,48 @@ export default function App() {
 
       return (
 
-        <FlashcardSelectScreen
-          onBack={() => setSelectedFlashcardSubject(null)}
-          onShowSuspended={() => setShowSuspendedFlashcards(true)}
-          onSelectTopic={(topic, source) => {
-            setSelectedFlashcardTopic(topic)
-            setSelectedFlashcardSubtopic(null)
-            setSelectedFlashcardSource(source)
-          }}
-          onSelectSubtopic={(topic, subtopic, source) => {
-            setSelectedFlashcardTopic(topic)
-            setSelectedFlashcardSubtopic(subtopic)
-            setSelectedFlashcardSource(source)
-          }}
-        />
+        <ScreenTransition screenKey="flashcard-select">
+          <FlashcardSelectScreen
+            onBack={() => setSelectedFlashcardSubject(null)}
+            onShowSuspended={() => setShowSuspendedFlashcards(true)}
+            onSelectTopic={(topic, source) => {
+              setSelectedFlashcardTopic(topic)
+              setSelectedFlashcardSubtopic(null)
+              setSelectedFlashcardSource(source)
+            }}
+            onSelectSubtopic={(topic, subtopic, source) => {
+              setSelectedFlashcardTopic(topic)
+              setSelectedFlashcardSubtopic(subtopic)
+              setSelectedFlashcardSource(source)
+            }}
+          />
+        </ScreenTransition>
 
       )
     }
 
     return (
 
-      <FlashcardReviewScreen
-        selectedTopic={selectedFlashcardTopic}
-        selectedSubtopic={selectedFlashcardSubtopic || undefined}
-        source={selectedFlashcardSource}
-        onMenu={goToMainMenu}
-        onBack={() => {
+      <ScreenTransition
+        screenKey={`flashcard-review-${selectedFlashcardTopic}-${selectedFlashcardSubtopic || "all"}`}
+      >
+        <FlashcardReviewScreen
+          selectedTopic={selectedFlashcardTopic}
+          selectedSubtopic={selectedFlashcardSubtopic || undefined}
+          source={selectedFlashcardSource}
+          onMenu={goToMainMenu}
+          onBack={() => {
 
-          if (selectedFlashcardSource === "user") {
-            setActiveUserTopicId(selectedFlashcardTopic)
-            setShowMyFlashcardTopics(true)
-          }
+            if (selectedFlashcardSource === "user") {
+              setActiveUserTopicId(selectedFlashcardTopic)
+              setShowMyFlashcardTopics(true)
+            }
 
-          setSelectedFlashcardTopic(null)
-          setSelectedFlashcardSubtopic(null)
-        }}
-      />
+            setSelectedFlashcardTopic(null)
+            setSelectedFlashcardSubtopic(null)
+          }}
+        />
+      </ScreenTransition>
 
     )
   }
@@ -697,16 +734,18 @@ export default function App() {
 
     return (
 
-      <HomeScreen
-        onMainMenu={goToMainMenu}
-        onSelectMyQuizzes={() => {
-          setSelectedSubject("my-quizzes")
-          setActiveUserQuizDeckId(null)
-        }}
-        onSelectSubject={(subject) => {
-          setSelectedSubject(subject)
-        }}
-      />
+      <ScreenTransition screenKey="home">
+        <HomeScreen
+          onMainMenu={goToMainMenu}
+          onSelectMyQuizzes={() => {
+            setSelectedSubject("my-quizzes")
+            setActiveUserQuizDeckId(null)
+          }}
+          onSelectSubject={(subject) => {
+            setSelectedSubject(subject)
+          }}
+        />
+      </ScreenTransition>
 
     )
   }
@@ -780,27 +819,29 @@ export default function App() {
 
     return (
 
-      <SetupScreen
-        selectedChapters={selectedChapters}
-        setSelectedChapters={setSelectedChapters}
-        selectedDifficulties={selectedDifficulties}
-        setSelectedDifficulties={setSelectedDifficulties}
-        questionCount={questionCount}
-        setQuestionCount={setQuestionCount}
-        practiceMode={practiceMode}
-        setPracticeMode={setPracticeMode}
-        availableQuestionsCount={availableQuestions.length}
-        modeCounts={modeCounts}
-        hasPausedSession={hasPausedSession && sessionQuestions.length > 0 && !finished}
-        onBackHome={() => {
-          setSelectedSubject(null)
-        }}
-        onMainMenu={goToMainMenu}
-        onStart={startPractice}
-        onMastery={() => setShowMastery(true)}
-        onContinueSession={continuePausedSession}
-        onClearSession={clearPausedSession}
-      />
+      <ScreenTransition screenKey="setup">
+        <SetupScreen
+          selectedChapters={selectedChapters}
+          setSelectedChapters={setSelectedChapters}
+          selectedDifficulties={selectedDifficulties}
+          setSelectedDifficulties={setSelectedDifficulties}
+          questionCount={questionCount}
+          setQuestionCount={setQuestionCount}
+          practiceMode={practiceMode}
+          setPracticeMode={setPracticeMode}
+          availableQuestionsCount={availableQuestions.length}
+          modeCounts={modeCounts}
+          hasPausedSession={hasPausedSession && sessionQuestions.length > 0 && !finished}
+          onBackHome={() => {
+            setSelectedSubject(null)
+          }}
+          onMainMenu={goToMainMenu}
+          onStart={startPractice}
+          onMastery={() => setShowMastery(true)}
+          onContinueSession={continuePausedSession}
+          onClearSession={clearPausedSession}
+        />
+      </ScreenTransition>
 
     )
   }
@@ -809,12 +850,14 @@ export default function App() {
 
     return (
 
-      <ResultsScreen
-        score={score}
-        total={sessionQuestions.length}
-        onRestart={restart}
-        onMainMenu={goToMainMenu}
-      />
+      <ScreenTransition screenKey="results">
+        <ResultsScreen
+          score={score}
+          total={sessionQuestions.length}
+          onRestart={restart}
+          onMainMenu={goToMainMenu}
+        />
+      </ScreenTransition>
 
     )
   }
@@ -839,18 +882,20 @@ export default function App() {
 
   return (
 
-    <QuizScreen
-      key={question.id}
-      question={question}
-      current={current}
-      total={sessionQuestions.length}
-      score={score}
-      onBack={pauseSession}
-      onMainMenu={goToMainMenu}
-      onCorrect={handleCorrect}
-      onIncorrect={handleIncorrect}
-      onNext={handleNext}
-    />
+    <ScreenTransition screenKey={`quiz-${question.id}`}>
+      <QuizScreen
+        key={question.id}
+        question={question}
+        current={current}
+        total={sessionQuestions.length}
+        score={score}
+        onBack={pauseSession}
+        onMainMenu={goToMainMenu}
+        onCorrect={handleCorrect}
+        onIncorrect={handleIncorrect}
+        onNext={handleNext}
+      />
+    </ScreenTransition>
 
   )
 }

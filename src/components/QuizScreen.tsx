@@ -237,7 +237,7 @@ export default function QuizScreen({
 
   return (
 
-    <main className="
+    <main className="quiz-screen 
       min-h-screen
       bg-[#09090b]
       text-white
