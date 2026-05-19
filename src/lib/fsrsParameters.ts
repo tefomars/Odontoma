@@ -6,6 +6,15 @@ export type OdontomaFsrsParameters = {
   requestRetention?: number
   optimizedAt?: string
   reviewCount?: number
+  stats?: {
+    reviewCount: number
+    rememberedCount: number
+    forgottenCount: number
+    retention: number
+    targetRetention: number
+    intervalScale: number
+    averageScheduledDays: number
+  }
 }
 
 export function loadFsrsParameters(): OdontomaFsrsParameters | null {

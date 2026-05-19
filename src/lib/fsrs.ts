@@ -41,6 +41,129 @@ export type FsrsStorage = {
   reviews: FsrsReviewLog[]
 }
 
+const DAY_MS =
+  24 * 60 * 60 * 1000
+
+const DEFAULT_FSRS_FIRST_INTERVAL_MS: Record<FsrsRating, number> = {
+  again: 1 * 60 * 1000,
+  hard: 6 * 60 * 1000,
+  good: 10 * 60 * 1000,
+  easy: 11 * DAY_MS
+}
+
+const FRIENDLY_FIRST_INTERVAL_MS: Record<FsrsRating, number> = {
+  again: 1 * DAY_MS,
+  hard: 1.35 * DAY_MS,
+  good: 2 * DAY_MS,
+  easy: 11 * DAY_MS
+}
+
+function clampNumber(
+  value: number,
+  min: number,
+  max: number
+) {
+
+  return Math.min(
+    max,
+    Math.max(
+      min,
+      value
+    )
+  )
+}
+
+function getRetentionScale() {
+
+  const savedParameters =
+    loadFsrsParameters()
+
+  const retention =
+    savedParameters?.requestRetention ?? 0.9
+
+  return clampNumber(
+    0.9 / retention,
+    0.65,
+    1.6
+  )
+}
+
+function getIntervalMs(
+  reviewedAt: Date,
+  dueDate: string
+) {
+
+  return Math.max(
+    60 * 1000,
+    new Date(dueDate).getTime() - reviewedAt.getTime()
+  )
+}
+
+function applyFriendlyFirstReviewInterval(
+  state: FsrsCardState,
+  rating: FsrsRating,
+  reviewedAt: Date
+): FsrsCardState {
+
+  const fsrsInterval =
+    getIntervalMs(
+      reviewedAt,
+      state.dueDate
+    )
+
+  const defaultFsrsInterval =
+    DEFAULT_FSRS_FIRST_INTERVAL_MS[rating]
+
+  const fsrsScale =
+    clampNumber(
+      fsrsInterval / defaultFsrsInterval,
+      0.35,
+      3.5
+    )
+
+  const retentionScale =
+    getRetentionScale()
+
+  const finalInterval =
+    Math.round(
+      FRIENDLY_FIRST_INTERVAL_MS[rating] *
+      fsrsScale *
+      retentionScale
+    )
+
+  const due =
+    new Date(
+      reviewedAt.getTime() + finalInterval
+    )
+
+  return {
+    ...state,
+    card: {
+      ...state.card,
+      due
+    },
+    dueDate: due.toISOString()
+  }
+}
+
+function maybeApplyFriendlyFirstReviewInterval(
+  state: FsrsCardState,
+  rating: FsrsRating,
+  reviewedAt: Date,
+  isFirstReview: boolean
+): FsrsCardState {
+
+  if (!isFirstReview) {
+    return state
+  }
+
+  return applyFriendlyFirstReviewInterval(
+    state,
+    rating,
+    reviewedAt
+  )
+}
+
 function createScheduler() {
 
   const savedParameters =
@@ -133,11 +256,20 @@ export function reviewFsrsCard(params: {
       toTsFsrsRating(params.rating)
     )
 
-  const stateAfter =
+  let stateAfter =
     createStateFromCard(
       result.card,
       now
     )
+
+  if (!params.currentState) {
+    stateAfter =
+      applyFriendlyFirstReviewInterval(
+        stateAfter,
+        params.rating,
+        now
+      )
+  }
 
   const log: FsrsReviewLog = {
     cardId: params.cardId,
@@ -172,23 +304,64 @@ export function previewFsrsCard(params: {
       now
     )
 
-  return {
-    again: createStateFromCard(
+  const again =
+    createStateFromCard(
       preview[Rating.Again].card,
       now
-    ),
-    hard: createStateFromCard(
+    )
+
+  const hard =
+    createStateFromCard(
       preview[Rating.Hard].card,
       now
-    ),
-    good: createStateFromCard(
+    )
+
+  const good =
+    createStateFromCard(
       preview[Rating.Good].card,
       now
-    ),
-    easy: createStateFromCard(
+    )
+
+  const easy =
+    createStateFromCard(
       preview[Rating.Easy].card,
       now
     )
+
+  if (!params.currentState) {
+    return {
+      again:
+        applyFriendlyFirstReviewInterval(
+          again,
+          "again",
+          now
+        ),
+      hard:
+        applyFriendlyFirstReviewInterval(
+          hard,
+          "hard",
+          now
+        ),
+      good:
+        applyFriendlyFirstReviewInterval(
+          good,
+          "good",
+          now
+        ),
+      easy:
+        applyFriendlyFirstReviewInterval(
+          easy,
+          "easy",
+          now
+        )
+    }
+  }
+
+  return {
+    again,
+    hard,
+    good,
+    easy
   }
 }
 

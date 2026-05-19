@@ -764,12 +764,14 @@ export default function FlashcardReviewScreen({
             flex
             flex-1
             flex-col
+            items-center
             justify-center
             rounded-[1.5rem]
             border
             border-zinc-800
             bg-zinc-950
             p-6
+            text-center
           ">
             <p className="
               mb-3
@@ -783,6 +785,8 @@ export default function FlashcardReviewScreen({
             </p>
 
             <h1 className="
+              max-w-3xl
+              text-center
               text-3xl
               font-black
               leading-tight
@@ -794,9 +798,11 @@ export default function FlashcardReviewScreen({
             {showAnswer && (
               <div className="
                 mt-8
+                w-full
                 border-t
                 border-zinc-800
                 pt-6
+                text-center
               ">
                 <p className="
                   mb-3
@@ -810,10 +816,15 @@ export default function FlashcardReviewScreen({
                 </p>
 
                 <p className="
-                  text-xl
+                  mx-auto
+                  max-w-3xl
+                  text-center
+                  text-2xl
+                  font-bold
                   leading-relaxed
                   text-zinc-100
-                  sm:text-2xl
+                  sm:text-3xl
+                  md:text-4xl
                 ">
                   {currentCard.back}
                 </p>
