@@ -1,6 +1,5 @@
 import { useEffect, useMemo, useState } from "react"
 
-import { useSwipeBack } from "@/hooks/useSwipeBack"
 
 import {
   getDueFsrsCards,
@@ -109,15 +108,6 @@ export default function FlashcardReviewScreen({
   selectedSubtopic,
   source = "default"
 }: Props) {
-
-  useSwipeBack({
-    onBack,
-    enabled: true,
-    edgeOnly: true,
-    edgeSize: 42,
-    minDistance: 90,
-    maxVerticalDrift: 65
-  })
 
   const [storage, setStorage] =
     useState(() => loadFsrsStorage())
@@ -385,7 +375,8 @@ export default function FlashcardReviewScreen({
     if (
       target.closest("button") ||
       target.closest("input") ||
-      target.closest("textarea")
+      target.closest("textarea") ||
+      target.closest("select")
     ) {
       return
     }

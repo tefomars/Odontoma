@@ -1,4 +1,5 @@
 import { useMemo, useState, type ReactNode } from "react"
+import { useSwipeBack } from "@/hooks/useSwipeBack"
 
 import HomeScreen from "./components/HomeScreen"
 import StudyMethodScreen from "./components/StudyMethodScreen"
@@ -53,6 +54,14 @@ function ScreenTransition({
 }
 
 export default function App() {
+
+  useSwipeBack({
+    enabled: true,
+    edgeOnly: true,
+    edgeSize: 48,
+    minDistance: 85,
+    maxVerticalDrift: 70
+  })
 
   const [selectedStudyMethod, setSelectedStudyMethod] =
     useState<"quizzes" | "flashcards" | null>(null)

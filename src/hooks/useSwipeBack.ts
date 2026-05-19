@@ -1,111 +1,113 @@
-import { useEffect, useRef } from "react"
+import { useEffect } from "react"
 
-type UseSwipeBackOptions = {
-  onBack: () => void
+type SwipeBackOptions = {
   enabled?: boolean
   edgeOnly?: boolean
   edgeSize?: number
   minDistance?: number
   maxVerticalDrift?: number
+  onBack?: () => void
 }
 
 export function useSwipeBack({
-  onBack,
   enabled = true,
   edgeOnly = true,
-  edgeSize = 42,
-  minDistance = 90,
-  maxVerticalDrift = 65
-}: UseSwipeBackOptions) {
-
-  const startX = useRef(0)
-  const startY = useRef(0)
-  const tracking = useRef(false)
-
+  edgeSize = 48,
+  minDistance = 85,
+  maxVerticalDrift = 70,
+  onBack
+}: SwipeBackOptions = {}) {
   useEffect(() => {
-
     if (!enabled) return
 
-    function handleTouchStart(event: TouchEvent) {
+    let startX = 0
+    let startY = 0
+    let tracking = false
 
-      const touch =
-        event.touches[0]
+    function isEditableTarget(target: EventTarget | null) {
+      if (!(target instanceof HTMLElement)) return false
 
-      if (!touch) return
-
-      const fromLeftEdge =
-        touch.clientX <= edgeSize
-
-      if (edgeOnly && !fromLeftEdge) {
-        tracking.current = false
-        return
-      }
-
-      startX.current = touch.clientX
-      startY.current = touch.clientY
-      tracking.current = true
+      return Boolean(
+        target.closest("input") ||
+        target.closest("textarea") ||
+        target.closest("select") ||
+        target.closest("[contenteditable='true']")
+      )
     }
 
-    function handleTouchEnd(event: TouchEvent) {
+    function findBackButton() {
+      const buttons =
+        Array.from(document.querySelectorAll("button"))
 
-      if (!tracking.current) return
+      return buttons.find(button => {
+        const text =
+          button.textContent?.trim().toLowerCase() || ""
 
-      const touch =
-        event.changedTouches[0]
+        return (
+          text.includes("volver") ||
+          text.includes("atrás") ||
+          text.includes("atras") ||
+          text === "←" ||
+          text.startsWith("←")
+        )
+      })
+    }
 
-      if (!touch) return
+    function handlePointerDown(event: PointerEvent) {
+      if (event.pointerType !== "touch") return
+      if (isEditableTarget(event.target)) return
+
+      startX = event.clientX
+      startY = event.clientY
+
+      tracking =
+        !edgeOnly ||
+        startX <= edgeSize
+    }
+
+    function handlePointerUp(event: PointerEvent) {
+      if (!tracking) return
+      if (event.pointerType !== "touch") return
 
       const deltaX =
-        touch.clientX - startX.current
+        event.clientX - startX
 
       const deltaY =
-        Math.abs(touch.clientY - startY.current)
+        Math.abs(event.clientY - startY)
 
-      tracking.current = false
+      tracking = false
 
-      const isRightSwipe =
+      if (
         deltaX >= minDistance &&
         deltaY <= maxVerticalDrift
+      ) {
+        if (onBack) {
+          onBack()
+          return
+        }
 
-      if (isRightSwipe) {
-        onBack()
+        const backButton =
+          findBackButton()
+
+        if (backButton) {
+          backButton.click()
+        }
       }
     }
 
-    window.addEventListener(
-      "touchstart",
-      handleTouchStart,
-      {
-        passive: true
-      }
-    )
-
-    window.addEventListener(
-      "touchend",
-      handleTouchEnd,
-      {
-        passive: true
-      }
-    )
+    window.addEventListener("pointerdown", handlePointerDown)
+    window.addEventListener("pointerup", handlePointerUp)
 
     return () => {
-      window.removeEventListener(
-        "touchstart",
-        handleTouchStart
-      )
-
-      window.removeEventListener(
-        "touchend",
-        handleTouchEnd
-      )
+      window.removeEventListener("pointerdown", handlePointerDown)
+      window.removeEventListener("pointerup", handlePointerUp)
     }
-
   }, [
-    onBack,
     enabled,
     edgeOnly,
     edgeSize,
     minDistance,
-    maxVerticalDrift
+    maxVerticalDrift,
+    onBack
   ])
 }
