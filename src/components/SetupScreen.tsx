@@ -2,13 +2,21 @@ import { useEffect, useState } from "react"
 
 import logoImage from "@/assets/logo.png"
 
-import { chapters } from "@/content/histologia/chapters"
-
-import {
-  questionCountsByChapter
-} from "@/content/histologia"
-
 type Props = {
+  title: string
+
+  chapters: {
+    id: string
+    title: string
+    subtitle: string
+    description: string
+    image: string
+    questionCount: number
+    accent: string
+  }[]
+
+  questionCountsByChapter: Record<string, number>
+
   selectedChapters: string[]
   setSelectedChapters: (chapters: string[]) => void
 
@@ -90,6 +98,10 @@ const practiceModes = [
 ]
 
 export default function SetupScreen({
+  title,
+  chapters,
+  questionCountsByChapter,
+
   selectedChapters,
   setSelectedChapters,
 
@@ -345,7 +357,7 @@ export default function SetupScreen({
                   tracking-tight
                   md:text-5xl
                 ">
-                  Histología
+                  {title}
                 </h1>
 
               </div>

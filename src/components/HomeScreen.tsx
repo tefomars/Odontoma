@@ -16,6 +16,14 @@ const subjects = [
   },
 
   {
+    id: "filosofia-de-hayek",
+    title: "Filosofía de Hayek",
+    subtitle: "Parcial 1, Parcial 2 y conceptos importantes",
+    status: "Disponible",
+    accent: "from-indigo-500/40 to-violet-500/10"
+  },
+
+  {
     id: "bioquimica",
     title: "Bioquímica",
     subtitle: "Enzimas, proteínas, metabolismo y caries",
@@ -143,7 +151,8 @@ export default function HomeScreen({
           {subjects.map(subject => {
 
             const available =
-              subject.id === "histologia"
+              subject.id === "histologia" ||
+              subject.id === "filosofia-de-hayek"
 
             return (
 

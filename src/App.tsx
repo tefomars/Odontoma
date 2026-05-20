@@ -20,7 +20,23 @@ import UserQuizDeckMenuScreen from "./components/UserQuizDeckMenuScreen"
 
 import packageJson from "../package.json"
 
-import { questions } from "@/content/histologia"
+import {
+  questions as histologiaQuestions,
+  questionCountsByChapter as histologiaQuestionCountsByChapter
+} from "@/content/histologia"
+
+import {
+  chapters as histologiaChapters
+} from "@/content/histologia/chapters"
+
+import {
+  questions as hayekQuestions,
+  questionCountsByChapter as hayekQuestionCountsByChapter
+} from "@/content/filosofia-de-hayek"
+
+import {
+  chapters as hayekChapters
+} from "@/content/filosofia-de-hayek/chapters"
 
 import {
   loadStats,
@@ -208,10 +224,30 @@ export default function App() {
       }
     })
 
+  const quizQuestions =
+    selectedSubject === "filosofia-de-hayek"
+      ? hayekQuestions
+      : histologiaQuestions
+
+  const quizChapters =
+    selectedSubject === "filosofia-de-hayek"
+      ? hayekChapters
+      : histologiaChapters
+
+  const quizQuestionCountsByChapter =
+    selectedSubject === "filosofia-de-hayek"
+      ? hayekQuestionCountsByChapter
+      : histologiaQuestionCountsByChapter
+
+  const quizTitle =
+    selectedSubject === "filosofia-de-hayek"
+      ? "Filosofía de Hayek"
+      : "Histología"
+
   const availableQuestions =
     useMemo(() => {
 
-      return questions.filter((question: any) => {
+      return quizQuestions.filter((question: any) => {
 
         const chapterMatch =
           selectedChapters.length > 0 &&
@@ -252,6 +288,7 @@ export default function App() {
       })
 
     }, [
+      quizQuestions,
       selectedChapters,
       selectedDifficulties,
       practiceMode,
@@ -262,7 +299,7 @@ export default function App() {
     useMemo(() => {
 
       const base =
-        questions.filter((question: any) => {
+        quizQuestions.filter((question: any) => {
 
           const chapterMatch =
             selectedChapters.length > 0 &&
@@ -301,6 +338,7 @@ export default function App() {
       }
 
     }, [
+      quizQuestions,
       selectedChapters,
       selectedDifficulties,
       stats
@@ -881,6 +919,9 @@ export default function App() {
           }}
           onSelectSubject={(subject) => {
             setSelectedSubject(subject)
+            setSelectedChapters([])
+            setQuestionCount(10)
+            setPracticeMode("smart")
           }}
         />
       </ScreenTransition>
@@ -959,6 +1000,9 @@ export default function App() {
 
       <ScreenTransition screenKey="setup">
         <SetupScreen
+          title={quizTitle}
+          chapters={quizChapters}
+          questionCountsByChapter={quizQuestionCountsByChapter}
           selectedChapters={selectedChapters}
           setSelectedChapters={setSelectedChapters}
           selectedDifficulties={selectedDifficulties}
@@ -975,7 +1019,11 @@ export default function App() {
           }}
           onMainMenu={goToMainMenu}
           onStart={startPractice}
-          onMastery={() => setShowMastery(true)}
+          onMastery={
+            selectedSubject === "histologia"
+              ? () => setShowMastery(true)
+              : undefined
+          }
           onContinueSession={continuePausedSession}
           onClearSession={clearPausedSession}
         />

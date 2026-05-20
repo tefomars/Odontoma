@@ -45,6 +45,15 @@ const subjects = [
     accent: "from-sky-500/20 to-cyan-500/10"
   },
   {
+    id: "filosofia-de-hayek",
+    title: "Filosofía",
+    subtitle: "Hayek",
+    description:
+      "Flashcards premade de liberalismo, libertad, conocimiento, orden espontáneo y pensamiento de Hayek.",
+    available: true,
+    accent: "from-indigo-500/20 to-blue-500/10"
+  },
+  {
     id: "bioquimica",
     title: "Bioquímica",
     subtitle: "Próximamente",

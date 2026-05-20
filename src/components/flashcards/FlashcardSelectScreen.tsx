@@ -1030,6 +1030,10 @@ function getFlashcardSubjectName(subject: string) {
     return "Proceso Económico I"
   }
 
+  if (subject === "filosofia-de-hayek") {
+    return "Filosofía"
+  }
+
   return "Histología"
 }
 
@@ -1048,12 +1052,254 @@ function cardMatchesSelectedSubject(
     )
   }
 
+  if (subject === "filosofia-de-hayek") {
+    const cardBook =
+      String(card.book || "").toLowerCase()
+
+    return (
+      cardSubject === "filosofía" ||
+      cardSubject === "filosofia" ||
+      cardSubject === "filosofía de hayek" ||
+      cardSubject === "filosofia de hayek" ||
+      cardSubject === "filosofia-de-hayek" ||
+      cardBook === "hayek"
+    )
+  }
+
   return (
     cardSubject === "" ||
     cardSubject === "histología" ||
     cardSubject === "histologia"
   )
 }
+
+
+const HAYEK_MENUS: ChapterMenu[] = [
+  {
+    chapter: "Parcial 1",
+    title: "Parcial 1",
+    groups: [
+      {
+        title: "Liberalismo, libertad y sistemas políticos",
+        description: "Liberalismo, antecedentes, libertad individual, autoritarismo y totalitarismo.",
+        subtopics: [
+          "Liberalismo",
+          "Expresiones del liberalismo",
+          "Antecedentes",
+          "Libertad",
+          "Libertad individual",
+          "Sistemas políticos",
+          "Autoritarismo y totalitarismo"
+        ]
+      },
+      {
+        title: "Metodología, fenómenos sociales y Hayek",
+        description: "Historicismo, Escuela Austriaca, fenómenos sociales, biografía de Hayek y socialismo.",
+        subtopics: [
+          "Metodología social",
+          "Historicismo y Escuela Austriaca",
+          "Fenómenos sociales",
+          "Fenómenos naturales y sociales",
+          "Hayek y socialismo",
+          "Biografía y obras",
+          "Tipos de socialismo"
+        ]
+      },
+      {
+        title: "Mente, razón y conocimiento",
+        description: "Mente, razón limitada, conocimiento disperso, tipos de conocimiento y problema económico.",
+        subtopics: [
+          "Mente y razón",
+          "Mente, cerebro y memoria",
+          "Razón limitada",
+          "Conocimiento en sociedad",
+          "Tipos de conocimiento",
+          "Problema económico",
+          "Problema social"
+        ]
+      },
+      {
+        title: "Orden espontáneo e instituciones",
+        description: "Orden social, cosmos, taxis, nomos, thesis, instituciones y organizaciones.",
+        subtopics: [
+          "Teoría del orden",
+          "Concepto de orden",
+          "Orden espontáneo",
+          "Orden deliberado",
+          "Condiciones del orden",
+          "Instituciones y organizaciones",
+          "Instituciones",
+          "Organizaciones",
+          "Cosmos, taxis, nomos y thesis",
+          "Cosmos y taxis",
+          "Nomos y thesis"
+        ]
+      },
+      {
+        title: "Nomocracia, catalaxia y demarquía",
+        description: "Nomocracia, teleocracia, catalaxia, economía y límites al poder democrático.",
+        subtopics: [
+          "Nomocracia y teleocracia",
+          "Nomocracia",
+          "Teleocracia",
+          "Catalaxia y economía",
+          "Catalaxia",
+          "Economía",
+          "Demarquía"
+        ]
+      }
+    ]
+  },
+  {
+    chapter: "Parcial 2",
+    title: "Parcial 2",
+    groups: [
+      {
+        title: "Libertad, coacción y ley",
+        description: "Libertad individual, libertad política, coacción, arbitrariedad, derecho y reglas generales.",
+        subtopics: [
+          "Libertad y libertades",
+          "Libertad individual",
+          "Libertad política",
+          "Libertad interior",
+          "Libertad como poder",
+          "Libertades concretas",
+          "Coacción y ley",
+          "Coacción",
+          "Coacción estatal",
+          "Arbitrariedad",
+          "Derecho y permiso",
+          "Reglas generales"
+        ]
+      },
+      {
+        title: "Razón, tradición, civilización y progreso",
+        description: "Razón limitada, tradiciones, conocimiento disperso, civilización, progreso y aprendizaje social.",
+        subtopics: [
+          "Libertad, razón y tradición",
+          "Razón limitada",
+          "Razón humilde",
+          "Tradiciones",
+          "Tradiciones de libertad",
+          "Tradición británica",
+          "Tradición inglesa",
+          "Tradición francesa",
+          "Civilización y conocimiento",
+          "Civilización",
+          "Conocimiento incorporado",
+          "Ignorancia y conocimiento disperso",
+          "Ignorancia útil",
+          "Aprendizaje social",
+          "Progreso",
+          "Progreso como descubrimiento",
+          "Progreso y desigualdad",
+          "Progreso y descontento",
+          "Progreso desigual",
+          "Progreso incómodo"
+        ]
+      },
+      {
+        title: "Responsabilidad, igualdad, valor y mérito",
+        description: "Responsabilidad personal, igualdad ante la ley, igualdad material, valor, mérito y justicia distributiva.",
+        subtopics: [
+          "Responsabilidad y libertad",
+          "Responsabilidad",
+          "Igualdad, valor y mérito",
+          "Igualdad",
+          "Igualdad ante la ley",
+          "Igualdad de oportunidades",
+          "Igualdad material",
+          "Igualdad y diferencias humanas",
+          "Valor y mérito",
+          "Mérito y valor",
+          "Justicia distributiva",
+          "Justicia redistributiva"
+        ]
+      },
+      {
+        title: "Democracia, gobierno mayoritario y sociedad libre",
+        description: "Democracia limitada, demarquía, opinión pública, demagogia, problemas sociales y límites al gobierno.",
+        subtopics: [
+          "Gobierno mayoritario",
+          "Liberalismo y democracia",
+          "Democracia como medio",
+          "Democracia dogmática",
+          "Democracia limitada",
+          "Demarquía",
+          "Demagogia",
+          "Opinión pública",
+          "Sociedad libre",
+          "Orden social",
+          "Problemas sociales",
+          "Paternalismo",
+          "Tragedia de los comunes",
+          "Comunidad y sociedad",
+          "Familia y herencia",
+          "Determinismo y voluntarismo"
+        ]
+      },
+      {
+        title: "Trabajo, independencia y cultura",
+        description: "Asalariados, empresarios, independencia económica, Estado empleador, mecenazgo y cultura.",
+        subtopics: [
+          "Trabajo e independencia",
+          "Trabajo por cuenta ajena",
+          "Libertad del asalariado",
+          "Asalariado e independiente",
+          "Actividad independiente",
+          "Empresario independiente",
+          "Independencia económica",
+          "Riqueza independiente",
+          "Estado empleador",
+          "Sociedad de empleados",
+          "Mentalidad asalariada",
+          "Mentalidad independiente",
+          "Mecenazgo privado",
+          "Cultura y autarquía",
+          "Ocio creador",
+          "Esfera privada",
+          "Sociedad estacionaria",
+          "Sociedad progresiva"
+        ]
+      }
+    ]
+  },
+  {
+    chapter: "Conceptos Importantes",
+    title: "Conceptos Importantes",
+    groups: [
+      {
+        title: "Derecho, ley y justicia",
+        description: "Ley, legislación, mandatos, normas, libertad, derecho y justicia social.",
+        subtopics: [
+          "Derecho, ley y justicia",
+          "Derecho y libertad",
+          "Derecho y justicia",
+          "Justicia"
+        ]
+      },
+      {
+        title: "Sociedad, civilización y progreso",
+        description: "Tribu, sociedad extensa, civilización, progreso, élites, minorías independientes y ética societaria.",
+        subtopics: [
+          "Sociedad, civilización y progreso",
+          "Sociedad y civilización",
+          "Progreso",
+          "Ética societaria"
+        ]
+      },
+      {
+        title: "Mente, igualdad, valor y trabajo",
+        description: "Mente, civilización, valor, mérito, asalariados, empresarios e independencia económica.",
+        subtopics: [
+          "Mente y civilización",
+          "Igualdad, valor y mérito",
+          "Trabajo e independencia"
+        ]
+      }
+    ]
+  }
+]
 
 
 const PROCESO_ECONOMICO_MENUS: ChapterMenu[] = [
@@ -1182,6 +1428,58 @@ const PROCESO_ECONOMICO_MENUS: ChapterMenu[] = [
   }
 ]
 
+
+function buildTopicMenus(cards: any[]): ChapterMenu[] {
+  const chapters =
+    Array.from(
+      new Set(
+        cards
+          .map(card => card.chapter)
+          .filter(Boolean)
+      )
+    )
+
+  return chapters.map(chapter => {
+    const chapterCards =
+      cards.filter(card => card.chapter === chapter)
+
+    const topics =
+      Array.from(
+        new Set(
+          chapterCards
+            .map(card => card.topic || card.subtopic)
+            .filter(Boolean)
+        )
+      )
+
+    return {
+      chapter,
+      title: chapter,
+      groups: topics.map(topic => {
+        const topicCards =
+          chapterCards.filter(card =>
+            (card.topic || card.subtopic) === topic
+          )
+
+        const subtopics =
+          Array.from(
+            new Set(
+              topicCards
+                .map(card => card.subtopic)
+                .filter(Boolean)
+            )
+          )
+
+        return {
+          title: topic,
+          description: `${topicCards.length} tarjetas`,
+          subtopics
+        }
+      })
+    }
+  })
+}
+
 export default function FlashcardSelectScreen({
   subject = "histologia",
   onBack,
@@ -1232,6 +1530,46 @@ export default function FlashcardSelectScreen({
           const chapterCards =
             defaultCards.filter(card => card.chapter === chapter)
 
+          if (
+            subject === "proceso-economico-i" ||
+            subject === "filosofia-de-hayek"
+          ) {
+            const topics =
+              Array.from(
+                new Set(
+                  chapterCards
+                    .map(card => card.topic || card.subtopic)
+                    .filter(Boolean)
+                )
+              )
+
+            return {
+              chapter,
+              title: chapter,
+              groups: topics.map(topic => {
+                const topicCards =
+                  chapterCards.filter(card =>
+                    (card.topic || card.subtopic) === topic
+                  )
+
+                const subtopics =
+                  Array.from(
+                    new Set(
+                      topicCards
+                        .map(card => card.subtopic)
+                        .filter(Boolean)
+                    )
+                  )
+
+                return {
+                  title: topic,
+                  description: `${topicCards.length} tarjetas`,
+                  subtopics
+                }
+              })
+            }
+          }
+
           const subtopics =
             Array.from(
               new Set(
@@ -1252,14 +1590,22 @@ export default function FlashcardSelectScreen({
           }
         })
       },
-      [defaultCards]
+      [subject, defaultCards]
     )
 
   const availableChapterMenus =
     useMemo(
       () => {
         if (subject === "proceso-economico-i") {
-          return generatedChapterMenus
+          return PROCESO_ECONOMICO_MENUS.filter(menu =>
+            defaultCards.some(card => card.chapter === menu.chapter)
+          )
+        }
+
+        if (subject === "filosofia-de-hayek") {
+          return HAYEK_MENUS.filter(menu =>
+            defaultCards.some(card => card.chapter === menu.chapter)
+          )
         }
 
         const manualMenus =
@@ -1819,7 +2165,10 @@ export default function FlashcardSelectScreen({
                       const groupCards =
                         defaultCards.filter(card =>
                           card.chapter === currentMenu.chapter &&
-                          group.subtopics.includes(card.subtopic)
+                          (
+                            group.subtopics.includes(card.subtopic) ||
+                            group.subtopics.includes(card.topic)
+                          )
                         )
 
                       const groupDue =
@@ -1901,7 +2250,7 @@ export default function FlashcardSelectScreen({
                             tracking-[0.18em]
                             text-zinc-500
                           ">
-                            {subject === "proceso-economico-i"
+                            {subject === "proceso-economico-i" || subject === "filosofia-de-hayek"
                               ? `${groupCards.length} tarjetas incluidas`
                               : `${group.subtopics.length} subtemas incluidos`}
                           </p>
@@ -2041,7 +2390,10 @@ export default function FlashcardSelectScreen({
                   const groupCards =
                     defaultCards.filter(card =>
                       card.chapter === mobileMenu.chapter &&
-                      group.subtopics.includes(card.subtopic)
+                      (
+                        group.subtopics.includes(card.subtopic) ||
+                        group.subtopics.includes(card.topic)
+                      )
                     )
 
                   const groupDue =

@@ -1,4 +1,5 @@
 import procesoEconomicoIFlashcards from "@/content/flashcards/proceso-economico-i/cards"
+import filosofiaDeHayekFlashcards from "@/content/flashcards/filosofia-de-hayek/cards"
 
 import {
   histologiaFlashcards,
@@ -17,7 +18,8 @@ export type FlashcardSource =
 export function getDefaultFlashcards(): Flashcard[] {
   return [
     ...histologiaFlashcards,
-    ...procesoEconomicoIFlashcards
+    ...procesoEconomicoIFlashcards,
+    ...filosofiaDeHayekFlashcards
   ]
 }
 

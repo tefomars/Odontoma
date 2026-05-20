@@ -1,0 +1,161 @@
+Sí. Aquí están **todas las que conviene agregar**, juntando las del documento random + las del texto largo + los ajustes de precio máximo/monopolio, sin repetir demasiado lo que ya tenías.
+
+```tsv
+chapter	subtopic	front	back
+Parcial 1	Bienes	¿Qué función general tienen los bienes para la acción humana?	Son medios que permiten pasar a un estado de mayor satisfacción.
+Parcial 1	Bienes de consumo	¿Por qué los bienes de consumo se llaman bienes de primer orden?	Porque satisfacen directa e inmediatamente una necesidad.
+Parcial 1	Bienes de capital	¿Qué relación tienen los bienes de capital con los bienes de consumo?	Los bienes de capital se usan para producir bienes de consumo.
+Parcial 1	Estructura de producción	¿Qué requiere todo proceso de producción?	Tiempo y capital.
+Parcial 1	Periodo de trabajo	¿Qué es el periodo de trabajo?	La parte del proceso productivo que requiere esfuerzo humano directo.
+Parcial 1	Periodo de maduración	¿Qué es el periodo de maduración?	El tiempo en que el proceso productivo avanza sin intervención humana directa.
+Parcial 1	Periodo de maduración	¿Qué ejemplo puede explicar un periodo de maduración?	Un proceso natural o químico que continúa aunque nadie trabaje directamente.
+Parcial 1	Cooperación social	¿Por qué la cooperación social puede beneficiar a personas que nunca se conocen?	Porque la división del trabajo permite intercambios indirectos entre muchos individuos.
+Parcial 1	Cooperación social	¿Qué permite lograr la cooperación social?	Producir más de lo que una persona podría lograr sola.
+Parcial 1	División del trabajo	¿Qué significa desutilidad del trabajo?	Que el trabajo implica esfuerzo o sacrificio.
+Parcial 1	Escasez	¿Por qué la escasez obliga a elegir?	Porque usar un recurso en una opción sacrifica otros usos posibles.
+Parcial 1	Ventaja absoluta	¿Qué pregunta responde la ventaja absoluta?	¿Quién produce un bien con mayor eficiencia?
+Parcial 1	Ventaja comparativa	¿Qué pregunta responde la ventaja comparativa?	¿Quién tiene menor costo de oportunidad al producir un bien?
+Parcial 1	Ventaja comparativa	¿Por qué la ventaja absoluta no decide por sí sola la división del trabajo?	Porque la división del trabajo depende del costo de oportunidad.
+Parcial 1	Ventaja comparativa	¿Por qué alguien con ventaja absoluta en dos actividades no debe hacer necesariamente ambas?	Porque le conviene especializarse donde su ventaja relativa es mayor.
+Parcial 1	Ventaja comparativa	¿Qué debe hacer quien no tiene ventaja absoluta en ninguna actividad?	Especializarse en la actividad donde tiene menor desventaja relativa.
+Parcial 1	Ventaja comparativa	¿Qué efecto tiene la especialización basada en ventaja comparativa?	Aumenta la producción conjunta y facilita más intercambios.
+Parcial 1	FPP	¿Qué muestra la frontera de posibilidades de producción?	Las combinaciones máximas de dos bienes que pueden producirse con recursos limitados.
+Parcial 1	FPP	¿Qué representa cada punto sobre la FPP?	Una combinación productiva posible y su costo de oportunidad.
+Parcial 1	FPP	¿Por qué la división del trabajo puede expandir la FPP?	Porque permite usar mejor los recursos existentes.
+Parcial 1	Mercado	¿Qué rol cumplen los consumidores en la estructura del mercado?	Indican con sus valoraciones y compras qué bienes deben producirse.
+Parcial 1	Mercado	¿Qué rol cumplen los dueños de recursos en el mercado?	Aportan factores de producción y reciben ingresos por ellos.
+Parcial 1	Mercado	¿Qué rol cumple el empresario en la estructura del mercado?	Coordina recursos bajo incertidumbre buscando satisfacer valoraciones de consumidores.
+Parcial 1	Teoría del valor	¿Por qué el trabajo no basta para explicar el valor de un bien?	Porque algo puede requerir mucho trabajo y aun así no satisfacer a nadie.
+Parcial 1	Demanda	¿Qué diferencia hay entre demanda y cantidad demandada?	La demanda es toda la curva; la cantidad demandada es un punto a un precio específico.
+Parcial 1	Demanda	¿Qué ocurre cuando cambia el precio del mismo bien?	Cambia la cantidad demandada y hay movimiento sobre la curva.
+Parcial 1	Demanda	¿Qué ocurre cuando cambia un factor distinto del precio del bien?	La curva de demanda se desplaza.
+Parcial 1	Oferta	¿Qué diferencia hay entre oferta y cantidad ofertada?	La oferta es toda la curva; la cantidad ofertada es un punto a un precio específico.
+Parcial 1	Oferta	¿Qué factores pueden desplazar la oferta?	Tecnología, impuestos y expectativas del vendedor.
+Parcial 1	Déficit y superávit	¿Qué es déficit en un mercado?	Cuando la cantidad demandada es mayor que la cantidad ofertada.
+Parcial 1	Déficit y superávit	¿Qué es superávit en un mercado?	Cuando la cantidad ofertada es mayor que la cantidad demandada.
+Parcial 1	Precio de mercado	¿Qué es el precio de mercado?	El precio al que la cantidad demandada y la cantidad ofertada se igualan.
+Parcial 1	Precio de mercado	¿Quiénes definen el precio de mercado?	Los compradores y vendedores marginales.
+Parcial 1	Elasticidad	¿Por qué la elasticidad precio de la demanda suele expresarse en valor absoluto?	Porque normalmente es negativa por la relación inversa entre precio y cantidad demandada.
+Parcial 1	Precio máximo	¿Qué es un precio máximo en el contexto de intervención gubernamental visto en clase?	Un precio fijado por debajo del precio de mercado.
+Parcial 1	Precio máximo	¿Qué consecuencia tiene un precio máximo fijado por debajo del precio de mercado?	Genera déficit.
+Parcial 1	Precio mínimo	¿Qué es un precio mínimo en el contexto de intervención gubernamental visto en clase?	Un precio fijado por arriba del precio de mercado.
+Parcial 1	Precio mínimo	¿Qué consecuencia tiene un precio mínimo fijado por arriba del precio de mercado?	Genera superávit.
+Parcial 1	Impuestos	¿Qué es la incidencia de un impuesto?	La distribución de la carga del impuesto entre consumidores y productores.
+Parcial 1	Impuestos	¿Por qué no importa quién entrega físicamente el impuesto al gobierno?	Porque la carga económica se reparte entre consumidores y productores.
+Parcial 1	Impuestos	¿Por qué un impuesto genera peso muerto?	Porque impide intercambios que antes beneficiaban a compradores y vendedores.
+Parcial 2	Ahorro y capital	¿Qué representa la red en el ejemplo de Robinson Crusoe?	Un bien de capital.
+Parcial 2	Ahorro y capital	¿Qué representan los peces ahorrados en el ejemplo de Robinson Crusoe?	Aprovisionamiento para sobrevivir durante el periodo de producción.
+Parcial 2	Ahorro y capital	¿Por qué Robinson Crusoe necesita ahorrar peces antes de hacer la red?	Porque necesita consumir mientras dedica tiempo a producir el bien de capital.
+Parcial 2	Ahorro y capital	¿Qué permite crear bienes de capital?	El ahorro, porque permite diferir consumo presente durante el periodo de producción.
+Parcial 2	Ahorro y capital	¿Qué es la formación de capital?	El proceso por el cual el ahorro se convierte en inversión y bienes de capital.
+Parcial 2	Capital	¿Por qué el capital se relaciona con consumo diferido?	Porque requiere sacrificar consumo presente para producir herramientas o bienes futuros.
+Parcial 2	Ahorro	¿Por qué el ahorro es producción no consumida?	Porque son bienes o recursos producidos que no se consumen inmediatamente.
+Parcial 2	Capitalización	¿Cuál es la cadena básica entre ahorro y productividad?	Ahorro → inversión → capital → mayor productividad.
+Parcial 2	Capitalización	¿Qué efecto tiene una máquina sobre la productividad del trabajador?	La aumenta.
+Parcial 2	Capitalización	¿Por qué una máquina aumenta la productividad del trabajador?	Porque permite producir más bienes por unidad de tiempo.
+Parcial 2	Capitalización	¿Qué ocurre con la oferta cuando aumenta la producción?	La oferta aumenta.
+Parcial 2	Capitalización	¿Qué tiende a ocurrir con los precios cuando aumenta la oferta?	Tienden a bajar.
+Parcial 2	Capitalización	¿Qué es el salario nominal?	La cantidad de dinero que recibe un trabajador.
+Parcial 2	Capitalización	¿Qué es el salario real?	El poder de compra del salario.
+Parcial 2	Capitalización	¿Qué ocurre con el salario real si bajan los precios y el salario nominal no cambia?	Aumenta.
+Parcial 2	Capitalización	¿Por qué la capitalización puede elevar salarios reales?	Porque aumenta la productividad, aumenta la oferta y tiende a reducir precios.
+Parcial 2	Capitalización	¿Por qué el ahorro puede generar un ciclo de crecimiento?	Porque financia capital que aumenta productividad, bienestar y capacidad futura de ahorro.
+Parcial 2	Capitalización	¿Por qué las máquinas pueden causar desempleo temporal?	Porque sustituyen ciertas tareas que antes realizaban trabajadores.
+Parcial 2	Capitalización	¿Por qué la capitalización puede crear empleo después?	Porque aumenta producción, ahorro e inversión en nuevas empresas o ampliaciones.
+Parcial 2	Capitalización	¿Qué es desempleo friccional en el proceso de capitalización?	Desempleo temporal mientras los trabajadores se reubican hacia nuevas actividades.
+Parcial 2	Preferencia temporal	¿Cómo se demuestra la preferencia temporal en el interés originario?	En el descuento de bienes futuros por bienes presentes.
+Parcial 2	Interés	¿Por qué una preferencia temporal alta tiende a elevar la tasa de interés?	Porque reduce el ahorro disponible y vuelve más escaso el crédito.
+Parcial 2	Interés	¿Por qué una preferencia temporal baja tiende a reducir la tasa de interés?	Porque aumenta el ahorro disponible y vuelve más abundante el crédito.
+Parcial 2	Mercado de crédito	¿Qué rol cumple el banco como intermediario financiero?	Pone en contacto a ahorrantes con inversionistas.
+Parcial 2	Mercado de crédito	¿Qué buscan los ahorrantes en el mercado de crédito?	Una recompensa por prestar su ahorro.
+Parcial 2	Mercado de crédito	¿Qué buscan los inversionistas en el mercado de crédito?	Ahorro de otros para financiar proyectos.
+Parcial 2	Ley de imputación	¿Quién determina en última instancia el valor del bien final?	Los consumidores.
+Parcial 2	Ley de imputación	¿Hacia dónde se imputa el valor en la ley de imputación?	Del bien final hacia los factores de producción.
+Parcial 2	Ley de imputación	¿Qué factores reciben valor imputado?	Tierra, trabajo, capital y empresarialidad.
+Parcial 2	Ley de imputación	¿Qué ocurre con el valor imputable a factores si baja el precio esperado del bien final?	Baja.
+Parcial 2	Ley de imputación	¿Por qué el empresario descuenta los ingresos futuros?	Porque paga factores hoy pero recibe ingresos después.
+Parcial 2	Ley de imputación	¿Por qué el fin de toda producción es el consumo?	Porque los factores se valoran por los bienes finales que ayudan a producir.
+Parcial 2	Ley de imputación	¿Qué hace el empresario al descontar ingresos futuros esperados?	Calcula cuánto puede pagar hoy por factores sin perder.
+Parcial 2	Ley de imputación	¿Qué significa que el cálculo económico sea ex ante?	Que se realiza antes de conocer los resultados reales.
+Parcial 2	Valor presente	¿Cómo se calcula el ingreso futuro esperado?	Precio esperado × cantidad esperada.
+Parcial 2	Valor presente	¿Qué representa i en la fórmula de valor presente?	La tasa de interés o costo de oportunidad del capital.
+Parcial 2	Valor presente	¿Cuál es la fórmula de valor presente en imputación?	VP = ingreso futuro esperado / (1 + i).
+Parcial 2	Valor presente	¿Qué representa el valor presente en la ley de imputación?	Lo máximo que el empresario puede pagar hoy por factores.
+Parcial 2	Valor presente	¿Qué ocurre con el valor presente cuando sube la tasa de interés usada para descontar?	El valor presente baja.
+Parcial 2	Valor presente	¿Qué ocurre con el valor presente si baja la tasa de interés?	Sube.
+Parcial 2	Valor presente	¿Qué ocurre si el empresario paga menos que el valor presente por los factores?	Puede obtener ganancia económica.
+Parcial 2	Valor presente	¿Qué ocurre si el empresario paga igual al valor presente por los factores?	Solo cubre el costo de oportunidad.
+Parcial 2	Valor presente	¿Qué ocurre si el empresario paga más que el valor presente por los factores?	No cubre el costo de oportunidad.
+Parcial 2	Cálculo económico	¿Qué significa WACC en los ejercicios de imputación?	Costo de oportunidad del capital.
+Parcial 2	Cálculo económico	¿Qué significa ROIC?	Retorno sobre el capital invertido.
+Parcial 2	Cálculo económico	¿Cómo se calcula ROIC?	(Ingreso futuro − costo de factores) / costo de factores × 100.
+Parcial 2	Cálculo económico	¿Cuándo hay ganancia económica según ROIC y WACC?	Cuando ROIC es mayor que WACC.
+Parcial 2	Cálculo económico	¿Qué ocurre si ROIC = WACC?	Solo se cubre el costo de oportunidad.
+Parcial 2	Cálculo económico	¿Qué ocurre si ROIC < WACC?	Hay pérdida económica frente a la alternativa.
+Parcial 2	Ley de rendimientos	¿Qué es el producto total?	La producción total obtenida.
+Parcial 2	Ley de rendimientos	¿Cómo se calcula el producto medio?	Producto total dividido entre cantidad del factor variable.
+Parcial 2	Ley de rendimientos	¿Cómo se calcula el producto marginal si el factor variable aumenta de uno en uno?	Producto total actual − producto total anterior.
+Parcial 2	Ley de rendimientos	¿Cómo se calcula el valor del producto marginal?	Producto marginal × precio del producto.
+Parcial 2	Ley de rendimientos	¿Cuál es la regla económica para contratar un factor variable?	Contratar mientras el VPMg sea mayor o igual al salario.
+Parcial 2	Ley de rendimientos	¿Qué significa producto marginal negativo?	Una unidad adicional del factor reduce la producción total.
+Parcial 2	Ley de rendimientos	¿Cuándo se maximiza el producto total?	Cuando el producto marginal llega a cero.
+Parcial 2	Ley de rendimientos	¿Qué indica que el factor fijo está sobreutilizado?	Producto marginal negativo.
+Parcial 2	Ley de rendimientos	¿Qué son rendimientos crecientes?	Cada unidad adicional del factor variable aporta más producción que la anterior.
+Parcial 2	Ley de rendimientos	¿Qué son rendimientos decrecientes?	Cada unidad adicional del factor variable aporta menos producción que la anterior.
+Parcial 2	Ley de rendimientos	Si PMg = 11 y precio = Q10, ¿cuál es el VPMg?	Q110.
+Parcial 2	Ley de rendimientos	Si VPMg = Q50 y salario = Q80, ¿conviene contratar?	No, porque el factor cuesta más de lo que aporta.
+Parcial 2	Ley de rendimientos	Si VPMg = Q110 y salario = Q80, ¿conviene contratar?	Sí, porque el factor aporta más de lo que cuesta.
+Parcial 2	Ley de rendimientos	¿Qué ocurre si se usa menos del factor variable óptimo?	Se deja producción posible sin aprovechar.
+Parcial 2	Ley de rendimientos	¿Qué ocurre si se agregan demasiadas unidades del factor variable sobre un factor fijo?	El producto marginal puede volverse muy bajo o negativo.
+Parcial 2	Valor del producto marginal	¿Cómo se calcula el valor del producto marginal de un trabajador?	Producto marginal del trabajador × precio del bien.
+Parcial 2	Función empresarial	¿Por qué el empresario casi desaparece en el modelo neoclásico?	Porque el modelo supone equilibrio y conocimiento perfecto.
+Parcial 2	Función empresarial	¿Qué condiciones crean oportunidades empresariales?	Incertidumbre, conocimiento imperfecto y errores de valoración.
+Parcial 2	Función empresarial	¿Qué caracteriza al empresario según Kirzner?	La alerta o perspicacia para descubrir oportunidades no vistas.
+Parcial 2	Función empresarial	¿Qué es la perspicacia empresarial?	Capacidad de descubrir oportunidades que otros no han visto.
+Parcial 2	Función empresarial	¿Qué es arbitraje empresarial?	Comprar barato y vender más caro aprovechando diferencias de precio o valoración.
+Parcial 2	Función empresarial	¿Qué es innovación empresarial?	Hacer algo nuevo o más eficiente para crear valor.
+Parcial 2	Función empresarial	¿Qué es imitación empresarial?	Replicar algo que ya funciona.
+Parcial 2	Función empresarial	¿Qué caracteriza al empresario según Schumpeter?	La innovación y la destrucción creativa.
+Parcial 2	Empresario	¿En qué se basa el cálculo económico del empresario?	En precios presentes de factores y precios futuros esperados del producto.
+Parcial 2	Empresario	¿Qué significa que el empresario busque mercados subvaluados?	Busca recursos que cuestan menos que el valor que pueden generar para consumidores.
+Parcial 2	Empresario	¿Cómo obtiene ganancia el empresario en un mercado subvaluado?	Compra recursos baratos, los transforma o reubica y vende un producto más valorado.
+Parcial 2	Riesgo e incertidumbre	¿Qué distingue Knight entre riesgo e incertidumbre?	El riesgo es medible; la incertidumbre no es medible.
+Parcial 2	Riesgo e incertidumbre	¿Qué es riesgo?	Una situación con probabilidades medibles.
+Parcial 2	Riesgo e incertidumbre	¿Qué es incertidumbre?	Una situación donde no se pueden medir con precisión los resultados futuros.
+Parcial 2	Riesgo e incertidumbre	Según Knight, ¿dónde surge la posibilidad de ganancia empresarial?	En la incertidumbre no medible.
+Parcial 2	Cálculo empresarial	¿Qué son resultados ex ante?	Resultados esperados antes de actuar.
+Parcial 2	Cálculo empresarial	¿Qué son resultados ex post?	Resultados reales después de actuar.
+Parcial 2	Cálculo empresarial	¿Qué indica una ganancia empresarial?	Que el valor obtenido fue mayor que el costo de los recursos usados.
+Parcial 2	Cálculo empresarial	¿Qué indica una pérdida empresarial?	Que el valor obtenido fue menor que el costo de los recursos usados.
+Parcial 2	Cálculo empresarial	¿Por qué las ganancias empresariales no están garantizadas?	Porque el empresario actúa bajo incertidumbre.
+Parcial 2	Cálculo empresarial	¿Qué compara el empresario al hacer cálculo económico?	Precios presentes de factores con precios futuros esperados del producto.
+Parcial 2	Competencia	¿Qué es competencia perfecta?	Un modelo con muchos vendedores, producto homogéneo, información perfecta y empresas tomadoras de precio.
+Parcial 2	Competencia	¿Qué significa que una empresa sea tomadora de precio?	Que no puede influir individualmente en el precio de mercado.
+Parcial 2	Competencia	¿Qué es competencia para la Escuela Austriaca?	Un proceso dinámico de descubrimiento, rivalidad y libertad de entrada y salida.
+Parcial 2	Competencia	¿Qué diferencia central hay entre competencia perfecta y competencia austríaca?	La competencia perfecta es una estructura estática; la competencia austríaca es un proceso dinámico.
+Parcial 2	Competencia perfecta	¿Por qué la competencia perfecta elimina el rol del empresario?	Porque supone información perfecta y no deja oportunidades por descubrir.
+Parcial 2	Competencia perfecta	¿Qué significa que en competencia perfecta no importen los costos de transporte?	Que la ubicación no altera el precio del bien.
+Parcial 2	Competencia imperfecta	¿Qué caracteriza a la competencia imperfecta?	Los vendedores tienen cierto poder de mercado y pueden diferenciar productos.
+Parcial 2	Competencia imperfecta	¿Por qué la competencia imperfecta puede impulsar mejoras?	Porque las empresas se adaptan y diferencian sus productos.
+Parcial 2	Competencia imperfecta	¿Por qué la competencia imperfecta no es lo mismo que monopolio?	Porque aún existe rivalidad entre empresas y sustitutos disponibles.
+Parcial 2	Monopolio	¿Qué es un monopolio según Mankiw?	Un mercado con un solo vendedor y barreras de entrada.
+Parcial 2	Monopolio	¿Por qué las barreras de entrada son importantes para un monopolio?	Porque impiden que nuevos competidores entren y reduzcan el poder del monopolista.
+Parcial 2	Monopolio	¿Qué es un recurso de monopolio?	El control de un recurso clave necesario para producir.
+Parcial 2	Monopolio	¿Qué es un monopolio creado por gobierno?	Un monopolio originado por privilegios legales como patentes, licencias o concesiones.
+Parcial 2	Monopolio	¿Qué es un monopolio natural?	Un monopolio que surge cuando una sola empresa puede abastecer el mercado a menor costo por economías de escala.
+Parcial 2	Monopolio	¿Qué barrera de entrada representa una patente legal?	Monopolio creado por gobierno.
+Parcial 2	Monopolio	¿Qué barrera de entrada representa una licencia exclusiva?	Monopolio creado por gobierno.
+Parcial 2	Monopolio	¿Qué barrera de entrada representa una concesión exclusiva?	Monopolio creado por gobierno.
+Parcial 2	Monopolio	¿Qué barrera de entrada representa el control de un único yacimiento?	Recurso de monopolio.
+Parcial 2	Monopolio	¿Qué barrera de entrada representan las economías de escala?	Monopolio natural.
+Parcial 2	Monopolio	Según Mises, ¿qué es lo relevante del monopolio?	Si aparece un precio de monopolio.
+Parcial 2	Monopolio	¿Qué significa que el monopolista tenga discreción sobre el precio?	Que tiene poder para influir en el precio más que una empresa competitiva.
+Parcial 2	Monopolio	¿Por qué el monopolista no tiene discreción absoluta en el precio?	Porque sigue limitado por la demanda de los consumidores.
+Parcial 2	Poder de mercado	¿Por qué un solo vendedor no implica necesariamente gran poder de mercado?	Porque puede enfrentar sustitutos o competidores potenciales.
+Parcial 2	Poder de mercado	¿Qué ocurre con el poder de mercado si hay muchos sustitutos?	Disminuye.
+Parcial 2	Poder de mercado	¿Qué ocurre con el poder de mercado si hay pocos sustitutos?	Aumenta.
+Parcial 2	Poder de mercado	¿Cómo se relaciona elasticidad con poder de mercado?	Una demanda más elástica implica menor poder de mercado.
+Parcial 2	Poder de mercado	¿Qué es poder de mercado?	La capacidad de influir en el precio.
+Parcial 2	Gobierno y competencia	¿Qué afirma la visión del curso sobre el gobierno cuando busca promover la competencia?	Que al intervenir puede terminar limitando la competencia.
+Parcial 2	Precio de mercado	¿Cuándo se verifica el precio de mercado?	Al momento de realizar una transacción.
+```
