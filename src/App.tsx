@@ -823,6 +823,7 @@ export default function App() {
 
         <ScreenTransition screenKey="flashcard-select">
           <FlashcardSelectScreen
+            subject={selectedFlashcardSubject || "histologia"}
             onBack={() => setSelectedFlashcardSubject(null)}
             onShowSuspended={() => setShowSuspendedFlashcards(true)}
             onSelectTopic={(topic, source) => {

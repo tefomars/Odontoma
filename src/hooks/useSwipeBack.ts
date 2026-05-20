@@ -10,14 +10,14 @@ type Options = {
 export function useSwipeBack({
   onBack,
   enabled = true,
-  minDistance = 105,
-  maxVerticalDrift = 75
+  minDistance = 90,
+  maxVerticalDrift = 80
 }: Options) {
   const startX = useRef(0)
   const startY = useRef(0)
   const latestX = useRef(0)
-  const dragging = useRef(false)
   const tracking = useRef(false)
+  const dragging = useRef(false)
 
   useEffect(() => {
     if (!enabled) return
@@ -25,10 +25,19 @@ export function useSwipeBack({
     const root =
       document.documentElement
 
-    function resetSwipe() {
+    function resetSwipe(animated = true) {
+      if (animated) {
+        root.classList.add("swipe-back-settling")
+      }
+
+      root.classList.remove("is-swiping-back")
       root.style.setProperty("--swipe-back-x", "0px")
       root.style.setProperty("--swipe-back-opacity", "1")
-      root.classList.remove("is-swiping-back")
+      root.style.setProperty("--swipe-back-scale", "1")
+
+      window.setTimeout(() => {
+        root.classList.remove("swipe-back-settling")
+      }, 220)
     }
 
     function isInteractiveElement(target: EventTarget | null) {
@@ -77,31 +86,36 @@ export function useSwipeBack({
       const deltaY =
         touch.clientY - startY.current
 
-      const isRightSwipe =
-        deltaX > 8
+      if (deltaX <= 0) return
 
       const isMostlyHorizontal =
         Math.abs(deltaY) <= maxVerticalDrift
 
-      if (!isRightSwipe || !isMostlyHorizontal) {
-        return
-      }
+      if (!isMostlyHorizontal) return
 
       dragging.current = true
       latestX.current = touch.clientX
 
       const maxDrag =
-        window.innerWidth * 0.42
+        window.innerWidth * 0.55
 
       const eased =
         Math.min(deltaX, maxDrag)
 
+      const progress =
+        Math.min(eased / window.innerWidth, 1)
+
       const opacity =
-        Math.max(0.78, 1 - eased / 950)
+        Math.max(0.78, 1 - progress * 0.34)
+
+      const scale =
+        Math.max(0.985, 1 - progress * 0.018)
 
       root.classList.add("is-swiping-back")
+      root.classList.remove("swipe-back-settling")
       root.style.setProperty("--swipe-back-x", `${eased}px`)
       root.style.setProperty("--swipe-back-opacity", `${opacity}`)
+      root.style.setProperty("--swipe-back-scale", `${scale}`)
     }
 
     function handleTouchEnd() {
@@ -113,30 +127,32 @@ export function useSwipeBack({
         latestX.current - startX.current
 
       if (dragging.current && deltaX >= minDistance) {
-        root.classList.add("is-swiping-back")
+        root.classList.add("swipe-back-settling")
+        root.classList.remove("is-swiping-back")
         root.style.setProperty("--swipe-back-x", `${window.innerWidth}px`)
-        root.style.setProperty("--swipe-back-opacity", "0.72")
+        root.style.setProperty("--swipe-back-opacity", "0")
+        root.style.setProperty("--swipe-back-scale", "0.985")
 
         window.setTimeout(() => {
           onBack()
-          resetSwipe()
-        }, 120)
+          root.style.setProperty("--swipe-back-x", "0px")
+          root.style.setProperty("--swipe-back-opacity", "1")
+          root.style.setProperty("--swipe-back-scale", "1")
+          root.classList.remove("swipe-back-settling")
+        }, 150)
 
         dragging.current = false
         return
       }
 
-      root.classList.remove("is-swiping-back")
-      root.style.setProperty("--swipe-back-x", "0px")
-      root.style.setProperty("--swipe-back-opacity", "1")
-
       dragging.current = false
+      resetSwipe(true)
     }
 
     function handleTouchCancel() {
       tracking.current = false
       dragging.current = false
-      resetSwipe()
+      resetSwipe(true)
     }
 
     window.addEventListener("touchstart", handleTouchStart, {
@@ -160,7 +176,7 @@ export function useSwipeBack({
       window.removeEventListener("touchmove", handleTouchMove)
       window.removeEventListener("touchend", handleTouchEnd)
       window.removeEventListener("touchcancel", handleTouchCancel)
-      resetSwipe()
+      resetSwipe(false)
     }
   }, [
     onBack,

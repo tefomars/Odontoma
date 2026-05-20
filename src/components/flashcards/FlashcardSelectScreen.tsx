@@ -1,4 +1,5 @@
 import {
+  useEffect,
   useMemo,
   useState
 } from "react"
@@ -25,6 +26,7 @@ import {
 } from "@/lib/suspendedFlashcards"
 
 type Props = {
+  subject?: string
   onBack: () => void
   onShowSuspended: () => void
   onSelectTopic: (
@@ -1022,7 +1024,166 @@ function getDueCount(
   ).length
 }
 
+
+function getFlashcardSubjectName(subject: string) {
+  if (subject === "proceso-economico-i") {
+    return "Proceso Económico I"
+  }
+
+  return "Histología"
+}
+
+function cardMatchesSelectedSubject(
+  card: any,
+  subject: string
+) {
+  const cardSubject =
+    String(card.subject || "").toLowerCase()
+
+  if (subject === "proceso-economico-i") {
+    return (
+      cardSubject === "proceso económico i" ||
+      cardSubject === "proceso economico i" ||
+      cardSubject === "proceso-economico-i"
+    )
+  }
+
+  return (
+    cardSubject === "" ||
+    cardSubject === "histología" ||
+    cardSubject === "histologia"
+  )
+}
+
+
+const PROCESO_ECONOMICO_MENUS: ChapterMenu[] = [
+  {
+    chapter: "Parcial 1",
+    title: "Parcial 1",
+    groups: [
+      {
+        title: "Bienes, capital y producción",
+        description: "Bienes de consumo, bienes de capital, estructura productiva y procesos de producción.",
+        subtopics: [
+          "Bienes",
+          "Bienes de consumo",
+          "Bienes de capital",
+          "Estructura de producción",
+          "Periodo de trabajo",
+          "Periodo de maduración"
+        ]
+      },
+      {
+        title: "Cooperación, escasez y especialización",
+        description: "Cooperación social, división del trabajo, escasez, ventaja absoluta y comparativa.",
+        subtopics: [
+          "Cooperación social",
+          "División del trabajo",
+          "Escasez",
+          "Ventaja absoluta",
+          "Ventaja comparativa",
+          "FPP"
+        ]
+      },
+      {
+        title: "Mercado y teoría del valor",
+        description: "Roles del mercado, consumidores, empresarios, dueños de recursos y teoría subjetiva del valor.",
+        subtopics: [
+          "Mercado",
+          "Teoría del valor"
+        ]
+      },
+      {
+        title: "Oferta, demanda y precio de mercado",
+        description: "Curvas, movimientos, desplazamientos, equilibrio, déficit y superávit.",
+        subtopics: [
+          "Demanda",
+          "Oferta",
+          "Déficit y superávit",
+          "Precio de mercado",
+          "Elasticidad"
+        ]
+      },
+      {
+        title: "Intervención, precios e impuestos",
+        description: "Precio máximo, precio mínimo, incidencia impositiva y peso muerto.",
+        subtopics: [
+          "Precio máximo",
+          "Precio mínimo",
+          "Impuestos"
+        ]
+      }
+    ]
+  },
+  {
+    chapter: "Parcial 2",
+    title: "Parcial 2",
+    groups: [
+      {
+        title: "Ahorro, capital y capitalización",
+        description: "Ahorro, formación de capital, máquinas, productividad, salarios reales y desempleo friccional.",
+        subtopics: [
+          "Ahorro y capital",
+          "Capital",
+          "Ahorro",
+          "Capitalización"
+        ]
+      },
+      {
+        title: "Preferencia temporal, interés y crédito",
+        description: "Interés originario, tasa de interés, ahorro, inversión y mercado de crédito.",
+        subtopics: [
+          "Preferencia temporal",
+          "Interés",
+          "Mercado de crédito"
+        ]
+      },
+      {
+        title: "Imputación, valor presente y cálculo económico",
+        description: "Ley de imputación, valor presente, WACC, ROIC, ganancia y pérdida económica.",
+        subtopics: [
+          "Ley de imputación",
+          "Valor presente",
+          "Cálculo económico"
+        ]
+      },
+      {
+        title: "Ley de rendimientos y productividad marginal",
+        description: "Producto total, medio, marginal, VPMg, contratación y rendimientos decrecientes.",
+        subtopics: [
+          "Ley de rendimientos",
+          "Valor del producto marginal"
+        ]
+      },
+      {
+        title: "Función empresarial y cálculo empresarial",
+        description: "Empresario, incertidumbre, riesgo, arbitraje, innovación, ganancia y pérdida.",
+        subtopics: [
+          "Función empresarial",
+          "Empresario",
+          "Riesgo e incertidumbre",
+          "Cálculo empresarial"
+        ]
+      },
+      {
+        title: "Competencia, monopolio y poder de mercado",
+        description: "Competencia perfecta, competencia austríaca, monopolio, barreras de entrada y poder de mercado.",
+        subtopics: [
+          "Competencia",
+          "Competencia perfecta",
+          "Competencia imperfecta",
+          "Monopolio",
+          "Poder de mercado",
+          "Gobierno y competencia",
+          "Precio de mercado"
+        ]
+      }
+    ]
+  }
+]
+
 export default function FlashcardSelectScreen({
+  subject = "histologia",
   onBack,
   onShowSuspended,
   onSelectTopic,
@@ -1038,8 +1199,15 @@ export default function FlashcardSelectScreen({
 
   const defaultCards =
     useMemo(
-      () => filterActiveFlashcards(getDefaultFlashcards()),
-      []
+      () =>
+        filterActiveFlashcards(getDefaultFlashcards())
+          .filter(card =>
+            cardMatchesSelectedSubject(
+              card,
+              subject
+            )
+          ),
+      [subject]
     )
 
   const myCards =
@@ -1048,22 +1216,79 @@ export default function FlashcardSelectScreen({
       []
     )
 
+  const generatedChapterMenus =
+    useMemo(
+      () => {
+        const chapters =
+          Array.from(
+            new Set(
+              defaultCards
+                .map(card => card.chapter)
+                .filter(Boolean)
+            )
+          )
+
+        return chapters.map(chapter => {
+          const chapterCards =
+            defaultCards.filter(card => card.chapter === chapter)
+
+          const subtopics =
+            Array.from(
+              new Set(
+                chapterCards
+                  .map(card => card.subtopic)
+                  .filter(Boolean)
+              )
+            )
+
+          return {
+            chapter,
+            title: chapter,
+            groups: subtopics.map(subtopic => ({
+              title: subtopic,
+              description: `${chapterCards.filter(card => card.subtopic === subtopic).length} cartas`,
+              subtopics: [subtopic]
+            }))
+          }
+        })
+      },
+      [defaultCards]
+    )
+
   const availableChapterMenus =
     useMemo(
-      () =>
-        CHAPTER_MENUS.filter(menu =>
-          defaultCards.some(card => card.chapter === menu.chapter)
-        ),
-      [defaultCards]
+      () => {
+        if (subject === "proceso-economico-i") {
+          return generatedChapterMenus
+        }
+
+        const manualMenus =
+          CHAPTER_MENUS.filter(menu =>
+            defaultCards.some(card => card.chapter === menu.chapter)
+          )
+
+        return manualMenus.length > 0
+          ? manualMenus
+          : generatedChapterMenus
+      },
+      [subject, defaultCards, generatedChapterMenus]
     )
 
   const [selectedChapter, setSelectedChapter] =
     useState(
-      availableChapterMenus[0]?.chapter || "Capítulo 5"
+      availableChapterMenus[0]?.chapter || ""
     )
 
   const [mobileChapterMenu, setMobileChapterMenu] =
     useState<string | null>(null)
+
+  useEffect(
+    () => {
+      setSelectedChapter(availableChapterMenus[0]?.chapter || "")
+      setMobileChapterMenu(null)
+    },
+    [subject, availableChapterMenus]
+  )
 
   const currentMenu =
     availableChapterMenus.find(menu => menu.chapter === selectedChapter) ||
@@ -1374,6 +1599,48 @@ export default function FlashcardSelectScreen({
             </p>
           )}
 
+
+          {availableChapterMenus.length === 0 && (
+            <div className="
+              rounded-[1.75rem]
+              border
+              border-sky-500/20
+              bg-sky-500/10
+              p-6
+            ">
+              <p className="
+                text-xs
+                font-black
+                uppercase
+                tracking-[0.22em]
+                text-sky-300
+              ">
+                Flashcards
+              </p>
+
+              <h2 className="
+                mt-3
+                text-3xl
+                font-black
+                text-white
+              ">
+                Espacio creado
+              </h2>
+
+              <p className="
+                mt-3
+                max-w-2xl
+                text-sm
+                font-semibold
+                leading-relaxed
+                text-zinc-400
+              ">
+                Todavía no hay flashcards cargadas para esta materia. Cuando me mandes las tarjetas, las vamos a integrar acá con capítulos y subtemas igual que Histología.
+              </p>
+            </div>
+          )}
+
+          {availableChapterMenus.length > 0 && (
           <div className="
             grid
             gap-5
@@ -1424,7 +1691,7 @@ export default function FlashcardSelectScreen({
                       key={menu.chapter}
                       type="button"
                       onClick={() => {
-                        if (window.innerWidth < 768) {
+                        if (window.innerWidth < 1024) {
                           setMobileChapterMenu(menu.chapter)
                           return
                         }
@@ -1479,11 +1746,13 @@ export default function FlashcardSelectScreen({
             </aside>
 
             <section className="
+              hidden
               rounded-[1.75rem]
               border
               border-zinc-800
               bg-zinc-950
               p-4
+              lg:block
               lg:max-h-[68vh]
               lg:overflow-y-auto
             ">
@@ -1632,7 +1901,9 @@ export default function FlashcardSelectScreen({
                             tracking-[0.18em]
                             text-zinc-500
                           ">
-                            {group.subtopics.length} subtemas incluidos
+                            {subject === "proceso-economico-i"
+                              ? `${groupCards.length} tarjetas incluidas`
+                              : `${group.subtopics.length} subtemas incluidos`}
                           </p>
                         </button>
                       )
@@ -1642,6 +1913,7 @@ export default function FlashcardSelectScreen({
               )}
             </section>
           </div>
+          )}
         </section>
       </div>
 
@@ -1657,7 +1929,7 @@ export default function FlashcardSelectScreen({
           bg-black/75
           p-4
           backdrop-blur-sm
-          md:hidden
+          lg:hidden
         ">
           <div className="
             w-full

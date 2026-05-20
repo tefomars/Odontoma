@@ -1,3 +1,5 @@
+import procesoEconomicoIFlashcards from "@/content/flashcards/proceso-economico-i/cards"
+
 import {
   histologiaFlashcards,
   type Flashcard
@@ -12,8 +14,11 @@ export type FlashcardSource =
   | "default"
   | "user"
 
-export function getDefaultFlashcards() {
-  return histologiaFlashcards
+export function getDefaultFlashcards(): Flashcard[] {
+  return [
+    ...histologiaFlashcards,
+    ...procesoEconomicoIFlashcards
+  ]
 }
 
 export function getMyFlashcards() {

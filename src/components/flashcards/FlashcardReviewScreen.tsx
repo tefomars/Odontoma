@@ -468,15 +468,14 @@ export default function FlashcardReviewScreen({
   if (!currentCard) {
 
     return (
-      <main className="
+      <main className="flashcard-fixed-shell 
         min-h-screen
         bg-[#09090b]
         p-5
         text-white
       ">
-        <div className="
-          mx-auto
-          flex
+        <div className="flashcard-fixed-content mx-auto
+        flex
           min-h-[calc(100vh-2.5rem)]
           max-w-3xl
           flex-col
@@ -527,7 +526,7 @@ export default function FlashcardReviewScreen({
             )}
           </div>
 
-          <section className="
+          <section className="flashcard-fixed-scroll 
             rounded-[2rem]
             border
             border-zinc-800
@@ -626,24 +625,41 @@ export default function FlashcardReviewScreen({
     <main
       onPointerUp={handleMobileReviewTap}
       className="
-      min-h-screen
+      flashcard-review-shell
+      relative
+      h-[100dvh]
+      overflow-hidden
       bg-[#09090b]
       p-5
+      pt-20
       text-white
     ">
       <div className="
+        flashcard-review-content
         mx-auto
         flex
-        min-h-[calc(100vh-2.5rem)]
+        h-full
         max-w-3xl
         flex-col
+        overflow-hidden
       ">
         <div className="
-          mb-5
+          flashcard-review-header
+          absolute
+          left-1/2
+          top-0
+          z-[999]
           flex
+          w-full
+          max-w-3xl
+          -translate-x-1/2
           items-center
           justify-between
           gap-4
+          bg-[#09090b]/95
+          px-5
+          py-4
+          backdrop-blur
         ">
           <button
             type="button"
@@ -681,9 +697,12 @@ export default function FlashcardReviewScreen({
         <section
           key={`${currentCard.id}-${cardAnimationKey}`}
           className={`
+          flashcard-review-card
           flex
+          min-h-0
           flex-1
           flex-col
+          overflow-y-auto
           rounded-[2rem]
           border
           border-zinc-800
@@ -694,7 +713,7 @@ export default function FlashcardReviewScreen({
           md:p-8
           ${cardAnimationKey > 0 ? "flashcard-change-bounce" : ""}
         `}>
-          <div className="
+          <div className="flashcard-fixed-header 
             mb-5
             flex
             flex-wrap

@@ -36,6 +36,15 @@ const subjects = [
     accent: "from-violet-500/20 to-fuchsia-500/10"
   },
   {
+    id: "proceso-economico-i",
+    title: "Proceso Económico I",
+    subtitle: "Material de clase",
+    description:
+      "Flashcards premade de ahorro, inversión, capital, interés, competencia y rol empresarial.",
+    available: true,
+    accent: "from-sky-500/20 to-cyan-500/10"
+  },
+  {
     id: "bioquimica",
     title: "Bioquímica",
     subtitle: "Próximamente",
@@ -55,16 +64,6 @@ const subjects = [
   }
 ]
 
-const premadeDeckCount =
-  Math.max(
-    1,
-    new Set(
-      getDefaultFlashcards()
-        .map(card => card.topic)
-        .filter(Boolean)
-    ).size
-  )
-
 export default function FlashcardSubjectScreen({
   onBack,
   onSelectSubject,
@@ -79,6 +78,24 @@ export default function FlashcardSubjectScreen({
 
   const storage =
     loadFsrsStorage()
+
+  function getSubjectCardCount(subjectTitle: string) {
+    return getDefaultFlashcards()
+      .filter(card => card.subject === subjectTitle)
+      .length
+  }
+
+  function getSubjectDeckCount(subjectTitle: string) {
+    return Math.max(
+      1,
+      new Set(
+        getDefaultFlashcards()
+          .filter(card => card.subject === subjectTitle)
+          .map(card => card.topic || card.chapter)
+          .filter(Boolean)
+      ).size
+    )
+  }
 
   const userDue =
     userCards.filter(card =>
@@ -412,7 +429,7 @@ export default function FlashcardSubjectScreen({
                     text-zinc-200
                   ">
                     {subject.available
-                      ? `${premadeDeckCount} mazos`
+                      ? `${getSubjectDeckCount(subject.title)} mazos · ${getSubjectCardCount(subject.title)} cartas`
                       : "Próximamente"}
                   </span>
 
