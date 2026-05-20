@@ -1530,10 +1530,35 @@ export default function FlashcardSelectScreen({
           const chapterCards =
             defaultCards.filter(card => card.chapter === chapter)
 
-          if (
-            subject === "proceso-economico-i" ||
-            subject === "filosofia-de-hayek"
-          ) {
+          if (subject === "proceso-economico-i") {
+            const subtopics =
+              Array.from(
+                new Set(
+                  chapterCards
+                    .map(card => card.subtopic)
+                    .filter(Boolean)
+                )
+              )
+
+            return {
+              chapter,
+              title: chapter,
+              groups: subtopics.map(subtopic => {
+                const subtopicCards =
+                  chapterCards.filter(card =>
+                    card.subtopic === subtopic
+                  )
+
+                return {
+                  title: subtopic,
+                  description: `${subtopicCards.length} tarjetas`,
+                  subtopics: [subtopic]
+                }
+              })
+            }
+          }
+
+          if (subject === "filosofia-de-hayek") {
             const topics =
               Array.from(
                 new Set(
@@ -1597,9 +1622,7 @@ export default function FlashcardSelectScreen({
     useMemo(
       () => {
         if (subject === "proceso-economico-i") {
-          return PROCESO_ECONOMICO_MENUS.filter(menu =>
-            defaultCards.some(card => card.chapter === menu.chapter)
-          )
+          return generatedChapterMenus
         }
 
         if (subject === "filosofia-de-hayek") {
