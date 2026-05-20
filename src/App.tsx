@@ -428,6 +428,7 @@ export default function App() {
       sessionQuestions,
       current,
       score,
+      quizSubject: selectedSubject,
       finished: false,
       selectedChapters,
       selectedDifficulties,
@@ -478,6 +479,8 @@ export default function App() {
         setHasPausedSession(false)
         return
       }
+
+      setSelectedSubject(pausedSession.quizSubject || "histologia")
 
       setSessionQuestions(restoredQuestions)
 
