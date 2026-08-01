@@ -11,6 +11,9 @@ type Props = {
   onHistory: () => void
 }
 
+const DEFAULT_CLASS_SYMBOL = "▰"
+const DEFAULT_CLASS_COLOR = "#fbbf24"
+
 export default function OpenQuizDecksScreen({ decks, onBack, onMainMenu, onStart, onHistory }: Props) {
   const [selectedClass, setSelectedClass] = useState<string | null>(null)
   const classes = useMemo(() => {
@@ -21,7 +24,9 @@ export default function OpenQuizDecksScreen({ decks, onBack, onMainMenu, onStart
     })
     return [...grouped.entries()].map(([name, classDecks]) => ({
       name,
-      decks: classDecks
+      decks: classDecks,
+      symbol: classDecks[0]?.classSymbol || DEFAULT_CLASS_SYMBOL,
+      color: classDecks[0]?.classColor || DEFAULT_CLASS_COLOR
     }))
   }, [decks])
   const activeClass = classes.find(item => item.name === selectedClass)
@@ -63,14 +68,32 @@ export default function OpenQuizDecksScreen({ decks, onBack, onMainMenu, onStart
             <>
               <div className="grid gap-4 md:grid-cols-2">
                 {classes.map(item => (
-                  <button key={item.name} type="button" onClick={() => setSelectedClass(item.name)} className="group rounded-[1.5rem] border border-amber-500/25 bg-amber-500/5 p-6 text-left transition hover:scale-[1.01] hover:border-amber-400/60 hover:bg-amber-500/10">
+                  <button
+                    key={item.name}
+                    type="button"
+                    onClick={() => setSelectedClass(item.name)}
+                    className="group rounded-[1.5rem] border p-6 text-left transition hover:scale-[1.01]"
+                    style={{
+                      borderColor: `${item.color}45`,
+                      backgroundColor: `${item.color}0D`
+                    }}
+                  >
                     <div className="mb-7 flex items-start justify-between gap-4">
-                      <span className="grid h-12 w-12 place-items-center rounded-2xl bg-amber-500/15 text-2xl">▰</span>
+                      <span
+                        className="grid h-12 w-12 place-items-center rounded-2xl border text-2xl"
+                        style={{
+                          color: item.color,
+                          borderColor: `${item.color}35`,
+                          backgroundColor: `${item.color}20`
+                        }}
+                      >
+                        {item.symbol}
+                      </span>
                       <span className="text-sm font-black uppercase tracking-wider text-zinc-500">Clase</span>
                     </div>
                     <h2 className="text-3xl font-black tracking-tight">{item.name}</h2>
                     <p className="mt-3 text-sm text-zinc-400">{item.decks.length} {item.decks.length === 1 ? "cuestionario disponible" : "cuestionarios disponibles"}</p>
-                    <p className="mt-6 text-sm font-black text-amber-200">Abrir carpeta →</p>
+                    <p className="mt-6 text-sm font-black" style={{ color: item.color }}>Abrir carpeta →</p>
                   </button>
                 ))}
               </div>

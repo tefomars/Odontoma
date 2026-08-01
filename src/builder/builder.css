@@ -678,6 +678,66 @@ input[type="range"] {
   cursor: not-allowed;
 }
 
+.class-style-editor {
+  display: grid;
+  grid-template-columns: 1fr 1.35fr;
+  gap: 8px;
+  padding: 0 12px 12px;
+}
+
+.class-style-editor label {
+  display: grid;
+  gap: 6px;
+}
+
+.class-style-editor label > span:first-child {
+  color: #71717a;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.class-style-editor > label > input {
+  width: 100%;
+  min-height: 39px;
+  padding: 8px 10px;
+  border: 1px solid #303036;
+  border-radius: 9px;
+  outline: none;
+  color: #f4f4f5;
+  text-align: center;
+  background: #0c0c0e;
+  font-size: 18px;
+}
+
+.class-color-control {
+  display: flex;
+  min-height: 39px;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 8px;
+  border: 1px solid #303036;
+  border-radius: 9px;
+  background: #0c0c0e;
+}
+
+.class-color-control input {
+  width: 30px;
+  height: 27px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  border-radius: 7px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.class-color-control code {
+  color: #a1a1aa;
+  font-size: 9px;
+}
+
 .delete-class-button {
   width: calc(100% - 24px);
   margin: 2px 12px 14px;

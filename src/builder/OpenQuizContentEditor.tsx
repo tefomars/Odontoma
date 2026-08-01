@@ -9,6 +9,8 @@ import type {
 const CONTENT_DRAFT_KEY = "odontoma-open-quiz-builder-draft-v1"
 
 const emptyContent: OpenQuizContent = { decks: [] }
+const DEFAULT_CLASS_SYMBOL = "▰"
+const DEFAULT_CLASS_COLOR = "#fbbf24"
 
 function newId(prefix: string) {
   return `${prefix}-${Date.now()}-${crypto.randomUUID()}`
@@ -67,7 +69,12 @@ export default function OpenQuizContentEditor() {
       grouped.set(className, [...(grouped.get(className) || []), deck])
     }
 
-    return [...grouped.entries()].map(([name, decks]) => ({ name, decks }))
+    return [...grouped.entries()].map(([name, decks]) => ({
+      name,
+      decks,
+      symbol: decks[0]?.classSymbol || DEFAULT_CLASS_SYMBOL,
+      color: decks[0]?.classColor || DEFAULT_CLASS_COLOR
+    }))
   }, [content])
 
   const selectedClass = classes.find(item => item.name === selectedClassName)
@@ -112,6 +119,8 @@ export default function OpenQuizContentEditor() {
       id: newId("open-deck"),
       title: "Nuevo cuestionario",
       subject: className,
+      classSymbol: DEFAULT_CLASS_SYMBOL,
+      classColor: DEFAULT_CLASS_COLOR,
       description: "",
       questions: []
     }
@@ -170,6 +179,19 @@ export default function OpenQuizContentEditor() {
     setStatus("Clase eliminada del borrador. Publicá para confirmar el cambio.")
   }
 
+  function updateClassAppearance(changes: Pick<OpenQuizDeck, "classSymbol" | "classColor">) {
+    if (!selectedClass) return
+
+    setContent(current => ({
+      decks: current.decks.map(deck =>
+        (deck.subject.trim() || "General") === selectedClass.name
+          ? { ...deck, ...changes }
+          : deck
+      )
+    }))
+    setStatus("Apariencia de la clase actualizada en el borrador.")
+  }
+
   function addDeck() {
     if (!selectedClassName) {
       addClass()
@@ -180,6 +202,8 @@ export default function OpenQuizContentEditor() {
       id: newId("open-deck"),
       title: "Nuevo cuestionario",
       subject: selectedClassName,
+      classSymbol: selectedClass?.symbol || DEFAULT_CLASS_SYMBOL,
+      classColor: selectedClass?.color || DEFAULT_CLASS_COLOR,
       description: "",
       questions: []
     }
@@ -342,7 +366,16 @@ export default function OpenQuizContentEditor() {
                 setSelectedQuestionId(null)
               }}
             >
-              <span className="class-folder-icon">▰</span>
+              <span
+                className="class-folder-icon"
+                style={{
+                  color: item.color,
+                  backgroundColor: `${item.color}20`,
+                  borderColor: `${item.color}45`
+                }}
+              >
+                {item.symbol}
+              </span>
               <span>
                 <strong>{item.name}</strong>
                 <small>{item.decks.length} {item.decks.length === 1 ? "cuestionario" : "cuestionarios"}</small>
@@ -371,6 +404,32 @@ export default function OpenQuizContentEditor() {
                   aria-label="Nombre de la clase"
                 />
                 <button onClick={renameClass} disabled={!classNameDraft.trim()}>Renombrar</button>
+              </div>
+
+              <div className="class-style-editor">
+                <label>
+                  <span>Símbolo</span>
+                  <input
+                    value={selectedClass.symbol}
+                    onChange={event => updateClassAppearance({
+                      classSymbol: event.target.value || DEFAULT_CLASS_SYMBOL
+                    })}
+                    maxLength={8}
+                    aria-label="Símbolo de la clase"
+                  />
+                </label>
+                <label>
+                  <span>Color</span>
+                  <span className="class-color-control">
+                    <input
+                      type="color"
+                      value={selectedClass.color}
+                      onChange={event => updateClassAppearance({ classColor: event.target.value })}
+                      aria-label="Color de la clase"
+                    />
+                    <code>{selectedClass.color.toUpperCase()}</code>
+                  </span>
+                </label>
               </div>
 
               <div className="deck-list">

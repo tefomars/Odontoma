@@ -11,6 +11,8 @@ export type OpenQuizDeck = {
   id: string
   title: string
   subject: string
+  classSymbol?: string
+  classColor?: string
   description?: string
   questions: OpenQuizQuestion[]
 }
