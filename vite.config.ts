@@ -10,21 +10,7 @@ import { promises as fs } from "node:fs"
 
 import type { Plugin } from "vite"
 
-type BuilderTheme = {
-  enabled: boolean
-  primaryBackground: string
-  primaryForeground: string
-  primaryBorder: string
-  outlineBackground: string
-  outlineForeground: string
-  outlineBorder: string
-  borderWidth: number
-  radius: number
-  shadow: number
-  fontWeight: number
-  focusColor: string
-  focusWidth: number
-}
+import { renderBuilderCss, type BuilderTheme } from "./src/builder/theme.ts"
 
 type OpenQuizQuestion = {
   id: string
@@ -330,39 +316,6 @@ function validateHomeContent(value: unknown): value is HomeContent {
     ids.add(subject.id)
     return true
   })
-}
-
-function renderBuilderCss(theme: BuilderTheme) {
-  if (!theme.enabled) {
-    return "/* El tema visual local está desactivado. */\n"
-  }
-
-  return `/* Generado desde builder.html. */
-[data-slot="button"][data-variant="default"] {
-  background: ${theme.primaryBackground} !important;
-  color: ${theme.primaryForeground} !important;
-  border-color: ${theme.primaryBorder} !important;
-  border-width: ${theme.borderWidth}px !important;
-  border-radius: ${theme.radius}px !important;
-  box-shadow: 0 ${Math.round(theme.shadow / 3)}px ${theme.shadow}px rgb(0 0 0 / 35%) !important;
-  font-weight: ${theme.fontWeight} !important;
-}
-
-[data-slot="button"][data-variant="outline"] {
-  background: ${theme.outlineBackground} !important;
-  color: ${theme.outlineForeground} !important;
-  border-color: ${theme.outlineBorder} !important;
-  border-width: ${theme.borderWidth}px !important;
-  border-radius: ${theme.radius}px !important;
-  box-shadow: 0 ${Math.round(theme.shadow / 3)}px ${theme.shadow}px rgb(0 0 0 / 35%) !important;
-  font-weight: ${theme.fontWeight} !important;
-}
-
-[data-slot="button"]:focus-visible {
-  outline: ${theme.focusWidth}px solid ${theme.focusColor} !important;
-  outline-offset: 3px !important;
-}
-`
 }
 
 function localBuilderPlugin(): Plugin {

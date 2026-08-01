@@ -6,22 +6,7 @@ import "./builder.css"
 
 import OpenQuizContentEditor from "./OpenQuizContentEditor"
 import LiveAppBuilder from "./LiveAppBuilder"
-
-type BuilderTheme = {
-  enabled: boolean
-  primaryBackground: string
-  primaryForeground: string
-  primaryBorder: string
-  outlineBackground: string
-  outlineForeground: string
-  outlineBorder: string
-  borderWidth: number
-  radius: number
-  shadow: number
-  fontWeight: number
-  focusColor: string
-  focusWidth: number
-}
+import type { BuilderTheme } from "./theme"
 
 type NumericThemeKey = {
   [Key in keyof BuilderTheme]: BuilderTheme[Key] extends number ? Key : never
@@ -404,7 +389,7 @@ function BuilderApp() {
               <p className="eyebrow">VISTA PREVIA AISLADA</p>
               <h2>Estados del componente</h2>
             </div>
-            <span>Haz Tab para ver el outline</span>
+            <span>Al aplicar, cambia los botones reales de Odontoma. Haz Tab para ver el outline.</span>
           </div>
 
           <div className="preview-canvas" style={previewStyle}>

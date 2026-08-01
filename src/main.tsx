@@ -6,6 +6,7 @@ import App from './App'
 import './index.css'
 
 document.documentElement.classList.add("dark")
+document.documentElement.dataset.odontomaApp = "true"
 
 ReactDOM.createRoot(
   document.getElementById('root')!
