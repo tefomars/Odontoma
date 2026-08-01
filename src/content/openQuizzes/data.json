@@ -231,6 +231,154 @@
           "source": ""
         }
       ]
+    },
+    {
+      "id": "open-deck-1785624377144-9c933ea5-7e92-47db-a7ac-f25d13efc547",
+      "title": "Bioquímica Primer Parcial - Ciclo de Krebs",
+      "subject": "Bioquímica",
+      "classSymbol": "▰",
+      "classColor": "#fbbf24",
+      "description": "Ciclo de Krebs",
+      "questions": [
+        {
+          "id": "open-question-1785624425092-6c0b5850-e405-4bda-877e-7a3eafb12b7b",
+          "prompt": "Qué significa que el ciclo de Krebs sea una vía metabólica anfibólica?",
+          "modelAnswer": "Que participa tanto en procesos catabólicos, al oxidar acetil-CoA para obtener energía, como en procesos anabólicos, al aportar intermediarios para sintetizar otros compuestos.",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1785624461691-a2aa6ee7-4fd9-46f3-ad57-ae82394e6915",
+          "prompt": "Qué enzima transforma el oxaloacetato + Acetil-CoA en Citrato?",
+          "modelAnswer": "Citrato sintasa",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1785624483924-64a238ed-6226-405c-9a0f-6e6b270569b8",
+          "prompt": "Dónde ocurre el ciclo de Krebs?",
+          "modelAnswer": "En la matriz mitocondrial",
+          "acceptedPoints": [
+            "Mitocondria"
+          ],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1785624505876-40bcd24c-b1ff-433c-a4ec-eb72a1594502",
+          "prompt": "Por qué razón se considera que el ciclo de Krebs es aeróbico?",
+          "modelAnswer": "Porque necesita que el aceptor final de electrones, oxígeno, reciba los electrones que se recuperaron de los NADH2\n\n--> Necesita NAD+ libre para poder seguir sucediendo",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1785624632591-ef8561b8-f7d9-4cce-9392-feac20c0fb71",
+          "prompt": "Cuántos ATP produce el ciclo de Krebs a partir de 1 Acetil-CoA?",
+          "modelAnswer": "1 GTP, equivalente energéticamente a 1 ATP",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1785624711905-d03ec1c1-aed0-4dc2-b3ef-05ee245ca97b",
+          "prompt": "Cuántos NADH2 produce el ciclo de Krebs a partir de un Acetil-CoA?",
+          "modelAnswer": "3 NADH (o NADH2, según la nomenclatura usada en clase)",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1785624729139-58898cd9-0b09-49c6-a6f6-f96bf150ec5c",
+          "prompt": "Cuáles son las tres reacciones irreversibles/control del ciclo de Krebs y qué enzima media cada una?",
+          "modelAnswer": "Oxaloacetato + Acetil-CoA ---Citrato sintasa--> Citrato\n\nIsocitrato --Isocitrato deshidrogenasa--> alfaCetoglutarato\n\nalfaCetoglutarato --alfaCetoglutarato deshidrogenasa--> Succinil-CoA",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1785624814942-e549fca1-a25e-495e-ba1a-10a6d3fe26b7",
+          "prompt": "Cuál es el sustrato, enzima y producto de la única fosforilación a nivel de sustrato del Ciclo de Krebs?",
+          "modelAnswer": "Succinil-CoA --Succinil-CoA sintetasa--> Succinato\n\n--> ATP/GTP",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1785624869555-e70230fd-418f-4a5e-9d69-42f479af2b4c",
+          "prompt": "Cuántas vueltas del ciclo de Krebs se dan a partir de una glucosa?",
+          "modelAnswer": "2 vueltas\n(1 por cada triosa)",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1785624910485-e38aa643-f0aa-48cd-bb5b-c67326df71f3",
+          "prompt": "Por qué razón el Acetil-CoA no forma parte del ciclo de Krebs?",
+          "modelAnswer": "No es un intermediario\nNo es creado por él\n--> Es solo el sustrato que se provee por la reacción intermedia entre glucólisis y el ciclo de Krebs",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1785624996268-9338fdb8-2d7a-4538-b981-684661c8c642",
+          "prompt": "Potente activador del ciclo de Krebs en tejido muscular",
+          "modelAnswer": "Calcio",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1785625028201-94b61b9d-0f5b-4484-ab89-49499ea5caee",
+          "prompt": "Qué sucede con el ciclo de Krebs cuando hay mucho NADH o ATP?",
+          "modelAnswer": "Se inhibe",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1785625042652-12cc4bba-ca38-45b6-9fba-c147b03aca3f",
+          "prompt": "Qué provee una glucosa, en total, desde glucólisis al fin del ciclo de Krebs?",
+          "modelAnswer": "10 NADH2\n4 ATP\n2 FADH2",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1785625087333-5a5d972e-127a-4d29-8730-090873c58bac",
+          "prompt": "Qué provee SOLO EL CICLO DE KREBS desde una glucosa?",
+          "modelAnswer": "6 NADH2\n2 GTP (equivalentes a 2 ATP)\n2 FADH2",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1785625119633-f155060f-e006-4a7a-89f1-0c5a52351c15",
+          "prompt": "Explique qué es una reacción anaplerótica y cuál es su importancia en el ciclo de Krebs",
+          "modelAnswer": "Son reacciones de relleno que regeneran/reponen intermediarios del ciclo de Krebs",
+          "acceptedPoints": [],
+          "explanation": "Del ciclo de Krebs se invierten intermediarios en otras vías metabólicas, como gluconeogénesis, lipogénesis etc etc... Entonces se necesitan reponer los intermediarios para que pueda seguir sucediendo el mero mero ciclo de Krebs",
+          "source": ""
+        },
+        {
+          "id": "open-question-1785625220445-8bf3e7df-a3fb-42fe-8bdc-ccee31361645",
+          "prompt": "Mencione el principal ejemplo de una reacción anaplerótica",
+          "modelAnswer": "Conversión de Piruvato a Oxaloacetato utilizando 1 ATP y la enzima Piruvato Carboxilasa\n\n-->Repone el oxaloacetato",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1785625302596-19af0eba-bbd1-4763-8d69-2f7edf0bd385",
+          "prompt": "A dónde se van todos los NADH2 y FADH2 producidos en el ciclo de Krebs?",
+          "modelAnswer": "A la cadena transportadora de electrones",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        }
+      ]
     }
   ]
 }
