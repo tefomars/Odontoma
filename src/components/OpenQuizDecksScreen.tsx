@@ -21,8 +21,7 @@ export default function OpenQuizDecksScreen({ decks, onBack, onMainMenu, onStart
     })
     return [...grouped.entries()].map(([name, classDecks]) => ({
       name,
-      decks: classDecks,
-      questionCount: classDecks.reduce((total, deck) => total + deck.questions.length, 0)
+      decks: classDecks
     }))
   }, [decks])
   const activeClass = classes.find(item => item.name === selectedClass)
@@ -67,10 +66,10 @@ export default function OpenQuizDecksScreen({ decks, onBack, onMainMenu, onStart
                   <button key={item.name} type="button" onClick={() => setSelectedClass(item.name)} className="group rounded-[1.5rem] border border-amber-500/25 bg-amber-500/5 p-6 text-left transition hover:scale-[1.01] hover:border-amber-400/60 hover:bg-amber-500/10">
                     <div className="mb-7 flex items-start justify-between gap-4">
                       <span className="grid h-12 w-12 place-items-center rounded-2xl bg-amber-500/15 text-2xl">▰</span>
-                      <span className="text-sm font-black text-zinc-500">{item.decks.length} {item.decks.length === 1 ? "examen" : "exámenes"}</span>
+                      <span className="text-sm font-black uppercase tracking-wider text-zinc-500">Clase</span>
                     </div>
                     <h2 className="text-3xl font-black tracking-tight">{item.name}</h2>
-                    <p className="mt-3 text-sm text-zinc-400">{item.questionCount} {item.questionCount === 1 ? "pregunta disponible" : "preguntas disponibles"}</p>
+                    <p className="mt-3 text-sm text-zinc-400">{item.decks.length} {item.decks.length === 1 ? "cuestionario disponible" : "cuestionarios disponibles"}</p>
                     <p className="mt-6 text-sm font-black text-amber-200">Abrir carpeta →</p>
                   </button>
                 ))}
