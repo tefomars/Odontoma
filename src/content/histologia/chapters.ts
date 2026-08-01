@@ -4,6 +4,9 @@ import cap6Image from "../../assets/chapters/cap6.png"
 import cap7Image from "../../assets/chapters/cap7.png"
 import cap8Image from "../../assets/chapters/cap8.png"
 import logoImage from "../../assets/logo.png"
+import { cap13Questions } from "./cap13/questions"
+import { cap14Questions } from "./cap14/questions"
+import { hemostasiaQuestions } from "./articulos/hemostasiaQuestions"
 
 export const chapters = [
   {
@@ -116,7 +119,7 @@ export const chapters = [
     description:
       "Corazón, pared vascular, arterias, capilares, venas, vasos atípicos y vasos linfáticos.",
     image: logoImage,
-    questionCount: 528,
+    questionCount: cap13Questions.length,
     accent: "from-red-500/20 to-rose-500/20"
   },
 
@@ -127,7 +130,7 @@ export const chapters = [
     description:
       "Inmunidad, células inmunitarias, presentación antigénica, linfocitos, timo, ganglios, bazo y MALT.",
     image: logoImage,
-    questionCount: 519,
+    questionCount: cap14Questions.length,
     accent: "from-emerald-500/20 to-cyan-500/20"
   },
 
@@ -138,7 +141,7 @@ export const chapters = [
     description:
       "Endotelio, plaquetas, coagulación, anticoagulantes, fibrinólisis y tríada de Virchow según Robbins.",
     image: logoImage,
-    questionCount: 251,
+    questionCount: hemostasiaQuestions.length,
     accent: "from-amber-500/20 to-orange-500/20"
   }
 ]

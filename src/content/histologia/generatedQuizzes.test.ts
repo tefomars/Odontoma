@@ -26,21 +26,35 @@ const banks = [
 ]
 
 describe("quizzes de Citohistología II y artículos", () => {
-  it("crea una pregunta por cada flashcard verificada", () => {
+  it("crea bancos selectivos sin perder ningún apartado", () => {
     for (const bank of banks) {
-      expect(bank.questions).toHaveLength(bank.cards.length)
+      const sourceSubtopics = new Set(
+        bank.cards.map(card => card.subtopic)
+      )
+      const quizSubtopics = new Set(
+        bank.questions.map(question => question.topic)
+      )
+
+      expect(bank.questions.length).toBeLessThan(bank.cards.length)
+      expect(bank.questions.length).toBeGreaterThan(40)
+      expect(quizSubtopics).toEqual(sourceSubtopics)
     }
   })
 
   it("mantiene capítulos, respuestas y explicaciones apoyadas en las tarjetas fuente", () => {
     for (const bank of banks) {
-      bank.questions.forEach((question, index) => {
-        const source = bank.cards[index]
+      const sourcesById = new Map(
+        bank.cards.map(card => [`quiz-${card.id}`, card])
+      )
 
+      bank.questions.forEach(question => {
+        const source = sourcesById.get(question.id)
+
+        expect(source).toBeDefined()
         expect(question.chapter).toBe(bank.chapter)
-        expect(question.question).toBe(source.front.trim())
-        expect(question.options[question.correctAnswers[0]]).toBe(source.back.trim())
-        expect(question.explanation).toContain(source.back.trim())
+        expect(question.question).toBe(source?.front.trim())
+        expect(question.options[question.correctAnswers[0]]).toBe(source?.back.trim())
+        expect(question.explanation).toContain(source?.back.trim())
       })
     }
   })
@@ -67,6 +81,19 @@ describe("quizzes de Citohistología II y artículos", () => {
       )
 
       expect(difficulties).toEqual(new Set(["easy", "medium", "hard"]))
+    }
+  })
+
+  it("compara factores de coagulación contra otros factores", () => {
+    const question = hemostasiaQuestions.find(item =>
+      item.question === "¿Qué factor de coagulación puede activar plasminógeno?"
+    )
+
+    expect(question).toBeDefined()
+    expect(question?.options).toHaveLength(4)
+
+    for (const option of question?.options || []) {
+      expect(option.toLocaleLowerCase("es")).toMatch(/factor/)
     }
   })
 })
