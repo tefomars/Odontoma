@@ -913,7 +913,34 @@ input[type="range"] {
 
 .live-app-stage {
   display: grid;
-  grid-template-rows: auto 1fr;
+  grid-template-rows: auto auto 1fr;
+}
+
+.live-screen-switcher {
+  display: flex;
+  gap: 7px;
+  padding: 10px 14px;
+  overflow-x: auto;
+  border-bottom: 1px solid #27272a;
+  background: #0d0d0f;
+}
+
+.live-screen-switcher button {
+  flex: none;
+  padding: 8px 11px;
+  border: 1px solid #303036;
+  border-radius: 9px;
+  color: #85858f;
+  background: #17171a;
+  font-size: 10px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.live-screen-switcher button.active {
+  border-color: #34d399;
+  color: #d1fae5;
+  background: #052e1c;
 }
 
 .live-app-stage-bar {

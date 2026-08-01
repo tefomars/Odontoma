@@ -1,4 +1,58 @@
 {
+  "mainMenu": {
+    "eyebrow": "Odontoma",
+    "title": "¿Qué querés estudiar?",
+    "cards": [
+      {
+        "id": "quizzes",
+        "eyebrow": "Preguntas",
+        "title": "Quizzes",
+        "subtitle": "Practicá con preguntas, filtros por capítulo, dificultad y modo de repaso.",
+        "symbol": "?",
+        "accentColor": "#8b5cf6"
+      },
+      {
+        "id": "flashcards",
+        "eyebrow": "Memoria activa",
+        "title": "Flashcards",
+        "subtitle": "Repasá tarjetas con FSRS, decks por materia y tus propios mazos.",
+        "symbol": "↻",
+        "accentColor": "#10b981"
+      }
+    ]
+  },
+  "quizMenu": {
+    "eyebrow": "Quizzes",
+    "title": "¿Cómo querés responder?",
+    "subtitle": "Elegí el tipo de práctica. Tus quizzes personales quedan disponibles abajo.",
+    "toolsLabel": "Tus herramientas",
+    "cards": [
+      {
+        "id": "multiple-choice",
+        "eyebrow": "Corrección automática",
+        "title": "Opción múltiple",
+        "subtitle": "Elegí la respuesta correcta entre distractores y recibí el resultado al instante.",
+        "symbol": "A B C",
+        "accentColor": "#8b5cf6"
+      },
+      {
+        "id": "open-ended",
+        "eyebrow": "Respuesta libre",
+        "title": "Respuestas abiertas",
+        "subtitle": "Escribí con tus palabras, compará con la respuesta modelo y calificá tu desempeño.",
+        "symbol": "✎",
+        "accentColor": "#f59e0b"
+      },
+      {
+        "id": "my-quizzes",
+        "eyebrow": "Crear e importar",
+        "title": "My quizzes",
+        "subtitle": "Creá quizzes propios, importá preguntas desde texto o archivo y exportá cada deck.",
+        "symbol": "+",
+        "accentColor": "#10b981"
+      }
+    ]
+  },
   "subjects": [
     {
       "id": "histologia",
@@ -15,22 +69,6 @@
       "status": "Disponible",
       "accentColor": "#4f46e5",
       "destination": "filosofia-de-hayek"
-    },
-    {
-      "id": "bioquimica",
-      "title": "Bioquímica",
-      "subtitle": "Enzimas, proteínas, metabolismo y caries",
-      "status": "Próximamente",
-      "accentColor": "#0891b2",
-      "destination": "coming-soon"
-    },
-    {
-      "id": "anatomia",
-      "title": "Anatomía",
-      "subtitle": "Cabeza, cuello, músculos, nervios y vasos",
-      "status": "Próximamente",
-      "accentColor": "#059669",
-      "destination": "coming-soon"
     }
   ]
 }

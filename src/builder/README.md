@@ -2,8 +2,9 @@
 
 1. Ejecuta `npm run dev`.
 2. Abre `http://127.0.0.1:5173/builder.html`.
-3. Usa **Editar la app** para agregar, editar, ordenar o quitar tarjetas de
-   materias sobre una réplica de la pantalla real.
+3. Usa **Editar la app** para cambiar el menú principal, el selector de tipos
+   de quiz y las materias sobre réplicas de las pantallas reales. Los textos,
+   descripciones, símbolos y colores se editan desde sus lápices verdes.
 4. Usa **Apariencia** para probar y aplicar estilos de botones.
 5. Usa **Contenido · Preguntas abiertas** para crear decks con pregunta,
    respuesta modelo y puntos que el estudiante debe considerar.

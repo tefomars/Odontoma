@@ -61,7 +61,28 @@ type HomeSubject = {
 }
 
 type HomeContent = {
+  mainMenu: {
+    eyebrow: string
+    title: string
+    cards: AppMenuCard[]
+  }
+  quizMenu: {
+    eyebrow: string
+    title: string
+    subtitle: string
+    toolsLabel: string
+    cards: AppMenuCard[]
+  }
   subjects: HomeSubject[]
+}
+
+type AppMenuCard = {
+  id: string
+  eyebrow: string
+  title: string
+  subtitle: string
+  symbol: string
+  accentColor: string
 }
 
 const builderThemePath = path.resolve(
@@ -209,7 +230,41 @@ function validateHomeContent(value: unknown): value is HomeContent {
     "coming-soon"
   ])
 
-  if (!Array.isArray(content.subjects) || content.subjects.length > 100) {
+  if (
+    !content.mainMenu ||
+    !content.quizMenu ||
+    !validText(content.mainMenu.eyebrow, 80, true) ||
+    !validText(content.mainMenu.title, 180, true) ||
+    !validText(content.quizMenu.eyebrow, 80, true) ||
+    !validText(content.quizMenu.title, 180, true) ||
+    !validText(content.quizMenu.subtitle, 800, true) ||
+    !validText(content.quizMenu.toolsLabel, 120, true) ||
+    !Array.isArray(content.mainMenu.cards) ||
+    !Array.isArray(content.quizMenu.cards) ||
+    !Array.isArray(content.subjects) ||
+    content.subjects.length > 100
+  ) {
+    return false
+  }
+
+  const validCards = (
+    cards: AppMenuCard[],
+    expectedIds: string[]
+  ) => cards.length === expectedIds.length &&
+    expectedIds.every(id => cards.some(card => card.id === id)) &&
+    cards.every(card =>
+      validText(card.id, 80, true) &&
+      validText(card.eyebrow, 80, true) &&
+      validText(card.title, 180, true) &&
+      validText(card.subtitle, 800, true) &&
+      validText(card.symbol, 20, true) &&
+      validColor(card.accentColor)
+    )
+
+  if (
+    !validCards(content.mainMenu.cards, ["quizzes", "flashcards"]) ||
+    !validCards(content.quizMenu.cards, ["multiple-choice", "open-ended", "my-quizzes"])
+  ) {
     return false
   }
 
