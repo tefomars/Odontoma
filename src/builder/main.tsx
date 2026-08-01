@@ -244,7 +244,7 @@ function BuilderApp() {
               ? "Usa el + y los lápices sobre la interfaz real."
               : activePanel === "appearance"
                 ? "Experimenta dentro de la vista previa."
-                : "Agrega apartados, preguntas, respuestas y criterios de corrección."}
+                : "Agrega clases, cuestionarios, preguntas, respuestas y criterios de corrección."}
             {" "}Odontoma no cambia hasta que pulses{" "}
             <strong>Aplicar al proyecto</strong>.
           </p>

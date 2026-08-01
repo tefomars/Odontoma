@@ -561,10 +561,140 @@ input[type="range"] {
   cursor: pointer;
 }
 
-.deck-list {
-  max-height: 650px;
+.content-sidebar-scroll {
+  min-height: 0;
   overflow-y: auto;
+}
+
+.class-list {
+  display: grid;
+  gap: 7px;
   padding: 12px;
+}
+
+.class-list-item {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 36px minmax(0, 1fr);
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  color: #d4d4d8;
+  text-align: left;
+  background: transparent;
+  cursor: pointer;
+}
+
+.class-list-item:hover {
+  background: #18181b;
+}
+
+.class-list-item.selected {
+  border-color: #6b4f13;
+  background: #211a0d;
+}
+
+.class-folder-icon {
+  display: grid;
+  width: 36px;
+  height: 36px;
+  place-items: center;
+  border-radius: 10px;
+  color: #fde68a;
+  background: #3c2b09;
+}
+
+.class-list-item strong,
+.class-list-item small {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.class-list-item strong {
+  font-size: 13px;
+}
+
+.class-list-item small {
+  margin-top: 4px;
+  color: #71717a;
+  font-size: 10px;
+}
+
+.class-management {
+  border-top: 1px solid #27272a;
+}
+
+.sidebar-section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 16px 16px 10px;
+}
+
+.sidebar-section-heading strong {
+  display: block;
+  max-width: 145px;
+  overflow: hidden;
+  font-size: 13px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.class-name-editor {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 6px;
+  padding: 0 12px 10px;
+}
+
+.class-name-editor input,
+.class-name-editor button {
+  min-width: 0;
+  padding: 9px 10px;
+  border: 1px solid #303036;
+  border-radius: 9px;
+  outline: none;
+  color: #e4e4e7;
+  background: #0c0c0e;
+  font-size: 10px;
+}
+
+.class-name-editor input:focus {
+  border-color: #fbbf24;
+}
+
+.class-name-editor button {
+  color: #fde68a;
+  cursor: pointer;
+}
+
+.class-name-editor button:disabled {
+  opacity: .4;
+  cursor: not-allowed;
+}
+
+.delete-class-button {
+  width: calc(100% - 24px);
+  margin: 2px 12px 14px;
+  padding: 9px;
+  border: 1px solid #4c1d1d;
+  border-radius: 9px;
+  color: #fca5a5;
+  background: #1f1012;
+  font-size: 10px;
+  font-weight: 750;
+  cursor: pointer;
+}
+
+.deck-list {
+  display: grid;
+  gap: 4px;
+  padding: 2px 12px 10px;
 }
 
 .deck-list-item {
@@ -728,7 +858,8 @@ input[type="range"] {
 }
 
 .builder-field input,
-.builder-field textarea {
+.builder-field textarea,
+.builder-field select {
   width: 100%;
   padding: 11px 13px;
   border: 1px solid #303036;
@@ -742,7 +873,8 @@ input[type="range"] {
 }
 
 .builder-field input:focus,
-.builder-field textarea:focus {
+.builder-field textarea:focus,
+.builder-field select:focus {
   border-color: #34d399;
   box-shadow: 0 0 0 3px rgb(52 211 153 / 10%);
 }

@@ -26,6 +26,8 @@ function readDraft() {
 export default function OpenQuizContentEditor() {
   const [content, setContent] = useState<OpenQuizContent>(emptyContent)
   const [appliedContent, setAppliedContent] = useState<OpenQuizContent>(emptyContent)
+  const [selectedClassName, setSelectedClassName] = useState<string | null>(null)
+  const [classNameDraft, setClassNameDraft] = useState("")
   const [selectedDeckId, setSelectedDeckId] = useState<string | null>(null)
   const [selectedQuestionId, setSelectedQuestionId] = useState<string | null>(null)
   const [status, setStatus] = useState("Cargando contenido…")
@@ -43,6 +45,8 @@ export default function OpenQuizContentEditor() {
 
         setAppliedContent(value)
         setContent(initial)
+        setSelectedClassName(initial.decks[0]?.subject.trim() || null)
+        setClassNameDraft(initial.decks[0]?.subject.trim() || "")
         setSelectedDeckId(initial.decks[0]?.id || null)
         setStatus(
           draft
@@ -55,6 +59,19 @@ export default function OpenQuizContentEditor() {
       })
   }, [])
 
+  const classes = useMemo(() => {
+    const grouped = new Map<string, OpenQuizDeck[]>()
+
+    for (const deck of content.decks) {
+      const className = deck.subject.trim() || "General"
+      grouped.set(className, [...(grouped.get(className) || []), deck])
+    }
+
+    return [...grouped.entries()].map(([name, decks]) => ({ name, decks }))
+  }, [content])
+
+  const selectedClass = classes.find(item => item.name === selectedClassName)
+
   const selectedDeck = content.decks.find(deck => deck.id === selectedDeckId)
   const selectedQuestion = selectedDeck?.questions.find(
     question => question.id === selectedQuestionId
@@ -65,6 +82,7 @@ export default function OpenQuizContentEditor() {
 
     for (const deck of content.decks) {
       if (!deck.title.trim()) issues.push("Cada apartado necesita un título.")
+      if (!deck.subject.trim()) issues.push("Cada apartado debe pertenecer a una clase.")
 
       for (const question of deck.questions) {
         if (!question.prompt.trim()) issues.push("Hay una pregunta sin enunciado.")
@@ -75,11 +93,93 @@ export default function OpenQuizContentEditor() {
     return [...new Set(issues)]
   }, [content])
 
-  function addDeck() {
+  function uniqueClassName() {
+    const used = new Set(classes.map(item => item.name.toLocaleLowerCase()))
+    let candidate = "Nueva clase"
+    let number = 2
+
+    while (used.has(candidate.toLocaleLowerCase())) {
+      candidate = `Nueva clase ${number}`
+      number += 1
+    }
+
+    return candidate
+  }
+
+  function addClass() {
+    const className = uniqueClassName()
     const deck: OpenQuizDeck = {
       id: newId("open-deck"),
-      title: "Nuevo apartado",
-      subject: "Histología",
+      title: "Nuevo cuestionario",
+      subject: className,
+      description: "",
+      questions: []
+    }
+
+    setContent(current => ({ decks: [...current.decks, deck] }))
+    setSelectedClassName(className)
+    setClassNameDraft(className)
+    setSelectedDeckId(deck.id)
+    setSelectedQuestionId(null)
+    setStatus("Clase creada con su primer cuestionario en el borrador.")
+  }
+
+  function renameClass() {
+    if (!selectedClass || !classNameDraft.trim()) return
+
+    const nextName = classNameDraft.trim()
+    const duplicate = classes.some(item =>
+      item.name !== selectedClass.name &&
+      item.name.toLocaleLowerCase() === nextName.toLocaleLowerCase()
+    )
+
+    if (duplicate) {
+      setStatus("Ya existe una clase con ese nombre.")
+      return
+    }
+
+    setContent(current => ({
+      decks: current.decks.map(deck =>
+        (deck.subject.trim() || "General") === selectedClass.name
+          ? { ...deck, subject: nextName }
+          : deck
+      )
+    }))
+    setSelectedClassName(nextName)
+    setClassNameDraft(nextName)
+    setStatus("Clase renombrada en el borrador.")
+  }
+
+  function deleteClass() {
+    if (!selectedClass) return
+
+    const confirmed = window.confirm(
+      `¿Borrar la clase "${selectedClass.name}" y sus ${selectedClass.decks.length} cuestionario${selectedClass.decks.length === 1 ? "" : "s"}?`
+    )
+    if (!confirmed) return
+
+    const removedIds = new Set(selectedClass.decks.map(deck => deck.id))
+    const remaining = content.decks.filter(deck => !removedIds.has(deck.id))
+    const nextClassName = remaining[0]?.subject.trim() || null
+
+    setContent({ decks: remaining })
+    setSelectedClassName(nextClassName)
+    setClassNameDraft(nextClassName || "")
+    setSelectedDeckId(remaining[0]?.id || null)
+    setSelectedQuestionId(null)
+    setStatus("Clase eliminada del borrador. Publicá para confirmar el cambio.")
+  }
+
+  function addDeck() {
+    if (!selectedClassName) {
+      addClass()
+      return
+    }
+
+    const deck: OpenQuizDeck = {
+      id: newId("open-deck"),
+      title: "Nuevo cuestionario",
+      subject: selectedClassName,
       description: "",
       questions: []
     }
@@ -87,7 +187,7 @@ export default function OpenQuizContentEditor() {
     setContent(current => ({ decks: [...current.decks, deck] }))
     setSelectedDeckId(deck.id)
     setSelectedQuestionId(null)
-    setStatus("Apartado creado en el borrador.")
+    setStatus("Cuestionario creado dentro de la clase.")
   }
 
   function updateDeck(changes: Partial<OpenQuizDeck>) {
@@ -112,8 +212,13 @@ export default function OpenQuizContentEditor() {
     if (!confirmed) return
 
     const remaining = content.decks.filter(deck => deck.id !== selectedDeck.id)
+    const nextDeck = remaining.find(deck =>
+      (deck.subject.trim() || "General") === selectedClassName
+    ) || remaining[0]
     setContent({ decks: remaining })
-    setSelectedDeckId(remaining[0]?.id || null)
+    setSelectedClassName(nextDeck?.subject.trim() || null)
+    setClassNameDraft(nextDeck?.subject.trim() || "")
+    setSelectedDeckId(nextDeck?.id || null)
     setSelectedQuestionId(null)
     setStatus("Apartado eliminado del borrador. Aplicá para confirmar el cambio.")
   }
@@ -198,6 +303,8 @@ export default function OpenQuizContentEditor() {
 
   function discardDraft() {
     setContent(appliedContent)
+    setSelectedClassName(appliedContent.decks[0]?.subject.trim() || null)
+    setClassNameDraft(appliedContent.decks[0]?.subject.trim() || "")
     setSelectedDeckId(appliedContent.decks[0]?.id || null)
     setSelectedQuestionId(null)
     localStorage.removeItem(CONTENT_DRAFT_KEY)
@@ -209,33 +316,84 @@ export default function OpenQuizContentEditor() {
       <aside className="content-sidebar">
         <div className="content-sidebar-heading">
           <div>
-            <p className="eyebrow">APARTADOS</p>
+            <p className="eyebrow">CLASES</p>
             <h2>Preguntas abiertas</h2>
           </div>
-          <button className="icon-add-button" onClick={addDeck} title="Nuevo apartado">
+          <button className="icon-add-button" onClick={addClass} title="Nueva clase" aria-label="Agregar clase">
             +
           </button>
         </div>
 
-        <div className="deck-list">
-          {content.decks.length === 0 ? (
+        <div className="content-sidebar-scroll">
+          <div className="class-list">
+          {classes.length === 0 ? (
             <div className="empty-builder-state">
-              <strong>No hay apartados</strong>
-              <span>Creá el primero con el botón +.</span>
+              <strong>No hay clases</strong>
+              <span>Creá la primera con el botón +.</span>
             </div>
-          ) : content.decks.map(deck => (
+          ) : classes.map(item => (
             <button
-              key={deck.id}
-              className={`deck-list-item ${deck.id === selectedDeckId ? "selected" : ""}`}
+              key={item.name}
+              className={`class-list-item ${item.name === selectedClassName ? "selected" : ""}`}
               onClick={() => {
-                setSelectedDeckId(deck.id)
+                setSelectedClassName(item.name)
+                setClassNameDraft(item.name)
+                setSelectedDeckId(item.decks[0]?.id || null)
                 setSelectedQuestionId(null)
               }}
             >
-              <strong>{deck.title || "Sin título"}</strong>
-              <span>{deck.questions.length} preguntas · {deck.subject || "General"}</span>
+              <span className="class-folder-icon">▰</span>
+              <span>
+                <strong>{item.name}</strong>
+                <small>{item.decks.length} {item.decks.length === 1 ? "cuestionario" : "cuestionarios"}</small>
+              </span>
             </button>
           ))}
+          </div>
+
+          {selectedClass && (
+            <section className="class-management">
+              <div className="sidebar-section-heading">
+                <div>
+                  <p className="eyebrow">CLASE SELECCIONADA</p>
+                  <strong>{selectedClass.name}</strong>
+                </div>
+                <button className="small-add-button" onClick={addDeck}>+ Cuestionario</button>
+              </div>
+
+              <div className="class-name-editor">
+                <input
+                  value={classNameDraft}
+                  onChange={event => setClassNameDraft(event.target.value)}
+                  onKeyDown={event => {
+                    if (event.key === "Enter") renameClass()
+                  }}
+                  aria-label="Nombre de la clase"
+                />
+                <button onClick={renameClass} disabled={!classNameDraft.trim()}>Renombrar</button>
+              </div>
+
+              <div className="deck-list">
+                {selectedClass.decks.map(deck => (
+                  <button
+                    key={deck.id}
+                    className={`deck-list-item ${deck.id === selectedDeckId ? "selected" : ""}`}
+                    onClick={() => {
+                      setSelectedDeckId(deck.id)
+                      setSelectedQuestionId(null)
+                    }}
+                  >
+                    <strong>{deck.title || "Sin título"}</strong>
+                    <span>{deck.questions.length} {deck.questions.length === 1 ? "pregunta" : "preguntas"}</span>
+                  </button>
+                ))}
+              </div>
+
+              <button className="delete-class-button" onClick={deleteClass}>
+                Eliminar clase completa
+              </button>
+            </section>
+          )}
         </div>
 
         <div className="content-sidebar-status">
@@ -248,21 +406,21 @@ export default function OpenQuizContentEditor() {
         {!selectedDeck ? (
           <div className="content-welcome">
             <span>✎</span>
-            <h2>Creá tu primer apartado</h2>
-            <p>Después podrás agregar preguntas, respuestas y criterios aceptables.</p>
-            <button className="builder-button apply" onClick={addDeck}>
-              Nuevo apartado
+            <h2>Creá tu primera clase</h2>
+            <p>Dentro de ella podrás agregar cuestionarios, preguntas, respuestas y criterios.</p>
+            <button className="builder-button apply" onClick={addClass}>
+              Nueva clase
             </button>
           </div>
         ) : (
           <>
             <header className="content-editor-header">
               <div>
-                <p className="eyebrow">CONFIGURACIÓN DEL APARTADO</p>
+                <p className="eyebrow">CONFIGURACIÓN DEL CUESTIONARIO</p>
                 <h2>{selectedDeck.title || "Sin título"}</h2>
               </div>
               <button className="builder-button danger" onClick={deleteDeck}>
-                Eliminar apartado
+                Eliminar cuestionario
               </button>
             </header>
 
@@ -274,15 +432,20 @@ export default function OpenQuizContentEditor() {
                   placeholder="Ej: Hemostasia · preguntas de desarrollo"
                 />
               </BuilderField>
-              <BuilderField
-                label="Clase o materia"
-                hint="Los apartados con el mismo nombre aparecen dentro de la misma carpeta."
-              >
-                <input
+              <BuilderField label="Clase" hint="Podés mover este cuestionario a otra clase.">
+                <select
                   value={selectedDeck.subject}
-                  onChange={event => updateDeck({ subject: event.target.value })}
-                  placeholder="Ej: Bioquímica"
-                />
+                  onChange={event => {
+                    const nextClass = event.target.value
+                    updateDeck({ subject: nextClass })
+                    setSelectedClassName(nextClass)
+                    setClassNameDraft(nextClass)
+                  }}
+                >
+                  {classes.map(item => (
+                    <option key={item.name} value={item.name}>{item.name}</option>
+                  ))}
+                </select>
               </BuilderField>
               <BuilderField label="Descripción">
                 <textarea

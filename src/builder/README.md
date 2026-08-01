@@ -6,8 +6,9 @@
    de quiz y las materias sobre réplicas de las pantallas reales. Los textos,
    descripciones, símbolos y colores se editan desde sus lápices verdes.
 4. Usa **Apariencia** para probar y aplicar estilos de botones.
-5. Usa **Contenido · Preguntas abiertas** para crear decks con pregunta,
-   respuesta modelo y puntos que el estudiante debe considerar.
+5. Usa **Contenido · Preguntas abiertas** para administrar la estructura
+   **clase → cuestionario/apartado → preguntas**, además de respuestas modelo
+   y puntos que el estudiante debe considerar.
 6. Pulsa el botón de aplicar de cada sección para escribir el cambio en el
    proyecto. Los borradores se conservan localmente hasta aplicarlos o
    descartarlos.
