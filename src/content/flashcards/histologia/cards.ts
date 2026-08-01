@@ -1,5 +1,6 @@
 import { cap13Flashcards } from "./cap13"
 import { cap14Flashcards } from "./cap14"
+import { articuloHemostasiaFlashcards } from "./articuloHemostasia"
 
 export type Flashcard = {
   id: string
@@ -73991,5 +73992,6 @@ export const histologiaFlashcards: Flashcard[] = [
     ]
   },
   ...cap13Flashcards,
-  ...cap14Flashcards
+  ...cap14Flashcards,
+  ...articuloHemostasiaFlashcards
 ]

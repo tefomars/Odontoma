@@ -1259,6 +1259,92 @@ const CHAPTER_MENUS: ChapterMenu[] = [
         ]
       }
     ]
+  },
+  {
+    chapter: "Artículo · Hemostasia y trombosis",
+    title: "Hemostasia y trombosis",
+    groups: [
+      {
+        title: "Hemorragia y conceptos generales",
+        description: "Consecuencias de la hemorragia, hemostasia normal y definición de trombosis.",
+        subtopics: ["Hemorragia y conceptos generales"]
+      },
+      {
+        title: "Secuencia de la hemostasia normal",
+        description: "Vasoconstricción, tapón primario, fibrina y contrarregulación.",
+        subtopics: ["Secuencia de la hemostasia normal"]
+      },
+      {
+        title: "Endotelio antitrombótico",
+        description: "PGI2, NO, antitrombina III, trombomodulina, proteína C/S, TFPI y t-PA.",
+        subtopics: ["Endotelio antitrombótico"]
+      },
+      {
+        title: "Endotelio protrombótico",
+        description: "Activación endotelial, factor tisular, pérdida de trombomodulina y PAI.",
+        subtopics: ["Endotelio protrombótico"]
+      },
+      {
+        title: "Plaquetas y gránulos",
+        description: "Origen, función, gránulos alfa y cuerpos densos.",
+        subtopics: ["Plaquetas y gránulos"]
+      },
+      {
+        title: "Adhesión plaquetaria",
+        description: "Colágeno, vWF, GpIb, von Willebrand y Bernard-Soulier.",
+        subtopics: ["Adhesión plaquetaria"]
+      },
+      {
+        title: "Activación plaquetaria",
+        description: "Liberación granular, calcio, ADP, TxA2 y cambios de membrana.",
+        subtopics: ["Activación plaquetaria"]
+      },
+      {
+        title: "Agregación y tapón estable",
+        description: "GpIIb/IIIa, fibrinógeno, Glanzmann, trombina y consolidación del tapón.",
+        subtopics: ["Agregación y tapón estable"]
+      },
+      {
+        title: "Interacción plaqueta-endotelio",
+        description: "Balance PGI2-TxA2, óxido nítrico y acción de aspirina.",
+        subtopics: ["Interacción plaqueta-endotelio"]
+      },
+      {
+        title: "Cascada de coagulación",
+        description: "Principios, vías intrínseca y extrínseca, calcio, vitamina K y fibrina.",
+        subtopics: ["Cascada de coagulación"]
+      },
+      {
+        title: "Pruebas de coagulación",
+        description: "PT, PTT, factores evaluados, procedimiento y monitorización terapéutica.",
+        subtopics: ["Pruebas de coagulación"]
+      },
+      {
+        title: "Trombina y receptores PAR",
+        description: "Activación celular, inflamación y retroalimentación de la coagulación.",
+        subtopics: ["Trombina y receptores PAR"]
+      },
+      {
+        title: "Anticoagulantes naturales",
+        description: "Antitrombina, proteínas C/S, TFPI y restricción espacial del coágulo.",
+        subtopics: ["Anticoagulantes naturales"]
+      },
+      {
+        title: "Fibrinólisis",
+        description: "Plasmina, activadores, inhibidores, productos de degradación y dímero D.",
+        subtopics: ["Fibrinólisis"]
+      },
+      {
+        title: "Trombosis y tríada de Virchow",
+        description: "Lesión endotelial, flujo anormal, hipercoagulabilidad y disfunción endotelial.",
+        subtopics: ["Trombosis y tríada de Virchow"]
+      },
+      {
+        title: "Flujo anormal y trombosis",
+        description: "Turbulencia, estasis y ejemplos cardiovasculares y hematológicos.",
+        subtopics: ["Flujo anormal y trombosis"]
+      }
+    ]
   }
 ]
 
