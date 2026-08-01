@@ -56,6 +56,22 @@ export function unsuspendFlashcard(
   )
 }
 
+export function deleteSuspendedFlashcardHistory(
+  cardIds: string[]
+) {
+
+  if (cardIds.length === 0) return
+
+  const idsToDelete =
+    new Set(cardIds)
+
+  saveSuspendedFlashcardIds(
+    loadSuspendedFlashcardIds().filter(
+      cardId => !idsToDelete.has(cardId)
+    )
+  )
+}
+
 export function getSuspendedFlashcards<T extends { id: string }>(
   cards: T[]
 ) {

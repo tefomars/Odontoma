@@ -1,0 +1,66 @@
+subtopic	structure	clue
+Identificación cardíaca	Epicardio	Mesotelio con tejido adiposo y vasos coronarios
+Identificación cardíaca	Miocardio	Capa gruesa formada por cardiomiocitos
+Identificación cardíaca	Endocardio	Endotelio con tejido subendotelial y capa subendocárdica
+Identificación cardíaca	Fibra de Purkinje	Cardiomiocito grande, pálido y rico en glucógeno
+Identificación cardíaca	Nodo cardíaco	Cardiomiocitos pequeños con pocas miofibrillas
+Identificación cardíaca	Esqueleto fibroso	Tejido conjuntivo denso que rodea orificios valvulares
+Identificación cardíaca	Fibrosa valvular	Colágeno denso continuo con el anillo fibroso
+Identificación cardíaca	Esponjosa valvular	Capa laxa rica en proteoglucanos
+Identificación cardíaca	Capa ventricular valvular	Capa valvular rica en elastina
+Identificación cardíaca	Cuerda tendinosa	Cordón colágeno revestido por endocardio
+Identificación cardíaca	Arteria coronaria	Vaso muscular de pared gruesa en grasa epicárdica
+Identificación cardíaca	Vena cardíaca	Vaso de luz amplia y pared delgada en grasa epicárdica
+Identificación vascular	Túnica íntima	Endotelio, lámina basal y tejido subendotelial
+Identificación vascular	Túnica media	Estratos circunferenciales de músculo liso
+Identificación vascular	Túnica adventicia	Colágeno longitudinal con vasa vasorum y nervios
+Identificación vascular	Membrana elástica interna	Lámina fenestrada ondulada entre íntima y media
+Identificación vascular	Membrana elástica externa	Lámina elástica entre media y adventicia
+Identificación vascular	Vasa vasorum	Vasos pequeños dentro de la pared de un vaso grande
+Identificación vascular	Nervi vasorum	Nervios autónomos en la adventicia vascular
+Identificación vascular	Cuerpo de Weibel-Palade	Gránulo endotelial con vWF y selectina P
+Identificación arterial	Arteria elástica	Media con numerosas laminillas elásticas fenestradas
+Identificación arterial	Arteria muscular	Media muscular y membrana elástica interna prominente
+Identificación arterial	Arteria pequeña	Media con hasta ocho capas musculares
+Identificación arterial	Arteriola	Media con una o dos capas musculares
+Identificación arterial	Aorta	Arteria elástica principal del circuito sistémico
+Identificación arterial	Arteria pulmonar	Arteria elástica del circuito pulmonar
+Identificación arterial	Arteria contraída	Membrana elástica interna muy ondulada
+Identificación arterial	Adventicia aórtica	Tejido conjuntivo con vasa vasorum y linfáticos
+Identificación arterial	Media aórtica	Laminillas elásticas alternadas con músculo liso
+Identificación arterial	Íntima aórtica	Capa subendotelial relativamente gruesa
+Identificación microvascular	Capilar continuo	Endotelio y lámina basal ininterrumpidos
+Identificación microvascular	Capilar fenestrado	Endotelio con poros y lámina basal continua
+Identificación microvascular	Sinusoide	Luz amplia, espacios grandes y lámina basal discontinua
+Identificación microvascular	Pericito	Célula alargada que comparte lámina basal endotelial
+Identificación microvascular	Esfínter precapilar	Engrosamiento muscular en el origen de un capilar
+Identificación microvascular	Metarteriola	Segmento inicial de una vía preferencial que da origen a capilares
+Identificación microvascular	Anastomosis arteriovenosa	Conexión muscular directa entre arteria y vena
+Identificación microvascular	Lecho microvascular	Arteriola, red capilar y vénula poscapilar
+Identificación microvascular	Capilar del SNC	Capilar continuo con uniones estrechas entre sus células endoteliales
+Identificación microvascular	Sinusoide hepático	Capilar discontinuo que permite intercambio macromolecular
+Identificación venosa	Vénula poscapilar	Endotelio rodeado por pericitos sin media verdadera
+Identificación venosa	Vénula muscular	Vénula con una o dos capas de músculo liso
+Identificación venosa	Vena pequeña	Vena de 0.1-1 mm con dos o tres capas musculares
+Identificación venosa	Vena mediana	Adventicia más gruesa que la media y posibles válvulas
+Identificación venosa	Vena grande	Adventicia muy gruesa con músculo longitudinal
+Identificación venosa	Válvula venosa	Pliegue semilunar de la túnica íntima
+Identificación venosa	Vénula de endotelio alto	Endotelio cúbico que facilita entrada de linfocitos
+Identificación venosa	Seno venoso dural	Espacio endotelial dentro de la duramadre, sin músculo liso
+Identificación venosa	Vena safena magna	Vena superficial con media muscular desarrollada
+Identificación venosa	Vena central suprarrenal	Vena con haces longitudinales prominentes en una túnica media atípica
+Identificación linfática	Capilar linfático	Conducto de fondo ciego con lámina basal incompleta
+Identificación linfática	Filamento de anclaje	Microfibrilla de fibrilina entre endotelio y colágeno
+Identificación linfática	Vaso linfático colector	Vaso con válvulas y músculo liso en su pared
+Identificación linfática	Conducto torácico	Conducto que drena la mayor parte del cuerpo
+Identificación linfática	Conducto linfático derecho	El otro conducto principal además del conducto torácico
+Identificación clínica	Célula espumosa	Macrófago lleno de lípidos en la íntima arterial
+Identificación clínica	Placa ateromatosa	Íntima engrosada con cubierta fibrosa y núcleo lipídico
+Identificación clínica	Hendidura de colesterol	Espacio acicular dejado por cristal disuelto
+Identificación clínica	Hipertrofia ventricular izquierda	Miocardio izquierdo engrosado por sobrecarga de presión
+Identificación clínica	Infarto de miocardio	Necrosis de cardiomiocitos por isquemia prolongada
+Identificación clínica	Cicatriz miocárdica	Cicatriz que sustituye el tejido dañado tras un infarto
+Identificación comparativa	Arteria	Pared más gruesa y luz menor que la vena acompañante
+Identificación comparativa	Vena	Luz mayor y pared más delgada que la arteria acompañante
+Identificación comparativa	Arteria muscular	Vaso cuya túnica predominante es la media
+Identificación comparativa	Vena mediana	Vaso cuya túnica predominante es la adventicia

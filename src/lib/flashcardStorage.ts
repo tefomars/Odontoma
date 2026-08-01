@@ -52,3 +52,33 @@ export function clearFsrsStorage() {
     STORAGE_KEY
   )
 }
+
+export function deleteFsrsCardHistory(
+  cardIds: string[]
+) {
+
+  if (cardIds.length === 0) return
+
+  const idsToDelete =
+    new Set(cardIds)
+
+  const storage =
+    loadFsrsStorage()
+
+  const cards =
+    Object.fromEntries(
+      Object.entries(storage.cards).filter(
+        ([cardId]) => !idsToDelete.has(cardId)
+      )
+    )
+
+  const reviews =
+    storage.reviews.filter(
+      review => !idsToDelete.has(review.cardId)
+    )
+
+  saveFsrsStorage({
+    cards,
+    reviews
+  })
+}

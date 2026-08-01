@@ -52,6 +52,12 @@ type ChapterMenu = {
   groups: BigGroup[]
 }
 
+type ChapterCourseGroup = {
+  title?: string
+  range?: string
+  menus: ChapterMenu[]
+}
+
 const CHAPTER_MENUS: ChapterMenu[] = [
   {
     chapter: "Capítulo 4",
@@ -951,6 +957,308 @@ const CHAPTER_MENUS: ChapterMenu[] = [
         ]
       }
     ]
+  },
+  {
+    chapter: "Capítulo 13",
+    title: "Sistema cardiovascular",
+    groups: [
+      {
+        title: "Fundamentos del sistema cardiovascular",
+        description: "Página 432 · Componentes, microcirculación, circuitos pulmonar y sistémico, y sistemas porta.",
+        subtopics: [
+          "Fundamentos cardiovasculares",
+          "Microcirculación",
+          "Circulación pulmonar",
+          "Circulación sistémica",
+          "Sistemas porta"
+        ]
+      },
+      {
+        title: "Corazón",
+        description: "Páginas 433-439 · Pared, válvulas y regulación intrínseca y sistémica de la frecuencia cardíaca.",
+        subtopics: [
+          "Organización del corazón",
+          "Flujo cardíaco",
+          "Esqueleto fibroso cardíaco",
+          "Vasos coronarios",
+          "Pared cardíaca",
+          "Epicardio",
+          "Miocardio",
+          "Endocardio",
+          "Pericardio",
+          "Taponamiento cardíaco",
+          "Tabiques cardíacos",
+          "Válvulas cardíacas",
+          "Fibrosa valvular",
+          "Esponjosa valvular",
+          "Ventricular valvular",
+          "Células intersticiales valvulares",
+          "Cuerdas tendinosas",
+          "Sistema de conducción cardíaco",
+          "Regulación intrínseca",
+          "Nodo sinoauricular",
+          "Nodo auriculoventricular",
+          "Haz auriculoventricular",
+          "Fibras de Purkinje",
+          "Células nodales",
+          "Disfunción sinusal",
+          "Arritmias",
+          "Regulación cardíaca",
+          "Receptores cardiovasculares"
+        ]
+      },
+      {
+        title: "Características generales de las arterias y las venas",
+        description: "Páginas 440-446 · Capas de la pared vascular y funciones del endotelio vascular.",
+        subtopics: [
+          "Túnicas vasculares",
+          "Túnica íntima",
+          "Túnica media",
+          "Túnica adventicia",
+          "Vasa vasorum",
+          "Nervi vasorum",
+          "Endotelio vascular",
+          "Hemostasia endotelial",
+          "Óxido nítrico",
+          "Endotelina",
+          "Regulación vasomotora"
+        ]
+      },
+      {
+        title: "Arterias",
+        description: "Páginas 447-451 · Arterias grandes elásticas, medianas musculares, pequeñas y arteriolas.",
+        subtopics: [
+          "Clasificación arterial",
+          "Arterias elásticas",
+          "Envejecimiento aórtico",
+          "Arterias musculares",
+          "Arterias pequeñas",
+          "Arteriolas",
+          "Esfínteres precapilares",
+          "Metarteriolas"
+        ]
+      },
+      {
+        title: "Capilares",
+        description: "Páginas 452-454 · Clasificación, pericitos y aspectos funcionales del intercambio capilar.",
+        subtopics: [
+          "Capilares",
+          "Clasificación capilar",
+          "Capilares continuos",
+          "Capilares fenestrados",
+          "Capilares discontinuos",
+          "Pericitos",
+          "Intercambio capilar",
+          "Densidad capilar"
+        ]
+      },
+      {
+        title: "Anastomosis arteriovenosas",
+        description: "Página 455 · Derivaciones directas entre arterias y venas y su función termorreguladora.",
+        subtopics: [
+          "Anastomosis arteriovenosas"
+        ]
+      },
+      {
+        title: "Venas",
+        description: "Páginas 455-457 · Vénulas, venas pequeñas, medianas y grandes, válvulas y comparación arterial.",
+        subtopics: [
+          "Clasificación venosa",
+          "Vénulas poscapilares",
+          "Vénulas musculares",
+          "Vénulas de endotelio alto",
+          "Venas pequeñas",
+          "Venas medianas",
+          "Válvulas venosas",
+          "Venas grandes",
+          "Comparación arteria-vena"
+        ]
+      },
+      {
+        title: "Vasos sanguíneos atípicos",
+        description: "Página 458 · Coronarias, senos durales, safena magna y vena central suprarrenal.",
+        subtopics: [
+          "Vasos sanguíneos atípicos"
+        ]
+      },
+      {
+        title: "Vasos linfáticos",
+        description: "Páginas 459-461 · Capilares, conductos, válvulas y mecanismos del flujo linfático.",
+        subtopics: [
+          "Vasos linfáticos",
+          "Capilares linfáticos",
+          "Conductos linfáticos",
+          "Vasos linfáticos mayores",
+          "Flujo linfático"
+        ]
+      },
+      {
+        title: "Correlaciones clínicas",
+        description: "Cuadros 13-1 a 13-3 · Ateroesclerosis, hipertensión y coronariopatía.",
+        subtopics: [
+          "Ateroesclerosis",
+          "Hipertensión",
+          "Coronariopatía"
+        ]
+      },
+      {
+        title: "Histología 101 e identificación",
+        description: "Página 462 y láminas 32-35 · Reconocimiento bidireccional de estructuras y lesiones.",
+        subtopics: [
+          "Identificación cardíaca",
+          "Identificación vascular",
+          "Identificación arterial",
+          "Identificación microvascular",
+          "Identificación venosa",
+          "Identificación linfática",
+          "Identificación clínica",
+          "Identificación comparativa"
+        ]
+      }
+    ]
+  },
+  {
+    chapter: "Capítulo 14",
+    title: "Sistema inmunitario y tejidos y órganos linfáticos",
+    groups: [
+      {
+        title: "Fundamentos de los sistemas inmunitario y linfático",
+        description: "Páginas 472-474 · Organización, antígenos, inmunidad innata y adaptativa, y tipos de respuesta.",
+        subtopics: [
+          "Fundamentos inmunitarios",
+          "Órganos linfáticos",
+          "Origen de células inmunitarias",
+          "Células inmunitarias",
+          "Linfocitos",
+          "Antígenos",
+          "Inmunidad innata",
+          "Inmunidad adaptativa",
+          "Inmunidad humoral",
+          "Inmunidad celular",
+          "Diferenciación linfocitaria",
+          "Circulación linfocitaria",
+          "Respuesta primaria y secundaria"
+        ]
+      },
+      {
+        title: "Células del sistema inmunitario",
+        description: "Páginas 474-481 · Linfocitos T, B y NK, subpoblaciones y anticuerpos.",
+        subtopics: [
+          "Células de sostén inmunitario",
+          "Células de Langerhans",
+          "Linfocitos T",
+          "Linfocitos TH1",
+          "Linfocitos TH2",
+          "Linfocitos TH17",
+          "Linfocitos T CD8+",
+          "Linfocitos T reguladores",
+          "Linfocitos T γδ",
+          "LITAM",
+          "Linfocitos B",
+          "Anticuerpos",
+          "Inmunoglobulinas",
+          "Linfocitos NK"
+        ]
+      },
+      {
+        title: "Marcadores CD",
+        description: "Tabla 14-1 · Identificación celular, receptores, adhesión, coestimulación y funciones de las moléculas CD.",
+        subtopics: [
+          "Marcadores CD"
+        ]
+      },
+      {
+        title: "Activación de los linfocitos T y B",
+        description: "Páginas 481-485 · MHC, procesamiento, coestimulación, citotoxicidad, citocinas e inmunosupresión.",
+        subtopics: [
+          "MHC",
+          "Procesamiento antigénico",
+          "Activación de linfocitos T",
+          "Citotoxicidad T",
+          "Activación de linfocitos B",
+          "Citocinas",
+          "Inmunosupresores"
+        ]
+      },
+      {
+        title: "Interleucinas",
+        description: "Tabla 14-3 · Principales fuentes, células diana y acciones de IL-1 a IL-20.",
+        subtopics: [
+          "Interleucinas"
+        ]
+      },
+      {
+        title: "Células presentadoras de antígenos",
+        description: "Páginas 485-488 · Presentación antigénica, células dendríticas y activación M1/M2 de macrófagos.",
+        subtopics: [
+          "Células presentadoras de antígeno",
+          "Macrófagos M1 y M2"
+        ]
+      },
+      {
+        title: "Vasos, tejido linfático difuso y nódulos",
+        description: "Páginas 488-493 · Vasos linfáticos, MALT, folículos, amígdalas, placas de Peyer y apéndice.",
+        subtopics: [
+          "Vasos linfáticos",
+          "Tejido linfático difuso",
+          "MALT",
+          "Nódulos linfáticos",
+          "Amígdalas y placas de Peyer"
+        ]
+      },
+      {
+        title: "Ganglios linfáticos",
+        description: "Páginas 493-498 · Arquitectura, malla reticular, VEA, quimiocinas, respuesta y salida linfocitaria.",
+        subtopics: [
+          "Ganglio linfático",
+          "Malla reticular del ganglio",
+          "Vénulas de endotelio alto",
+          "Tráfico linfocitario",
+          "Respuesta ganglionar"
+        ]
+      },
+      {
+        title: "Timo, barrera hematotímica y educación",
+        description: "Páginas 498-503 · Arquitectura tímica, seis tipos epiteliorreticulares, barrera y selección de timocitos.",
+        subtopics: [
+          "Timo",
+          "Células epiteliorreticulares",
+          "Corpúsculos de Hassall",
+          "Macrófagos tímicos",
+          "Barrera hematotímica",
+          "Educación tímica"
+        ]
+      },
+      {
+        title: "Bazo y circulación sanguínea",
+        description: "Páginas 502-509 · Pulpa blanca y roja, senos, circulación abierta y funciones inmunohematológicas.",
+        subtopics: [
+          "Bazo",
+          "Pulpa blanca",
+          "Pulpa roja",
+          "Senos esplénicos",
+          "Circulación esplénica",
+          "Funciones del bazo",
+          "Comparación de órganos"
+        ]
+      },
+      {
+        title: "Correlaciones clínicas",
+        description: "Cuadros 14-1 a 14-4 · Origen T/B, hipersensibilidad inmediata, VIH/sida y linfadenitis reactiva.",
+        subtopics: [
+          "Hipersensibilidad tipo I",
+          "VIH y sida",
+          "Linfadenitis reactiva"
+        ]
+      },
+      {
+        title: "Identificación histológica",
+        description: "Láminas 36-41 · Reconocimiento bidireccional de amígdala, ganglio, timo y bazo.",
+        subtopics: [
+          "Identificación histológica"
+        ]
+      }
+    ]
   }
 ]
 
@@ -1643,6 +1951,44 @@ export default function FlashcardSelectScreen({
       [subject, defaultCards, generatedChapterMenus]
     )
 
+  const chapterCourseGroups =
+    useMemo<ChapterCourseGroup[]>(
+      () => {
+        if (subject !== "histologia") {
+          return [
+            {
+              menus: availableChapterMenus
+            }
+          ]
+        }
+
+        const getChapterNumber =
+          (chapter: string) =>
+            Number(chapter.match(/\d+/)?.[0] || 0)
+
+        return [
+          {
+            title: "Citohistología I",
+            range: "Capítulos 4–12",
+            menus: availableChapterMenus.filter(menu => {
+              const chapterNumber =
+                getChapterNumber(menu.chapter)
+
+              return chapterNumber >= 4 && chapterNumber <= 12
+            })
+          },
+          {
+            title: "Citohistología II",
+            range: "Capítulo 13 en adelante",
+            menus: availableChapterMenus.filter(
+              menu => getChapterNumber(menu.chapter) >= 13
+            )
+          }
+        ].filter(group => group.menus.length > 0)
+      },
+      [subject, availableChapterMenus]
+    )
+
   const [selectedChapter, setSelectedChapter] =
     useState(
       availableChapterMenus[0]?.chapter || ""
@@ -2040,77 +2386,106 @@ export default function FlashcardSelectScreen({
                 lg:max-h-[68vh]
                 lg:overflow-y-auto
               ">
-                {availableChapterMenus.map(menu => {
-                  const chapterCards =
-                    defaultCards.filter(card =>
-                      card.chapter === menu.chapter
-                    )
+                {chapterCourseGroups.map((courseGroup, groupIndex) => (
+                  <div
+                    key={courseGroup.title || "chapters"}
+                    className="grid gap-2"
+                  >
+                    {courseGroup.title && (
+                      <div className={`
+                        px-2
+                        pb-1
+                        ${groupIndex > 0 ? "mt-5 border-t border-zinc-800 pt-5" : ""}
+                      `}>
+                        <p className="
+                          text-xs
+                          font-black
+                          uppercase
+                          tracking-[0.2em]
+                          text-violet-300
+                        ">
+                          {courseGroup.title}
+                        </p>
 
-                  const chapterDue =
-                    getDueCount(
-                      chapterCards,
-                      storage.cards
-                    )
+                        <p className="mt-1 text-xs text-zinc-500">
+                          {courseGroup.range}
+                        </p>
+                      </div>
+                    )}
 
-                  const isSelected =
-                    menu.chapter === currentMenu?.chapter
+                    {courseGroup.menus.map(menu => {
+                      const chapterCards =
+                        defaultCards.filter(card =>
+                          card.chapter === menu.chapter
+                        )
 
-                  return (
-                    <button
-                      key={menu.chapter}
-                      type="button"
-                      onClick={() => {
-                        if (window.innerWidth < 1024) {
-                          setMobileChapterMenu(menu.chapter)
-                          return
-                        }
+                      const chapterDue =
+                        getDueCount(
+                          chapterCards,
+                          storage.cards
+                        )
 
-                        setSelectedChapter(menu.chapter)
-                      }}
-                      className={`
-                        rounded-2xl
-                        border
-                        px-4
-                        py-4
-                        text-left
-                        transition-all
+                      const isSelected =
+                        menu.chapter === currentMenu?.chapter
 
-                        ${
-                          isSelected
-                            ? "border-violet-500/40 bg-violet-500/15"
-                            : "border-zinc-800 bg-zinc-900 hover:border-zinc-700"
-                        }
-                      `}
-                    >
-                      <p className="
-                        text-xs
-                        font-black
-                        uppercase
-                        tracking-[0.18em]
-                        text-zinc-500
-                      ">
-                        {menu.chapter}
-                      </p>
+                      return (
+                        <button
+                          key={menu.chapter}
+                          type="button"
+                          onClick={() => {
+                            if (window.innerWidth < 1024) {
+                              setMobileChapterMenu(menu.chapter)
+                              return
+                            }
 
-                      <p className="
-                        mt-2
-                        text-lg
-                        font-black
-                        text-white
-                      ">
-                        {menu.title}
-                      </p>
+                            setSelectedChapter(menu.chapter)
+                          }}
+                          className={`
+                            rounded-2xl
+                            border
+                            px-4
+                            py-4
+                            text-left
+                            transition-all
 
-                      <p className="
-                        mt-2
-                        text-sm
-                        text-zinc-400
-                      ">
-                        {chapterDue}/{chapterCards.length} pendientes
-                      </p>
-                    </button>
-                  )
-                })}
+                            ${
+                              isSelected
+                                ? "border-violet-500/40 bg-violet-500/15"
+                                : "border-zinc-800 bg-zinc-900 hover:border-zinc-700"
+                            }
+                          `}
+                        >
+                          <p className="
+                            text-xs
+                            font-black
+                            uppercase
+                            tracking-[0.18em]
+                            text-zinc-500
+                          ">
+                            {menu.chapter}
+                          </p>
+
+                          <p className="
+                            mt-2
+                            text-lg
+                            font-black
+                            text-white
+                          ">
+                            {menu.title}
+                          </p>
+
+                          <p className="
+                            mt-2
+                            text-sm
+                            text-zinc-400
+                          ">
+                            {chapterDue}/{chapterCards.length} pendientes
+                          </p>
+                        </button>
+                      )
+                    })}
+                  </div>
+                ))}
               </div>
             </aside>
 

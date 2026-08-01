@@ -52,7 +52,7 @@ import type {
   FlashcardSource
 } from "@/lib/flashcardDecks"
 
-const APP_VERSION = "v0.8.41"
+const APP_VERSION = "v0.9.0"
 
 
 

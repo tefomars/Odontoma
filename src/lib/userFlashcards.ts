@@ -2,6 +2,14 @@ import type {
   Flashcard
 } from "@/content/flashcards/histologia/cards"
 
+import {
+  deleteFsrsCardHistory
+} from "@/lib/flashcardStorage"
+
+import {
+  deleteSuspendedFlashcardHistory
+} from "@/lib/suspendedFlashcards"
+
 const TOPICS_KEY =
   "odontoma_user_flashcard_topics"
 
@@ -185,6 +193,9 @@ export function deleteUserFlashcard(
   saveUserFlashcards(
     cards.filter(card => card.id !== cardId)
   )
+
+  deleteFsrsCardHistory([cardId])
+  deleteSuspendedFlashcardHistory([cardId])
 }
 
 
@@ -202,8 +213,92 @@ export function deleteUserFlashcardTopic(
   const cards =
     loadUserFlashcards()
 
+  const deletedCardIds =
+    cards
+      .filter(card => card.topic === topicId)
+      .map(card => card.id)
+
   saveUserFlashcards(
     cards.filter(card => card.topic !== topicId)
+  )
+
+  deleteFsrsCardHistory(deletedCardIds)
+  deleteSuspendedFlashcardHistory(deletedCardIds)
+}
+
+function parseDelimitedRows(
+  text: string,
+  delimiter: "\t" | ","
+) {
+
+  const rows: string[][] = []
+  let row: string[] = []
+  let field = ""
+  let quoted = false
+
+  for (let index = 0; index < text.length; index += 1) {
+
+    const character = text[index]
+    const nextCharacter = text[index + 1]
+
+    if (character === '"') {
+      if (quoted && nextCharacter === '"') {
+        field += '"'
+        index += 1
+      } else {
+        quoted = !quoted
+      }
+      continue
+    }
+
+    if (!quoted && character === delimiter) {
+      row.push(field)
+      field = ""
+      continue
+    }
+
+    if (!quoted && (character === "\n" || character === "\r")) {
+      if (character === "\r" && nextCharacter === "\n") {
+        index += 1
+      }
+
+      row.push(field)
+
+      if (row.some(value => value.trim())) {
+        rows.push(row)
+      }
+
+      row = []
+      field = ""
+      continue
+    }
+
+    field += character
+  }
+
+  row.push(field)
+
+  if (row.some(value => value.trim())) {
+    rows.push(row)
+  }
+
+  return rows
+}
+
+function isFlashcardHeader(
+  front: string,
+  back: string
+) {
+
+  const normalizedFront =
+    front.trim().toLowerCase()
+
+  const normalizedBack =
+    back.trim().toLowerCase()
+
+  return (
+    ["front", "frente", "pregunta", "anverso"].includes(normalizedFront) &&
+    ["back", "reverso", "respuesta"].includes(normalizedBack)
   )
 }
 
@@ -212,23 +307,40 @@ export function importUserFlashcardsFromTabText(params: {
   text: string
 }) {
 
-  const lines =
+  const firstDataLine =
     params.text
       .split(/\r?\n/)
-      .map(line => line.trim())
-      .filter(Boolean)
+      .find(line => line.trim()) || ""
+
+  const delimiter: "\t" | "," =
+    firstDataLine.includes("\t")
+      ? "\t"
+      : ","
+
+  const rows =
+    parseDelimitedRows(
+      params.text,
+      delimiter
+    )
 
   const importedCards = []
 
-  for (const line of lines) {
+  for (const [index, row] of rows.entries()) {
 
     const [front, ...backParts] =
-      line.split("\t")
+      row
 
     const back =
-      backParts.join("\t")
+      backParts.join(delimiter)
 
     if (!front?.trim() || !back?.trim()) {
+      continue
+    }
+
+    if (
+      index === 0 &&
+      isFlashcardHeader(front, back)
+    ) {
       continue
     }
 

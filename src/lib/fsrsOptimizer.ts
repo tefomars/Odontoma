@@ -1,6 +1,9 @@
 import {
-  generatorParameters
-} from "ts-fsrs"
+  initOptimizer
+} from "@open-spaced-repetition/binding/dynamic-wasi"
+
+import wasmUrl from "@open-spaced-repetition/binding-wasm32-wasi/fsrs-binding.wasm32-wasi.wasm?url"
+import WasiWorker from "@open-spaced-repetition/binding-wasm32-wasi/wasi-worker-browser.mjs?worker"
 
 import type {
   FsrsReviewLog,
@@ -11,196 +14,227 @@ import type {
   OdontomaFsrsParameters
 } from "@/lib/fsrsParameters"
 
-type OptimizationStats = {
-  reviewCount: number
-  rememberedCount: number
-  forgottenCount: number
-  retention: number
-  targetRetention: number
-  intervalScale: number
-  averageScheduledDays: number
+import {
+  getDesiredRetention
+} from "@/lib/fsrsParameters"
+
+const DAY_MS =
+  24 * 60 * 60 * 1000
+
+type OptimizerBinding =
+  Awaited<ReturnType<typeof initOptimizer>>
+
+let optimizerPromise:
+  Promise<OptimizerBinding> | null = null
+
+function getOptimizer() {
+  if (!globalThis.crossOriginIsolated) {
+    throw new Error(
+      "El optimizador necesita aislamiento seguro del navegador. Recargá Odontoma desde su servidor actualizado."
+    )
+  }
+
+  if (!optimizerPromise) {
+    optimizerPromise =
+      initOptimizer({
+        wasm: wasmUrl,
+        worker: () => new WasiWorker()
+      })
+  }
+
+  return optimizerPromise
 }
 
-function clamp(
-  value: number,
-  min: number,
-  max: number
+function toRating(
+  rating: FsrsReviewLog["rating"]
 ) {
-  return Math.min(
-    Math.max(value, min),
-    max
+  if (rating === "again") return 1
+  if (rating === "hard") return 2
+  if (rating === "good") return 3
+
+  return 4
+}
+
+function localDayNumber(value: string) {
+  const date =
+    new Date(value)
+
+  if (Number.isNaN(date.getTime())) {
+    return null
+  }
+
+  return Math.floor(
+    Date.UTC(
+      date.getFullYear(),
+      date.getMonth(),
+      date.getDate()
+    ) / DAY_MS
   )
 }
 
-function isRememberedReview(
-  review: FsrsReviewLog
-) {
-  return (
-    review.rating === "hard" ||
-    review.rating === "good" ||
-    review.rating === "easy"
-  )
-}
-
-function getScheduledDays(
-  review: FsrsReviewLog
-) {
-  const direct =
-    Number(review.fsrsLog?.scheduled_days)
-
-  if (Number.isFinite(direct) && direct > 0) {
-    return direct
-  }
-
-  const stateDays =
-    Number(review.stateAfter?.card?.scheduled_days)
-
-  if (Number.isFinite(stateDays) && stateDays > 0) {
-    return stateDays
-  }
-
-  return 0
-}
-
-function buildStats(
+function buildTrainingItems(
+  binding: OptimizerBinding,
   reviews: FsrsReviewLog[]
-): OptimizationStats {
-
-  const reviewCount =
-    reviews.length
-
-  const rememberedCount =
-    reviews.filter(isRememberedReview).length
-
-  const forgottenCount =
-    reviewCount - rememberedCount
-
-  const retention =
-    reviewCount > 0
-      ? rememberedCount / reviewCount
-      : 0
-
-  const scheduledDays =
-    reviews
-      .map(getScheduledDays)
-      .filter(value => value > 0)
-
-  const averageScheduledDays =
-    scheduledDays.length > 0
-      ? scheduledDays.reduce((sum, value) => sum + value, 0) / scheduledDays.length
-      : 0
-
-  return {
-    reviewCount,
-    rememberedCount,
-    forgottenCount,
-    retention,
-    targetRetention: 0.9,
-    intervalScale: 1,
-    averageScheduledDays
-  }
-}
-
-function scaleWeights(
-  weights: number[],
-  scale: number
 ) {
+  const byCard =
+    new Map<string, FsrsReviewLog[]>()
 
-  const next =
-    [...weights]
+  for (const review of reviews) {
+    const list =
+      byCard.get(review.cardId) || []
 
-  /*
-    w0-w3: initial stability.
-    Lower = shorter first intervals.
-    Higher = longer first intervals.
-  */
-  for (const index of [0, 1, 2, 3]) {
-    next[index] =
-      Number(
-        clamp(
-          next[index] * scale,
-          0.05,
-          100
-        ).toFixed(8)
-      )
+    list.push(review)
+    byCard.set(review.cardId, list)
   }
 
-  /*
-    w8, w10, w15, w16, w17, w18, w19 affect stability growth / short-term behavior.
-    We keep this conservative so it does not make the scheduler weird.
-  */
-  for (const index of [8, 10, 15, 16, 17, 18, 19]) {
-    if (typeof next[index] === "number") {
-      const softScale =
-        1 + ((scale - 1) * 0.35)
+  const items:
+    InstanceType<OptimizerBinding["FSRSBindingItem"]>[] = []
 
-      next[index] =
-        Number(
-          clamp(
-            next[index] * softScale,
-            0.001,
-            10
-          ).toFixed(8)
+  for (const cardReviews of byCard.values()) {
+    const sorted =
+      [...cardReviews]
+        .filter(review =>
+          localDayNumber(review.reviewedAt) !== null
         )
+        .sort((a, b) =>
+          new Date(a.reviewedAt).getTime() -
+          new Date(b.reviewedAt).getTime()
+        )
+
+    if (sorted.length < 2) continue
+
+    const deltas =
+      sorted.map((review, index) => {
+        if (index === 0) return 0
+
+        const current =
+          localDayNumber(review.reviewedAt) || 0
+
+        const previous =
+          localDayNumber(sorted[index - 1].reviewedAt) || 0
+
+        return Math.max(0, current - previous)
+      })
+
+    for (
+      let currentIndex = 1;
+      currentIndex < sorted.length;
+      currentIndex++
+    ) {
+      if (deltas[currentIndex] <= 0) continue
+
+      const history =
+        sorted
+          .slice(0, currentIndex + 1)
+          .map((review, index) =>
+            new binding.FSRSBindingReview(
+              toRating(review.rating),
+              deltas[index]
+            )
+          )
+
+      items.push(
+        new binding.FSRSBindingItem(history)
+      )
     }
   }
 
-  return next
+  return items
 }
 
-export function optimizeFsrsParameters(
-  storage: FsrsStorage
-): OdontomaFsrsParameters & {
-  stats: OptimizationStats
-} {
-
+function buildStats(
+  storage: FsrsStorage,
+  trainingItems: number
+) {
   const reviews =
     storage.reviews || []
 
-  const stats =
-    buildStats(reviews)
+  const rememberedCount =
+    reviews.filter(review =>
+      review.rating !== "again"
+    ).length
 
-  const base =
-    generatorParameters()
+  const forgottenCount =
+    reviews.length - rememberedCount
 
-  const baseWeights =
-    Array.from(base.w)
+  const scheduledDays =
+    reviews
+      .map(review =>
+        Number(
+          review.stateAfter?.card?.scheduled_days || 0
+        )
+      )
+      .filter(value => value > 0)
 
-  const retentionGap =
-    stats.retention - stats.targetRetention
+  return {
+    reviewCount: reviews.length,
+    rememberedCount,
+    forgottenCount,
+    retention:
+      reviews.length > 0
+        ? rememberedCount / reviews.length
+        : 0,
+    targetRetention:
+      getDesiredRetention(),
+    averageScheduledDays:
+      scheduledDays.length > 0
+        ? scheduledDays.reduce((sum, value) => sum + value, 0) /
+          scheduledDays.length
+        : 0,
+    trainingItems
+  }
+}
 
-  /*
-    If retention is lower than target, shorten intervals.
-    If retention is higher than target, allow slightly longer intervals.
-  */
-  const intervalScale =
-    clamp(
-      1 + retentionGap * 1.25,
-      0.72,
-      1.18
+export async function optimizeFsrsParameters(
+  storage: FsrsStorage
+): Promise<OdontomaFsrsParameters> {
+  const binding =
+    await getOptimizer()
+
+  const trainingItems =
+    buildTrainingItems(
+      binding,
+      storage.reviews || []
     )
 
-  const requestRetention =
-    clamp(
-      0.9 - retentionGap * 0.18,
-      0.82,
-      0.96
+  if (trainingItems.length === 0) {
+    throw new Error(
+      "Todavía no hay repasos realizados en días distintos para entrenar FSRS."
     )
+  }
 
   const weights =
-    scaleWeights(
-      baseWeights,
-      intervalScale
+    await binding.computeParameters(
+      trainingItems,
+      {
+        enableShortTerm: true,
+        numRelearningSteps: 1
+      }
+    )
+
+  const evaluation =
+    new binding.FSRSBinding(weights)
+      .evaluate(trainingItems)
+
+  const stats =
+    buildStats(
+      storage,
+      trainingItems.length
     )
 
   return {
     weights,
-    requestRetention: Number(requestRetention.toFixed(4)),
-    optimizedAt: new Date().toISOString(),
-    reviewCount: stats.reviewCount,
+    requestRetention:
+      getDesiredRetention(),
+    optimizedAt:
+      new Date().toISOString(),
+    reviewCount:
+      storage.reviews.length,
+    optimizer: "fsrs-rs",
     stats: {
       ...stats,
-      intervalScale: Number(intervalScale.toFixed(4))
+      logLoss: evaluation.logLoss,
+      rmseBins: evaluation.rmseBins
     }
   }
 }

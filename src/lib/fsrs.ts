@@ -2,12 +2,19 @@ import {
   createEmptyCard,
   fsrs,
   generatorParameters,
-  Rating
+  Rating,
+  type CardInput,
+  type ReviewLog
 } from "ts-fsrs"
 
 import {
+  getDesiredRetention,
   loadFsrsParameters
 } from "@/lib/fsrsParameters"
+
+import {
+  balanceFsrsDueDate
+} from "@/lib/fsrsLoadBalancer"
 
 export type FsrsRating =
   | "again"
@@ -16,7 +23,11 @@ export type FsrsRating =
   | "easy"
 
 export type FsrsCardState = {
-  card: any
+  card: CardInput & {
+    dueDate?: string
+    reviewCount?: number
+    lapseCount?: number
+  }
   dueDate: string
   lastReviewed?: string
   reviewCount: number
@@ -29,7 +40,7 @@ export type FsrsReviewLog = {
   reviewedAt: string
   stateBefore?: FsrsCardState
   stateAfter: FsrsCardState
-  fsrsLog?: any
+  fsrsLog?: ReviewLog
 }
 
 export type FsrsProgressMap = {
@@ -41,133 +52,24 @@ export type FsrsStorage = {
   reviews: FsrsReviewLog[]
 }
 
-const DAY_MS =
-  24 * 60 * 60 * 1000
+const LEARNING_STEPS =
+  ["10m"] as const
 
-const DEFAULT_FSRS_FIRST_INTERVAL_MS: Record<FsrsRating, number> = {
-  again: 1 * 60 * 1000,
-  hard: 6 * 60 * 1000,
-  good: 10 * 60 * 1000,
-  easy: 11 * DAY_MS
-}
-
-const FRIENDLY_FIRST_INTERVAL_MS: Record<FsrsRating, number> = {
-  again: 1 * DAY_MS,
-  hard: 1.35 * DAY_MS,
-  good: 2 * DAY_MS,
-  easy: 11 * DAY_MS
-}
-
-function clampNumber(
-  value: number,
-  min: number,
-  max: number
-) {
-
-  return Math.min(
-    max,
-    Math.max(
-      min,
-      value
-    )
-  )
-}
-
-function getRetentionScale() {
-
-  const savedParameters =
-    loadFsrsParameters()
-
-  const retention =
-    savedParameters?.requestRetention ?? 0.9
-
-  return clampNumber(
-    0.9 / retention,
-    0.65,
-    1.6
-  )
-}
-
-function getIntervalMs(
-  reviewedAt: Date,
-  dueDate: string
-) {
-
-  return Math.max(
-    60 * 1000,
-    new Date(dueDate).getTime() - reviewedAt.getTime()
-  )
-}
-
-function applyFriendlyFirstReviewInterval(
-  state: FsrsCardState,
-  rating: FsrsRating,
-  reviewedAt: Date
-): FsrsCardState {
-
-  const fsrsInterval =
-    getIntervalMs(
-      reviewedAt,
-      state.dueDate
-    )
-
-  const defaultFsrsInterval =
-    DEFAULT_FSRS_FIRST_INTERVAL_MS[rating]
-
-  const fsrsScale =
-    clampNumber(
-      fsrsInterval / defaultFsrsInterval,
-      0.35,
-      3.5
-    )
-
-  const retentionScale =
-    getRetentionScale()
-
-  const finalInterval =
-    Math.round(
-      FRIENDLY_FIRST_INTERVAL_MS[rating] *
-      fsrsScale *
-      retentionScale
-    )
-
-  const due =
-    new Date(
-      reviewedAt.getTime() + finalInterval
-    )
-
-  return {
-    ...state,
-    card: {
-      ...state.card,
-      due
-    },
-    dueDate: due.toISOString()
-  }
-}
-
-function maybeApplyFriendlyFirstReviewInterval(
-  state: FsrsCardState,
-  rating: FsrsRating,
-  reviewedAt: Date,
-  isFirstReview: boolean
-): FsrsCardState {
-
-  if (!isFirstReview) {
-    return state
-  }
-
-  return applyFriendlyFirstReviewInterval(
-    state,
-    rating,
-    reviewedAt
-  )
-}
+const RELEARNING_STEPS =
+  ["10m"] as const
 
 function createScheduler() {
-
   const savedParameters =
     loadFsrsParameters()
+
+  const base = {
+    request_retention:
+      getDesiredRetention(),
+    enable_fuzz: false,
+    enable_short_term: true,
+    learning_steps: LEARNING_STEPS,
+    relearning_steps: RELEARNING_STEPS
+  }
 
   if (
     savedParameters?.weights &&
@@ -175,24 +77,20 @@ function createScheduler() {
   ) {
     return fsrs(
       generatorParameters({
-        w: savedParameters.weights,
-        request_retention:
-          savedParameters.requestRetention ?? 0.9
+        ...base,
+        w: savedParameters.weights
       })
     )
   }
 
-  return fsrs()
-}
-
-function getScheduler() {
-  return createScheduler()
+  return fsrs(
+    generatorParameters(base)
+  )
 }
 
 function toTsFsrsRating(
   rating: FsrsRating
 ) {
-
   if (rating === "again") return Rating.Again
   if (rating === "hard") return Rating.Hard
   if (rating === "good") return Rating.Good
@@ -200,32 +98,34 @@ function toTsFsrsRating(
   return Rating.Easy
 }
 
-function getCardDueDate(card: any) {
-
+function getCardDueDate(
+  card: FsrsCardState["card"]
+) {
   return new Date(
     card.due ?? card.dueDate ?? Date.now()
   ).toISOString()
 }
 
-function getReviewCount(card: any) {
-
+function getReviewCount(
+  card: FsrsCardState["card"]
+) {
   return Number(
     card.reps ?? card.reviewCount ?? 0
   )
 }
 
-function getLapseCount(card: any) {
-
+function getLapseCount(
+  card: FsrsCardState["card"]
+) {
   return Number(
     card.lapses ?? card.lapseCount ?? 0
   )
 }
 
 function createStateFromCard(
-  card: any,
+  card: FsrsCardState["card"],
   reviewedAt?: Date
 ): FsrsCardState {
-
   return {
     card,
     dueDate: getCardDueDate(card),
@@ -235,13 +135,31 @@ function createStateFromCard(
   }
 }
 
+function maybeBalanceState(params: {
+  cardId?: string
+  state: FsrsCardState
+  progress?: FsrsProgressMap
+  reviewedAt: Date
+}) {
+  if (!params.cardId || !params.progress) {
+    return params.state
+  }
+
+  return balanceFsrsDueDate({
+    cardId: params.cardId,
+    state: params.state,
+    progress: params.progress,
+    reviewedAt: params.reviewedAt
+  })
+}
+
 export function reviewFsrsCard(params: {
   cardId: string
   currentState?: FsrsCardState
+  progress?: FsrsProgressMap
   rating: FsrsRating
   reviewedAt?: Date
 }) {
-
   const now =
     params.reviewedAt || new Date()
 
@@ -250,26 +168,25 @@ export function reviewFsrsCard(params: {
     createEmptyCard(now)
 
   const result =
-    getScheduler().next(
+    createScheduler().next(
       card,
       now,
       toTsFsrsRating(params.rating)
     )
 
-  let stateAfter =
+  const fsrsState =
     createStateFromCard(
       result.card,
       now
     )
 
-  if (!params.currentState) {
-    stateAfter =
-      applyFriendlyFirstReviewInterval(
-        stateAfter,
-        params.rating,
-        now
-      )
-  }
+  const stateAfter =
+    maybeBalanceState({
+      cardId: params.cardId,
+      state: fsrsState,
+      progress: params.progress,
+      reviewedAt: now
+    })
 
   const log: FsrsReviewLog = {
     cardId: params.cardId,
@@ -287,10 +204,11 @@ export function reviewFsrsCard(params: {
 }
 
 export function previewFsrsCard(params: {
+  cardId?: string
   currentState?: FsrsCardState
+  progress?: FsrsProgressMap
   reviewedAt?: Date
 }) {
-
   const now =
     params.reviewedAt || new Date()
 
@@ -299,69 +217,30 @@ export function previewFsrsCard(params: {
     createEmptyCard(now)
 
   const preview =
-    getScheduler().repeat(
+    createScheduler().repeat(
       card,
       now
     )
 
-  const again =
-    createStateFromCard(
-      preview[Rating.Again].card,
-      now
-    )
-
-  const hard =
-    createStateFromCard(
-      preview[Rating.Hard].card,
-      now
-    )
-
-  const good =
-    createStateFromCard(
-      preview[Rating.Good].card,
-      now
-    )
-
-  const easy =
-    createStateFromCard(
-      preview[Rating.Easy].card,
-      now
-    )
-
-  if (!params.currentState) {
-    return {
-      again:
-        applyFriendlyFirstReviewInterval(
-          again,
-          "again",
-          now
-        ),
-      hard:
-        applyFriendlyFirstReviewInterval(
-          hard,
-          "hard",
-          now
-        ),
-      good:
-        applyFriendlyFirstReviewInterval(
-          good,
-          "good",
-          now
-        ),
-      easy:
-        applyFriendlyFirstReviewInterval(
-          easy,
-          "easy",
-          now
-        )
-    }
+  function stateFor(
+    rating: Rating
+  ) {
+    return maybeBalanceState({
+      cardId: params.cardId,
+      state: createStateFromCard(
+        preview[rating].card,
+        now
+      ),
+      progress: params.progress,
+      reviewedAt: now
+    })
   }
 
   return {
-    again,
-    hard,
-    good,
-    easy
+    again: stateFor(Rating.Again),
+    hard: stateFor(Rating.Hard),
+    good: stateFor(Rating.Good),
+    easy: stateFor(Rating.Easy)
   }
 }
 
@@ -369,7 +248,6 @@ export function isFsrsCardDue(
   cardId: string,
   cards: FsrsProgressMap
 ) {
-
   const state =
     cards[cardId]
 
@@ -383,13 +261,43 @@ export function isFsrsCardDue(
 
 export function getDueFsrsCards<T extends { id: string }>(
   cards: T[],
-  progress: FsrsProgressMap
+  progress: FsrsProgressMap,
+  newCardOrderSeed = "odontoma"
 ) {
-
-  return cards.filter(card =>
-    isFsrsCardDue(
-      card.id,
-      progress
+  const reviewedDueCards = cards
+    .filter(card =>
+      progress[card.id] &&
+      isFsrsCardDue(card.id, progress)
     )
-  )
+    .sort((first, second) =>
+      new Date(progress[first.id].dueDate).getTime() -
+      new Date(progress[second.id].dueDate).getTime()
+    )
+
+  const newCards = cards
+    .filter(card => !progress[card.id])
+    .sort((first, second) =>
+      seededCardOrder(first.id, newCardOrderSeed) -
+      seededCardOrder(second.id, newCardOrderSeed)
+    )
+
+  return [
+    ...reviewedDueCards,
+    ...newCards
+  ]
+}
+
+function seededCardOrder(
+  cardId: string,
+  seed: string
+) {
+  const value = `${seed}:${cardId}`
+  let hash = 2166136261
+
+  for (let index = 0; index < value.length; index += 1) {
+    hash ^= value.charCodeAt(index)
+    hash = Math.imul(hash, 16777619)
+  }
+
+  return hash >>> 0
 }

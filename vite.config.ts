@@ -8,6 +8,26 @@ import path from "path"
 
 export default defineConfig({
 
+  optimizeDeps: {
+    exclude: [
+      "@open-spaced-repetition/binding"
+    ]
+  },
+
+  server: {
+    headers: {
+      "Cross-Origin-Opener-Policy": "same-origin",
+      "Cross-Origin-Embedder-Policy": "require-corp"
+    }
+  },
+
+  preview: {
+    headers: {
+      "Cross-Origin-Opener-Policy": "same-origin",
+      "Cross-Origin-Embedder-Policy": "require-corp"
+    }
+  },
+
   plugins: [
     react(),
     tailwindcss(),

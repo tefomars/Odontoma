@@ -1,5 +1,4 @@
 import {
-  useMemo,
   useState
 } from "react"
 
@@ -10,12 +9,9 @@ import {
 import {
   clearFsrsParameters,
   loadFsrsParameters,
+  saveDesiredRetention,
   saveFsrsParameters
 } from "@/lib/fsrsParameters"
-
-import {
-  optimizeFsrsParameters
-} from "@/lib/fsrsOptimizer"
 
 const MIN_REVIEWS_FOR_OPTIMIZATION =
   100
@@ -38,20 +34,23 @@ function formatDate(
 
 export default function FsrsOptimizerPanel() {
 
-  const [version, setVersion] =
+  const [, setVersion] =
     useState(0)
 
+  const [isOptimizing, setIsOptimizing] =
+    useState(false)
+
+  const [message, setMessage] =
+    useState<string | null>(null)
+
+  const [error, setError] =
+    useState<string | null>(null)
+
   const storage =
-    useMemo(
-      () => loadFsrsStorage(),
-      [version]
-    )
+    loadFsrsStorage()
 
   const parameters =
-    useMemo(
-      () => loadFsrsParameters(),
-      [version]
-    )
+    loadFsrsParameters()
 
   const reviewCount =
     storage.reviews.length
@@ -68,31 +67,67 @@ export default function FsrsOptimizerPanel() {
         ).length / reviewCount
       : 0
 
-  function handleOptimize() {
+  const desiredRetention =
+    parameters?.requestRetention ?? 0.9
 
-    if (!ready) return
+  async function handleOptimize() {
 
-    const nextParameters =
-      optimizeFsrsParameters(storage)
+    if (!ready || isOptimizing) return
 
-    saveFsrsParameters(nextParameters)
+    setIsOptimizing(true)
+    setMessage(null)
+    setError(null)
 
+    try {
+      const {
+        optimizeFsrsParameters
+      } = await import("@/lib/fsrsOptimizer")
+
+      const nextParameters =
+        await optimizeFsrsParameters(storage)
+
+      saveFsrsParameters(nextParameters)
     setVersion(prev => prev + 1)
+    setMessage(
+      "Tus próximos repasos ya están ajustados a tu historial."
+      )
+    } catch (caught) {
+      setError(
+        caught instanceof Error
+          ? caught.message
+          : "No se pudo completar la optimización."
+      )
+    } finally {
+      setIsOptimizing(false)
+    }
+  }
 
-    alert(
-      `Optimización aplicada. Retención real: ${formatPercent(nextParameters.stats.retention)}. Escala de intervalo: ${nextParameters.stats.intervalScale}.`
+  function handleDesiredRetention(
+    event: React.ChangeEvent<HTMLInputElement>
+  ) {
+    saveDesiredRetention(
+      Number(event.target.value)
     )
+    setVersion(prev => prev + 1)
+    setMessage(
+      "Retención deseada actualizada. Los próximos repasos usarán este objetivo."
+    )
+    setError(null)
   }
 
   function handleReset() {
 
     const confirmed =
-      window.confirm("¿Resetear parámetros personalizados FSRS? Tus reviews se conservan.")
+      window.confirm("¿Restablecer los ajustes de memoria? Tus repasos se conservarán.")
 
     if (!confirmed) return
 
     clearFsrsParameters()
     setVersion(prev => prev + 1)
+    setMessage(
+      "Parámetros aprendidos eliminados. Se conserva tu retención deseada."
+    )
+    setError(null)
   }
 
   return (
@@ -131,8 +166,75 @@ export default function FsrsOptimizerPanel() {
           leading-relaxed
           text-zinc-400
         ">
-          Ajusta los parámetros FSRS usando tu historial real de respuestas. Después de optimizar, los próximos intervalos se calculan con esos parámetros personalizados.
+          Usa tus resultados para ajustar cuándo volverá a aparecer cada tarjeta.
         </p>
+      </div>
+
+      <div className="
+        mb-4
+        rounded-2xl
+        border
+        border-zinc-800
+        bg-[#111113]
+        p-4
+      ">
+        <div className="
+          flex
+          items-end
+          justify-between
+          gap-4
+        ">
+          <div>
+            <p className="
+              text-xs
+              font-black
+              uppercase
+              tracking-[0.18em]
+              text-zinc-500
+            ">
+              Retención deseada
+            </p>
+
+            <p className="
+              mt-1
+              text-sm
+              text-zinc-400
+            ">
+              Un porcentaje mayor programa repasos más frecuentes.
+            </p>
+          </div>
+
+          <p className="
+            text-3xl
+            font-black
+            text-white
+          ">
+            {formatPercent(desiredRetention)}
+          </p>
+        </div>
+
+        <input
+          className="mt-4 w-full accent-emerald-400"
+          type="range"
+          min="0.8"
+          max="0.97"
+          step="0.01"
+          value={desiredRetention}
+          onChange={handleDesiredRetention}
+          aria-label="Retención deseada"
+        />
+
+        <div className="
+          mt-1
+          flex
+          justify-between
+          text-xs
+          font-bold
+          text-zinc-600
+        ">
+          <span>80%</span>
+          <span>97%</span>
+        </div>
       </div>
 
       <div className="
@@ -154,7 +256,7 @@ export default function FsrsOptimizerPanel() {
             tracking-[0.18em]
             text-zinc-500
           ">
-            Reviews guardadas
+            Repasos registrados
           </p>
 
           <p className="
@@ -164,6 +266,10 @@ export default function FsrsOptimizerPanel() {
             text-white
           ">
             {reviewCount}
+          </p>
+
+          <p className="mt-1 text-xs leading-relaxed text-zinc-500">
+            Respuestas disponibles para conocer tu ritmo de memoria.
           </p>
         </div>
 
@@ -181,7 +287,7 @@ export default function FsrsOptimizerPanel() {
             tracking-[0.18em]
             text-zinc-500
           ">
-            Retención actual
+            Retención observada
           </p>
 
           <p className="
@@ -191,6 +297,10 @@ export default function FsrsOptimizerPanel() {
             text-white
           ">
             {formatPercent(currentRetention)}
+          </p>
+
+          <p className="mt-1 text-xs leading-relaxed text-zinc-500">
+            Porcentaje de repasos en los que recordaste la respuesta.
           </p>
         </div>
 
@@ -221,6 +331,12 @@ export default function FsrsOptimizerPanel() {
               ? "Listo"
               : `Faltan ${MIN_REVIEWS_FOR_OPTIMIZATION - reviewCount}`}
           </p>
+
+          <p className="mt-1 text-xs leading-relaxed text-zinc-500">
+            {ready
+              ? "Ya hay suficiente historial para personalizar los intervalos."
+              : `Se necesitan ${MIN_REVIEWS_FOR_OPTIMIZATION} repasos para personalizar los intervalos.`}
+          </p>
         </div>
       </div>
 
@@ -250,7 +366,7 @@ export default function FsrsOptimizerPanel() {
             sm:grid-cols-2
           ">
             <p>
-              Optimizados con {parameters.reviewCount || 0} reviews.
+              Ajustados con {parameters.reviewCount || 0} repasos.
             </p>
 
             <p>
@@ -258,7 +374,7 @@ export default function FsrsOptimizerPanel() {
             </p>
 
             <p>
-              Retención usada: {formatPercent(parameters.stats?.retention)}
+              Retención observada: {formatPercent(parameters.stats?.retention)}
             </p>
 
             <p>
@@ -266,11 +382,15 @@ export default function FsrsOptimizerPanel() {
             </p>
 
             <p>
-              Escala de intervalo: {parameters.stats?.intervalScale || "—"}
+              Datos de entrenamiento: {parameters.stats?.trainingItems || 0}
             </p>
 
             <p>
-              Request retention: {parameters.requestRetention || "—"}
+              Log loss: {parameters.stats?.logLoss?.toFixed(4) || "—"}
+            </p>
+
+            <p>
+              RMSE: {parameters.stats?.rmseBins?.toFixed(4) || "—"}
             </p>
           </div>
         </div>
@@ -284,7 +404,7 @@ export default function FsrsOptimizerPanel() {
       ">
         <button
           type="button"
-          disabled={!ready}
+          disabled={!ready || isOptimizing}
           className={`
             rounded-2xl
             px-4
@@ -293,14 +413,16 @@ export default function FsrsOptimizerPanel() {
             font-black
 
             ${
-              ready
+              ready && !isOptimizing
                 ? "bg-emerald-500 text-black hover:bg-emerald-400"
                 : "cursor-not-allowed bg-zinc-800 text-zinc-500"
             }
           `}
           onClick={handleOptimize}
         >
-          Optimizar memoria
+          {isOptimizing
+            ? "Entrenando…"
+            : "Ajustar mis repasos"}
         </button>
 
         <button
@@ -319,9 +441,41 @@ export default function FsrsOptimizerPanel() {
           "
           onClick={handleReset}
         >
-          Resetear parámetros
+          Restablecer ajustes
         </button>
       </div>
+
+      {message && (
+        <p className="
+          mt-4
+          rounded-2xl
+          border
+          border-emerald-500/30
+          bg-emerald-500/10
+          p-3
+          text-sm
+          font-bold
+          text-emerald-200
+        ">
+          {message}
+        </p>
+      )}
+
+      {error && (
+        <p className="
+          mt-4
+          rounded-2xl
+          border
+          border-red-500/30
+          bg-red-500/10
+          p-3
+          text-sm
+          font-bold
+          text-red-200
+        ">
+          {error}
+        </p>
+      )}
 
       <p className="
         mt-4
@@ -329,7 +483,7 @@ export default function FsrsOptimizerPanel() {
         leading-relaxed
         text-zinc-500
       ">
-        Recomendación: optimizar después de acumular suficientes repasos reales. Con pocos datos, los parámetros pueden ser inestables.
+        Los repasos se reparten entre los días disponibles para evitar acumulaciones innecesarias.
       </p>
     </section>
   )

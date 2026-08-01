@@ -197,19 +197,21 @@ export default function UserTopicScreen({
     }
   }
 
-  function importCards() {
+  function importCardsFromText(
+    text: string
+  ) {
 
     const imported =
       importUserFlashcardsFromTabText({
         topicId,
-        text: importText
+        text
       })
 
     if (imported.length === 0) {
       window.alert(
-        "No se importó ninguna carta. Usá el formato: Front, tab, Back."
+        "No se importó ninguna tarjeta. Usá dos columnas: pregunta y respuesta."
       )
-      return
+      return false
     }
 
     setImportText("")
@@ -217,8 +219,46 @@ export default function UserTopicScreen({
     setRefreshKey(prev => prev + 1)
 
     window.alert(
-      `Importadas ${imported.length} cartas.`
+      `Se importaron ${imported.length} tarjetas.`
     )
+
+    return true
+  }
+
+  function importCards() {
+    importCardsFromText(importText)
+  }
+
+  async function importCardsFromFile(
+    event: React.ChangeEvent<HTMLInputElement>
+  ) {
+
+    const file =
+      event.target.files?.[0]
+
+    event.target.value = ""
+
+    if (!file) return
+
+    const extension =
+      file.name
+        .toLowerCase()
+        .split(".")
+        .pop()
+
+    if (!extension || !["txt", "tsv", "csv"].includes(extension)) {
+      window.alert("Elegí un archivo .txt, .tsv o .csv.")
+      return
+    }
+
+    try {
+      const text =
+        await file.text()
+
+      importCardsFromText(text)
+    } catch {
+      window.alert("No se pudo leer el archivo.")
+    }
   }
 
   function exportDeck() {
@@ -421,7 +461,7 @@ export default function UserTopicScreen({
                   text-xs
                   text-zinc-500
                 ">
-                  Formato: Front, tab, Back. Una carta por línea.
+                  Pegá dos columnas o elegí un archivo .txt, .tsv o .csv.
                 </p>
               </div>
 
@@ -446,8 +486,31 @@ export default function UserTopicScreen({
                     hover:bg-violet-500/20
                   "
                 >
-                  Importar
+                  Pegar texto
                 </button>
+
+                <label className="
+                  cursor-pointer
+                  rounded-2xl
+                  border
+                  border-violet-500/30
+                  bg-violet-500/10
+                  px-4
+                  py-2
+                  text-xs
+                  font-black
+                  text-violet-200
+                  hover:bg-violet-500/20
+                ">
+                  Importar archivo
+
+                  <input
+                    type="file"
+                    accept=".txt,.tsv,.csv,text/plain,text/tab-separated-values,text/csv"
+                    onChange={importCardsFromFile}
+                    className="sr-only"
+                  />
+                </label>
 
                 <button
                   type="button"

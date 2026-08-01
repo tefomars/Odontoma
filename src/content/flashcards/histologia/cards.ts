@@ -1,3 +1,6 @@
+import { cap13Flashcards } from "./cap13"
+import { cap14Flashcards } from "./cap14"
+
 export type Flashcard = {
   id: string
   subject: string
@@ -73986,5 +73989,7 @@ export const histologiaFlashcards: Flashcard[] = [
       "Capítulo 9",
       "Histología 101"
     ]
-  }
+  },
+  ...cap13Flashcards,
+  ...cap14Flashcards
 ]

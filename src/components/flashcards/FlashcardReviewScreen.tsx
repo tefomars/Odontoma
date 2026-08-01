@@ -123,6 +123,9 @@ export default function FlashcardReviewScreen({
   const [currentIndex, setCurrentIndex] =
     useState(0)
 
+  const [newCardOrderSeed] =
+    useState(() => crypto.randomUUID())
+
 
 
   const allCards =
@@ -189,9 +192,10 @@ export default function FlashcardReviewScreen({
       () =>
         getDueFsrsCards(
           filteredCards,
-          storage.cards
+          storage.cards,
+          newCardOrderSeed
         ),
-      [filteredCards, storage]
+      [filteredCards, storage, newCardOrderSeed]
     )
 
   const nextDueDate =
@@ -229,7 +233,9 @@ export default function FlashcardReviewScreen({
 
       const preview =
         previewFsrsCard({
-          currentState
+          cardId: currentCard.id,
+          currentState,
+          progress: storage.cards
         })
 
       return {
@@ -241,7 +247,8 @@ export default function FlashcardReviewScreen({
 
     }, [
       currentCard,
-      currentState
+      currentState,
+      storage.cards
     ])
 
   useEffect(() => {
@@ -428,6 +435,7 @@ export default function FlashcardReviewScreen({
     } = reviewFsrsCard({
       cardId: currentCard.id,
       currentState,
+      progress: storage.cards,
       rating
     })
 
