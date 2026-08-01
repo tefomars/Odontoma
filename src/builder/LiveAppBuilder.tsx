@@ -143,17 +143,15 @@ export default function LiveAppBuilder() {
   function deleteSubject() {
     if (!selectedSubject) return
 
-    const confirmed = window.confirm(
-      `¿Quitar "${selectedSubject.title}" de la pantalla de materias? El contenido interno no se borra.`
-    )
-
-    if (!confirmed) return
+    const removedTitle = selectedSubject.title
 
     setContent(current => ({
       subjects: current.subjects.filter(subject => subject.id !== selectedSubject.id)
     }))
     setSelectedId(null)
-    setStatus("Tarjeta eliminada del borrador. Aplicá para confirmar.")
+    setStatus(
+      `“${removedTitle}” se quitó del borrador. Aplicá para guardar o descartá para recuperarla.`
+    )
   }
 
   async function applyContent() {

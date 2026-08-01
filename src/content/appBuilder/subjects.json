@@ -31,14 +31,6 @@
       "status": "Próximamente",
       "accentColor": "#059669",
       "destination": "coming-soon"
-    },
-    {
-      "id": "fisiologia",
-      "title": "Fisiología",
-      "subtitle": "Sistemas, regulación y funciones",
-      "status": "Próximamente",
-      "accentColor": "#c2410c",
-      "destination": "coming-soon"
     }
   ]
 }
