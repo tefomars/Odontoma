@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react"
+import { useEffect, useMemo, useRef, useState } from "react"
 
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
@@ -100,6 +100,8 @@ export default function QuizScreen({
   onIncorrect
 }: Props) {
 
+  const quizScreenRef = useRef<HTMLElement>(null)
+
   const [selected, setSelected] =
     useState<number[]>([])
 
@@ -113,6 +115,21 @@ export default function QuizScreen({
     () => shuffleQuestion(question),
     [question]
   )
+
+  useEffect(() => {
+    const scrollingElement = document.scrollingElement
+
+    if (scrollingElement) {
+      scrollingElement.scrollLeft = 0
+    }
+
+    document.documentElement.scrollLeft = 0
+    document.body.scrollLeft = 0
+
+    if (quizScreenRef.current) {
+      quizScreenRef.current.scrollLeft = 0
+    }
+  }, [question.id])
 
   const options =
     shuffled.options
@@ -229,7 +246,9 @@ export default function QuizScreen({
 
   return (
 
-    <main className="quiz-screen 
+    <main
+      ref={quizScreenRef}
+      className="quiz-screen
       h-[100dvh]
       overflow-hidden
       bg-[#09090b]
@@ -239,7 +258,7 @@ export default function QuizScreen({
       lg:py-5
     ">
 
-      <div className="
+      <div className="quiz-shell
         mx-auto
         flex
         h-full
@@ -380,7 +399,7 @@ export default function QuizScreen({
 
         </div>
 
-        <Card className="
+        <Card className="quiz-question-card
           flex
           min-h-0
           flex-1
@@ -400,7 +419,7 @@ export default function QuizScreen({
           lg:rounded-[32px]
         ">
 
-          <div className="
+          <div className="quiz-question-header
             shrink-0
             border-b
             border-zinc-800
@@ -417,7 +436,7 @@ export default function QuizScreen({
               lg:pr-2
             ">
 
-              <h2 className="
+              <h2 className="quiz-question-title
                 font-black
                 leading-[1.1]
                 tracking-tight
@@ -480,6 +499,8 @@ export default function QuizScreen({
                       onClick={() => toggle(index)}
 
                       className={`
+                        min-w-0
+                        w-full
                         rounded-[20px]
                         border
 
@@ -537,7 +558,10 @@ export default function QuizScreen({
                       </div>
 
                       <div className="
+                        min-w-0
                         flex-1
+                        break-words
+                        [overflow-wrap:anywhere]
                         leading-relaxed
                         text-[clamp(0.94rem,1.6vh,1.05rem)]
                         font-medium

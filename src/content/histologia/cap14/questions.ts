@@ -6,5 +6,6 @@ import {
 
 export const cap14Questions =
   createQuizQuestionsFromFlashcards(
-    selectImportantFlashcards(cap14Flashcards)
+    selectImportantFlashcards(cap14Flashcards),
+    cap14Flashcards
   )

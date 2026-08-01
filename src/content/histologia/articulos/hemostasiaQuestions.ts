@@ -6,5 +6,6 @@ import {
 
 export const hemostasiaQuestions =
   createQuizQuestionsFromFlashcards(
-    selectImportantFlashcards(articuloHemostasiaFlashcards)
+    selectImportantFlashcards(articuloHemostasiaFlashcards),
+    articuloHemostasiaFlashcards
   )

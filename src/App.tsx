@@ -52,6 +52,10 @@ import {
   buildSmartQuizPool
 } from "@/lib/smartQuizPool"
 
+import {
+  refreshPausedQuizQuestions
+} from "@/lib/pausedQuizSession"
+
 import type {
   FlashcardSource
 } from "@/lib/flashcardDecks"
@@ -450,8 +454,21 @@ export default function App() {
       const pausedSession =
         JSON.parse(raw)
 
-      const restoredQuestions =
+      const savedQuestions =
         pausedSession.sessionQuestions || []
+      const pausedSubject =
+        pausedSession.quizSubject || "histologia"
+      const currentQuestionBank =
+        pausedSubject === "filosofia-de-hayek"
+          ? hayekQuestions
+          : histologiaQuestions
+      const restoredQuestions =
+        pausedSubject === "my-quizzes"
+          ? savedQuestions
+          : refreshPausedQuizQuestions(
+              savedQuestions,
+              currentQuestionBank
+            )
 
       if (restoredQuestions.length === 0) {
 
@@ -463,7 +480,7 @@ export default function App() {
         return
       }
 
-      setSelectedSubject(pausedSession.quizSubject || "histologia")
+      setSelectedSubject(pausedSubject)
 
       setSessionQuestions(restoredQuestions)
 
