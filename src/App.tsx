@@ -20,6 +20,8 @@ import UserQuizDeckScreen from "./components/UserQuizDeckScreen"
 import UserQuizDeckMenuScreen from "./components/UserQuizDeckMenuScreen"
 import OpenQuizDecksScreen from "./components/OpenQuizDecksScreen"
 import OpenQuizSessionScreen from "./components/OpenQuizSessionScreen"
+import QuizHistoryScreen from "./components/QuizHistoryScreen"
+import QuizReviewScreen from "./components/QuizReviewScreen"
 
 import packageJson from "../package.json"
 
@@ -66,6 +68,12 @@ import {
 import type {
   FlashcardSource
 } from "@/lib/flashcardDecks"
+
+import {
+  saveQuizAttempt,
+  type QuizAttempt,
+  type QuizResponseRecord
+} from "@/lib/quizHistory"
 
 function VersionBadge() {
   return (
@@ -143,7 +151,7 @@ export default function App() {
     useState<string | null>(null)
 
   const [selectedQuizMode, setSelectedQuizMode] =
-    useState<"multiple-choice" | "open-ended" | "my-quizzes" | null>(null)
+    useState<"multiple-choice" | "open-ended" | "my-quizzes" | "history" | null>(null)
 
   const [selectedFlashcardSubject, setSelectedFlashcardSubject] =
     useState<string | null>(null)
@@ -214,6 +222,15 @@ export default function App() {
 
   const [sessionQuestions, setSessionQuestions] =
     useState<any[]>([])
+
+  const [sessionResponses, setSessionResponses] =
+    useState<QuizResponseRecord[]>([])
+
+  const [completedAttempt, setCompletedAttempt] =
+    useState<QuizAttempt | null>(null)
+
+  const [reviewingAttempt, setReviewingAttempt] =
+    useState<QuizAttempt | null>(null)
 
   const [hasPausedSession, setHasPausedSession] =
     useState(() => {
@@ -397,6 +414,9 @@ export default function App() {
         .map(shuffleQuestion)
 
     setSessionQuestions(selected)
+    setSessionResponses([])
+    setCompletedAttempt(null)
+    setReviewingAttempt(null)
     setCurrent(0)
     setScore(0)
     setFinished(false)
@@ -415,6 +435,9 @@ export default function App() {
     setCurrent(0)
     setScore(0)
     setSessionQuestions([])
+    setSessionResponses([])
+    setCompletedAttempt(null)
+    setReviewingAttempt(null)
     setHasPausedSession(false)
 
     localStorage.removeItem(
@@ -433,7 +456,8 @@ export default function App() {
       selectedChapters,
       selectedDifficulties,
       questionCount,
-      practiceMode
+      practiceMode,
+      sessionResponses
     }
 
     localStorage.setItem(
@@ -505,6 +529,7 @@ export default function App() {
       )
 
       setScore(pausedSession.score || 0)
+      setSessionResponses(pausedSession.sessionResponses || [])
 
       setSelectedChapters(
         pausedSession.selectedChapters || []
@@ -556,6 +581,7 @@ export default function App() {
     setCurrent(0)
     setScore(0)
     setSessionQuestions([])
+    setSessionResponses([])
   }
 
   function updateStats(question: any, correct: boolean) {
@@ -625,10 +651,37 @@ export default function App() {
     updateStats(question, false)
   }
 
+  function handleAnswered(response: QuizResponseRecord) {
+    setSessionResponses(currentResponses => [
+      ...currentResponses.filter(item => item.questionId !== response.questionId),
+      response
+    ])
+  }
+
   function handleNext() {
 
     if (current + 1 >= sessionQuestions.length) {
+      const attempt: QuizAttempt = {
+        id: `quiz-attempt-${Date.now()}-${crypto.randomUUID()}`,
+        title:
+          selectedSubject === "my-quizzes"
+            ? "My quizzes"
+            : quizTitle,
+        subject: selectedSubject || "histologia",
+        completedAt: new Date().toISOString(),
+        score,
+        total: sessionQuestions.length,
+        responses: sessionQuestions
+          .map(sessionQuestion =>
+            sessionResponses.find(response => response.questionId === sessionQuestion.id)
+          )
+          .filter((response): response is QuizResponseRecord => Boolean(response))
+      }
 
+      saveQuizAttempt(attempt)
+      setCompletedAttempt(attempt)
+      setHasPausedSession(false)
+      localStorage.removeItem("odontoma_paused_session")
       setFinished(true)
       return
     }
@@ -657,9 +710,17 @@ export default function App() {
     setFinished(false)
     setCurrent(0)
     setScore(0)
+    setSessionResponses([])
+    setCompletedAttempt(null)
+    setReviewingAttempt(null)
   }
 
   function goBack() {
+
+    if (reviewingAttempt) {
+      setReviewingAttempt(null)
+      return
+    }
 
     if (showMastery) {
       setShowMastery(false)
@@ -758,6 +819,18 @@ export default function App() {
 
   const question =
     sessionQuestions[current]
+
+  if (reviewingAttempt) {
+    return (
+      <ScreenTransition screenKey={`quiz-review-${reviewingAttempt.id}`}>
+        <QuizReviewScreen
+          attempt={reviewingAttempt}
+          onBack={() => setReviewingAttempt(null)}
+          onMainMenu={goToMainMenu}
+        />
+      </ScreenTransition>
+    )
+  }
 
   if (showMastery) {
 
@@ -962,9 +1035,25 @@ export default function App() {
             setSelectedSubject("my-quizzes")
             setActiveUserQuizDeckId(null)
           }}
+          onSelectHistory={() => {
+            setSelectedQuizMode("history")
+            setSelectedSubject(null)
+          }}
         />
       </ScreenTransition>
 
+    )
+  }
+
+  if (selectedQuizMode === "history") {
+    return (
+      <ScreenTransition screenKey="quiz-history">
+        <QuizHistoryScreen
+          onBack={() => setSelectedQuizMode(null)}
+          onMainMenu={goToMainMenu}
+          onReview={setReviewingAttempt}
+        />
+      </ScreenTransition>
     )
   }
 
@@ -1029,6 +1118,9 @@ export default function App() {
           .map(shuffleQuestion)
 
       setSessionQuestions(selected)
+      setSessionResponses([])
+      setCompletedAttempt(null)
+      setReviewingAttempt(null)
       setCurrent(0)
       setScore(0)
       setFinished(false)
@@ -1134,6 +1226,15 @@ export default function App() {
         <ResultsScreen
           score={score}
           total={sessionQuestions.length}
+          onReview={() => {
+            if (completedAttempt) setReviewingAttempt(completedAttempt)
+          }}
+          onHistory={() => {
+            setFinished(false)
+            setStarted(false)
+            setSelectedSubject(null)
+            setSelectedQuizMode("history")
+          }}
           onRestart={restart}
           onMainMenu={goToMainMenu}
         />
@@ -1169,10 +1270,12 @@ export default function App() {
         current={current}
         total={sessionQuestions.length}
         score={score}
+        previousResponse={sessionResponses.find(response => response.questionId === question.id)}
         onBack={pauseSession}
         onMainMenu={goToMainMenu}
         onCorrect={handleCorrect}
         onIncorrect={handleIncorrect}
+        onAnswered={handleAnswered}
         onNext={handleNext}
       />
     </ScreenTransition>

@@ -250,6 +250,7 @@ export default function LiveAppBuilder() {
               onSelectMultipleChoice={() => undefined}
               onSelectOpenEnded={() => undefined}
               onSelectMyQuizzes={() => undefined}
+              onSelectHistory={() => undefined}
               onEditHeader={() => setSelection({ kind: "quiz-header" })}
               onEditCard={card => setSelection({ kind: "quiz-card", id: card.id })}
             />

@@ -12,6 +12,7 @@ type Props = {
   onSelectMultipleChoice: () => void
   onSelectOpenEnded: () => void
   onSelectMyQuizzes: () => void
+  onSelectHistory: () => void
   content?: QuizMenuContent
   editorMode?: boolean
   onEditHeader?: () => void
@@ -24,6 +25,7 @@ export default function QuizModeScreen({
   onSelectMultipleChoice,
   onSelectOpenEnded,
   onSelectMyQuizzes,
+  onSelectHistory,
   content = quizMenuContent,
   editorMode = false,
   onEditHeader,
@@ -32,10 +34,15 @@ export default function QuizModeScreen({
   const actions: Record<string, () => void> = {
     "multiple-choice": onSelectMultipleChoice,
     "open-ended": onSelectOpenEnded,
-    "my-quizzes": onSelectMyQuizzes
+    "my-quizzes": onSelectMyQuizzes,
+    "quiz-history": onSelectHistory
   }
-  const mainCards = content.cards.filter(card => card.id !== "my-quizzes")
-  const personalCard = content.cards.find(card => card.id === "my-quizzes")
+  const mainCards = content.cards.filter(card =>
+    card.id === "multiple-choice" || card.id === "open-ended"
+  )
+  const toolCards = content.cards.filter(card =>
+    card.id === "my-quizzes" || card.id === "quiz-history"
+  )
 
   return (
     <main className="min-h-screen bg-[#09090b] px-5 py-8 text-white">
@@ -71,18 +78,23 @@ export default function QuizModeScreen({
           ))}
         </section>
 
-        {personalCard && (
+        {toolCards.length > 0 && (
           <section className="mt-8 border-t border-zinc-800 pt-8">
             <p className="mb-4 text-xs font-black uppercase tracking-[0.25em] text-zinc-500">
               {content.toolsLabel}
             </p>
-            <QuizTypeCard
-              card={personalCard}
-              compact
-              editorMode={editorMode}
-              onClick={() => editorMode ? onEditCard?.(personalCard) : actions[personalCard.id]?.()}
-              onEdit={() => onEditCard?.(personalCard)}
-            />
+            <div className="grid gap-4 md:grid-cols-2">
+              {toolCards.map(card => (
+                <QuizTypeCard
+                  key={card.id}
+                  card={card}
+                  compact
+                  editorMode={editorMode}
+                  onClick={() => editorMode ? onEditCard?.(card) : actions[card.id]?.()}
+                  onEdit={() => onEditCard?.(card)}
+                />
+              ))}
+            </div>
           </section>
         )}
       </div>

@@ -1,6 +1,8 @@
 type Props = {
   score: number
   total: number
+  onReview: () => void
+  onHistory: () => void
   onRestart: () => void
   onMainMenu: () => void
 }
@@ -8,6 +10,8 @@ type Props = {
 export default function ResultsScreen({
   score,
   total,
+  onReview,
+  onHistory,
   onRestart,
   onMainMenu
 }: Props) {
@@ -26,23 +30,31 @@ export default function ResultsScreen({
           {score}/{total}
         </p>
 
-        <div className="
-          flex
-          flex-col
-          gap-3
-          sm:flex-row
-          sm:justify-center
-        ">
+        <div className="grid gap-3 sm:grid-cols-2">
+          <button
+            onClick={onReview}
+            className="rounded-2xl bg-emerald-500 px-8 py-4 font-black text-black hover:bg-emerald-400 sm:col-span-2"
+          >
+            Ver todas las respuestas
+          </button>
+
+          <button
+            onClick={onHistory}
+            className="rounded-2xl border border-cyan-500/30 bg-cyan-500/10 px-8 py-4 font-black text-cyan-200 hover:bg-cyan-500/20"
+          >
+            Exámenes anteriores
+          </button>
+
           <button
             onClick={onRestart}
-            className="bg-cyan-500 hover:bg-cyan-400 text-black px-8 py-4 rounded-2xl font-black"
+            className="rounded-2xl border border-zinc-700 bg-zinc-800 px-8 py-4 font-black text-white hover:bg-zinc-700"
           >
-            Volver
+            Nuevo examen
           </button>
 
           <button
             onClick={onMainMenu}
-            className="border border-violet-500/30 bg-violet-500/10 hover:bg-violet-500/20 text-violet-200 px-8 py-4 rounded-2xl font-black"
+            className="rounded-2xl border border-violet-500/30 bg-violet-500/10 px-8 py-4 font-black text-violet-200 hover:bg-violet-500/20 sm:col-span-2"
           >
             Menú principal
           </button>

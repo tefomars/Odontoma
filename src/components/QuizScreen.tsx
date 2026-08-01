@@ -1,16 +1,18 @@
-import { useEffect, useMemo, useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { chapters } from "@/content/histologia/chapters"
 import logoImage from "@/assets/logo.png"
+import type { QuizResponseRecord } from "@/lib/quizHistory"
 
 type Props = {
   question: any
   current: number
   total: number
   score: number
+  previousResponse?: QuizResponseRecord
 
   onBack?: () => void
   onMainMenu?: () => void
@@ -18,63 +20,8 @@ type Props = {
   onNext: () => void
   onCorrect: () => void
   onIncorrect: () => void
+  onAnswered: (response: QuizResponseRecord) => void
 }
-
-function shuffleQuestion(question: any) {
-
-  const combined =
-    question.options.map(
-      (
-        option: string,
-        index: number
-      ) => ({
-
-        option,
-
-        isCorrect:
-          question.correctAnswers.includes(index)
-      })
-    )
-
-  for (
-    let i = combined.length - 1;
-    i > 0;
-    i--
-  ) {
-
-    const j =
-      crypto.getRandomValues(
-        new Uint32Array(1)
-      )[0] % (i + 1)
-
-    ;[combined[i], combined[j]] = [
-      combined[j],
-      combined[i]
-    ]
-  }
-
-  return {
-
-    options:
-      combined.map(
-        item => item.option
-      ),
-
-    correctAnswers:
-      combined
-        .map(
-          (item, index) =>
-
-            item.isCorrect
-              ? index
-              : null
-        )
-        .filter(
-          item => item !== null
-        )
-  }
-}
-
 
 function getChapterTitle(chapterId: string) {
 
@@ -91,30 +38,35 @@ export default function QuizScreen({
   current,
   total,
   score,
+  previousResponse,
 
   onBack,
   onMainMenu,
 
   onNext,
   onCorrect,
-  onIncorrect
+  onIncorrect,
+  onAnswered
 }: Props) {
 
   const quizScreenRef = useRef<HTMLElement>(null)
 
-  const [selected, setSelected] =
-    useState<number[]>([])
+  const options = question.options as string[]
+  const correctAnswers = question.correctAnswers as number[]
+
+  const [selected, setSelected] = useState<number[]>(() =>
+    previousResponse
+      ? previousResponse.selectedAnswers
+          .map(answer => options.indexOf(answer))
+          .filter(index => index >= 0)
+      : []
+  )
 
   const [checked, setChecked] =
-    useState(false)
+    useState(Boolean(previousResponse))
 
   const [showExplanation, setShowExplanation] =
     useState(false)
-
-  const shuffled = useMemo(
-    () => shuffleQuestion(question),
-    [question]
-  )
 
   useEffect(() => {
     const scrollingElement = document.scrollingElement
@@ -130,12 +82,6 @@ export default function QuizScreen({
       quizScreenRef.current.scrollLeft = 0
     }
   }, [question.id])
-
-  const options =
-    shuffled.options
-
-  const correctAnswers =
-    shuffled.correctAnswers
 
   const isMulti =
     question.type === "multiple"
@@ -183,6 +129,16 @@ export default function QuizScreen({
     } else {
       onIncorrect()
     }
+
+    onAnswered({
+      questionId: question.id,
+      question: question.question,
+      chapter: question.chapter,
+      selectedAnswers: selected.map(index => options[index]),
+      correctAnswers: correctAnswers.map(index => options[index]),
+      explanation: question.explanation,
+      isCorrect: correct
+    })
 
     setChecked(true)
   }
@@ -304,7 +260,7 @@ export default function QuizScreen({
                 transition-all
               "
             >
-              ← Volver
+              💾 Guardar y salir
             </button>
 
             <button
