@@ -167,7 +167,22 @@ export default function OpenQuizSessionScreen({
   }
 
   function gradeAnswer(grade: OpenQuizGrade) {
-    setGradesByQuestion(previous => ({ ...previous, [question.id]: grade }))
+    const nextGrades = { ...gradesByQuestion, [question.id]: grade }
+    setGradesByQuestion(nextGrades)
+
+    if (current < questions.length - 1) {
+      setCurrent(index => index + 1)
+      return
+    }
+
+    const nextPending = questions.findIndex((item, index) =>
+      index !== current && !nextGrades[item.id])
+
+    if (nextPending >= 0) {
+      setCurrent(nextPending)
+    } else {
+      finishSession(nextGrades, false)
+    }
   }
 
   function goNext() {
@@ -179,14 +194,15 @@ export default function OpenQuizSessionScreen({
     if (firstOtherPending >= 0) setCurrent(firstOtherPending)
   }
 
-  function finishSession() {
-    if (pending > 0 && !window.confirm(`Todavía hay ${pending} ${pending === 1 ? "pregunta pendiente" : "preguntas pendientes"}. ¿Querés terminar y ver los resultados ahora?`)) {
+  function finishSession(grades: GradesByQuestion = gradesByQuestion, confirmPending = true) {
+    const remaining = questions.length - Object.keys(grades).length
+    if (confirmPending && remaining > 0 && !window.confirm(`Todavía hay ${remaining} ${remaining === 1 ? "pregunta pendiente" : "preguntas pendientes"}. ¿Querés terminar y ver los resultados ahora?`)) {
       return
     }
 
     const responses: QuizResponseRecord[] = questions.map(item => {
       const answer = (answers[item.id] || "").trim()
-      const grade = gradesByQuestion[item.id] || (answer ? "ungraded" : "unanswered")
+      const grade = grades[item.id] || (answer ? "ungraded" : "unanswered")
       return {
         questionId: item.id,
         question: item.prompt,
@@ -202,7 +218,8 @@ export default function OpenQuizSessionScreen({
       title: deck.title,
       subject: deck.subject || "Preguntas abiertas",
       completedAt: new Date().toISOString(),
-      score: gradeCounts.correct + gradeCounts.partial * 0.5,
+      score: Object.values(grades).reduce((score, grade) =>
+        score + (grade === "correct" ? 1 : grade === "partial" ? 0.5 : 0), 0),
       total: questions.length,
       responses,
       mode: "open-ended"
@@ -292,7 +309,7 @@ export default function OpenQuizSessionScreen({
           <div className="flex flex-wrap gap-2">
             <button onClick={() => saveAndLeave(onBack)} className="rounded-xl border border-zinc-800 bg-zinc-950 px-4 py-2 text-sm font-black text-zinc-300 hover:text-white">💾 Guardar y salir</button>
             <button onClick={() => saveAndLeave(onMainMenu)} className="rounded-xl border border-violet-500/30 bg-violet-500/10 px-4 py-2 text-sm font-black text-violet-200">Menú</button>
-            <button onClick={finishSession} className="rounded-xl border border-rose-500/30 bg-rose-500/10 px-4 py-2 text-sm font-black text-rose-200 hover:bg-rose-500/20">Terminar ahora</button>
+            <button onClick={() => finishSession()} className="rounded-xl border border-rose-500/30 bg-rose-500/10 px-4 py-2 text-sm font-black text-rose-200 hover:bg-rose-500/20">Terminar ahora</button>
           </div>
           <div className="text-right text-sm font-black text-zinc-500">
             <span className="block">Pregunta {current + 1} de {questions.length}</span>
