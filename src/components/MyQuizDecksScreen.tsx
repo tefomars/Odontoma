@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react"
+import { useState } from "react"
 
 import logoImage from "@/assets/logo.png"
 
@@ -31,10 +31,7 @@ export default function MyQuizDecksScreen({
     useState(0)
 
   const decks =
-    useMemo(
-      () => loadUserQuizDecks(),
-      [refreshKey]
-    )
+    (void refreshKey, loadUserQuizDecks())
 
   function createDeck() {
 

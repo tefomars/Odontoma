@@ -1,6 +1,6 @@
-import { useEffect, useMemo, useState } from "react"
+import { useMemo, useState } from "react"
 
-import { Card, CardContent } from "@/components/ui/card"
+import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { chapters } from "@/content/histologia/chapters"
@@ -111,7 +111,7 @@ export default function QuizScreen({
 
   const shuffled = useMemo(
     () => shuffleQuestion(question),
-    [question.id]
+    [question]
   )
 
   const options =
@@ -122,14 +122,6 @@ export default function QuizScreen({
 
   const isMulti =
     question.type === "multiple"
-
-  useEffect(() => {
-
-    setSelected([])
-    setChecked(false)
-    setShowExplanation(false)
-
-  }, [question.id])
 
   function arraysEqual(a: number[], b: number[]) {
 

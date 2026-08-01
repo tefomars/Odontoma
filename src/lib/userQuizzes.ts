@@ -1,3 +1,12 @@
+import {
+  parseDelimitedRows,
+  serializeDelimitedRows
+} from "@/lib/delimitedText"
+
+import {
+  deleteQuestionStats
+} from "@/lib/stats"
+
 const DECKS_KEY =
   "odontoma_user_quiz_decks"
 
@@ -75,6 +84,11 @@ export function deleteUserQuizDeck(
   deckId: string
 ) {
 
+  const deletedQuestionIds =
+    loadUserQuizQuestions()
+      .filter(question => question.chapter === deckId)
+      .map(question => question.id)
+
   saveUserQuizDecks(
     loadUserQuizDecks().filter(deck => deck.id !== deckId)
   )
@@ -82,6 +96,8 @@ export function deleteUserQuizDeck(
   saveUserQuizQuestions(
     loadUserQuizQuestions().filter(question => question.chapter !== deckId)
   )
+
+  deleteQuestionStats(deletedQuestionIds)
 }
 
 export function loadUserQuizQuestions(): UserQuizQuestion[] {
@@ -126,13 +142,37 @@ export function addUserQuizQuestion(params: {
   difficulty?: "easy" | "medium" | "hard"
 }) {
 
-  const cleanOptions =
+  const indexedOptions =
     params.options
-      .map(option => option.trim())
-      .filter(Boolean)
+      .map((option, index) => ({
+        originalIndex: index,
+        value: option.trim()
+      }))
+      .filter(option => option.value)
+
+  const cleanOptions =
+    indexedOptions.map(option => option.value)
+
+  const indexMap =
+    new Map(
+      indexedOptions.map((option, index) => [
+        option.originalIndex,
+        index
+      ])
+    )
+
+  const cleanCorrectAnswers =
+    Array.from(
+      new Set(
+        params.correctAnswers.flatMap(index => {
+          const mapped = indexMap.get(index)
+          return mapped === undefined ? [] : [mapped]
+        })
+      )
+    )
 
   const type =
-    params.correctAnswers.length > 1
+    cleanCorrectAnswers.length > 1
       ? "multiple"
       : "single"
 
@@ -143,7 +183,7 @@ export function addUserQuizQuestion(params: {
     type,
     question: params.question.trim(),
     options: cleanOptions,
-    correctAnswers: params.correctAnswers,
+    correctAnswers: cleanCorrectAnswers,
     explanation: params.explanation?.trim() || ""
   }
 
@@ -176,6 +216,8 @@ export function deleteUserQuizQuestion(
   saveUserQuizQuestions(
     loadUserQuizQuestions().filter(question => question.id !== questionId)
   )
+
+  deleteQuestionStats([questionId])
 }
 
 export function importUserQuizQuestionsFromTabText(params: {
@@ -183,18 +225,12 @@ export function importUserQuizQuestionsFromTabText(params: {
   text: string
 }) {
 
-  const imported = []
+  const imported: UserQuizQuestion[] = []
 
-  const lines =
-    params.text
-      .split(/\r?\n/)
-      .map(line => line.trim())
-      .filter(Boolean)
+  const rows =
+    parseDelimitedRows(params.text, "\t")
 
-  for (const line of lines) {
-
-    const parts =
-      line.split("\t").map(part => part.trim())
+  for (const parts of rows) {
 
     const [
       question,
@@ -207,8 +243,7 @@ export function importUserQuizQuestionsFromTabText(params: {
     ] = parts
 
     const options =
-      [optionA, optionB, optionC, optionD]
-        .filter(Boolean)
+      [optionA || "", optionB || "", optionC || "", optionD || ""]
 
     const correctAnswers =
       (correctRaw || "")
@@ -222,20 +257,55 @@ export function importUserQuizQuestionsFromTabText(params: {
 
     if (
       !question ||
-      options.length < 2 ||
+      options.filter(Boolean).length < 2 ||
       correctAnswers.length === 0
     ) {
       continue
     }
 
-    imported.push(
-      addUserQuizQuestion({
-        deckId: params.deckId,
-        question,
-        options,
-        correctAnswers,
-        explanation: explanationRaw || ""
-      })
+    const indexedOptions =
+      options
+        .map((option, index) => ({ index, value: option.trim() }))
+        .filter(option => option.value)
+
+    const indexMap =
+      new Map(
+        indexedOptions.map((option, index) => [option.index, index])
+      )
+
+    const normalizedCorrect =
+      Array.from(new Set(correctAnswers.flatMap(index => {
+        const mapped = indexMap.get(index)
+        return mapped === undefined ? [] : [mapped]
+      })))
+
+    if (normalizedCorrect.length === 0) continue
+
+    imported.push({
+      id: `user-quiz-${Date.now()}-${crypto.randomUUID()}`,
+      chapter: params.deckId,
+      difficulty: "medium",
+      type: normalizedCorrect.length > 1 ? "multiple" : "single",
+      question: question.trim(),
+      options: indexedOptions.map(option => option.value),
+      correctAnswers: normalizedCorrect,
+      explanation: explanationRaw?.trim() || ""
+    })
+  }
+
+  if (imported.length > 0) {
+    saveUserQuizQuestions([
+      ...loadUserQuizQuestions(),
+      ...imported
+    ])
+
+    const updatedAt = new Date().toISOString()
+    saveUserQuizDecks(
+      loadUserQuizDecks().map(deck =>
+        deck.id === params.deckId
+          ? { ...deck, updatedAt }
+          : deck
+      )
     )
   }
 
@@ -246,15 +316,15 @@ export function exportUserQuizQuestionsToTabText(
   deckId: string
 ) {
 
-  return getUserQuizQuestionsByDeck(deckId)
-    .map(question => {
+  return serializeDelimitedRows(
+    getUserQuizQuestionsByDeck(deckId).map(question => {
       const options =
         [
           question.options[0] || "",
           question.options[1] || "",
           question.options[2] || "",
           question.options[3] || ""
-        ].map(value => value.replace(/\r?\n/g, " "))
+        ]
 
       const correct =
         question.correctAnswers
@@ -262,11 +332,12 @@ export function exportUserQuizQuestionsToTabText(
           .join(",")
 
       return [
-        question.question.replace(/\r?\n/g, " "),
+        question.question,
         ...options,
         correct,
-        question.explanation.replace(/\r?\n/g, " ")
-      ].join("\t")
-    })
-    .join("\n")
+        question.explanation
+      ]
+    }),
+    "\t"
+  )
 }

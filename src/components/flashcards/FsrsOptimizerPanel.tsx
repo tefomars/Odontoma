@@ -13,8 +13,10 @@ import {
   saveFsrsParameters
 } from "@/lib/fsrsParameters"
 
-const MIN_REVIEWS_FOR_OPTIMIZATION =
-  100
+import {
+  getFsrsOptimizationEligibility,
+  MIN_REVIEWS_FOR_OPTIMIZATION
+} from "@/lib/fsrsEligibility"
 
 function formatPercent(
   value?: number
@@ -52,11 +54,24 @@ export default function FsrsOptimizerPanel() {
   const parameters =
     loadFsrsParameters()
 
-  const reviewCount =
-    storage.reviews.length
+  const eligibility =
+    getFsrsOptimizationEligibility(storage.reviews)
 
-  const ready =
-    reviewCount >= MIN_REVIEWS_FOR_OPTIMIZATION
+  const { reviewCount, ready } = eligibility
+
+  const statusTitle =
+    ready
+      ? "Listo"
+      : !eligibility.enoughReviews
+      ? `Faltan ${eligibility.missingReviews}`
+      : "Faltan días distintos"
+
+  const statusDescription =
+    ready
+      ? "Ya hay suficiente historial para personalizar los intervalos."
+      : !eligibility.enoughReviews
+      ? `Se necesitan ${MIN_REVIEWS_FOR_OPTIMIZATION} repasos para personalizar los intervalos.`
+      : "Repasá alguna tarjeta nuevamente otro día para que FSRS pueda medir el olvido."
 
   const currentRetention =
     reviewCount > 0
@@ -327,15 +342,11 @@ export default function FsrsOptimizerPanel() {
             font-black
             ${ready ? "text-emerald-300" : "text-amber-300"}
           `}>
-            {ready
-              ? "Listo"
-              : `Faltan ${MIN_REVIEWS_FOR_OPTIMIZATION - reviewCount}`}
+            {statusTitle}
           </p>
 
           <p className="mt-1 text-xs leading-relaxed text-zinc-500">
-            {ready
-              ? "Ya hay suficiente historial para personalizar los intervalos."
-              : `Se necesitan ${MIN_REVIEWS_FOR_OPTIMIZATION} repasos para personalizar los intervalos.`}
+            {statusDescription}
           </p>
         </div>
       </div>

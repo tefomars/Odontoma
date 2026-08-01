@@ -1,5 +1,4 @@
 import {
-  useEffect,
   useMemo,
   useState
 } from "react"
@@ -1333,18 +1332,6 @@ function getDueCount(
 }
 
 
-function getFlashcardSubjectName(subject: string) {
-  if (subject === "proceso-economico-i") {
-    return "Proceso Económico I"
-  }
-
-  if (subject === "filosofia-de-hayek") {
-    return "Filosofía"
-  }
-
-  return "Histología"
-}
-
 function cardMatchesSelectedSubject(
   card: any,
   subject: string
@@ -1610,7 +1597,7 @@ const HAYEK_MENUS: ChapterMenu[] = [
 ]
 
 
-const PROCESO_ECONOMICO_MENUS: ChapterMenu[] = [
+const _PROCESO_ECONOMICO_MENUS: ChapterMenu[] = [
   {
     chapter: "Parcial 1",
     title: "Parcial 1",
@@ -1737,7 +1724,7 @@ const PROCESO_ECONOMICO_MENUS: ChapterMenu[] = [
 ]
 
 
-function buildTopicMenus(cards: any[]): ChapterMenu[] {
+function _buildTopicMenus(cards: any[]): ChapterMenu[] {
   const chapters =
     Array.from(
       new Set(
@@ -1996,14 +1983,6 @@ export default function FlashcardSelectScreen({
 
   const [mobileChapterMenu, setMobileChapterMenu] =
     useState<string | null>(null)
-
-  useEffect(
-    () => {
-      setSelectedChapter(availableChapterMenus[0]?.chapter || "")
-      setMobileChapterMenu(null)
-    },
-    [subject, availableChapterMenus]
-  )
 
   const currentMenu =
     availableChapterMenus.find(menu => menu.chapter === selectedChapter) ||

@@ -82,3 +82,47 @@ export function deleteFsrsCardHistory(
     reviews
   })
 }
+
+export function undoFsrsReview(
+  storage: FsrsStorage,
+  reference: {
+    cardId: string
+    reviewedAt: string
+  }
+): FsrsStorage | null {
+  let reviewIndex = -1
+
+  for (
+    let index = storage.reviews.length - 1;
+    index >= 0;
+    index -= 1
+  ) {
+    const review = storage.reviews[index]
+
+    if (
+      review.cardId === reference.cardId &&
+      review.reviewedAt === reference.reviewedAt
+    ) {
+      reviewIndex = index
+      break
+    }
+  }
+
+  if (reviewIndex < 0) return null
+
+  const review = storage.reviews[reviewIndex]
+  const cards = { ...storage.cards }
+
+  if (review.stateBefore) {
+    cards[review.cardId] = review.stateBefore
+  } else {
+    delete cards[review.cardId]
+  }
+
+  return {
+    cards,
+    reviews: storage.reviews.filter(
+      (_, index) => index !== reviewIndex
+    )
+  }
+}

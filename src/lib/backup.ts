@@ -68,7 +68,7 @@ export async function importOdontomaBackup(
   const backup =
     JSON.parse(text) as OdontomaBackup
 
-  if (backup.app !== "Odontoma") {
+  if (backup.app !== "Odontoma" || backup.version !== 1) {
     throw new Error("Archivo inválido")
   }
 
@@ -79,16 +79,52 @@ export async function importOdontomaBackup(
     throw new Error("Backup incompleto")
   }
 
-  for (const [key, value] of Object.entries(
-    backup.localStorage
-  )) {
+  const incomingEntries =
+    Object.entries(backup.localStorage)
+      .filter(([key]) => key.startsWith("odontoma_"))
 
-    if (key.startsWith("odontoma_")) {
-
-      localStorage.setItem(
-        key,
-        String(value)
-      )
+  for (const [, value] of incomingEntries) {
+    if (typeof value !== "string") {
+      throw new Error("Backup inválido: contiene datos incompatibles.")
     }
+
+    try {
+      JSON.parse(value)
+    } catch {
+      throw new Error("Backup inválido: contiene datos dañados.")
+    }
+  }
+
+  const previousEntries: Array<[string, string]> = []
+
+  for (let index = 0; index < localStorage.length; index += 1) {
+    const key = localStorage.key(index)
+    if (!key?.startsWith("odontoma_")) continue
+
+    const value = localStorage.getItem(key)
+    if (value !== null) previousEntries.push([key, value])
+  }
+
+  function clearOdontomaStorage() {
+    const keys =
+      Array.from({ length: localStorage.length }, (_, index) =>
+        localStorage.key(index)
+      ).filter((key): key is string => Boolean(key?.startsWith("odontoma_")))
+
+    for (const key of keys) localStorage.removeItem(key)
+  }
+
+  try {
+    clearOdontomaStorage()
+    for (const [key, value] of incomingEntries) {
+      localStorage.setItem(key, value)
+    }
+  } catch {
+    clearOdontomaStorage()
+    for (const [key, value] of previousEntries) {
+      localStorage.setItem(key, value)
+    }
+
+    throw new Error("No se pudo restaurar el backup. Tus datos anteriores se conservaron.")
   }
 }

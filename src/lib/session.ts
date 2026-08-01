@@ -15,7 +15,11 @@ export function loadSession() {
 
   if (!raw) return null
 
-  return JSON.parse(raw)
+  try {
+    return JSON.parse(raw)
+  } catch {
+    return null
+  }
 }
 
 export function clearSession() {

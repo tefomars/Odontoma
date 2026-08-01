@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react"
+import { useState } from "react"
 
 import logoImage from "@/assets/logo.png"
 
@@ -26,13 +26,11 @@ export default function SuspendedFlashcardsScreen({
     useState(0)
 
   const suspendedCards =
-    useMemo(
-      () =>
-        getSuspendedFlashcards([
-          ...getDefaultFlashcards(),
-          ...getMyFlashcards()
-        ]),
-      [refreshKey]
+    (void refreshKey,
+      getSuspendedFlashcards([
+        ...getDefaultFlashcards(),
+        ...getMyFlashcards()
+      ])
     )
 
   function restoreCard(cardId: string) {

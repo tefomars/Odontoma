@@ -10,6 +10,12 @@ import {
   deleteSuspendedFlashcardHistory
 } from "@/lib/suspendedFlashcards"
 
+import {
+  detectDelimiter,
+  parseDelimitedRows,
+  serializeDelimitedRows
+} from "@/lib/delimitedText"
+
 const TOPICS_KEY =
   "odontoma_user_flashcard_topics"
 
@@ -226,65 +232,6 @@ export function deleteUserFlashcardTopic(
   deleteSuspendedFlashcardHistory(deletedCardIds)
 }
 
-function parseDelimitedRows(
-  text: string,
-  delimiter: "\t" | ","
-) {
-
-  const rows: string[][] = []
-  let row: string[] = []
-  let field = ""
-  let quoted = false
-
-  for (let index = 0; index < text.length; index += 1) {
-
-    const character = text[index]
-    const nextCharacter = text[index + 1]
-
-    if (character === '"') {
-      if (quoted && nextCharacter === '"') {
-        field += '"'
-        index += 1
-      } else {
-        quoted = !quoted
-      }
-      continue
-    }
-
-    if (!quoted && character === delimiter) {
-      row.push(field)
-      field = ""
-      continue
-    }
-
-    if (!quoted && (character === "\n" || character === "\r")) {
-      if (character === "\r" && nextCharacter === "\n") {
-        index += 1
-      }
-
-      row.push(field)
-
-      if (row.some(value => value.trim())) {
-        rows.push(row)
-      }
-
-      row = []
-      field = ""
-      continue
-    }
-
-    field += character
-  }
-
-  row.push(field)
-
-  if (row.some(value => value.trim())) {
-    rows.push(row)
-  }
-
-  return rows
-}
-
 function isFlashcardHeader(
   front: string,
   back: string
@@ -307,15 +254,8 @@ export function importUserFlashcardsFromTabText(params: {
   text: string
 }) {
 
-  const firstDataLine =
-    params.text
-      .split(/\r?\n/)
-      .find(line => line.trim()) || ""
-
-  const delimiter: "\t" | "," =
-    firstDataLine.includes("\t")
-      ? "\t"
-      : ","
+  const delimiter =
+    detectDelimiter(params.text)
 
   const rows =
     parseDelimitedRows(
@@ -323,7 +263,13 @@ export function importUserFlashcardsFromTabText(params: {
       delimiter
     )
 
-  const importedCards = []
+  const topics =
+    loadUserFlashcardTopics()
+
+  const topic =
+    topics.find(item => item.id === params.topicId)
+
+  const importedCards: Flashcard[] = []
 
   for (const [index, row] of rows.entries()) {
 
@@ -344,12 +290,32 @@ export function importUserFlashcardsFromTabText(params: {
       continue
     }
 
-    importedCards.push(
-      addUserFlashcard({
-        topicId: params.topicId,
-        front,
-        back
-      })
+    importedCards.push({
+      id: `user-card-${Date.now()}-${crypto.randomUUID()}`,
+      subject: "My flashcards",
+      book: "Personal",
+      chapter: topic?.name || "My flashcards",
+      topic: params.topicId,
+      subtopic: "General",
+      front: front.trim(),
+      back: back.trim(),
+      tags: ["user"]
+    })
+  }
+
+  if (importedCards.length > 0) {
+    saveUserFlashcards([
+      ...loadUserFlashcards(),
+      ...importedCards
+    ])
+
+    const updatedAt = new Date().toISOString()
+    saveUserFlashcardTopics(
+      topics.map(item =>
+        item.id === params.topicId
+          ? { ...item, updatedAt }
+          : item
+      )
     )
   }
 
@@ -360,9 +326,11 @@ export function exportUserFlashcardsToTabText(
   topicId: string
 ) {
 
-  return getUserFlashcardsByTopic(topicId)
-    .map(card =>
-      `${card.front.replace(/\r?\n/g, " ")}\t${card.back.replace(/\r?\n/g, " ")}`
-    )
-    .join("\n")
+  return serializeDelimitedRows(
+    getUserFlashcardsByTopic(topicId).map(card => [
+      card.front,
+      card.back
+    ]),
+    "\t"
+  )
 }

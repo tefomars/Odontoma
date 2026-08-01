@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState } from "react"
+import { useRef, useState } from "react"
 
 import {
   addUserFlashcard,
@@ -19,8 +19,7 @@ import {
 } from "@/lib/fsrs"
 
 import {
-  filterActiveFlashcards,
-  suspendFlashcard
+  filterActiveFlashcards
 } from "@/lib/suspendedFlashcards"
 
 type Props = {
@@ -62,25 +61,19 @@ export default function UserTopicScreen({
     useState(0)
 
   const topic =
-    useMemo(
-      () =>
-        loadUserFlashcardTopics().find(
-          item => item.id === topicId
-        ),
-      [topicId, refreshKey]
+    (void refreshKey,
+      loadUserFlashcardTopics().find(
+        item => item.id === topicId
+      )
     )
 
   const cards =
-    useMemo(
-      () => filterActiveFlashcards(getUserFlashcardsByTopic(topicId)),
-      [topicId, refreshKey]
+    (void refreshKey,
+      filterActiveFlashcards(getUserFlashcardsByTopic(topicId))
     )
 
   const storage =
-    useMemo(
-      () => loadFsrsStorage(),
-      [refreshKey]
-    )
+    (void refreshKey, loadFsrsStorage())
 
   const dueCount =
     cards.filter(card =>
@@ -148,22 +141,6 @@ export default function UserTopicScreen({
     })
   }
 
-  function suspendCard(cardId: string) {
-
-    const confirmed =
-      window.confirm("¿Suspender esta flashcard? No aparecerá en repasos hasta que la reactives.")
-
-    if (!confirmed) return
-
-    suspendFlashcard(cardId)
-
-    if (editingCardId === cardId) {
-      clearForm()
-    }
-
-    setRefreshKey(prev => prev + 1)
-  }
-
   function removeCard(cardId: string) {
 
     const confirmed =
@@ -201,11 +178,22 @@ export default function UserTopicScreen({
     text: string
   ) {
 
-    const imported =
-      importUserFlashcardsFromTabText({
-        topicId,
-        text
-      })
+    let imported
+
+    try {
+      imported =
+        importUserFlashcardsFromTabText({
+          topicId,
+          text
+        })
+    } catch (caught) {
+      window.alert(
+        caught instanceof Error
+          ? caught.message
+          : "No se pudieron importar las tarjetas."
+      )
+      return false
+    }
 
     if (imported.length === 0) {
       window.alert(

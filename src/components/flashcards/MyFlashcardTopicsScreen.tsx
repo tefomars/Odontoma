@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react"
+import { useState } from "react"
 import logoImage from "@/assets/logo.png"
 
 import {
@@ -87,22 +87,13 @@ export default function MyFlashcardTopicsScreen({
     useState(0)
 
   const topics =
-    useMemo(
-      () => loadUserFlashcardTopics(),
-      [refreshKey]
-    )
+    (void refreshKey, loadUserFlashcardTopics())
 
   const cards =
-    useMemo(
-      () => filterActiveFlashcards(loadUserFlashcards()),
-      [refreshKey]
-    )
+    (void refreshKey, filterActiveFlashcards(loadUserFlashcards()))
 
   const storage =
-    useMemo(
-      () => loadFsrsStorage(),
-      [refreshKey]
-    )
+    (void refreshKey, loadFsrsStorage())
 
   function createTopic() {
 

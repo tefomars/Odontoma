@@ -48,18 +48,18 @@ import {
   shuffleQuestion
 } from "@/lib/shuffleQuestion"
 
+import {
+  buildSmartQuizPool
+} from "@/lib/smartQuizPool"
+
 import type {
   FlashcardSource
 } from "@/lib/flashcardDecks"
 
-const APP_VERSION = "v0.9.0"
-
-
-
 function VersionBadge() {
   return (
     <div className="app-version-badge hidden lg:block">
-      Odontoma {APP_VERSION}
+      Odontoma v{packageJson.version}
     </div>
   )
 }
@@ -117,7 +117,7 @@ function AppVersion() {
 export default function App() {
 
   useSwipeBack({
-    onBack: goToMainMenu,
+    onBack: goBack,
     enabled: true,
     minDistance: 90,
     maxVerticalDrift: 80
@@ -345,27 +345,10 @@ export default function App() {
     ])
 
   function buildSmartPool(pool: any[]) {
-
-    const newQuestions =
-      pool.filter((question: any) =>
-        !stats.questions?.[question.id]
-      )
-
-    const incorrectQuestions =
-      pool.filter((question: any) =>
-        stats.questions?.[question.id]?.incorrect > 0
-      )
-
-    const correctQuestions =
-      pool.filter((question: any) =>
-        stats.questions?.[question.id]?.correct > 0
-      )
-
-    return [
-      ...shuffleArray(incorrectQuestions),
-      ...shuffleArray(newQuestions),
-      ...shuffleArray(correctQuestions)
-    ]
+    return buildSmartQuizPool(
+      pool,
+      stats.questions || {}
+    )
   }
 
   function buildFailedPool(pool: any[]) {
@@ -563,33 +546,31 @@ export default function App() {
 
     for (const tag of question.tags || []) {
 
-      if (!nextStats.tags[tag]) {
-
-        nextStats.tags[tag] = {
+      const currentTag =
+        nextStats.tags[tag] || {
           correct: 0,
           incorrect: 0
         }
-      }
 
-      if (correct) {
-        nextStats.tags[tag].correct += 1
-      } else {
-        nextStats.tags[tag].incorrect += 1
+      nextStats.tags[tag] = {
+        correct:
+          currentTag.correct + (correct ? 1 : 0),
+        incorrect:
+          currentTag.incorrect + (correct ? 0 : 1)
       }
     }
 
-    if (!nextStats.questions[question.id]) {
-
-      nextStats.questions[question.id] = {
+    const currentQuestion =
+      nextStats.questions[question.id] || {
         correct: 0,
         incorrect: 0
       }
-    }
 
-    if (correct) {
-      nextStats.questions[question.id].correct += 1
-    } else {
-      nextStats.questions[question.id].incorrect += 1
+    nextStats.questions[question.id] = {
+      correct:
+        currentQuestion.correct + (correct ? 1 : 0),
+      incorrect:
+        currentQuestion.incorrect + (correct ? 0 : 1)
     }
 
     setStats(nextStats)

@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react"
+import { useEffect, useEffectEvent, useMemo, useState } from "react"
 
 
 import {
@@ -10,7 +10,8 @@ import {
 
 import {
   loadFsrsStorage,
-  saveFsrsStorage
+  saveFsrsStorage,
+  undoFsrsReview
 } from "@/lib/flashcardStorage"
 
 import {
@@ -118,10 +119,17 @@ export default function FlashcardReviewScreen({
   const [cardAnimationKey, setCardAnimationKey] =
     useState(0)
 
-  const [isCardChanging, setIsCardChanging] =
-    useState(false)
   const [currentIndex, setCurrentIndex] =
     useState(0)
+
+  const [suspendedVersion, setSuspendedVersion] =
+    useState(0)
+
+  const [undoReview, setUndoReview] =
+    useState<{
+      cardId: string
+      reviewedAt: string
+    } | null>(null)
 
   const [newCardOrderSeed] =
     useState(() => crypto.randomUUID())
@@ -130,14 +138,17 @@ export default function FlashcardReviewScreen({
 
   const allCards =
     useMemo(
-      () =>
-        filterActiveFlashcards(
+      () => {
+        void suspendedVersion
+
+        return filterActiveFlashcards(
           getFlashcardsBySource(
             source,
             source === "user" ? selectedTopic : undefined
           )
-        ),
-      [source, selectedTopic]
+        )
+      },
+      [source, selectedTopic, suspendedVersion]
     )
 
   const filteredCards =
@@ -211,8 +222,13 @@ export default function FlashcardReviewScreen({
       ]
     )
 
+  const safeCurrentIndex =
+    dueCards.length > 0
+      ? currentIndex % dueCards.length
+      : 0
+
   const currentCard =
-    dueCards[currentIndex]
+    dueCards[safeCurrentIndex]
 
   const currentState =
     currentCard
@@ -251,19 +267,10 @@ export default function FlashcardReviewScreen({
       storage.cards
     ])
 
-  useEffect(() => {
-
-    if (
-      dueCards.length > 0 &&
-      currentIndex >= dueCards.length
-    ) {
-      setCurrentIndex(0)
-    }
-
-  }, [
-    dueCards.length,
-    currentIndex
-  ])
+  const rateCardFromKeyboard =
+    useEffectEvent((rating: FsrsRating) => {
+      rateCard(rating)
+    })
 
   useEffect(() => {
 
@@ -286,7 +293,7 @@ export default function FlashcardReviewScreen({
           return
         }
 
-        rateCard("good")
+        rateCardFromKeyboard("good")
         return
       }
 
@@ -294,22 +301,22 @@ export default function FlashcardReviewScreen({
 
       if (event.key === "1") {
         event.preventDefault()
-        rateCard("again")
+        rateCardFromKeyboard("again")
       }
 
       if (event.key === "2") {
         event.preventDefault()
-        rateCard("hard")
+        rateCardFromKeyboard("hard")
       }
 
       if (event.key === "3") {
         event.preventDefault()
-        rateCard("good")
+        rateCardFromKeyboard("good")
       }
 
       if (event.key === "4") {
         event.preventDefault()
-        rateCard("easy")
+        rateCardFromKeyboard("easy")
       }
     }
 
@@ -340,32 +347,17 @@ export default function FlashcardReviewScreen({
 
   function undoLastReview() {
 
-    const lastReview =
-      storage.reviews[storage.reviews.length - 1]
+    if (!undoReview) return
 
-    if (!lastReview) return
+    const nextStorage =
+      undoFsrsReview(storage, undoReview)
 
-    const nextCards = {
-      ...storage.cards
-    }
-
-    if (lastReview.stateBefore) {
-      nextCards[lastReview.cardId] =
-        lastReview.stateBefore
-    } else {
-      delete nextCards[lastReview.cardId]
-    }
-
-    const nextStorage = {
-      cards: nextCards,
-      reviews: storage.reviews.slice(0, -1)
-    }
+    if (!nextStorage) return
 
     setStorage(nextStorage)
     saveFsrsStorage(nextStorage)
     setShowAnswer(false)
-
-
+    setUndoReview(null)
     setCurrentIndex(0)
   }
 
@@ -423,6 +415,8 @@ export default function FlashcardReviewScreen({
     suspendFlashcard(currentCard.id)
     setShowAnswer(false)
     setCurrentIndex(0)
+    setUndoReview(null)
+    setSuspendedVersion(value => value + 1)
   }
 
   function rateCard(rating: FsrsRating) {
@@ -452,6 +446,10 @@ export default function FlashcardReviewScreen({
 
     setStorage(nextStorage)
     saveFsrsStorage(nextStorage)
+    setUndoReview({
+      cardId: log.cardId,
+      reviewedAt: log.reviewedAt
+    })
     setShowAnswer(false)
     setCurrentIndex(prev => {
 
@@ -758,7 +756,7 @@ export default function FlashcardReviewScreen({
             flex-wrap
             gap-2
           ">
-            {storage.reviews.length > 0 && (
+            {undoReview && (
               <button
                 type="button"
                 onClick={undoLastReview}

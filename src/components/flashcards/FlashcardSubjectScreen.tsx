@@ -100,7 +100,7 @@ export default function FlashcardSubjectScreen({
       new Set(
         getDefaultFlashcards()
           .filter(card => card.subject === subjectTitle)
-          .map(card => card.topic || card.chapter)
+          .map(card => card.chapter || card.topic)
           .filter(Boolean)
       ).size
     )
@@ -468,4 +468,3 @@ export default function FlashcardSubjectScreen({
     </main>
   )
 }
-

@@ -43,11 +43,13 @@ export default function BackupPanel({
         "Backup importado. Recargá la app para ver los cambios."
       )
 
-    } catch {
+    } catch (caught) {
 
       setMessage(null)
       setError(
-        "No se pudo importar este archivo."
+        caught instanceof Error
+          ? caught.message
+          : "No se pudo importar este archivo."
       )
 
     } finally {

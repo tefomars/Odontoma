@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react"
+import { useState } from "react"
 
 import {
   addUserQuizQuestion,
@@ -45,19 +45,14 @@ export default function UserQuizDeckScreen({
     useState(0)
 
   const deck =
-    useMemo(
-      () =>
-        loadUserQuizDecks().find(
-          item => item.id === deckId
-        ),
-      [deckId, refreshKey]
+    (void refreshKey,
+      loadUserQuizDecks().find(
+        item => item.id === deckId
+      )
     )
 
   const questions =
-    useMemo(
-      () => getUserQuizQuestionsByDeck(deckId),
-      [deckId, refreshKey]
-    )
+    (void refreshKey, getUserQuizQuestionsByDeck(deckId))
 
   function saveQuestion() {
 
@@ -105,11 +100,22 @@ export default function UserQuizDeckScreen({
 
   function importQuestions() {
 
-    const imported =
-      importUserQuizQuestionsFromTabText({
-        deckId,
-        text: importText
-      })
+    let imported
+
+    try {
+      imported =
+        importUserQuizQuestionsFromTabText({
+          deckId,
+          text: importText
+        })
+    } catch (caught) {
+      window.alert(
+        caught instanceof Error
+          ? caught.message
+          : "No se pudieron importar las preguntas."
+      )
+      return
+    }
 
     if (imported.length === 0) {
       window.alert(

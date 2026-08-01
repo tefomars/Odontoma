@@ -130,17 +130,11 @@ export default function SetupScreen({
   const [phoneChaptersOpen, setPhoneChaptersOpen] = useState(false)
 
   const [localHasPausedSession, setLocalHasPausedSession] =
-    useState(false)
-
-  useEffect(() => {
-
-    setLocalHasPausedSession(
+    useState(() =>
       Boolean(
         localStorage.getItem("odontoma_paused_session")
       )
     )
-
-  }, [])
 
   useEffect(() => {
 
