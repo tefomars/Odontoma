@@ -671,6 +671,7 @@ export default function App() {
         completedAt: new Date().toISOString(),
         score,
         total: sessionQuestions.length,
+        mode: "multiple-choice",
         responses: sessionQuestions
           .map(sessionQuestion =>
             sessionResponses.find(response => response.questionId === sessionQuestion.id)
@@ -1090,6 +1091,10 @@ export default function App() {
             deck={activeDeck}
             onBack={() => setActiveOpenQuizDeckId(null)}
             onMainMenu={goToMainMenu}
+            onHistory={() => {
+              setActiveOpenQuizDeckId(null)
+              setSelectedQuizMode("history")
+            }}
           />
         </ScreenTransition>
       )

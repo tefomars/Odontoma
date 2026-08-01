@@ -1,4 +1,10 @@
-import { loadQuizHistory, type QuizAttempt } from "@/lib/quizHistory"
+import { useState } from "react"
+
+import {
+  loadQuizHistory,
+  removeQuizAttempt,
+  type QuizAttempt
+} from "@/lib/quizHistory"
 
 type Props = {
   onBack: () => void
@@ -7,7 +13,7 @@ type Props = {
 }
 
 export default function QuizHistoryScreen({ onBack, onMainMenu, onReview }: Props) {
-  const attempts = loadQuizHistory()
+  const [attempts, setAttempts] = useState(loadQuizHistory)
 
   return (
     <main className="min-h-screen bg-[#09090b] px-5 py-8 text-white">
@@ -28,10 +34,8 @@ export default function QuizHistoryScreen({ onBack, onMainMenu, onReview }: Prop
         ) : (
           <div className="mt-10 grid gap-4">
             {attempts.map(attempt => (
-              <button
+              <article
                 key={attempt.id}
-                type="button"
-                onClick={() => onReview(attempt)}
                 className="group flex flex-col gap-5 rounded-[2rem] border border-cyan-500/20 bg-cyan-500/5 p-6 text-left transition hover:border-cyan-400/50 hover:bg-cyan-500/10 sm:flex-row sm:items-center sm:justify-between"
               >
                 <div>
@@ -39,8 +43,11 @@ export default function QuizHistoryScreen({ onBack, onMainMenu, onReview }: Prop
                   <h2 className="mt-2 text-3xl font-black">{attempt.score}/{attempt.total}</h2>
                   <p className="mt-2 text-sm text-zinc-400">{new Intl.DateTimeFormat("es-GT", { dateStyle: "medium", timeStyle: "short" }).format(new Date(attempt.completedAt))}</p>
                 </div>
-                <span className="rounded-2xl bg-white/10 px-5 py-3 font-black text-cyan-100">Ver respuestas →</span>
-              </button>
+                <div className="flex flex-wrap gap-2">
+                  <button type="button" onClick={() => onReview(attempt)} className="rounded-2xl bg-white/10 px-5 py-3 font-black text-cyan-100">Ver respuestas →</button>
+                  <button type="button" onClick={() => setAttempts(removeQuizAttempt(attempt.id))} className="rounded-2xl border border-red-500/20 px-4 py-3 text-sm font-black text-red-300 hover:bg-red-500/10">Quitar</button>
+                </div>
+              </article>
             ))}
           </div>
         )}

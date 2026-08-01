@@ -7,11 +7,23 @@ import type {
   OpenQuizGrade,
   OpenQuizQuestion
 } from "@/content/openQuizzes"
+import QuizReviewScreen from "@/components/QuizReviewScreen"
+import {
+  clearOpenQuizProgress,
+  loadOpenQuizProgress,
+  saveOpenQuizProgress
+} from "@/lib/openQuizProgress"
+import {
+  saveQuizAttempt,
+  type QuizAttempt,
+  type QuizResponseRecord
+} from "@/lib/quizHistory"
 
 type Props = {
   deck: OpenQuizDeck
   onBack: () => void
   onMainMenu: () => void
+  onHistory: () => void
 }
 
 type GradeCounts = Record<OpenQuizGrade, number>
@@ -33,19 +45,50 @@ const initialCounts: GradeCounts = {
   correct: 0
 }
 
+function createInitialSession(deck: OpenQuizDeck) {
+  const saved = loadOpenQuizProgress(deck.id)
+  const byId = new Map(deck.questions.map(question => [question.id, question]))
+  const restoredQuestions = saved?.questionIds
+    .map(id => byId.get(id))
+    .filter((question): question is OpenQuizQuestion => Boolean(question))
+
+  if (saved && restoredQuestions?.length === deck.questions.length) {
+    return {
+      questions: restoredQuestions,
+      current: Math.min(saved.current, restoredQuestions.length - 1),
+      studentAnswer: saved.studentAnswer,
+      revealed: saved.revealed,
+      grades: saved.grades,
+      responses: saved.responses
+    }
+  }
+
+  return {
+    questions: shuffleQuestions(deck.questions),
+    current: 0,
+    studentAnswer: "",
+    revealed: false,
+    grades: initialCounts,
+    responses: [] as QuizResponseRecord[]
+  }
+}
+
 export default function OpenQuizSessionScreen({
   deck,
   onBack,
-  onMainMenu
+  onMainMenu,
+  onHistory
 }: Props) {
-  const [questions, setQuestions] = useState(() =>
-    shuffleQuestions(deck.questions)
-  )
-  const [current, setCurrent] = useState(0)
-  const [studentAnswer, setStudentAnswer] = useState("")
-  const [revealed, setRevealed] = useState(false)
-  const [grades, setGrades] = useState<GradeCounts>(initialCounts)
+  const [initialSession] = useState(() => createInitialSession(deck))
+  const [questions, setQuestions] = useState(initialSession.questions)
+  const [current, setCurrent] = useState(initialSession.current)
+  const [studentAnswer, setStudentAnswer] = useState(initialSession.studentAnswer)
+  const [revealed, setRevealed] = useState(initialSession.revealed)
+  const [grades, setGrades] = useState<GradeCounts>(initialSession.grades)
+  const [responses, setResponses] = useState<QuizResponseRecord[]>(initialSession.responses)
   const [finished, setFinished] = useState(false)
+  const [completedAttempt, setCompletedAttempt] = useState<QuizAttempt | null>(null)
+  const [reviewing, setReviewing] = useState(false)
 
   const question = questions[current]
   const answered = grades.correct + grades.partial + grades.incorrect
@@ -60,12 +103,45 @@ export default function OpenQuizSessionScreen({
   ], [grades])
 
   function gradeAnswer(grade: OpenQuizGrade) {
-    setGrades(currentGrades => ({
-      ...currentGrades,
-      [grade]: currentGrades[grade] + 1
-    }))
+    const nextGrades = {
+      ...grades,
+      [grade]: grades[grade] + 1
+    }
+    const response: QuizResponseRecord = {
+      questionId: question.id,
+      question: question.prompt,
+      selectedAnswers: studentAnswer.trim() ? [studentAnswer.trim()] : [],
+      correctAnswers: [question.modelAnswer],
+      explanation: [
+        question.acceptedPoints.length > 0
+          ? `También se considera correcto mencionar:\n${question.acceptedPoints.map(point => `• ${point}`).join("\n")}`
+          : "",
+        question.explanation,
+        question.source ? `Fuente: ${question.source}` : ""
+      ].filter(Boolean).join("\n\n") || undefined,
+      isCorrect: grade === "correct",
+      grade
+    }
+    const nextResponses = [...responses, response]
+
+    setGrades(nextGrades)
+    setResponses(nextResponses)
 
     if (current + 1 >= questions.length) {
+      const attempt: QuizAttempt = {
+        id: `open-quiz-attempt-${Date.now()}-${crypto.randomUUID()}`,
+        title: deck.title,
+        subject: deck.subject || "Preguntas abiertas",
+        completedAt: new Date().toISOString(),
+        score: nextGrades.correct + nextGrades.partial * 0.5,
+        total: questions.length,
+        responses: nextResponses,
+        mode: "open-ended"
+      }
+
+      saveQuizAttempt(attempt)
+      clearOpenQuizProgress(deck.id)
+      setCompletedAttempt(attempt)
       setFinished(true)
       return
     }
@@ -76,12 +152,40 @@ export default function OpenQuizSessionScreen({
   }
 
   function restart() {
+    clearOpenQuizProgress(deck.id)
     setQuestions(shuffleQuestions(deck.questions))
     setCurrent(0)
     setStudentAnswer("")
     setRevealed(false)
     setGrades(initialCounts)
+    setResponses([])
+    setCompletedAttempt(null)
+    setReviewing(false)
     setFinished(false)
+  }
+
+  function saveAndLeave(destination: () => void) {
+    saveOpenQuizProgress({
+      deckId: deck.id,
+      questionIds: questions.map(item => item.id),
+      current,
+      studentAnswer,
+      revealed,
+      grades,
+      responses,
+      savedAt: new Date().toISOString()
+    })
+    destination()
+  }
+
+  if (reviewing && completedAttempt) {
+    return (
+      <QuizReviewScreen
+        attempt={completedAttempt}
+        onBack={() => setReviewing(false)}
+        onMainMenu={onMainMenu}
+      />
+    )
   }
 
   if (finished) {
@@ -104,8 +208,14 @@ export default function OpenQuizSessionScreen({
               ))}
             </div>
             <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+              <button onClick={() => setReviewing(true)} className="rounded-2xl bg-emerald-400 px-6 py-3 font-black text-zinc-950 hover:bg-emerald-300">
+                Ver todas las respuestas
+              </button>
               <button onClick={restart} className="rounded-2xl bg-amber-300 px-6 py-3 font-black text-zinc-950 hover:bg-amber-200">
                 Repetir
+              </button>
+              <button onClick={onHistory} className="rounded-2xl border border-cyan-500/30 bg-cyan-500/10 px-6 py-3 font-black text-cyan-200 hover:bg-cyan-500/20">
+                Exámenes anteriores
               </button>
               <button onClick={onBack} className="rounded-2xl border border-zinc-700 bg-zinc-900 px-6 py-3 font-black text-zinc-200 hover:bg-zinc-800">
                 Ver apartados
@@ -127,10 +237,10 @@ export default function OpenQuizSessionScreen({
       <div className="mx-auto max-w-5xl">
         <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
           <div className="flex gap-2">
-            <button onClick={onBack} className="rounded-xl border border-zinc-800 bg-zinc-950 px-4 py-2 text-sm font-black text-zinc-400 hover:text-white">
-              ← Salir
+            <button onClick={() => saveAndLeave(onBack)} className="rounded-xl border border-zinc-800 bg-zinc-950 px-4 py-2 text-sm font-black text-zinc-300 hover:text-white">
+              💾 Guardar y salir
             </button>
-            <button onClick={onMainMenu} className="rounded-xl border border-violet-500/30 bg-violet-500/10 px-4 py-2 text-sm font-black text-violet-200">
+            <button onClick={() => saveAndLeave(onMainMenu)} className="rounded-xl border border-violet-500/30 bg-violet-500/10 px-4 py-2 text-sm font-black text-violet-200">
               Menú
             </button>
           </div>

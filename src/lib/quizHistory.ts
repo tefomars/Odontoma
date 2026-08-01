@@ -9,6 +9,7 @@ export type QuizResponseRecord = {
   correctAnswers: string[]
   explanation?: string
   isCorrect: boolean
+  grade?: "incorrect" | "partial" | "correct"
 }
 
 export type QuizAttempt = {
@@ -19,6 +20,7 @@ export type QuizAttempt = {
   score: number
   total: number
   responses: QuizResponseRecord[]
+  mode?: "multiple-choice" | "open-ended"
 }
 
 function isAttempt(value: unknown): value is QuizAttempt {
@@ -51,6 +53,12 @@ export function saveQuizAttempt(attempt: QuizAttempt) {
     ...loadQuizHistory().filter(item => item.id !== attempt.id)
   ].slice(0, QUIZ_HISTORY_LIMIT)
 
+  localStorage.setItem(QUIZ_HISTORY_KEY, JSON.stringify(next))
+  return next
+}
+
+export function removeQuizAttempt(attemptId: string) {
+  const next = loadQuizHistory().filter(attempt => attempt.id !== attemptId)
   localStorage.setItem(QUIZ_HISTORY_KEY, JSON.stringify(next))
   return next
 }

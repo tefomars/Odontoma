@@ -4,6 +4,7 @@ import { installLocalStorageMock } from "@/test/localStorageMock"
 import {
   loadQuizHistory,
   QUIZ_HISTORY_KEY,
+  removeQuizAttempt,
   saveQuizAttempt,
   type QuizAttempt
 } from "./quizHistory"
@@ -39,5 +40,14 @@ describe("quiz history", () => {
   it("recovers safely from invalid storage", () => {
     localStorage.setItem(QUIZ_HISTORY_KEY, "{invalid")
     expect(loadQuizHistory()).toEqual([])
+  })
+
+  it("removes only the selected attempt", () => {
+    saveQuizAttempt(attempt(1))
+    saveQuizAttempt(attempt(2))
+
+    removeQuizAttempt("attempt-2")
+
+    expect(loadQuizHistory().map(item => item.id)).toEqual(["attempt-1"])
   })
 })
