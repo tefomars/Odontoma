@@ -205,6 +205,30 @@
           "acceptedPoints": [],
           "explanation": "",
           "source": ""
+        },
+        {
+          "id": "open-question-1785623747451-e8f1c39b-3272-475a-9f97-532d18bd3dac",
+          "prompt": "Qué enzima de la glucólisis se inhibe cuando hay mucho ATP?",
+          "modelAnswer": "Fosfofructoquinasa-1",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1785623765367-b1e6f98d-b855-41c3-8da0-90982ca76eca",
+          "prompt": "Qué enzima media la conversión de Piruvato a Acetil-CoA?",
+          "modelAnswer": "El complejo piruvato deshidrogenasa",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1785623794683-556c4208-03d7-4f8f-b6a1-64bcead4a0d0",
+          "prompt": "De importancia, qué genera la reacción intermedia entre glucólisis y el ciclo de krebs?",
+          "modelAnswer": "1 NADH por triosa (o sea 2 por glucosa)\n1 Acetil-CoA por triosa (o sea 2 por glucosa...)",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
         }
       ]
     }
