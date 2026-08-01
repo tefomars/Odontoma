@@ -1,0 +1,44 @@
+{
+  "subjects": [
+    {
+      "id": "histologia",
+      "title": "Histología",
+      "subtitle": "Tejidos básicos, epitelio, conjuntivo, cartílago y más",
+      "status": "Disponible",
+      "accentColor": "#7c3aed",
+      "destination": "histologia"
+    },
+    {
+      "id": "filosofia-de-hayek",
+      "title": "Filosofía de Hayek",
+      "subtitle": "Parcial 1, Parcial 2 y conceptos importantes",
+      "status": "Disponible",
+      "accentColor": "#4f46e5",
+      "destination": "filosofia-de-hayek"
+    },
+    {
+      "id": "bioquimica",
+      "title": "Bioquímica",
+      "subtitle": "Enzimas, proteínas, metabolismo y caries",
+      "status": "Próximamente",
+      "accentColor": "#0891b2",
+      "destination": "coming-soon"
+    },
+    {
+      "id": "anatomia",
+      "title": "Anatomía",
+      "subtitle": "Cabeza, cuello, músculos, nervios y vasos",
+      "status": "Próximamente",
+      "accentColor": "#059669",
+      "destination": "coming-soon"
+    },
+    {
+      "id": "fisiologia",
+      "title": "Fisiología",
+      "subtitle": "Sistemas, regulación y funciones",
+      "status": "Próximamente",
+      "accentColor": "#c2410c",
+      "destination": "coming-soon"
+    }
+  ]
+}

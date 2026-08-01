@@ -17,6 +17,8 @@ import SuspendedFlashcardsScreen from "./components/flashcards/SuspendedFlashcar
 import MyQuizDecksScreen from "./components/MyQuizDecksScreen"
 import UserQuizDeckScreen from "./components/UserQuizDeckScreen"
 import UserQuizDeckMenuScreen from "./components/UserQuizDeckMenuScreen"
+import OpenQuizDecksScreen from "./components/OpenQuizDecksScreen"
+import OpenQuizSessionScreen from "./components/OpenQuizSessionScreen"
 
 import packageJson from "../package.json"
 
@@ -55,6 +57,10 @@ import {
 import {
   refreshPausedQuizQuestions
 } from "@/lib/pausedQuizSession"
+
+import {
+  openQuizDecks
+} from "@/content/openQuizzes"
 
 import type {
   FlashcardSource
@@ -163,6 +169,9 @@ export default function App() {
     useState<string | null>(null)
 
   const [editingUserQuizDeckId, setEditingUserQuizDeckId] =
+    useState<string | null>(null)
+
+  const [activeOpenQuizDeckId, setActiveOpenQuizDeckId] =
     useState<string | null>(null)
 
   const [started, setStarted] =
@@ -637,6 +646,7 @@ export default function App() {
     setEditingUserTopicId(null)
     setShowSuspendedFlashcards(false)
     setActiveUserQuizDeckId(null)
+    setActiveOpenQuizDeckId(null)
 
     setStarted(false)
     setFinished(false)
@@ -708,6 +718,11 @@ export default function App() {
 
       if (activeUserQuizDeckId) {
         setActiveUserQuizDeckId(null)
+        return
+      }
+
+      if (activeOpenQuizDeckId) {
+        setActiveOpenQuizDeckId(null)
         return
       }
 
@@ -918,6 +933,10 @@ export default function App() {
             setSelectedSubject("my-quizzes")
             setActiveUserQuizDeckId(null)
           }}
+          onSelectOpenQuizzes={() => {
+            setSelectedSubject("open-quizzes")
+            setActiveOpenQuizDeckId(null)
+          }}
           onSelectSubject={(subject) => {
             setSelectedSubject(subject)
             setSelectedChapters([])
@@ -927,6 +946,35 @@ export default function App() {
         />
       </ScreenTransition>
 
+    )
+  }
+
+  if (selectedSubject === "open-quizzes") {
+
+    const activeDeck =
+      openQuizDecks.find(deck => deck.id === activeOpenQuizDeckId)
+
+    if (activeDeck) {
+      return (
+        <ScreenTransition screenKey={`open-quiz-${activeDeck.id}`}>
+          <OpenQuizSessionScreen
+            deck={activeDeck}
+            onBack={() => setActiveOpenQuizDeckId(null)}
+            onMainMenu={goToMainMenu}
+          />
+        </ScreenTransition>
+      )
+    }
+
+    return (
+      <ScreenTransition screenKey="open-quiz-decks">
+        <OpenQuizDecksScreen
+          decks={openQuizDecks}
+          onBack={() => setSelectedSubject(null)}
+          onMainMenu={goToMainMenu}
+          onStart={setActiveOpenQuizDeckId}
+        />
+      </ScreenTransition>
     )
   }
 

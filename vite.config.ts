@@ -26,6 +26,44 @@ type BuilderTheme = {
   focusWidth: number
 }
 
+type OpenQuizQuestion = {
+  id: string
+  prompt: string
+  modelAnswer: string
+  acceptedPoints: string[]
+  explanation?: string
+  source?: string
+}
+
+type OpenQuizDeck = {
+  id: string
+  title: string
+  subject: string
+  description?: string
+  questions: OpenQuizQuestion[]
+}
+
+type OpenQuizContent = {
+  decks: OpenQuizDeck[]
+}
+
+type HomeSubject = {
+  id: string
+  title: string
+  subtitle: string
+  status: string
+  accentColor: string
+  destination:
+    | "histologia"
+    | "filosofia-de-hayek"
+    | "open-quizzes"
+    | "coming-soon"
+}
+
+type HomeContent = {
+  subjects: HomeSubject[]
+}
+
 const builderThemePath = path.resolve(
   import.meta.dirname,
   "./src/builder/applied-theme.json"
@@ -34,6 +72,16 @@ const builderThemePath = path.resolve(
 const builderCssPath = path.resolve(
   import.meta.dirname,
   "./src/builder/applied-theme.css"
+)
+
+const openQuizContentPath = path.resolve(
+  import.meta.dirname,
+  "./src/content/openQuizzes/data.json"
+)
+
+const homeContentPath = path.resolve(
+  import.meta.dirname,
+  "./src/content/appBuilder/subjects.json"
 )
 
 function isLoopback(address?: string) {
@@ -90,6 +138,102 @@ function validateTheme(value: unknown): value is BuilderTheme {
     validNumber(theme.focusWidth, 1, 8)
 }
 
+function validText(
+  value: unknown,
+  maximum: number,
+  required = false
+): value is string {
+  return typeof value === "string" &&
+    value.length <= maximum &&
+    (!required || value.trim().length > 0)
+}
+
+function validateOpenQuizContent(value: unknown): value is OpenQuizContent {
+  if (!value || typeof value !== "object") return false
+
+  const content = value as Partial<OpenQuizContent>
+
+  if (!Array.isArray(content.decks) || content.decks.length > 200) {
+    return false
+  }
+
+  const deckIds = new Set<string>()
+  const questionIds = new Set<string>()
+
+  return content.decks.every(deck => {
+    if (
+      !deck ||
+      !validText(deck.id, 150, true) ||
+      deckIds.has(deck.id) ||
+      !validText(deck.title, 180, true) ||
+      !validText(deck.subject, 120) ||
+      !validText(deck.description || "", 800) ||
+      !Array.isArray(deck.questions) ||
+      deck.questions.length > 2_000
+    ) {
+      return false
+    }
+
+    deckIds.add(deck.id)
+
+    return deck.questions.every(question => {
+      if (
+        !question ||
+        !validText(question.id, 150, true) ||
+        questionIds.has(question.id) ||
+        !validText(question.prompt, 3_000, true) ||
+        !validText(question.modelAnswer, 12_000, true) ||
+        !Array.isArray(question.acceptedPoints) ||
+        question.acceptedPoints.length > 100 ||
+        !question.acceptedPoints.every(point => validText(point, 1_000, true)) ||
+        !validText(question.explanation || "", 12_000) ||
+        !validText(question.source || "", 1_000)
+      ) {
+        return false
+      }
+
+      questionIds.add(question.id)
+      return true
+    })
+  })
+}
+
+function validateHomeContent(value: unknown): value is HomeContent {
+  if (!value || typeof value !== "object") return false
+
+  const content = value as Partial<HomeContent>
+  const destinations = new Set([
+    "histologia",
+    "filosofia-de-hayek",
+    "open-quizzes",
+    "coming-soon"
+  ])
+
+  if (!Array.isArray(content.subjects) || content.subjects.length > 100) {
+    return false
+  }
+
+  const ids = new Set<string>()
+
+  return content.subjects.every(subject => {
+    if (
+      !subject ||
+      !validText(subject.id, 150, true) ||
+      ids.has(subject.id) ||
+      !validText(subject.title, 180, true) ||
+      !validText(subject.subtitle, 800) ||
+      !validText(subject.status, 80, true) ||
+      !validColor(subject.accentColor) ||
+      !destinations.has(subject.destination)
+    ) {
+      return false
+    }
+
+    ids.add(subject.id)
+    return true
+  })
+}
+
 function renderBuilderCss(theme: BuilderTheme) {
   if (!theme.enabled) {
     return "/* El tema visual local está desactivado. */\n"
@@ -136,7 +280,9 @@ function localBuilderPlugin(): Plugin {
 
         if (
           pathname !== "/builder.html" &&
-          pathname !== "/__odontoma-builder/theme"
+          pathname !== "/__odontoma-builder/theme" &&
+          pathname !== "/__odontoma-builder/open-quizzes" &&
+          pathname !== "/__odontoma-builder/home-content"
         ) {
           next()
           return
@@ -162,7 +308,16 @@ function localBuilderPlugin(): Plugin {
         if (request.method === "GET") {
           response.setHeader("Cache-Control", "no-store")
           response.setHeader("Content-Type", "application/json")
-          response.end(await fs.readFile(builderThemePath, "utf8"))
+          response.end(
+            await fs.readFile(
+              pathname === "/__odontoma-builder/open-quizzes"
+                ? openQuizContentPath
+                : pathname === "/__odontoma-builder/home-content"
+                  ? homeContentPath
+                : builderThemePath,
+              "utf8"
+            )
+          )
           return
         }
 
@@ -177,16 +332,56 @@ function localBuilderPlugin(): Plugin {
         request.on("data", chunk => {
           body += chunk
 
-          if (body.length > 20_000) {
+          const maximumBodyLength =
+            pathname === "/__odontoma-builder/open-quizzes" ||
+            pathname === "/__odontoma-builder/home-content"
+              ? 5_000_000
+              : 20_000
+
+          if (body.length > maximumBodyLength) {
             request.destroy()
           }
         })
 
         request.on("end", async () => {
           try {
-            const theme: unknown = JSON.parse(body)
+            const value: unknown = JSON.parse(body)
 
-            if (!validateTheme(theme)) {
+            if (pathname === "/__odontoma-builder/open-quizzes") {
+              if (!validateOpenQuizContent(value)) {
+                response.statusCode = 400
+                response.end("Contenido de preguntas abiertas inválido")
+                return
+              }
+
+              await fs.writeFile(
+                openQuizContentPath,
+                `${JSON.stringify(value, null, 2)}\n`
+              )
+
+              response.setHeader("Content-Type", "application/json")
+              response.end(JSON.stringify({ ok: true }))
+              return
+            }
+
+            if (pathname === "/__odontoma-builder/home-content") {
+              if (!validateHomeContent(value)) {
+                response.statusCode = 400
+                response.end("Contenido de inicio inválido")
+                return
+              }
+
+              await fs.writeFile(
+                homeContentPath,
+                `${JSON.stringify(value, null, 2)}\n`
+              )
+
+              response.setHeader("Content-Type", "application/json")
+              response.end(JSON.stringify({ ok: true }))
+              return
+            }
+
+            if (!validateTheme(value)) {
               response.statusCode = 400
               response.end("Configuración inválida")
               return
@@ -195,9 +390,9 @@ function localBuilderPlugin(): Plugin {
             await Promise.all([
               fs.writeFile(
                 builderThemePath,
-                `${JSON.stringify(theme, null, 2)}\n`
+                `${JSON.stringify(value, null, 2)}\n`
               ),
-              fs.writeFile(builderCssPath, renderBuilderCss(theme))
+              fs.writeFile(builderCssPath, renderBuilderCss(value))
             ])
 
             response.setHeader("Content-Type", "application/json")

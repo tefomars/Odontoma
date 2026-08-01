@@ -2,10 +2,15 @@
 
 1. Ejecuta `npm run dev`.
 2. Abre `http://127.0.0.1:5173/builder.html`.
-3. Los controles modifican únicamente la vista previa.
-4. **Aplicar al proyecto** escribe el tema en `applied-theme.css`.
-5. **Restaurar original** desactiva todos los overrides del editor.
+3. Usa **Editar la app** para agregar, editar, ordenar o quitar tarjetas de
+   materias sobre una réplica de la pantalla real.
+4. Usa **Apariencia** para probar y aplicar estilos de botones.
+5. Usa **Contenido · Preguntas abiertas** para crear decks con pregunta,
+   respuesta modelo y puntos que el estudiante debe considerar.
+6. Pulsa el botón de aplicar de cada sección para escribir el cambio en el
+   proyecto. Los borradores se conservan localmente hasta aplicarlos o
+   descartarlos.
 
-`builder.html` se sirve únicamente durante desarrollo y no forma parte de la
-salida de producción de Vite. El servidor también rechaza solicitudes que no
-provengan de la propia máquina y de un origen local.
+`builder.html` solo se sirve durante desarrollo y no forma parte de la salida
+de producción de Vite. Los endpoints de escritura también rechazan solicitudes
+que no provengan de la propia máquina y de un origen local.

@@ -1,58 +1,30 @@
 import logoImage from "@/assets/logo.png"
+
+import {
+  homeSubjects,
+  type HomeSubject
+} from "@/content/appBuilder"
+
 type Props = {
   onSelectSubject: (subject: string) => void
   onSelectMyQuizzes?: () => void
+  onSelectOpenQuizzes?: () => void
   onMainMenu?: () => void
+  subjects?: HomeSubject[]
+  editorMode?: boolean
+  onAddSubject?: () => void
+  onEditSubject?: (subject: HomeSubject) => void
 }
-
-const subjects = [
-
-  {
-    id: "histologia",
-    title: "Histología",
-    subtitle: "Tejidos básicos, epitelio, conjuntivo, cartílago y más",
-    status: "Disponible",
-    accent: "from-violet-500/40 to-fuchsia-500/10"
-  },
-
-  {
-    id: "filosofia-de-hayek",
-    title: "Filosofía de Hayek",
-    subtitle: "Parcial 1, Parcial 2 y conceptos importantes",
-    status: "Disponible",
-    accent: "from-indigo-500/40 to-violet-500/10"
-  },
-
-  {
-    id: "bioquimica",
-    title: "Bioquímica",
-    subtitle: "Enzimas, proteínas, metabolismo y caries",
-    status: "Próximamente",
-    accent: "from-cyan-500/40 to-blue-500/10"
-  },
-
-  {
-    id: "anatomia",
-    title: "Anatomía",
-    subtitle: "Cabeza, cuello, músculos, nervios y vasos",
-    status: "Próximamente",
-    accent: "from-emerald-500/40 to-green-500/10"
-  },
-
-  {
-    id: "fisiologia",
-    title: "Fisiología",
-    subtitle: "Sistemas, regulación y funciones corporales",
-    status: "Próximamente",
-    accent: "from-orange-500/40 to-red-500/10"
-  }
-
-]
 
 export default function HomeScreen({
   onSelectSubject,
   onSelectMyQuizzes,
-  onMainMenu
+  onSelectOpenQuizzes,
+  onMainMenu,
+  subjects = homeSubjects,
+  editorMode = false,
+  onAddSubject,
+  onEditSubject
 }: Props) {
 
   return (
@@ -151,23 +123,25 @@ export default function HomeScreen({
           {subjects.map(subject => {
 
             const available =
-              subject.id === "histologia" ||
-              subject.id === "filosofia-de-hayek"
+              subject.destination !== "coming-soon"
 
             return (
-
+              <div className="relative" key={subject.id}>
               <button
-                key={subject.id}
                 type="button"
-                disabled={!available}
+                disabled={!available && !editorMode}
                 onClick={() => {
-                  if (available) {
-                    onSelectSubject(subject.id)
+                  if (editorMode) {
+                    onEditSubject?.(subject)
+                  } else if (available) {
+                    onSelectSubject(subject.destination)
                   }
                 }}
                 className={`
                   group
                   relative
+                  h-full
+                  w-full
                   overflow-hidden
                   rounded-[2rem]
                   border
@@ -176,19 +150,22 @@ export default function HomeScreen({
                   transition-all
 
                   ${
-                    available
+                    available || editorMode
                       ? "border-zinc-800 hover:border-violet-400/70 hover:scale-[1.01]"
                       : "cursor-not-allowed border-zinc-900 opacity-55"
                   }
                 `}
               >
 
-                <div className={`
+                <div
+                  className="
                   absolute
                   inset-0
-                  bg-gradient-to-br
-                  ${subject.accent}
-                `} />
+                "
+                  style={{
+                    background: `linear-gradient(to bottom right, ${subject.accentColor}66, ${subject.accentColor}12)`
+                  }}
+                />
 
                 <div className="
                   relative
@@ -261,8 +238,36 @@ export default function HomeScreen({
 
               </button>
 
+              {editorMode && (
+                <button
+                  type="button"
+                  onClick={() => onEditSubject?.(subject)}
+                  className="absolute right-4 top-4 z-20 rounded-xl border border-white/20 bg-black/60 px-3 py-2 text-xs font-black text-white shadow-xl backdrop-blur hover:bg-black/80"
+                  aria-label={`Editar ${subject.title}`}
+                >
+                  ✎ Editar
+                </button>
+              )}
+              </div>
+
             )
           })}
+
+          {editorMode && (
+            <button
+              type="button"
+              onClick={onAddSubject}
+              className="group flex min-h-[220px] items-center justify-center rounded-[2rem] border-2 border-dashed border-emerald-500/35 bg-emerald-500/5 p-7 text-emerald-200 transition hover:border-emerald-400 hover:bg-emerald-500/10"
+            >
+              <span className="text-center">
+                <span className="mx-auto grid h-16 w-16 place-items-center rounded-2xl border border-emerald-400/30 bg-emerald-500/15 text-4xl font-light transition group-hover:scale-110">
+                  +
+                </span>
+                <strong className="mt-4 block text-lg">Agregar materia</strong>
+                <small className="mt-1 block text-emerald-300/60">Solo visible en el editor local</small>
+              </span>
+            </button>
+          )}
 
         </div>
 
@@ -337,6 +342,43 @@ export default function HomeScreen({
                 transition-all
                 group-hover:rotate-12
               ">
+                →
+              </div>
+            </div>
+          </button>
+
+          <button
+            type="button"
+            onClick={onSelectOpenQuizzes}
+            className="
+              group
+              mt-4
+              w-full
+              overflow-hidden
+              rounded-[2rem]
+              border
+              border-amber-500/30
+              bg-amber-500/10
+              p-6
+              text-left
+              transition-all
+              hover:bg-amber-500/20
+            "
+          >
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <p className="text-xs font-black uppercase tracking-[0.25em] text-amber-300">
+                  Respuesta libre
+                </p>
+                <h2 className="mt-2 text-3xl font-black text-white">
+                  Preguntas abiertas
+                </h2>
+                <p className="mt-2 max-w-2xl text-sm leading-relaxed text-zinc-300">
+                  Escribí tu respuesta, comparala con el criterio preparado y calificá tu desempeño.
+                </p>
+              </div>
+
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10 text-2xl transition-all group-hover:rotate-12">
                 →
               </div>
             </div>

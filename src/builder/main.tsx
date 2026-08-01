@@ -1,7 +1,11 @@
 import { StrictMode, useEffect, useMemo, useState } from "react"
 import { createRoot } from "react-dom/client"
 
+import "../index.css"
 import "./builder.css"
+
+import OpenQuizContentEditor from "./OpenQuizContentEditor"
+import LiveAppBuilder from "./LiveAppBuilder"
 
 type BuilderTheme = {
   enabled: boolean
@@ -121,6 +125,9 @@ function getDraft() {
 }
 
 function BuilderApp() {
+  const [activePanel, setActivePanel] =
+    useState<"app" | "appearance" | "content">("app")
+
   const [theme, setTheme] = useState<BuilderTheme>(getDraft)
   const [appliedTheme, setAppliedTheme] = useState<BuilderTheme>(defaults)
   const [status, setStatus] = useState("Cargando configuración actual…")
@@ -225,10 +232,21 @@ function BuilderApp() {
         <div>
           <span className="local-badge">SOLO LOCAL</span>
           <p className="eyebrow">ODONTOMA · VISUAL BUILDER</p>
-          <h1>Edita el estilo sin tocar código.</h1>
+          <h1>
+            {activePanel === "app"
+              ? "Edita Odontoma directamente."
+              : activePanel === "appearance"
+                ? "Edita el estilo sin tocar código."
+                : "Crea contenido sin tocar código."}
+          </h1>
           <p className="intro">
-            Experimenta dentro de esta vista previa. La interfaz de Odontoma
-            no cambia hasta que pulses <strong>Aplicar al proyecto</strong>.
+            {activePanel === "app"
+              ? "Usa el + y los lápices sobre la interfaz real."
+              : activePanel === "appearance"
+                ? "Experimenta dentro de la vista previa."
+                : "Agrega apartados, preguntas, respuestas y criterios de corrección."}
+            {" "}Odontoma no cambia hasta que pulses{" "}
+            <strong>Aplicar al proyecto</strong>.
           </p>
         </div>
         <a className="app-link" href="/" target="_blank" rel="noreferrer">
@@ -236,6 +254,33 @@ function BuilderApp() {
         </a>
       </header>
 
+      <nav className="builder-navigation" aria-label="Secciones del builder">
+        <button
+          className={activePanel === "app" ? "active" : ""}
+          onClick={() => setActivePanel("app")}
+        >
+          <span>▣</span>
+          Editar la app
+        </button>
+        <button
+          className={activePanel === "appearance" ? "active" : ""}
+          onClick={() => setActivePanel("appearance")}
+        >
+          <span>◐</span>
+          Apariencia
+        </button>
+        <button
+          className={activePanel === "content" ? "active" : ""}
+          onClick={() => setActivePanel("content")}
+        >
+          <span>✎</span>
+          Contenido · Preguntas abiertas
+        </button>
+      </nav>
+
+      {activePanel === "app" ? (
+        <LiveAppBuilder />
+      ) : activePanel === "appearance" ? (
       <section className="workspace">
         <aside className="controls-panel">
           <div className="panel-heading">
@@ -448,10 +493,13 @@ function BuilderApp() {
           </div>
         </section>
       </section>
+      ) : (
+        <OpenQuizContentEditor />
+      )}
 
       <footer>
         Este editor no se incluye en el build público de Vercel. Los cambios
-        permanentes quedan en un archivo de tema pequeño y reversible.
+        permanentes quedan en archivos locales, versionables y reversibles.
       </footer>
     </main>
   )
