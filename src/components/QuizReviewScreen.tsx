@@ -28,29 +28,65 @@ export default function QuizReviewScreen({ attempt, onBack, onMainMenu }: Props)
         </div>
 
         <div className="mt-10 grid gap-5">
-          {attempt.responses.map((response, index) => (
-            <article key={`${response.questionId}-${index}`} className={`min-w-0 overflow-visible rounded-[2rem] border p-6 ${response.grade === "partial" ? "border-amber-500/30 bg-amber-500/5" : response.isCorrect ? "border-emerald-500/30 bg-emerald-500/5" : "border-red-500/30 bg-red-500/5"}`}>
+          {attempt.responses.map((response, index) => {
+            const presentation = getResponsePresentation(response.grade, response.isCorrect)
+
+            return (
+            <article key={`${response.questionId}-${index}`} className={`min-w-0 overflow-visible rounded-[2rem] border p-6 ${presentation.articleClass}`}>
               <div className="flex items-start justify-between gap-4">
                 <p className="text-xs font-black uppercase tracking-[0.2em] text-zinc-500">Pregunta {index + 1}</p>
-                <span className={`rounded-full px-3 py-1 text-xs font-black ${response.grade === "partial" ? "bg-amber-500/15 text-amber-300" : response.isCorrect ? "bg-emerald-500/15 text-emerald-300" : "bg-red-500/15 text-red-300"}`}>{response.grade === "partial" ? "Parcial" : response.isCorrect ? "Correcta" : "Incorrecta"}</span>
+                <span className={`rounded-full px-3 py-1 text-xs font-black ${presentation.badgeClass}`}>{presentation.label}</span>
               </div>
               <h2 className="mt-4 break-words text-2xl font-black leading-tight [overflow-wrap:anywhere]">{response.question}</h2>
               <div className={`mt-6 grid min-w-0 gap-4 ${attempt.mode === "open-ended" ? "grid-cols-1" : "md:grid-cols-2"}`}>
-                <AnswerBox title="Tu respuesta" answers={response.selectedAnswers} tone={response.grade === "partial" ? "partial" : response.isCorrect ? "correct" : "wrong"} />
+                <AnswerBox title="Tu respuesta" answers={response.selectedAnswers} tone={presentation.answerTone} />
                 <AnswerBox title={attempt.mode === "open-ended" ? "Respuesta modelo" : "Respuesta correcta"} answers={response.correctAnswers} tone="correct" />
               </div>
               {response.explanation && <div className="mt-4 min-w-0 rounded-2xl border border-zinc-800 bg-black/20 p-4"><p className="text-xs font-black uppercase tracking-[0.18em] text-zinc-500">Explicación</p><p className="mt-2 whitespace-pre-wrap break-words leading-relaxed text-zinc-300 [overflow-wrap:anywhere]">{response.explanation}</p></div>}
             </article>
-          ))}
+          )})}
         </div>
       </div>
     </main>
   )
 }
 
-function AnswerBox({ title, answers, tone }: { title: string; answers: string[]; tone: "correct" | "partial" | "wrong" }) {
+function getResponsePresentation(grade: QuizAttempt["responses"][number]["grade"], isCorrect: boolean) {
+  if (grade === "unanswered") return {
+    label: "No contestada",
+    articleClass: "border-zinc-700 bg-zinc-800/20",
+    badgeClass: "bg-zinc-700/50 text-zinc-300",
+    answerTone: "neutral" as const
+  }
+  if (grade === "ungraded") return {
+    label: "Sin calificar",
+    articleClass: "border-cyan-500/30 bg-cyan-500/5",
+    badgeClass: "bg-cyan-500/15 text-cyan-300",
+    answerTone: "neutral" as const
+  }
+  if (grade === "partial") return {
+    label: "Parcial",
+    articleClass: "border-amber-500/30 bg-amber-500/5",
+    badgeClass: "bg-amber-500/15 text-amber-300",
+    answerTone: "partial" as const
+  }
+  if (isCorrect) return {
+    label: "Correcta",
+    articleClass: "border-emerald-500/30 bg-emerald-500/5",
+    badgeClass: "bg-emerald-500/15 text-emerald-300",
+    answerTone: "correct" as const
+  }
+  return {
+    label: "Incorrecta",
+    articleClass: "border-red-500/30 bg-red-500/5",
+    badgeClass: "bg-red-500/15 text-red-300",
+    answerTone: "wrong" as const
+  }
+}
+
+function AnswerBox({ title, answers, tone }: { title: string; answers: string[]; tone: "correct" | "partial" | "wrong" | "neutral" }) {
   return (
-    <div className={`min-w-0 overflow-visible rounded-2xl border p-4 ${tone === "partial" ? "border-amber-500/25 bg-amber-500/10" : tone === "correct" ? "border-emerald-500/25 bg-emerald-500/10" : "border-red-500/25 bg-red-500/10"}`}>
+    <div className={`min-w-0 overflow-visible rounded-2xl border p-4 ${tone === "partial" ? "border-amber-500/25 bg-amber-500/10" : tone === "correct" ? "border-emerald-500/25 bg-emerald-500/10" : tone === "neutral" ? "border-zinc-700 bg-zinc-800/30" : "border-red-500/25 bg-red-500/10"}`}>
       <p className="text-xs font-black uppercase tracking-[0.18em] text-zinc-400">{title}</p>
       <ul className="mt-3 grid gap-2">
         {answers.length > 0 ? answers.map((answer, index) => <li key={`${index}-${answer.slice(0, 40)}`} className="whitespace-pre-wrap break-words font-semibold leading-relaxed text-zinc-100 [overflow-wrap:anywhere]">{answer}</li>) : <li className="text-zinc-500">Sin respuesta</li>}

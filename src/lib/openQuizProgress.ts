@@ -7,10 +7,14 @@ export type OpenQuizProgress = {
   deckId: string
   questionIds: string[]
   current: number
-  studentAnswer: string
-  revealed: boolean
-  grades: Record<OpenQuizGrade, number>
-  responses: QuizResponseRecord[]
+  answers?: Record<string, string>
+  revealedQuestionIds?: string[]
+  gradesByQuestion?: Record<string, OpenQuizGrade>
+  // Campos heredados: permiten reanudar sesiones guardadas por versiones anteriores.
+  studentAnswer?: string
+  revealed?: boolean
+  grades?: Record<OpenQuizGrade, number>
+  responses?: QuizResponseRecord[]
   savedAt: string
 }
 
@@ -29,7 +33,7 @@ function loadAll(): StoredProgress {
 
 export function loadOpenQuizProgress(deckId: string) {
   const progress = loadAll()[deckId]
-  if (!progress || !Array.isArray(progress.questionIds) || !Array.isArray(progress.responses)) {
+  if (!progress || !Array.isArray(progress.questionIds)) {
     return null
   }
   return progress

@@ -9,7 +9,7 @@ export type QuizResponseRecord = {
   correctAnswers: string[]
   explanation?: string
   isCorrect: boolean
-  grade?: "incorrect" | "partial" | "correct"
+  grade?: "incorrect" | "partial" | "correct" | "ungraded" | "unanswered"
 }
 
 export type QuizAttempt = {
