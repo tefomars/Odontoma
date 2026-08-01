@@ -792,6 +792,11 @@ export default function App() {
         return
       }
 
+      if (selectedQuizMode === "history") {
+        setSelectedQuizMode(null)
+        return
+      }
+
       if (selectedSubject) {
         setSelectedSubject(null)
 
@@ -1035,10 +1040,6 @@ export default function App() {
             setSelectedSubject("my-quizzes")
             setActiveUserQuizDeckId(null)
           }}
-          onSelectHistory={() => {
-            setSelectedQuizMode("history")
-            setSelectedSubject(null)
-          }}
         />
       </ScreenTransition>
 
@@ -1104,6 +1105,7 @@ export default function App() {
           }}
           onMainMenu={goToMainMenu}
           onStart={setActiveOpenQuizDeckId}
+          onHistory={() => setSelectedQuizMode("history")}
         />
       </ScreenTransition>
     )

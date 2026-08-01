@@ -263,7 +263,7 @@ function validateHomeContent(value: unknown): value is HomeContent {
 
   if (
     !validCards(content.mainMenu.cards, ["quizzes", "flashcards"]) ||
-    !validCards(content.quizMenu.cards, ["multiple-choice", "open-ended", "my-quizzes", "quiz-history"])
+    !validCards(content.quizMenu.cards, ["multiple-choice", "open-ended", "my-quizzes"])
   ) {
     return false
   }

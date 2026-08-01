@@ -50,14 +50,6 @@
         "subtitle": "Creá quizzes propios, importá preguntas desde texto o archivo y exportá cada deck.",
         "symbol": "+",
         "accentColor": "#10b981"
-      },
-      {
-        "id": "quiz-history",
-        "eyebrow": "Últimos 3 intentos",
-        "title": "Exámenes anteriores",
-        "subtitle": "Revisá tus respuestas, las opciones correctas y el resultado de tus exámenes recientes.",
-        "symbol": "↶",
-        "accentColor": "#06b6d4"
       }
     ]
   },

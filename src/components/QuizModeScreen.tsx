@@ -12,7 +12,6 @@ type Props = {
   onSelectMultipleChoice: () => void
   onSelectOpenEnded: () => void
   onSelectMyQuizzes: () => void
-  onSelectHistory: () => void
   content?: QuizMenuContent
   editorMode?: boolean
   onEditHeader?: () => void
@@ -25,7 +24,6 @@ export default function QuizModeScreen({
   onSelectMultipleChoice,
   onSelectOpenEnded,
   onSelectMyQuizzes,
-  onSelectHistory,
   content = quizMenuContent,
   editorMode = false,
   onEditHeader,
@@ -34,15 +32,12 @@ export default function QuizModeScreen({
   const actions: Record<string, () => void> = {
     "multiple-choice": onSelectMultipleChoice,
     "open-ended": onSelectOpenEnded,
-    "my-quizzes": onSelectMyQuizzes,
-    "quiz-history": onSelectHistory
+    "my-quizzes": onSelectMyQuizzes
   }
   const mainCards = content.cards.filter(card =>
     card.id === "multiple-choice" || card.id === "open-ended"
   )
-  const toolCards = content.cards.filter(card =>
-    card.id === "my-quizzes" || card.id === "quiz-history"
-  )
+  const toolCards = content.cards.filter(card => card.id === "my-quizzes")
 
   return (
     <main className="min-h-screen bg-[#09090b] px-5 py-8 text-white">

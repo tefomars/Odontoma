@@ -1,5 +1,6 @@
-import logoImage from "@/assets/logo.png"
+import { useMemo, useState } from "react"
 
+import logoImage from "@/assets/logo.png"
 import type { OpenQuizDeck } from "@/content/openQuizzes"
 
 type Props = {
@@ -7,98 +8,114 @@ type Props = {
   onBack: () => void
   onMainMenu: () => void
   onStart: (deckId: string) => void
+  onHistory: () => void
 }
 
-export default function OpenQuizDecksScreen({
-  decks,
-  onBack,
-  onMainMenu,
-  onStart
-}: Props) {
+export default function OpenQuizDecksScreen({ decks, onBack, onMainMenu, onStart, onHistory }: Props) {
+  const [selectedClass, setSelectedClass] = useState<string | null>(null)
+  const classes = useMemo(() => {
+    const grouped = new Map<string, OpenQuizDeck[]>()
+    decks.forEach(deck => {
+      const className = deck.subject.trim() || "General"
+      grouped.set(className, [...(grouped.get(className) || []), deck])
+    })
+    return [...grouped.entries()].map(([name, classDecks]) => ({
+      name,
+      decks: classDecks,
+      questionCount: classDecks.reduce((total, deck) => total + deck.questions.length, 0)
+    }))
+  }, [decks])
+  const activeClass = classes.find(item => item.name === selectedClass)
+
   return (
     <main className="min-h-screen overflow-y-auto bg-[#09090b] px-4 py-5 text-white sm:px-6 lg:px-8 lg:py-10">
       <div className="mx-auto max-w-6xl">
         <div className="mb-5 flex flex-wrap gap-2">
-          <button
-            type="button"
-            onClick={onBack}
-            className="rounded-2xl border border-zinc-800 bg-zinc-950 px-4 py-2 text-sm font-black text-zinc-400 hover:bg-zinc-900 hover:text-white"
-          >
-            ← Volver
+          <button type="button" onClick={() => activeClass ? setSelectedClass(null) : onBack()} className="rounded-2xl border border-zinc-800 bg-zinc-950 px-4 py-2 text-sm font-black text-zinc-400 hover:bg-zinc-900 hover:text-white">
+            ← {activeClass ? "Clases" : "Volver"}
           </button>
-          <button
-            type="button"
-            onClick={onMainMenu}
-            className="rounded-2xl border border-violet-500/30 bg-violet-500/10 px-4 py-2 text-sm font-black text-violet-200 hover:bg-violet-500/20"
-          >
+          <button type="button" onClick={onMainMenu} className="rounded-2xl border border-violet-500/30 bg-violet-500/10 px-4 py-2 text-sm font-black text-violet-200 hover:bg-violet-500/20">
             Menú principal
           </button>
         </div>
 
         <section className="rounded-[2rem] border border-zinc-800 bg-[#111113] p-5 shadow-2xl shadow-black/30 sm:p-7 lg:p-9">
           <div className="mb-8 flex items-center gap-4">
-            <img
-              src={logoImage}
-              alt="Odontoma"
-              className="h-14 w-14 object-contain"
-            />
+            <img src={logoImage} alt="Odontoma" className="h-14 w-14 object-contain" />
             <div>
-              <p className="text-xs font-black uppercase tracking-[0.25em] text-amber-300">
-                Respuesta libre
-              </p>
-              <h1 className="mt-2 text-4xl font-black tracking-tight sm:text-5xl">
-                Preguntas abiertas
-              </h1>
+              <p className="text-xs font-black uppercase tracking-[0.25em] text-amber-300">{activeClass ? "Clase" : "Respuesta libre"}</p>
+              <h1 className="mt-2 text-4xl font-black tracking-tight sm:text-5xl">{activeClass?.name || "Elegí una clase"}</h1>
             </div>
           </div>
 
           <p className="mb-8 max-w-3xl text-base leading-relaxed text-zinc-400">
-            Escribí tu respuesta, comparala con el criterio preparado y
-            calificá honestamente tu desempeño.
+            {activeClass
+              ? "Elegí el examen o apartado que querés practicar."
+              : "Tus preguntas abiertas están organizadas por materia para que encuentres cada examen más rápido."}
           </p>
 
-          {decks.length === 0 ? (
-            <div className="rounded-[1.5rem] border border-dashed border-zinc-700 bg-zinc-950/60 p-8 text-center">
-              <p className="text-xl font-black text-zinc-200">
-                Todavía no hay apartados
-              </p>
-              <p className="mt-2 text-sm text-zinc-500">
-                Podés crearlos desde el editor local de contenido.
-              </p>
+          {classes.length === 0 ? (
+            <EmptyState />
+          ) : activeClass ? (
+            <div className="grid gap-4 md:grid-cols-2">
+              {activeClass.decks.map(deck => <DeckCard key={deck.id} deck={deck} onStart={onStart} />)}
             </div>
           ) : (
-            <div className="grid gap-4 md:grid-cols-2">
-              {decks.map(deck => (
-                <button
-                  key={deck.id}
-                  type="button"
-                  disabled={deck.questions.length === 0}
-                  onClick={() => onStart(deck.id)}
-                  className="group rounded-[1.5rem] border border-amber-500/25 bg-amber-500/5 p-6 text-left transition hover:border-amber-400/60 hover:bg-amber-500/10 disabled:cursor-not-allowed disabled:border-zinc-800 disabled:bg-zinc-950 disabled:opacity-60"
-                >
-                  <div className="mb-5 flex items-start justify-between gap-4">
-                    <span className="rounded-full bg-amber-500/15 px-3 py-1.5 text-[11px] font-black uppercase tracking-wider text-amber-200">
-                      {deck.subject || "General"}
-                    </span>
-                    <span className="text-sm font-black text-zinc-500">
-                      {deck.questions.length} {deck.questions.length === 1 ? "pregunta" : "preguntas"}
-                    </span>
+            <>
+              <div className="grid gap-4 md:grid-cols-2">
+                {classes.map(item => (
+                  <button key={item.name} type="button" onClick={() => setSelectedClass(item.name)} className="group rounded-[1.5rem] border border-amber-500/25 bg-amber-500/5 p-6 text-left transition hover:scale-[1.01] hover:border-amber-400/60 hover:bg-amber-500/10">
+                    <div className="mb-7 flex items-start justify-between gap-4">
+                      <span className="grid h-12 w-12 place-items-center rounded-2xl bg-amber-500/15 text-2xl">▰</span>
+                      <span className="text-sm font-black text-zinc-500">{item.decks.length} {item.decks.length === 1 ? "examen" : "exámenes"}</span>
+                    </div>
+                    <h2 className="text-3xl font-black tracking-tight">{item.name}</h2>
+                    <p className="mt-3 text-sm text-zinc-400">{item.questionCount} {item.questionCount === 1 ? "pregunta disponible" : "preguntas disponibles"}</p>
+                    <p className="mt-6 text-sm font-black text-amber-200">Abrir carpeta →</p>
+                  </button>
+                ))}
+              </div>
+
+              <section className="mt-8 border-t border-zinc-800 pt-8">
+                <p className="mb-4 text-xs font-black uppercase tracking-[0.22em] text-zinc-500">Tu progreso</p>
+                <button type="button" onClick={onHistory} className="group w-full rounded-[1.5rem] border border-cyan-500/25 bg-cyan-500/5 p-6 text-left transition hover:border-cyan-400/60 hover:bg-cyan-500/10">
+                  <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                    <div>
+                      <p className="text-xs font-black uppercase tracking-[0.2em] text-cyan-300">Últimos 3 intentos</p>
+                      <h2 className="mt-2 text-3xl font-black">Exámenes anteriores</h2>
+                      <p className="mt-2 text-sm text-zinc-400">Revisá tus respuestas y las opciones correctas de tus quizzes recientes.</p>
+                    </div>
+                    <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-white/10 text-2xl transition group-hover:rotate-12">→</span>
                   </div>
-                  <h2 className="text-2xl font-black tracking-tight text-white">
-                    {deck.title}
-                  </h2>
-                  <p className="mt-3 min-h-10 text-sm leading-relaxed text-zinc-400">
-                    {deck.description || "Práctica de respuesta libre."}
-                  </p>
-                  <p className="mt-6 text-sm font-black text-amber-200">
-                    {deck.questions.length > 0 ? "Comenzar →" : "Agregá preguntas desde el builder"}
-                  </p>
                 </button>
-              ))}
-            </div>
+              </section>
+            </>
           )}
         </section>
       </div>
     </main>
+  )
+}
+
+function DeckCard({ deck, onStart }: { deck: OpenQuizDeck; onStart: (deckId: string) => void }) {
+  return (
+    <button type="button" disabled={deck.questions.length === 0} onClick={() => onStart(deck.id)} className="group rounded-[1.5rem] border border-amber-500/25 bg-amber-500/5 p-6 text-left transition hover:border-amber-400/60 hover:bg-amber-500/10 disabled:cursor-not-allowed disabled:border-zinc-800 disabled:bg-zinc-950 disabled:opacity-60">
+      <div className="mb-5 flex items-start justify-between gap-4">
+        <span className="rounded-full bg-amber-500/15 px-3 py-1.5 text-[11px] font-black uppercase tracking-wider text-amber-200">Respuesta libre</span>
+        <span className="text-sm font-black text-zinc-500">{deck.questions.length} {deck.questions.length === 1 ? "pregunta" : "preguntas"}</span>
+      </div>
+      <h2 className="text-2xl font-black tracking-tight">{deck.title}</h2>
+      <p className="mt-3 min-h-10 text-sm leading-relaxed text-zinc-400">{deck.description || "Práctica de respuesta libre."}</p>
+      <p className="mt-6 text-sm font-black text-amber-200">{deck.questions.length > 0 ? "Comenzar →" : "Agregá preguntas desde el builder"}</p>
+    </button>
+  )
+}
+
+function EmptyState() {
+  return (
+    <div className="rounded-[1.5rem] border border-dashed border-zinc-700 bg-zinc-950/60 p-8 text-center">
+      <p className="text-xl font-black text-zinc-200">Todavía no hay clases</p>
+      <p className="mt-2 text-sm text-zinc-500">Creá un apartado y escribí su materia desde el editor local.</p>
+    </div>
   )
 }

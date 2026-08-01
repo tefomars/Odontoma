@@ -274,11 +274,14 @@ export default function OpenQuizContentEditor() {
                   placeholder="Ej: Hemostasia · preguntas de desarrollo"
                 />
               </BuilderField>
-              <BuilderField label="Materia o categoría">
+              <BuilderField
+                label="Clase o materia"
+                hint="Los apartados con el mismo nombre aparecen dentro de la misma carpeta."
+              >
                 <input
                   value={selectedDeck.subject}
                   onChange={event => updateDeck({ subject: event.target.value })}
-                  placeholder="Ej: Citohistología II"
+                  placeholder="Ej: Bioquímica"
                 />
               </BuilderField>
               <BuilderField label="Descripción">
