@@ -16,27 +16,195 @@
   "decks": [
     {
       "id": "open-deck-1785600952470-667c488d-1311-46e3-b11d-15f91a6ab323",
-      "title": "Bioquímica Primer Parcial",
+      "title": "Bioquímica Primer Parcial - Glucólisis",
       "subject": "Bioquímica",
-      "description": "Glucólisis, Ciclo de Krebs, ETC y Fosforilación Oxidativa",
+      "description": "Glucólisis",
       "questions": [
         {
-          "id": "open-question-1785601013938-8e2e10ea-4d46-4b8d-adbe-2e3caa869cf0",
-          "prompt": "Probando pregunta 1",
-          "modelAnswer": "La respuesta es\n- grande\n-falsa\ncd",
+          "id": "open-question-1785610241325-d92573e2-dcf9-4f66-8f29-ce1bdc42467e",
+          "prompt": "Qué hormona induce la actividad de glucólisis?",
+          "modelAnswer": "Insulina",
           "acceptedPoints": [],
           "explanation": "",
           "source": ""
         },
         {
-          "id": "open-question-1785601201137-450aa8e8-b6f3-420d-9a0d-8e84227239ff",
-          "prompt": "Probando v2",
-          "modelAnswer": "skiidbi guat",
+          "id": "open-question-1785610308440-6e8a819a-f5dd-4407-9d6b-79077924e9d4",
+          "prompt": "Cuáles son las dos fases generales de la glucólisis qué sucede en cada una?",
+          "modelAnswer": "Fase 1, endógena: Se invierten dos ATP \nFase 2, exógena: Se da la fosforilación a nivel de sustrato --> dos ATP netos nuevos",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1785610448623-ba41f668-8486-43dd-b8d5-0e3cc2006ac6",
+          "prompt": "Qué otorga una glucosa al final de glucólisis?",
+          "modelAnswer": "2 piruvatos\n2 NADH\n2 ATP",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1785610489439-11815dcd-42f0-40a1-bb70-1cbebf293529",
+          "prompt": "Qué se \"invierte\" al inicio de la glucólisis?",
+          "modelAnswer": "1 Glucosa/hexosa\n2 NAD\n2 ADP + Pi",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1785610524841-5c73818b-f3ac-405c-b156-84076fcf47b6",
+          "prompt": "Cuáles son las tres reacciones irreversibles/control de la glucólisis y qué enzima media cada una?",
+          "modelAnswer": "Reacción 1: Glucosa --Hexoquinasa-1---> Glucosa-6-Fosfato\nReacción 3: Fructosa-3-fosfato --Fosfofructoquinasa-1--> Fructosa-1,3-bisfosfato\nReacción 9: Fosfoenolpiruvato --Piruvato quinasa--> Piruvato",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1785610664054-047d4075-d154-41c4-880c-2660420a5057",
+          "prompt": "Qué enzima permite la rotura de la fructosa-1,6-bisfosfato? Por qué se rompe?",
+          "modelAnswer": "Aldolasa\n--> Se rompe porque la fructosa-1,6-bisfosfato es una molécula muy inestable, debe romperse rápidamente",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1785610736239-62c43fe3-9842-45ec-8c15-ec9dfe209cb9",
+          "prompt": "En qué reacción se da la primera fosforilación a nivel de sustrato de la glucólisis?",
+          "modelAnswer": "En la reacción 7:\n1,3-bisfosfoglicerato --fosfoglicerato quinasa--> 3-fosfoglicerato",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1785610866889-da3c9ee1-6d9b-400f-ab05-ed71fb12743e",
+          "prompt": "En qué reacción se da la segunda fosforilación a nivel de sustrato de la glucólisis?",
+          "modelAnswer": "En la reacción 9\nFosfoenolpiruvato --Piruvato quinasa--> Piruvato",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1785610888572-37f24767-cc74-4d80-acba-eb652e6a89f9",
+          "prompt": "Qué enzima es la que actúa al momento de oxidar o reducir los NAD+/NADH2?",
+          "modelAnswer": "Las deshidrogenasas",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1785610927056-0e1d2896-a141-4942-8838-2d57f54a532d",
+          "prompt": "Cuáles son los tres posibles destinos de una glucosa al entrar a la célula?",
+          "modelAnswer": "Almacenamiento como glucógeno\nOxidación por la glucólisis\nLanzadera de las pentosas fosfato",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1785611002940-9c6bf6a4-0a6d-449b-8c9d-06c69d728911",
+          "prompt": "Cuáles son los tres posibles usos del piruvato? Indicar si es aeróbico o anaeróbico",
+          "modelAnswer": "Bajo condiciones aeróbicas\n--> Conversión a Acetil-CoA\n\nBajo condiciones anaeróbicas, \n--> Conversión a lactato \n--> Conversión a etanol",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1785611074708-ed6088f4-6d79-444b-b06b-b212ad6f7016",
+          "prompt": "Dónde sucede la glucólisis?",
+          "modelAnswer": "En el citosol",
           "acceptedPoints": [
-            "jaguar"
+            "Citoplasma"
           ],
-          "explanation": "sa",
-          "source": "67"
+          "explanation": "Puede ser citoplasma también, aunque es más correcto decir citosol porque es el área líquida donde realmente sucede",
+          "source": ""
+        },
+        {
+          "id": "open-question-1785611156174-242ae30e-a548-4fa6-b8a3-d87834f4d55d",
+          "prompt": "Qué hace la glucosa-6-fosfato cuando se acumula mucho en la célula?",
+          "modelAnswer": "Inhibe la enzima que lo cataliza: hexoquinasa",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1785611190056-d38c6e38-e328-43ba-99a5-5eaa3c8f3b12",
+          "prompt": "Cómo se llama la hexoquinasa-1 en el hígado?",
+          "modelAnswer": "Glucoquinasa",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1785611201490-227bbfa3-69e4-4ac7-86f3-2bd3203558d1",
+          "prompt": "Cuál es el efecto de glucagón en la glucólisis?",
+          "modelAnswer": "La inhibe",
+          "acceptedPoints": [],
+          "explanation": "Destruye glucosa e inhibe vías de señalización en las células",
+          "source": ""
+        },
+        {
+          "id": "open-question-1785611343841-f579e759-9b6f-468f-b2ec-d02c913b7779",
+          "prompt": "Qué hace la fructosa-2,6-bisfosfato en la glucólisis?",
+          "modelAnswer": "Funciona como un potente activador de la fosfofructoquinasa-1, por lo que ESTIMULA LA GLUCÓLISIS",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1785611407424-5c332660-fe3a-49c6-8cab-76b5a3985c69",
+          "prompt": "Cuál es el efecto de tener altos niveles de ATP y Citrato en la célula, respecto a la glucólisis?",
+          "modelAnswer": "La inhibe, pues si ya tenemos mucho ATP mejor usar otras rutas metabólicas con finalidades distintas",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1785611466259-a656e281-6333-415b-9413-a47d124945c9",
+          "prompt": "Qué enzima eritrocitaria resulta como intermediario de la glucólisis y cuál es su función?",
+          "modelAnswer": "La 2,3-bisfosfoglicerato (2,3-BPG)\nPromueve la liberación de oxígeno de los eritrocitos cuando el organismo se expone a grandes alturas o sufre cierto grado de hipoxia",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1785611679930-e3261b1d-077c-46a8-a8ad-c06a9b1bad36",
+          "prompt": "Dónde sucede la reacción intermedia entre glucólisis y el ciclo de krebs?",
+          "modelAnswer": "En la mitocondria",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1785611699046-f0286df1-d8f0-43c8-96db-8ed2af653dbe",
+          "prompt": "Qué sucede con la glucólisis si NADH2 no se reoxida?",
+          "modelAnswer": "La reacción 6 no puede ocurrir, entonces se detiene",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1785611777813-2dfd46f8-4e99-44a2-abcf-66940043870f",
+          "prompt": "Qué dos procesos permiten la reoxidación del NADH2 utilizado en la glucólisis?",
+          "modelAnswer": "Lanzadera de glicerol-3-fosfato\nLanzadera de malato-oxaloacetato (o malato-aspartato)",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1785611822263-4b94e50d-34e3-4de4-9b87-17f2cb20c12a",
+          "prompt": "Por qué razón se da la primera reacción de glucólisis, glucosa --hexoquinasa--> glucosa-6-fosfato?",
+          "modelAnswer": "Porque la glucosa-6-fosfato no tiene transportadores propios de membrana, entonces no se escapa de la célula",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1785611877546-d45ab586-c560-4245-b601-686de4defebc",
+          "prompt": "Dónde suceden las lanzaderas?",
+          "modelAnswer": "Comienzan en el citosol y se continuan en la matriz mitocondrial",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
         }
       ]
     }
