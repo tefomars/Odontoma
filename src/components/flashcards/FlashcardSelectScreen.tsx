@@ -55,6 +55,7 @@ type ChapterCourseGroup = {
   title?: string
   range?: string
   menus: ChapterMenu[]
+  emptyMessage?: string
 }
 
 const CHAPTER_MENUS: ChapterMenu[] = [
@@ -1931,9 +1932,19 @@ export default function FlashcardSelectScreen({
             defaultCards.some(card => card.chapter === menu.chapter)
           )
 
-        return manualMenus.length > 0
-          ? manualMenus
-          : generatedChapterMenus
+        if (manualMenus.length === 0) {
+          return generatedChapterMenus
+        }
+
+        const manualChapters =
+          new Set(manualMenus.map(menu => menu.chapter))
+
+        return [
+          ...manualMenus,
+          ...generatedChapterMenus.filter(
+            menu => !manualChapters.has(menu.chapter)
+          )
+        ]
       },
       [subject, defaultCards, generatedChapterMenus]
     )
@@ -1953,6 +1964,10 @@ export default function FlashcardSelectScreen({
           (chapter: string) =>
             Number(chapter.match(/\d+/)?.[0] || 0)
 
+        const isArticle =
+          (chapter: string) =>
+            /^Art[ií]culo(?:\s|\b)/i.test(chapter)
+
         return [
           {
             title: "Citohistología I",
@@ -1961,17 +1976,34 @@ export default function FlashcardSelectScreen({
               const chapterNumber =
                 getChapterNumber(menu.chapter)
 
-              return chapterNumber >= 4 && chapterNumber <= 12
+              return (
+                !isArticle(menu.chapter) &&
+                chapterNumber >= 4 &&
+                chapterNumber <= 12
+              )
             })
           },
           {
             title: "Citohistología II",
             range: "Capítulo 13 en adelante",
             menus: availableChapterMenus.filter(
-              menu => getChapterNumber(menu.chapter) >= 13
+              menu =>
+                !isArticle(menu.chapter) &&
+                getChapterNumber(menu.chapter) >= 13
             )
+          },
+          {
+            title: "Artículos",
+            range: "Lecturas complementarias",
+            menus: availableChapterMenus.filter(
+              menu => isArticle(menu.chapter)
+            ),
+            emptyMessage:
+              "Los artículos aparecerán aquí como decks independientes."
           }
-        ].filter(group => group.menus.length > 0)
+        ].filter(group =>
+          group.menus.length > 0 || Boolean(group.emptyMessage)
+        )
       },
       [subject, availableChapterMenus]
     )
@@ -2463,6 +2495,14 @@ export default function FlashcardSelectScreen({
                         </button>
                       )
                     })}
+
+                    {courseGroup.menus.length === 0 && courseGroup.emptyMessage && (
+                      <div className="rounded-2xl border border-dashed border-zinc-800 bg-zinc-900/50 px-4 py-4">
+                        <p className="text-sm leading-relaxed text-zinc-500">
+                          {courseGroup.emptyMessage}
+                        </p>
+                      </div>
+                    )}
                   </div>
                 ))}
               </div>
