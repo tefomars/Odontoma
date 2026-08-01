@@ -125,11 +125,11 @@ export default function FlashcardReviewScreen({
   const [suspendedVersion, setSuspendedVersion] =
     useState(0)
 
-  const [undoReview, setUndoReview] =
-    useState<{
+  const [undoReviewStack, setUndoReviewStack] =
+    useState<Array<{
       cardId: string
       reviewedAt: string
-    } | null>(null)
+    }>>([])
 
   const [newCardOrderSeed] =
     useState(() => crypto.randomUUID())
@@ -347,6 +347,9 @@ export default function FlashcardReviewScreen({
 
   function undoLastReview() {
 
+    const undoReview =
+      undoReviewStack[undoReviewStack.length - 1]
+
     if (!undoReview) return
 
     const nextStorage =
@@ -357,7 +360,7 @@ export default function FlashcardReviewScreen({
     setStorage(nextStorage)
     saveFsrsStorage(nextStorage)
     setShowAnswer(false)
-    setUndoReview(null)
+    setUndoReviewStack(stack => stack.slice(0, -1))
     setCurrentIndex(0)
   }
 
@@ -415,7 +418,6 @@ export default function FlashcardReviewScreen({
     suspendFlashcard(currentCard.id)
     setShowAnswer(false)
     setCurrentIndex(0)
-    setUndoReview(null)
     setSuspendedVersion(value => value + 1)
   }
 
@@ -446,10 +448,13 @@ export default function FlashcardReviewScreen({
 
     setStorage(nextStorage)
     saveFsrsStorage(nextStorage)
-    setUndoReview({
-      cardId: log.cardId,
-      reviewedAt: log.reviewedAt
-    })
+    setUndoReviewStack(stack => [
+      ...stack,
+      {
+        cardId: log.cardId,
+        reviewedAt: log.reviewedAt
+      }
+    ])
     setShowAnswer(false)
     setCurrentIndex(prev => {
 
@@ -756,7 +761,7 @@ export default function FlashcardReviewScreen({
             flex-wrap
             gap-2
           ">
-            {undoReview && (
+            {undoReviewStack.length > 0 && (
               <button
                 type="button"
                 onClick={undoLastReview}
@@ -774,7 +779,7 @@ export default function FlashcardReviewScreen({
                   hover:bg-amber-500/20
                 "
               >
-                Undo último review
+                Undo último review ({undoReviewStack.length})
               </button>
             )}
 

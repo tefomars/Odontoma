@@ -44,4 +44,43 @@ describe("undoFsrsReview", () => {
     expect(result?.cards.b.dueDate).toBe("after-b")
     expect(result?.reviews.map(review => review.cardId)).toEqual(["b"])
   })
+
+  it("permite deshacer varios reviews de la misma sesión en orden inverso", () => {
+    const storage: FsrsStorage = {
+      cards: {
+        a: { ...emptyState, dueDate: "after-a" },
+        b: { ...emptyState, dueDate: "after-b" }
+      },
+      reviews: [
+        {
+          cardId: "a",
+          reviewedAt: "2026-07-31T10:00:00.000Z",
+          rating: "good",
+          stateAfter: { ...emptyState, dueDate: "after-a" }
+        },
+        {
+          cardId: "b",
+          reviewedAt: "2026-07-31T10:01:00.000Z",
+          rating: "again",
+          stateAfter: { ...emptyState, dueDate: "after-b" }
+        }
+      ]
+    }
+
+    const withoutB = undoFsrsReview(storage, {
+      cardId: "b",
+      reviewedAt: "2026-07-31T10:01:00.000Z"
+    })
+
+    expect(withoutB?.cards.b).toBeUndefined()
+    expect(withoutB?.reviews.map(review => review.cardId)).toEqual(["a"])
+
+    const withoutA = withoutB && undoFsrsReview(withoutB, {
+      cardId: "a",
+      reviewedAt: "2026-07-31T10:00:00.000Z"
+    })
+
+    expect(withoutA?.cards.a).toBeUndefined()
+    expect(withoutA?.reviews).toEqual([])
+  })
 })
