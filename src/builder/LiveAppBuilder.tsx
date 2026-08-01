@@ -209,8 +209,6 @@ export default function LiveAppBuilder() {
             subjects={content.subjects}
             editorMode
             onSelectSubject={() => undefined}
-            onSelectMyQuizzes={() => undefined}
-            onSelectOpenQuizzes={() => undefined}
             onAddSubject={addSubject}
             onEditSubject={subject => setSelectedId(subject.id)}
           />

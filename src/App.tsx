@@ -3,6 +3,7 @@ import { useSwipeBack } from "@/hooks/useSwipeBack"
 
 import HomeScreen from "./components/HomeScreen"
 import StudyMethodScreen from "./components/StudyMethodScreen"
+import QuizModeScreen from "./components/QuizModeScreen"
 import SetupScreen from "./components/SetupScreen"
 import QuizScreen from "./components/QuizScreen"
 import ResultsScreen from "./components/ResultsScreen"
@@ -140,6 +141,9 @@ export default function App() {
 
   const [selectedSubject, setSelectedSubject] =
     useState<string | null>(null)
+
+  const [selectedQuizMode, setSelectedQuizMode] =
+    useState<"multiple-choice" | "open-ended" | "my-quizzes" | null>(null)
 
   const [selectedFlashcardSubject, setSelectedFlashcardSubject] =
     useState<string | null>(null)
@@ -636,6 +640,7 @@ export default function App() {
 
     setSelectedStudyMethod(null)
     setSelectedSubject(null)
+    setSelectedQuizMode(null)
 
     setSelectedFlashcardSubject(null)
     setSelectedFlashcardTopic(null)
@@ -728,6 +733,19 @@ export default function App() {
 
       if (selectedSubject) {
         setSelectedSubject(null)
+
+        if (
+          selectedQuizMode === "open-ended" ||
+          selectedQuizMode === "my-quizzes"
+        ) {
+          setSelectedQuizMode(null)
+        }
+
+        return
+      }
+
+      if (selectedQuizMode) {
+        setSelectedQuizMode(null)
         return
       }
 
@@ -922,21 +940,42 @@ export default function App() {
     )
   }
 
-  if (!selectedSubject) {
+  if (!selectedQuizMode && !selectedSubject) {
+
+    return (
+
+      <ScreenTransition screenKey="quiz-mode">
+        <QuizModeScreen
+          onBack={() => setSelectedStudyMethod(null)}
+          onMainMenu={goToMainMenu}
+          onSelectMultipleChoice={() => {
+            setSelectedQuizMode("multiple-choice")
+            setSelectedSubject(null)
+          }}
+          onSelectOpenEnded={() => {
+            setSelectedQuizMode("open-ended")
+            setSelectedSubject("open-quizzes")
+            setActiveOpenQuizDeckId(null)
+          }}
+          onSelectMyQuizzes={() => {
+            setSelectedQuizMode("my-quizzes")
+            setSelectedSubject("my-quizzes")
+            setActiveUserQuizDeckId(null)
+          }}
+        />
+      </ScreenTransition>
+
+    )
+  }
+
+  if (selectedQuizMode === "multiple-choice" && !selectedSubject) {
 
     return (
 
       <ScreenTransition screenKey="home">
         <HomeScreen
+          onBack={() => setSelectedQuizMode(null)}
           onMainMenu={goToMainMenu}
-          onSelectMyQuizzes={() => {
-            setSelectedSubject("my-quizzes")
-            setActiveUserQuizDeckId(null)
-          }}
-          onSelectOpenQuizzes={() => {
-            setSelectedSubject("open-quizzes")
-            setActiveOpenQuizDeckId(null)
-          }}
           onSelectSubject={(subject) => {
             setSelectedSubject(subject)
             setSelectedChapters([])
@@ -970,7 +1009,10 @@ export default function App() {
       <ScreenTransition screenKey="open-quiz-decks">
         <OpenQuizDecksScreen
           decks={openQuizDecks}
-          onBack={() => setSelectedSubject(null)}
+          onBack={() => {
+            setSelectedSubject(null)
+            setSelectedQuizMode(null)
+          }}
           onMainMenu={goToMainMenu}
           onStart={setActiveOpenQuizDeckId}
         />
@@ -1035,7 +1077,10 @@ export default function App() {
     return (
 
       <MyQuizDecksScreen
-        onBack={() => setSelectedSubject(null)}
+        onBack={() => {
+          setSelectedSubject(null)
+          setSelectedQuizMode(null)
+        }}
         onMainMenu={goToMainMenu}
         onSelectDeck={(deckId) => setActiveUserQuizDeckId(deckId)}
       />

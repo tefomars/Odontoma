@@ -7,8 +7,7 @@ import {
 
 type Props = {
   onSelectSubject: (subject: string) => void
-  onSelectMyQuizzes?: () => void
-  onSelectOpenQuizzes?: () => void
+  onBack?: () => void
   onMainMenu?: () => void
   subjects?: HomeSubject[]
   editorMode?: boolean
@@ -18,8 +17,7 @@ type Props = {
 
 export default function HomeScreen({
   onSelectSubject,
-  onSelectMyQuizzes,
-  onSelectOpenQuizzes,
+  onBack,
   onMainMenu,
   subjects = homeSubjects,
   editorMode = false,
@@ -42,6 +40,15 @@ export default function HomeScreen({
         flex
         justify-start
       ">
+        {onBack && (
+          <button
+            type="button"
+            onClick={onBack}
+            className="mr-3 rounded-2xl border border-violet-500/30 bg-violet-500/10 px-4 py-2 text-sm font-black text-violet-200 hover:bg-violet-500/20"
+          >
+            ← Atrás
+          </button>
+        )}
         {onMainMenu && (
           <button
             type="button"
@@ -269,120 +276,6 @@ export default function HomeScreen({
             </button>
           )}
 
-        </div>
-
-        <div className="
-          mt-6
-        ">
-          <button
-            type="button"
-            onClick={onSelectMyQuizzes}
-            className="
-              group
-              w-full
-              overflow-hidden
-              rounded-[2rem]
-              border
-              border-emerald-500/30
-              bg-emerald-500/10
-              p-6
-              text-left
-              transition-all
-              hover:bg-emerald-500/20
-            "
-          >
-            <div className="
-              flex
-              flex-col
-              gap-4
-              sm:flex-row
-              sm:items-center
-              sm:justify-between
-            ">
-              <div>
-                <p className="
-                  text-xs
-                  font-black
-                  uppercase
-                  tracking-[0.25em]
-                  text-emerald-300
-                ">
-                  Personal
-                </p>
-
-                <h2 className="
-                  mt-2
-                  text-3xl
-                  font-black
-                  text-white
-                ">
-                  My quizzes
-                </h2>
-
-                <p className="
-                  mt-2
-                  max-w-2xl
-                  text-sm
-                  leading-relaxed
-                  text-zinc-300
-                ">
-                  Creá tus propios quizzes, importá preguntas y exportá decks individuales.
-                </p>
-              </div>
-
-              <div className="
-                flex
-                h-12
-                w-12
-                items-center
-                justify-center
-                rounded-2xl
-                bg-white/10
-                text-2xl
-                transition-all
-                group-hover:rotate-12
-              ">
-                →
-              </div>
-            </div>
-          </button>
-
-          <button
-            type="button"
-            onClick={onSelectOpenQuizzes}
-            className="
-              group
-              mt-4
-              w-full
-              overflow-hidden
-              rounded-[2rem]
-              border
-              border-amber-500/30
-              bg-amber-500/10
-              p-6
-              text-left
-              transition-all
-              hover:bg-amber-500/20
-            "
-          >
-            <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-              <div>
-                <p className="text-xs font-black uppercase tracking-[0.25em] text-amber-300">
-                  Respuesta libre
-                </p>
-                <h2 className="mt-2 text-3xl font-black text-white">
-                  Preguntas abiertas
-                </h2>
-                <p className="mt-2 max-w-2xl text-sm leading-relaxed text-zinc-300">
-                  Escribí tu respuesta, comparala con el criterio preparado y calificá tu desempeño.
-                </p>
-              </div>
-
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10 text-2xl transition-all group-hover:rotate-12">
-                →
-              </div>
-            </div>
-          </button>
         </div>
 
       </div>
