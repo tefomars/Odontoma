@@ -3,6 +3,7 @@ import cap5Image from "../../assets/chapters/cap5.png"
 import cap6Image from "../../assets/chapters/cap6.png"
 import cap7Image from "../../assets/chapters/cap7.png"
 import cap8Image from "../../assets/chapters/cap8.png"
+import logoImage from "../../assets/logo.png"
 
 export const chapters = [
   {
@@ -106,6 +107,39 @@ export const chapters = [
       "https://images.unsplash.com/photo-1507413245164-6160d8298b31?q=80&w=1200&auto=format&fit=crop",
     questionCount: 0,
     accent: "from-slate-500/20 to-zinc-500/20"
+  },
+
+  {
+    id: "Capítulo 13",
+    title: "Capítulo 13",
+    subtitle: "Sistema cardiovascular",
+    description:
+      "Corazón, pared vascular, arterias, capilares, venas, vasos atípicos y vasos linfáticos.",
+    image: logoImage,
+    questionCount: 528,
+    accent: "from-red-500/20 to-rose-500/20"
+  },
+
+  {
+    id: "Capítulo 14",
+    title: "Capítulo 14",
+    subtitle: "Sistema inmunitario y tejido linfático",
+    description:
+      "Inmunidad, células inmunitarias, presentación antigénica, linfocitos, timo, ganglios, bazo y MALT.",
+    image: logoImage,
+    questionCount: 519,
+    accent: "from-emerald-500/20 to-cyan-500/20"
+  },
+
+  {
+    id: "Artículo · Hemostasia y trombosis",
+    title: "Artículo",
+    subtitle: "Hemostasia y trombosis",
+    description:
+      "Endotelio, plaquetas, coagulación, anticoagulantes, fibrinólisis y tríada de Virchow según Robbins.",
+    image: logoImage,
+    questionCount: 251,
+    accent: "from-amber-500/20 to-orange-500/20"
   }
 ]
 
