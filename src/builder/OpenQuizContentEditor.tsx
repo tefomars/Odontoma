@@ -2,13 +2,14 @@ import { useEffect, useMemo, useState } from "react"
 
 import type {
   OpenQuizContent,
+  OpenQuizClass,
   OpenQuizDeck,
   OpenQuizQuestion
 } from "@/content/openQuizzes"
 
 const CONTENT_DRAFT_KEY = "odontoma-open-quiz-builder-draft-v1"
 
-const emptyContent: OpenQuizContent = { decks: [] }
+const emptyContent: OpenQuizContent = { classes: [], decks: [] }
 const DEFAULT_CLASS_SYMBOL = "▰"
 const DEFAULT_CLASS_COLOR = "#fbbf24"
 
@@ -23,6 +24,27 @@ function readDraft() {
   } catch {
     return null
   }
+}
+
+function normalizeContent(value: OpenQuizContent): OpenQuizContent {
+  const classes = [...(value.classes || [])]
+  const knownNames = new Set(classes.map(item => item.name.trim().toLocaleLowerCase()))
+
+  for (const deck of value.decks) {
+    const name = deck.subject.trim() || "General"
+    const normalizedName = name.toLocaleLowerCase()
+    if (knownNames.has(normalizedName)) continue
+
+    classes.push({
+      id: newId("open-class"),
+      name,
+      symbol: deck.classSymbol || DEFAULT_CLASS_SYMBOL,
+      color: deck.classColor || DEFAULT_CLASS_COLOR
+    })
+    knownNames.add(normalizedName)
+  }
+
+  return { classes, decks: value.decks }
 }
 
 export default function OpenQuizContentEditor() {
@@ -43,13 +65,14 @@ export default function OpenQuizContentEditor() {
       })
       .then(value => {
         const draft = readDraft()
-        const initial = draft || value
+        const applied = normalizeContent(value)
+        const initial = normalizeContent(draft || value)
 
-        setAppliedContent(value)
+        setAppliedContent(applied)
         setContent(initial)
-        setSelectedClassName(initial.decks[0]?.subject.trim() || null)
-        setClassNameDraft(initial.decks[0]?.subject.trim() || "")
-        setSelectedDeckId(initial.decks[0]?.id || null)
+        setSelectedClassName(initial.classes?.[0]?.name || null)
+        setClassNameDraft(initial.classes?.[0]?.name || "")
+        setSelectedDeckId(initial.decks.find(deck => deck.subject === initial.classes?.[0]?.name)?.id || null)
         setStatus(
           draft
             ? "Se recuperó tu borrador local."
@@ -69,11 +92,9 @@ export default function OpenQuizContentEditor() {
       grouped.set(className, [...(grouped.get(className) || []), deck])
     }
 
-    return [...grouped.entries()].map(([name, decks]) => ({
-      name,
-      decks,
-      symbol: decks[0]?.classSymbol || DEFAULT_CLASS_SYMBOL,
-      color: decks[0]?.classColor || DEFAULT_CLASS_COLOR
+    return (content.classes || []).map(item => ({
+      ...item,
+      decks: grouped.get(item.name) || []
     }))
   }, [content])
 
@@ -115,22 +136,22 @@ export default function OpenQuizContentEditor() {
 
   function addClass() {
     const className = uniqueClassName()
-    const deck: OpenQuizDeck = {
-      id: newId("open-deck"),
-      title: "Nuevo cuestionario",
-      subject: className,
-      classSymbol: DEFAULT_CLASS_SYMBOL,
-      classColor: DEFAULT_CLASS_COLOR,
-      description: "",
-      questions: []
+    const classItem: OpenQuizClass = {
+      id: newId("open-class"),
+      name: className,
+      symbol: DEFAULT_CLASS_SYMBOL,
+      color: DEFAULT_CLASS_COLOR
     }
 
-    setContent(current => ({ decks: [...current.decks, deck] }))
+    setContent(current => ({
+      ...current,
+      classes: [...(current.classes || []), classItem]
+    }))
     setSelectedClassName(className)
     setClassNameDraft(className)
-    setSelectedDeckId(deck.id)
+    setSelectedDeckId(null)
     setSelectedQuestionId(null)
-    setStatus("Clase creada con su primer cuestionario en el borrador.")
+    setStatus("Clase creada. Ahora podés agregarle cuestionarios.")
   }
 
   function renameClass() {
@@ -148,6 +169,9 @@ export default function OpenQuizContentEditor() {
     }
 
     setContent(current => ({
+      classes: (current.classes || []).map(item =>
+        item.id === selectedClass.id ? { ...item, name: nextName } : item
+      ),
       decks: current.decks.map(deck =>
         (deck.subject.trim() || "General") === selectedClass.name
           ? { ...deck, subject: nextName }
@@ -167,25 +191,34 @@ export default function OpenQuizContentEditor() {
     )
     if (!confirmed) return
 
-    const removedIds = new Set(selectedClass.decks.map(deck => deck.id))
-    const remaining = content.decks.filter(deck => !removedIds.has(deck.id))
-    const nextClassName = remaining[0]?.subject.trim() || null
+    const remaining = content.decks.filter(deck =>
+      (deck.subject.trim() || "General") !== selectedClass.name
+    )
+    const remainingClasses = (content.classes || []).filter(item => item.id !== selectedClass.id)
+    const nextClassName = remainingClasses[0]?.name || null
 
-    setContent({ decks: remaining })
+    setContent({ classes: remainingClasses, decks: remaining })
     setSelectedClassName(nextClassName)
     setClassNameDraft(nextClassName || "")
-    setSelectedDeckId(remaining[0]?.id || null)
+    setSelectedDeckId(remaining.find(deck => deck.subject === nextClassName)?.id || null)
     setSelectedQuestionId(null)
     setStatus("Clase eliminada del borrador. Publicá para confirmar el cambio.")
   }
 
-  function updateClassAppearance(changes: Pick<OpenQuizDeck, "classSymbol" | "classColor">) {
+  function updateClassAppearance(changes: Partial<Pick<OpenQuizClass, "symbol" | "color">>) {
     if (!selectedClass) return
 
     setContent(current => ({
+      classes: (current.classes || []).map(item =>
+        item.id === selectedClass.id ? { ...item, ...changes } : item
+      ),
       decks: current.decks.map(deck =>
         (deck.subject.trim() || "General") === selectedClass.name
-          ? { ...deck, ...changes }
+          ? {
+              ...deck,
+              classSymbol: changes.symbol ?? deck.classSymbol,
+              classColor: changes.color ?? deck.classColor
+            }
           : deck
       )
     }))
@@ -193,7 +226,7 @@ export default function OpenQuizContentEditor() {
   }
 
   function addDeck() {
-    if (!selectedClassName) {
+    if (!selectedClass) {
       addClass()
       return
     }
@@ -201,14 +234,14 @@ export default function OpenQuizContentEditor() {
     const deck: OpenQuizDeck = {
       id: newId("open-deck"),
       title: "Nuevo cuestionario",
-      subject: selectedClassName,
+      subject: selectedClass.name,
       classSymbol: selectedClass?.symbol || DEFAULT_CLASS_SYMBOL,
       classColor: selectedClass?.color || DEFAULT_CLASS_COLOR,
       description: "",
       questions: []
     }
 
-    setContent(current => ({ decks: [...current.decks, deck] }))
+    setContent(current => ({ ...current, decks: [...current.decks, deck] }))
     setSelectedDeckId(deck.id)
     setSelectedQuestionId(null)
     setStatus("Cuestionario creado dentro de la clase.")
@@ -218,6 +251,7 @@ export default function OpenQuizContentEditor() {
     if (!selectedDeckId) return
 
     setContent(current => ({
+      ...current,
       decks: current.decks.map(deck =>
         deck.id === selectedDeckId
           ? { ...deck, ...changes }
@@ -238,10 +272,8 @@ export default function OpenQuizContentEditor() {
     const remaining = content.decks.filter(deck => deck.id !== selectedDeck.id)
     const nextDeck = remaining.find(deck =>
       (deck.subject.trim() || "General") === selectedClassName
-    ) || remaining[0]
-    setContent({ decks: remaining })
-    setSelectedClassName(nextDeck?.subject.trim() || null)
-    setClassNameDraft(nextDeck?.subject.trim() || "")
+    )
+    setContent(current => ({ ...current, decks: remaining }))
     setSelectedDeckId(nextDeck?.id || null)
     setSelectedQuestionId(null)
     setStatus("Apartado eliminado del borrador. Aplicá para confirmar el cambio.")
@@ -327,9 +359,9 @@ export default function OpenQuizContentEditor() {
 
   function discardDraft() {
     setContent(appliedContent)
-    setSelectedClassName(appliedContent.decks[0]?.subject.trim() || null)
-    setClassNameDraft(appliedContent.decks[0]?.subject.trim() || "")
-    setSelectedDeckId(appliedContent.decks[0]?.id || null)
+    setSelectedClassName(appliedContent.classes?.[0]?.name || null)
+    setClassNameDraft(appliedContent.classes?.[0]?.name || "")
+    setSelectedDeckId(appliedContent.decks.find(deck => deck.subject === appliedContent.classes?.[0]?.name)?.id || null)
     setSelectedQuestionId(null)
     localStorage.removeItem(CONTENT_DRAFT_KEY)
     setStatus("Borrador descartado. Volviste al contenido aplicado.")
@@ -412,7 +444,7 @@ export default function OpenQuizContentEditor() {
                   <input
                     value={selectedClass.symbol}
                     onChange={event => updateClassAppearance({
-                      classSymbol: event.target.value || DEFAULT_CLASS_SYMBOL
+                      symbol: event.target.value || DEFAULT_CLASS_SYMBOL
                     })}
                     maxLength={8}
                     aria-label="Símbolo de la clase"
@@ -424,7 +456,7 @@ export default function OpenQuizContentEditor() {
                     <input
                       type="color"
                       value={selectedClass.color}
-                      onChange={event => updateClassAppearance({ classColor: event.target.value })}
+                      onChange={event => updateClassAppearance({ color: event.target.value })}
                       aria-label="Color de la clase"
                     />
                     <code>{selectedClass.color.toUpperCase()}</code>
@@ -465,10 +497,10 @@ export default function OpenQuizContentEditor() {
         {!selectedDeck ? (
           <div className="content-welcome">
             <span>✎</span>
-            <h2>Creá tu primera clase</h2>
-            <p>Dentro de ella podrás agregar cuestionarios, preguntas, respuestas y criterios.</p>
-            <button className="builder-button apply" onClick={addClass}>
-              Nueva clase
+            <h2>{selectedClass ? `${selectedClass.name} está lista` : "Creá tu primera clase"}</h2>
+            <p>{selectedClass ? "Esta clase todavía no tiene cuestionarios." : "Dentro de ella podrás agregar cuestionarios, preguntas, respuestas y criterios."}</p>
+            <button className="builder-button apply" onClick={selectedClass ? addDeck : addClass}>
+              {selectedClass ? "Agregar primer cuestionario" : "Nueva clase"}
             </button>
           </div>
         ) : (

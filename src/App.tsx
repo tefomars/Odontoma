@@ -62,6 +62,7 @@ import {
 } from "@/lib/pausedQuizSession"
 
 import {
+  openQuizClasses,
   openQuizDecks
 } from "@/content/openQuizzes"
 
@@ -1103,6 +1104,7 @@ export default function App() {
     return (
       <ScreenTransition screenKey="open-quiz-decks">
         <OpenQuizDecksScreen
+          classes={openQuizClasses}
           decks={openQuizDecks}
           onBack={() => {
             setSelectedSubject(null)

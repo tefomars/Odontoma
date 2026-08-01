@@ -1,9 +1,10 @@
 import { useMemo, useState } from "react"
 
 import logoImage from "@/assets/logo.png"
-import type { OpenQuizDeck } from "@/content/openQuizzes"
+import type { OpenQuizClass, OpenQuizDeck } from "@/content/openQuizzes"
 
 type Props = {
+  classes: OpenQuizClass[]
   decks: OpenQuizDeck[]
   onBack: () => void
   onMainMenu: () => void
@@ -14,7 +15,7 @@ type Props = {
 const DEFAULT_CLASS_SYMBOL = "▰"
 const DEFAULT_CLASS_COLOR = "#fbbf24"
 
-export default function OpenQuizDecksScreen({ decks, onBack, onMainMenu, onStart, onHistory }: Props) {
+export default function OpenQuizDecksScreen({ classes: classDefinitions, decks, onBack, onMainMenu, onStart, onHistory }: Props) {
   const [selectedClass, setSelectedClass] = useState<string | null>(null)
   const classes = useMemo(() => {
     const grouped = new Map<string, OpenQuizDeck[]>()
@@ -22,13 +23,24 @@ export default function OpenQuizDecksScreen({ decks, onBack, onMainMenu, onStart
       const className = deck.subject.trim() || "General"
       grouped.set(className, [...(grouped.get(className) || []), deck])
     })
-    return [...grouped.entries()].map(([name, classDecks]) => ({
-      name,
-      decks: classDecks,
-      symbol: classDecks[0]?.classSymbol || DEFAULT_CLASS_SYMBOL,
-      color: classDecks[0]?.classColor || DEFAULT_CLASS_COLOR
+    const defined = classDefinitions.map(item => ({
+      name: item.name,
+      decks: grouped.get(item.name) || [],
+      symbol: item.symbol,
+      color: item.color
     }))
-  }, [decks])
+    const definedNames = new Set(classDefinitions.map(item => item.name))
+    const legacy = [...grouped.entries()]
+      .filter(([name]) => !definedNames.has(name))
+      .map(([name, classDecks]) => ({
+        name,
+        decks: classDecks,
+        symbol: classDecks[0]?.classSymbol || DEFAULT_CLASS_SYMBOL,
+        color: classDecks[0]?.classColor || DEFAULT_CLASS_COLOR
+      }))
+
+    return [...defined, ...legacy]
+  }, [classDefinitions, decks])
   const activeClass = classes.find(item => item.name === selectedClass)
 
   return (

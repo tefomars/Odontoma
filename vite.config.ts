@@ -45,7 +45,15 @@ type OpenQuizDeck = {
   questions: OpenQuizQuestion[]
 }
 
+type OpenQuizClass = {
+  id: string
+  name: string
+  symbol: string
+  color: string
+}
+
 type OpenQuizContent = {
+  classes?: OpenQuizClass[]
   decks: OpenQuizDeck[]
 }
 
@@ -177,6 +185,37 @@ function validateOpenQuizContent(value: unknown): value is OpenQuizContent {
   const content = value as Partial<OpenQuizContent>
 
   if (!Array.isArray(content.decks) || content.decks.length > 200) {
+    return false
+  }
+
+  if (
+    content.classes !== undefined &&
+    (!Array.isArray(content.classes) || content.classes.length > 100)
+  ) {
+    return false
+  }
+
+  const classIds = new Set<string>()
+  const classNames = new Set<string>()
+
+  if (content.classes && !content.classes.every(item => {
+    const normalizedName = item?.name.trim().toLocaleLowerCase()
+    if (
+      !item ||
+      !validText(item.id, 150, true) ||
+      classIds.has(item.id) ||
+      !validText(item.name, 120, true) ||
+      classNames.has(normalizedName) ||
+      !validText(item.symbol, 12, true) ||
+      !validColor(item.color)
+    ) {
+      return false
+    }
+
+    classIds.add(item.id)
+    classNames.add(normalizedName)
+    return true
+  })) {
     return false
   }
 

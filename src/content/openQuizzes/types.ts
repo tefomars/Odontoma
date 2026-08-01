@@ -17,7 +17,15 @@ export type OpenQuizDeck = {
   questions: OpenQuizQuestion[]
 }
 
+export type OpenQuizClass = {
+  id: string
+  name: string
+  symbol: string
+  color: string
+}
+
 export type OpenQuizContent = {
+  classes?: OpenQuizClass[]
   decks: OpenQuizDeck[]
 }
 

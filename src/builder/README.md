@@ -8,7 +8,8 @@
 4. Usa **Apariencia** para probar y aplicar estilos de botones.
 5. Usa **Contenido · Preguntas abiertas** para administrar la estructura
    **clase → cuestionario/apartado → preguntas**, además de respuestas modelo
-   y puntos que el estudiante debe considerar.
+   y puntos que el estudiante debe considerar. Una clase puede guardarse vacía
+   y sus cuestionarios se agregan después de forma independiente.
 6. Pulsa el botón de aplicar de cada sección para escribir el cambio en el
    proyecto. Los borradores se conservan localmente hasta aplicarlos o
    descartarlos.
