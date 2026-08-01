@@ -29,8 +29,7 @@ export default function OpenQuizContentEditor() {
   const [selectedDeckId, setSelectedDeckId] = useState<string | null>(null)
   const [selectedQuestionId, setSelectedQuestionId] = useState<string | null>(null)
   const [status, setStatus] = useState("Cargando contenido…")
-  const [saving, setSaving] = useState(false)
-  const [loaded, setLoaded] = useState(false)
+  const [publishing, setPublishing] = useState(false)
 
   useEffect(() => {
     fetch("/__odontoma-builder/open-quizzes")
@@ -50,18 +49,11 @@ export default function OpenQuizContentEditor() {
             ? "Se recuperó tu borrador local."
             : "Contenido sincronizado con el proyecto."
         )
-        setLoaded(true)
       })
       .catch(() => {
         setStatus("No se pudo abrir el archivo de contenido local.")
-        setLoaded(true)
       })
   }, [])
-
-  useEffect(() => {
-    if (!loaded) return
-    localStorage.setItem(CONTENT_DRAFT_KEY, JSON.stringify(content))
-  }, [content, loaded])
 
   const selectedDeck = content.decks.find(deck => deck.id === selectedDeckId)
   const selectedQuestion = selectedDeck?.questions.find(
@@ -170,11 +162,16 @@ export default function OpenQuizContentEditor() {
     setStatus("Pregunta eliminada del borrador.")
   }
 
-  async function applyContent() {
+  function saveDraft() {
+    localStorage.setItem(CONTENT_DRAFT_KEY, JSON.stringify(content))
+    setStatus("Borrador guardado solo en esta máquina. Todavía no está publicado.")
+  }
+
+  async function publishContent() {
     if (validationIssues.length > 0) return
 
-    setSaving(true)
-    setStatus("Aplicando contenido…")
+    setPublishing(true)
+    setStatus("Publicando contenido…")
 
     try {
       const response = await fetch("/__odontoma-builder/open-quizzes", {
@@ -187,15 +184,15 @@ export default function OpenQuizContentEditor() {
 
       setAppliedContent(content)
       localStorage.removeItem(CONTENT_DRAFT_KEY)
-      setStatus("Contenido aplicado. Odontoma se actualizará automáticamente.")
+      setStatus("Contenido publicado. Odontoma se actualizará automáticamente.")
     } catch (error) {
       setStatus(
         error instanceof Error
-          ? `No se pudo aplicar: ${error.message}`
-          : "No se pudo aplicar el contenido."
+          ? `No se pudo publicar: ${error.message}`
+          : "No se pudo publicar el contenido."
       )
     } finally {
-      setSaving(false)
+      setPublishing(false)
     }
   }
 
@@ -407,19 +404,26 @@ export default function OpenQuizContentEditor() {
             {validationIssues.length > 0 ? (
               <p className="validation-message">{validationIssues.join(" ")}</p>
             ) : (
-              <p>Los cambios siguen siendo borrador hasta que los apliques.</p>
+              <p>Guardá el borrador para continuar después o publicalo cuando esté listo.</p>
             )}
           </div>
           <div className="actions">
-            <button className="builder-button secondary" onClick={discardDraft} disabled={saving}>
+            <button className="builder-button secondary" onClick={discardDraft} disabled={publishing}>
               Descartar borrador
             </button>
             <button
-              className="builder-button apply"
-              onClick={applyContent}
-              disabled={saving || validationIssues.length > 0}
+              className="builder-button secondary"
+              onClick={saveDraft}
+              disabled={publishing}
             >
-              {saving ? "Aplicando…" : "Aplicar contenido"}
+              Guardar borrador
+            </button>
+            <button
+              className="builder-button apply"
+              onClick={publishContent}
+              disabled={publishing || validationIssues.length > 0}
+            >
+              {publishing ? "Publicando…" : "Publicar en Odontoma"}
             </button>
           </div>
         </footer>

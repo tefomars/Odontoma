@@ -837,8 +837,7 @@ input[type="range"] {
 
 .question-editor {
   min-width: 0;
-  max-height: 620px;
-  overflow-y: auto;
+  overflow: visible;
 }
 
 .question-empty {
@@ -889,6 +888,10 @@ input[type="range"] {
 
 .content-actions p {
   margin: 0;
+}
+
+.content-actions .actions {
+  flex: none;
 }
 
 .validation-message {
