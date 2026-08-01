@@ -1,3 +1,44 @@
 {
-  "decks": []
+  "classes": [
+    {
+      "id": "open-class-1785604343059-73f09620-8619-426f-a449-f2372ea5fbb5",
+      "name": "Bioquímica",
+      "symbol": "▰",
+      "color": "#fbbf24"
+    },
+    {
+      "id": "open-class-1785604345458-02c6fb5b-aac3-441e-b054-45c2790ced04",
+      "name": "Citohistología",
+      "symbol": "▰",
+      "color": "#29fa41"
+    }
+  ],
+  "decks": [
+    {
+      "id": "open-deck-1785600952470-667c488d-1311-46e3-b11d-15f91a6ab323",
+      "title": "Bioquímica Primer Parcial",
+      "subject": "Bioquímica",
+      "description": "Glucólisis, Ciclo de Krebs, ETC y Fosforilación Oxidativa",
+      "questions": [
+        {
+          "id": "open-question-1785601013938-8e2e10ea-4d46-4b8d-adbe-2e3caa869cf0",
+          "prompt": "Probando pregunta 1",
+          "modelAnswer": "La respuesta es\n- grande\n-falsa\ncd",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1785601201137-450aa8e8-b6f3-420d-9a0d-8e84227239ff",
+          "prompt": "Probando v2",
+          "modelAnswer": "skiidbi guat",
+          "acceptedPoints": [
+            "jaguar"
+          ],
+          "explanation": "sa",
+          "source": "67"
+        }
+      ]
+    }
+  ]
 }
