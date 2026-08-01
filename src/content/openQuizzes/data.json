@@ -277,7 +277,7 @@
         {
           "id": "open-question-1785624632591-ef8561b8-f7d9-4cce-9392-feac20c0fb71",
           "prompt": "Cuántos ATP produce el ciclo de Krebs a partir de 1 Acetil-CoA?",
-          "modelAnswer": "1 GTP, equivalente energéticamente a 1 ATP",
+          "modelAnswer": "1 GTP, equivalente a 1 ATP",
           "acceptedPoints": [],
           "explanation": "",
           "source": ""
@@ -285,7 +285,7 @@
         {
           "id": "open-question-1785624711905-d03ec1c1-aed0-4dc2-b3ef-05ee245ca97b",
           "prompt": "Cuántos NADH2 produce el ciclo de Krebs a partir de un Acetil-CoA?",
-          "modelAnswer": "3 NADH (o NADH2, según la nomenclatura usada en clase)",
+          "modelAnswer": "3 NADH ",
           "acceptedPoints": [],
           "explanation": "",
           "source": ""
