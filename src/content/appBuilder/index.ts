@@ -9,6 +9,9 @@ export const quizMenuContent = homeContent.quizMenu
 
 export type {
   AppMenuCard,
+  AppMenuDestination,
+  FlashcardSubjectBlock,
+  FlashcardSubjectDestination,
   HomeContent,
   HomeSubject,
   MainMenuContent,

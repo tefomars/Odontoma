@@ -3,24 +3,31 @@ import { useEffect, useMemo, useState, type ReactNode } from "react"
 import HomeScreen from "@/components/HomeScreen"
 import QuizModeScreen from "@/components/QuizModeScreen"
 import StudyMethodScreen from "@/components/StudyMethodScreen"
+import FlashcardSubjectScreen from "@/components/flashcards/FlashcardSubjectScreen"
+import { flashcardSubjectBlocks } from "@/content/appBuilder/flashcardSubjects"
 
 import {
   homeContent,
   type AppMenuCard,
+  type AppMenuDestination,
+  type FlashcardSubjectBlock,
+  type FlashcardSubjectDestination,
   type HomeContent,
   type HomeSubject,
   type SubjectDestination
 } from "@/content/appBuilder"
 
 const HOME_DRAFT_KEY = "odontoma-home-builder-draft-v2"
+const FLASHCARD_SUBJECTS_DRAFT_KEY = "odontoma-flashcard-subjects-builder-draft-v1"
 
-type BuilderView = "main-menu" | "quiz-menu" | "subjects"
+type BuilderView = "main-menu" | "quiz-menu" | "subjects" | "flashcard-subjects"
 type Selection =
   | { kind: "main-header" }
   | { kind: "quiz-header" }
   | { kind: "main-card"; id: string }
   | { kind: "quiz-card"; id: string }
   | { kind: "subject"; id: string }
+  | { kind: "flashcard-subject"; id: string }
 
 const destinationOptions: Array<{
   value: SubjectDestination
@@ -33,8 +40,32 @@ const destinationOptions: Array<{
   { value: "filosofia-de-hayek", label: "Filosofía existente", description: "Abre los capítulos actuales de Hayek." }
 ]
 
+const mainMenuDestinationOptions: Array<{ value: AppMenuDestination; label: string }> = [
+  { value: "quizzes", label: "Abrir Quizzes" },
+  { value: "flashcards", label: "Abrir Flashcards" },
+  { value: "coming-soon", label: "Sin acción por ahora" }
+]
+
+const quizDestinationOptions: Array<{ value: AppMenuDestination; label: string }> = [
+  { value: "multiple-choice", label: "Opción múltiple" },
+  { value: "open-ended", label: "Respuestas abiertas" },
+  { value: "my-quizzes", label: "My quizzes" },
+  { value: "coming-soon", label: "Sin acción por ahora" }
+]
+
+const flashcardDestinationOptions: Array<{ value: FlashcardSubjectDestination; label: string }> = [
+  { value: "coming-soon", label: "Sin contenido por ahora" },
+  { value: "histologia", label: "Decks de Histología" },
+  { value: "proceso-economico-i", label: "Decks de Proceso Económico I" },
+  { value: "filosofia-de-hayek", label: "Decks de Filosofía" }
+]
+
 function createId() {
   return `subject-${Date.now()}-${crypto.randomUUID()}`
+}
+
+function createBlockId(prefix: string) {
+  return `${prefix}-${Date.now()}-${crypto.randomUUID()}`
 }
 
 function normalizeContent(value: Partial<HomeContent> | null): HomeContent {
@@ -54,6 +85,15 @@ function readDraft() {
   }
 }
 
+function readFlashcardSubjectsDraft() {
+  try {
+    const parsed: unknown = JSON.parse(localStorage.getItem(FLASHCARD_SUBJECTS_DRAFT_KEY) || "null")
+    return Array.isArray(parsed) ? parsed as FlashcardSubjectBlock[] : null
+  } catch {
+    return null
+  }
+}
+
 export default function LiveAppBuilder() {
   const [content, setContent] = useState<HomeContent>(homeContent)
   const [appliedContent, setAppliedContent] = useState<HomeContent>(homeContent)
@@ -62,6 +102,9 @@ export default function LiveAppBuilder() {
   const [status, setStatus] = useState("Cargando las pantallas reales…")
   const [loaded, setLoaded] = useState(false)
   const [saving, setSaving] = useState(false)
+  const [flashcardSubjects, setFlashcardSubjects] = useState<FlashcardSubjectBlock[]>(flashcardSubjectBlocks)
+  const [appliedFlashcardSubjects, setAppliedFlashcardSubjects] = useState<FlashcardSubjectBlock[]>(flashcardSubjectBlocks)
+  const [flashcardSubjectsLoaded, setFlashcardSubjectsLoaded] = useState(false)
 
   useEffect(() => {
     fetch("/__odontoma-builder/home-content")
@@ -84,8 +127,32 @@ export default function LiveAppBuilder() {
   }, [])
 
   useEffect(() => {
+    fetch("/__odontoma-builder/flashcard-subjects")
+      .then(response => {
+        if (!response.ok) throw new Error("No disponible")
+        return response.json() as Promise<FlashcardSubjectBlock[]>
+      })
+      .then(value => {
+        const draft = readFlashcardSubjectsDraft()
+        setAppliedFlashcardSubjects(value)
+        setFlashcardSubjects(draft || value)
+        setFlashcardSubjectsLoaded(true)
+      })
+      .catch(() => {
+        setStatus("No se pudieron cargar los bloques de Flashcards.")
+        setFlashcardSubjectsLoaded(true)
+      })
+  }, [])
+
+  useEffect(() => {
     if (loaded) localStorage.setItem(HOME_DRAFT_KEY, JSON.stringify(content))
   }, [content, loaded])
+
+  useEffect(() => {
+    if (flashcardSubjectsLoaded) {
+      localStorage.setItem(FLASHCARD_SUBJECTS_DRAFT_KEY, JSON.stringify(flashcardSubjects))
+    }
+  }, [flashcardSubjects, flashcardSubjectsLoaded])
 
   const selectedSubject = selection?.kind === "subject"
     ? content.subjects.find(subject => subject.id === selection.id)
@@ -98,6 +165,16 @@ export default function LiveAppBuilder() {
     : selection?.kind === "quiz-card"
       ? content.quizMenu.cards.find(card => card.id === selection.id)
       : undefined
+  const selectedFlashcardSubject = selection?.kind === "flashcard-subject"
+    ? flashcardSubjects.find(subject => subject.id === selection.id)
+    : undefined
+  const selectedFlashcardSubjectIndex = selectedFlashcardSubject
+    ? flashcardSubjects.findIndex(subject => subject.id === selectedFlashcardSubject.id)
+    : -1
+  const selectedCardIndex = selectedCard && selection
+    ? (selection.kind === "main-card" ? content.mainMenu.cards : content.quizMenu.cards)
+      .findIndex(card => card.id === selectedCard.id)
+    : -1
 
   const hasInvalidContent = useMemo(() => {
     const cards = [...content.mainMenu.cards, ...content.quizMenu.cards]
@@ -118,12 +195,96 @@ export default function LiveAppBuilder() {
         !subject.title.trim() ||
         !subject.status.trim() ||
         !/^#[0-9a-f]{6}$/i.test(subject.accentColor)
+      ) ||
+      flashcardSubjects.some(subject =>
+        !subject.title.trim() ||
+        !subject.subtitle.trim() ||
+        !subject.description.trim() ||
+        !/^#[0-9a-f]{6}$/i.test(subject.accentColor)
       )
-  }, [content])
+  }, [content, flashcardSubjects])
 
   function chooseView(nextView: BuilderView) {
     setView(nextView)
     setSelection(null)
+  }
+
+  function addMenuCard(menu: "mainMenu" | "quizMenu") {
+    const card: AppMenuCard = {
+      id: createBlockId(menu === "mainMenu" ? "main-block" : "quiz-block"),
+      eyebrow: "Nuevo bloque",
+      title: "Nuevo botón",
+      subtitle: "Agregá una descripción breve.",
+      symbol: "+",
+      accentColor: menu === "mainMenu" ? "#10b981" : "#8b5cf6",
+      destination: "coming-soon",
+      ...(menu === "quizMenu" ? { section: "main" as const } : {})
+    }
+    setContent(current => ({
+      ...current,
+      [menu]: { ...current[menu], cards: [...current[menu].cards, card] }
+    }))
+    setSelection({ kind: menu === "mainMenu" ? "main-card" : "quiz-card", id: card.id })
+    setStatus("Bloque agregado. Elegí su texto, color y qué pantalla abre.")
+  }
+
+  function deleteSelectedCard() {
+    if (!selectedCard || !selection || (selection.kind !== "main-card" && selection.kind !== "quiz-card")) return
+    const menu = selection.kind === "main-card" ? "mainMenu" : "quizMenu"
+    setContent(current => ({
+      ...current,
+      [menu]: { ...current[menu], cards: current[menu].cards.filter(card => card.id !== selectedCard.id) }
+    }))
+    setSelection(null)
+    setStatus(`“${selectedCard.title}” se quitó del borrador.`)
+  }
+
+  function moveSelectedCard(direction: -1 | 1) {
+    if (!selectedCard || !selection || selectedCardIndex < 0 || (selection.kind !== "main-card" && selection.kind !== "quiz-card")) return
+    const menu = selection.kind === "main-card" ? "mainMenu" : "quizMenu"
+    const cards = [...content[menu].cards]
+    const target = selectedCardIndex + direction
+    if (target < 0 || target >= cards.length) return
+    ;[cards[selectedCardIndex], cards[target]] = [cards[target], cards[selectedCardIndex]]
+    setContent(current => ({ ...current, [menu]: { ...current[menu], cards } }))
+  }
+
+  function addFlashcardSubject() {
+    const subject: FlashcardSubjectBlock = {
+      id: createBlockId("flashcard-block"),
+      title: "Nuevo deck",
+      subtitle: "Próximamente",
+      description: "Agregá una descripción breve.",
+      accent: "from-emerald-500/20 to-teal-500/10",
+      accentColor: "#10b981",
+      destination: "coming-soon"
+    }
+    setFlashcardSubjects(current => [...current, subject])
+    setSelection({ kind: "flashcard-subject", id: subject.id })
+    setStatus("Bloque de Flashcards agregado. Configuralo en el panel derecho.")
+  }
+
+  function updateFlashcardSubject(changes: Partial<FlashcardSubjectBlock>) {
+    if (!selectedFlashcardSubject) return
+    setFlashcardSubjects(current => current.map(subject =>
+      subject.id === selectedFlashcardSubject.id ? { ...subject, ...changes } : subject
+    ))
+  }
+
+  function moveFlashcardSubject(direction: -1 | 1) {
+    if (selectedFlashcardSubjectIndex < 0) return
+    const target = selectedFlashcardSubjectIndex + direction
+    if (target < 0 || target >= flashcardSubjects.length) return
+    const next = [...flashcardSubjects]
+    ;[next[selectedFlashcardSubjectIndex], next[target]] = [next[target], next[selectedFlashcardSubjectIndex]]
+    setFlashcardSubjects(next)
+  }
+
+  function deleteFlashcardSubject() {
+    if (!selectedFlashcardSubject) return
+    setFlashcardSubjects(current => current.filter(subject => subject.id !== selectedFlashcardSubject.id))
+    setSelection(null)
+    setStatus(`“${selectedFlashcardSubject.title}” se quitó del borrador.`)
   }
 
   function addSubject() {
@@ -188,14 +349,24 @@ export default function LiveAppBuilder() {
     setSaving(true)
     setStatus("Aplicando cambios…")
     try {
-      const response = await fetch("/__odontoma-builder/home-content", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(content)
-      })
-      if (!response.ok) throw new Error(await response.text())
+      const [homeResponse, flashcardResponse] = await Promise.all([
+        fetch("/__odontoma-builder/home-content", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(content)
+        }),
+        fetch("/__odontoma-builder/flashcard-subjects", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(flashcardSubjects)
+        })
+      ])
+      if (!homeResponse.ok) throw new Error(await homeResponse.text())
+      if (!flashcardResponse.ok) throw new Error(await flashcardResponse.text())
       setAppliedContent(content)
+      setAppliedFlashcardSubjects(flashcardSubjects)
       localStorage.removeItem(HOME_DRAFT_KEY)
+      localStorage.removeItem(FLASHCARD_SUBJECTS_DRAFT_KEY)
       setStatus("Cambios aplicados. Odontoma se actualizará automáticamente.")
     } catch (error) {
       setStatus(error instanceof Error ? `No se pudo aplicar: ${error.message}` : "No se pudieron aplicar los cambios.")
@@ -206,8 +377,10 @@ export default function LiveAppBuilder() {
 
   function discardDraft() {
     setContent(appliedContent)
+    setFlashcardSubjects(appliedFlashcardSubjects)
     setSelection(null)
     localStorage.removeItem(HOME_DRAFT_KEY)
+    localStorage.removeItem(FLASHCARD_SUBJECTS_DRAFT_KEY)
     setStatus("Borrador descartado. Volviste a la versión aplicada.")
   }
 
@@ -220,15 +393,17 @@ export default function LiveAppBuilder() {
             <strong>Vista editable real</strong>
             <small>Elegí una pantalla y pulsá sus lápices verdes.</small>
           </div>
-          {view === "subjects" && (
-            <button className="stage-add-button" onClick={addSubject}>+ Agregar materia</button>
-          )}
+          {view === "subjects" && <button className="stage-add-button" onClick={addSubject}>+ Agregar materia</button>}
+          {view === "main-menu" && <button className="stage-add-button" onClick={() => addMenuCard("mainMenu")}>+ Agregar botón</button>}
+          {view === "quiz-menu" && <button className="stage-add-button" onClick={() => addMenuCard("quizMenu")}>+ Agregar botón</button>}
+          {view === "flashcard-subjects" && <button className="stage-add-button" onClick={addFlashcardSubject}>+ Agregar deck</button>}
         </div>
 
         <nav className="live-screen-switcher" aria-label="Pantalla para editar">
           <button className={view === "main-menu" ? "active" : ""} onClick={() => chooseView("main-menu")}>Menú principal</button>
           <button className={view === "quiz-menu" ? "active" : ""} onClick={() => chooseView("quiz-menu")}>Tipos de quiz</button>
           <button className={view === "subjects" ? "active" : ""} onClick={() => chooseView("subjects")}>Materias</button>
+          <button className={view === "flashcard-subjects" ? "active" : ""} onClick={() => chooseView("flashcard-subjects")}>Decks de Flashcards</button>
         </nav>
 
         <div className="live-app-preview">
@@ -253,13 +428,23 @@ export default function LiveAppBuilder() {
               onEditHeader={() => setSelection({ kind: "quiz-header" })}
               onEditCard={card => setSelection({ kind: "quiz-card", id: card.id })}
             />
-          ) : (
+          ) : view === "subjects" ? (
             <HomeScreen
               subjects={content.subjects}
               editorMode
               onSelectSubject={() => undefined}
               onAddSubject={addSubject}
               onEditSubject={subject => setSelection({ kind: "subject", id: subject.id })}
+            />
+          ) : (
+            <FlashcardSubjectScreen
+              subjects={flashcardSubjects}
+              editorMode
+              onBack={() => undefined}
+              onSelectSubject={() => undefined}
+              onSelectMyDecks={() => undefined}
+              onAddSubject={addFlashcardSubject}
+              onEditSubject={subject => setSelection({ kind: "flashcard-subject", id: subject.id })}
             />
           )}
         </div>
@@ -271,7 +456,7 @@ export default function LiveAppBuilder() {
             <header className="inspector-header">
               <div>
                 <p className="eyebrow">EDITANDO</p>
-                <h2>{inspectorTitle(selection, selectedCard, selectedSubject)}</h2>
+                <h2>{inspectorTitle(selection, selectedCard, selectedSubject, selectedFlashcardSubject)}</h2>
               </div>
               <button className="inspector-close" onClick={() => setSelection(null)} aria-label="Cerrar editor">×</button>
             </header>
@@ -297,7 +482,26 @@ export default function LiveAppBuilder() {
                   <TextField label="Descripción" value={selectedCard.subtitle} multiline onChange={subtitle => updateCard({ subtitle })} />
                   <TextField label="Símbolo" hint="Puede ser una letra, signo o texto corto." value={selectedCard.symbol} onChange={symbol => updateCard({ symbol })} />
                   <ColorField value={selectedCard.accentColor} onChange={accentColor => updateCard({ accentColor })} />
-                  <p className="destination-help">La acción de esta tarjeta está protegida para no romper su navegación.</p>
+                  <InspectorField label="¿Qué abre este botón?">
+                    <select value={selectedCard.destination || selectedCard.id} onChange={event => updateCard({ destination: event.target.value as AppMenuDestination })}>
+                      {(selection.kind === "main-card" ? mainMenuDestinationOptions : quizDestinationOptions).map(option => (
+                        <option key={option.value} value={option.value}>{option.label}</option>
+                      ))}
+                    </select>
+                  </InspectorField>
+                  {selection.kind === "quiz-card" && (
+                    <InspectorField label="¿En qué grupo aparece?">
+                      <select value={selectedCard.section || (selectedCard.id === "my-quizzes" ? "tools" : "main")} onChange={event => updateCard({ section: event.target.value as "main" | "tools" })}>
+                        <option value="main">Opciones principales</option>
+                        <option value="tools">Tus herramientas</option>
+                      </select>
+                    </InspectorField>
+                  )}
+                  <div className="order-controls">
+                    <button onClick={() => moveSelectedCard(-1)} disabled={selectedCardIndex <= 0}>← Mover antes</button>
+                    <button onClick={() => moveSelectedCard(1)} disabled={selectedCardIndex < 0 || selectedCardIndex === (selection.kind === "main-card" ? content.mainMenu.cards.length : content.quizMenu.cards.length) - 1}>Mover después →</button>
+                  </div>
+                  <button className="inspector-delete" onClick={deleteSelectedCard}>Quitar botón de la pantalla</button>
                 </>
               )}
               {selectedSubject && (
@@ -309,6 +513,24 @@ export default function LiveAppBuilder() {
                   onMove={moveSubject}
                   onDelete={deleteSubject}
                 />
+              )}
+              {selectedFlashcardSubject && (
+                <>
+                  <TextField label="Título" value={selectedFlashcardSubject.title} onChange={title => updateFlashcardSubject({ title })} />
+                  <TextField label="Etiqueta" value={selectedFlashcardSubject.subtitle} onChange={subtitle => updateFlashcardSubject({ subtitle })} />
+                  <TextField label="Descripción" value={selectedFlashcardSubject.description} multiline onChange={description => updateFlashcardSubject({ description })} />
+                  <ColorField value={selectedFlashcardSubject.accentColor} onChange={accentColor => updateFlashcardSubject({ accentColor })} />
+                  <InspectorField label="¿Qué decks abre?">
+                    <select value={selectedFlashcardSubject.destination} onChange={event => updateFlashcardSubject({ destination: event.target.value as FlashcardSubjectDestination, subtitle: event.target.value === "coming-soon" ? "Próximamente" : selectedFlashcardSubject.subtitle })}>
+                      {flashcardDestinationOptions.map(option => <option key={option.value} value={option.value}>{option.label}</option>)}
+                    </select>
+                  </InspectorField>
+                  <div className="order-controls">
+                    <button onClick={() => moveFlashcardSubject(-1)} disabled={selectedFlashcardSubjectIndex <= 0}>← Mover antes</button>
+                    <button onClick={() => moveFlashcardSubject(1)} disabled={selectedFlashcardSubjectIndex === flashcardSubjects.length - 1}>Mover después →</button>
+                  </div>
+                  <button className="inspector-delete" onClick={deleteFlashcardSubject}>Quitar deck de la pantalla</button>
+                </>
               )}
             </div>
           </>
@@ -333,10 +555,10 @@ export default function LiveAppBuilder() {
   )
 }
 
-function inspectorTitle(selection: Selection, card?: AppMenuCard, subject?: HomeSubject) {
+function inspectorTitle(selection: Selection, card?: AppMenuCard, subject?: HomeSubject, flashcardSubject?: FlashcardSubjectBlock) {
   if (selection.kind === "main-header") return "Encabezado principal"
   if (selection.kind === "quiz-header") return "Encabezado de quizzes"
-  return card?.title || subject?.title || "Elemento"
+  return card?.title || subject?.title || flashcardSubject?.title || "Elemento"
 }
 
 function TextField({ label, hint, value, multiline = false, onChange }: { label: string; hint?: string; value: string; multiline?: boolean; onChange: (value: string) => void }) {

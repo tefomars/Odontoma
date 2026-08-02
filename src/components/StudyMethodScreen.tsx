@@ -53,7 +53,8 @@ export default function StudyMethodScreen({
               <div className="relative" key={card.id}>
                 <button
                   type="button"
-                  onClick={() => editorMode ? onEditCard?.(card) : actions[card.id]?.()}
+                  disabled={!editorMode && (card.destination || card.id) === "coming-soon"}
+                  onClick={() => editorMode ? onEditCard?.(card) : actions[card.destination || card.id]?.()}
                   className="group relative h-full w-full overflow-hidden rounded-[1.75rem] border p-6 text-left transition-all hover:scale-[1.01]"
                   style={{
                     borderColor: `${card.accentColor}55`,

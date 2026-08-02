@@ -19,64 +19,33 @@ import {
   isFsrsCardDue
 } from "@/lib/fsrs"
 
+import { flashcardSubjectBlocks } from "@/content/appBuilder/flashcardSubjects"
+import type { FlashcardSubjectBlock } from "@/content/appBuilder"
+
 type Props = {
   onBack: () => void
   onSelectSubject: (subject: string) => void
   onSelectMyDecks: () => void
+  subjects?: FlashcardSubjectBlock[]
+  editorMode?: boolean
+  onAddSubject?: () => void
+  onEditSubject?: (subject: FlashcardSubjectBlock) => void
 }
 
-const subjects = [
-  {
-    id: "histologia",
-    title: "Histología",
-    subtitle: "Ross",
-    description:
-      "Flashcards premade de tejidos, epitelio, conjuntivo, cartílago y hueso.",
-    available: true,
-    accent: "from-violet-500/20 to-fuchsia-500/10"
-  },
-  {
-    id: "proceso-economico-i",
-    title: "Proceso Económico I",
-    subtitle: "Material de clase",
-    description:
-      "Flashcards premade de ahorro, inversión, capital, interés, competencia y rol empresarial.",
-    available: true,
-    accent: "from-sky-500/20 to-cyan-500/10"
-  },
-  {
-    id: "filosofia-de-hayek",
-    title: "Filosofía",
-    subtitle: "Hayek",
-    description:
-      "Flashcards premade de liberalismo, libertad, conocimiento, orden espontáneo y pensamiento de Hayek.",
-    available: true,
-    accent: "from-indigo-500/20 to-blue-500/10"
-  },
-  {
-    id: "bioquimica",
-    title: "Bioquímica",
-    subtitle: "Próximamente",
-    description:
-      "Decks premade de enzimas, proteínas, metabolismo y caries dental.",
-    available: false,
-    accent: "from-emerald-500/20 to-teal-500/10"
-  },
-  {
-    id: "anatomia",
-    title: "Anatomía",
-    subtitle: "Próximamente",
-    description:
-      "Decks premade de anatomía general, cabeza, cuello y odontología.",
-    available: false,
-    accent: "from-amber-500/20 to-orange-500/10"
-  }
-]
+const destinationSubjectTitles: Record<string, string> = {
+  histologia: "Histología",
+  "proceso-economico-i": "Proceso Económico I",
+  "filosofia-de-hayek": "Filosofía"
+}
 
 export default function FlashcardSubjectScreen({
   onBack,
   onSelectSubject,
-  onSelectMyDecks
+  onSelectMyDecks,
+  subjects = flashcardSubjectBlocks,
+  editorMode = false,
+  onAddSubject,
+  onEditSubject
 }: Props) {
 
   const userTopics =
@@ -353,30 +322,34 @@ export default function FlashcardSubjectScreen({
             </div>
           </button>
 
-          <h2 className="
-            mb-4
-            text-2xl
-            font-black
-          ">
-            Premade decks
-          </h2>
+          <div className="mb-4 flex items-center justify-between gap-3">
+            <h2 className="text-2xl font-black">Premade decks</h2>
+            {editorMode && (
+              <button type="button" onClick={onAddSubject} className="rounded-xl border border-emerald-400/40 bg-emerald-500/15 px-4 py-2 text-xs font-black text-emerald-200">
+                ＋ Agregar bloque
+              </button>
+            )}
+          </div>
 
           <div className="
             grid
             gap-4
             lg:grid-cols-3
           ">
-            {subjects.map(subject => (
+            {subjects.map(subject => {
+              const available = subject.destination !== "coming-soon"
+              const contentSubjectTitle = destinationSubjectTitles[subject.destination] || subject.title
+              return (
+              <div className="relative" key={subject.id}>
               <button
-                key={subject.id}
                 type="button"
-                disabled={!subject.available}
-                onClick={() => {
-                  if (subject.available) {
-                    onSelectSubject(subject.id)
-                  }
-                }}
+                disabled={!editorMode && !available}
+                onClick={() => editorMode
+                  ? onEditSubject?.(subject)
+                  : available && onSelectSubject(subject.destination)}
                 className={`
+                  h-full
+                  w-full
                   rounded-[1.75rem]
                   border
                   border-zinc-800
@@ -386,7 +359,7 @@ export default function FlashcardSubjectScreen({
                   text-left
                   transition
                   ${
-                    subject.available
+                    available || editorMode
                       ? "hover:border-violet-400/60 hover:brightness-110"
                       : "cursor-not-allowed opacity-45"
                   }
@@ -437,12 +410,12 @@ export default function FlashcardSubjectScreen({
                     font-black
                     text-zinc-200
                   ">
-                    {subject.available
-                      ? `${getSubjectDeckCount(subject.title)} mazos · ${getSubjectCardCount(subject.title)} cartas`
+                    {available
+                      ? `${getSubjectDeckCount(contentSubjectTitle)} mazos · ${getSubjectCardCount(contentSubjectTitle)} cartas`
                       : "Próximamente"}
                   </span>
 
-                  {subject.available && (
+                  {available && (
                     <span className="
                       text-sm
                       font-black
@@ -453,14 +426,20 @@ export default function FlashcardSubjectScreen({
                   )}
                 </div>
               </button>
-            ))}
+              {editorMode && (
+                <button type="button" onClick={() => onEditSubject?.(subject)} className="absolute right-3 top-3 z-20 rounded-xl border border-emerald-400/30 bg-black/75 px-3 py-2 text-xs font-black text-emerald-200">
+                  ✎ Editar
+                </button>
+              )}
+              </div>
+            )})}
           </div>
 
-          <div className="
+          {!editorMode && <div className="
             mt-6
           ">
             <FsrsOptimizerPanel />
-          </div>
+          </div>}
 
         </section>
 

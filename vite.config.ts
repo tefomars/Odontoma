@@ -80,6 +80,18 @@ type AppMenuCard = {
   subtitle: string
   symbol: string
   accentColor: string
+  destination?: string
+  section?: "main" | "tools"
+}
+
+type FlashcardSubjectBlock = {
+  id: string
+  title: string
+  subtitle: string
+  description: string
+  accent: string
+  accentColor: string
+  destination: "histologia" | "proceso-economico-i" | "filosofia-de-hayek" | "coming-soon"
 }
 
 const builderThemePath = path.resolve(
@@ -105,6 +117,11 @@ const homeContentPath = path.resolve(
 const uiOverridesPath = path.resolve(
   import.meta.dirname,
   "./src/content/appBuilder/ui-overrides.json"
+)
+
+const flashcardSubjectsPath = path.resolve(
+  import.meta.dirname,
+  "./src/content/appBuilder/flashcard-subjects.json"
 )
 
 function isLoopback(address?: string) {
@@ -282,23 +299,22 @@ function validateHomeContent(value: unknown): value is HomeContent {
     return false
   }
 
-  const validCards = (
-    cards: AppMenuCard[],
-    expectedIds: string[]
-  ) => cards.length === expectedIds.length &&
-    expectedIds.every(id => cards.some(card => card.id === id)) &&
+  const menuDestinations = new Set(["quizzes", "flashcards", "multiple-choice", "open-ended", "my-quizzes", "coming-soon"])
+  const validCards = (cards: AppMenuCard[]) => cards.length <= 100 &&
     cards.every(card =>
       validText(card.id, 80, true) &&
       validText(card.eyebrow, 80, true) &&
       validText(card.title, 180, true) &&
       validText(card.subtitle, 800, true) &&
       validText(card.symbol, 20, true) &&
-      validColor(card.accentColor)
+      validColor(card.accentColor) &&
+      (card.destination === undefined || menuDestinations.has(card.destination)) &&
+      (card.section === undefined || card.section === "main" || card.section === "tools")
     )
 
   if (
-    !validCards(content.mainMenu.cards, ["quizzes", "flashcards"]) ||
-    !validCards(content.quizMenu.cards, ["multiple-choice", "open-ended", "my-quizzes"])
+    !validCards(content.mainMenu.cards) ||
+    !validCards(content.quizMenu.cards)
   ) {
     return false
   }
@@ -324,6 +340,25 @@ function validateHomeContent(value: unknown): value is HomeContent {
   })
 }
 
+function validateFlashcardSubjects(value: unknown): value is FlashcardSubjectBlock[] {
+  if (!Array.isArray(value) || value.length > 100) return false
+  const ids = new Set<string>()
+  const destinations = new Set(["histologia", "proceso-economico-i", "filosofia-de-hayek", "coming-soon"])
+  return value.every(subject => {
+    if (!subject ||
+      !validText(subject.id, 150, true) || ids.has(subject.id) ||
+      !validText(subject.title, 180, true) ||
+      !validText(subject.subtitle, 120, true) ||
+      !validText(subject.description, 800, true) ||
+      !validText(subject.accent, 120, true) ||
+      !validColor(subject.accentColor) ||
+      !destinations.has(subject.destination)
+    ) return false
+    ids.add(subject.id)
+    return true
+  })
+}
+
 function localBuilderPlugin(): Plugin {
   return {
     name: "odontoma-local-builder",
@@ -340,6 +375,7 @@ function localBuilderPlugin(): Plugin {
           pathname !== "/__odontoma-builder/theme" &&
           pathname !== "/__odontoma-builder/open-quizzes" &&
           pathname !== "/__odontoma-builder/home-content" &&
+          pathname !== "/__odontoma-builder/flashcard-subjects" &&
           pathname !== "/__odontoma-builder/ui-overrides"
         ) {
           next()
@@ -372,6 +408,8 @@ function localBuilderPlugin(): Plugin {
                 ? openQuizContentPath
                 : pathname === "/__odontoma-builder/home-content"
                   ? homeContentPath
+                  : pathname === "/__odontoma-builder/flashcard-subjects"
+                    ? flashcardSubjectsPath
                   : pathname === "/__odontoma-builder/ui-overrides"
                     ? uiOverridesPath
                   : builderThemePath,
@@ -395,6 +433,7 @@ function localBuilderPlugin(): Plugin {
           const maximumBodyLength =
             pathname === "/__odontoma-builder/open-quizzes" ||
             pathname === "/__odontoma-builder/home-content" ||
+            pathname === "/__odontoma-builder/flashcard-subjects" ||
             pathname === "/__odontoma-builder/ui-overrides"
               ? 5_000_000
               : 20_000
@@ -434,6 +473,23 @@ function localBuilderPlugin(): Plugin {
 
               await fs.writeFile(
                 homeContentPath,
+                `${JSON.stringify(value, null, 2)}\n`
+              )
+
+              response.setHeader("Content-Type", "application/json")
+              response.end(JSON.stringify({ ok: true }))
+              return
+            }
+
+            if (pathname === "/__odontoma-builder/flashcard-subjects") {
+              if (!validateFlashcardSubjects(value)) {
+                response.statusCode = 400
+                response.end("Bloques de Flashcards inválidos")
+                return
+              }
+
+              await fs.writeFile(
+                flashcardSubjectsPath,
                 `${JSON.stringify(value, null, 2)}\n`
               )
 

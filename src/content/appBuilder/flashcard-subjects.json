@@ -1,0 +1,47 @@
+[
+  {
+    "id": "histologia",
+    "title": "Histología",
+    "subtitle": "Ross",
+    "description": "Flashcards premade de tejidos, epitelio, conjuntivo, cartílago y hueso.",
+    "accent": "from-violet-500/20 to-fuchsia-500/10",
+    "accentColor": "#8b5cf6",
+    "destination": "histologia"
+  },
+  {
+    "id": "proceso-economico-i",
+    "title": "Proceso Económico I",
+    "subtitle": "Material de clase",
+    "description": "Flashcards premade de ahorro, inversión, capital, interés, competencia y rol empresarial.",
+    "accent": "from-sky-500/20 to-cyan-500/10",
+    "accentColor": "#0ea5e9",
+    "destination": "proceso-economico-i"
+  },
+  {
+    "id": "filosofia-de-hayek",
+    "title": "Filosofía",
+    "subtitle": "Hayek",
+    "description": "Flashcards premade de liberalismo, libertad, conocimiento, orden espontáneo y pensamiento de Hayek.",
+    "accent": "from-indigo-500/20 to-blue-500/10",
+    "accentColor": "#6366f1",
+    "destination": "filosofia-de-hayek"
+  },
+  {
+    "id": "bioquimica",
+    "title": "Bioquímica",
+    "subtitle": "Próximamente",
+    "description": "Decks premade de enzimas, proteínas, metabolismo y caries dental.",
+    "accent": "from-emerald-500/20 to-teal-500/10",
+    "accentColor": "#10b981",
+    "destination": "coming-soon"
+  },
+  {
+    "id": "anatomia",
+    "title": "Anatomía",
+    "subtitle": "Próximamente",
+    "description": "Decks premade de anatomía general, cabeza, cuello y odontología.",
+    "accent": "from-amber-500/20 to-orange-500/10",
+    "accentColor": "#f59e0b",
+    "destination": "coming-soon"
+  }
+]

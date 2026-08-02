@@ -35,9 +35,9 @@ export default function QuizModeScreen({
     "my-quizzes": onSelectMyQuizzes
   }
   const mainCards = content.cards.filter(card =>
-    card.id === "multiple-choice" || card.id === "open-ended"
+    card.section ? card.section === "main" : card.id === "multiple-choice" || card.id === "open-ended"
   )
-  const toolCards = content.cards.filter(card => card.id === "my-quizzes")
+  const toolCards = content.cards.filter(card => card.section ? card.section === "tools" : card.id === "my-quizzes")
 
   return (
     <main className="min-h-screen bg-[#09090b] px-5 py-8 text-white">
@@ -67,7 +67,7 @@ export default function QuizModeScreen({
               key={card.id}
               card={card}
               editorMode={editorMode}
-              onClick={() => editorMode ? onEditCard?.(card) : actions[card.id]?.()}
+              onClick={() => editorMode ? onEditCard?.(card) : actions[card.destination || card.id]?.()}
               onEdit={() => onEditCard?.(card)}
             />
           ))}
@@ -85,7 +85,7 @@ export default function QuizModeScreen({
                   card={card}
                   compact
                   editorMode={editorMode}
-                  onClick={() => editorMode ? onEditCard?.(card) : actions[card.id]?.()}
+                  onClick={() => editorMode ? onEditCard?.(card) : actions[card.destination || card.id]?.()}
                   onEdit={() => onEditCard?.(card)}
                 />
               ))}
@@ -114,6 +114,7 @@ function QuizTypeCard({
     <div className="relative">
       <button
         type="button"
+        disabled={!editorMode && (card.destination || card.id) === "coming-soon"}
         onClick={onClick}
         className={`group h-full w-full rounded-[2rem] border p-7 text-left transition hover:scale-[1.01] ${compact ? "min-h-[170px]" : "min-h-[260px]"}`}
         style={{

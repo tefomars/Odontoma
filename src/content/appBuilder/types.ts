@@ -20,6 +20,32 @@ export type AppMenuCard = {
   subtitle: string
   symbol: string
   accentColor: string
+  destination?: AppMenuDestination
+  section?: "main" | "tools"
+}
+
+export type AppMenuDestination =
+  | "quizzes"
+  | "flashcards"
+  | "multiple-choice"
+  | "open-ended"
+  | "my-quizzes"
+  | "coming-soon"
+
+export type FlashcardSubjectDestination =
+  | "histologia"
+  | "proceso-economico-i"
+  | "filosofia-de-hayek"
+  | "coming-soon"
+
+export type FlashcardSubjectBlock = {
+  id: string
+  title: string
+  subtitle: string
+  description: string
+  accent: string
+  accentColor: string
+  destination: FlashcardSubjectDestination
 }
 
 export type MainMenuContent = {

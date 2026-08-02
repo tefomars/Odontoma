@@ -2,9 +2,10 @@
 
 1. Ejecuta `npm run dev`.
 2. Abre `http://127.0.0.1:5173/builder.html`.
-3. Usa **Editar la app** para cambiar el menú principal, el selector de tipos
-   de quiz y las materias sobre réplicas de las pantallas reales. Los textos,
-   descripciones, símbolos y colores se editan desde sus lápices verdes.
+3. Usa **Editar la app** como constructor de bloques para el menú principal,
+   tipos de quiz, materias y decks de Flashcards. Cada pantalla tiene un botón
+   **+ Agregar**; cada bloque permite editar texto, símbolo, color, destino,
+   orden y también quitarlo por completo.
 4. Usa **Toda la UI** para navegar por la aplicación real. Cambia a **Editar
    texto** para seleccionar títulos, etiquetas o símbolos, y a **Bloques**
    para personalizar, duplicar u ocultar botones, tarjetas y secciones. Los
