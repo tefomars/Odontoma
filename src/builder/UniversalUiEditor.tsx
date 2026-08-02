@@ -175,7 +175,7 @@ export default function UniversalUiEditor() {
       if (!document) return () => undefined
       applyPreviewOverrides(document, overrides)
 
-      const handleClick = (event: MouseEvent) => {
+      const handlePointerDown = (event: PointerEvent) => {
         if (mode === "navigate") return
         event.preventDefault()
         event.stopPropagation()
@@ -220,7 +220,15 @@ export default function UniversalUiEditor() {
         setStatus(`Seleccionado en “${root.dataset.screenKey}”.`)
       }
 
-      document.addEventListener("click", handleClick, true)
+      const blockEditedClick = (event: MouseEvent) => {
+        if (mode === "navigate") return
+        event.preventDefault()
+        event.stopPropagation()
+      }
+
+      // pointerdown sí llega desde controles disabled; click no siempre lo hace.
+      document.addEventListener("pointerdown", handlePointerDown, true)
+      document.addEventListener("click", blockEditedClick, true)
       const syncScreen = () => {
         const root = document.querySelector<HTMLElement>("[data-screen-key]")
         setCurrentScreenKey(root?.dataset.screenKey || null)
@@ -229,7 +237,8 @@ export default function UniversalUiEditor() {
       const observer = new MutationObserver(syncScreen)
       observer.observe(document.body, { childList: true, subtree: true })
       return () => {
-        document.removeEventListener("click", handleClick, true)
+        document.removeEventListener("pointerdown", handlePointerDown, true)
+        document.removeEventListener("click", blockEditedClick, true)
         observer.disconnect()
       }
     }
