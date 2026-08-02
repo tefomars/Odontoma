@@ -4,7 +4,7 @@
       "id": "open-class-1785604343059-73f09620-8619-426f-a449-f2372ea5fbb5",
       "name": "Bioquímica",
       "symbol": "▰",
-      "color": "#fbbf24"
+      "color": "#0f8017"
     },
     {
       "id": "open-class-1785604345458-02c6fb5b-aac3-441e-b054-45c2790ced04",
@@ -230,14 +230,16 @@
           "explanation": "",
           "source": ""
         }
-      ]
+      ],
+      "classColor": "#0f8017",
+      "color": "#f5db2e"
     },
     {
       "id": "open-deck-1785624377144-9c933ea5-7e92-47db-a7ac-f25d13efc547",
       "title": "Bioquímica Primer Parcial - Ciclo de Krebs",
       "subject": "Bioquímica",
       "classSymbol": "▰",
-      "classColor": "#fbbf24",
+      "classColor": "#0f8017",
       "description": "Ciclo de Krebs",
       "questions": [
         {
@@ -374,6 +376,220 @@
           "id": "open-question-1785625302596-19af0eba-bbd1-4763-8d69-2f7edf0bd385",
           "prompt": "A dónde se van todos los NADH2 y FADH2 producidos en el ciclo de Krebs?",
           "modelAnswer": "A la cadena transportadora de electrones",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        }
+      ],
+      "color": "#22c92d"
+    },
+    {
+      "id": "open-deck-1785696380347-55fcdbca-e87b-417e-8042-dbeb447c26c4",
+      "title": "Bioquímica Primer Parcial - Cadena Transportadora de Electrones + Fosforilación Oxidativa",
+      "subject": "Bioquímica",
+      "color": "#56b0d7",
+      "classSymbol": "▰",
+      "classColor": "#0f8017",
+      "description": "Cadena Transportadora de Electrones y Fosforilación Oxidativa",
+      "questions": [
+        {
+          "id": "open-question-1785696420995-765c25d5-bdc0-4ec7-ba31-9a881580d5de",
+          "prompt": "Dónde se ubican las proteínas transmembrana que median la cadena transportadora de electrones?",
+          "modelAnswer": "En la membrana mitocondrial interna",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1785696458545-101efd43-849f-4331-898e-ba76ed15e677",
+          "prompt": "Cuáles son los complejos proteínicos que median la cadena transportadora de electrones? ",
+          "modelAnswer": "El complejo I, II, III y IV.",
+          "acceptedPoints": [
+            "CitocromoC----CoEnzimaQ"
+          ],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1785696578227-67ed2b5b-ca48-4c82-bcc2-491cc492cdf1",
+          "prompt": "Cuáles son las dos moléculas móviles que transportan electrones entre complejos? Qué hace cada una?",
+          "modelAnswer": "Coenzima Q: Media el transporte de electrones provenientes del complejo I y II hacia el complejo III\nCitocromo C: Media el transporte de los electrones provenientes de complejos I, II y III y los transporta hacia el complejo IV",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1785696641184-2b8a8cda-dd09-4574-a110-0926d5564b0c",
+          "prompt": "Cuál es la finalidad de la cadena transportadora de electrones?",
+          "modelAnswer": "1. Reoxidar los NADH y FADH2 (a NAD+ y FAD+, respectivamente) para \"regenerarlos\" \n2. Crear un gradiente quimosmótico mediante la expulsión de protones hacia el espacio intermembrana",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1785696747324-3e91e9be-2f69-479d-b579-65ae78c5c3fe",
+          "prompt": "Explique el proceso de transporte de electrones desde 1 molécula de NADH2",
+          "modelAnswer": "1. El complejo 1 convierte NADH2 --> NAD+\n2. Los electrones de NADH2 pasan por el complejo I hacia la coenzima Q ---> Salen 4 protones hacia el espacio intermembrana\n3. La coenzima Q transporta los electrones del complejo I al complejo III ---> Salen 4 protones más\n4. El complejo III pasa los electrones al citocromo C, que los transporta al complejo IV\n5. El complejo IV entrega todos los electrones al Oxígeno ---> Salen 2 protones más\n",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1785696908775-2e8b2c48-1025-4913-97a3-d134518dd4a6",
+          "prompt": "Explique el proceso de transporte de electrones desde 1 molécula de FADH2",
+          "modelAnswer": "1. Complejo II convierte FADH2-->FAD+\n2. Complejo II pasa electrones a coenzima Q\n3. Coenzima Q pasa electrones al complejo III, salen 4 protones\n4. Complejo III pasa electrones a citocromo C\n5. Citocromo C pasa electrones a complejo IV --> salen 2 protones\n6. Complejo IV entrega electrones a oxígeno",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1785696980708-92afd3d9-13f1-489c-a74c-5e12bb6cc43b",
+          "prompt": "Cuántos protones libera una molécula de FADH2 al espacio intermembrana?",
+          "modelAnswer": "6 protones",
+          "acceptedPoints": [],
+          "explanation": "4 protones del complejo III y 2 protones del complejo IV",
+          "source": ""
+        },
+        {
+          "id": "open-question-1785697006441-485489a0-e020-4694-bb06-d0059db2feb3",
+          "prompt": "Cuántos protones libera una molécula de NADH2 al espacio intermembrana?",
+          "modelAnswer": "10 protones",
+          "acceptedPoints": [],
+          "explanation": "4 protones complejo I\n4 protones complejo III\n2 protones complejo IV",
+          "source": ""
+        },
+        {
+          "id": "open-question-1785697033576-b91432ee-9db1-4bc7-9f70-9ac3fed5181e",
+          "prompt": "Por qué razón se considera que la cadena transportadora de electrones es un proceso aeróbico?",
+          "modelAnswer": "Porque el oxígeno es el aceptor final de electrones",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1785697058592-ce1c5edb-78d5-41b9-8220-3546b5412e02",
+          "prompt": "Cuántos protones (H+) se necesitan para formar una molécula de ATP?",
+          "modelAnswer": "3 Protones",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1785697122110-586943fe-ee1a-4a50-b895-36734551f487",
+          "prompt": "Cuántos ATP genera 1 molécula de NADH2?",
+          "modelAnswer": "3 ATP",
+          "acceptedPoints": [],
+          "explanation": "3 protones = 1 atp\nGenera 10 protones... entonces genera 3 ATP (queda 1 protón suelto)",
+          "source": ""
+        },
+        {
+          "id": "open-question-1785697172841-910d2189-bb8a-4f64-a94f-151248464ce8",
+          "prompt": "Cuántos ATP genera 1 molécula de FADH2?",
+          "modelAnswer": "2 ATP",
+          "acceptedPoints": [],
+          "explanation": "3 protones = 1 atp\nGenera 6 protones total",
+          "source": ""
+        },
+        {
+          "id": "open-question-1785697194092-75ae9b71-b8c8-4222-b30c-6faee847c5d3",
+          "prompt": "Cuándo termina la cadena transportadora de electrones?",
+          "modelAnswer": "Cuando se entregan los electrones al aceptor final, oxígeno",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1785697218025-0eb0820d-d52e-4692-b97f-9c25c7b4d9f3",
+          "prompt": "Cuál es la función de los protones que salieron de la matriz hacia el espacio intermembrana?",
+          "modelAnswer": "Formar un gradiente quimiosmótico para la formación de ATP",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1785697247659-21bab0e4-20b5-4c95-a4a4-bdf991f4350a",
+          "prompt": "Qué enzima media la \"conversión\" de protones hacia ATP?",
+          "modelAnswer": "La ATP sintasa",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1785697265727-88521ba5-7de8-4708-a606-29d90dc6a9bf",
+          "prompt": "Cuáles son las dos proteínas móviles que permiten la función de la ATP Sinatasa?",
+          "modelAnswer": "Avidina y Actina",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1785697279409-55742232-ee3a-4efd-a265-89a67b9e7bbe",
+          "prompt": "Dónde se halla cada subunidad de la ATP sintasa? (F0 y F1)",
+          "modelAnswer": "F0 se halla atravesando la membrana\nF1 se halla en la la matriz mitocondrial",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1785697336676-9fa395ea-45a9-466a-b885-2081a751956b",
+          "prompt": "Qué implica la teoría quimiosmótica?",
+          "modelAnswer": "Que los protones liberados a la membrana tienen la función de bombearse a través de la ATP sintasa para catalizar la conversión de ADP+Pi hacia ATP",
+          "acceptedPoints": [],
+          "explanation": "Básicamente que por un aumento de la concentración de protones en el espacio intermembrana, se moverán hacia el sitio de menor concentración--> se fuerzan a través de la membrana mitocondrial interna por la ATP sintasa que tiene canales de protones",
+          "source": ""
+        },
+        {
+          "id": "open-question-1785697444743-c72d521d-36dc-4c9d-9326-785733ec6a4d",
+          "prompt": "Mencione tres enzimas que inhiben la cadena transportadora de electrones. Explique la función de por lo menos una.",
+          "modelAnswer": "Rotenona --> Veneno que impide el paso a coenzima Q\nAntimycin 1 --> Bloquea al citocromo C\nCianuro --> Compite por el oxígeno aceptor de electrones\nMonóxido de carbono --> Compite por el oxígeno aceptor de electrones",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1785697543428-30b3edc1-eada-49c2-b89a-cfee488ffa9f",
+          "prompt": "De qué depende la cantidad total de ATP que se sintetiza a partir de una glucosa?",
+          "modelAnswer": "De la lanzadera utilizada: malato-oxaloacetato o glicerol-3-fosfato",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1785697589044-85d3d31c-28c5-4699-b384-e04efa3448ea",
+          "prompt": "Cuánto ATP genera cada lanzadera?",
+          "modelAnswer": "Malato-oxalocetato --> 3 ATP por cada NADH\nGlicerol-3-fosfato --> 2 ATP por cada FADH2",
+          "acceptedPoints": [],
+          "explanation": "Recordar que 1 NADH provee 10 protones, o sea 3 ATP y que 1 FADH2 provee 6 protones, o sea 2 ATP",
+          "source": ""
+        },
+        {
+          "id": "open-question-1785697656859-97d65bd1-d189-4976-a54b-678d5eb2d283",
+          "prompt": "Cuánto ATP TOTAL genera una glucosa, utilizando la vía de malato-oxalocetato? Cuánto con la vía de glicerol-3-fosfato?",
+          "modelAnswer": "Con malato-oxaloacetato --> 38 ATP\nCon glicerol-3-fosfato --> 36 ATP",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1785697720294-f9f9c249-27ae-4210-9a67-e393d88a6e70",
+          "prompt": "Desde 1 glucosa, cuántos ATP NETOS se generan por fosforilación a nivel de sustrato?",
+          "modelAnswer": "4 ATP",
+          "acceptedPoints": [],
+          "explanation": "2 ATP Netos en glucólisis, 2 por cada triosa (PERO NETOS SON 2 porque 2 fueron utilizados en la fase endógena)\n2 ATP en ciclo de krebs, 1 por cada piruvato",
+          "source": ""
+        },
+        {
+          "id": "open-question-1785697962028-ee73a449-5c33-4aa5-aa94-0df9862c6a37",
+          "prompt": "Sin contar el ATP producido durante glucólisis o ciclo de Krebs, cuántos ATP se producen durante la fosforilación oxidativa? \n--> Menciona el valor usando cada lanzadera",
+          "modelAnswer": "Malato-oxaloacetato ---> 34 ATP\nGlicerol-3-fosfatp ---> 32 ATP",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1785698155597-bf5f00a6-d557-4907-85d3-74386802c985",
+          "prompt": "Por qué es necesario, en las lanzaderas, dar la conversión hacia malato o glicerol-3-fosfato?",
+          "modelAnswer": "Porque tienen transportadores específicos en la mitocondria, por lo que pueden entrar... a diferencia del sustrato previo (oxaloacetato y dihidroxiacetona-3-fosfato)",
           "acceptedPoints": [],
           "explanation": "",
           "source": ""
