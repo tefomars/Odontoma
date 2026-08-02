@@ -61,7 +61,7 @@ import {
 
 import {
   shuffleArray,
-  shuffleQuestion
+  shuffleQuestionsBalanced
 } from "@/lib/shuffleQuestion"
 
 import {
@@ -433,9 +433,9 @@ export default function App() {
         : shuffleArray(availableQuestions)
 
     const selected =
-      pool
-        .slice(0, questionCount)
-        .map(shuffleQuestion)
+      shuffleQuestionsBalanced(
+        pool.slice(0, questionCount)
+      )
 
     setSessionQuestions(selected)
     setSessionResponses([])
@@ -545,7 +545,9 @@ export default function App() {
 
       setSelectedSubject(pausedSubject)
 
-      setSessionQuestions(restoredQuestions)
+      setSessionQuestions(
+        shuffleQuestionsBalanced(restoredQuestions)
+      )
 
       setCurrent(
         Math.min(
@@ -1220,8 +1222,9 @@ export default function App() {
     function startUserQuiz(quizQuestions: any[]) {
 
       const selected =
-        shuffleArray(quizQuestions)
-          .map(shuffleQuestion)
+        shuffleQuestionsBalanced(
+          shuffleArray(quizQuestions)
+        )
 
       setSessionQuestions(selected)
       setSessionResponses([])
