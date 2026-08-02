@@ -95,6 +95,7 @@ function ScreenTransition({
     <div
       key={screenKey}
       className="screen-transition"
+      data-screen-key={screenKey}
     >
       <div className="screen-transition-inner">
         {children}
@@ -843,10 +844,12 @@ export default function App() {
 
     return (
 
-      <WeakTopicsScreen
-        stats={stats}
-        onBack={() => setShowMastery(false)}
-      />
+      <ScreenTransition screenKey="weak-topics">
+        <WeakTopicsScreen
+          stats={stats}
+          onBack={() => setShowMastery(false)}
+        />
+      </ScreenTransition>
 
     )
   }
@@ -1147,12 +1150,14 @@ export default function App() {
 
       return (
 
-        <UserQuizDeckScreen
-          deckId={editingUserQuizDeckId}
-          onBack={() => setEditingUserQuizDeckId(null)}
-          onMainMenu={goToMainMenu}
-          onReview={startUserQuiz}
-        />
+        <ScreenTransition screenKey={`edit-user-quiz-${editingUserQuizDeckId}`}>
+          <UserQuizDeckScreen
+            deckId={editingUserQuizDeckId}
+            onBack={() => setEditingUserQuizDeckId(null)}
+            onMainMenu={goToMainMenu}
+            onReview={startUserQuiz}
+          />
+        </ScreenTransition>
 
       )
     }
@@ -1161,30 +1166,34 @@ export default function App() {
 
       return (
 
-        <UserQuizDeckMenuScreen
-          deckId={activeUserQuizDeckId}
-          onBack={() => setActiveUserQuizDeckId(null)}
-          onMainMenu={goToMainMenu}
-          onReview={startUserQuiz}
-          onEdit={() => {
-            setEditingUserQuizDeckId(activeUserQuizDeckId)
-            setActiveUserQuizDeckId(null)
-          }}
-        />
+        <ScreenTransition screenKey={`user-quiz-menu-${activeUserQuizDeckId}`}>
+          <UserQuizDeckMenuScreen
+            deckId={activeUserQuizDeckId}
+            onBack={() => setActiveUserQuizDeckId(null)}
+            onMainMenu={goToMainMenu}
+            onReview={startUserQuiz}
+            onEdit={() => {
+              setEditingUserQuizDeckId(activeUserQuizDeckId)
+              setActiveUserQuizDeckId(null)
+            }}
+          />
+        </ScreenTransition>
 
       )
     }
 
     return (
 
-      <MyQuizDecksScreen
-        onBack={() => {
-          setSelectedSubject(null)
-          setSelectedQuizMode(null)
-        }}
-        onMainMenu={goToMainMenu}
-        onSelectDeck={(deckId) => setActiveUserQuizDeckId(deckId)}
-      />
+      <ScreenTransition screenKey="my-quiz-decks">
+        <MyQuizDecksScreen
+          onBack={() => {
+            setSelectedSubject(null)
+            setSelectedQuizMode(null)
+          }}
+          onMainMenu={goToMainMenu}
+          onSelectDeck={(deckId) => setActiveUserQuizDeckId(deckId)}
+        />
+      </ScreenTransition>
 
     )
   }

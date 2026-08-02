@@ -11,6 +11,7 @@ import { promises as fs } from "node:fs"
 import type { Plugin } from "vite"
 
 import { renderBuilderCss, type BuilderTheme } from "./src/builder/theme.ts"
+import { validateUiOverrides } from "./src/content/appBuilder/uiOverrideSchema.ts"
 
 type OpenQuizQuestion = {
   id: string
@@ -99,6 +100,11 @@ const openQuizContentPath = path.resolve(
 const homeContentPath = path.resolve(
   import.meta.dirname,
   "./src/content/appBuilder/subjects.json"
+)
+
+const uiOverridesPath = path.resolve(
+  import.meta.dirname,
+  "./src/content/appBuilder/ui-overrides.json"
 )
 
 function isLoopback(address?: string) {
@@ -333,7 +339,8 @@ function localBuilderPlugin(): Plugin {
           pathname !== "/builder.html" &&
           pathname !== "/__odontoma-builder/theme" &&
           pathname !== "/__odontoma-builder/open-quizzes" &&
-          pathname !== "/__odontoma-builder/home-content"
+          pathname !== "/__odontoma-builder/home-content" &&
+          pathname !== "/__odontoma-builder/ui-overrides"
         ) {
           next()
           return
@@ -365,7 +372,9 @@ function localBuilderPlugin(): Plugin {
                 ? openQuizContentPath
                 : pathname === "/__odontoma-builder/home-content"
                   ? homeContentPath
-                : builderThemePath,
+                  : pathname === "/__odontoma-builder/ui-overrides"
+                    ? uiOverridesPath
+                  : builderThemePath,
               "utf8"
             )
           )
@@ -385,7 +394,8 @@ function localBuilderPlugin(): Plugin {
 
           const maximumBodyLength =
             pathname === "/__odontoma-builder/open-quizzes" ||
-            pathname === "/__odontoma-builder/home-content"
+            pathname === "/__odontoma-builder/home-content" ||
+            pathname === "/__odontoma-builder/ui-overrides"
               ? 5_000_000
               : 20_000
 
@@ -424,6 +434,23 @@ function localBuilderPlugin(): Plugin {
 
               await fs.writeFile(
                 homeContentPath,
+                `${JSON.stringify(value, null, 2)}\n`
+              )
+
+              response.setHeader("Content-Type", "application/json")
+              response.end(JSON.stringify({ ok: true }))
+              return
+            }
+
+            if (pathname === "/__odontoma-builder/ui-overrides") {
+              if (!validateUiOverrides(value)) {
+                response.statusCode = 400
+                response.end("Personalizaciones de UI inválidas")
+                return
+              }
+
+              await fs.writeFile(
+                uiOverridesPath,
                 `${JSON.stringify(value, null, 2)}\n`
               )
 

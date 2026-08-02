@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 
 import App from './App'
+import UiOverrideApplier from './components/UiOverrideApplier'
 
 import './index.css'
 
@@ -13,6 +14,7 @@ ReactDOM.createRoot(
 ).render(
 
   <React.StrictMode>
+    <UiOverrideApplier />
     <App />
   </React.StrictMode>
 

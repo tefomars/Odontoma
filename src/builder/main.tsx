@@ -6,6 +6,7 @@ import "./builder.css"
 
 import OpenQuizContentEditor from "./OpenQuizContentEditor"
 import LiveAppBuilder from "./LiveAppBuilder"
+import UniversalUiEditor from "./UniversalUiEditor"
 import type { BuilderTheme } from "./theme"
 
 type NumericThemeKey = {
@@ -111,7 +112,7 @@ function getDraft() {
 
 function BuilderApp() {
   const [activePanel, setActivePanel] =
-    useState<"app" | "appearance" | "content">("app")
+    useState<"app" | "universal" | "appearance" | "content">("app")
 
   const [theme, setTheme] = useState<BuilderTheme>(getDraft)
   const [appliedTheme, setAppliedTheme] = useState<BuilderTheme>(defaults)
@@ -220,6 +221,8 @@ function BuilderApp() {
           <h1>
             {activePanel === "app"
               ? "Edita Odontoma directamente."
+              : activePanel === "universal"
+                ? "Edita cualquier pantalla de Odontoma."
               : activePanel === "appearance"
                 ? "Edita el estilo sin tocar código."
                 : "Crea contenido sin tocar código."}
@@ -227,6 +230,8 @@ function BuilderApp() {
           <p className="intro">
             {activePanel === "app"
               ? "Usa el + y los lápices sobre la interfaz real."
+              : activePanel === "universal"
+                ? "Navega por la app y selecciona cualquier texto o bloque."
               : activePanel === "appearance"
                 ? "Experimenta dentro de la vista previa."
                 : "Agrega clases, cuestionarios, preguntas, respuestas y criterios de corrección."}
@@ -248,6 +253,13 @@ function BuilderApp() {
           Editar la app
         </button>
         <button
+          className={activePanel === "universal" ? "active" : ""}
+          onClick={() => setActivePanel("universal")}
+        >
+          <span>◎</span>
+          Toda la UI
+        </button>
+        <button
           className={activePanel === "appearance" ? "active" : ""}
           onClick={() => setActivePanel("appearance")}
         >
@@ -265,6 +277,8 @@ function BuilderApp() {
 
       {activePanel === "app" ? (
         <LiveAppBuilder />
+      ) : activePanel === "universal" ? (
+        <UniversalUiEditor />
       ) : activePanel === "appearance" ? (
       <section className="workspace">
         <aside className="controls-panel">

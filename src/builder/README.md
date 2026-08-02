@@ -5,12 +5,16 @@
 3. Usa **Editar la app** para cambiar el menú principal, el selector de tipos
    de quiz y las materias sobre réplicas de las pantallas reales. Los textos,
    descripciones, símbolos y colores se editan desde sus lápices verdes.
-4. Usa **Apariencia** para probar y aplicar estilos de botones.
-5. Usa **Contenido · Preguntas abiertas** para administrar la estructura
+4. Usa **Toda la UI** para navegar por la aplicación real. Cambia a **Editar
+   texto** para seleccionar títulos, etiquetas o símbolos, y a **Editar bloque**
+   para personalizar botones, tarjetas y secciones. Los cambios permanecen como
+   borrador hasta pulsar **Aplicar a Odontoma**.
+5. Usa **Apariencia** para probar y aplicar estilos globales de botones.
+6. Usa **Contenido · Preguntas abiertas** para administrar la estructura
    **clase → cuestionario/apartado → preguntas**, además de respuestas modelo
    y puntos que el estudiante debe considerar. Una clase puede guardarse vacía
    y sus cuestionarios se agregan después de forma independiente.
-6. Pulsa el botón de aplicar de cada sección para escribir el cambio en el
+7. Pulsa el botón de aplicar de cada sección para escribir el cambio en el
    proyecto. Los borradores se conservan localmente hasta aplicarlos o
    descartarlos.
 

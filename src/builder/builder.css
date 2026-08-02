@@ -1559,3 +1559,141 @@ footer {
     flex-direction: column;
   }
 }
+
+.universal-editor {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 390px;
+  min-height: 760px;
+  border-top: 1px solid var(--builder-border);
+}
+
+.universal-stage {
+  min-width: 0;
+  padding: 24px;
+  background: #08080a;
+}
+
+.universal-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.universal-toolbar strong {
+  display: block;
+  margin-top: 4px;
+  font-size: 20px;
+}
+
+.universal-mode-switcher {
+  display: flex;
+  gap: 6px;
+  padding: 5px;
+  border: 1px solid var(--builder-border);
+  border-radius: 14px;
+  background: #101012;
+}
+
+.universal-mode-switcher button {
+  border: 0;
+  border-radius: 10px;
+  padding: 9px 13px;
+  background: transparent;
+  color: #8f8f99;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.universal-mode-switcher button.active {
+  background: #34d399;
+  color: #03251a;
+}
+
+.universal-hint {
+  min-height: 22px;
+  margin: 14px 0;
+  color: #a1a1aa;
+  font-size: 13px;
+}
+
+.universal-frame-wrap {
+  height: min(780px, calc(100vh - 290px));
+  min-height: 560px;
+  overflow: hidden;
+  border: 1px solid #303036;
+  border-radius: 22px;
+  background: #09090b;
+  box-shadow: 0 30px 80px rgb(0 0 0 / 45%);
+}
+
+.universal-frame-wrap iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: #09090b;
+}
+
+.universal-inspector {
+  position: relative;
+  inset: auto;
+  width: auto;
+  min-height: 100%;
+  transform: none;
+  visibility: visible;
+  opacity: 1;
+  border-left: 1px solid var(--builder-border);
+}
+
+.universal-inspector .inspector-fields {
+  padding-bottom: 190px;
+}
+
+.universal-inspector input[type="range"] {
+  width: 100%;
+}
+
+[data-universal-editor-selected="true"] {
+  outline: 3px solid #34d399 !important;
+  outline-offset: 3px !important;
+}
+
+@media (max-width: 1050px) {
+  .universal-editor {
+    grid-template-columns: 1fr;
+  }
+
+  .universal-inspector {
+    min-height: 520px;
+    border-top: 1px solid var(--builder-border);
+    border-left: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .universal-stage {
+    padding: 14px;
+  }
+
+  .universal-toolbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .universal-mode-switcher {
+    width: 100%;
+  }
+
+  .universal-mode-switcher button {
+    flex: 1;
+    padding-inline: 6px;
+  }
+
+  .universal-frame-wrap {
+    height: 680px;
+    min-height: 500px;
+    border-radius: 16px;
+  }
+}
