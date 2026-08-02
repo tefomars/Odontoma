@@ -663,17 +663,12 @@ export default function QuizScreen({
 
                     : (
 
-                      <div>
-                        <p className="
-                          text-sm
-                          text-zinc-500
-                        ">
-                          Selecciona una respuesta
-                        </p>
-                        <p className="mt-1 hidden text-xs text-zinc-600 sm:block">
-                          Atajos: 1–4 para elegir · Enter para comprobar
-                        </p>
-                      </div>
+                      <p className="
+                        text-sm
+                        text-zinc-500
+                      ">
+                        Selecciona una respuesta
+                      </p>
 
                     )
                 }
