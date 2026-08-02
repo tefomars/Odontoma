@@ -143,6 +143,36 @@ export default function QuizScreen({
     setChecked(true)
   }
 
+  useEffect(() => {
+    function handleKeyboardShortcut(event: KeyboardEvent) {
+      const target = event.target as HTMLElement | null
+
+      if (target?.closest("input, textarea, select, [contenteditable='true']")) {
+        return
+      }
+
+      const optionIndex = Number(event.key) - 1
+
+      if (
+        Number.isInteger(optionIndex) &&
+        optionIndex >= 0 &&
+        optionIndex < options.length
+      ) {
+        event.preventDefault()
+        toggle(optionIndex)
+        return
+      }
+
+      if (event.key === "Enter" && !checked && selected.length > 0) {
+        event.preventDefault()
+        checkAnswer()
+      }
+    }
+
+    window.addEventListener("keydown", handleKeyboardShortcut)
+    return () => window.removeEventListener("keydown", handleKeyboardShortcut)
+  })
+
   function next() {
     onNext()
   }
@@ -454,6 +484,7 @@ export default function QuizScreen({
                     <button
                       key={`${option}-${index}`}
                       onClick={() => toggle(index)}
+                      aria-keyshortcuts={`${index + 1}`}
 
                       className={`
                         min-w-0
@@ -632,12 +663,17 @@ export default function QuizScreen({
 
                     : (
 
-                      <p className="
-                        text-sm
-                        text-zinc-500
-                      ">
-                        Selecciona una respuesta
-                      </p>
+                      <div>
+                        <p className="
+                          text-sm
+                          text-zinc-500
+                        ">
+                          Selecciona una respuesta
+                        </p>
+                        <p className="mt-1 hidden text-xs text-zinc-600 sm:block">
+                          Atajos: 1–4 para elegir · Enter para comprobar
+                        </p>
+                      </div>
 
                     )
                 }
