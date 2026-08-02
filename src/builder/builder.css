@@ -894,6 +894,28 @@ input[type="range"] {
   grid-column: 1 / -1;
 }
 
+.deck-color-editor {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8px;
+}
+
+.deck-color-editor button {
+  padding: 8px 12px;
+  border: 1px solid #303036;
+  border-radius: 9px;
+  color: #d4d4d8;
+  background: #17171a;
+  font-size: 11px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.deck-color-editor button:disabled {
+  opacity: .4;
+  cursor: not-allowed;
+}
+
 .builder-field {
   display: grid;
   gap: 8px;

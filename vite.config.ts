@@ -27,6 +27,7 @@ type OpenQuizDeck = {
   id: string
   title: string
   subject: string
+  color?: string
   classSymbol?: string
   classColor?: string
   description?: string
@@ -244,6 +245,7 @@ function validateOpenQuizContent(value: unknown): value is OpenQuizContent {
       deckIds.has(deck.id) ||
       !validText(deck.title, 180, true) ||
       !validText(deck.subject, 120) ||
+      (deck.color !== undefined && !validColor(deck.color)) ||
       !validText(deck.classSymbol || "", 12) ||
       (deck.classColor !== undefined && !validColor(deck.classColor)) ||
       !validText(deck.description || "", 800) ||

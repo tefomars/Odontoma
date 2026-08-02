@@ -235,6 +235,7 @@ export default function OpenQuizContentEditor() {
       id: newId("open-deck"),
       title: "Nuevo cuestionario",
       subject: selectedClass.name,
+      color: selectedClass.color || DEFAULT_CLASS_COLOR,
       classSymbol: selectedClass?.symbol || DEFAULT_CLASS_SYMBOL,
       classColor: selectedClass?.color || DEFAULT_CLASS_COLOR,
       description: "",
@@ -537,6 +538,29 @@ export default function OpenQuizContentEditor() {
                     <option key={item.name} value={item.name}>{item.name}</option>
                   ))}
                 </select>
+              </BuilderField>
+              <BuilderField
+                label="Color del cuestionario"
+                hint={selectedDeck.color ? "Color propio." : "Está usando el color de la clase."}
+              >
+                <div className="deck-color-editor">
+                  <span className="class-color-control">
+                    <input
+                      type="color"
+                      value={selectedDeck.color || selectedClass?.color || DEFAULT_CLASS_COLOR}
+                      onChange={event => updateDeck({ color: event.target.value })}
+                      aria-label="Color del cuestionario"
+                    />
+                    <code>{(selectedDeck.color || selectedClass?.color || DEFAULT_CLASS_COLOR).toUpperCase()}</code>
+                  </span>
+                  <button
+                    type="button"
+                    onClick={() => updateDeck({ color: undefined })}
+                    disabled={!selectedDeck.color}
+                  >
+                    Usar color de la clase
+                  </button>
+                </div>
               </BuilderField>
               <BuilderField label="Descripción">
                 <textarea

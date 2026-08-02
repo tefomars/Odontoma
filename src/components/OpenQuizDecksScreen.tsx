@@ -74,7 +74,9 @@ export default function OpenQuizDecksScreen({ classes: classDefinitions, decks, 
             <EmptyState />
           ) : activeClass ? (
             <div className="grid gap-4 md:grid-cols-2">
-              {activeClass.decks.map(deck => <DeckCard key={deck.id} deck={deck} onStart={onStart} />)}
+              {activeClass.decks.map(deck => (
+                <DeckCard key={deck.id} deck={deck} classColor={activeClass.color} onStart={onStart} />
+              ))}
             </div>
           ) : (
             <>
@@ -131,16 +133,29 @@ export default function OpenQuizDecksScreen({ classes: classDefinitions, decks, 
   )
 }
 
-function DeckCard({ deck, onStart }: { deck: OpenQuizDeck; onStart: (deckId: string) => void }) {
+function DeckCard({ deck, classColor, onStart }: { deck: OpenQuizDeck; classColor: string; onStart: (deckId: string) => void }) {
+  const color = deck.color || classColor || DEFAULT_CLASS_COLOR
+
   return (
-    <button type="button" disabled={deck.questions.length === 0} onClick={() => onStart(deck.id)} className="group rounded-[1.5rem] border border-amber-500/25 bg-amber-500/5 p-6 text-left transition hover:border-amber-400/60 hover:bg-amber-500/10 disabled:cursor-not-allowed disabled:border-zinc-800 disabled:bg-zinc-950 disabled:opacity-60">
+    <button
+      type="button"
+      disabled={deck.questions.length === 0}
+      onClick={() => onStart(deck.id)}
+      className="group rounded-[1.5rem] border p-6 text-left transition hover:brightness-110 disabled:cursor-not-allowed disabled:border-zinc-800 disabled:bg-zinc-950 disabled:opacity-60"
+      style={{ borderColor: `${color}45`, backgroundColor: `${color}0D` }}
+    >
       <div className="mb-5 flex items-start justify-between gap-4">
-        <span className="rounded-full bg-amber-500/15 px-3 py-1.5 text-[11px] font-black uppercase tracking-wider text-amber-200">Respuesta libre</span>
+        <span
+          className="rounded-full px-3 py-1.5 text-[11px] font-black uppercase tracking-wider"
+          style={{ color, backgroundColor: `${color}20` }}
+        >
+          Respuesta libre
+        </span>
         <span className="text-sm font-black text-zinc-500">{deck.questions.length} {deck.questions.length === 1 ? "pregunta" : "preguntas"}</span>
       </div>
       <h2 className="text-2xl font-black tracking-tight">{deck.title}</h2>
       <p className="mt-3 min-h-10 text-sm leading-relaxed text-zinc-400">{deck.description || "Práctica de respuesta libre."}</p>
-      <p className="mt-6 text-sm font-black text-amber-200">{deck.questions.length > 0 ? "Comenzar →" : "Agregá preguntas desde el builder"}</p>
+      <p className="mt-6 text-sm font-black" style={{ color }}>{deck.questions.length > 0 ? "Comenzar →" : "Agregá preguntas desde el builder"}</p>
     </button>
   )
 }
