@@ -12,10 +12,12 @@ type Props = {
   onSelectMultipleChoice: () => void
   onSelectOpenEnded: () => void
   onSelectMyQuizzes: () => void
+  onSelectDestination?: (destination: string) => void
   content?: QuizMenuContent
   editorMode?: boolean
   onEditHeader?: () => void
   onEditCard?: (card: AppMenuCard) => void
+  onReorderCard?: (sourceId: string, targetId: string) => void
 }
 
 export default function QuizModeScreen({
@@ -24,10 +26,12 @@ export default function QuizModeScreen({
   onSelectMultipleChoice,
   onSelectOpenEnded,
   onSelectMyQuizzes,
+  onSelectDestination,
   content = quizMenuContent,
   editorMode = false,
   onEditHeader,
-  onEditCard
+  onEditCard,
+  onReorderCard
 }: Props) {
   const actions: Record<string, () => void> = {
     "multiple-choice": onSelectMultipleChoice,
@@ -38,6 +42,13 @@ export default function QuizModeScreen({
     card.section ? card.section === "main" : card.id === "multiple-choice" || card.id === "open-ended"
   )
   const toolCards = content.cards.filter(card => card.section ? card.section === "tools" : card.id === "my-quizzes")
+  const activateCard = (card: AppMenuCard) => {
+    if (editorMode) return onEditCard?.(card)
+    const destination = card.destination || card.id
+    const action = actions[destination]
+    if (action) action()
+    else onSelectDestination?.(destination)
+  }
 
   return (
     <main className="min-h-screen bg-[#09090b] px-5 py-8 text-white">
@@ -67,8 +78,9 @@ export default function QuizModeScreen({
               key={card.id}
               card={card}
               editorMode={editorMode}
-              onClick={() => editorMode ? onEditCard?.(card) : actions[card.destination || card.id]?.()}
+              onClick={() => activateCard(card)}
               onEdit={() => onEditCard?.(card)}
+              onReorderCard={onReorderCard}
             />
           ))}
         </section>
@@ -85,8 +97,9 @@ export default function QuizModeScreen({
                   card={card}
                   compact
                   editorMode={editorMode}
-                  onClick={() => editorMode ? onEditCard?.(card) : actions[card.destination || card.id]?.()}
+                  onClick={() => activateCard(card)}
                   onEdit={() => onEditCard?.(card)}
+                  onReorderCard={onReorderCard}
                 />
               ))}
             </div>
@@ -102,16 +115,29 @@ function QuizTypeCard({
   compact = false,
   editorMode = false,
   onClick,
-  onEdit
+  onEdit,
+  onReorderCard
 }: {
   card: AppMenuCard
   compact?: boolean
   editorMode?: boolean
   onClick: () => void
   onEdit: () => void
+  onReorderCard?: (sourceId: string, targetId: string) => void
 }) {
   return (
-    <div className="relative">
+    <div
+      className="relative"
+      draggable={editorMode}
+      onDragStart={event => event.dataTransfer.setData("text/odontoma-card", card.id)}
+      onDragOver={event => editorMode && event.preventDefault()}
+      onDrop={event => {
+        if (!editorMode) return
+        event.preventDefault()
+        const sourceId = event.dataTransfer.getData("text/odontoma-card")
+        if (sourceId) onReorderCard?.(sourceId, card.id)
+      }}
+    >
       <button
         type="button"
         disabled={!editorMode && (card.destination || card.id) === "coming-soon"}

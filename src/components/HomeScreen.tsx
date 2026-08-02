@@ -13,6 +13,7 @@ type Props = {
   editorMode?: boolean
   onAddSubject?: () => void
   onEditSubject?: (subject: HomeSubject) => void
+  onReorderSubject?: (sourceId: string, targetId: string) => void
 }
 
 export default function HomeScreen({
@@ -22,7 +23,8 @@ export default function HomeScreen({
   subjects = homeSubjects,
   editorMode = false,
   onAddSubject,
-  onEditSubject
+  onEditSubject,
+  onReorderSubject
 }: Props) {
 
   return (
@@ -133,7 +135,19 @@ export default function HomeScreen({
               subject.destination !== "coming-soon"
 
             return (
-              <div className="relative" key={subject.id}>
+              <div
+                className="relative"
+                key={subject.id}
+                draggable={editorMode}
+                onDragStart={event => event.dataTransfer.setData("text/odontoma-card", subject.id)}
+                onDragOver={event => editorMode && event.preventDefault()}
+                onDrop={event => {
+                  if (!editorMode) return
+                  event.preventDefault()
+                  const sourceId = event.dataTransfer.getData("text/odontoma-card")
+                  if (sourceId) onReorderSubject?.(sourceId, subject.id)
+                }}
+              >
               <button
                 type="button"
                 disabled={!available && !editorMode}

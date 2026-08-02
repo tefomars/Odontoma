@@ -30,6 +30,7 @@ type Props = {
   editorMode?: boolean
   onAddSubject?: () => void
   onEditSubject?: (subject: FlashcardSubjectBlock) => void
+  onReorderSubject?: (sourceId: string, targetId: string) => void
 }
 
 const destinationSubjectTitles: Record<string, string> = {
@@ -45,7 +46,8 @@ export default function FlashcardSubjectScreen({
   subjects = flashcardSubjectBlocks,
   editorMode = false,
   onAddSubject,
-  onEditSubject
+  onEditSubject,
+  onReorderSubject
 }: Props) {
 
   const userTopics =
@@ -340,7 +342,19 @@ export default function FlashcardSubjectScreen({
               const available = subject.destination !== "coming-soon"
               const contentSubjectTitle = destinationSubjectTitles[subject.destination] || subject.title
               return (
-              <div className="relative" key={subject.id}>
+              <div
+                className="relative"
+                key={subject.id}
+                draggable={editorMode}
+                onDragStart={event => event.dataTransfer.setData("text/odontoma-card", subject.id)}
+                onDragOver={event => editorMode && event.preventDefault()}
+                onDrop={event => {
+                  if (!editorMode) return
+                  event.preventDefault()
+                  const sourceId = event.dataTransfer.getData("text/odontoma-card")
+                  if (sourceId) onReorderSubject?.(sourceId, subject.id)
+                }}
+              >
               <button
                 type="button"
                 disabled={!editorMode && !available}

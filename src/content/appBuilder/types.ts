@@ -3,6 +3,7 @@ export type SubjectDestination =
   | "filosofia-de-hayek"
   | "open-quizzes"
   | "coming-soon"
+  | `custom-page:${string}`
 
 export type HomeSubject = {
   id: string
@@ -24,19 +25,14 @@ export type AppMenuCard = {
   section?: "main" | "tools"
 }
 
-export type AppMenuDestination =
-  | "quizzes"
-  | "flashcards"
-  | "multiple-choice"
-  | "open-ended"
-  | "my-quizzes"
-  | "coming-soon"
+export type AppMenuDestination = import("./customPageSchema").CustomPageDestination
 
 export type FlashcardSubjectDestination =
   | "histologia"
   | "proceso-economico-i"
   | "filosofia-de-hayek"
   | "coming-soon"
+  | `custom-page:${string}`
 
 export type FlashcardSubjectBlock = {
   id: string

@@ -10,19 +10,23 @@ import {
 type Props = {
   onSelectQuizzes: () => void
   onSelectFlashcards: () => void
+  onSelectDestination?: (destination: string) => void
   content?: MainMenuContent
   editorMode?: boolean
   onEditHeader?: () => void
   onEditCard?: (card: AppMenuCard) => void
+  onReorderCard?: (sourceId: string, targetId: string) => void
 }
 
 export default function StudyMethodScreen({
   onSelectQuizzes,
   onSelectFlashcards,
+  onSelectDestination,
   content = mainMenuContent,
   editorMode = false,
   onEditHeader,
-  onEditCard
+  onEditCard,
+  onReorderCard
 }: Props) {
   const actions: Record<string, () => void> = {
     quizzes: onSelectQuizzes,
@@ -50,11 +54,29 @@ export default function StudyMethodScreen({
 
           <div className="grid gap-5 md:grid-cols-2">
             {content.cards.map(card => (
-              <div className="relative" key={card.id}>
+              <div
+                className="relative"
+                key={card.id}
+                draggable={editorMode}
+                onDragStart={event => event.dataTransfer.setData("text/odontoma-card", card.id)}
+                onDragOver={event => editorMode && event.preventDefault()}
+                onDrop={event => {
+                  if (!editorMode) return
+                  event.preventDefault()
+                  const sourceId = event.dataTransfer.getData("text/odontoma-card")
+                  if (sourceId) onReorderCard?.(sourceId, card.id)
+                }}
+              >
                 <button
                   type="button"
                   disabled={!editorMode && (card.destination || card.id) === "coming-soon"}
-                  onClick={() => editorMode ? onEditCard?.(card) : actions[card.destination || card.id]?.()}
+                  onClick={() => {
+                    if (editorMode) return onEditCard?.(card)
+                    const destination = card.destination || card.id
+                    const action = actions[destination]
+                    if (action) action()
+                    else onSelectDestination?.(destination)
+                  }}
                   className="group relative h-full w-full overflow-hidden rounded-[1.75rem] border p-6 text-left transition-all hover:scale-[1.01]"
                   style={{
                     borderColor: `${card.accentColor}55`,

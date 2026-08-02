@@ -22,6 +22,8 @@ import OpenQuizDecksScreen from "./components/OpenQuizDecksScreen"
 import OpenQuizSessionScreen from "./components/OpenQuizSessionScreen"
 import QuizHistoryScreen from "./components/QuizHistoryScreen"
 import QuizReviewScreen from "./components/QuizReviewScreen"
+import CustomPageScreen from "./components/CustomPageScreen"
+import { customPages, type CustomPageDestination } from "@/content/appBuilder/customPages"
 
 import packageJson from "../package.json"
 
@@ -148,6 +150,9 @@ export default function App() {
 
   const [selectedStudyMethod, setSelectedStudyMethod] =
     useState<"quizzes" | "flashcards" | null>(null)
+
+  const [selectedCustomPageId, setSelectedCustomPageId] =
+    useState<string | null>(null)
 
   const [selectedSubject, setSelectedSubject] =
     useState<string | null>(null)
@@ -695,6 +700,7 @@ export default function App() {
   function goToMainMenu() {
 
     setSelectedStudyMethod(null)
+    setSelectedCustomPageId(null)
     setSelectedSubject(null)
     setSelectedQuizMode(null)
 
@@ -719,6 +725,11 @@ export default function App() {
   }
 
   function goBack() {
+
+    if (selectedCustomPageId) {
+      setSelectedCustomPageId(null)
+      return
+    }
 
     if (reviewingAttempt) {
       setReviewingAttempt(null)
@@ -825,8 +836,63 @@ export default function App() {
     goToMainMenu()
   }
 
+  function navigateToBuilderDestination(destination: CustomPageDestination | string) {
+    if (destination.startsWith("custom-page:")) {
+      setSelectedCustomPageId(destination.slice("custom-page:".length))
+      return
+    }
+
+    setSelectedCustomPageId(null)
+    if (destination === "home") return goToMainMenu()
+    if (destination === "quizzes") {
+      setSelectedStudyMethod("quizzes")
+      setSelectedQuizMode(null)
+      setSelectedSubject(null)
+      return
+    }
+    if (destination === "flashcards") {
+      setSelectedStudyMethod("flashcards")
+      setSelectedFlashcardSubject(null)
+      return
+    }
+    if (destination === "multiple-choice") {
+      setSelectedStudyMethod("quizzes")
+      setSelectedQuizMode("multiple-choice")
+      setSelectedSubject(null)
+      return
+    }
+    if (destination === "open-ended") {
+      setSelectedStudyMethod("quizzes")
+      setSelectedQuizMode("open-ended")
+      setSelectedSubject("open-quizzes")
+      setActiveOpenQuizDeckId(null)
+      return
+    }
+    if (destination === "my-quizzes") {
+      setSelectedStudyMethod("quizzes")
+      setSelectedQuizMode("my-quizzes")
+      setSelectedSubject("my-quizzes")
+      setActiveUserQuizDeckId(null)
+    }
+  }
+
   const question =
     sessionQuestions[current]
+
+  const selectedCustomPage = customPages.find(page => page.id === selectedCustomPageId)
+
+  if (selectedCustomPage) {
+    return (
+      <ScreenTransition screenKey={`custom-page-${selectedCustomPage.id}`}>
+        <CustomPageScreen
+          page={selectedCustomPage}
+          onBack={() => setSelectedCustomPageId(null)}
+          onMainMenu={goToMainMenu}
+          onNavigate={navigateToBuilderDestination}
+        />
+      </ScreenTransition>
+    )
+  }
 
   if (reviewingAttempt) {
     return (
@@ -864,6 +930,7 @@ export default function App() {
           <StudyMethodScreen
             onSelectQuizzes={() => setSelectedStudyMethod("quizzes")}
             onSelectFlashcards={() => setSelectedStudyMethod("flashcards")}
+            onSelectDestination={navigateToBuilderDestination}
           />
           <AppVersion />
         </>
@@ -885,7 +952,10 @@ export default function App() {
               setSelectedFlashcardSubject("my")
               setShowMyFlashcardTopics(true)
             }}
-            onSelectSubject={(subject) => setSelectedFlashcardSubject(subject)}
+            onSelectSubject={(subject) => {
+              if (subject.startsWith("custom-page:")) navigateToBuilderDestination(subject)
+              else setSelectedFlashcardSubject(subject)
+            }}
           />
         </ScreenTransition>
 
@@ -1045,6 +1115,7 @@ export default function App() {
             setSelectedSubject("my-quizzes")
             setActiveUserQuizDeckId(null)
           }}
+          onSelectDestination={navigateToBuilderDestination}
         />
       </ScreenTransition>
 
@@ -1072,6 +1143,10 @@ export default function App() {
           onBack={() => setSelectedQuizMode(null)}
           onMainMenu={goToMainMenu}
           onSelectSubject={(subject) => {
+            if (subject.startsWith("custom-page:")) {
+              navigateToBuilderDestination(subject)
+              return
+            }
             setSelectedSubject(subject)
             setSelectedChapters([])
             setQuestionCount(10)

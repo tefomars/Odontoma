@@ -7,6 +7,7 @@ import "./builder.css"
 import OpenQuizContentEditor from "./OpenQuizContentEditor"
 import LiveAppBuilder from "./LiveAppBuilder"
 import UniversalUiEditor from "./UniversalUiEditor"
+import CustomPagesEditor from "./CustomPagesEditor"
 import type { BuilderTheme } from "./theme"
 
 type NumericThemeKey = {
@@ -112,7 +113,7 @@ function getDraft() {
 
 function BuilderApp() {
   const [activePanel, setActivePanel] =
-    useState<"app" | "universal" | "appearance" | "content">("app")
+    useState<"app" | "pages" | "universal" | "appearance" | "content">("app")
 
   const [theme, setTheme] = useState<BuilderTheme>(getDraft)
   const [appliedTheme, setAppliedTheme] = useState<BuilderTheme>(defaults)
@@ -220,16 +221,20 @@ function BuilderApp() {
           <p className="eyebrow">ODONTOMA · VISUAL BUILDER</p>
           <h1>
             {activePanel === "app"
-              ? "Edita Odontoma directamente."
+              ? "Construye la estructura de Odontoma."
+              : activePanel === "pages"
+                ? "Crea pantallas enteras con bloques."
               : activePanel === "universal"
-                ? "Edita cualquier pantalla de Odontoma."
+                ? "Ajustes avanzados de cualquier pantalla."
               : activePanel === "appearance"
                 ? "Edita el estilo sin tocar código."
                 : "Crea contenido sin tocar código."}
           </h1>
           <p className="intro">
             {activePanel === "app"
-              ? "Usa el + y los lápices sobre la interfaz real."
+              ? "Agrega, duplica, ordena y conecta los menús reales."
+              : activePanel === "pages"
+                ? "Combina títulos, texto, tarjetas, botones y separadores."
               : activePanel === "universal"
                 ? "Navega por la app y selecciona cualquier texto o bloque."
               : activePanel === "appearance"
@@ -250,14 +255,21 @@ function BuilderApp() {
           onClick={() => setActivePanel("app")}
         >
           <span>▣</span>
-          Editar la app
+          Estructura
         </button>
         <button
-          className={activePanel === "universal" ? "active" : ""}
-          onClick={() => setActivePanel("universal")}
+          className={activePanel === "pages" ? "active" : ""}
+          onClick={() => setActivePanel("pages")}
         >
-          <span>◎</span>
-          Toda la UI
+          <span>▤</span>
+          Pantallas
+        </button>
+        <button
+          className={activePanel === "content" ? "active" : ""}
+          onClick={() => setActivePanel("content")}
+        >
+          <span>✎</span>
+          Contenido
         </button>
         <button
           className={activePanel === "appearance" ? "active" : ""}
@@ -267,16 +279,18 @@ function BuilderApp() {
           Apariencia
         </button>
         <button
-          className={activePanel === "content" ? "active" : ""}
-          onClick={() => setActivePanel("content")}
+          className={activePanel === "universal" ? "active" : ""}
+          onClick={() => setActivePanel("universal")}
         >
-          <span>✎</span>
-          Contenido · Preguntas abiertas
+          <span>◎</span>
+          Avanzado
         </button>
       </nav>
 
       {activePanel === "app" ? (
         <LiveAppBuilder />
+      ) : activePanel === "pages" ? (
+        <CustomPagesEditor />
       ) : activePanel === "universal" ? (
         <UniversalUiEditor />
       ) : activePanel === "appearance" ? (

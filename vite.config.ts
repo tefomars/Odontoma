@@ -12,6 +12,7 @@ import type { Plugin } from "vite"
 
 import { renderBuilderCss, type BuilderTheme } from "./src/builder/theme.ts"
 import { validateUiOverrides } from "./src/content/appBuilder/uiOverrideSchema.ts"
+import { validateCustomPages } from "./src/content/appBuilder/customPageSchema.ts"
 
 type OpenQuizQuestion = {
   id: string
@@ -122,6 +123,11 @@ const uiOverridesPath = path.resolve(
 const flashcardSubjectsPath = path.resolve(
   import.meta.dirname,
   "./src/content/appBuilder/flashcard-subjects.json"
+)
+
+const customPagesPath = path.resolve(
+  import.meta.dirname,
+  "./src/content/appBuilder/custom-pages.json"
 )
 
 function isLoopback(address?: string) {
@@ -299,7 +305,9 @@ function validateHomeContent(value: unknown): value is HomeContent {
     return false
   }
 
-  const menuDestinations = new Set(["quizzes", "flashcards", "multiple-choice", "open-ended", "my-quizzes", "coming-soon"])
+  const menuDestinations = new Set(["home", "quizzes", "flashcards", "multiple-choice", "open-ended", "my-quizzes", "coming-soon"])
+  const validMenuDestination = (destination?: string) => destination === undefined ||
+    menuDestinations.has(destination) || /^custom-page:[a-z0-9][a-z0-9-]{0,149}$/i.test(destination)
   const validCards = (cards: AppMenuCard[]) => cards.length <= 100 &&
     cards.every(card =>
       validText(card.id, 80, true) &&
@@ -308,7 +316,7 @@ function validateHomeContent(value: unknown): value is HomeContent {
       validText(card.subtitle, 800, true) &&
       validText(card.symbol, 20, true) &&
       validColor(card.accentColor) &&
-      (card.destination === undefined || menuDestinations.has(card.destination)) &&
+      validMenuDestination(card.destination) &&
       (card.section === undefined || card.section === "main" || card.section === "tools")
     )
 
@@ -330,7 +338,7 @@ function validateHomeContent(value: unknown): value is HomeContent {
       !validText(subject.subtitle, 800) ||
       !validText(subject.status, 80, true) ||
       !validColor(subject.accentColor) ||
-      !destinations.has(subject.destination)
+      !(destinations.has(subject.destination) || /^custom-page:[a-z0-9][a-z0-9-]{0,149}$/i.test(subject.destination))
     ) {
       return false
     }
@@ -352,7 +360,7 @@ function validateFlashcardSubjects(value: unknown): value is FlashcardSubjectBlo
       !validText(subject.description, 800, true) ||
       !validText(subject.accent, 120, true) ||
       !validColor(subject.accentColor) ||
-      !destinations.has(subject.destination)
+      !(destinations.has(subject.destination) || /^custom-page:[a-z0-9][a-z0-9-]{0,149}$/i.test(subject.destination))
     ) return false
     ids.add(subject.id)
     return true
@@ -376,6 +384,7 @@ function localBuilderPlugin(): Plugin {
           pathname !== "/__odontoma-builder/open-quizzes" &&
           pathname !== "/__odontoma-builder/home-content" &&
           pathname !== "/__odontoma-builder/flashcard-subjects" &&
+          pathname !== "/__odontoma-builder/custom-pages" &&
           pathname !== "/__odontoma-builder/ui-overrides"
         ) {
           next()
@@ -410,6 +419,8 @@ function localBuilderPlugin(): Plugin {
                   ? homeContentPath
                   : pathname === "/__odontoma-builder/flashcard-subjects"
                     ? flashcardSubjectsPath
+                    : pathname === "/__odontoma-builder/custom-pages"
+                      ? customPagesPath
                   : pathname === "/__odontoma-builder/ui-overrides"
                     ? uiOverridesPath
                   : builderThemePath,
@@ -434,6 +445,7 @@ function localBuilderPlugin(): Plugin {
             pathname === "/__odontoma-builder/open-quizzes" ||
             pathname === "/__odontoma-builder/home-content" ||
             pathname === "/__odontoma-builder/flashcard-subjects" ||
+            pathname === "/__odontoma-builder/custom-pages" ||
             pathname === "/__odontoma-builder/ui-overrides"
               ? 5_000_000
               : 20_000
@@ -493,6 +505,19 @@ function localBuilderPlugin(): Plugin {
                 `${JSON.stringify(value, null, 2)}\n`
               )
 
+              response.setHeader("Content-Type", "application/json")
+              response.end(JSON.stringify({ ok: true }))
+              return
+            }
+
+            if (pathname === "/__odontoma-builder/custom-pages") {
+              if (!validateCustomPages(value)) {
+                response.statusCode = 400
+                response.end("Pantallas personalizadas inválidas")
+                return
+              }
+
+              await fs.writeFile(customPagesPath, `${JSON.stringify(value, null, 2)}\n`)
               response.setHeader("Content-Type", "application/json")
               response.end(JSON.stringify({ ok: true }))
               return
