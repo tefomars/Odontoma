@@ -172,7 +172,7 @@ export default function UniversalUiEditor() {
     const frame = iframeRef.current
     const attach = () => {
       const document = frame?.contentDocument
-      if (!document) return () => undefined
+      if (!document?.body) return () => undefined
       applyPreviewOverrides(document, overrides)
 
       const handlePointerDown = (event: PointerEvent) => {
