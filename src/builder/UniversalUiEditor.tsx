@@ -17,6 +17,10 @@ type SelectedElement = {
   borderRadius: number
 }
 
+function cloneSelector(id: string) {
+  return `[data-ui-clone-id="${CSS.escape(id)}"]`
+}
+
 function readDraft() {
   try {
     const parsed: unknown = JSON.parse(localStorage.getItem(UI_DRAFT_KEY) || "null")
@@ -45,6 +49,14 @@ function cssColorToHex(value: string, document: Document) {
 }
 
 function pathFromRoot(element: HTMLElement, root: HTMLElement) {
+  const cloneRoot = element.closest<HTMLElement>("[data-ui-clone-id]")
+  if (cloneRoot && cloneRoot !== root && root.contains(cloneRoot)) {
+    const prefix = cloneSelector(cloneRoot.dataset.uiCloneId || "")
+    if (element === cloneRoot) return prefix
+    const suffix = pathFromRoot(element, cloneRoot)
+    return suffix ? `${prefix} > ${suffix}` : prefix
+  }
+
   const parts: string[] = []
   let current: HTMLElement | null = element
 
@@ -59,6 +71,52 @@ function pathFromRoot(element: HTMLElement, root: HTMLElement) {
   }
 
   return parts.join(" > ")
+}
+
+function createPreviewClone(root: HTMLElement, source: HTMLElement, override: UiOverride) {
+  const existing = root.querySelector<HTMLElement>(cloneSelector(override.id))
+  if (existing) return existing
+
+  const clone = source.cloneNode(true) as HTMLElement
+  clone.dataset.uiCloneId = override.id
+  clone.removeAttribute("id")
+  clone.querySelectorAll("[id]").forEach(element => element.removeAttribute("id"))
+  clone.addEventListener("click", event => {
+    event.preventDefault()
+    event.stopPropagation()
+    source.click()
+  })
+  source.insertAdjacentElement("afterend", clone)
+  return clone
+}
+
+function applyPreviewOverrides(document: Document, overrides: UiOverride[]) {
+  const roots = Array.from(document.querySelectorAll<HTMLElement>("[data-screen-key]"))
+
+  for (const override of overrides) {
+    if (!override.cloneOf) continue
+    const root = roots.find(item => item.dataset.screenKey === override.screenKey)
+    const source = root?.querySelector<HTMLElement>(override.cloneOf)
+    if (root && source) createPreviewClone(root, source, override)
+  }
+
+  for (const override of overrides) {
+    const root = roots.find(item => item.dataset.screenKey === override.screenKey)
+    if (!root) continue
+    try {
+      const element = root.querySelector<HTMLElement>(override.selector)
+      if (!element) continue
+      if (override.hidden === true) element.style.setProperty("display", "none", "important")
+      if (override.hidden === false) element.style.removeProperty("display")
+      if (override.text !== undefined) element.textContent = override.text
+      if (override.textColor) element.style.setProperty("color", override.textColor, "important")
+      if (override.backgroundColor) element.style.setProperty("background-color", override.backgroundColor, "important")
+      if (override.borderColor) element.style.setProperty("border-color", override.borderColor, "important")
+      if (override.borderRadius !== undefined) element.style.setProperty("border-radius", `${override.borderRadius}px`, "important")
+    } catch {
+      // Un selector antiguo no debe romper la vista editable.
+    }
+  }
 }
 
 function findTextTarget(start: HTMLElement, root: HTMLElement) {
@@ -85,6 +143,7 @@ export default function UniversalUiEditor() {
   const [status, setStatus] = useState("Cargando personalizaciones…")
   const [loaded, setLoaded] = useState(false)
   const [saving, setSaving] = useState(false)
+  const [currentScreenKey, setCurrentScreenKey] = useState<string | null>(null)
 
   useEffect(() => {
     fetch("/__odontoma-builder/ui-overrides")
@@ -114,6 +173,7 @@ export default function UniversalUiEditor() {
     const attach = () => {
       const document = frame?.contentDocument
       if (!document) return () => undefined
+      applyPreviewOverrides(document, overrides)
 
       const handleClick = (event: MouseEvent) => {
         if (mode === "navigate") return
@@ -127,6 +187,7 @@ export default function UniversalUiEditor() {
           setStatus("Esta vista aún no tiene una raíz editable. Recargá el editor si acaba de abrirse.")
           return
         }
+        setCurrentScreenKey(root.dataset.screenKey || null)
 
         const target = mode === "text"
           ? findTextTarget(rawTarget, root)
@@ -160,7 +221,17 @@ export default function UniversalUiEditor() {
       }
 
       document.addEventListener("click", handleClick, true)
-      return () => document.removeEventListener("click", handleClick, true)
+      const syncScreen = () => {
+        const root = document.querySelector<HTMLElement>("[data-screen-key]")
+        setCurrentScreenKey(root?.dataset.screenKey || null)
+      }
+      syncScreen()
+      const observer = new MutationObserver(syncScreen)
+      observer.observe(document.body, { childList: true, subtree: true })
+      return () => {
+        document.removeEventListener("click", handleClick, true)
+        observer.disconnect()
+      }
     }
 
     let detach = attach()
@@ -181,6 +252,8 @@ export default function UniversalUiEditor() {
   const selectedOverride = selection
     ? overrides.find(item => item.screenKey === selection.screenKey && item.selector === selection.selector)
     : undefined
+  const hiddenBlocks = overrides.filter(item =>
+    item.screenKey === currentScreenKey && item.hidden === true)
 
   function updateSelection(changes: Partial<UiOverride>) {
     if (!selection) return
@@ -213,6 +286,62 @@ export default function UniversalUiEditor() {
     selectedNodeRef.current = null
     iframeRef.current?.contentWindow?.location.reload()
     setStatus("Personalización quitada del borrador.")
+  }
+
+  function hideSelectedBlock() {
+    if (!selection || !selectedNodeRef.current) return
+    const label = selection.label
+    updateSelection({ hidden: true })
+    selectedNodeRef.current.removeAttribute("data-universal-editor-selected")
+    selectedNodeRef.current = null
+    setSelection(null)
+    setStatus(`“${label}” quedó oculto en el borrador. Podés restaurarlo desde el panel.`)
+  }
+
+  function restoreHiddenBlock(override: UiOverride) {
+    setOverrides(items => items.map(item =>
+      item.id === override.id ? { ...item, hidden: false } : item
+    ))
+    const document = iframeRef.current?.contentDocument
+    const root = document?.querySelector<HTMLElement>(`[data-screen-key="${CSS.escape(override.screenKey)}"]`)
+    try {
+      root?.querySelector<HTMLElement>(override.selector)?.style.removeProperty("display")
+    } catch {
+      // El botón de restaurar sigue siendo seguro aunque el selector ya no exista.
+    }
+    setStatus(`“${override.label}” volvió a mostrarse en el borrador.`)
+  }
+
+  function duplicateSelectedBlock() {
+    if (!selection || !selectedNodeRef.current) return
+    const source = selectedNodeRef.current
+    const root = source.closest<HTMLElement>("[data-screen-key]")
+    if (!root) return
+    const id = createId()
+    const override: UiOverride = {
+      id,
+      screenKey: selection.screenKey,
+      selector: cloneSelector(id),
+      label: `Copia de ${selection.label}`,
+      cloneOf: selection.selector
+    }
+    const clone = createPreviewClone(root, source, override)
+    const computed = iframeRef.current?.contentWindow?.getComputedStyle(clone)
+    setOverrides(items => [...items, override])
+    source.removeAttribute("data-universal-editor-selected")
+    clone.setAttribute("data-universal-editor-selected", "true")
+    selectedNodeRef.current = clone
+    setSelection({
+      screenKey: selection.screenKey,
+      selector: override.selector,
+      label: override.label,
+      originalText: clone.textContent?.trim() || "Bloque duplicado",
+      textColor: computed ? cssColorToHex(computed.color, root.ownerDocument) : "#ffffff",
+      backgroundColor: computed ? cssColorToHex(computed.backgroundColor, root.ownerDocument) : "#000000",
+      borderColor: computed ? cssColorToHex(computed.borderColor, root.ownerDocument) : "#27272a",
+      borderRadius: computed ? Math.round(Number.parseFloat(computed.borderRadius) || 0) : 0
+    })
+    setStatus("Bloque duplicado. Conserva la misma acción del original; ahora podés cambiar su texto y apariencia.")
   }
 
   async function applyOverrides() {
@@ -255,7 +384,7 @@ export default function UniversalUiEditor() {
           <div className="universal-mode-switcher">
             <button className={mode === "navigate" ? "active" : ""} onClick={() => setMode("navigate")}>Navegar</button>
             <button className={mode === "text" ? "active" : ""} onClick={() => setMode("text")}>Editar texto</button>
-            <button className={mode === "container" ? "active" : ""} onClick={() => setMode("container")}>Editar bloque</button>
+            <button className={mode === "container" ? "active" : ""} onClick={() => setMode("container")}>Bloques</button>
           </div>
         </div>
         <p className="universal-hint">
@@ -263,7 +392,7 @@ export default function UniversalUiEditor() {
             ? "Usá la app normalmente hasta llegar a la pantalla que querés modificar."
             : mode === "text"
               ? "Pulsá un título, descripción, etiqueta o símbolo."
-              : "Pulsá un botón, tarjeta o sección para cambiar su fondo, borde y forma."}
+              : "Pulsá un botón, tarjeta o sección para editarlo, duplicarlo u ocultarlo."}
         </p>
         <div className="universal-frame-wrap">
           <iframe ref={iframeRef} src="/?builder-preview=1" title="Odontoma editable" />
@@ -291,13 +420,29 @@ export default function UniversalUiEditor() {
                   <InspectorField label="Color del fondo"><ColorInput value={selectedOverride?.backgroundColor || selection.backgroundColor} onChange={backgroundColor => updateSelection({ backgroundColor })} /></InspectorField>
                   <InspectorField label="Color del borde"><ColorInput value={selectedOverride?.borderColor || selection.borderColor} onChange={borderColor => updateSelection({ borderColor })} /></InspectorField>
                   <InspectorField label="Radio"><input type="range" min="0" max="120" value={selectedOverride?.borderRadius ?? selection.borderRadius} onChange={event => updateSelection({ borderRadius: Number(event.target.value) })} /><code>{selectedOverride?.borderRadius ?? selection.borderRadius}px</code></InspectorField>
+                  <div className="structure-actions">
+                    <button type="button" onClick={duplicateSelectedBlock}>＋ Duplicar bloque</button>
+                    <button type="button" className="danger" onClick={hideSelectedBlock}>− Ocultar bloque</button>
+                  </div>
+                  <p className="destination-help">Un bloque duplicado conserva la acción del original. Para agregar contenido con una función nueva, usá el editor especializado correspondiente.</p>
                 </>
               )}
               {selectedOverride && <button className="inspector-delete" onClick={removeSelectedOverride}>Quitar esta personalización</button>}
             </div>
           </>
         ) : (
-          <div className="inspector-empty"><span>◎</span><h2>Navegá y seleccioná</h2><p>Primero usá <strong>Navegar</strong>. Después elegí <strong>Editar texto</strong> o <strong>Editar bloque</strong>.</p></div>
+          <div className="inspector-empty"><span>◎</span><h2>Navegá y seleccioná</h2><p>Primero usá <strong>Navegar</strong>. Después elegí <strong>Editar texto</strong> o <strong>Bloques</strong>.</p></div>
+        )}
+        {hiddenBlocks.length > 0 && (
+          <section className="hidden-blocks-panel">
+            <p className="eyebrow">OCULTOS EN ESTA PANTALLA</p>
+            {hiddenBlocks.map(item => (
+              <button type="button" key={item.id} onClick={() => restoreHiddenBlock(item)}>
+                <span>{item.label}</span>
+                <strong>Restaurar</strong>
+              </button>
+            ))}
+          </section>
         )}
         <footer className="inspector-actions">
           <div className="inspector-status"><span className="status-dot active" /><p>{status}</p></div>

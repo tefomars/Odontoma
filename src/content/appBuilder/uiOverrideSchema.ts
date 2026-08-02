@@ -8,6 +8,8 @@ export type UiOverride = {
   backgroundColor?: string
   borderColor?: string
   borderRadius?: number
+  hidden?: boolean
+  cloneOf?: string
 }
 
 export function isValidUiOverride(value: unknown): value is UiOverride {
@@ -23,6 +25,9 @@ export function isValidUiOverride(value: unknown): value is UiOverride {
     validColor(item.textColor) &&
     validColor(item.backgroundColor) &&
     validColor(item.borderColor) &&
+    (item.hidden === undefined || typeof item.hidden === "boolean") &&
+    (item.cloneOf === undefined ||
+      (typeof item.cloneOf === "string" && item.cloneOf.length > 0 && item.cloneOf.length <= 1200)) &&
     (item.borderRadius === undefined ||
       (Number.isFinite(item.borderRadius) && item.borderRadius >= 0 && item.borderRadius <= 120))
 }
