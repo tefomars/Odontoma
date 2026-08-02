@@ -147,6 +147,8 @@ export default function QuizScreen({
     function handleKeyboardShortcut(event: KeyboardEvent) {
       const target = event.target as HTMLElement | null
 
+      if (event.repeat) return
+
       if (target?.closest("input, textarea, select, [contenteditable='true']")) {
         return
       }
@@ -163,9 +165,17 @@ export default function QuizScreen({
         return
       }
 
-      if (event.key === "Enter" && !checked && selected.length > 0) {
+      const isActionKey = event.key === "Enter" || event.key === " " || event.code === "Space"
+
+      if (isActionKey && !checked && selected.length > 0) {
         event.preventDefault()
         checkAnswer()
+        return
+      }
+
+      if (isActionKey && checked) {
+        event.preventDefault()
+        next()
       }
     }
 
