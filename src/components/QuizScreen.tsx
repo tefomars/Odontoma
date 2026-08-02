@@ -284,26 +284,27 @@ export default function QuizScreen({
             </button>
           </div>
 
-          <div>
+          <div className="quiz-brand-block w-full min-w-0">
 
             <h1 className="
               text-3xl
               font-black
               tracking-tight
-              mb-2
             ">
               <span className="inline-flex items-center gap-3"><img src={logoImage} alt="Odontoma" className="h-10 w-10 rounded-xl object-contain" />Odontoma</span>
             </h1>
 
-            <p className="text-zinc-500">
-              {getChapterTitle(question.chapter)}
-            </p>
+            <div className="quiz-chapter-score mt-2 flex w-full min-w-0 items-center justify-between gap-4">
+              <p className="min-w-0 text-zinc-500">
+                {getChapterTitle(question.chapter)}
+              </p>
+
+              <Badge className="shrink-0" variant="outline">
+                Score {score}
+              </Badge>
+            </div>
 
           </div>
-
-          <Badge variant="outline">
-            Score {score}
-          </Badge>
 
         </div>
 
