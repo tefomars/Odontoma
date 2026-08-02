@@ -284,6 +284,7 @@ function validateHomeContent(value: unknown): value is HomeContent {
   const destinations = new Set([
     "histologia",
     "filosofia-de-hayek",
+    "microbiologia",
     "open-quizzes",
     "coming-soon"
   ])

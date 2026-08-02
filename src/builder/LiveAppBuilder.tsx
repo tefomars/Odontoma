@@ -42,7 +42,8 @@ const destinationOptions: Array<{
   { value: "coming-soon", label: "Próximamente", description: "La tarjeta se muestra desactivada." },
   { value: "open-quizzes", label: "Preguntas abiertas", description: "Abre los apartados de respuesta libre." },
   { value: "histologia", label: "Histología existente", description: "Abre los capítulos actuales de Histología." },
-  { value: "filosofia-de-hayek", label: "Filosofía existente", description: "Abre los capítulos actuales de Hayek." }
+  { value: "filosofia-de-hayek", label: "Filosofía existente", description: "Abre los capítulos actuales de Hayek." },
+  { value: "microbiologia", label: "Microbiología", description: "Abre los capítulos y quizzes de Microbiología." }
 ]
 
 const mainMenuDestinationOptions: Array<{ value: AppMenuDestination; label: string }> = [

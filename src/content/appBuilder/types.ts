@@ -1,6 +1,7 @@
 export type SubjectDestination =
   | "histologia"
   | "filosofia-de-hayek"
+  | "microbiologia"
   | "open-quizzes"
   | "coming-soon"
   | `custom-page:${string}`

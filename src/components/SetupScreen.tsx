@@ -356,24 +356,26 @@ export default function SetupScreen({
 
               </div>
 
-              <button
-                type="button"
-                onClick={onMastery}
-                className="
-                  rounded-2xl
-                  border
-                  border-emerald-500/30
-                  bg-emerald-500/10
-                  px-5
-                  py-3
-                  text-sm
-                  font-black
-                  text-emerald-300
-                  hover:bg-emerald-500/20
-                "
-              >
-                Mastery
-              </button>
+              {onMastery && (
+                <button
+                  type="button"
+                  onClick={onMastery}
+                  className="
+                    rounded-2xl
+                    border
+                    border-emerald-500/30
+                    bg-emerald-500/10
+                    px-5
+                    py-3
+                    text-sm
+                    font-black
+                    text-emerald-300
+                    hover:bg-emerald-500/20
+                  "
+                >
+                  Mastery
+                </button>
+              )}
 
             </div>
 
@@ -933,10 +935,13 @@ export default function SetupScreen({
 
           <button
             type="button"
-            onClick={() => setPhoneChaptersOpen(true)}
-            className="w-full rounded-[1.5rem] bg-violet-500 px-5 py-4 text-base font-black text-white shadow-lg shadow-violet-500/25"
+            onClick={() => chapters.length > 0 && setPhoneChaptersOpen(true)}
+            disabled={chapters.length === 0}
+            className="w-full rounded-[1.5rem] bg-violet-500 px-5 py-4 text-base font-black text-white shadow-lg shadow-violet-500/25 disabled:cursor-not-allowed disabled:bg-zinc-800 disabled:text-zinc-500 disabled:shadow-none"
           >
-            Elegir capítulos · {selectedChapters.length} seleccionados
+            {chapters.length > 0
+              ? `Elegir capítulos · ${selectedChapters.length} seleccionados`
+              : "Aún no hay capítulos cargados"}
           </button>
         </section>
 
@@ -1092,6 +1097,14 @@ export default function SetupScreen({
             pr-2
             pb-10
           ">
+
+            {chapters.length === 0 && (
+              <div className="rounded-[1.5rem] border border-dashed border-teal-500/40 bg-teal-500/5 p-8 text-center">
+                <p className="text-sm font-black uppercase tracking-[0.2em] text-teal-300">En preparación</p>
+                <h3 className="mt-3 text-2xl font-black">Esta materia está lista para recibir contenido</h3>
+                <p className="mt-3 text-sm leading-relaxed text-zinc-400">Los capítulos y preguntas aparecerán aquí conforme se agreguen.</p>
+              </div>
+            )}
 
             {chapters.map(chapter => {
 

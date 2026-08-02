@@ -7,7 +7,7 @@
         "id": "quizzes",
         "eyebrow": "Preguntas",
         "title": "Quizzes",
-        "subtitle": "Practicá con preguntas, filtros por capítulo, dificultad y modo de repaso.",
+        "subtitle": "Preguntas de opción múltiple y exámenes escritos.",
         "symbol": "?",
         "accentColor": "#8b5cf6"
       },
@@ -23,15 +23,15 @@
   },
   "quizMenu": {
     "eyebrow": "Quizzes",
-    "title": "¿Cómo querés responder?",
-    "subtitle": "Elegí el tipo de práctica. Tus quizzes personales quedan disponibles abajo.",
+    "title": "¿Cómo te quieres evaluar?",
+    "subtitle": "Elige el tipo de exámen. Tus quizzes personales se hallan en el menú de hasta abajo.",
     "toolsLabel": "Tus herramientas",
     "cards": [
       {
         "id": "multiple-choice",
         "eyebrow": "Corrección automática",
         "title": "Opción múltiple",
-        "subtitle": "Elegí la respuesta correcta entre distractores y recibí el resultado al instante.",
+        "subtitle": "Elige la respuesta correcta entre los tantos distractores y recibe retroalimentación instantánea.",
         "symbol": "A B C",
         "accentColor": "#8b5cf6"
       },
@@ -39,7 +39,7 @@
         "id": "open-ended",
         "eyebrow": "Respuesta libre",
         "title": "Respuestas abiertas",
-        "subtitle": "Escribí con tus palabras, compará con la respuesta modelo y calificá tu desempeño.",
+        "subtitle": "Escribe las respuestas en tus palabras y compáralas con la respuesta correcta. Luego, evalúa tu desempeño.",
         "symbol": "✎",
         "accentColor": "#f59e0b"
       },
@@ -47,7 +47,7 @@
         "id": "my-quizzes",
         "eyebrow": "Crear e importar",
         "title": "My quizzes",
-        "subtitle": "Creá quizzes propios, importá preguntas desde texto o archivo y exportá cada deck.",
+        "subtitle": "Crea tus propios quizzes, importá preguntas desde texto o archivo y exportá cada deck.",
         "symbol": "+",
         "accentColor": "#10b981"
       }
@@ -69,6 +69,14 @@
       "status": "Disponible",
       "accentColor": "#4f46e5",
       "destination": "filosofia-de-hayek"
+    },
+    {
+      "id": "microbiologia",
+      "title": "Microbiología",
+      "subtitle": "Capítulos del libro de Negroni",
+      "status": "En preparación",
+      "accentColor": "#0d9488",
+      "destination": "microbiologia"
     }
   ]
 }

@@ -46,6 +46,15 @@ import {
 } from "@/content/filosofia-de-hayek/chapters"
 
 import {
+  questions as microbiologiaQuestions,
+  questionCountsByChapter as microbiologiaQuestionCountsByChapter
+} from "@/content/microbiologia"
+
+import {
+  chapters as microbiologiaChapters
+} from "@/content/microbiologia/chapters"
+
+import {
   loadStats,
   saveStats
 } from "@/lib/stats"
@@ -268,22 +277,30 @@ export default function App() {
   const quizQuestions =
     selectedSubject === "filosofia-de-hayek"
       ? hayekQuestions
-      : histologiaQuestions
+      : selectedSubject === "microbiologia"
+        ? microbiologiaQuestions
+        : histologiaQuestions
 
   const quizChapters =
     selectedSubject === "filosofia-de-hayek"
       ? hayekChapters
-      : histologiaChapters
+      : selectedSubject === "microbiologia"
+        ? microbiologiaChapters
+        : histologiaChapters
 
   const quizQuestionCountsByChapter =
     selectedSubject === "filosofia-de-hayek"
       ? hayekQuestionCountsByChapter
-      : histologiaQuestionCountsByChapter
+      : selectedSubject === "microbiologia"
+        ? microbiologiaQuestionCountsByChapter
+        : histologiaQuestionCountsByChapter
 
   const quizTitle =
     selectedSubject === "filosofia-de-hayek"
       ? "Filosofía de Hayek"
-      : "Histología"
+      : selectedSubject === "microbiologia"
+        ? "Microbiología"
+        : "Histología"
 
   const availableQuestions =
     useMemo(() => {
@@ -505,7 +522,9 @@ export default function App() {
       const currentQuestionBank =
         pausedSubject === "filosofia-de-hayek"
           ? hayekQuestions
-          : histologiaQuestions
+          : pausedSubject === "microbiologia"
+            ? microbiologiaQuestions
+            : histologiaQuestions
       const restoredQuestions =
         pausedSubject === "my-quizzes"
           ? savedQuestions
