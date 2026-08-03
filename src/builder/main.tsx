@@ -9,6 +9,9 @@ import LiveAppBuilder from "./LiveAppBuilder"
 import UniversalUiEditor from "./UniversalUiEditor"
 import CustomPagesEditor from "./CustomPagesEditor"
 import type { BuilderTheme } from "./theme"
+import { installZoomLock } from "../lib/zoomLock"
+
+installZoomLock()
 
 type NumericThemeKey = {
   [Key in keyof BuilderTheme]: BuilderTheme[Key] extends number ? Key : never

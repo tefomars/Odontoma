@@ -55,7 +55,7 @@
         {
           "id": "open-question-1785610524841-5c73818b-f3ac-405c-b156-84076fcf47b6",
           "prompt": "Cuáles son las tres reacciones irreversibles/control de la glucólisis y qué enzima media cada una?",
-          "modelAnswer": "Reacción 1: Glucosa --Hexoquinasa-1---> Glucosa-6-Fosfato\nReacción 3: Fructosa-3-fosfato --Fosfofructoquinasa-1--> Fructosa-1,3-bisfosfato\nReacción 9: Fosfoenolpiruvato --Piruvato quinasa--> Piruvato",
+          "modelAnswer": "Reacción 1: Glucosa --Hexoquinasa-1---> Glucosa-6-Fosfato\nReacción 3: Fructosa-6-fosfato --Fosfofructoquinasa-1--> Fructosa-1,6-bisfosfato\nReacción 9: Fosfoenolpiruvato --Piruvato quinasa--> Piruvato",
           "acceptedPoints": [],
           "explanation": "",
           "source": ""
@@ -95,7 +95,7 @@
         {
           "id": "open-question-1785610927056-0e1d2896-a141-4942-8838-2d57f54a532d",
           "prompt": "Cuáles son los tres posibles destinos de una glucosa al entrar a la célula?",
-          "modelAnswer": "Almacenamiento como glucógeno\nOxidación por la glucólisis\nLanzadera de las pentosas fosfato",
+          "modelAnswer": "Almacenamiento como glucógeno\nOxidación por la glucólisis\nVía de las pentosas fosfato",
           "acceptedPoints": [],
           "explanation": "",
           "source": ""
@@ -169,7 +169,7 @@
         {
           "id": "open-question-1785611679930-e3261b1d-077c-46a8-a8ad-c06a9b1bad36",
           "prompt": "Dónde sucede la reacción intermedia entre glucólisis y el ciclo de krebs?",
-          "modelAnswer": "En la mitocondria",
+          "modelAnswer": "En la matriz mitocondrial",
           "acceptedPoints": [],
           "explanation": "",
           "source": ""
