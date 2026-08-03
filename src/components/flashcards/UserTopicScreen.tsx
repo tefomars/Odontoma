@@ -305,6 +305,8 @@ export default function UserTopicScreen({
         <div className="
           mb-5
           flex
+          items-center
+          justify-between
           gap-2
         ">
           <button
@@ -343,7 +345,7 @@ export default function UserTopicScreen({
               hover:bg-violet-500/20
             "
           >
-            Menú
+            Menú principal
           </button>
         </div>
 

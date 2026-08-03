@@ -985,6 +985,7 @@ export default function App() {
         <ScreenTransition screenKey="flashcard-subject">
           <FlashcardSubjectScreen
             onBack={() => setSelectedStudyMethod(null)}
+            onMainMenu={goToMainMenu}
             onSelectMyDecks={() => {
               setSelectedFlashcardSubject("my")
               setShowMyFlashcardTopics(true)

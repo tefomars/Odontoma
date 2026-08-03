@@ -58,6 +58,8 @@ export default function SuspendedFlashcardsScreen({
           mb-5
           flex
           flex-wrap
+          items-center
+          justify-between
           gap-2
         ">
           <button
@@ -96,7 +98,7 @@ export default function SuspendedFlashcardsScreen({
               hover:bg-violet-500/20
             "
           >
-            Menú
+            Menú principal
           </button>
         </div>
 

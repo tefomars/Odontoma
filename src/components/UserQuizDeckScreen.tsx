@@ -320,6 +320,8 @@ export default function UserQuizDeckScreen({
           mb-5
           flex
           flex-wrap
+          items-center
+          justify-between
           gap-2
         ">
           <button

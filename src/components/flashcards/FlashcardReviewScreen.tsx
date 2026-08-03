@@ -495,6 +495,8 @@ export default function FlashcardReviewScreen({
           <div className="
             mb-6
             flex
+            items-center
+            justify-between
             gap-2
           ">
             <button
@@ -532,7 +534,7 @@ export default function FlashcardReviewScreen({
                   hover:bg-violet-500/20
                 "
               >
-                Menú
+                Menú principal
               </button>
             )}
           </div>

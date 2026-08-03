@@ -145,6 +145,8 @@ export default function MyFlashcardTopicsScreen({
         <div className="
           mb-5
           flex
+          items-center
+          justify-between
           gap-2
         ">
           <button
@@ -183,7 +185,7 @@ export default function MyFlashcardTopicsScreen({
               hover:bg-violet-500/20
             "
           >
-            Menú
+            Menú principal
           </button>
         </div>
 

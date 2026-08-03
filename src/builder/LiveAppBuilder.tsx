@@ -569,6 +569,7 @@ export default function LiveAppBuilder() {
               subjects={flashcardSubjects}
               editorMode
               onBack={() => undefined}
+              onMainMenu={() => undefined}
               onSelectSubject={() => undefined}
               onSelectMyDecks={() => undefined}
               onAddSubject={addFlashcardSubject}

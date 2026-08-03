@@ -45,7 +45,7 @@ export default function OpenQuizDecksScreen({ classes: classDefinitions, decks, 
   return (
     <main className="min-h-screen overflow-y-auto bg-[#09090b] px-4 py-5 text-white sm:px-6 lg:px-8 lg:py-10">
       <div className="mx-auto max-w-6xl">
-        <div className="mb-5 flex flex-wrap gap-2">
+        <div className="mb-5 flex flex-wrap items-center justify-between gap-2">
           <button type="button" onClick={() => activeClass ? setSelectedClass(null) : onBack()} className="rounded-2xl border border-zinc-800 bg-zinc-950 px-4 py-2 text-sm font-black text-zinc-400 hover:bg-zinc-900 hover:text-white">
             ← {activeClass ? "Clases" : "Volver"}
           </button>

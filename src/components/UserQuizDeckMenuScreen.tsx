@@ -56,6 +56,8 @@ export default function UserQuizDeckMenuScreen({
           mb-5
           flex
           flex-wrap
+          items-center
+          justify-between
           gap-2
         ">
           <button

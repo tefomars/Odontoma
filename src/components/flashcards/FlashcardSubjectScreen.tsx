@@ -25,6 +25,7 @@ import { relayWheelToPanel } from "@/lib/nestedScroll"
 
 type Props = {
   onBack: () => void
+  onMainMenu: () => void
   onSelectSubject: (subject: string) => void
   onSelectMyDecks: () => void
   subjects?: FlashcardSubjectBlock[]
@@ -42,6 +43,7 @@ const destinationSubjectTitles: Record<string, string> = {
 
 export default function FlashcardSubjectScreen({
   onBack,
+  onMainMenu,
   onSelectSubject,
   onSelectMyDecks,
   subjects = flashcardSubjectBlocks,
@@ -107,6 +109,10 @@ export default function FlashcardSubjectScreen({
 
         <div className="
           flashcard-book-topbar
+          flex
+          items-center
+          justify-between
+          gap-3
           pb-5
         ">
           <button
@@ -127,6 +133,25 @@ export default function FlashcardSubjectScreen({
             "
           >
             ← Volver
+          </button>
+
+          <button
+            type="button"
+            onClick={onMainMenu}
+            className="
+              rounded-2xl
+              border
+              border-violet-500/30
+              bg-violet-500/10
+              px-4
+              py-2
+              text-sm
+              font-black
+              text-violet-200
+              hover:bg-violet-500/20
+            "
+          >
+            Menú principal
           </button>
         </div>
 

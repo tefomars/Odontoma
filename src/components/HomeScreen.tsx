@@ -40,13 +40,15 @@ export default function HomeScreen({
       <div className="
         mb-5
         flex
-        justify-start
+        items-center
+        justify-between
+        gap-3
       ">
         {onBack && (
           <button
             type="button"
             onClick={onBack}
-            className="mr-3 rounded-2xl border border-violet-500/30 bg-violet-500/10 px-4 py-2 text-sm font-black text-violet-200 hover:bg-violet-500/20"
+            className="rounded-2xl border border-violet-500/30 bg-violet-500/10 px-4 py-2 text-sm font-black text-violet-200 hover:bg-violet-500/20"
           >
             ← Atrás
           </button>
@@ -56,6 +58,7 @@ export default function HomeScreen({
             type="button"
             onClick={onMainMenu}
             className="
+              ml-auto
               rounded-2xl
               border
               border-violet-500/30
