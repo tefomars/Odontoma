@@ -158,9 +158,9 @@ export default function App() {
   useSwipeBack({
     onBack: goBack,
     enabled: true,
-    minDistance: 96,
-    maxVerticalDrift: 44,
-    edgeWidth: 32,
+    minDistance: 80,
+    maxVerticalDrift: 96,
+    edgeWidth: 56,
     visualFeedback: false
   })
 

@@ -12,9 +12,9 @@ type Options = {
 export function useSwipeBack({
   onBack,
   enabled = true,
-  minDistance = 90,
-  maxVerticalDrift = 44,
-  edgeWidth = 32,
+  minDistance = 80,
+  maxVerticalDrift = 96,
+  edgeWidth = 56,
   visualFeedback = false
 }: Options) {
   const startX = useRef(0)
@@ -106,7 +106,7 @@ export function useSwipeBack({
 
         const isClearlyHorizontal =
           deltaX > 0 &&
-          Math.abs(deltaX) >= Math.abs(deltaY) * 1.5
+          Math.abs(deltaX) >= Math.abs(deltaY) * 1.05
 
         if (!isClearlyHorizontal) {
           tracking.current = false
