@@ -1,1 +1,23 @@
-[]
+[
+  {
+    "id": "ui-override-1785653406693-61e68981-e57b-4613-8600-cd9d076d87c1",
+    "screenKey": "flashcard-subject",
+    "selector": "div:nth-of-type(1) > main > div > section > div:nth-of-type(1) > div:nth-of-type(1) > h1",
+    "label": "Elegí un deck",
+    "text": "Elige un deck"
+  },
+  {
+    "id": "ui-override-1785787785745-2c8f2a97-e17d-4c35-ae6f-cb9cb2f4801e",
+    "screenKey": "flashcard-subject",
+    "selector": "div:nth-of-type(1) > main > div > section > button > div > div:nth-of-type(1) > h2",
+    "label": "My decks",
+    "text": "Mis decks"
+  },
+  {
+    "id": "ui-override-1785787796295-9b1c1020-721d-4bf2-bf18-e5a5b828f563",
+    "screenKey": "flashcard-subject",
+    "selector": "div:nth-of-type(1) > main > div > section > div:nth-of-type(2) > h2",
+    "label": "Premade decks",
+    "text": "Decks"
+  }
+]
