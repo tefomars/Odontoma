@@ -29,8 +29,17 @@ function readDraft() {
 function normalizeContent(value: OpenQuizContent): OpenQuizContent {
   const classes = [...(value.classes || [])]
   const knownNames = new Set(classes.map(item => item.name.trim().toLocaleLowerCase()))
+  const decks = value.decks.map(deck => ({
+    ...deck,
+    questions: deck.questions.map(question => ({
+      ...question,
+      acceptedPoints: question.acceptedPoints
+        .map(point => point.trim())
+        .filter(Boolean)
+    }))
+  }))
 
-  for (const deck of value.decks) {
+  for (const deck of decks) {
     const name = deck.subject.trim() || "General"
     const normalizedName = name.toLocaleLowerCase()
     if (knownNames.has(normalizedName)) continue
@@ -44,7 +53,7 @@ function normalizeContent(value: OpenQuizContent): OpenQuizContent {
     knownNames.add(normalizedName)
   }
 
-  return { classes, decks: value.decks }
+  return { classes, decks }
 }
 
 export default function OpenQuizContentEditor() {
@@ -334,17 +343,19 @@ export default function OpenQuizContentEditor() {
 
     setPublishing(true)
     setStatus("Publicando contenido…")
+    const normalizedContent = normalizeContent(content)
 
     try {
       const response = await fetch("/__odontoma-builder/open-quizzes", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(content)
+        body: JSON.stringify(normalizedContent)
       })
 
       if (!response.ok) throw new Error(await response.text())
 
-      setAppliedContent(content)
+      setContent(normalizedContent)
+      setAppliedContent(normalizedContent)
       localStorage.removeItem(CONTENT_DRAFT_KEY)
       setStatus("Contenido publicado. Odontoma se actualizará automáticamente.")
     } catch (error) {
@@ -647,10 +658,7 @@ export default function OpenQuizContentEditor() {
                       <textarea
                         value={selectedQuestion.acceptedPoints.join("\n")}
                         onChange={event => updateQuestion({
-                          acceptedPoints: event.target.value
-                            .split("\n")
-                            .map(point => point.trim())
-                            .filter(Boolean)
+                          acceptedPoints: event.target.value.split("\n")
                         })}
                         placeholder={"Ej: Describe el papel del factor XII\nRelaciona plasmina con fibrinólisis"}
                         rows={4}

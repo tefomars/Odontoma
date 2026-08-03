@@ -30,7 +30,7 @@
         },
         {
           "id": "open-question-1785610308440-6e8a819a-f5dd-4407-9d6b-79077924e9d4",
-          "prompt": "Cuáles son las dos fases generales de la glucólisis qué sucede en cada una?",
+          "prompt": "Cuáles son las dos fases generales de la glucólisis y qué sucede en cada una?",
           "modelAnswer": "Fase 1, endógena: Se invierten dos ATP \nFase 2, exógena: Se da la fosforilación a nivel de sustrato --> dos ATP netos nuevos",
           "acceptedPoints": [],
           "explanation": "",
@@ -210,7 +210,9 @@
           "id": "open-question-1785623747451-e8f1c39b-3272-475a-9f97-532d18bd3dac",
           "prompt": "Qué enzima de la glucólisis se inhibe cuando hay mucho ATP?",
           "modelAnswer": "Fosfofructoquinasa-1",
-          "acceptedPoints": [],
+          "acceptedPoints": [
+            "Piruvato Quinasa"
+          ],
           "explanation": "",
           "source": ""
         },
@@ -556,7 +558,7 @@
         },
         {
           "id": "open-question-1785697589044-85d3d31c-28c5-4699-b384-e04efa3448ea",
-          "prompt": "Cuánto ATP genera cada lanzadera?",
+          "prompt": "Cuánto ATP genera cada lanzadera (de solo una triosa)?",
           "modelAnswer": "Malato-oxalocetato --> 3 ATP por cada NADH\nGlicerol-3-fosfato --> 2 ATP por cada FADH2",
           "acceptedPoints": [],
           "explanation": "Recordar que 1 NADH provee 10 protones, o sea 3 ATP y que 1 FADH2 provee 6 protones, o sea 2 ATP",
@@ -581,7 +583,7 @@
         {
           "id": "open-question-1785697962028-ee73a449-5c33-4aa5-aa94-0df9862c6a37",
           "prompt": "Sin contar el ATP producido durante glucólisis o ciclo de Krebs, cuántos ATP se producen durante la fosforilación oxidativa? \n--> Menciona el valor usando cada lanzadera",
-          "modelAnswer": "Malato-oxaloacetato ---> 34 ATP\nGlicerol-3-fosfatp ---> 32 ATP",
+          "modelAnswer": "Glicerol-3-fosfato ---> 32 ATP\nMalato-oxaloacetato ---> 34 ATP\n",
           "acceptedPoints": [],
           "explanation": "",
           "source": ""
