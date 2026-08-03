@@ -27,21 +27,21 @@
     "destination": "filosofia-de-hayek"
   },
   {
-    "id": "bioquimica",
-    "title": "Bioquímica",
+    "id": "anatomia",
+    "title": "Próximamente",
     "subtitle": "Próximamente",
-    "description": "Decks premade de enzimas, proteínas, metabolismo y caries dental.",
-    "accent": "from-emerald-500/20 to-teal-500/10",
-    "accentColor": "#10b981",
+    "description": "Próximamente",
+    "accent": "from-amber-500/20 to-orange-500/10",
+    "accentColor": "#f59e0b",
     "destination": "coming-soon"
   },
   {
-    "id": "anatomia",
-    "title": "Anatomía",
+    "id": "flashcard-block-1785655306545-0403d4df-6410-4219-94ba-0570facbbe53",
+    "title": "Nuevo deck",
     "subtitle": "Próximamente",
-    "description": "Decks premade de anatomía general, cabeza, cuello y odontología.",
-    "accent": "from-amber-500/20 to-orange-500/10",
-    "accentColor": "#f59e0b",
+    "description": "Agregá una descripción breve.",
+    "accent": "from-emerald-500/20 to-teal-500/10",
+    "accentColor": "#10b981",
     "destination": "coming-soon"
   }
 ]

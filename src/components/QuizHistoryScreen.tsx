@@ -25,7 +25,7 @@ export default function QuizHistoryScreen({ onBack, onMainMenu, onReview }: Prop
 
         <p className="text-xs font-black uppercase tracking-[0.25em] text-cyan-300">Historial local</p>
         <h1 className="mt-3 text-5xl font-black tracking-tight md:text-7xl">Exámenes anteriores</h1>
-        <p className="mt-4 max-w-2xl text-zinc-400">Se conservan los últimos 3 intentos terminados en este dispositivo.</p>
+        <p className="mt-4 max-w-2xl text-zinc-400">Se conservan por separado los últimos 7 exámenes de opción múltiple y los últimos 7 exámenes escritos en este dispositivo.</p>
 
         {attempts.length === 0 ? (
           <div className="mt-10 rounded-[2rem] border border-dashed border-zinc-700 bg-zinc-900/50 p-10 text-center text-zinc-400">

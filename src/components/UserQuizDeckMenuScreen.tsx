@@ -9,7 +9,7 @@ type Props = {
   deckId: string
   onBack: () => void
   onMainMenu: () => void
-  onReview: (questions: any[]) => void
+  onReview: () => void
   onEdit: () => void
 }
 
@@ -167,7 +167,7 @@ export default function UserQuizDeckMenuScreen({
             <button
               type="button"
               disabled={questions.length === 0}
-              onClick={() => onReview(questions)}
+              onClick={onReview}
               className={`
                 rounded-[1.75rem]
                 border

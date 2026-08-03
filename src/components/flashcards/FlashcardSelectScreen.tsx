@@ -1,5 +1,7 @@
 import {
+  useEffect,
   useMemo,
+  useRef,
   useState
 } from "react"
 
@@ -23,6 +25,8 @@ import {
   filterActiveFlashcards,
   loadSuspendedFlashcardIds
 } from "@/lib/suspendedFlashcards"
+
+import { relayWheelToPanel } from "@/lib/nestedScroll"
 
 type Props = {
   subject?: string
@@ -1896,6 +1900,20 @@ export default function FlashcardSelectScreen({
       []
     )
 
+  const subjectTitle =
+    subject === "proceso-economico-i"
+      ? "Proceso Económico I"
+      : subject === "filosofia-de-hayek"
+        ? "Filosofía de Hayek"
+        : "Histología"
+
+  const subjectDescription =
+    subject === "proceso-economico-i"
+      ? "Elegí un parcial y repasá por temas."
+      : subject === "filosofia-de-hayek"
+        ? "Elegí un bloque y repasá sus conceptos principales."
+        : "Elegí un capítulo y repasá por bloques grandes."
+
   const generatedChapterMenus =
     useMemo(
       () => {
@@ -2102,6 +2120,9 @@ export default function FlashcardSelectScreen({
   const [mobileChapterMenu, setMobileChapterMenu] =
     useState<string | null>(null)
 
+  const topicPanelRef =
+    useRef<HTMLElement | null>(null)
+
   const currentMenu =
     availableChapterMenus.find(menu => menu.chapter === selectedChapter) ||
     availableChapterMenus[0]
@@ -2109,6 +2130,13 @@ export default function FlashcardSelectScreen({
   const mobileMenu =
     availableChapterMenus.find(menu => menu.chapter === mobileChapterMenu) ||
     null
+
+  useEffect(() => {
+    topicPanelRef.current?.scrollTo({
+      top: 0,
+      behavior: "auto"
+    })
+  }, [selectedChapter])
 
   const totalReviews =
     storage.reviews.length
@@ -2134,24 +2162,30 @@ export default function FlashcardSelectScreen({
       storage.cards
     )
   return (
-    <main className="flashcard-book-shell bg-[#09090b]
+    <main
+      onWheel={event =>
+        relayWheelToPanel(
+          event,
+          ".flashcard-topic-scroll"
+        )
+      }
+      className="flashcard-book-shell bg-[#09090b]
       px-4
       py-5
       text-white
       sm:px-6
       lg:px-8
-      lg:py-10
+      lg:py-6
     ">
       <div className="flashcard-book-frame mx-auto
         max-w-6xl
       ">
 
-        <div className="flashcard-book-topbar pb-5">
+        <div className="flashcard-book-topbar pb-3">
 <button
           type="button"
           onClick={onBack}
           className="
-            mb-5
             rounded-2xl
             border
             border-zinc-800
@@ -2169,7 +2203,10 @@ export default function FlashcardSelectScreen({
         </button>
 </div>
 
-        <section className="flashcard-book-scroll 
+        <section className="flashcard-book-scroll flashcard-chapter-shell
+          lg:flex
+          lg:flex-col
+          lg:overflow-hidden
           rounded-[2rem]
           border
           border-zinc-800
@@ -2178,20 +2215,21 @@ export default function FlashcardSelectScreen({
           shadow-2xl
           shadow-black/30
           sm:p-6
-          lg:p-8
+          lg:p-6
         ">
+          <div className="flashcard-chapter-static shrink-0">
           <div className="
-            mb-8
+            mb-3
             flex
             flex-col
             gap-5
             lg:flex-row
-            lg:items-end
+            lg:items-start
             lg:justify-between
           ">
             <div>
               <div className="
-                mb-4
+                mb-2
                 flex
                 items-center
                 gap-3
@@ -2206,36 +2244,39 @@ export default function FlashcardSelectScreen({
                   "
                 />
 
-                <p className="
-                  text-xs
-                  font-black
-                  uppercase
-                  tracking-[0.25em]
-                  text-violet-300
-                ">
-                  Flashcards FSRS
-                </p>
+                <div>
+                  <p className="
+                    text-xs
+                    font-black
+                    uppercase
+                    tracking-[0.25em]
+                    text-violet-300
+                  ">
+                    Flashcards FSRS
+                  </p>
+
+                  <h1 className={`
+                    mt-1
+                    text-2xl
+                    font-black
+                    tracking-tight
+                    sm:text-3xl
+                    ${subject === "histologia" ? "lg:text-4xl" : "lg:text-2xl"}
+                  `}>
+                    {subjectTitle}
+                  </h1>
+                </div>
               </div>
 
-              <h1 className="
-                text-3xl
-                font-black
-                tracking-tight
-                sm:text-4xl
-                lg:text-5xl
-              ">
-                Histología
-              </h1>
-
               <p className="
-                mt-3
+                mt-2
                 max-w-2xl
                 text-sm
                 leading-relaxed
                 text-zinc-400
                 sm:text-base
               ">
-                Elegí un capítulo y repasá por bloques grandes.
+                {subjectDescription}
               </p>
             </div>
 
@@ -2303,7 +2344,9 @@ export default function FlashcardSelectScreen({
               <button
                 type="button"
                 onClick={onShowSuspended}
+                aria-label="Ver tarjetas suspendidas. Las tarjetas suspendidas no aparecen en los repasos."
                 className="
+                  relative
                   rounded-3xl
                   border
                   border-amber-500/30
@@ -2318,7 +2361,7 @@ export default function FlashcardSelectScreen({
                   text-xs
                   font-black
                   uppercase
-                  tracking-[0.2em]
+                  tracking-[0.12em]
                   text-amber-300
                 ">
                   Suspendidas
@@ -2333,18 +2376,11 @@ export default function FlashcardSelectScreen({
                   {suspendedCount}
                 </p>
 
-                <p className="
-                  mt-2
-                  text-xs
-                  leading-relaxed
-                  text-amber-100/80
-                ">
-                  Suspende cartas que creas que no te servirán para que no vuelvan a aparecer en tus repasos.
-                </p>
               </button>
 
               <button
                 type="button"
+                aria-label="Repasar primero las tarjetas vencidas que ya habías estudiado."
                 onClick={() =>
                   onSelectTopic(
                     "__reviewed_due",
@@ -2352,6 +2388,7 @@ export default function FlashcardSelectScreen({
                   )
                 }
                 className="
+                  relative
                   rounded-3xl
                   border
                   border-sky-500/30
@@ -2366,7 +2403,7 @@ export default function FlashcardSelectScreen({
                   text-xs
                   font-black
                   uppercase
-                  tracking-[0.2em]
+                  tracking-[0.12em]
                   text-sky-300
                 ">
                   Due primero
@@ -2381,14 +2418,6 @@ export default function FlashcardSelectScreen({
                   Repasar
                 </p>
 
-                <p className="
-                  mt-2
-                  text-xs
-                  leading-relaxed
-                  text-sky-100/80
-                ">
-                  Terminá primero las cartas ya repasadas que vencieron antes de hacer nuevas.
-                </p>
               </button>
 
             </div>
@@ -2410,6 +2439,7 @@ export default function FlashcardSelectScreen({
               No hay pendientes ahora. Próximo review {formatDuePreview(nextDefaultDue)}.
             </p>
           )}
+          </div>
 
 
           {availableChapterMenus.length === 0 && (
@@ -2453,12 +2483,18 @@ export default function FlashcardSelectScreen({
           )}
 
           {availableChapterMenus.length > 0 && (
-          <div className="
+          <div className="flashcard-chapter-workspace
             grid
+            min-h-0
+            flex-1
             gap-5
             lg:grid-cols-[280px_1fr]
           ">
             <aside className="
+              min-h-0
+              overflow-hidden
+              lg:flex
+              lg:flex-col
               rounded-[1.75rem]
               border
               border-zinc-800
@@ -2478,11 +2514,13 @@ export default function FlashcardSelectScreen({
 
               <div className="
                 grid
+                min-h-0
+                content-start
                 gap-2
                 sm:max-h-none
-                lg:max-h-[68vh]
+                lg:flex-1
                 lg:overflow-y-auto
-              ">
+              " data-independent-scroll>
                 {chapterCourseGroups.map((courseGroup, groupIndex) => (
                   <div
                     key={courseGroup.title || "chapters"}
@@ -2594,17 +2632,20 @@ export default function FlashcardSelectScreen({
               </div>
             </aside>
 
-            <section className="
+            <section
+              ref={topicPanelRef}
+              className="
+              flashcard-topic-scroll
               hidden
+              min-h-0
               rounded-[1.75rem]
               border
               border-zinc-800
               bg-zinc-950
               p-4
               lg:block
-              lg:max-h-[68vh]
               lg:overflow-y-auto
-            ">
+            " data-independent-scroll>
               {currentMenu && (
                 <>
                   <div className="

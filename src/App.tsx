@@ -25,6 +25,13 @@ import QuizReviewScreen from "./components/QuizReviewScreen"
 import CustomPageScreen from "./components/CustomPageScreen"
 import { customPages, type CustomPageDestination } from "@/content/appBuilder/customPages"
 
+import {
+  getUserOpenQuizDeck,
+  getUserQuizDeckMode,
+  getUserQuizQuestionsByDeck,
+  loadUserQuizDecks
+} from "@/lib/userQuizzes"
+
 import packageJson from "../package.json"
 
 import {
@@ -197,6 +204,9 @@ export default function App() {
     useState<string | null>(null)
 
   const [editingUserQuizDeckId, setEditingUserQuizDeckId] =
+    useState<string | null>(null)
+
+  const [activePersonalOpenQuizDeckId, setActivePersonalOpenQuizDeckId] =
     useState<string | null>(null)
 
   const [activeOpenQuizDeckId, setActiveOpenQuizDeckId] =
@@ -734,6 +744,7 @@ export default function App() {
     setEditingUserTopicId(null)
     setShowSuspendedFlashcards(false)
     setActiveUserQuizDeckId(null)
+    setActivePersonalOpenQuizDeckId(null)
     setActiveOpenQuizDeckId(null)
 
     setStarted(false)
@@ -806,6 +817,11 @@ export default function App() {
     }
 
     if (selectedStudyMethod === "quizzes") {
+
+      if (activePersonalOpenQuizDeckId) {
+        setActivePersonalOpenQuizDeckId(null)
+        return
+      }
 
       if (started) {
         pauseSession()
@@ -1136,6 +1152,10 @@ export default function App() {
             setSelectedSubject("my-quizzes")
             setActiveUserQuizDeckId(null)
           }}
+          onHistory={() => {
+            setSelectedSubject(null)
+            setSelectedQuizMode("history")
+          }}
           onSelectDestination={navigateToBuilderDestination}
         />
       </ScreenTransition>
@@ -1211,7 +1231,6 @@ export default function App() {
           }}
           onMainMenu={goToMainMenu}
           onStart={setActiveOpenQuizDeckId}
-          onHistory={() => setSelectedQuizMode("history")}
         />
       </ScreenTransition>
     )
@@ -1243,6 +1262,40 @@ export default function App() {
       )
     }
 
+    function practiceUserDeck(deckId: string) {
+      const deck = loadUserQuizDecks().find(item => item.id === deckId)
+
+      if (getUserQuizDeckMode(deck) === "open-ended") {
+        setActivePersonalOpenQuizDeckId(deckId)
+        setActiveUserQuizDeckId(null)
+        setEditingUserQuizDeckId(null)
+        return
+      }
+
+      startUserQuiz(getUserQuizQuestionsByDeck(deckId))
+    }
+
+    if (activePersonalOpenQuizDeckId) {
+      const openDeck = getUserOpenQuizDeck(activePersonalOpenQuizDeckId)
+
+      if (openDeck) {
+        return (
+          <ScreenTransition screenKey={`personal-open-quiz-${openDeck.id}`}>
+            <OpenQuizSessionScreen
+              deck={openDeck}
+              onBack={() => setActivePersonalOpenQuizDeckId(null)}
+              onMainMenu={goToMainMenu}
+              onHistory={() => {
+                setActivePersonalOpenQuizDeckId(null)
+                setSelectedSubject(null)
+                setSelectedQuizMode("history")
+              }}
+            />
+          </ScreenTransition>
+        )
+      }
+    }
+
     if (editingUserQuizDeckId) {
 
       return (
@@ -1252,7 +1305,7 @@ export default function App() {
             deckId={editingUserQuizDeckId}
             onBack={() => setEditingUserQuizDeckId(null)}
             onMainMenu={goToMainMenu}
-            onReview={startUserQuiz}
+            onReview={() => practiceUserDeck(editingUserQuizDeckId)}
           />
         </ScreenTransition>
 
@@ -1268,7 +1321,7 @@ export default function App() {
             deckId={activeUserQuizDeckId}
             onBack={() => setActiveUserQuizDeckId(null)}
             onMainMenu={goToMainMenu}
-            onReview={startUserQuiz}
+            onReview={() => practiceUserDeck(activeUserQuizDeckId)}
             onEdit={() => {
               setEditingUserQuizDeckId(activeUserQuizDeckId)
               setActiveUserQuizDeckId(null)
@@ -1289,6 +1342,8 @@ export default function App() {
           }}
           onMainMenu={goToMainMenu}
           onSelectDeck={(deckId) => setActiveUserQuizDeckId(deckId)}
+          onEditDeck={(deckId) => setEditingUserQuizDeckId(deckId)}
+          onPracticeDeck={practiceUserDeck}
         />
       </ScreenTransition>
 

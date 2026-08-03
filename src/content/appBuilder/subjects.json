@@ -45,11 +45,20 @@
       },
       {
         "id": "my-quizzes",
-        "eyebrow": "Crear e importar",
-        "title": "My quizzes",
-        "subtitle": "Crea tus propios quizzes, importá preguntas desde texto o archivo y exportá cada deck.",
+        "eyebrow": "Crear y compartir",
+        "title": "Quiz Studio",
+        "subtitle": "Creá, importá, editá y compartí tus propios cuestionarios desde este dispositivo.",
         "symbol": "+",
         "accentColor": "#10b981"
+      },
+      {
+        "id": "history",
+        "eyebrow": "Tu progreso",
+        "title": "Exámenes anteriores",
+        "subtitle": "Revisá tus respuestas de los últimos 7 exámenes de opción múltiple y los últimos 7 escritos.",
+        "symbol": "↶",
+        "accentColor": "#06b6d4",
+        "section": "tools"
       }
     ]
   },

@@ -24,17 +24,45 @@ function attempt(index: number): QuizAttempt {
 describe("quiz history", () => {
   beforeEach(() => installLocalStorageMock())
 
-  it("keeps only the three most recent attempts", () => {
-    saveQuizAttempt(attempt(1))
-    saveQuizAttempt(attempt(2))
-    saveQuizAttempt(attempt(3))
-    saveQuizAttempt(attempt(4))
+  it("keeps only the seven most recent attempts", () => {
+    for (let index = 1; index <= 8; index += 1) {
+      saveQuizAttempt(attempt(index))
+    }
 
     expect(loadQuizHistory().map(item => item.id)).toEqual([
+      "attempt-8",
+      "attempt-7",
+      "attempt-6",
+      "attempt-5",
       "attempt-4",
       "attempt-3",
       "attempt-2"
     ])
+  })
+
+  it("keeps seven attempts independently for each quiz mode", () => {
+    for (let index = 1; index <= 8; index += 1) {
+      saveQuizAttempt({
+        ...attempt(index),
+        id: `multiple-${index}`,
+        mode: "multiple-choice"
+      })
+
+      saveQuizAttempt({
+        ...attempt(index),
+        id: `open-${index}`,
+        mode: "open-ended"
+      })
+    }
+
+    const history = loadQuizHistory()
+    const multipleChoice = history.filter(item => item.mode === "multiple-choice")
+    const openEnded = history.filter(item => item.mode === "open-ended")
+
+    expect(multipleChoice).toHaveLength(7)
+    expect(openEnded).toHaveLength(7)
+    expect(multipleChoice.map(item => item.id)).not.toContain("multiple-1")
+    expect(openEnded.map(item => item.id)).not.toContain("open-1")
   })
 
   it("recovers safely from invalid storage", () => {

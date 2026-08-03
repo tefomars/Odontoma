@@ -21,6 +21,7 @@ import {
 
 import { flashcardSubjectBlocks } from "@/content/appBuilder/flashcardSubjects"
 import type { FlashcardSubjectBlock } from "@/content/appBuilder"
+import { relayWheelToPanel } from "@/lib/nestedScroll"
 
 type Props = {
   onBack: () => void
@@ -86,7 +87,9 @@ export default function FlashcardSubjectScreen({
     ).length
 
   return (
-    <main className="
+    <main
+      onWheel={relayWheelToPanel}
+      className="
       flashcard-book-shell
       bg-[#09090b]
       px-4

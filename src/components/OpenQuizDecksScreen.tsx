@@ -9,13 +9,12 @@ type Props = {
   onBack: () => void
   onMainMenu: () => void
   onStart: (deckId: string) => void
-  onHistory: () => void
 }
 
 const DEFAULT_CLASS_SYMBOL = "▰"
 const DEFAULT_CLASS_COLOR = "#fbbf24"
 
-export default function OpenQuizDecksScreen({ classes: classDefinitions, decks, onBack, onMainMenu, onStart, onHistory }: Props) {
+export default function OpenQuizDecksScreen({ classes: classDefinitions, decks, onBack, onMainMenu, onStart }: Props) {
   const [selectedClass, setSelectedClass] = useState<string | null>(null)
   const classes = useMemo(() => {
     const grouped = new Map<string, OpenQuizDeck[]>()
@@ -79,7 +78,6 @@ export default function OpenQuizDecksScreen({ classes: classDefinitions, decks, 
               ))}
             </div>
           ) : (
-            <>
               <div className="grid gap-4 md:grid-cols-2">
                 {classes.map(item => (
                   <button
@@ -111,21 +109,6 @@ export default function OpenQuizDecksScreen({ classes: classDefinitions, decks, 
                   </button>
                 ))}
               </div>
-
-              <section className="mt-8 border-t border-zinc-800 pt-8">
-                <p className="mb-4 text-xs font-black uppercase tracking-[0.22em] text-zinc-500">Tu progreso</p>
-                <button type="button" onClick={onHistory} className="group w-full rounded-[1.5rem] border border-cyan-500/25 bg-cyan-500/5 p-6 text-left transition hover:border-cyan-400/60 hover:bg-cyan-500/10">
-                  <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-                    <div>
-                      <p className="text-xs font-black uppercase tracking-[0.2em] text-cyan-300">Últimos 3 intentos</p>
-                      <h2 className="mt-2 text-3xl font-black">Exámenes anteriores</h2>
-                      <p className="mt-2 text-sm text-zinc-400">Revisá tus respuestas y las opciones correctas de tus quizzes recientes.</p>
-                    </div>
-                    <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-white/10 text-2xl transition group-hover:rotate-12">→</span>
-                  </div>
-                </button>
-              </section>
-            </>
           )}
         </section>
       </div>
