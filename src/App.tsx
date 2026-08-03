@@ -1,4 +1,4 @@
-import { useMemo, useState, type ReactNode } from "react"
+import { useLayoutEffect, useMemo, useRef, useState, type ReactNode } from "react"
 import { useSwipeBack } from "@/hooks/useSwipeBack"
 
 import HomeScreen from "./components/HomeScreen"
@@ -109,8 +109,34 @@ function ScreenTransition({
   children: ReactNode
   screenKey: string
 }) {
+  const screenRef = useRef<HTMLDivElement | null>(null)
+
+  useLayoutEffect(() => {
+    if (!window.matchMedia("(max-width: 1023px)").matches) return
+
+    function resetScrollPosition() {
+      window.scrollTo(0, 0)
+      document.documentElement.scrollTop = 0
+      document.body.scrollTop = 0
+
+      screenRef.current
+        ?.querySelectorAll<HTMLElement>(
+          "main, .flashcard-book-scroll, .flashcard-fixed-scroll, [class*='overflow-y-auto'], [class*='overflow-auto']"
+        )
+        .forEach(element => {
+          element.scrollTop = 0
+          element.scrollLeft = 0
+        })
+    }
+
+    resetScrollPosition()
+    const frame = window.requestAnimationFrame(resetScrollPosition)
+    return () => window.cancelAnimationFrame(frame)
+  }, [screenKey])
+
   return (
     <div
+      ref={screenRef}
       key={screenKey}
       className="screen-transition"
       data-screen-key={screenKey}

@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react"
+import { useLayoutEffect, useMemo, useState } from "react"
 
 import logoImage from "@/assets/logo.png"
 import type { OpenQuizClass, OpenQuizDeck } from "@/content/openQuizzes"
@@ -41,6 +41,13 @@ export default function OpenQuizDecksScreen({ classes: classDefinitions, decks, 
     return [...defined, ...legacy]
   }, [classDefinitions, decks])
   const activeClass = classes.find(item => item.name === selectedClass)
+
+  useLayoutEffect(() => {
+    if (!window.matchMedia("(max-width: 1023px)").matches) return
+    window.scrollTo(0, 0)
+    document.documentElement.scrollTop = 0
+    document.body.scrollTop = 0
+  }, [selectedClass])
 
   return (
     <main className="min-h-screen overflow-y-auto bg-[#09090b] px-4 py-5 text-white sm:px-6 lg:px-8 lg:py-10">
