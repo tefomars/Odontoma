@@ -1,4 +1,5 @@
 import { useMemo, useState, type ReactNode } from "react"
+import { useSwipeBack } from "@/hooks/useSwipeBack"
 
 import HomeScreen from "./components/HomeScreen"
 import StudyMethodScreen from "./components/StudyMethodScreen"
@@ -153,6 +154,15 @@ function AppVersion() {
 }
 
 export default function App() {
+
+  useSwipeBack({
+    onBack: goBack,
+    enabled: true,
+    minDistance: 96,
+    maxVerticalDrift: 44,
+    edgeWidth: 32,
+    visualFeedback: false
+  })
 
   const [selectedStudyMethod, setSelectedStudyMethod] =
     useState<"quizzes" | "flashcards" | null>(null)

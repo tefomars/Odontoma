@@ -5,17 +5,22 @@ type Options = {
   enabled?: boolean
   minDistance?: number
   maxVerticalDrift?: number
+  edgeWidth?: number
+  visualFeedback?: boolean
 }
 
 export function useSwipeBack({
   onBack,
   enabled = true,
   minDistance = 90,
-  maxVerticalDrift = 80
+  maxVerticalDrift = 44,
+  edgeWidth = 32,
+  visualFeedback = false
 }: Options) {
   const startX = useRef(0)
   const startY = useRef(0)
   const latestX = useRef(0)
+  const latestY = useRef(0)
   const tracking = useRef(false)
   const dragging = useRef(false)
 
@@ -65,9 +70,16 @@ export function useSwipeBack({
         return
       }
 
+      if (touch.clientX > edgeWidth) {
+        tracking.current = false
+        dragging.current = false
+        return
+      }
+
       startX.current = touch.clientX
       startY.current = touch.clientY
       latestX.current = touch.clientX
+      latestY.current = touch.clientY
       tracking.current = true
       dragging.current = false
     }
@@ -86,15 +98,34 @@ export function useSwipeBack({
       const deltaY =
         touch.clientY - startY.current
 
-      if (deltaX <= 0) return
+      if (!dragging.current) {
+        const movement =
+          Math.max(Math.abs(deltaX), Math.abs(deltaY))
 
-      const isMostlyHorizontal =
-        Math.abs(deltaY) <= maxVerticalDrift
+        if (movement < 12) return
 
-      if (!isMostlyHorizontal) return
+        const isClearlyHorizontal =
+          deltaX > 0 &&
+          Math.abs(deltaX) >= Math.abs(deltaY) * 1.5
+
+        if (!isClearlyHorizontal) {
+          tracking.current = false
+          return
+        }
+      }
+
+      if (deltaX <= 0 || Math.abs(deltaY) > maxVerticalDrift) {
+        tracking.current = false
+        dragging.current = false
+        resetSwipe(false)
+        return
+      }
 
       dragging.current = true
       latestX.current = touch.clientX
+      latestY.current = touch.clientY
+
+      if (!visualFeedback) return
 
       const maxDrag =
         window.innerWidth * 0.55
@@ -126,7 +157,20 @@ export function useSwipeBack({
       const deltaX =
         latestX.current - startX.current
 
-      if (dragging.current && deltaX >= minDistance) {
+      const deltaY =
+        latestY.current - startY.current
+
+      if (
+        dragging.current &&
+        deltaX >= minDistance &&
+        Math.abs(deltaY) <= maxVerticalDrift
+      ) {
+        if (!visualFeedback) {
+          dragging.current = false
+          onBack()
+          return
+        }
+
         root.classList.add("swipe-back-settling")
         root.classList.remove("is-swiping-back")
         root.style.setProperty("--swipe-back-x", `${window.innerWidth}px`)
@@ -182,6 +226,8 @@ export function useSwipeBack({
     onBack,
     enabled,
     minDistance,
-    maxVerticalDrift
+    maxVerticalDrift,
+    edgeWidth,
+    visualFeedback
   ])
 }
