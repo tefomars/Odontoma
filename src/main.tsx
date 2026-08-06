@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import { Analytics } from '@vercel/analytics/react'
 
 import App from './App'
 import UiOverrideApplier from './components/UiOverrideApplier'
@@ -18,6 +19,7 @@ ReactDOM.createRoot(
   <React.StrictMode>
     <UiOverrideApplier />
     <App />
+    <Analytics />
   </React.StrictMode>
 
 )
