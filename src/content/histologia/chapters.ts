@@ -3,7 +3,14 @@ import cap5Image from "../../assets/chapters/cap5.png"
 import cap6Image from "../../assets/chapters/cap6.png"
 import cap7Image from "../../assets/chapters/cap7.png"
 import cap8Image from "../../assets/chapters/cap8.png"
-import logoImage from "../../assets/logo.png"
+import cap9Image from "../../assets/chapters/cap9.jpg"
+import cap10Image from "../../assets/chapters/cap10.jpg"
+import cap11Image from "../../assets/chapters/cap11.jpg"
+import cap12Image from "../../assets/chapters/cap12.jpg"
+import cap13Image from "../../assets/chapters/cap13.jpg"
+import cap14Image from "../../assets/chapters/cap14.jpg"
+import cap15Image from "../../assets/chapters/cap15.jpg"
+import coagulationCascadeImage from "../../assets/chapters/coagulation-cascade.jpg"
 import { cap13Questions } from "./cap13/questions"
 import { cap14Questions } from "./cap14/questions"
 import { cap15Questions } from "./cap15/questions"
@@ -80,8 +87,7 @@ export const chapters = [
     subtitle: "Tejido adiposo",
     description:
       "Tejido adiposo blanco y pardo, regulación endocrina, termogénesis y correlaciones clínicas.",
-    image:
-      "https://images.unsplash.com/photo-1498837167922-ddd27525d352?q=80&w=1200&auto=format&fit=crop",
+    image: cap9Image,
     questionCount: cap9Questions.length,
     accent: "from-amber-500/20 to-yellow-500/20"
   },
@@ -92,8 +98,7 @@ export const chapters = [
     subtitle: "Tejido sanguíneo",
     description:
       "Plasma, células sanguíneas, plaquetas, hemograma, hematopoyesis y médula ósea.",
-    image:
-      "https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=1200&auto=format&fit=crop",
+    image: cap10Image,
     questionCount: cap10Questions.length,
     accent: "from-red-500/20 to-rose-500/20"
   },
@@ -104,8 +109,7 @@ export const chapters = [
     subtitle: "Tejido muscular",
     description:
       "Músculo esquelético, cardíaco y liso, contracción, inervación y reparación.",
-    image:
-      "https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=1200&auto=format&fit=crop",
+    image: cap11Image,
     questionCount: cap11Questions.length,
     accent: "from-orange-500/20 to-red-500/20"
   },
@@ -116,8 +120,7 @@ export const chapters = [
     subtitle: "Tejido nervioso",
     description:
       "Neuronas, neuroglía, mielina, sinapsis, SNP, SNC, sistema autónomo y respuesta a lesión.",
-    image:
-      "https://images.unsplash.com/photo-1507413245164-6160d8298b31?q=80&w=1200&auto=format&fit=crop",
+    image: cap12Image,
     questionCount: cap12Questions.length,
     accent: "from-indigo-500/20 to-sky-500/20"
   },
@@ -128,7 +131,7 @@ export const chapters = [
     subtitle: "Sistema cardiovascular",
     description:
       "Corazón, pared vascular, arterias, capilares, venas, vasos atípicos y vasos linfáticos.",
-    image: logoImage,
+    image: cap13Image,
     questionCount: cap13Questions.length,
     accent: "from-red-500/20 to-rose-500/20"
   },
@@ -139,7 +142,7 @@ export const chapters = [
     subtitle: "Sistema inmunitario y tejido linfático",
     description:
       "Inmunidad, células inmunitarias, presentación antigénica, linfocitos, timo, ganglios, bazo y MALT.",
-    image: logoImage,
+    image: cap14Image,
     questionCount: cap14Questions.length,
     accent: "from-emerald-500/20 to-cyan-500/20"
   },
@@ -150,7 +153,7 @@ export const chapters = [
     subtitle: "Sistema tegumentario",
     description:
       "Piel, estratos epidérmicos, células, inervación, pelo, glándulas, uñas y correlaciones clínicas.",
-    image: logoImage,
+    image: cap15Image,
     questionCount: cap15Questions.length,
     accent: "from-amber-500/20 to-rose-500/20"
   },
@@ -161,7 +164,7 @@ export const chapters = [
     subtitle: "Hemostasia y trombosis",
     description:
       "Endotelio, plaquetas, coagulación, anticoagulantes, fibrinólisis y tríada de Virchow según Robbins.",
-    image: logoImage,
+    image: coagulationCascadeImage,
     questionCount: hemostasiaQuestions.length,
     accent: "from-amber-500/20 to-orange-500/20"
   }
