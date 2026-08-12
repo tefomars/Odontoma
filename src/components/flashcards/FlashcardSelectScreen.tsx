@@ -1265,6 +1265,121 @@ const CHAPTER_MENUS: ChapterMenu[] = [
     ]
   },
   {
+    chapter: "Capítulo 15",
+    title: "Sistema tegumentario",
+    groups: [
+      {
+        title: "Fundamentos y tipos de piel",
+        description: "Páginas 524-526 · Organización, funciones y diferencias entre piel gruesa y delgada.",
+        subtopics: [
+          "Fundamentos tegumentarios",
+          "Piel gruesa y delgada"
+        ]
+      },
+      {
+        title: "Estratos de la epidermis",
+        description: "Páginas 526-529 · Capas epidérmicas, células y cambios durante la queratinización.",
+        subtopics: [
+          "Estratos epidérmicos",
+          "Estrato basal",
+          "Estrato espinoso",
+          "Estrato granuloso",
+          "Estratos lúcido y córneo"
+        ]
+      },
+      {
+        title: "Dermis e hipodermis",
+        description: "Páginas 527-529 · Unión dermoepidérmica, capas dérmicas, tejido subcutáneo y músculos cutáneos.",
+        subtopics: [
+          "Unión dermoepidérmica",
+          "Dermis papilar y reticular",
+          "Hipodermis y músculos cutáneos"
+        ]
+      },
+      {
+        title: "Queratinocitos y barrera epidérmica",
+        description: "Páginas 529-533 · Diferenciación, descamación, cuerpos laminares y envolturas de la barrera.",
+        subtopics: [
+          "Tipos celulares epidérmicos",
+          "Diferenciación de queratinocitos",
+          "Descamación y gradiente de pH",
+          "Cuerpos laminares",
+          "Envolturas celular y lipídica"
+        ]
+      },
+      {
+        title: "Melanocitos y color de la piel",
+        description: "Páginas 532-535 · Unidad melanoepidérmica, melanogénesis, transferencia y pigmentación.",
+        subtopics: [
+          "Melanocitos y melanogénesis",
+          "Color de la piel"
+        ]
+      },
+      {
+        title: "Células de Langerhans y Merkel",
+        description: "Páginas 535-536 · Vigilancia inmunitaria, mecanorrecepción y rasgos identificadores.",
+        subtopics: [
+          "Células de Langerhans",
+          "Células de Merkel"
+        ]
+      },
+      {
+        title: "Inervación cutánea",
+        description: "Páginas 536-541 · Terminaciones libres y receptores para tacto, presión, vibración y estiramiento.",
+        subtopics: [
+          "Terminaciones nerviosas libres",
+          "Receptores encapsulados"
+        ]
+      },
+      {
+        title: "Folículos pilosos y pelo",
+        description: "Páginas 541-545 · Organización folicular, células madre, tallo y ciclo de crecimiento.",
+        subtopics: [
+          "Fundamentos de anexos cutáneos",
+          "Folículo piloso",
+          "Células madre foliculares",
+          "Tallo del pelo",
+          "Ciclo y tipos de pelo"
+        ]
+      },
+      {
+        title: "Glándulas sebáceas",
+        description: "Páginas 544-546 · Unidad pilosebácea, secreción holocrina, sebo y acné.",
+        subtopics: ["Glándulas sebáceas"]
+      },
+      {
+        title: "Glándulas sudoríparas ecrinas",
+        description: "Páginas 546-549 · Adenómero, conducto, tipos celulares, sudor y termorregulación.",
+        subtopics: ["Glándulas sudoríparas ecrinas"]
+      },
+      {
+        title: "Glándulas sudoríparas apocrinas",
+        description: "Páginas 549-550 · Distribución, estructura, secreción y diferencias con las ecrinas.",
+        subtopics: ["Glándulas sudoríparas apocrinas"]
+      },
+      {
+        title: "Uñas",
+        description: "Página 550 · Placa, matriz, lecho, lúnula, eponiquio e hiponiquio.",
+        subtopics: ["Placa y aparato ungueal"]
+      },
+      {
+        title: "Correlaciones clínicas",
+        description: "Cuadros 15-1 a 15-6 · Cáncer cutáneo, cirugía de Mohs, sudoración y reparación.",
+        subtopics: [
+          "Cáncer cutáneo",
+          "Cirugía de Mohs",
+          "Sudoración y enfermedad",
+          "Reparación cutánea"
+        ]
+      },
+      {
+        title: "Histología 101 e identificación",
+        description: "Página 552 y láminas 42-47 · Reconocimiento de piel y sus anexos en cortes histológicos.",
+        subtopics: ["Identificación histológica"]
+      }
+    ]
+  },
+  {
     chapter: "Artículo · Hemostasia y trombosis",
     title: "Hemostasia y trombosis",
     groups: [
