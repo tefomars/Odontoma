@@ -15,7 +15,7 @@ export type Flashcard = {
   tags: string[]
 }
 
-export const histologiaFlashcards: Flashcard[] = [
+const histologiaFlashcardsBase: Flashcard[] = [
   {
     "id": "histo-cap10-fundamentos-de-la-sangre-0001",
     "subject": "Histología",
@@ -73997,3 +73997,54 @@ export const histologiaFlashcards: Flashcard[] = [
   ...cap15Flashcards,
   ...articuloHemostasiaFlashcards
 ]
+
+// Retiradas del repaso activo por dos motivos: repetían exactamente una tarjeta
+// más específica del mismo capítulo o desarrollaban contenido que el libro remite
+// expresamente a otro capítulo. Conservamos los IDs aquí para que la depuración sea
+// auditable y no dependa de eliminar preguntas automáticamente por coincidencia.
+const excludedHistologiaFlashcardIds = new Set([
+  "histo-cap5-lamina-reticular-2925",
+  "histo-cap6-clasificacion-del-tejido-conjuntivo-3875",
+  "histo-cap6-identificacion-histologica-4558",
+  "histo-cap7-pericondrio-4695",
+  "histo-cap7-comparacion-de-cartilagos-4889",
+  "histo-cap8-celulas-oseas-4997",
+  "histo-cap8-celulas-osteoprogenitoras-5119",
+  "histo-cap8-mineralizacion-osea-5438",
+  "histo-cap8-hormonas-y-hueso-5473",
+  "histo-cap9-tipos-de-tejido-adiposo-5623",
+  "histo-cap10-fundamentos-de-la-sangre-0018",
+  "histo-cap10-leucocitos-0215",
+  "histo-cap10-leucocitos-0216",
+  "histo-cap10-monopoyesis-0675",
+  "histo-cap10-hematopoyesis-0492",
+  "histo-cap10-hematopoyesis-0494",
+  "histo-cap10-granulocitopoyesis-0612",
+  "histo-cap10-granulocitopoyesis-0613",
+  "histo-cap10-monopoyesis-0666",
+  "histo-cap10-integracion-de-hematopoyesis-0766",
+  "histo-cap10-granulocitopoyesis-0626",
+  "histo-cap10-cordones-hematopoyeticos-0742",
+  "histo-cap11-musculo-liso-0844",
+  "histo-cap11-musculo-cardiaco-1288",
+  "histo-cap11-comparacion-de-tipos-musculares-1584",
+  "histo-cap11-comparacion-de-tipos-musculares-1576",
+  "histo-cap11-comparacion-de-tipos-musculares-1577",
+  "histo-cap11-histologia-101-1600",
+  "histo-cap11-sistema-de-conduccion-cardiaco-1375",
+  "histo-cap11-sistema-de-conduccion-cardiaco-1376",
+  "histo-cap11-sistema-de-conduccion-cardiaco-1377",
+  "histo-cap11-sistema-de-conduccion-cardiaco-1378",
+  "histo-cap11-sistema-de-conduccion-cardiaco-1379",
+  "histo-cap11-sistema-de-conduccion-cardiaco-1380",
+  "histo-cap12-sistema-nervioso-autonomo-1626",
+  "histo-cap12-neuroglia-central-1650",
+  "histo-cap12-neuroglia-central-1651",
+  "histo-cap12-neuroglia-periferica-1652",
+  "histo-cap12-celulas-de-schwann-1655",
+  "histo-cap12-integracion-del-capitulo-2380"
+])
+
+export const histologiaFlashcards = histologiaFlashcardsBase.filter(
+  (card) => !excludedHistologiaFlashcardIds.has(card.id)
+)
