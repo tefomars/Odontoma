@@ -5,6 +5,7 @@ import { cap7Questions } from "./cap7/questions"
 import { cap8Questions } from "./cap8/questions"
 import { cap13Questions } from "./cap13/questions"
 import { cap14Questions } from "./cap14/questions"
+import { cap15Questions } from "./cap15/questions"
 import { hemostasiaQuestions } from "./articulos/hemostasiaQuestions"
 
 export const questions = [
@@ -15,6 +16,7 @@ export const questions = [
   ...cap8Questions,
   ...cap13Questions,
   ...cap14Questions,
+  ...cap15Questions,
   ...hemostasiaQuestions
 ]
 
@@ -30,5 +32,6 @@ export const questionCountsByChapter = {
   "Capítulo 12": 0,
   "Capítulo 13": cap13Questions.length,
   "Capítulo 14": cap14Questions.length,
+  "Capítulo 15": cap15Questions.length,
   "Artículo · Hemostasia y trombosis": hemostasiaQuestions.length
 }

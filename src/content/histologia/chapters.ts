@@ -6,6 +6,7 @@ import cap8Image from "../../assets/chapters/cap8.png"
 import logoImage from "../../assets/logo.png"
 import { cap13Questions } from "./cap13/questions"
 import { cap14Questions } from "./cap14/questions"
+import { cap15Questions } from "./cap15/questions"
 import { hemostasiaQuestions } from "./articulos/hemostasiaQuestions"
 
 export const chapters = [
@@ -132,6 +133,17 @@ export const chapters = [
     image: logoImage,
     questionCount: cap14Questions.length,
     accent: "from-emerald-500/20 to-cyan-500/20"
+  },
+
+  {
+    id: "Capítulo 15",
+    title: "Capítulo 15",
+    subtitle: "Sistema tegumentario",
+    description:
+      "Piel, estratos epidérmicos, células, inervación, pelo, glándulas, uñas y correlaciones clínicas.",
+    image: logoImage,
+    questionCount: cap15Questions.length,
+    accent: "from-amber-500/20 to-rose-500/20"
   },
 
   {
