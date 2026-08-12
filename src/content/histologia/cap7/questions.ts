@@ -1,31 +1,40 @@
-import { fundamentosCartilagoQuestions } from "./fundamentos"
-import { matrizCartilagoQuestions } from "./matriz"
-import { condrocitosCartilagoQuestions } from "./condrocitos"
-import { pericondrioCartilagoQuestions } from "./pericondrio"
-import { hialinoCartilagoQuestions } from "./hialino"
-import { elasticoCartilagoQuestions } from "./elastico"
-import { fibrocartilagoQuestions } from "./fibrocartilago"
-import { crecimientoCartilagoQuestions } from "./crecimiento"
-import { clinicaCartilagoQuestions } from "./clinica"
+import { createManualQuizBankFromRows, type ManualQuizRow } from "../manualQuiz"
 
-export const cap7Questions = [
+const rows = [
+  ["c7-01", "Fundamentos", "easy", "¿Qué rasgo explica la capacidad del cartílago para resistir compresión?", "Una matriz muy hidratada rica en proteoglucanos", "Haces de actina contráctil", "Mineralización extensa de colágeno I", "Una red de capilares sinusoidales", "El agua retenida por agrecano permite deformación reversible ante carga."],
+  ["c7-02", "Fundamentos", "medium", "¿Cómo se nutren los condrocitos del cartílago avascular?", "Por difusión a través de la matriz", "Por capilares dentro de cada grupo isógeno", "Por conductos de Havers", "Por transporte axonal", "Los solutos difunden desde el pericondrio o líquido sinovial."],
+  ["c7-03", "Células", "easy", "¿Qué célula sintetiza activamente matriz cartilaginosa?", "Condroblasto", "Osteoclasto", "Fibrocito", "Adipocito", "El condroblasto secreta matriz y al quedar rodeado se convierte en condrocito."],
+  ["c7-04", "Células", "medium", "Un condrocito maduro se localiza en:", "Una laguna de la matriz", "Un conducto de Havers", "Una lámina basal epitelial", "Un sinusoide medular", "Las lagunas alojan condrocitos individuales o grupos isógenos."],
+  ["c7-05", "Matriz", "medium", "¿Qué combinación predomina en la matriz del cartílago hialino?", "Colágeno II y agrecano", "Colágeno I y elastina", "Colágeno IV y laminina", "Fibrina y fibronectina", "Las fibrillas de tipo II resisten tensión y los agregados de agrecano, compresión."],
+  ["c7-06", "Matriz", "hard", "¿Por qué la matriz territorial se tiñe más basófila que la interterritorial?", "Contiene mayor concentración de proteoglucanos sulfatados", "Está mineralizada con hidroxiapatita", "Contiene solo colágeno I", "Carece de glucosaminoglucanos", "Las cargas aniónicas alrededor de las lagunas fijan colorantes básicos."],
+  ["c7-07", "Pericondrio", "medium", "¿Qué capa del pericondrio aporta células condrogénicas?", "La capa celular interna", "La capa fibrosa externa exclusivamente", "La membrana sinovial", "La matriz territorial", "La capa interna contiene progenitores y condroblastos."],
+  ["c7-08", "Pericondrio", "medium", "¿Qué cartílago normalmente carece de pericondrio?", "Fibrocartílago", "Cartílago elástico", "Cartílago traqueal", "Cartílago costal", "El fibrocartílago se continúa con conjuntivo denso y no posee pericondrio."],
+  ["c7-09", "Hialino", "medium", "¿Dónde falta pericondrio aun cuando el tejido es cartílago hialino?", "En superficies articulares", "En anillos traqueales", "En cartílagos costales", "En cartílago nasal", "El cartílago articular se nutre desde líquido sinovial y no tiene pericondrio."],
+  ["c7-10", "Elástico", "medium", "¿Qué distingue al cartílago elástico del hialino?", "Una red abundante de fibras elásticas en la matriz", "Predominio de colágeno I en haces gruesos", "Ausencia de condrocitos", "Mineralización fisiológica extensa", "Mantiene colágeno II, pero añade fibras elásticas visibles."],
+  ["c7-11", "Elástico", "medium", "¿Qué localización corresponde a cartílago elástico?", "Pabellón auricular", "Disco intervertebral", "Superficie articular", "Sínfisis del pubis exclusivamente", "El pabellón auricular requiere soporte flexible y recuperación de forma."],
+  ["c7-12", "Fibrocartílago", "medium", "¿Qué componente confiere gran resistencia a tensión al fibrocartílago?", "Haces de colágeno tipo I", "Una red de colágeno IV", "Fibras reticulares tipo III exclusivamente", "Láminas concéntricas mineralizadas", "El fibrocartílago combina colágeno I con matriz cartilaginosa."],
+  ["c7-13", "Fibrocartílago", "medium", "¿Qué localización contiene fibrocartílago?", "Anillo fibroso del disco intervertebral", "Epiglotis", "Cartílago nasal", "Anillos de la tráquea", "El anillo fibroso resiste tensión y compresión multidireccional."],
+  ["c7-14", "Comparación", "hard", "Una muestra tiene condrocitos en hileras entre haces eosinófilos gruesos. ¿Qué es?", "Fibrocartílago", "Cartílago hialino", "Cartílago elástico", "Hueso laminar", "Las hileras celulares y el colágeno I visible son característicos."],
+  ["c7-15", "Crecimiento", "medium", "El crecimiento intersticial ocurre por:", "División de condrocitos dentro de la matriz", "Diferenciación de células del pericondrio", "Depósito de hueso desde periostio", "Migración de fibroblastos por vasos", "Genera grupos isógenos y expande el cartílago desde dentro."],
+  ["c7-16", "Crecimiento", "medium", "El crecimiento por aposición ocurre por:", "Diferenciación de células condrogénicas del pericondrio", "Mitosis de condrocitos dentro de lagunas", "Fusión de osteoclastos", "Calcificación de la matriz territorial", "Añade nueva matriz en la superficie."],
+  ["c7-17", "Crecimiento", "hard", "¿Qué crecimiento predomina al aumentar el grosor de una pieza cartilaginosa desde su periferia?", "Aposición", "Intersticial", "Remodelación osteonal", "Osificación intramembranosa", "El pericondrio deposita capas nuevas en la superficie."],
+  ["c7-18", "Reparación", "medium", "¿Por qué el cartílago adulto se repara con dificultad?", "Es avascular y sus células tienen baja actividad proliferativa", "Carece por completo de matriz extracelular", "Sus condrocitos están expuestos al torrente sanguíneo", "Se remodela continuamente por osteonas", "La difusión lenta y escasa proliferación limitan la reparación."],
+  ["c7-19", "Reparación", "medium", "Una lesión cartilaginosa extensa suele repararse con:", "Tejido conjuntivo denso o fibrocartílago", "Cartílago hialino idéntico siempre", "Epitelio plano estratificado", "Hueso compacto exclusivamente", "La reparación frecuentemente deja tejido fibroso de propiedades distintas."],
+  ["c7-20", "Clínica", "hard", "En la artrosis, el cambio inicial relevante ocurre en:", "La matriz del cartílago articular", "La lámina basal del sinovio", "El pericondrio de la superficie articular", "Los discos intercalares", "Se pierde homeostasis de matriz, aparecen fisuras y disminuye la amortiguación."],
+  ["c7-21", "Integración", "hard", "¿Qué pareja tejido–propiedad es correcta?", "Fibrocartílago–resistencia combinada a tensión y compresión", "Hialino–haces visibles predominantes de colágeno I", "Elástico–ausencia de pericondrio", "Articular–nutrición por vasos intramatriz", "El fibrocartílago combina propiedades de conjuntivo denso y cartílago."],
+  ["c7-22", "Integración", "hard", "Un tumor produce matriz condroide y células en lagunas con atipia. ¿Qué diagnóstico se debe considerar?", "Condrosarcoma", "Lipoma", "Osteoma osteoide", "Leiomioma", "Un tumor maligno productor de cartílago es un condrosarcoma."],
+  ["c7-23", "Matriz", "hard", "¿Qué glucosaminoglucanos predominan en los proteoglucanos del cartílago hialino?", "Condroitín sulfato y queratán sulfato", "Heparina y dermatán exclusivamente", "Ácido hialurónico sin proteoglucanos", "Celulosa y quitina", "El agrecano posee numerosas cadenas de condroitín y queratán sulfato."],
+  ["c7-24", "Matriz", "hard", "¿Qué glucoproteína une condrocitos con colágeno II y proteoglucanos?", "Condronectina", "Fibronectina plasmática exclusivamente", "Osteocalcina", "Laminina", "La condronectina media adhesión de condrocitos a su matriz."],
+  ["c7-25", "Hialino", "medium", "¿Qué estructura respiratoria mantiene su luz mediante cartílago hialino?", "Tráquea", "Epiglotis", "Pabellón auricular", "Disco intervertebral", "Los anillos traqueales aportan soporte semirrígido."],
+  ["c7-26", "Hialino", "medium", "¿Qué apariencia tiene el colágeno II en H&E de cartílago hialino?", "No se distingue como fibras porque su índice de refracción se aproxima al de la sustancia fundamental", "Forma haces eosinófilos gruesos evidentes", "Se tiñe negro espontáneamente", "Forma láminas concéntricas", "Las fibrillas finas quedan enmascaradas por la matriz hidratada."],
+  ["c7-27", "Elástico", "medium", "Además del pabellón auricular, ¿qué estructura contiene cartílago elástico?", "Epiglotis", "Sínfisis púbica", "Menisco", "Superficie articular femoral", "La epiglotis necesita flexibilidad y retorno a su forma."],
+  ["c7-28", "Fibrocartílago", "hard", "¿Qué rasgo celular ayuda a diferenciar fibrocartílago de conjuntivo denso regular?", "Condrocitos en lagunas, a menudo alineados", "Fibroblastos aplanados entre colágeno", "Ausencia total de matriz amorfa", "Presencia de vasos en cada laguna", "Las lagunas confirman diferenciación cartilaginosa."],
+  ["c7-29", "Crecimiento", "hard", "¿Qué tipo de crecimiento permite expansión temprana de un molde cartilaginoso desde su interior?", "Intersticial", "Aposición exclusivamente", "Remodelación osteoclástica", "Crecimiento intramembranoso", "La matriz flexible permite mitosis y separación de condrocitos jóvenes."],
+  ["c7-30", "Calcificación", "medium", "¿Qué cambio suele acompañar la calcificación de matriz cartilaginosa?", "Muerte de condrocitos por impedimento de difusión", "Aumento de vasos dentro de las lagunas", "Conversión inmediata en cartílago elástico", "Desaparición del calcio", "La matriz calcificada bloquea el intercambio necesario para condrocitos."],
+  ["c7-31", "Articular", "hard", "¿Qué capa del cartílago articular tiene condrocitos aplanados paralelos a la superficie?", "Zona superficial", "Zona radial", "Zona calcificada", "Marea de calcificación", "La capa tangencial resiste cizallamiento y contiene colágeno paralelo."],
+  ["c7-32", "Articular", "hard", "¿Qué capa del cartílago articular tiene condrocitos en columnas perpendiculares?", "Zona profunda o radial", "Zona superficial", "Pericondrio fibroso", "Zona de reserva epifisaria", "La orientación radial ayuda a resistir fuerzas compresivas."],
+  ["c7-33", "Clínica", "medium", "¿Por qué una lesión superficial limitada del cartílago articular casi no inicia reparación?", "No alcanza vasos ni células progenitoras del hueso subcondral", "El cartílago posee demasiados capilares", "Los condrocitos se dividen con exceso", "La superficie tiene pericondrio grueso", "Sin acceso vascular la respuesta reparadora es mínima."],
+  ["c7-34", "Integración", "hard", "¿Qué cartílago combina colágeno II, fibras elásticas visibles y pericondrio?", "Cartílago elástico", "Fibrocartílago", "Cartílago articular", "Hueso inmaduro", "El elástico conserva el plan hialino y añade elastina."],
+] satisfies readonly ManualQuizRow[]
 
-  ...fundamentosCartilagoQuestions,
-
-  ...matrizCartilagoQuestions,
-
-  ...condrocitosCartilagoQuestions,
-
-  ...pericondrioCartilagoQuestions,
-
-  ...hialinoCartilagoQuestions,
-
-  ...elasticoCartilagoQuestions,
-
-  ...fibrocartilagoQuestions,
-
-  ...crecimientoCartilagoQuestions,
-
-  ...clinicaCartilagoQuestions
-
-]
+export const cap7Questions = createManualQuizBankFromRows("Capítulo 7", rows)

@@ -1,55 +1,50 @@
-import { fundamentosConjuntivoQuestions } from "./fundamentos"
-import { embrionarioConjuntivoQuestions } from "./embrionario"
-import { adultoConjuntivoQuestions } from "./adulto"
-import { celulasConjuntivoQuestions } from "./celulas"
-import { celulasAvanzadoConjuntivoQuestions } from "./celulasAvanzado"
-import { fibrasConjuntivoQuestions } from "./fibras"
-import { fibrasColagenasConjuntivoQuestions } from "./fibrasColagenas"
-import { fibrasReticularesConjuntivoQuestions } from "./fibrasReticulares"
-import { fibrasElasticasConjuntivoQuestions } from "./fibrasElasticas"
-import { sustanciaFundamentalConjuntivoQuestions } from "./sustanciaFundamental"
-import { tiposConjuntivoQuestions } from "./tiposConjuntivo"
-import { colagenoBiosintesisConjuntivoQuestions } from "./colagenoBiosintesis"
-import { celulasDefensaConjuntivoQuestions } from "./celulasDefensa"
-import { correlacionesClinicasConjuntivoQuestions } from "./correlacionesClinicas"
-import { adipocitosPericitosConjuntivoQuestions } from "./adipocitosPericitos"
-import { reparacionInflamacionConjuntivoQuestions } from "./reparacionInflamacion"
-import { integracionFinalConjuntivoQuestions } from "./integracionFinal"
+import { createManualQuizBankFromRows, type ManualQuizRow } from "../manualQuiz"
 
-export const cap6Questions = [
+const rows = [
+  ["c6-01", "Fundamentos", "easy", "¿Cuáles son los tres componentes generales del tejido conjuntivo?", "Células, fibras y sustancia fundamental", "Epitelio, vasos y músculo", "Axones, dendritas y mielina", "Actina, miosina y troponina", "La matriz extracelular reúne fibras y sustancia fundamental alrededor de las células."],
+  ["c6-02", "Origen", "medium", "¿Qué tejido embrionario origina la mayor parte del conjuntivo?", "Mesénquima", "Ectodermo superficial", "Endodermo intestinal", "Neuroepitelio", "El mesénquima, sobre todo mesodérmico, da origen a los conjuntivos."],
+  ["c6-03", "Clasificación", "medium", "¿Qué distingue al conjuntivo laxo del denso?", "Mayor proporción de células y sustancia fundamental respecto de fibras", "Ausencia completa de colágeno", "Predominio exclusivo de fibras elásticas", "Presencia de epitelio estratificado", "El laxo tiene fibras más separadas y mayor celularidad relativa."],
+  ["c6-04", "Clasificación", "medium", "¿Dónde se encuentra típicamente tejido conjuntivo denso regular?", "Tendones", "Lámina propia intestinal", "Médula ósea roja", "Hipodermis adiposa", "Sus haces paralelos de colágeno resisten tracción en una dirección."],
+  ["c6-05", "Colágeno", "easy", "¿Qué tipo de colágeno predomina en tendones y dermis?", "Tipo I", "Tipo II", "Tipo III", "Tipo IV", "El tipo I forma fibras gruesas resistentes a tensión."],
+  ["c6-06", "Colágeno", "medium", "¿Qué tipo de colágeno predomina en cartílago hialino?", "Tipo II", "Tipo I", "Tipo III", "Tipo IV", "El tipo II forma fibrillas finas en la matriz cartilaginosa."],
+  ["c6-07", "Fibras reticulares", "medium", "Las fibras reticulares están formadas principalmente por colágeno:", "Tipo III", "Tipo I", "Tipo II", "Tipo VII", "El colágeno III forma redes delicadas de sostén."],
+  ["c6-08", "Membrana basal", "medium", "¿Qué colágeno forma una red laminar en membranas basales?", "Tipo IV", "Tipo I", "Tipo II", "Tipo III", "El colágeno IV no forma fibrillas típicas; construye redes."],
+  ["c6-09", "Síntesis de colágeno", "hard", "¿Dónde se hidroxilan residuos de prolina y lisina del procolágeno?", "Retículo endoplasmático rugoso", "Aparato de Golgi exclusivamente", "Matriz extracelular", "Lisosomas", "La hidroxilación ocurre en el RER y requiere vitamina C."],
+  ["c6-10", "Síntesis de colágeno", "hard", "¿Qué paso ocurre después de secretarse el procolágeno?", "Se escinden propéptidos y se ensamblan fibrillas", "Se hidroxilan residuos dentro del núcleo", "Se traduce colágeno en la matriz", "Se une a ribosomas extracelulares", "Las procolágeno peptidasas extracelulares generan tropocolágeno."],
+  ["c6-11", "Síntesis de colágeno", "medium", "La deficiencia de vitamina C debilita colágeno porque altera:", "Hidroxilación de prolina y lisina", "Transcripción de elastina", "Síntesis de glucosaminoglucanos", "Degradación lisosomal de fibrina", "La hidroxilación estabiliza la triple hélice y permite enlaces adecuados."],
+  ["c6-12", "Fibras elásticas", "medium", "¿Qué componentes forman una fibra elástica madura?", "Núcleo de elastina y microfibrillas de fibrilina", "Colágeno II y agrecano", "Laminina y colágeno IV", "Actina y miosina", "La elastina se deposita sobre un armazón de fibrilina."],
+  ["c6-13", "Matriz", "medium", "¿Qué propiedad de los glucosaminoglucanos favorece hidratación de la matriz?", "Su alta densidad de cargas negativas", "Su insolubilidad completa en agua", "Su asociación exclusiva con lípidos", "Su capacidad contráctil dependiente de ATP", "Las cargas atraen cationes y agua, generando turgencia."],
+  ["c6-14", "Matriz", "medium", "¿Qué glucosaminoglucano no está sulfatado y forma grandes agregados de proteoglucanos?", "Ácido hialurónico", "Heparán sulfato", "Dermatán sulfato", "Condroitín sulfato", "El hialuronano es una cadena muy larga no sulfatada de la matriz."],
+  ["c6-15", "Matriz", "hard", "¿Qué glucoproteína multiadhesiva conecta integrinas con colágeno y otros componentes de matriz?", "Fibronectina", "Hemoglobina", "Troponina", "Conexina", "La fibronectina organiza adhesión celular y matriz extracelular."],
+  ["c6-16", "Fibroblastos", "easy", "¿Qué célula sintetiza la mayor parte de la matriz conjuntiva?", "Fibroblasto", "Neutrófilo", "Adipocito", "Linfocito", "Los fibroblastos producen colágeno, elastina, GAG y glucoproteínas."],
+  ["c6-17", "Fibroblastos", "medium", "¿Qué rasgo distingue a un miofibroblasto?", "Combina síntesis de matriz con capacidad contráctil", "Produce anticuerpos y posee núcleo excéntrico", "Almacena histamina en gránulos", "Fagocita eritrocitos envejecidos exclusivamente", "Participa en cierre de heridas al expresar proteínas contráctiles."],
+  ["c6-18", "Macrófagos", "medium", "Los macrófagos del tejido conjuntivo derivan principalmente de:", "Monocitos sanguíneos", "Células plasmáticas", "Mastocitos", "Fibroblastos quiescentes", "Los monocitos migran y se diferencian en macrófagos tisulares."],
+  ["c6-19", "Macrófagos", "medium", "¿Qué combinación corresponde a un macrófago activado?", "Fagocitosis, presentación de antígeno y secreción de citocinas", "Síntesis de mielina y conducción saltatoria", "Producción de anticuerpos y gránulos de histamina", "Contracción con sarcómeros y discos intercalares", "Los macrófagos integran defensa innata y activación inmunitaria."],
+  ["c6-20", "Mastocitos", "medium", "¿Qué mediador preformado de mastocitos aumenta permeabilidad vascular?", "Histamina", "Colágeno I", "Insulina", "Troponina C", "La degranulación libera histamina durante reacciones inmediatas."],
+  ["c6-21", "Mastocitos", "hard", "¿Qué evento desencadena típicamente la degranulación alérgica de un mastocito?", "Entrecruzamiento de IgE unida a receptores Fc", "Unión de IgG a colágeno II", "Activación de GpIIb/IIIa por ADP", "Contacto de hemoglobina con elastina", "El antígeno aproxima moléculas de IgE fijadas al receptor de alta afinidad."],
+  ["c6-22", "Células plasmáticas", "medium", "Una célula con núcleo excéntrico, cromatina en rueda de carro y RER abundante es:", "Célula plasmática", "Mastocito", "Macrófago", "Pericito", "La morfología refleja síntesis intensa de inmunoglobulinas."],
+  ["c6-23", "Pericitos", "medium", "¿Dónde se localizan los pericitos?", "Alrededor de capilares y vénulas poscapilares", "En la superficie apical del epitelio", "Dentro de lagunas cartilaginosas", "Entre láminas de mielina", "Comparten lámina basal con endotelio y tienen potencial contráctil/progenitor."],
+  ["c6-24", "Inflamación", "medium", "¿Qué célula residente detecta estímulos alérgicos y recluta rápidamente otras células mediante mediadores?", "Mastocito", "Fibrocito", "Adipocito blanco", "Célula mesotelial", "Los mastocitos son centinelas perivasculares ricos en mediadores."],
+  ["c6-25", "Clínica", "hard", "Una mutación de fibrilina afecta principalmente:", "La arquitectura de fibras elásticas", "La red de colágeno IV", "Los filamentos de actina de microvellosidades", "La síntesis de anticuerpos", "La fibrilina forma microfibrillas que organizan el depósito de elastina."],
+  ["c6-26", "Integración", "hard", "Una herida se contrae pero produce una cicatriz rica en colágeno. ¿Qué célula participa en ambos procesos?", "Miofibroblasto", "Neutrófilo", "Célula plasmática", "Adipocito pardo", "El miofibroblasto deposita matriz y genera tensión contráctil."],
+  ["c6-27", "Integración", "hard", "¿Qué asociación componente–función es correcta?", "Proteoglucanos–resistencia a compresión por hidratación", "Colágeno I–movimiento ciliar", "Elastina–presentación de antígeno", "Fibronectina–contracción sarcomérica", "Los proteoglucanos hidratados forman geles que soportan compresión."],
+  ["c6-28", "Integración", "hard", "¿Qué célula conjuntiva es la fuente directa de anticuerpos?", "Célula plasmática", "Macrófago", "Mastocito", "Pericito", "Las células plasmáticas son linfocitos B diferenciados que secretan inmunoglobulinas."],
+  ["c6-29", "Clasificación", "medium", "¿Qué tejido conjuntivo predomina en la lámina propia bajo epitelios?", "Conjuntivo laxo", "Conjuntivo denso regular", "Cartílago hialino", "Hueso compacto", "Su abundante sustancia fundamental facilita difusión y tránsito de células inmunitarias."],
+  ["c6-30", "Clasificación", "medium", "¿Qué orientación de colágeno caracteriza la dermis reticular?", "Haces irregulares entrelazados", "Haces paralelos en una sola dirección", "Red exclusiva de colágeno IV", "Fibrillas sin orientación ni enlaces", "El denso irregular resiste fuerzas procedentes de varias direcciones."],
+  ["c6-31", "Colágeno", "hard", "¿Qué colágeno forma fibrillas de anclaje bajo membranas basales?", "Tipo VII", "Tipo I", "Tipo II", "Tipo III", "El colágeno VII enlaza la lámina basal con la matriz conjuntiva."],
+  ["c6-32", "Colágeno", "hard", "¿Qué colágenos se describen como asociados con fibrillas y regulan su organización?", "Tipos IX y XII", "Tipos I y II", "Tipos III y IV", "Tipos VII y XVII", "Los FACIT conectan fibrillas principales con otros componentes de matriz."],
+  ["c6-33", "Síntesis de colágeno", "hard", "¿Qué enzima extracelular inicia enlaces covalentes entre moléculas de colágeno?", "Lisil oxidasa", "Prolil hidroxilasa", "Colagenasa nuclear", "Hialuronidasa", "La lisil oxidasa dependiente de cobre genera aldehídos que permiten entrecruzamiento."],
+  ["c6-34", "Degradación", "medium", "¿Qué enzimas inician la degradación extracelular de fibrillas de colágeno?", "Metaloproteinasas de matriz", "Caspasas", "Amilasas", "Fosfolipasas", "Las MMP escinden colágeno y otros componentes durante remodelación."],
+  ["c6-35", "Fibras reticulares", "medium", "¿Por qué las fibras reticulares se demuestran bien con sales de plata?", "Son argirófilas por sus glucoproteínas asociadas", "Están mineralizadas", "Contienen abundante hemoglobina", "Son altamente lipídicas", "Las fibrillas de colágeno III y sus recubrimientos fijan plata."],
+  ["c6-36", "Fibras elásticas", "hard", "¿Qué enlace estabiliza la red de elastina?", "Desmosina e isodesmosina", "Puentes de fibrinógeno", "Enlaces de actomiosina", "Uniones de conexina", "Derivados de lisina crean enlaces cruzados característicos de elastina."],
+  ["c6-37", "Matriz", "medium", "¿Qué función cumple la laminina en la lámina basal?", "Organiza una red adhesiva y se une a receptores celulares", "Forma fibrillas de colágeno I", "Degrada proteoglucanos", "Contrae la matriz", "Las lamininas conectan integrinas, colágeno IV y otros componentes."],
+  ["c6-38", "Matriz", "hard", "¿Qué proteoglucano de membrana puede actuar como correceptor para factores de crecimiento?", "Sindecano", "Agrecano", "Decorina exclusivamente extracelular", "Elastina", "Los sindecanos atraviesan membrana y presentan cadenas de heparán sulfato."],
+  ["c6-39", "Células", "medium", "¿Qué distingue un fibrocito de un fibroblasto activo?", "Núcleo más pequeño y citoplasma con menos RER", "Mayor tamaño y Golgi prominente", "Gránulos de histamina", "Núcleo en rueda de carro", "El fibrocito es la forma quiescente con menor síntesis de matriz."],
+  ["c6-40", "Macrófagos", "hard", "¿Qué rasgo ultraestructural apoya la función fagocítica de un macrófago?", "Abundantes lisosomas y fagolisosomas", "Múltiples cisternas terminales", "Axonema 9+2", "Gránulos de mucinógeno", "El sistema lisosomal degrada material ingerido."],
+  ["c6-41", "Mastocitos", "hard", "¿Qué mediadores lipídicos sintetiza un mastocito activado en vez de almacenarlos preformados?", "Leucotrienos y prostaglandinas", "Histamina y heparina", "Colágeno y elastina", "Inmunoglobulinas", "Los eicosanoides se producen a partir de membrana tras activación."],
+  ["c6-42", "Clínica", "hard", "En síndrome de Ehlers-Danlos, la hipermovilidad y fragilidad se deben principalmente a:", "Defectos en síntesis o estructura del colágeno", "Exceso de elastina normal", "Falla de la actina sarcomérica", "Ausencia de proteoglucanos cartilaginosos únicamente", "Distintos subtipos alteran colágeno o sus enzimas de procesamiento."],
+  ["c6-43", "Clínica", "hard", "La exposición solar crónica favorece arrugas al causar en dermis:", "Elastosis y degradación anormal de matriz", "Formación de osteonas", "Aumento uniforme de colágeno normal", "Transformación de fibroblastos en neuronas", "La radiación altera fibras elásticas y colágeno del tejido conjuntivo."],
+  ["c6-44", "Integración", "hard", "Una célula perivascular comparte lámina basal con endotelio y puede diferenciarse tras lesión. ¿Cuál es?", "Pericito", "Célula plasmática", "Mastocito", "Adipocito", "Los pericitos son células contráctiles y progenitoras asociadas con microvasos."],
+] satisfies readonly ManualQuizRow[]
 
-  ...fundamentosConjuntivoQuestions,
-
-  ...embrionarioConjuntivoQuestions,
-
-  ...adultoConjuntivoQuestions,
-
-  ...celulasConjuntivoQuestions,
-
-  ...celulasAvanzadoConjuntivoQuestions,
-
-  ...fibrasConjuntivoQuestions,
-
-  ...fibrasColagenasConjuntivoQuestions,
-
-  ...fibrasReticularesConjuntivoQuestions,
-
-  ...fibrasElasticasConjuntivoQuestions,
-
-  ...sustanciaFundamentalConjuntivoQuestions,
-
-  ...tiposConjuntivoQuestions,
-
-  ...colagenoBiosintesisConjuntivoQuestions,
-
-  ...celulasDefensaConjuntivoQuestions,
-
-  ...correlacionesClinicasConjuntivoQuestions,
-
-  ...adipocitosPericitosConjuntivoQuestions,
-
-  ...reparacionInflamacionConjuntivoQuestions,
-
-  ...integracionFinalConjuntivoQuestions
-
-]
+export const cap6Questions = createManualQuizBankFromRows("Capítulo 6", rows)

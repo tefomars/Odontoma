@@ -1,43 +1,50 @@
-import { fundamentosQuestions } from "./fundamentos"
-import { clasificacionQuestions } from "./clasificacion"
-import { polaridadQuestions } from "./polaridad"
-import { microvellosidadesQuestions } from "./microvellosidades"
-import { estereociliosQuestions } from "./estereocilios"
-import { ciliosQuestions } from "./cilios"
-import { unionesQuestions } from "./uniones"
-import { membranaBasalQuestions } from "./membranaBasal"
-import { glandulasQuestions } from "./glandulas"
-import { metaplasiaQuestions } from "./metaplasia"
-import { integracionQuestions } from "./integracion"
-import { finalizacionQuestions } from "./finalizacion"
-import { cierreAvanzadoQuestions } from "./cierreAvanzado"
+import { createManualQuizBankFromRows, type ManualQuizRow } from "../manualQuiz"
 
-export const cap5Questions = [
+const rows = [
+  ["c5-01", "Clasificación", "easy", "¿Qué dos criterios clasifican un epitelio de revestimiento?", "Número de estratos y forma de las células superficiales", "Origen embrionario y color de tinción", "Cantidad de vasos y tipo de colágeno", "Tamaño nuclear y contenido de glucógeno", "Se nombra por capas y morfología de la capa más superficial."],
+  ["c5-02", "Clasificación", "medium", "Un epitelio con una sola capa de células aplanadas es:", "Plano simple", "Cúbico estratificado", "Cilíndrico seudoestratificado", "De transición", "Una capa y células superficiales planas definen el epitelio plano simple."],
+  ["c5-03", "Clasificación", "medium", "¿Por qué un epitelio seudoestratificado se considera simple?", "Todas sus células contactan la membrana basal", "Todas alcanzan la superficie libre", "Carece de polaridad apicobasal", "Tiene una sola fila de núcleos", "Los núcleos quedan a distintas alturas, pero todas las células apoyan en la lámina basal."],
+  ["c5-04", "Clasificación", "medium", "¿Qué epitelio está adaptado a distensión repetida en vías urinarias?", "Urotelio o epitelio de transición", "Plano simple", "Cilíndrico simple ciliado", "Cúbico estratificado queratinizado", "Las células superficiales del urotelio cambian su forma con la distensión."],
+  ["c5-05", "Polaridad", "easy", "¿Qué dominio celular mira hacia la luz o el exterior?", "Apical", "Basal", "Lateral", "Perinuclear", "El dominio apical enfrenta el espacio libre."],
+  ["c5-06", "Polaridad", "medium", "¿Qué estructura separa los dominios apical y basolateral al restringir difusión de proteínas de membrana?", "Unión ocluyente", "Desmosoma", "Hemidesmosoma", "Unión comunicante", "La zonula occludens forma la barrera paracelular y mantiene polaridad."],
+  ["c5-07", "Microvellosidades", "medium", "¿Qué función cumplen principalmente las microvellosidades?", "Aumentar la superficie de absorción", "Mover moco mediante dineína", "Anclar la célula a colágeno IV", "Comunicar citoplasmas vecinos", "Su eje de actina amplía la superficie apical."],
+  ["c5-08", "Microvellosidades", "hard", "¿Qué filamento forma el eje de una microvellosidad?", "Actina", "Tubulina", "Queratina", "Desmina", "Las microvellosidades contienen haces de actina unidos a la red terminal."],
+  ["c5-09", "Estereocilios", "medium", "Los estereocilios se describen mejor como:", "Microvellosidades largas e inmóviles con actina", "Cilios móviles con axonema 9+2", "Pliegues basales con mitocondrias", "Prolongaciones con neurofilamentos", "Pese al nombre, son prolongaciones de actina y no cilios verdaderos."],
+  ["c5-10", "Cilios", "medium", "¿Qué patrón microtubular caracteriza a un cilio móvil?", "Nueve dobletes periféricos y dos microtúbulos centrales", "Nueve tripletes sin par central", "Haces paralelos de actina", "Filamentos intermedios en red", "El axonema móvil clásico tiene organización 9+2."],
+  ["c5-11", "Cilios", "hard", "¿Qué proteína motora produce el deslizamiento de dobletes en los cilios?", "Dineína axonemal", "Miosina II", "Cinesina citoplasmática", "Espectrina", "Los brazos de dineína usan ATP para generar el movimiento ciliar."],
+  ["c5-12", "Cilios", "medium", "Un defecto de dineína axonemal afectaría directamente:", "El aclaramiento mucociliar", "La absorción por microvellosidades intestinales", "La adhesión de hemidesmosomas", "La secreción merocrina", "La discinesia ciliar altera el transporte coordinado de moco."],
+  ["c5-13", "Uniones", "medium", "¿Qué unión conecta los cinturones de actina de células vecinas?", "Zonula adherens", "Desmosoma", "Hemidesmosoma", "Unión comunicante", "La zonula adherens usa cadherinas para enlazar actina entre células."],
+  ["c5-14", "Uniones", "medium", "¿Qué unión proporciona adhesión puntual resistente mediante filamentos intermedios?", "Desmosoma", "Unión ocluyente", "Unión comunicante", "Focal de actina", "Los desmosomas distribuyen tensión a través de queratinas."],
+  ["c5-15", "Uniones", "medium", "¿Qué unión ancla filamentos intermedios de una célula epitelial a la lámina basal?", "Hemidesmosoma", "Zonula adherens", "Nexo", "Desmosoma", "Los hemidesmosomas usan integrinas para conectar queratinas con la matriz basal."],
+  ["c5-16", "Uniones", "medium", "¿Qué estructura permite el paso directo de iones y moléculas pequeñas entre células?", "Unión comunicante", "Unión ocluyente", "Hemidesmosoma", "Adhesión focal", "Los conexones de los nexos forman canales intercelulares."],
+  ["c5-17", "Membrana basal", "medium", "¿Qué componentes predominan en la lámina basal?", "Colágeno IV y laminina", "Colágeno I y elastina", "Colágeno II y agrecano", "Fibrina y fibronectina plasmática", "La red de colágeno IV se asocia con lamininas y proteoglucanos."],
+  ["c5-18", "Membrana basal", "hard", "¿Qué estructura fija la lámina basal al tejido conjuntivo reticular?", "Fibrillas de anclaje de colágeno VII", "Brazos de dineína", "Conexones de conexina", "Filamentos gruesos de miosina", "El colágeno VII forma fibrillas de anclaje hacia la lámina reticular."],
+  ["c5-19", "Pliegues basales", "medium", "Pliegues basales profundos asociados con muchas mitocondrias indican especialización para:", "Transporte activo de iones", "Movimiento ciliar", "Síntesis de queratina", "Fagocitosis de partículas", "Amplían superficie para bombas y las mitocondrias aportan ATP."],
+  ["c5-20", "Glándulas", "easy", "¿Qué diferencia esencial hay entre glándulas exocrinas y endocrinas?", "Las exocrinas conservan conductos; las endocrinas secretan hacia sangre", "Las endocrinas poseen conductos y las exocrinas no", "Solo las exocrinas producen proteínas", "Solo las endocrinas derivan de epitelio", "El destino de la secreción y la presencia de conductos distinguen ambos tipos."],
+  ["c5-21", "Glándulas", "medium", "En secreción merocrina, el producto sale por:", "Exocitosis sin pérdida de citoplasma", "Desprendimiento de la porción apical", "Desintegración de toda la célula", "Difusión a través de un axonema", "La secreción merocrina usa vesículas y conserva íntegra la célula."],
+  ["c5-22", "Glándulas", "medium", "¿Qué mecanismo caracteriza la secreción apocrina?", "Se libera producto con una porción del citoplasma apical", "La célula completa muere y forma la secreción", "El producto cruza por uniones comunicantes", "Se exocita sin membrana ni citoplasma", "El brote apical incluye membrana y una capa de citoplasma."],
+  ["c5-23", "Glándulas", "medium", "¿Qué mecanismo caracteriza una glándula holocrina?", "La célula completa se desintegra para liberar el producto", "Exocitosis regulada en el polo apical", "Pinzamiento de una vesícula apical", "Filtración del plasma por la lámina basal", "Las células sebáceas son el ejemplo clásico de secreción holocrina."],
+  ["c5-24", "Glándulas", "hard", "Una glándula con conducto no ramificado y adenómero enrollado es:", "Tubular simple contorneada", "Acinar compuesta", "Tubular compuesta", "Alveolar simple ramificada", "La clasificación combina ramificación del conducto y forma de la porción secretora."],
+  ["c5-25", "Renovación", "medium", "¿Dónde se localizan normalmente las células madre de un epitelio estratificado?", "En el estrato basal", "En la capa superficial descamada", "Dentro de la lámina reticular", "En el lumen glandular", "Las células basales proliferan y reemplazan a las que migran a la superficie."],
+  ["c5-26", "Clínica", "medium", "La metaplasia epitelial es:", "Sustitución reversible de un tipo celular maduro por otro", "Proliferación maligna que invade la membrana basal", "Pérdida irreversible de todas las células madre", "Conversión de epitelio en matriz acelular", "Es una adaptación a estrés persistente y puede revertir al retirar el estímulo."],
+  ["c5-27", "Integración", "hard", "En un epitelio sometido a fricción intensa, ¿qué unión evita mejor que las células se separen?", "Desmosoma", "Unión comunicante", "Cilio primario", "Microvellosidad", "Los desmosomas conectan redes de queratina y resisten tensión mecánica."],
+  ["c5-28", "Integración", "hard", "Una toxina abre uniones ocluyentes intestinales. ¿Qué cambio aparece primero?", "Aumento de permeabilidad paracelular", "Pérdida del axonema 9+2", "Falla de agregación plaquetaria", "Ausencia de colágeno II", "La barrera ocluyente controla el paso entre células."],
+  ["c5-29", "Clasificación", "medium", "¿Qué epitelio reviste los alvéolos pulmonares y favorece difusión?", "Plano simple", "Cúbico estratificado", "Cilíndrico simple", "Plano estratificado queratinizado", "Su escaso espesor reduce la distancia para intercambio gaseoso."],
+  ["c5-30", "Clasificación", "medium", "¿Qué epitelio reviste típicamente túbulos renales?", "Cúbico simple", "Plano estratificado", "Cilíndrico seudoestratificado", "De transición estratificado", "Las células cúbicas ofrecen volumen para transporte activo y absorción."],
+  ["c5-31", "Clasificación", "medium", "¿Qué epitelio protege la superficie húmeda del esófago?", "Plano estratificado no queratinizado", "Plano simple", "Cúbico simple", "Cilíndrico seudoestratificado ciliado", "Sus capas resisten abrasión sin una capa córnea seca."],
+  ["c5-32", "Clasificación", "medium", "¿Qué epitelio reviste normalmente la tráquea?", "Cilíndrico seudoestratificado ciliado con células caliciformes", "Plano estratificado queratinizado", "Cúbico simple con estereocilios", "Urotelio", "El epitelio respiratorio transporta moco hacia la faringe."],
+  ["c5-33", "Superficie apical", "hard", "¿Qué proteína une el haz de actina de una microvellosidad a su membrana?", "Miosina I", "Dineína", "Desmina", "Colágeno VII", "La miosina I y calmodulina conectan actina con la membrana apical."],
+  ["c5-34", "Superficie apical", "hard", "¿Qué estructura ancla el axonema de un cilio a la célula?", "Cuerpo basal", "Red terminal", "Hemidesmosoma", "Zonula adherens", "El cuerpo basal tiene nueve tripletes y organiza los microtúbulos ciliares."],
+  ["c5-35", "Cilios", "hard", "¿Qué patrón posee un cilio primario no móvil?", "Nueve dobletes periféricos sin par central", "Nueve dobletes y dos centrales", "Nueve tripletes y dos centrales", "Haces de actina sin microtúbulos", "El cilio primario 9+0 funciona principalmente como sensor."],
+  ["c5-36", "Uniones", "hard", "¿Qué moléculas transmembrana forman los canales de una unión comunicante?", "Conexinas organizadas en conexones", "Claudinas organizadas en láminas", "Cadherinas unidas a queratina", "Integrinas unidas a laminina", "Seis conexinas forman un conexón y dos conexones alineados crean el canal."],
+  ["c5-37", "Uniones", "hard", "¿Qué proteínas transmembrana son fundamentales en la unión ocluyente?", "Claudinas y ocludina", "Desmogleína y desmocolina", "Integrina y distroglicano", "Conexina y cadherina", "Las claudinas determinan selectividad paracelular y la ocludina participa en el sello."],
+  ["c5-38", "Uniones", "hard", "¿Qué cadherinas predominan en desmosomas?", "Desmogleínas y desmocolinas", "Claudinas y ocludinas", "Conexinas", "Integrinas alfa6 beta4", "Estas cadherinas desmosómicas conectan placas de anclaje de células vecinas."],
+  ["c5-39", "Membrana basal", "medium", "¿Qué célula produce principalmente la lámina basal bajo un epitelio?", "La célula epitelial", "El eritrocito", "El neutrófilo", "El osteoclasto", "La lámina basal es producto del epitelio; la lámina reticular proviene del conjuntivo."],
+  ["c5-40", "Glándulas", "medium", "¿Qué rasgo distingue una célula serosa de una mucosa?", "La serosa tiene RER basal y gránulos apicales de proteína", "La serosa posee citoplasma pálido lleno de mucinógeno", "La mucosa tiene núcleo redondo central y citoplasma basófilo intenso", "La mucosa carece de aparato de Golgi", "Las serosas secretan proteínas acuosas; las mucosas acumulan mucinas y aplanan el núcleo basal."],
+  ["c5-41", "Glándulas", "hard", "¿Qué célula ayuda a expulsar la secreción al contraerse entre la célula glandular y la lámina basal?", "Célula mioepitelial", "Célula caliciforme", "Fibroblasto", "Macrófago", "Las células mioepiteliales abrazan adenómeros y conductos pequeños."],
+  ["c5-42", "Glándulas", "medium", "La célula caliciforme es un ejemplo de:", "Glándula exocrina unicelular", "Glándula endocrina cordonal", "Célula mioepitelial", "Glándula holocrina multicelular", "Secreta mucina directamente sobre la superficie epitelial."],
+  ["c5-43", "Clínica", "hard", "En discinesia ciliar primaria, la infertilidad masculina se relaciona con alteración de:", "La motilidad del flagelo espermático", "La reacción acrosómica por colágeno", "La síntesis de testosterona por cilios", "La meiosis de espermatogonias", "Flagelos y cilios móviles comparten el axonema dependiente de dineína."],
+  ["c5-44", "Integración", "hard", "Una biopsia muestra células superficiales abombadas y algunas binucleadas. ¿Qué epitelio es más probable?", "Urotelio", "Plano simple", "Cilíndrico simple", "Plano estratificado queratinizado", "Las células paraguas del urotelio son grandes, abombadas y con frecuencia binucleadas."],
+] satisfies readonly ManualQuizRow[]
 
-  ...fundamentosQuestions,
-
-  ...clasificacionQuestions,
-
-  ...polaridadQuestions,
-
-  ...microvellosidadesQuestions,
-
-  ...estereociliosQuestions,
-
-  ...ciliosQuestions,
-
-  ...unionesQuestions,
-
-  ...membranaBasalQuestions,
-
-  ...glandulasQuestions,
-
-  ...metaplasiaQuestions,
-
-  ...integracionQuestions,
-
-  ...finalizacionQuestions,
-
-  ...cierreAvanzadoQuestions
-
-]
+export const cap5Questions = createManualQuizBankFromRows("Capítulo 5", rows)

@@ -1,13 +1,34 @@
-import { fundamentosQuestions } from "./fundamentos"
-import { tejidosBasicosQuestions } from "./tejidosBasicos"
-import { origenesEmbrionariosQuestions } from "./origenesEmbrionarios"
+import { createManualQuizBankFromRows, type ManualQuizRow } from "../manualQuiz"
 
-export const cap4Questions = [
+const rows = [
+  ["c4-01", "Fundamentos", "easy", "¿Qué define mejor a un tejido?", "Un conjunto organizado de células y, cuando corresponde, matriz extracelular con funciones coordinadas", "Una agrupación temporal de células sin relación funcional", "Una colección de órganos con el mismo origen embrionario", "Una matriz extracelular sin células residentes", "Los tejidos integran células y matriz en una organización funcional."],
+  ["c4-02", "Fundamentos", "medium", "¿Qué criterio se usa principalmente para clasificar los cuatro tejidos básicos?", "La organización celular, la matriz y la función predominante", "El color que adquieren con hematoxilina", "La cantidad de vasos en cualquier circunstancia", "El tamaño absoluto de sus células", "La clasificación combina rasgos morfológicos y función."],
+  ["c4-03", "Epitelio", "easy", "¿Qué rasgo distingue al tejido epitelial del conjuntivo?", "Células muy juntas y poca matriz extracelular", "Abundante matriz y células muy separadas", "Vasos sanguíneos entre todas sus células", "Predominio de fibras colágenas sobre células", "El epitelio es altamente celular y su matriz es escasa."],
+  ["c4-04", "Epitelio", "medium", "¿Cómo recibe nutrientes un epitelio avascular?", "Por difusión desde el tejido conjuntivo subyacente", "Por capilares dentro del espesor epitelial", "Por transporte axonal desde nervios", "Por secreción de las células superficiales", "Los nutrientes cruzan la membrana basal por difusión."],
+  ["c4-05", "Epitelio", "medium", "¿Qué combinación funcional corresponde al epitelio?", "Protección, absorción, secreción y transporte superficial", "Contracción voluntaria y producción de fuerza", "Reserva mineral y hematopoyesis", "Conducción rápida mediante axones", "El epitelio reviste superficies y forma glándulas con funciones especializadas."],
+  ["c4-06", "Conjuntivo", "easy", "¿Qué componente suele predominar en el tejido conjuntivo?", "La matriz extracelular", "Las uniones ocluyentes", "Los miofilamentos contráctiles", "Las prolongaciones axonales", "La abundancia y composición de la matriz caracteriza al conjuntivo."],
+  ["c4-07", "Conjuntivo", "medium", "¿Cuál es una función integradora del tejido conjuntivo?", "Sostener, unir e intercambiar sustancias entre tejidos", "Formar una barrera avascular continua", "Generar potenciales de acción", "Producir movimiento por sarcómeros", "El conjuntivo brinda soporte mecánico y vías de intercambio."],
+  ["c4-08", "Muscular", "easy", "¿Qué propiedad especializada caracteriza al tejido muscular?", "La contracción por interacción de actina y miosina", "La secreción apocrina", "La síntesis de mielina", "La mineralización de su matriz", "Los miofilamentos convierten energía química en fuerza."],
+  ["c4-09", "Muscular", "medium", "¿Qué tejido muscular controla principalmente movimientos voluntarios?", "Músculo esquelético", "Músculo cardíaco", "Músculo liso visceral", "Mioepitelio glandular", "El músculo esquelético está bajo control somático."],
+  ["c4-10", "Nervioso", "easy", "¿Qué célula está especializada en recibir y transmitir información?", "La neurona", "El fibroblasto", "El adipocito", "El condrocito", "La neurona genera y conduce señales; la neuroglía la sostiene."],
+  ["c4-11", "Nervioso", "medium", "¿Cuál es la función general de la neuroglía?", "Sostener, proteger y mantener el entorno de las neuronas", "Secretar colágeno tipo I como función principal", "Formar el tapón plaquetario", "Contraerse de manera voluntaria", "Las células gliales realizan soporte estructural, metabólico y defensivo."],
+  ["c4-12", "Histogénesis", "medium", "¿Qué tejido básico puede derivar de las tres capas germinales?", "Epitelio", "Músculo cardíaco", "Cartílago hialino", "Tejido óseo", "Los epitelios se originan en ectodermo, mesodermo o endodermo según el órgano."],
+  ["c4-13", "Histogénesis", "medium", "La epidermis deriva principalmente de:", "Ectodermo", "Mesodermo paraxial", "Endodermo", "Cresta neural exclusivamente", "El ectodermo superficial origina la epidermis."],
+  ["c4-14", "Histogénesis", "medium", "El revestimiento epitelial del tubo digestivo deriva principalmente de:", "Endodermo", "Ectodermo superficial", "Mesodermo intermedio", "Notocorda", "La mayor parte del epitelio digestivo y sus glándulas deriva del endodermo."],
+  ["c4-15", "Histogénesis", "medium", "El endotelio de los vasos sanguíneos deriva de:", "Mesodermo", "Ectodermo", "Endodermo", "Neuroectodermo", "Aunque es epitelio, el endotelio tiene origen mesodérmico."],
+  ["c4-16", "Histogénesis", "medium", "¿Qué origen comparten la mayor parte del tejido conjuntivo y el músculo?", "Mesodermo", "Endodermo", "Ectodermo superficial", "Placodas ectodérmicas", "El mesénquima mesodérmico origina la mayoría de conjuntivos y músculos."],
+  ["c4-17", "Integración", "hard", "Una muestra presenta células polarizadas sobre membrana basal, sin vasos entre ellas. ¿Qué tejido es?", "Epitelial", "Conjuntivo", "Muscular", "Nervioso", "Polaridad, membrana basal y avascularidad son rasgos epiteliales."],
+  ["c4-18", "Integración", "hard", "Una muestra tiene células dispersas entre fibras y sustancia fundamental. ¿Qué tejido predomina?", "Conjuntivo", "Epitelial", "Muscular estriado", "Nervioso", "La separación celular por matriz fibrosa y sustancia fundamental identifica al conjuntivo."],
+  ["c4-19", "Integración", "hard", "¿Qué asociación tejido–función es correcta?", "Nervioso–comunicación rápida", "Epitelial–reserva mineral", "Conjuntivo–contracción voluntaria", "Muscular–absorción selectiva", "La comunicación eléctrica y química es función distintiva del nervioso."],
+  ["c4-20", "Clínica", "medium", "¿Por qué un teratoma ovárico puede contener epitelio, cartílago y tejido nervioso?", "Se origina de células capaces de diferenciarse hacia varias capas germinales", "Proviene exclusivamente de músculo liso maduro", "Es una metaplasia de endotelio vascular", "Se forma por depósito de matriz sin proliferación celular", "Los teratomas muestran derivados de más de una capa germinal."],
+  ["c4-21", "Fundamentos", "medium", "¿Qué componente permite que células de un mismo tejido coordinen su actividad?", "Uniones celulares y señales químicas entre ellas", "La ausencia completa de receptores", "El aislamiento de cada célula por mineral", "La pérdida de polaridad celular", "La función tisular depende de comunicación, adhesión y respuesta coordinada."],
+  ["c4-22", "Epitelio", "medium", "¿Qué estructura fija el epitelio al tejido conjuntivo y regula el intercambio?", "Membrana basal", "Perimisio", "Pericondrio", "Endoneuro", "La membrana basal sostiene, separa y filtra entre epitelio y conjuntivo."],
+  ["c4-23", "Conjuntivo", "medium", "¿Por qué sangre, cartílago y hueso pertenecen al tejido conjuntivo?", "Sus células se relacionan con una matriz extracelular especializada", "Todos forman superficies de revestimiento", "Todos están constituidos por fibras musculares", "Todos carecen de vasos sanguíneos", "La naturaleza de la matriz varía de líquida a mineralizada, pero conserva el plan conjuntivo."],
+  ["c4-24", "Muscular", "medium", "¿Qué tipo muscular produce los cambios de calibre de vísceras y vasos?", "Músculo liso", "Músculo esquelético", "Músculo cardíaco", "Tejido mioepitelial exclusivamente", "El músculo liso involuntario modifica el diámetro y contenido de órganos huecos."],
+  ["c4-25", "Nervioso", "medium", "¿Qué prolongación neuronal conduce normalmente la señal lejos del cuerpo celular?", "Axón", "Dendrita", "Lámina basal", "Fibra reticular", "El axón constituye la vía de salida de la neurona."],
+  ["c4-26", "Histogénesis", "hard", "¿Qué asociación de origen embrionario es correcta?", "Cresta neural–componentes del sistema nervioso periférico", "Endodermo–epidermis", "Ectodermo superficial–músculo cardíaco", "Mesodermo–epitelio intestinal principal", "La cresta neural genera, entre otros derivados, ganglios y células de Schwann."],
+  ["c4-27", "Identificación", "hard", "Una muestra muestra células alargadas paralelas, citoplasma eosinófilo y poca matriz entre ellas. ¿Qué tejido predomina?", "Muscular", "Conjuntivo laxo", "Epitelial glandular", "Nervioso", "La disposición en haces y el citoplasma contráctil orientan a músculo."],
+  ["c4-28", "Identificación", "hard", "Una muestra contiene somas grandes con prolongaciones, rodeados por numerosas células pequeñas. ¿Qué tejido es?", "Nervioso", "Epitelial", "Cartilaginoso", "Muscular liso", "Los somas neuronales se acompañan de abundante neuroglía."],
+] satisfies readonly ManualQuizRow[]
 
-  ...fundamentosQuestions,
-
-  ...tejidosBasicosQuestions,
-
-  ...origenesEmbrionariosQuestions
-
-]
+export const cap4Questions = createManualQuizBankFromRows("Capítulo 4", rows)

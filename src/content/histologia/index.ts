@@ -3,6 +3,10 @@ import { cap5Questions } from "./cap5/questions"
 import { cap6Questions } from "./cap6/questions"
 import { cap7Questions } from "./cap7/questions"
 import { cap8Questions } from "./cap8/questions"
+import { cap9Questions } from "./cap9/questions"
+import { cap10Questions } from "./cap10/questions"
+import { cap11Questions } from "./cap11/questions"
+import { cap12Questions } from "./cap12/questions"
 import { cap13Questions } from "./cap13/questions"
 import { cap14Questions } from "./cap14/questions"
 import { cap15Questions } from "./cap15/questions"
@@ -14,6 +18,10 @@ export const questions = [
   ...cap6Questions,
   ...cap7Questions,
   ...cap8Questions,
+  ...cap9Questions,
+  ...cap10Questions,
+  ...cap11Questions,
+  ...cap12Questions,
   ...cap13Questions,
   ...cap14Questions,
   ...cap15Questions,
@@ -26,10 +34,10 @@ export const questionCountsByChapter = {
   "Capítulo 6": cap6Questions.length,
   "Capítulo 7": cap7Questions.length,
   "Capítulo 8": cap8Questions.length,
-  "Capítulo 9": 0,
-  "Capítulo 10": 0,
-  "Capítulo 11": 0,
-  "Capítulo 12": 0,
+  "Capítulo 9": cap9Questions.length,
+  "Capítulo 10": cap10Questions.length,
+  "Capítulo 11": cap11Questions.length,
+  "Capítulo 12": cap12Questions.length,
   "Capítulo 13": cap13Questions.length,
   "Capítulo 14": cap14Questions.length,
   "Capítulo 15": cap15Questions.length,

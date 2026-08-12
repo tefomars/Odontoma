@@ -7,6 +7,15 @@ import { cap13Questions } from "./cap13/questions"
 import { cap14Questions } from "./cap14/questions"
 import { cap15Questions } from "./cap15/questions"
 import { hemostasiaQuestions } from "./articulos/hemostasiaQuestions"
+import { cap4Questions } from "./cap4/questions"
+import { cap5Questions } from "./cap5/questions"
+import { cap6Questions } from "./cap6/questions"
+import { cap7Questions } from "./cap7/questions"
+import { cap8Questions } from "./cap8/questions"
+import { cap9Questions } from "./cap9/questions"
+import { cap10Questions } from "./cap10/questions"
+import { cap11Questions } from "./cap11/questions"
+import { cap12Questions } from "./cap12/questions"
 
 const manualBanks = [
   {
@@ -100,28 +109,48 @@ describe("bancos manuales de Citohistología II", () => {
   })
 })
 
-describe("banco generado del artículo de hemostasia", () => {
-  it("continúa produciendo preguntas estructuralmente válidas", () => {
-    expect(hemostasiaQuestions.length).toBeGreaterThan(40)
+describe("bancos manuales reconstruidos", () => {
+  const rebuiltBanks = [
+    ["Capítulo 4", cap4Questions, 28],
+    ["Capítulo 5", cap5Questions, 44],
+    ["Capítulo 6", cap6Questions, 44],
+    ["Capítulo 7", cap7Questions, 34],
+    ["Capítulo 8", cap8Questions, 46],
+    ["Capítulo 9", cap9Questions, 36],
+    ["Capítulo 10", cap10Questions, 48],
+    ["Capítulo 11", cap11Questions, 50],
+    ["Capítulo 12", cap12Questions, 52],
+    ["Artículo · Hemostasia y trombosis", hemostasiaQuestions, 40]
+  ] as const
 
-    for (const question of hemostasiaQuestions) {
-      expect(question.options.length).toBeGreaterThanOrEqual(2)
-      expect(question.options.length).toBeLessThanOrEqual(4)
-      expect(new Set(question.options).size).toBe(question.options.length)
-      expect(question.correctAnswers).toEqual([0])
+  it("mantiene la cobertura prevista y cuatro alternativas únicas", () => {
+    const questions = rebuiltBanks.flatMap(([, bank]) => bank)
+    expect(new Set(questions.map(question => question.id)).size).toBe(questions.length)
+    expect(new Set(questions.map(question => question.question)).size).toBe(questions.length)
+
+    for (const [chapter, bank, expectedCount] of rebuiltBanks) {
+      expect(bank).toHaveLength(expectedCount)
+      expect(new Set(bank.map(question => question.topic)).size).toBeGreaterThanOrEqual(4)
+
+      for (const question of bank) {
+        expect(question.chapter).toBe(chapter)
+        expect(question.type).toBe("single")
+        expect(question.options).toHaveLength(4)
+        expect(new Set(question.options).size).toBe(4)
+        expect(question.correctAnswers).toEqual([0])
+        expect(question.explanation.trim().length).toBeGreaterThan(20)
+        expect(question.tags).toContain("Banco manual")
+      }
     }
   })
 
-  it("compara factores de coagulación con factores plausibles", () => {
-    const question = hemostasiaQuestions.find(item =>
-      item.question === "¿Qué factor de coagulación puede activar plasminógeno?"
-    )
+  it("conserva hechos sensibles de hemostasia según Robbins", () => {
+    const adhesion = hemostasiaQuestions.find(question => question.id === "quiz-hem-10")
+    const aggregation = hemostasiaQuestions.find(question => question.id === "quiz-hem-12")
+    const warfarin = hemostasiaQuestions.find(question => question.id === "quiz-hem-24")
 
-    expect(question).toBeDefined()
-    expect(question?.options).toHaveLength(4)
-
-    for (const option of question?.options || []) {
-      expect(option.toLocaleLowerCase("es")).toMatch(/factor/)
-    }
+    expect(adhesion?.options[0]).toContain("GpIb")
+    expect(aggregation?.options[0]).toContain("GpIIb/IIIa")
+    expect(warfarin?.options[0]).toContain("factor VII")
   })
 })

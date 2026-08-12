@@ -1,73 +1,52 @@
-import { fundamentosOseoQuestions } from "./fundamentos"
-import { estructuraOseoQuestions } from "./estructura"
-import { matrizOseoQuestions } from "./matriz"
-import { celulasOseoQuestions } from "./celulas"
-import { osteoblastosOseoQuestions } from "./osteoblastos"
-import { osteocitosOseoQuestions } from "./osteocitos"
-import { osteoclastosOseoQuestions } from "./osteoclastos"
-import { tiposOseoQuestions } from "./tipos"
-import { mineralizacionOseoQuestions } from "./mineralizacion"
-import { formacionOseoQuestions } from "./formacion"
-import { hormonasOseoQuestions } from "./hormonas"
-import { reparacionOseoQuestions } from "./reparacion"
-import { integracionClinicaOseoQuestions } from "./integracionClinica"
-import { integracionOseoQuestions } from "./integracion"
-import { osteonasOseoQuestions } from "./osteonas"
-import { laminillasOseoQuestions } from "./laminillas"
-import { periostioEndostioOseoQuestions } from "./periostioEndostio"
-import { compactoEsponjosoOseoQuestions } from "./compactoEsponjoso"
-import { cierreAvanzadoOseoQuestions } from "./cierreAvanzado"
-import { osificacionIntramembranosaOseoQuestions } from "./osificacionIntramembranosa"
-import { osificacionEndocondralOseoQuestions } from "./osificacionEndocondral"
-import { remodelacionOseoQuestions } from "./remodelacion"
-import { odontologiaOseaQuestions } from "./odontologiaOsea"
+import { createManualQuizBankFromRows, type ManualQuizRow } from "../manualQuiz"
 
-export const cap8Questions = [
+const rows = [
+  ["c8-01", "Matriz", "easy", "¿Qué combinación compone la mayor parte de la matriz ósea?", "Colágeno I y cristales de hidroxiapatita", "Colágeno II y agrecano", "Colágeno IV y laminina", "Elastina y fibrilina", "La fase orgánica resiste tensión y la mineral, compresión."],
+  ["c8-02", "Matriz", "medium", "¿Qué proteína no colágena fija osteoclastos a la matriz mediante integrinas?", "Osteopontina", "Troponina", "Conexina", "Fibrinógeno", "La osteopontina participa en adhesión celular a la matriz mineralizada."],
+  ["c8-03", "Matriz", "medium", "¿Qué propiedad aporta principalmente la hidroxiapatita?", "Rigidez y resistencia a compresión", "Elasticidad reversible", "Conducción de impulsos", "Adhesión intercelular", "Los cristales minerales endurecen la matriz."],
+  ["c8-04", "Células", "easy", "¿Qué célula sintetiza osteoide?", "Osteoblasto", "Osteoclasto", "Osteocito", "Condrocito", "El osteoblasto deposita la matriz orgánica no mineralizada."],
+  ["c8-05", "Células", "medium", "¿Cómo se origina un osteocito?", "Un osteoblasto queda rodeado por la matriz que secretó", "Un osteoclasto pierde sus núcleos", "Un condrocito entra a un capilar", "Un monocito forma osteoide", "El osteoblasto atrapado en una laguna madura a osteocito."],
+  ["c8-06", "Células", "medium", "¿Qué estructura permite comunicación y nutrición entre osteocitos?", "Canalículos", "Conductos glandulares", "Sinusoides dentro de las lagunas", "Uniones ocluyentes", "Las prolongaciones osteocíticas se conectan por canalículos y nexos."],
+  ["c8-07", "Células", "medium", "¿Qué origen tiene el osteoclasto?", "Fusión de precursores monocito-macrófago", "Diferenciación de osteoblastos", "División de osteocitos", "Transformación de condrocitos hipertróficos", "Es una célula multinucleada de linaje hematopoyético."],
+  ["c8-08", "Células", "medium", "¿Dónde se observa un osteoclasto activo?", "En una laguna de resorción de Howship", "Dentro de una laguna osteocítica", "En la zona de reserva epifisaria", "Sobre una membrana basal", "La resorción excava depresiones en la superficie ósea."],
+  ["c8-09", "Células", "hard", "¿Qué estructura del osteoclasto sella el compartimento de resorción?", "Zona clara o de sellado", "Disco intercalar", "Zonula occludens epitelial", "Pericondrio celular", "El anillo de actina aísla el microambiente ácido bajo el borde festoneado."],
+  ["c8-10", "Células", "hard", "¿Qué señal de osteoblastos favorece diferenciación osteoclástica?", "RANKL", "Osteoprotegerina", "Colágeno IV", "Trombomodulina", "RANKL se une a RANK en precursores; OPG actúa como receptor señuelo."],
+  ["c8-11", "Organización", "medium", "La unidad estructural del hueso compacto maduro es:", "La osteona", "El grupo isógeno", "El sarcómero", "El lobulillo glandular", "Una osteona contiene laminillas concéntricas alrededor de un conducto central."],
+  ["c8-12", "Organización", "medium", "¿Qué contienen los conductos de Havers?", "Vasos y nervios", "Condrocitos y agrecano", "Adipocitos pardos", "Axones sin tejido conjuntivo", "Los conductos centrales nutren cada osteona."],
+  ["c8-13", "Organización", "medium", "¿Qué función tienen los conductos de Volkmann?", "Conectar conductos de Havers con periostio y cavidad medular", "Alojar osteocitos en laminillas", "Mineralizar osteoide", "Formar grupos isógenos", "Son conductos transversales u oblicuos que comunican la red vascular."],
+  ["c8-14", "Organización", "medium", "¿Qué recubre las superficies internas del hueso?", "Endostio", "Pericondrio", "Mesotelio", "Epimisio", "El endostio tapiza cavidades, trabéculas y conductos internos."],
+  ["c8-15", "Organización", "medium", "La capa interna del periostio se caracteriza por:", "Células osteoprogenitoras", "Condrocitos en lagunas", "Células caliciformes", "Megacariocitos", "La capa osteogénica contribuye al crecimiento y reparación."],
+  ["c8-16", "Tipos de hueso", "medium", "¿Qué distingue al hueso inmaduro del laminar?", "Fibras colágenas desorganizadas y más células", "Ausencia total de osteocitos", "Osteonas perfectamente organizadas", "Matriz formada por colágeno II", "El hueso entretejido se deposita rápido y luego suele remodelarse."],
+  ["c8-17", "Osificación", "easy", "En la osificación intramembranosa, el hueso se forma directamente a partir de:", "Mesénquima", "Un molde de cartílago hialino", "Epitelio estratificado", "Músculo liso", "Las células mesenquimáticas se diferencian en osteoblastos sin molde cartilaginoso."],
+  ["c8-18", "Osificación", "medium", "¿Qué huesos se forman principalmente por osificación intramembranosa?", "Muchos huesos planos del cráneo", "Diáfisis de todos los huesos largos exclusivamente", "Discos intervertebrales", "Cartílagos costales", "Los centros de osificación aparecen en membranas mesenquimáticas."],
+  ["c8-19", "Osificación", "easy", "La osificación endocondral reemplaza inicialmente un molde de:", "Cartílago hialino", "Fibrocartílago", "Tejido conjuntivo denso regular", "Hueso laminar", "El molde cartilaginoso guía la formación de huesos largos."],
+  ["c8-20", "Placa epifisaria", "medium", "¿En qué zona los condrocitos se organizan en columnas y se dividen?", "Zona de proliferación", "Zona de reserva", "Zona de hipertrofia", "Zona de osificación", "La proliferación longitudinal empuja la epífisis."],
+  ["c8-21", "Placa epifisaria", "medium", "¿Qué ocurre en la zona de hipertrofia?", "Los condrocitos aumentan de tamaño y adelgazan tabiques de matriz", "Los osteoclastos forman osteonas maduras", "Las células se convierten en fibroblastos", "La matriz se desmineraliza por completo", "La hipertrofia prepara la matriz para calcificación e invasión."],
+  ["c8-22", "Placa epifisaria", "hard", "¿Sobre qué estructura depositan osteoide los osteoblastos en la osificación endocondral?", "Espículas de cartílago calcificado", "Lámina basal epitelial", "Fibras elásticas del pericondrio", "Discos intercalares", "Los restos de matriz cartilaginosa sirven de andamio temporal."],
+  ["c8-23", "Mineralización", "medium", "¿Qué función cumplen las vesículas matriciales?", "Iniciar focos de mineralización", "Degradar colágeno I mediante lisosomas", "Transportar sangre por canalículos", "Formar la zona de sellado osteoclástica", "Concentran calcio y fosfato para nucleación de cristales."],
+  ["c8-24", "Remodelación", "medium", "¿Qué unidad coordina resorción seguida de formación durante remodelación?", "Unidad multicelular básica", "Grupo isógeno", "Tríada muscular", "Corpúsculo de Nissl", "Osteoclastos y osteoblastos actúan secuencialmente en el mismo sitio."],
+  ["c8-25", "Hormonas", "hard", "¿Cómo aumenta PTH la resorción ósea si el osteoclasto no posee el receptor principal?", "Estimula osteoblastos para expresar RANKL", "Activa directamente GpIb del osteoclasto", "Convierte osteocitos en condrocitos", "Inhibe toda producción de M-CSF", "PTH actúa indirectamente a través de células del linaje osteoblástico."],
+  ["c8-26", "Hormonas", "medium", "¿Qué efecto tiene calcitonina sobre osteoclastos?", "Inhibe su actividad resortiva", "Aumenta RANKL en osteoblastos", "Estimula proliferación de condrocitos", "Disuelve osteoide", "La calcitonina se une a osteoclastos y reduce resorción."],
+  ["c8-27", "Reparación", "medium", "¿Qué estructura estabiliza inicialmente una fractura antes del hueso nuevo?", "Callo blando fibrocartilaginoso", "Osteona secundaria completa", "Epitelio de transición", "Cartílago elástico", "El hematoma y callo blando preceden al callo óseo y remodelación."],
+  ["c8-28", "Clínica", "medium", "La osteoporosis se caracteriza por:", "Disminución de masa ósea con mineralización normal de la matriz restante", "Falla primaria de mineralización del osteoide", "Exceso de cartílago articular", "Reemplazo de hueso por epitelio", "Se pierde cantidad y arquitectura, no la mineralización relativa del tejido presente."],
+  ["c8-29", "Clínica", "hard", "¿Qué diferencia principal hay entre osteomalacia y osteoporosis?", "En osteomalacia falla la mineralización; en osteoporosis disminuye la masa", "En osteoporosis falla solo colágeno II", "En osteomalacia aumenta la masa ósea", "Son términos histológicos equivalentes", "Ambas debilitan hueso por mecanismos distintos."],
+  ["c8-30", "Integración", "hard", "Una célula multinucleada con borde festoneado acidifica una cavidad. ¿Qué está haciendo?", "Resorbiendo hueso", "Depositando osteoide", "Formando cartílago", "Produciendo mielina", "Es un osteoclasto activo en una laguna de Howship."],
+  ["c8-31", "Matriz", "hard", "¿Qué proteína ósea se usa como marcador de actividad osteoblástica y fija calcio?", "Osteocalcina", "Condronectina", "Desmogleína", "Mieloperoxidasa", "La osteocalcina es sintetizada por osteoblastos y depende de vitamina K."],
+  ["c8-32", "Matriz", "hard", "¿Qué parte de la matriz recién secretada aún no está mineralizada?", "Osteoide", "Línea de cemento", "Lámina circunferencial", "Cartílago calcificado", "El osteoide es matriz orgánica que se mineraliza después de un intervalo."],
+  ["c8-33", "Osteocitos", "hard", "¿Cómo detectan los osteocitos la carga mecánica?", "Perciben flujo de líquido por la red lacunocanalicular", "Miden presión dentro de capilares propios", "Se dividen dentro de las lagunas", "Producen potenciales axonales", "La deformación impulsa líquido y activa señales mecanosensoras."],
+  ["c8-34", "Osteocitos", "hard", "¿Qué proteína de osteocitos inhibe formación ósea al bloquear señal Wnt?", "Esclerostina", "RANKL", "Osteoprotegerina", "Calcitonina", "La esclerostina reduce actividad osteoblástica; la carga mecánica disminuye su expresión."],
+  ["c8-35", "Células", "medium", "¿Qué función cumplen las células de revestimiento óseo?", "Cubren superficies inactivas y regulan intercambio con matriz", "Resorben hueso con borde festoneado", "Forman mielina", "Producen cartílago elástico", "Son osteoblastos quiescentes aplanados en endostio/periostio."],
+  ["c8-36", "Organización", "hard", "¿Qué son las laminillas intersticiales?", "Restos de osteonas antiguas entre osteonas nuevas", "Capas de cartílago en placa epifisaria", "Matriz no mineralizada junto a osteoblastos", "Anillos de pericondrio", "La remodelación parcial deja fragmentos laminares entre sistemas de Havers."],
+  ["c8-37", "Organización", "hard", "¿Qué indica una línea de cemento alrededor de una osteona secundaria?", "Límite entre hueso nuevo de la osteona y matriz preexistente", "Zona de unión entre epitelio y conjuntivo", "Frente de calcificación cartilaginosa", "Canal vascular transversal", "La línea marca el borde de la cavidad de resorción rellenada."],
+  ["c8-38", "Organización", "medium", "¿Cómo se orientan las trabéculas del hueso esponjoso?", "A lo largo de líneas de carga mecánica", "Siempre paralelas a la superficie", "Al azar sin relación con fuerza", "En osteonas completas obligatorias", "Su arquitectura brinda resistencia con menor masa."],
+  ["c8-39", "Osificación", "hard", "¿Qué estructura forma el collar óseo inicial en una diáfisis?", "Periostio derivado del pericondrio", "Cartílago articular", "Médula ósea roja", "Endotelio sinusoidal", "Células osteoprogenitoras alrededor del molde depositan hueso intramembranoso."],
+  ["c8-40", "Osificación", "hard", "¿Qué evento permite la entrada del brote perióstico al centro de osificación primario?", "Muerte de condrocitos y cavitación de matriz calcificada", "Formación de cartílago elástico", "Cierre de la placa epifisaria", "Desaparición del collar óseo", "Los espacios dejados por condrocitos hipertróficos reciben vasos y progenitores."],
+  ["c8-41", "Placa epifisaria", "medium", "¿Qué ocurre al cerrarse la placa epifisaria?", "Cesa el crecimiento longitudinal del hueso", "Cesa toda remodelación ósea", "Desaparece el cartílago articular", "Se pierde el periostio", "La proliferación cartilaginosa ya no separa epífisis y diáfisis."],
+  ["c8-42", "Crecimiento", "medium", "¿Cómo aumenta el diámetro de un hueso largo?", "Depósito periostal y resorción endostal coordinados", "Crecimiento intersticial de hueso", "Expansión de osteocitos por mitosis", "Aumento de la placa solo en longitud", "El hueso crece por aposición mientras se amplía la cavidad medular."],
+  ["c8-43", "Remodelación", "hard", "En hueso compacto, ¿qué célula abre el túnel de una nueva osteona?", "Osteoclasto", "Osteocito", "Condroblasto", "Fibroblasto", "El cono de corte resortivo precede al depósito concéntrico osteoblástico."],
+  ["c8-44", "Metabolismo", "medium", "¿Qué reserva mineral regula dinámicamente el esqueleto?", "Calcio y fosfato", "Hierro y cobre exclusivamente", "Sodio y cloro exclusivamente", "Yodo y selenio", "La remodelación participa en homeostasis de calcio y fosfato."],
+  ["c8-45", "Clínica", "hard", "En raquitismo infantil, la mineralización deficiente afecta de manera particular:", "La placa de crecimiento", "Los discos intercalares", "El urotelio", "El endoneuro", "La deficiencia de vitamina D altera mineralización del osteoide y cartílago en crecimiento."],
+  ["c8-46", "Integración", "hard", "Una lámina muestra trabéculas con médula entre ellas y sin osteonas centrales completas. ¿Qué tejido es?", "Hueso esponjoso", "Hueso compacto cortical", "Fibrocartílago", "Conjuntivo denso regular", "Las trabéculas se nutren desde espacios medulares y rara vez requieren osteonas."],
+] satisfies readonly ManualQuizRow[]
 
-  ...fundamentosOseoQuestions,
-
-  ...estructuraOseoQuestions,
-
-  ...matrizOseoQuestions,
-
-  ...celulasOseoQuestions,
-
-  ...osteoblastosOseoQuestions,
-
-  ...osteocitosOseoQuestions,
-
-  ...osteoclastosOseoQuestions,
-
-  ...tiposOseoQuestions,
-
-  ...mineralizacionOseoQuestions,
-
-  ...formacionOseoQuestions,
-
-  ...hormonasOseoQuestions,
-
-  ...reparacionOseoQuestions,
-
-  ...integracionClinicaOseoQuestions,
-
-  ...integracionOseoQuestions,
-
-  ...osteonasOseoQuestions,
-
-  ...laminillasOseoQuestions,
-
-  ...periostioEndostioOseoQuestions,
-
-  ...compactoEsponjosoOseoQuestions,
-
-  ...cierreAvanzadoOseoQuestions,
-
-  ...osificacionIntramembranosaOseoQuestions,
-
-  ...osificacionEndocondralOseoQuestions,
-
-  ...remodelacionOseoQuestions,
-
-  ...odontologiaOseaQuestions
-
-]
+export const cap8Questions = createManualQuizBankFromRows("Capítulo 8", rows)

@@ -7,6 +7,15 @@ import logoImage from "../../assets/logo.png"
 import { cap13Questions } from "./cap13/questions"
 import { cap14Questions } from "./cap14/questions"
 import { cap15Questions } from "./cap15/questions"
+import { cap4Questions } from "./cap4/questions"
+import { cap5Questions } from "./cap5/questions"
+import { cap6Questions } from "./cap6/questions"
+import { cap7Questions } from "./cap7/questions"
+import { cap8Questions } from "./cap8/questions"
+import { cap9Questions } from "./cap9/questions"
+import { cap10Questions } from "./cap10/questions"
+import { cap11Questions } from "./cap11/questions"
+import { cap12Questions } from "./cap12/questions"
 import { hemostasiaQuestions } from "./articulos/hemostasiaQuestions"
 
 export const chapters = [
@@ -17,7 +26,7 @@ export const chapters = [
     description:
       "Origen embrionario, organización general y clasificación de los tejidos básicos.",
     image: cap4Image,
-    questionCount: 65,
+    questionCount: cap4Questions.length,
     accent: "from-sky-500/20 to-cyan-500/20"
   },
 
@@ -28,7 +37,7 @@ export const chapters = [
     description:
       "Epitelios, polaridad celular, uniones, membrana basal, especializaciones y glándulas.",
     image: cap5Image,
-    questionCount: 237,
+    questionCount: cap5Questions.length,
     accent: "from-violet-500/20 to-fuchsia-500/20"
   },
 
@@ -39,7 +48,7 @@ export const chapters = [
     description:
       "Células, fibras, sustancia fundamental, variedades del tejido conjuntivo e integración clínica.",
     image: cap6Image,
-    questionCount: 322,
+    questionCount: cap6Questions.length,
     accent: "from-emerald-500/20 to-teal-500/20"
   },
 
@@ -50,7 +59,7 @@ export const chapters = [
     description:
       "Cartílago hialino, elástico, fibrocartílago, condrocitos, matriz, crecimiento y correlaciones clínicas.",
     image: cap7Image,
-    questionCount: 150,
+    questionCount: cap7Questions.length,
     accent: "from-amber-500/20 to-orange-500/20"
   },
 
@@ -61,56 +70,56 @@ export const chapters = [
     description:
       "Matriz ósea, células, mineralización, osteonas, osificación, remodelación y reparación.",
     image: cap8Image,
-    questionCount: 372,
+    questionCount: cap8Questions.length,
     accent: "from-rose-500/20 to-red-500/20"
   },
 
   {
     id: "Capítulo 9",
     title: "Capítulo 9",
-    subtitle: "Próximo capítulo",
+    subtitle: "Tejido adiposo",
     description:
-      "Contenido pendiente de carga.",
+      "Tejido adiposo blanco y pardo, regulación endocrina, termogénesis y correlaciones clínicas.",
     image:
       "https://images.unsplash.com/photo-1498837167922-ddd27525d352?q=80&w=1200&auto=format&fit=crop",
-    questionCount: 0,
-    accent: "from-slate-500/20 to-zinc-500/20"
+    questionCount: cap9Questions.length,
+    accent: "from-amber-500/20 to-yellow-500/20"
   },
 
   {
     id: "Capítulo 10",
     title: "Capítulo 10",
-    subtitle: "Próximo capítulo",
+    subtitle: "Tejido sanguíneo",
     description:
-      "Contenido pendiente de carga.",
+      "Plasma, células sanguíneas, plaquetas, hemograma, hematopoyesis y médula ósea.",
     image:
       "https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=1200&auto=format&fit=crop",
-    questionCount: 0,
-    accent: "from-slate-500/20 to-zinc-500/20"
+    questionCount: cap10Questions.length,
+    accent: "from-red-500/20 to-rose-500/20"
   },
 
   {
     id: "Capítulo 11",
     title: "Capítulo 11",
-    subtitle: "Próximo capítulo",
+    subtitle: "Tejido muscular",
     description:
-      "Contenido pendiente de carga.",
+      "Músculo esquelético, cardíaco y liso, contracción, inervación y reparación.",
     image:
       "https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=1200&auto=format&fit=crop",
-    questionCount: 0,
-    accent: "from-slate-500/20 to-zinc-500/20"
+    questionCount: cap11Questions.length,
+    accent: "from-orange-500/20 to-red-500/20"
   },
 
   {
     id: "Capítulo 12",
     title: "Capítulo 12",
-    subtitle: "Próximo capítulo",
+    subtitle: "Tejido nervioso",
     description:
-      "Contenido pendiente de carga.",
+      "Neuronas, neuroglía, mielina, sinapsis, SNP, SNC, sistema autónomo y respuesta a lesión.",
     image:
       "https://images.unsplash.com/photo-1507413245164-6160d8298b31?q=80&w=1200&auto=format&fit=crop",
-    questionCount: 0,
-    accent: "from-slate-500/20 to-zinc-500/20"
+    questionCount: cap12Questions.length,
+    accent: "from-indigo-500/20 to-sky-500/20"
   },
 
   {
