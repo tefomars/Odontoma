@@ -10,10 +10,12 @@ import cap12Image from "../../assets/chapters/cap12.jpg"
 import cap13Image from "../../assets/chapters/cap13.jpg"
 import cap14Image from "../../assets/chapters/cap14.jpg"
 import cap15Image from "../../assets/chapters/cap15.jpg"
+import cap16Image from "../../assets/chapters/cap16.jpg"
 import coagulationCascadeImage from "../../assets/chapters/coagulation-cascade.jpg"
 import { cap13Questions } from "./cap13/questions"
 import { cap14Questions } from "./cap14/questions"
 import { cap15Questions } from "./cap15/questions"
+import { cap16Questions } from "./cap16/questions"
 import { cap4Questions } from "./cap4/questions"
 import { cap5Questions } from "./cap5/questions"
 import { cap6Questions } from "./cap6/questions"
@@ -156,6 +158,17 @@ export const chapters = [
     image: cap15Image,
     questionCount: cap15Questions.length,
     accent: "from-amber-500/20 to-rose-500/20"
+  },
+
+  {
+    id: "Capítulo 16",
+    title: "Capítulo 16",
+    subtitle: "Sistema digestivo I",
+    description:
+      "Cavidad bucal, lengua, gusto, dientes, periodonto, glándulas salivales y saliva.",
+    image: cap16Image,
+    questionCount: cap16Questions.length,
+    accent: "from-fuchsia-500/20 to-cyan-500/20"
   },
 
   {

@@ -3,9 +3,11 @@ import { describe, expect, it } from "vitest"
 import { cap13Flashcards } from "@/content/flashcards/histologia/cap13"
 import { cap14Flashcards } from "@/content/flashcards/histologia/cap14"
 import { cap15Flashcards } from "@/content/flashcards/histologia/cap15"
+import { cap16Flashcards } from "@/content/flashcards/histologia/cap16"
 import { cap13Questions } from "./cap13/questions"
 import { cap14Questions } from "./cap14/questions"
 import { cap15Questions } from "./cap15/questions"
+import { cap16Questions } from "./cap16/questions"
 import { hemostasiaQuestions } from "./articulos/hemostasiaQuestions"
 import { cap4Questions } from "./cap4/questions"
 import { cap5Questions } from "./cap5/questions"
@@ -35,11 +37,17 @@ const manualBanks = [
     cards: cap15Flashcards,
     questions: cap15Questions,
     expectedCount: 52
+  },
+  {
+    chapter: "Capítulo 16",
+    cards: cap16Flashcards,
+    questions: cap16Questions,
+    expectedCount: 56
   }
 ]
 
 describe("bancos manuales de Citohistología II", () => {
-  it("mantiene tres bancos amplios y completamente independientes de las flashcards", () => {
+  it("mantiene bancos amplios y completamente independientes de las flashcards", () => {
     for (const bank of manualBanks) {
       expect(bank.questions).toHaveLength(bank.expectedCount)
       expect(new Set(bank.questions.map(question => question.topic)).size)

@@ -1380,6 +1380,21 @@ const CHAPTER_MENUS: ChapterMenu[] = [
     ]
   },
   {
+    chapter: "Capítulo 16",
+    title: "Sistema digestivo I: cavidad bucal",
+    groups: [
+      { title: "Fundamentos y cavidad bucal", description: "Organización del sistema digestivo, espacios bucales, amígdalas y mucosa.", subtopics: ["Fundamentos digestivos", "Organización de la cavidad bucal", "Mucosa bucal"] },
+      { title: "Lengua, papilas y gusto", description: "Músculo lingual, papilas, botones gustativos y transducción de los cinco sabores.", subtopics: ["Organización lingual", "Papilas linguales", "Botones gustativos", "Transducción gustativa"] },
+      { title: "Dientes y desarrollo", description: "Denticiones, germen dental, órgano adamantino y secuencia de formación.", subtopics: ["Organización y denticiones", "Desarrollo dentario"] },
+      { title: "Esmalte y amelogénesis", description: "Bastones, ameloblastos, etapas secretora y de maduración y proteínas de matriz.", subtopics: ["Estructura del esmalte", "Amelogénesis"] },
+      { title: "Cemento, dentina y pulpa", description: "Tejidos mineralizados, odontoblastos, túbulos, líneas incrementales y cavidad pulpar.", subtopics: ["Cemento", "Dentina", "Pulpa dental"] },
+      { title: "Periodonto y encía", description: "Ligamento periodontal, hueso alveolar, epitelio de unión y soporte dental.", subtopics: ["Periodonto y encía"] },
+      { title: "Acinos y conductos salivales", description: "Sialona, células serosas, mucosas y mioepiteliales, y modificación ductal.", subtopics: ["Acinos y células mioepiteliales", "Conductos salivales"] },
+      { title: "Glándulas mayores y saliva", description: "Parótida, submandibular, sublingual, composición, digestión y defensa salival.", subtopics: ["Glándulas salivales mayores", "Saliva"] },
+      { title: "Clínica e identificación", description: "Caries, tumores salivales y reconocimiento histológico de estructuras clave.", subtopics: ["Clínica e identificación"] }
+    ]
+  },
+  {
     chapter: "Artículo · Hemostasia y trombosis",
     title: "Hemostasia y trombosis",
     groups: [
