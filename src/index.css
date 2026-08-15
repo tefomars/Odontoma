@@ -372,6 +372,46 @@ body,
   .mobile-chapters-popup .grid {
     align-content: start !important;
   }
+
+  /* Quiz de opción múltiple: capítulos como primer paso en una pantalla propia. */
+  .quiz-setup-awaiting-chapters {
+    display: none !important;
+  }
+
+  .mobile-quiz-behind-picker {
+    display: none !important;
+  }
+
+  .mobile-chapters-popup {
+    display: block !important;
+    position: fixed !important;
+    inset: 0 0 auto !important;
+    height: 100dvh !important;
+    min-height: 100dvh !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    background: #09090b !important;
+    backdrop-filter: none !important;
+  }
+
+  .mobile-chapters-popup > div {
+    width: 100% !important;
+    height: 100dvh !important;
+    max-height: 100dvh !important;
+    overflow: hidden !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: #09090b !important;
+    box-shadow: none !important;
+  }
+
+  .mobile-chapters-popup .grid {
+    min-height: 0 !important;
+    max-height: none !important;
+    overflow-y: auto !important;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+  }
 }
 
 /* Microinteracciones limpias: sin movimiento, sin drag, sin blur */

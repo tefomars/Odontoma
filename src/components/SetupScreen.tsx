@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { createPortal } from "react-dom"
 
 import logoImage from "@/assets/logo.png"
 
@@ -127,7 +128,14 @@ export default function SetupScreen({
   onClearSession
 }: Props) {
 
-  const [phoneChaptersOpen, setPhoneChaptersOpen] = useState(false)
+  const [phoneChaptersOpen, setPhoneChaptersOpen] = useState(() =>
+    window.matchMedia("(max-width: 1023px)").matches &&
+    chapters.length > 0 &&
+    selectedChapters.length === 0
+  )
+
+  const [showOptions, setShowOptions] =
+    useState(false)
 
   const [localHasPausedSession, setLocalHasPausedSession] =
     useState(() =>
@@ -150,6 +158,17 @@ export default function SetupScreen({
     questionCount,
     setQuestionCount
   ])
+
+  useEffect(() => {
+    if (!phoneChaptersOpen && !showOptions) return
+
+    const previousOverflow = document.body.style.overflow
+    document.body.style.overflow = "hidden"
+
+    return () => {
+      document.body.style.overflow = previousOverflow
+    }
+  }, [phoneChaptersOpen, showOptions])
 
   const selectedTotal =
     selectedChapters.reduce(
@@ -232,9 +251,6 @@ export default function SetupScreen({
     onClearSession?.()
   }
 
-  const [showOptions, setShowOptions] =
-    useState(false)
-
   return (
 
     <main className="
@@ -261,7 +277,42 @@ export default function SetupScreen({
         lg:py-10
       ">
 
-        <section className="
+        {selectedChapters.length > 0 && (
+          <section className={`
+            mobile-chapters-button
+            ${phoneChaptersOpen ? "mobile-quiz-behind-picker" : ""}
+            hidden
+            rounded-[1.5rem]
+            border
+            border-violet-500/30
+            bg-violet-500/10
+            p-4
+            shadow-2xl
+            shadow-black/30
+          `}>
+            <div className="flex items-center justify-between gap-3">
+              <div>
+                <p className="text-xs font-black uppercase tracking-[0.18em] text-violet-300">
+                  Capítulos elegidos
+                </p>
+                <p className="mt-1 text-lg font-black text-white">
+                  {selectedChapters.length} {selectedChapters.length === 1 ? "capítulo" : "capítulos"}
+                </p>
+              </div>
+
+              <button
+                type="button"
+                onClick={() => setPhoneChaptersOpen(true)}
+                className="rounded-2xl bg-violet-500 px-4 py-3 text-sm font-black text-white"
+              >
+                Cambiar
+              </button>
+            </div>
+          </section>
+        )}
+
+        <section className={`
+          ${selectedChapters.length === 0 || phoneChaptersOpen ? "quiz-setup-awaiting-chapters" : ""}
           flex
           min-h-0
           flex-col
@@ -274,7 +325,7 @@ export default function SetupScreen({
           shadow-2xl
           shadow-black/30
           lg:p-4 lg:p-6
-        ">
+        `}>
 
           <div>
 
@@ -608,7 +659,7 @@ export default function SetupScreen({
 
               </button>
 
-              {showOptions && (
+              {showOptions && createPortal(
 
                 <div className="
                   fixed
@@ -878,7 +929,8 @@ export default function SetupScreen({
 
                   </div>
 
-                </div>
+                </div>,
+                document.body
 
               )}
 
@@ -923,47 +975,35 @@ export default function SetupScreen({
         </section>
 
         
-        <section className="mobile-chapters-button hidden rounded-[1.5rem] border border-zinc-800 bg-[#111113] p-4 shadow-2xl shadow-black/30">
-          <div className="mb-4 px-2">
-            <h2 className="text-2xl font-black">
-              Capítulos
-            </h2>
-            <p className="mt-1 text-sm text-zinc-400">
-              Selecciona uno o varios para mezclar preguntas.
-            </p>
-          </div>
-
-          <button
-            type="button"
-            onClick={() => chapters.length > 0 && setPhoneChaptersOpen(true)}
-            disabled={chapters.length === 0}
-            className="w-full rounded-[1.5rem] bg-violet-500 px-5 py-4 text-base font-black text-white shadow-lg shadow-violet-500/25 disabled:cursor-not-allowed disabled:bg-zinc-800 disabled:text-zinc-500 disabled:shadow-none"
-          >
-            {chapters.length > 0
-              ? `Elegir capítulos · ${selectedChapters.length} seleccionados`
-              : "Aún no hay capítulos cargados"}
-          </button>
-        </section>
-
-        {phoneChaptersOpen && (
-          <div className="mobile-chapters-popup fixed inset-0 z-50 bg-black/75 p-4 backdrop-blur-sm">
-            <div className="mx-auto flex h-[92dvh] w-full max-w-md flex-col rounded-[2rem] border border-violet-500/60 bg-[#111113] p-4 shadow-2xl">
+        {phoneChaptersOpen && createPortal(
+          <div className="mobile-chapters-popup fixed inset-0 z-50 bg-[#09090b]">
+            <div className="mx-auto flex h-[100dvh] w-full max-w-md flex-col bg-[#09090b] px-4 pb-[max(1rem,env(safe-area-inset-bottom))] pt-[max(1rem,env(safe-area-inset-top))]">
               <div className="mb-4 flex shrink-0 items-start justify-between gap-4">
                 <div>
-                  <h2 className="text-3xl font-black text-white">
-                    Capítulos
+                  <p className="text-xs font-black uppercase tracking-[0.2em] text-violet-300">
+                    Paso 1 de 2 · {title}
+                  </p>
+                  <h2 className="mt-2 text-3xl font-black text-white">
+                    Elegí capítulos
                   </h2>
                   <p className="mt-1 text-base text-zinc-400">
-                    Selecciona capítulos.
+                    Seleccioná uno o varios para mezclar preguntas.
                   </p>
                 </div>
 
                 <button
                   type="button"
-                  onClick={() => setPhoneChaptersOpen(false)}
+                  onClick={() => {
+                    if (selectedChapters.length > 0) {
+                      setPhoneChaptersOpen(false)
+                      return
+                    }
+
+                    onBackHome?.()
+                  }}
                   className="rounded-full bg-zinc-800 px-5 py-3 text-sm font-black text-white"
                 >
-                  Cerrar
+                  {selectedChapters.length > 0 ? "Cancelar" : "← Materias"}
                 </button>
               </div>
 
@@ -1046,12 +1086,16 @@ export default function SetupScreen({
               <button
                 type="button"
                 onClick={() => setPhoneChaptersOpen(false)}
-                className="mt-4 shrink-0 rounded-[1.75rem] bg-white px-5 py-4 text-lg font-black text-black"
+                disabled={selectedChapters.length === 0}
+                className="mt-4 shrink-0 rounded-[1.75rem] bg-white px-5 py-4 text-lg font-black text-black disabled:cursor-not-allowed disabled:bg-zinc-800 disabled:text-zinc-500"
               >
-                Listo
+                {selectedChapters.length > 0
+                  ? `Continuar con ${selectedChapters.length} ${selectedChapters.length === 1 ? "capítulo" : "capítulos"}`
+                  : "Elegí al menos un capítulo"}
               </button>
             </div>
-          </div>
+          </div>,
+          document.body
         )}
 
         <section className="desktop-chapters-panel
