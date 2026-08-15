@@ -1,6 +1,10 @@
 export type AnswerStats = {
   correct: number
   incorrect: number
+  recent?: boolean[]
+  lastAnsweredAt?: number
+  lastCorrect?: boolean
+  correctStreak?: number
 }
 
 export type OdontomaStats = {
@@ -34,7 +38,31 @@ function normalizeAnswerStats(value: unknown) {
         key,
         {
           correct: Math.max(0, Number(item.correct) || 0),
-          incorrect: Math.max(0, Number(item.incorrect) || 0)
+          incorrect: Math.max(0, Number(item.incorrect) || 0),
+          ...(
+            Array.isArray(item.recent)
+              ? {
+                  recent: item.recent
+                    .filter(answer => typeof answer === "boolean")
+                    .slice(-5)
+                }
+              : {}
+          ),
+          ...(
+            Number(item.lastAnsweredAt) > 0
+              ? { lastAnsweredAt: Number(item.lastAnsweredAt) }
+              : {}
+          ),
+          ...(
+            typeof item.lastCorrect === "boolean"
+              ? { lastCorrect: item.lastCorrect }
+              : {}
+          ),
+          ...(
+            Number(item.correctStreak) >= 0
+              ? { correctStreak: Math.max(0, Number(item.correctStreak) || 0) }
+              : {}
+          )
         }
       ]]
     })

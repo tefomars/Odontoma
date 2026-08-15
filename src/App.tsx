@@ -63,8 +63,13 @@ import {
 
 import {
   loadStats,
-  saveStats
+  saveStats,
+  type AnswerStats
 } from "@/lib/stats"
+
+import {
+  getPracticeQuestionIds
+} from "@/lib/quizProgress"
 
 import {
   shuffleArray,
@@ -650,6 +655,24 @@ export default function App() {
 
   function updateStats(question: any, correct: boolean) {
 
+    function recordAnswer(currentStats?: AnswerStats): AnswerStats {
+      return {
+        correct:
+          (currentStats?.correct || 0) + (correct ? 1 : 0),
+        incorrect:
+          (currentStats?.incorrect || 0) + (correct ? 0 : 1),
+        recent: [
+          ...(currentStats?.recent || []),
+          correct
+        ].slice(-5),
+        lastAnsweredAt: Date.now(),
+        lastCorrect: correct,
+        correctStreak: correct
+          ? (currentStats?.correctStreak || 0) + 1
+          : 0
+      }
+    }
+
     const nextStats = {
       ...stats,
       totalAnswered:
@@ -672,12 +695,7 @@ export default function App() {
           incorrect: 0
         }
 
-      nextStats.tags[tag] = {
-        correct:
-          currentTag.correct + (correct ? 1 : 0),
-        incorrect:
-          currentTag.incorrect + (correct ? 0 : 1)
-      }
+      nextStats.tags[tag] = recordAnswer(currentTag)
     }
 
     const currentQuestion =
@@ -686,15 +704,54 @@ export default function App() {
         incorrect: 0
       }
 
-    nextStats.questions[question.id] = {
-      correct:
-        currentQuestion.correct + (correct ? 1 : 0),
-      incorrect:
-        currentQuestion.incorrect + (correct ? 0 : 1)
-    }
+    nextStats.questions[question.id] = recordAnswer(currentQuestion)
 
     setStats(nextStats)
     saveStats(nextStats)
+  }
+
+  function startProgressPractice(
+    mode: "weak" | "unseen" | "recent",
+    chapterId?: string
+  ) {
+    const sourceQuestions = chapterId
+      ? histologiaQuestions.filter(question => question.chapter === chapterId)
+      : histologiaQuestions
+    const ids = new Set(
+      getPracticeQuestionIds(
+        sourceQuestions,
+        stats,
+        mode
+      )
+    )
+    const candidates = sourceQuestions.filter(question =>
+      ids.has(question.id)
+    )
+
+    if (candidates.length === 0) return
+
+    const selected = shuffleQuestionsBalanced(
+      shuffleArray(candidates).slice(0, 20)
+    )
+
+    setSelectedSubject("histologia")
+    setSelectedChapters(
+      Array.from(new Set(selected.map(question => question.chapter)))
+    )
+    setSelectedDifficulties(["easy", "medium", "hard"])
+    setQuestionCount(selected.length)
+    setPracticeMode(mode === "unseen" ? "new" : "smart")
+    setSessionQuestions(selected)
+    setSessionResponses([])
+    setCompletedAttempt(null)
+    setReviewingAttempt(null)
+    setCurrent(0)
+    setScore(0)
+    setFinished(false)
+    setStarted(true)
+    setShowMastery(false)
+    setHasPausedSession(false)
+    localStorage.removeItem("odontoma_paused_session")
   }
 
   function handleCorrect() {
@@ -977,6 +1034,7 @@ export default function App() {
         <WeakTopicsScreen
           stats={stats}
           onBack={() => setShowMastery(false)}
+          onPractice={startProgressPractice}
         />
       </ScreenTransition>
 
