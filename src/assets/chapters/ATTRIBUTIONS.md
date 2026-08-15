@@ -10,3 +10,9 @@ Las imágenes se recortaron, redimensionaron y, en algunos casos, se ajustaron e
 - `cap14.jpg` — *Normal Lymph Node*. Ed Uthman, MD. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Normal_Lymph_Node.jpg). Licencia: CC BY-SA 2.0.
 - `cap15.jpg` — *Normal Epidermis and Dermis with Intradermal Nevus 10x*. Kilbad. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Normal_Epidermis_and_Dermis_with_Intradermal_Nevus_10x.JPG). Dominio público.
 - `coagulation-cascade.jpg` — *Blood Clotting Cascade*. Jcchem183. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Blood_Clotting_Cascade.png). Licencia: CC BY-SA 4.0. La imagen se redimensionó y se compuso sobre un fondo desenfocado para adaptarla a la tarjeta horizontal.
+
+## Imágenes de decks principales
+
+- La tarjeta de Histología reutiliza `cap14.jpg`, atribuida arriba.
+- `flashcard-decks/proceso-economico.jpg` — *Manuel Ayau dando una cátedra*. UFM / Ufmlabs. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:MANUEL_AYAU_CORDON.JPG). Licencia: CC BY-SA 3.0.
+- `flashcard-decks/hayek.jpg` — *Friedrich Hayek portrait*. DickClarkMises / Mises Institute. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Friedrich_Hayek_portrait.jpg). Licencia: CC BY-SA 3.0.

@@ -3,7 +3,7 @@
     "id": "histologia",
     "title": "Histología",
     "subtitle": "Ross",
-    "description": "Flashcards premade de tejidos, epitelio, conjuntivo, cartílago y hueso.",
+    "description": "Flashcards de los capítulos de Histología de Ross.",
     "accent": "from-violet-500/20 to-fuchsia-500/10",
     "accentColor": "#8b5cf6",
     "destination": "histologia"
@@ -12,16 +12,16 @@
     "id": "proceso-economico-i",
     "title": "Proceso Económico I",
     "subtitle": "Material de clase",
-    "description": "Flashcards premade de ahorro, inversión, capital, interés, competencia y rol empresarial.",
+    "description": "Flashcards de ahorro, inversión, capital, interés, competencia y rol empresarial.",
     "accent": "from-sky-500/20 to-cyan-500/10",
     "accentColor": "#0ea5e9",
     "destination": "proceso-economico-i"
   },
   {
     "id": "filosofia-de-hayek",
-    "title": "Filosofía",
+    "title": "Filosofía de Hayek",
     "subtitle": "Hayek",
-    "description": "Flashcards premade de liberalismo, libertad, conocimiento, orden espontáneo y pensamiento de Hayek.",
+    "description": "Flashcards de liberalismo, libertad, conocimiento, orden espontáneo y pensamiento de Hayek.",
     "accent": "from-indigo-500/20 to-blue-500/10",
     "accentColor": "#6366f1",
     "destination": "filosofia-de-hayek"

@@ -1,4 +1,7 @@
 import logoImage from "@/assets/logo.png"
+import histologiaDeckImage from "@/assets/chapters/cap14.jpg"
+import procesoEconomicoDeckImage from "@/assets/flashcard-decks/proceso-economico.jpg"
+import hayekDeckImage from "@/assets/flashcard-decks/hayek.jpg"
 
 import {
   getDefaultFlashcards
@@ -39,6 +42,16 @@ const destinationSubjectTitles: Record<string, string> = {
   histologia: "Histología",
   "proceso-economico-i": "Proceso Económico I",
   "filosofia-de-hayek": "Filosofía"
+}
+
+const destinationSubjectImages: Record<string, string> = {
+  histologia: histologiaDeckImage,
+  "proceso-economico-i": procesoEconomicoDeckImage,
+  "filosofia-de-hayek": hayekDeckImage
+}
+
+const destinationSubjectImagePositions: Record<string, string> = {
+  "proceso-economico-i": "center 18%"
 }
 
 export default function FlashcardSubjectScreen({
@@ -369,6 +382,7 @@ export default function FlashcardSubjectScreen({
             {subjects.map(subject => {
               const available = subject.destination !== "coming-soon"
               const contentSubjectTitle = destinationSubjectTitles[subject.destination] || subject.title
+              const subjectImage = destinationSubjectImages[subject.destination]
               return (
               <div
                 className="relative"
@@ -390,6 +404,9 @@ export default function FlashcardSubjectScreen({
                   ? onEditSubject?.(subject)
                   : available && onSelectSubject(subject.destination)}
                 className={`
+                  group
+                  relative
+                  overflow-hidden
                   h-full
                   w-full
                   rounded-[1.75rem]
@@ -407,43 +424,61 @@ export default function FlashcardSubjectScreen({
                   }
                 `}
               >
-                <p className="
+                {subjectImage && (
+                  <>
+                    <span
+                      aria-hidden="true"
+                      className="absolute inset-0 bg-cover bg-center opacity-65 transition-transform duration-500 group-hover:scale-105"
+                      style={{
+                        backgroundImage: `url(${subjectImage})`,
+                        backgroundPosition: destinationSubjectImagePositions[subject.destination] || "center"
+                      }}
+                    />
+                    <span
+                      aria-hidden="true"
+                      className="absolute inset-0 bg-gradient-to-t from-black via-black/75 to-black/20"
+                    />
+                  </>
+                )}
+
+                <div className="relative z-10">
+                  <p className="
                   text-xs
                   font-black
                   uppercase
                   tracking-[0.25em]
                   text-zinc-500
-                ">
-                  {subject.subtitle}
-                </p>
+                  ">
+                    {subject.subtitle}
+                  </p>
 
-                <h3 className="
+                  <h3 className="
                   mt-4
                   text-3xl
                   font-black
-                ">
-                  {subject.title}
-                </h3>
+                  ">
+                    {subject.title}
+                  </h3>
 
-                <p className="
+                  <p className="
                   mt-3
                   min-h-[3rem]
                   text-sm
                   font-medium
                   leading-relaxed
                   text-zinc-300
-                ">
-                  {subject.description}
-                </p>
+                  ">
+                    {subject.description}
+                  </p>
 
-                <div className="
+                  <div className="
                   mt-5
                   flex
                   items-center
                   justify-between
                   gap-3
-                ">
-                  <span className="
+                  ">
+                    <span className="
                     rounded-full
                     bg-black/30
                     px-4
@@ -451,21 +486,22 @@ export default function FlashcardSubjectScreen({
                     text-sm
                     font-black
                     text-zinc-200
-                  ">
-                    {available
-                      ? `${getSubjectDeckCount(contentSubjectTitle)} mazos · ${getSubjectCardCount(contentSubjectTitle)} cartas`
-                      : "Próximamente"}
-                  </span>
+                    ">
+                      {available
+                        ? `${getSubjectDeckCount(contentSubjectTitle)} mazos · ${getSubjectCardCount(contentSubjectTitle)} cartas`
+                        : "Próximamente"}
+                    </span>
 
-                  {available && (
-                    <span className="
+                    {available && (
+                      <span className="
                       text-sm
                       font-black
                       text-violet-200
-                    ">
-                      Entrar →
-                    </span>
-                  )}
+                      ">
+                        Entrar →
+                      </span>
+                    )}
+                  </div>
                 </div>
               </button>
               {editorMode && (
