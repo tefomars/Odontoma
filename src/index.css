@@ -405,7 +405,7 @@ body,
     box-shadow: none !important;
   }
 
-  .mobile-chapters-popup .grid {
+  .mobile-chapters-popup .mobile-chapters-scroll {
     min-height: 0 !important;
     max-height: none !important;
     overflow-y: auto !important;

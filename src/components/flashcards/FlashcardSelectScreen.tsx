@@ -6,6 +6,7 @@ import {
 } from "react"
 
 import logoImage from "@/assets/logo.png"
+import { histologiaChapters } from "@/content/histologia/chapters"
 
 import {
   isFsrsCardDue
@@ -61,6 +62,10 @@ type ChapterCourseGroup = {
   menus: ChapterMenu[]
   emptyMessage?: string
 }
+
+const HISTOLOGY_CHAPTER_IMAGES = new Map(
+  histologiaChapters.map(chapter => [chapter.id, chapter.image])
+)
 
 const CHAPTER_MENUS: ChapterMenu[] = [
   {
@@ -2693,6 +2698,11 @@ export default function FlashcardSelectScreen({
                       const isSelected =
                         menu.chapter === currentMenu?.chapter
 
+                      const chapterImage =
+                        subject === "histologia"
+                          ? HISTOLOGY_CHAPTER_IMAGES.get(menu.chapter)
+                          : undefined
+
                       return (
                         <button
                           key={menu.chapter}
@@ -2706,6 +2716,9 @@ export default function FlashcardSelectScreen({
                             setSelectedChapter(menu.chapter)
                           }}
                           className={`
+                            group
+                            relative
+                            overflow-hidden
                             rounded-2xl
                             border
                             px-4
@@ -2720,12 +2733,31 @@ export default function FlashcardSelectScreen({
                             }
                           `}
                         >
+                          {chapterImage && (
+                            <>
+                              <span
+                                aria-hidden="true"
+                                className="absolute inset-0 bg-cover bg-center opacity-50 transition-transform duration-500 group-hover:scale-105"
+                                style={{ backgroundImage: `url(${chapterImage})` }}
+                              />
+                              <span
+                                aria-hidden="true"
+                                className={`absolute inset-0 bg-gradient-to-r ${
+                                  isSelected
+                                    ? "from-black/90 via-violet-950/75 to-black/35"
+                                    : "from-black/95 via-black/75 to-black/40"
+                                }`}
+                              />
+                            </>
+                          )}
+
+                          <span className="relative z-10 block">
                           <p className="
                             text-xs
                             font-black
                             uppercase
                             tracking-[0.18em]
-                            text-zinc-500
+                            text-zinc-300
                           ">
                             {menu.chapter}
                           </p>
@@ -2742,10 +2774,12 @@ export default function FlashcardSelectScreen({
                           <p className="
                             mt-2
                             text-sm
-                            text-zinc-400
+                            font-semibold
+                            text-zinc-300
                           ">
                             {chapterDue}/{chapterCards.length} pendientes
                           </p>
+                          </span>
                         </button>
                       )
                     })}

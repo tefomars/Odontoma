@@ -1,4 +1,7 @@
 import logoImage from "@/assets/logo.png"
+import histologiaImage from "@/assets/chapters/cap14.jpg"
+import microbiologiaImage from "@/assets/chapters/micro-cap20.jpg"
+import hayekImage from "@/assets/flashcard-decks/hayek.jpg"
 
 import {
   homeSubjects,
@@ -14,6 +17,12 @@ type Props = {
   onAddSubject?: () => void
   onEditSubject?: (subject: HomeSubject) => void
   onReorderSubject?: (sourceId: string, targetId: string) => void
+}
+
+const SUBJECT_IMAGES: Partial<Record<HomeSubject["destination"], string>> = {
+  histologia: histologiaImage,
+  "filosofia-de-hayek": hayekImage,
+  microbiologia: microbiologiaImage
 }
 
 export default function HomeScreen({
@@ -137,6 +146,9 @@ export default function HomeScreen({
             const available =
               subject.destination !== "coming-soon"
 
+            const subjectImage =
+              SUBJECT_IMAGES[subject.destination]
+
             return (
               <div
                 className="relative"
@@ -180,6 +192,21 @@ export default function HomeScreen({
                   }
                 `}
               >
+
+                {subjectImage && (
+                  <div
+                    aria-hidden="true"
+                    className="absolute inset-0 bg-cover bg-center opacity-55 transition-transform duration-500 group-hover:scale-105"
+                    style={{ backgroundImage: `url(${subjectImage})` }}
+                  />
+                )}
+
+                {subjectImage && (
+                  <div
+                    aria-hidden="true"
+                    className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/70 to-black/35"
+                  />
+                )}
 
                 <div
                   className="

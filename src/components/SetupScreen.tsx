@@ -128,6 +128,45 @@ export default function SetupScreen({
   onClearSession
 }: Props) {
 
+  const chapterGroups =
+    title === "Histología"
+      ? [
+          {
+            id: "citohistologia-i",
+            title: "Citohistología I",
+            range: "Capítulos 4–12",
+            chapters: chapters.filter(chapter => {
+              const number = Number(chapter.id.match(/\d+/)?.[0])
+              return number >= 4 && number <= 12
+            })
+          },
+          {
+            id: "citohistologia-ii",
+            title: "Citohistología II",
+            range: "Capítulo 13 en adelante",
+            chapters: chapters.filter(chapter => {
+              const number = Number(chapter.id.match(/\d+/)?.[0])
+              return number >= 13
+            })
+          },
+          {
+            id: "articulos",
+            title: "Artículos",
+            range: "Lecturas complementarias",
+            chapters: chapters.filter(chapter =>
+              chapter.id.startsWith("Artículo")
+            )
+          }
+        ].filter(group => group.chapters.length > 0)
+      : [
+          {
+            id: "all",
+            title: "",
+            range: "",
+            chapters
+          }
+        ]
+
   const [phoneChaptersOpen, setPhoneChaptersOpen] = useState(() =>
     window.matchMedia("(max-width: 1023px)").matches &&
     chapters.length > 0 &&
@@ -1007,8 +1046,21 @@ export default function SetupScreen({
                 </button>
               </div>
 
-              <div className="grid flex-1 gap-4 overflow-y-auto pr-1 pb-4">
-                {chapters.map(chapter => {
+              <div className="mobile-chapters-scroll min-h-0 flex-1 touch-pan-y space-y-5 overflow-y-auto overscroll-contain pr-1 pb-4 [-webkit-overflow-scrolling:touch]">
+                {chapterGroups.map(group => (
+                  <div key={group.id} className="mobile-chapter-group flex shrink-0 flex-col gap-3">
+                    {group.title && (
+                      <div className="px-1">
+                        <p className="text-xs font-black uppercase tracking-[0.22em] text-violet-300">
+                          {group.title}
+                        </p>
+                        <p className="mt-1 text-sm text-zinc-500">
+                          {group.range}
+                        </p>
+                      </div>
+                    )}
+
+                    {group.chapters.map(chapter => {
                   const selected = selectedChapters.includes(chapter.id)
 
                   const count =
@@ -1080,7 +1132,9 @@ export default function SetupScreen({
                       )}
                     </button>
                   )
-                })}
+                    })}
+                  </div>
+                ))}
               </div>
 
               <button
@@ -1134,7 +1188,8 @@ export default function SetupScreen({
           </div>
 
           <div className="
-            grid
+            flex
+            flex-col
             max-h-none lg:max-h-[calc(100vh-9rem)]
             gap-4
             overflow-y-auto
@@ -1150,7 +1205,20 @@ export default function SetupScreen({
               </div>
             )}
 
-            {chapters.map(chapter => {
+            {chapterGroups.map(group => (
+              <div key={group.id} className="flex shrink-0 flex-col gap-4">
+                {group.title && (
+                  <div className="px-2 pt-2">
+                    <p className="text-xs font-black uppercase tracking-[0.22em] text-violet-300">
+                      {group.title}
+                    </p>
+                    <p className="mt-1 text-sm text-zinc-500">
+                      {group.range}
+                    </p>
+                  </div>
+                )}
+
+                {group.chapters.map(chapter => {
 
               const selected =
                 selectedChapters.includes(chapter.id)
@@ -1305,7 +1373,9 @@ export default function SetupScreen({
                 </button>
 
               )
-            })}
+                })}
+              </div>
+            ))}
 
           </div>
 
