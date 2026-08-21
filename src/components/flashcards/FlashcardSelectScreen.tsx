@@ -1400,6 +1400,23 @@ const CHAPTER_MENUS: ChapterMenu[] = [
     ]
   },
   {
+    chapter: "Capítulo 17",
+    title: "Sistema digestivo II: tubo digestivo",
+    groups: [
+      { title: "Pared y control del tubo digestivo", description: "Capas, amplificación de superficie, plexos entéricos, motilidad y esfínteres.", subtopics: ["Organización general de la pared", "Amplificación, mucosa y motilidad", "Plexos y esfínteres"] },
+      { title: "Esófago", description: "Mucosa protectora, transición muscular, glándulas, cubierta externa e inervación.", subtopics: ["Mucosa y organización", "Glándulas e inervación"] },
+      { title: "Estómago: mucosa y protección", description: "Regiones, pliegues, fovéolas, barrera moco-bicarbonato y citoprotección.", subtopics: ["Regiones, pliegues y mucosa superficial", "Barrera y citoprotección gástrica"] },
+      { title: "Glándulas y células gástricas", description: "Glándulas fúndicas, células principales y parietales, ácido y correlaciones clínicas.", subtopics: ["Glándulas fúndicas", "Células de las glándulas fúndicas", "Secreción de ácido y clínica gástrica"] },
+      { title: "Hormonas, cardias y píloro", description: "Sistema enteroendocrino, hormonas gastrointestinales, glándulas regionales y renovación.", subtopics: ["Sistema enteroendocrino", "Hormonas gastrointestinales", "Cardias, píloro y renovación"] },
+      { title: "Intestino delgado: superficie y células", description: "Pliegues, vellosidades, criptas, enterocitos, células de Paneth, caliciformes y M.", subtopics: ["Organización y superficie", "Enterocitos y transporte", "Células de la mucosa intestinal"] },
+      { title: "Absorción e inmunidad intestinal", description: "Digestión de nutrientes, transporte epitelial, IgA, GALT y placas de Peyer.", subtopics: ["Digestión y absorción", "Inmunidad mucosa"] },
+      { title: "Duodeno, motilidad y renovación", description: "Glándulas de Brunner, segmentación, peristaltismo y recambio del epitelio.", subtopics: ["Submucosa, motilidad y renovación"] },
+      { title: "Colon", description: "Mucosa, criptas, células, lámina propia, tenias, haustras y motilidad colónica.", subtopics: ["Organización de la mucosa colónica", "Lámina propia, muscular y serosa"] },
+      { title: "Apéndice, recto y ano", description: "Rasgos diferenciales, transición epitelial, glándulas y esfínteres.", subtopics: ["Apéndice, recto y conducto anal"] },
+      { title: "Inflamación y cáncer colorrectal", description: "Linfáticos, pólipos, secuencia adenoma-carcinoma y signos clínicos.", subtopics: ["Inflamación y cáncer colorrectal"] }
+    ]
+  },
+  {
     chapter: "Artículo · Hemostasia y trombosis",
     title: "Hemostasia y trombosis",
     groups: [

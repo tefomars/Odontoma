@@ -4,10 +4,12 @@ import { cap13Flashcards } from "@/content/flashcards/histologia/cap13"
 import { cap14Flashcards } from "@/content/flashcards/histologia/cap14"
 import { cap15Flashcards } from "@/content/flashcards/histologia/cap15"
 import { cap16Flashcards } from "@/content/flashcards/histologia/cap16"
+import { cap17Flashcards } from "@/content/flashcards/histologia/cap17"
 import { cap13Questions } from "./cap13/questions"
 import { cap14Questions } from "./cap14/questions"
 import { cap15Questions } from "./cap15/questions"
 import { cap16Questions } from "./cap16/questions"
+import { cap17Questions } from "./cap17/questions"
 import { hemostasiaQuestions } from "./articulos/hemostasiaQuestions"
 import { cap4Questions } from "./cap4/questions"
 import { cap5Questions } from "./cap5/questions"
@@ -18,6 +20,7 @@ import { cap9Questions } from "./cap9/questions"
 import { cap10Questions } from "./cap10/questions"
 import { cap11Questions } from "./cap11/questions"
 import { cap12Questions } from "./cap12/questions"
+import { questionCountsByChapter, questions as registeredQuestions } from "./index"
 
 const manualBanks = [
   {
@@ -43,10 +46,25 @@ const manualBanks = [
     cards: cap16Flashcards,
     questions: cap16Questions,
     expectedCount: 56
+  },
+  {
+    chapter: "Capítulo 17",
+    cards: cap17Flashcards,
+    questions: cap17Questions,
+    expectedCount: 64
   }
 ]
 
 describe("bancos manuales de Citohistología II", () => {
+  it("registra cada banco en el índice que consume la aplicación", () => {
+    for (const bank of manualBanks) {
+      expect(questionCountsByChapter[bank.chapter as keyof typeof questionCountsByChapter])
+        .toBe(bank.expectedCount)
+      expect(registeredQuestions.filter(question => question.chapter === bank.chapter))
+        .toHaveLength(bank.expectedCount)
+    }
+  })
+
   it("mantiene bancos amplios y completamente independientes de las flashcards", () => {
     for (const bank of manualBanks) {
       expect(bank.questions).toHaveLength(bank.expectedCount)
