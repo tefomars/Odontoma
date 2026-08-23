@@ -4,11 +4,21 @@ import { questions, questionCountsByChapter } from "."
 
 describe("microbiology quizzes", () => {
   it("contains complete chapter banks", () => {
+    expect(questionCountsByChapter["Capítulo 14"]).toBeGreaterThanOrEqual(80)
     expect(questionCountsByChapter["Capítulo 18"]).toBeGreaterThanOrEqual(40)
     expect(questionCountsByChapter["Capítulo 20"]).toBeGreaterThanOrEqual(50)
     expect(questions).toHaveLength(
-      questionCountsByChapter["Capítulo 18"] + questionCountsByChapter["Capítulo 20"]
+      questionCountsByChapter["Capítulo 14"] +
+      questionCountsByChapter["Capítulo 18"] +
+      questionCountsByChapter["Capítulo 20"]
     )
+  })
+
+  it("distributes chapter 14 answers across all four option positions", () => {
+    const chapter14 = questions.filter(question => question.chapter === "Capítulo 14")
+    const positions = new Set(chapter14.map(question => question.correctAnswers[0]))
+
+    expect(positions).toEqual(new Set([0, 1, 2, 3]))
   })
 
   it("uses valid questions and unique identifiers", () => {

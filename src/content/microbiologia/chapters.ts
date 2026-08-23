@@ -1,9 +1,20 @@
+import cap14Image from "@/assets/chapters/cap14.jpg"
 import cap18Image from "@/assets/chapters/micro-cap18.jpg"
 import cap20Image from "@/assets/chapters/micro-cap20.jpg"
+import { cap14Questions } from "./cap14/questions"
 import { cap18Questions } from "./cap18/questions"
 import { cap20Questions } from "./cap20/questions"
 
 export const chapters = [
+  {
+    id: "Capítulo 14",
+    title: "Capítulo 14",
+    subtitle: "Inmunidad innata",
+    description: "Barreras naturales, fagocitos, células NK, inflamación, reconocimiento de patrones y sistema del complemento.",
+    image: cap14Image,
+    questionCount: cap14Questions.length,
+    accent: "from-violet-500/25 to-sky-500/10"
+  },
   {
     id: "Capítulo 18",
     title: "Capítulo 18",
