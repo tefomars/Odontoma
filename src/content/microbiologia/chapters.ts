@@ -3,6 +3,7 @@ import cap18Image from "@/assets/chapters/micro-cap18.jpg"
 import cap20Image from "@/assets/chapters/micro-cap20.jpg"
 import { cap14Questions } from "./cap14/questions"
 import { cap18Questions } from "./cap18/questions"
+import { cap19Questions } from "./cap19/questions"
 import { cap20Questions } from "./cap20/questions"
 
 export const chapters = [
@@ -23,6 +24,15 @@ export const chapters = [
     image: cap18Image,
     questionCount: cap18Questions.length,
     accent: "from-teal-500/25 to-cyan-500/10"
+  },
+  {
+    id: "Capítulo 19",
+    title: "Capítulo 19",
+    subtitle: "Vacunas e inmunización",
+    description: "Tipos de vacunas, vías, componentes, eficacia, inmunización activa y pasiva, inmunoglobulinas y sueros.",
+    image: cap14Image,
+    questionCount: cap19Questions.length,
+    accent: "from-amber-500/25 to-rose-500/10"
   },
   {
     id: "Capítulo 20",
