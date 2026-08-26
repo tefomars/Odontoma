@@ -1527,7 +1527,7 @@
       "id": "open-deck-1787780481952-dc59cf02-4c7b-4097-a526-3ea30b0b0f10",
       "title": "Glosario P1",
       "subject": "Materiales dentales",
-      "color": "#fbbf24",
+      "color": "#8f88ec",
       "classSymbol": "🪥",
       "classColor": "#fbbf24",
       "description": "Glosario de palabras para el Primer Parcial",
@@ -1602,7 +1602,7 @@
       "id": "open-deck-1787781538967-69ceeff8-bc31-4fc2-aab9-7dd6772bd47f",
       "title": "Amalgamas",
       "subject": "Materiales dentales",
-      "color": "#808080",
+      "color": "#484747",
       "classSymbol": "🪥",
       "classColor": "#fbbf24",
       "description": "Contenido de amalgamas",
@@ -1674,7 +1674,7 @@
       "id": "open-deck-1787783043024-4c22ff19-b163-4d55-9133-37fe98f9e6d2",
       "title": "Composites",
       "subject": "Materiales dentales",
-      "color": "#fbbf24",
+      "color": "#75d4e1",
       "classSymbol": "🪥",
       "classColor": "#fbbf24",
       "description": "Resinas y un poco de fotocuración",
@@ -1868,6 +1868,169 @@
           "id": "open-question-1787785193718-075585e5-428d-4a92-9ccc-990acbd1ab59",
           "prompt": "Por qué evolucionamos desde luz halógena a luz LED? Qué significa LED?",
           "modelAnswer": "Porque la luz halógena tenía un espectro de luz muy limitado, entonces activaba menos fotoiniciadores.\n\nLED--> Luz Emitida por Diodo",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": "open-deck-1787785702774-44eed264-b5da-46d6-844c-5346b0d627ae",
+      "title": "Señores de la historia",
+      "subject": "Materiales dentales",
+      "color": "#d60000",
+      "classSymbol": "🪥",
+      "classColor": "#fbbf24",
+      "description": "",
+      "questions": [
+        {
+          "id": "open-question-1787785810522-b597820d-a864-4b86-bfdc-19da64dead08",
+          "prompt": "Qué título se le otorga a Pierre Fauchard?",
+          "modelAnswer": "Padre de la odontología moderna",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1787785829940-a1d98148-422e-4579-8239-d6b21fcc4083",
+          "prompt": "Qué título se le otorga a Greene Vardiman Black?",
+          "modelAnswer": "Padre de la odontología operatoria moderna",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1787785862790-83c9d823-c2a4-45d1-9093-a0486113967e",
+          "prompt": "Qué título se le otorga a Michael G. Buonocore?",
+          "modelAnswer": "Padre de la odontología adhesiva ",
+          "acceptedPoints": [
+            "Padre de la odontología adhesiva moderna"
+          ],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1787785910040-786978b5-89a4-4fd0-978f-4b10c8503978",
+          "prompt": "Qué publicó Fauchard y en qué año?",
+          "modelAnswer": "Le Chiriurgen Dentiste (El Cirujano Dentista) en 1728",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1787785942340-541fafb1-3957-44e3-b99b-70540f509752",
+          "prompt": "Qué estableció Pierre Fauchard?",
+          "modelAnswer": "Las bases científicas y sistemáticas de la odontología. ",
+          "acceptedPoints": [
+            "Transición de práctica empírica a una disciplina científica"
+          ],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1787786003257-8733dbf0-0a14-4fa1-931b-75182b29cd99",
+          "prompt": "Qué propuso Buonocore?",
+          "modelAnswer": "El uso de adhesivo (ácido ortofosfórico) en los tejidos mineralizados del diente para facilitar la adhesión de resina al diente.",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1787786041457-6f630b3d-3f80-4bbd-95c7-30b298220958",
+          "prompt": "Cómo funciona el ácido ortofosfórico?",
+          "modelAnswer": "Su acidez crea microporosidades en el tejido calcificado, mejorando así la penetración del material de obturación y aumentando su superficie de unión.",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1787786090941-f257e42d-18e2-47f3-9cd3-20e1cb5c968a",
+          "prompt": "Qué % de ácido ortofosfórico fue el primero en utilizarse y cuánto tiempo? Cómo es esto hoy en día?",
+          "modelAnswer": "85% por 30 segundos\n\nAhora es 30-40% por 15 segundos",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1787786127757-8765ea3f-eb64-4bc4-880a-a57f5730d177",
+          "prompt": "Qué contribuyó GV Black a la odontología?",
+          "modelAnswer": "Un sistema de clasificación de caries y cavidades.",
+          "acceptedPoints": [
+            "Rehizo la fórmula de amalgama para mejorar sus cualidades",
+            "Desarrolló la extensión por prevención (no bueno hoy en día)",
+            "Implementó sustento científico y sistemático para estandarizar ciertos procesos odontológicos."
+          ],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1787786273974-4e694478-3164-4f95-ad52-7a0c51553d9c",
+          "prompt": "Numere las clasificaciones de cavidades de Black. (no en dónde se halla cada una)",
+          "modelAnswer": "I\nII\nIII\nIV\nV",
+          "acceptedPoints": [],
+          "explanation": "La VI fue agregada después por otro cuate... No por Black",
+          "source": ""
+        },
+        {
+          "id": "open-question-1787786384824-ae9144ad-6be4-44b8-aafe-f33195699188",
+          "prompt": "Dónde están las cavidades tipo I?",
+          "modelAnswer": "Anteriores: Superficie lingual/palatina\nPosteriores: Superficie oclusal (fosas y fisuras)",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1787786499250-f21e565c-056e-4fe1-8414-5b6dc77b37d9",
+          "prompt": "Dónde están las cavidades tipo II?",
+          "modelAnswer": "Superficies proximales (mesial o distal) de dientes POSTERIORES",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1787786547703-00a9a8b9-552a-4d0e-809d-3bdeaf0f737f",
+          "prompt": "Dónde están las cavidades tipo III?",
+          "modelAnswer": "Superficies proximales de dientes anteriores, sin involucrar el borde incisal",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1787786561587-3011029a-d263-405a-8043-1a737d7ca0bc",
+          "prompt": "Dónde están las cavidades tipo IV?",
+          "modelAnswer": "Superficies proximales de dientes anteriores, involucrando al borde incisal.",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1787786583904-3f82821d-85e0-42e9-9563-41b8b6ee6a44",
+          "prompt": "Dónde están las cavidades tipo V?",
+          "modelAnswer": "Tercio cervical del diente, sea en su superficie palatina/lingual o vestibular de cualquier diente.",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1787786614803-4cf68ebc-eb0c-42c5-9593-191e152ab512",
+          "prompt": "Dónde están las cavidades tipo VI?",
+          "modelAnswer": "En las cúspides de dientes posteriores\nBorde incisal de dientes anteriores",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1787786654303-2fe29d10-c36a-4010-92b6-450ef4d0dad4",
+          "prompt": "Quién creó el agente de acople y descubrió el monómero para dar lugar a las primeras resinas compuestas?",
+          "modelAnswer": "Rafael Bowen en 1962",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1787786726336-b9451876-fc22-48bf-b8dd-e00f5ea896e6",
+          "prompt": "Qué dos cosas descubrió Rafael Bowen y cuál fue la importancia de cada una?",
+          "modelAnswer": "Bis-GMA: Fue una gran mejora desde la PMMA, pues producía menor estrés de polimerización (por ser más grande)\n\nSilano: Permitió la unión de partículas de relleno con la matriz resinosa. Otorgó mayor resistencia a las resinas y propiedades más favorables.",
           "acceptedPoints": [],
           "explanation": "",
           "source": ""
