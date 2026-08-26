@@ -9,6 +9,15 @@
     "destination": "histologia"
   },
   {
+    "id": "semiologia",
+    "title": "Semiología",
+    "subtitle": "Semiología clínica",
+    "description": "Flashcards de lesión celular, inflamación, historia clínica y examen semiológico.",
+    "accent": "from-teal-500/20 to-cyan-500/10",
+    "accentColor": "#14b8a6",
+    "destination": "semiologia"
+  },
+  {
     "id": "proceso-economico-i",
     "title": "Proceso Económico I",
     "subtitle": "Material de clase",

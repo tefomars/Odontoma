@@ -1604,6 +1604,13 @@ function cardMatchesSelectedSubject(
     )
   }
 
+  if (subject === "semiologia") {
+    return (
+      cardSubject === "semiología" ||
+      cardSubject === "semiologia"
+    )
+  }
+
   return (
     cardSubject === "" ||
     cardSubject === "histología" ||
@@ -2057,6 +2064,8 @@ export default function FlashcardSelectScreen({
       ? "Proceso Económico I"
       : subject === "filosofia-de-hayek"
         ? "Filosofía de Hayek"
+        : subject === "semiologia"
+          ? "Semiología"
         : "Histología"
 
   const subjectDescription =
@@ -2064,6 +2073,8 @@ export default function FlashcardSelectScreen({
       ? "Elegí un parcial y repasá por temas."
       : subject === "filosofia-de-hayek"
         ? "Elegí un bloque y repasá sus conceptos principales."
+        : subject === "semiologia"
+          ? "Elegí un bloque y repasá por temas clínicos."
         : "Elegí un capítulo y repasá por bloques grandes."
 
   const generatedChapterMenus =

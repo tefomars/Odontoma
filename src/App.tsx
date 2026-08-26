@@ -62,6 +62,15 @@ import {
 } from "@/content/microbiologia/chapters"
 
 import {
+  questions as semiologiaQuestions,
+  questionCountsByChapter as semiologiaQuestionCountsByChapter
+} from "@/content/semiologia"
+
+import {
+  chapters as semiologiaChapters
+} from "@/content/semiologia/chapters"
+
+import {
   loadStats,
   saveStats,
   type AnswerStats
@@ -320,6 +329,8 @@ export default function App() {
       ? hayekQuestions
       : selectedSubject === "microbiologia"
         ? microbiologiaQuestions
+        : selectedSubject === "semiologia"
+          ? semiologiaQuestions
         : histologiaQuestions
 
   const quizChapters =
@@ -327,6 +338,8 @@ export default function App() {
       ? hayekChapters
       : selectedSubject === "microbiologia"
         ? microbiologiaChapters
+        : selectedSubject === "semiologia"
+          ? semiologiaChapters
         : histologiaChapters
 
   const quizQuestionCountsByChapter =
@@ -334,6 +347,8 @@ export default function App() {
       ? hayekQuestionCountsByChapter
       : selectedSubject === "microbiologia"
         ? microbiologiaQuestionCountsByChapter
+        : selectedSubject === "semiologia"
+          ? semiologiaQuestionCountsByChapter
         : histologiaQuestionCountsByChapter
 
   const quizTitle =
@@ -341,6 +356,8 @@ export default function App() {
       ? "Filosofía de Hayek"
       : selectedSubject === "microbiologia"
         ? "Microbiología"
+        : selectedSubject === "semiologia"
+          ? "Semiología"
         : "Histología"
 
   const availableQuestions =
@@ -565,6 +582,8 @@ export default function App() {
           ? hayekQuestions
           : pausedSubject === "microbiologia"
             ? microbiologiaQuestions
+            : pausedSubject === "semiologia"
+              ? semiologiaQuestions
             : histologiaQuestions
       const restoredQuestions =
         pausedSubject === "my-quizzes"

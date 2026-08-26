@@ -43,7 +43,8 @@ const destinationOptions: Array<{
   { value: "open-quizzes", label: "Preguntas abiertas", description: "Abre los apartados de respuesta libre." },
   { value: "histologia", label: "Histología existente", description: "Abre los capítulos actuales de Histología." },
   { value: "filosofia-de-hayek", label: "Filosofía existente", description: "Abre los capítulos actuales de Hayek." },
-  { value: "microbiologia", label: "Microbiología", description: "Abre los capítulos y quizzes de Microbiología." }
+  { value: "microbiologia", label: "Microbiología", description: "Abre los capítulos y quizzes de Microbiología." },
+  { value: "semiologia", label: "Semiología", description: "Abre los bloques y quizzes de Semiología." }
 ]
 
 const mainMenuDestinationOptions: Array<{ value: AppMenuDestination; label: string }> = [
@@ -63,7 +64,8 @@ const flashcardDestinationOptions: Array<{ value: FlashcardSubjectDestination; l
   { value: "coming-soon", label: "Sin contenido por ahora" },
   { value: "histologia", label: "Decks de Histología" },
   { value: "proceso-economico-i", label: "Decks de Proceso Económico I" },
-  { value: "filosofia-de-hayek", label: "Decks de Filosofía" }
+  { value: "filosofia-de-hayek", label: "Decks de Filosofía" },
+  { value: "semiologia", label: "Decks de Semiología" }
 ]
 
 const customDestinationOptionsForSubjects: Array<{
