@@ -11,6 +11,18 @@
       "name": "Citohistología",
       "symbol": "▰",
       "color": "#29fa41"
+    },
+    {
+      "id": "semiologia",
+      "name": "Semiología",
+      "symbol": "⌕",
+      "color": "#14b8a6"
+    },
+    {
+      "id": "open-class-1787780422069-8a11338e-b21a-4ca2-9baf-ca018793dc95",
+      "name": "Materiales dentales",
+      "symbol": "🪥",
+      "color": "#fbbf24"
     }
   ],
   "decks": [
@@ -592,6 +604,1270 @@
           "id": "open-question-1785698155597-bf5f00a6-d557-4907-85d3-74386802c985",
           "prompt": "Por qué es necesario, en las lanzaderas, dar la conversión hacia malato o glicerol-3-fosfato?",
           "modelAnswer": "Porque tienen transportadores específicos en la mitocondria, por lo que pueden entrar... a diferencia del sustrato previo (oxaloacetato y dihidroxiacetona-3-fosfato)",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": "semiologia-bloque-1",
+      "title": "Bloque 1 · Fundamentos y lesión celular",
+      "subject": "Semiología",
+      "color": "#8b5cf6",
+      "classSymbol": "⌕",
+      "classColor": "#14b8a6",
+      "description": "Salud, enfermedad, adaptación, necrosis, apoptosis y gangrena.",
+      "questions": [
+        {
+          "id": "semio-open-01",
+          "prompt": "Diferencia etiología de patogénesis y da un ejemplo breve.",
+          "modelAnswer": "La etiología es la causa de la enfermedad; la patogénesis es el mecanismo y la secuencia por los que esa causa produce la enfermedad.",
+          "acceptedPoints": [
+            "Causa",
+            "Mecanismo de desarrollo"
+          ]
+        },
+        {
+          "id": "semio-open-02",
+          "prompt": "Diferencia signo, síntoma y lesión.",
+          "modelAnswer": "El síntoma es subjetivo y lo refiere el paciente; el signo es objetivo y comprobable; la lesión es el cambio estructural o funcional producido por la enfermedad.",
+          "acceptedPoints": [
+            "Síntoma subjetivo",
+            "Signo objetivo",
+            "Cambio patológico"
+          ]
+        },
+        {
+          "id": "semio-open-03",
+          "prompt": "Explica qué es homeostasis y qué ocurre si una agresión persiste.",
+          "modelAnswer": "Homeostasis es la capacidad de mantener estabilidad interna. Si la agresión supera la adaptación, el daño pasa de reversible a irreversible y puede culminar en muerte celular.",
+          "acceptedPoints": [
+            "Estabilidad interna",
+            "Daño reversible",
+            "Daño irreversible"
+          ]
+        },
+        {
+          "id": "semio-open-04",
+          "prompt": "Compara mitosis y meiosis.",
+          "modelAnswer": "La mitosis produce dos células hijas equivalentes y conserva el número cromosómico; la meiosis produce gametos y reduce los cromosomas a la mitad.",
+          "acceptedPoints": [
+            "Dos células",
+            "Gametos",
+            "Mitad de cromosomas"
+          ]
+        },
+        {
+          "id": "semio-open-05",
+          "prompt": "Define hipertrofia, hiperplasia, atrofia y metaplasia.",
+          "modelAnswer": "Hipertrofia: aumento del tamaño celular. Hiperplasia: aumento del número de células. Atrofia: disminución del tamaño y/o número celular. Metaplasia: sustitución reversible de un tipo celular maduro por otro.",
+          "acceptedPoints": [
+            "Tamaño",
+            "Número",
+            "Disminución",
+            "Sustitución reversible"
+          ]
+        },
+        {
+          "id": "semio-open-06",
+          "prompt": "Compara apoptosis y necrosis.",
+          "modelAnswer": "La apoptosis es muerte programada y generalmente no inflamatoria; la necrosis es muerte patológica en tejido vivo, con ruptura celular y respuesta inflamatoria.",
+          "acceptedPoints": [
+            "Programada",
+            "Inflamación",
+            "Muerte patológica"
+          ]
+        },
+        {
+          "id": "semio-open-07",
+          "prompt": "Describe cariolisis, picnosis y cariorrexis.",
+          "modelAnswer": "Cariolisis: disolución nuclear. Picnosis: núcleo pequeño y condensado. Cariorrexis: fragmentación del núcleo.",
+          "acceptedPoints": [
+            "Disolución",
+            "Condensación",
+            "Fragmentación"
+          ]
+        },
+        {
+          "id": "semio-open-08",
+          "prompt": "Compara necrosis coagulativa, licuefactiva y caseosa.",
+          "modelAnswer": "La coagulativa conserva temporalmente la arquitectura y suele seguir a isquemia; la licuefactiva digiere el tejido y forma una cavidad; la caseosa deja material granular y se asocia clásicamente a tuberculosis.",
+          "acceptedPoints": [
+            "Arquitectura",
+            "Cavidad",
+            "Tuberculosis"
+          ]
+        },
+        {
+          "id": "semio-open-09",
+          "prompt": "Diferencia gangrena seca y húmeda.",
+          "modelAnswer": "La seca se debe principalmente a oclusión arterial e isquemia; la húmeda añade invasión bacteriana y putrefacción al tejido isquémico.",
+          "acceptedPoints": [
+            "Oclusión arterial",
+            "Bacterias",
+            "Putrefacción"
+          ]
+        },
+        {
+          "id": "semio-open-10",
+          "prompt": "¿Qué consecuencias locales y sistémicas puede tener la necrosis?",
+          "modelAnswer": "Pérdida de función, foco para infección, inflamación local y cambios sistémicos como fiebre y dolor.",
+          "acceptedPoints": [
+            "Pérdida de función",
+            "Infección",
+            "Fiebre o dolor"
+          ]
+        },
+        {
+          "id": "semio-open-41",
+          "prompt": "Explica cómo puede progresar una agresión desde el estado subclínico hasta una enfermedad manifiesta.",
+          "modelAnswer": "Primero aparecen alteraciones moleculares o bioquímicas no perceptibles. Si la agresión continúa, surgen cambios funcionales y morfológicos; después aparecen signos, síntomas y lesiones clínicas.",
+          "acceptedPoints": [
+            "Cambios moleculares",
+            "Persistencia de la agresión",
+            "Cambios morfológicos",
+            "Manifestaciones clínicas"
+          ]
+        },
+        {
+          "id": "semio-open-42",
+          "prompt": "Clasifica los principales factores intrínsecos y extrínsecos de enfermedad y da ejemplos.",
+          "modelAnswer": "Intrínsecos: genética, edad, inmunidad, nutrición, hipoxia o enfermedad previa. Extrínsecos: toxinas, tabaco, microorganismos, trauma, temperaturas extremas y radiación.",
+          "acceptedPoints": [
+            "Factores propios",
+            "Genética o edad",
+            "Agentes externos",
+            "Toxinas o microorganismos"
+          ]
+        },
+        {
+          "id": "semio-open-43",
+          "prompt": "Relaciona microflora, inmunidad y genética con la susceptibilidad a enfermedad.",
+          "modelAnswer": "La microflora puede volverse patógena si se altera su equilibrio; la pérdida de tolerancia inmunológica causa autoinmunidad; y variantes genéticas modifican susceptibilidad y respuesta frente a enfermedades.",
+          "acceptedPoints": [
+            "Desequilibrio de microflora",
+            "Autoinmunidad",
+            "Susceptibilidad genética"
+          ]
+        },
+        {
+          "id": "semio-open-44",
+          "prompt": "Diferencia lesión, complicación, secuela, resolución, diagnóstico y pronóstico.",
+          "modelAnswer": "Lesión es el cambio patológico; complicación, un problema inesperado adicional; secuela, el daño persistente; resolución, quedar libre de enfermedad; diagnóstico, identificarla; y pronóstico, anticipar su curso y desenlace.",
+          "acceptedPoints": [
+            "Cambio patológico",
+            "Problema adicional",
+            "Daño persistente",
+            "Identificación y predicción"
+          ]
+        },
+        {
+          "id": "semio-open-45",
+          "prompt": "Explica el papel de la inmunovigilancia y por qué puede disminuir su eficacia con la edad.",
+          "modelAnswer": "La inmunovigilancia detecta y elimina células anormales antes de que formen una patología. Con la edad, las respuestas frente a agresores pueden ser más lentas y menos eficaces.",
+          "acceptedPoints": [
+            "Detectar células anormales",
+            "Eliminación temprana",
+            "Respuesta más lenta con edad"
+          ]
+        },
+        {
+          "id": "semio-open-46",
+          "prompt": "Explica ADN, gen, locus, fenotipo y diferenciación celular como conceptos relacionados.",
+          "modelAnswer": "El ADN contiene la información hereditaria; un gen es un segmento funcional ubicado en un locus; el fenotipo es lo observable; y la diferenciación hace que células con el mismo ADN expresen genes distintos.",
+          "acceptedPoints": [
+            "ADN",
+            "Gen y locus",
+            "Fenotipo",
+            "Expresión diferencial"
+          ]
+        },
+        {
+          "id": "semio-open-47",
+          "prompt": "Describe las acumulaciones de agua celulares y su relación con lesión reversible.",
+          "modelAnswer": "La tumefacción turbia es entrada reversible de agua; la degeneración vacuolar acumula agua en vacuolas; y la hidrópica refleja alteración de permeabilidad con mayor entrada de agua.",
+          "acceptedPoints": [
+            "Tumefacción",
+            "Vacuolas",
+            "Permeabilidad",
+            "Reversibilidad"
+          ]
+        },
+        {
+          "id": "semio-open-48",
+          "prompt": "¿Cómo puede una lesión celular pasar de reversible a irreversible?",
+          "modelAnswer": "Mientras la célula compensa y se elimina el agresor puede volver a homeostasis. Si la intensidad o duración supera su adaptación, el daño se vuelve irreversible y culmina en apoptosis o necrosis.",
+          "acceptedPoints": [
+            "Compensación",
+            "Retiro del agresor",
+            "Superación de adaptación",
+            "Muerte celular"
+          ]
+        },
+        {
+          "id": "semio-open-49",
+          "prompt": "Explica por qué la necrosis provoca inflamación y la apoptosis generalmente no.",
+          "modelAnswer": "La necrosis daña membranas, libera contenido celular y activa mecanismos de eliminación tisular. La apoptosis es un proceso ordenado y programado que suele retirar células sin derramar su contenido.",
+          "acceptedPoints": [
+            "Ruptura o liberación",
+            "Respuesta inflamatoria",
+            "Proceso programado",
+            "Eliminación ordenada"
+          ]
+        },
+        {
+          "id": "semio-open-50",
+          "prompt": "Construye un razonamiento para diferenciar gangrena seca de húmeda en un caso clínico.",
+          "modelAnswer": "Debe evaluarse si existe solo isquemia por oclusión arterial, tejido seco y delimitado, o si además hay invasión bacteriana, putrefacción, humedad y material purulento; lo segundo indica gangrena húmeda.",
+          "acceptedPoints": [
+            "Isquemia",
+            "Oclusión arterial",
+            "Invasión bacteriana",
+            "Putrefacción o pus"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "semiologia-bloque-2",
+      "title": "Bloque 2 · Inflamación y hematología",
+      "subject": "Semiología",
+      "color": "#f43f5e",
+      "classSymbol": "⌕",
+      "classColor": "#14b8a6",
+      "description": "Inflamación aguda y crónica, leucocitos, fagocitosis y plaquetas.",
+      "questions": [
+        {
+          "id": "semio-open-11",
+          "prompt": "Explica los cinco signos cardinales de inflamación aguda y su mecanismo.",
+          "modelAnswer": "Rubor y calor: vasodilatación. Edema: aumento de permeabilidad. Dolor: mediadores químicos y presión tisular. Pérdida de función: consecuencia del dolor y daño local.",
+          "acceptedPoints": [
+            "Rubor",
+            "Calor",
+            "Dolor",
+            "Edema",
+            "Pérdida de función"
+          ]
+        },
+        {
+          "id": "semio-open-12",
+          "prompt": "¿Cuáles son los objetivos generales de la respuesta inflamatoria?",
+          "modelAnswer": "Diluir el agente, destruirlo, aislarlo para limitar el daño e iniciar la reparación.",
+          "acceptedPoints": [
+            "Diluir",
+            "Destruir",
+            "Aislar",
+            "Reparar"
+          ]
+        },
+        {
+          "id": "semio-open-13",
+          "prompt": "Diferencia infección de inflamación.",
+          "modelAnswer": "La infección implica microorganismos patógenos; la inflamación es una respuesta tisular que también puede ser causada por trauma, químicos o necrosis sin infección.",
+          "acceptedPoints": [
+            "Microorganismos",
+            "Respuesta tisular",
+            "Causas estériles"
+          ]
+        },
+        {
+          "id": "semio-open-14",
+          "prompt": "Compara exudado seroso, fibrinoso y supurativo.",
+          "modelAnswer": "El seroso tiene pocas células; el fibrinoso es rico en fibrina/fibrinógeno; el supurativo contiene pus, microorganismos y abundantes células inflamatorias.",
+          "acceptedPoints": [
+            "Pocas células",
+            "Fibrina",
+            "Pus"
+          ]
+        },
+        {
+          "id": "semio-open-15",
+          "prompt": "Describe la secuencia de migración leucocitaria.",
+          "modelAnswer": "Marginación, adhesión o pavimentación, migración a través del endotelio y diapédesis, seguidas por quimiotaxis hacia el daño.",
+          "acceptedPoints": [
+            "Marginación",
+            "Adhesión",
+            "Diapédesis",
+            "Quimiotaxis"
+          ]
+        },
+        {
+          "id": "semio-open-16",
+          "prompt": "Explica las etapas funcionales de una respuesta inflamatoria completa.",
+          "modelAnswer": "Reconocimiento del agente, reclutamiento celular, remoción del causante, regulación para recuperar homeostasis y reparación del tejido.",
+          "acceptedPoints": [
+            "Reconocimiento",
+            "Reclutamiento",
+            "Remoción",
+            "Regulación",
+            "Reparación"
+          ]
+        },
+        {
+          "id": "semio-open-17",
+          "prompt": "Relaciona neutrófilos, eosinófilos, basófilos, linfocitos y monocitos con sus funciones principales.",
+          "modelAnswer": "Neutrófilos: bacterias e inflamación aguda. Eosinófilos: alergia y parásitos. Basófilos: histamina y heparina. Linfocitos: inmunidad adaptativa. Monocitos/macrófagos: fagocitosis y procesos crónicos.",
+          "acceptedPoints": [
+            "Neutrófilos",
+            "Eosinófilos",
+            "Basófilos",
+            "Linfocitos",
+            "Monocitos"
+          ]
+        },
+        {
+          "id": "semio-open-18",
+          "prompt": "Describe desde la opsonización hasta la destrucción de una bacteria por un fagocito.",
+          "modelAnswer": "Las opsoninas recubren la bacteria, el fagocito la reconoce y engloba en un fagosoma; este se fusiona con lisosomas para formar el fagolisosoma, donde se destruye y digiere.",
+          "acceptedPoints": [
+            "Opsoninas",
+            "Fagosoma",
+            "Fagolisosoma",
+            "Digestión"
+          ]
+        },
+        {
+          "id": "semio-open-19",
+          "prompt": "Compara células gigantes de cuerpo extraño y de Langhans e indica ejemplos clínicos.",
+          "modelAnswer": "Las de cuerpo extraño tienen núcleos dispersos y aparecen en reacciones a material extraño y lesiones como GCCG; las de Langhans tienen núcleos periféricos y se asocian a tuberculosis y sarcoidosis.",
+          "acceptedPoints": [
+            "Núcleos dispersos",
+            "Núcleos periféricos",
+            "Tuberculosis",
+            "GCCG"
+          ]
+        },
+        {
+          "id": "semio-open-20",
+          "prompt": "Compara inflamación aguda y crónica.",
+          "modelAnswer": "La aguda es rápida, predomina el neutrófilo y presenta cambios vasculares marcados. La crónica es prolongada, predominan macrófagos y linfocitos, y combina destrucción, angiogénesis y fibrosis.",
+          "acceptedPoints": [
+            "Duración",
+            "Neutrófilos",
+            "Macrófagos",
+            "Fibrosis"
+          ]
+        },
+        {
+          "id": "semio-open-51",
+          "prompt": "Clasifica las causas de inflamación y explica por qué inflamación no equivale a infección.",
+          "modelAnswer": "Puede originarse por agentes biológicos, físicos o químicos. La infección requiere microorganismos, mientras que una quemadura, trauma, radiación o necrosis pueden inflamar sin infección.",
+          "acceptedPoints": [
+            "Biológicos",
+            "Físicos",
+            "Químicos",
+            "Inflamación estéril"
+          ]
+        },
+        {
+          "id": "semio-open-52",
+          "prompt": "Explica cómo la inflamación aguda puede producir linfadenopatía y qué hallazgos ganglionares preocupan.",
+          "modelAnswer": "El aumento de líquido intersticial y drenaje linfático estimula ganglios regionales. Un ganglio móvil suele ser reactivo; uno fijo, firme y persistente requiere estudiar malignidad o metástasis.",
+          "acceptedPoints": [
+            "Flujo linfático",
+            "Ganglio reactivo",
+            "Fijación",
+            "Persistencia"
+          ]
+        },
+        {
+          "id": "semio-open-53",
+          "prompt": "Enumera las funciones del exudado en defensa y reparación.",
+          "modelAnswer": "Diluye toxinas, lleva anticuerpos y complemento, facilita fagocitosis, aporta enzimas, nutrientes y células inflamatorias, y deposita fibrina para iniciar reparación.",
+          "acceptedPoints": [
+            "Dilución",
+            "Anticuerpos o complemento",
+            "Fagocitosis",
+            "Fibrina y reparación"
+          ]
+        },
+        {
+          "id": "semio-open-54",
+          "prompt": "Explica qué cambios vasculares y sanguíneos facilitan la salida de leucocitos.",
+          "modelAnswer": "Aumenta la permeabilidad capilar y sale líquido, elevando la viscosidad. Los leucocitos se desplazan hacia el endotelio, se adhieren y atraviesan las uniones endoteliales.",
+          "acceptedPoints": [
+            "Permeabilidad",
+            "Viscosidad",
+            "Marginación",
+            "Paso endotelial"
+          ]
+        },
+        {
+          "id": "semio-open-55",
+          "prompt": "Interpreta una fórmula diferencial y relaciona cada rango con su leucocito.",
+          "modelAnswer": "Neutrófilos 50–70 %, eosinófilos 1–4 %, basófilos 0.5 %, linfocitos 20–40 % y monocitos 2–8 %; el total leucocitario es 5,000–10,000/mm³.",
+          "acceptedPoints": [
+            "Neutrófilos",
+            "Eosinófilos",
+            "Linfocitos",
+            "Monocitos",
+            "Leucocitos totales"
+          ]
+        },
+        {
+          "id": "semio-open-56",
+          "prompt": "Describe las características funcionales del neutrófilo circulante.",
+          "modelAnswer": "Se origina en médula ósea, llega temprano a inflamación aguda, ya no se divide en sangre, se mueve ameboidemente, contiene lisozima y fagocita bacterias; su vida media es cercana a seis horas.",
+          "acceptedPoints": [
+            "Médula ósea",
+            "No se divide",
+            "Movimiento ameboide",
+            "Fagocitosis",
+            "Seis horas"
+          ]
+        },
+        {
+          "id": "semio-open-57",
+          "prompt": "Compara eosinófilos, basófilos y monocitos en velocidad, contenido y función.",
+          "modelAnswer": "Los eosinófilos responden más lentamente y actúan en alergia y parásitos; los basófilos contienen histamina y heparina; los monocitos viven más, migran lentamente y se diferencian en macrófagos.",
+          "acceptedPoints": [
+            "Alergia o parásitos",
+            "Histamina y heparina",
+            "Vida larga",
+            "Macrófagos"
+          ]
+        },
+        {
+          "id": "semio-open-58",
+          "prompt": "Nombra las formas tisulares de los monocitos/macrófagos.",
+          "modelAnswer": "En exudado son macrófagos; en tejido conectivo, histiocitos; en hígado, células de Kupffer; en pulmón, macrófagos alveolares; y en tejido linfoide, macrófagos linfoides.",
+          "acceptedPoints": [
+            "Histiocitos",
+            "Kupffer",
+            "Alveolares",
+            "Linfoides"
+          ]
+        },
+        {
+          "id": "semio-open-59",
+          "prompt": "Explica el origen, activación y función hemostática de las plaquetas.",
+          "modelAnswer": "Derivan de megacariocitos. Se adhieren al daño vascular, se activan al contactar matriz subendotelial y participan en la formación del tapón hemostático.",
+          "acceptedPoints": [
+            "Megacariocitos",
+            "Adhesión",
+            "Matriz subendotelial",
+            "Tapón hemostático"
+          ]
+        },
+        {
+          "id": "semio-open-60",
+          "prompt": "Interpreta los riesgos de recuentos plaquetarios bajos y el efecto de la aspirina.",
+          "modelAnswer": "El rango es 200,000–400,000/µL. Entre 20,000 y 50,000 aumenta la tendencia al sangrado y por debajo de 20,000 puede haber sangrado espontáneo. La aspirina reduce tromboxano A₂ y agregación.",
+          "acceptedPoints": [
+            "Rango normal",
+            "20,000–50,000",
+            "Menos de 20,000",
+            "Tromboxano A2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "semiologia-bloque-3",
+      "title": "Bloque 3 · Historia clínica y sistemas",
+      "subject": "Semiología",
+      "color": "#0ea5e9",
+      "classSymbol": "⌕",
+      "classColor": "#14b8a6",
+      "description": "Ficha clínica, ASA, medicamentos, Sjögren y revisión sistémica.",
+      "questions": [
+        {
+          "id": "semio-open-21",
+          "prompt": "¿Qué componentes y objetivos principales tiene una ficha clínica odontológica?",
+          "modelAnswer": "Incluye historia médica, examen físico, laboratorios, referencias e imágenes. Busca detectar riesgos, adaptar el tratamiento, documentar legalmente la atención y establecer una buena relación clínica.",
+          "acceptedPoints": [
+            "Historia médica",
+            "Examen",
+            "Riesgos",
+            "Documento legal"
+          ]
+        },
+        {
+          "id": "semio-open-22",
+          "prompt": "¿Qué debe investigarse y registrarse sobre medicamentos?",
+          "modelAnswer": "Nombre comercial y genérico, dosis, frecuencia, indicación, alergias y fármacos de riesgo como anticoagulantes, antiagregantes, bifosfonatos y denosumab.",
+          "acceptedPoints": [
+            "Nombre",
+            "Dosis",
+            "Indicación",
+            "Fármacos de riesgo"
+          ]
+        },
+        {
+          "id": "semio-open-23",
+          "prompt": "Resume la clasificación ASA I a V.",
+          "modelAnswer": "ASA I: sano. ASA II: enfermedad leve. ASA III: enfermedad grave con limitación. ASA IV: amenaza constante para la vida. ASA V: paciente moribundo.",
+          "acceptedPoints": [
+            "ASA I",
+            "ASA II",
+            "ASA III",
+            "ASA IV",
+            "ASA V"
+          ]
+        },
+        {
+          "id": "semio-open-24",
+          "prompt": "¿Qué antecedentes cardiovasculares cambian la planificación odontológica?",
+          "modelAnswer": "Presión anormal, enfermedad valvular o prótesis, fiebre reumática, ACV, marcapasos y uso de anticoagulantes o antiagregantes.",
+          "acceptedPoints": [
+            "Presión",
+            "Válvulas",
+            "ACV",
+            "Antitrombóticos"
+          ]
+        },
+        {
+          "id": "semio-open-25",
+          "prompt": "Menciona tres grupos farmacológicos que pueden producir agrandamiento gingival.",
+          "modelAnswer": "Bloqueadores de canales de calcio como nifedipina, ciclosporina y anticonvulsivantes.",
+          "acceptedPoints": [
+            "Nifedipina",
+            "Ciclosporina",
+            "Anticonvulsivantes"
+          ]
+        },
+        {
+          "id": "semio-open-26",
+          "prompt": "¿Qué datos clínicos y de laboratorio orientan a diabetes?",
+          "modelAnswer": "Polidipsia, polifagia, poliuria, boca seca, glucemia y HbA1c. Una HbA1c de 6.5 % o más es compatible con diabetes.",
+          "acceptedPoints": [
+            "Tres polis",
+            "Glucemia",
+            "HbA1c"
+          ]
+        },
+        {
+          "id": "semio-open-27",
+          "prompt": "Explica cómo se estudia a un paciente con sospecha de síndrome de Sjögren.",
+          "modelAnswer": "Se investigan síntomas oculares y orales, sialometría, test de Schirmer, serología anti-Ro/anti-La y otros anticuerpos, estudios glandulares y biopsia de glándula salival menor.",
+          "acceptedPoints": [
+            "Sialometría",
+            "Schirmer",
+            "Anti-Ro/Anti-La",
+            "Biopsia"
+          ]
+        },
+        {
+          "id": "semio-open-28",
+          "prompt": "¿Qué hallazgos respiratorios obligan a posponer o modificar la atención?",
+          "modelAnswer": "Gripe activa, crisis asmática o mal control, EPOC descompensada y sospecha de tuberculosis con fiebre, pérdida de peso, sudoración nocturna o hemoptisis.",
+          "acceptedPoints": [
+            "Gripe",
+            "Asma/EPOC",
+            "Tuberculosis",
+            "Hemoptisis"
+          ]
+        },
+        {
+          "id": "semio-open-29",
+          "prompt": "Relaciona enfermedades gastrointestinales con decisiones odontológicas.",
+          "modelAnswer": "Reflujo puede causar erosión; gastritis y úlcera condicionan AINE; enfermedad hepática modifica metabolismo y coagulación; clindamicina aumenta riesgo de colitis pseudomembranosa.",
+          "acceptedPoints": [
+            "Reflujo",
+            "AINE",
+            "Hígado",
+            "Clindamicina"
+          ]
+        },
+        {
+          "id": "semio-open-30",
+          "prompt": "¿Qué pruebas solicitarías ante petequias y equimosis inexplicadas y por qué?",
+          "modelAnswer": "TP, TPT, INR, tiempos de coagulación y recuento de plaquetas para valorar vías de coagulación y cantidad plaquetaria; puede requerirse hematología.",
+          "acceptedPoints": [
+            "TP",
+            "TPT",
+            "INR",
+            "Plaquetas"
+          ]
+        },
+        {
+          "id": "semio-open-61",
+          "prompt": "Compara los formatos no estructurado, estructurado y mixto de historia médica.",
+          "modelAnswer": "El no estructurado es diálogo libre; el estructurado usa preguntas impresas; el mixto combina formulario con entrevista para aclarar y profundizar.",
+          "acceptedPoints": [
+            "Diálogo libre",
+            "Formulario",
+            "Combinación"
+          ]
+        },
+        {
+          "id": "semio-open-62",
+          "prompt": "Explica cómo los signos vitales y la clasificación ASA modifican el tratamiento odontológico.",
+          "modelAnswer": "Los signos vitales detectan inestabilidad y la ASA resume el riesgo sistémico. Juntos orientan si se puede tratar, si debe modificarse el plan o si se requiere referencia y estabilización.",
+          "acceptedPoints": [
+            "Signos vitales",
+            "Riesgo sistémico",
+            "Modificar tratamiento",
+            "Referencia"
+          ]
+        },
+        {
+          "id": "semio-open-63",
+          "prompt": "Analiza el manejo odontológico de un paciente con antecedente reciente de ACV.",
+          "modelAnswer": "Debe considerarse el tiempo desde el evento, secuelas motoras o del habla, evitar hipoxia, asegurar respiración durante aislamiento, revisar antitrombóticos y coordinar atención. Se clasifica como ASA IV en los primeros seis meses y ASA III después.",
+          "acceptedPoints": [
+            "Tiempo desde ACV",
+            "Evitar hipoxia",
+            "Secuelas",
+            "Antitrombóticos",
+            "ASA"
+          ]
+        },
+        {
+          "id": "semio-open-64",
+          "prompt": "Diferencia warfarina, rivaroxabán y clopidogrel por su función clínica.",
+          "modelAnswer": "Warfarina es anticoagulante oral clásico; rivaroxabán es anticoagulante oral directo; clopidogrel es antiagregante plaquetario. Todos requieren valorar riesgo hemorrágico sin suspenderlos arbitrariamente.",
+          "acceptedPoints": [
+            "Warfarina",
+            "Rivaroxabán",
+            "Clopidogrel",
+            "Riesgo hemorrágico"
+          ]
+        },
+        {
+          "id": "semio-open-65",
+          "prompt": "Interpreta una HbA1c y relaciónala con manifestaciones orales de diabetes.",
+          "modelAnswer": "Menor de 5.7 % es normal, 5.7–6.4 % prediabetes y 6.5 % o más diabetes. Puede haber xerostomía, ardor, caries, candidiasis y peor respuesta a infección por alteración neutrofílica.",
+          "acceptedPoints": [
+            "Rangos HbA1c",
+            "Xerostomía",
+            "Infección",
+            "Alteración neutrofílica"
+          ]
+        },
+        {
+          "id": "semio-open-66",
+          "prompt": "Diferencia xerostomía de hipofunción salival objetiva y explica sus consecuencias.",
+          "modelAnswer": "Xerostomía es sensación subjetiva; la hipofunción se demuestra midiendo flujo con sialometría. La falta de saliva aumenta caries, candidiasis, ardor y dificultad funcional.",
+          "acceptedPoints": [
+            "Subjetiva",
+            "Sialometría",
+            "Caries",
+            "Candidiasis"
+          ]
+        },
+        {
+          "id": "semio-open-67",
+          "prompt": "Compara sialometría, sialografía y centellografía.",
+          "modelAnswer": "La sialometría cuantifica flujo; la sialografía usa contraste y rayos X para ver conductos; la centellografía evalúa función glandular.",
+          "acceptedPoints": [
+            "Flujo",
+            "Contraste",
+            "Conductos",
+            "Función glandular"
+          ]
+        },
+        {
+          "id": "semio-open-68",
+          "prompt": "Explica por qué se biopsian glándulas salivales menores y qué se espera encontrar en Sjögren.",
+          "modelAnswer": "Se prefiere el labio inferior para evitar el riesgo del nervio facial en parótida. Se obtienen cuatro o cinco glándulas y se busca infiltrado linfocitario y pérdida de tejido funcional.",
+          "acceptedPoints": [
+            "Evitar nervio facial",
+            "Labio inferior",
+            "Cuatro o cinco glándulas",
+            "Infiltrado linfocitario"
+          ]
+        },
+        {
+          "id": "semio-open-69",
+          "prompt": "Diseña la evaluación de un paciente con sospecha de tuberculosis antes del tratamiento dental.",
+          "modelAnswer": "Investigar pérdida de peso, fiebre, sudoración nocturna y hemoptisis; posponer atención electiva, referir y confirmar control médico. También puede valorarse inmunosupresión, sin equiparar VIH positivo con sida.",
+          "acceptedPoints": [
+            "Síntomas",
+            "Posponer",
+            "Referencia",
+            "Control",
+            "VIH no equivale a sida"
+          ]
+        },
+        {
+          "id": "semio-open-70",
+          "prompt": "Relaciona los sistemas gastrointestinal, hepático y renal con la selección de medicamentos.",
+          "modelAnswer": "Gastritis o úlcera obligan a cautela con AINE; enfermedad hepática altera metabolismo y coagulación; insuficiencia renal reduce excreción. La clindamicina destaca por riesgo de colitis pseudomembranosa.",
+          "acceptedPoints": [
+            "AINE",
+            "Metabolismo hepático",
+            "Excreción renal",
+            "Clindamicina"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "semiologia-bloque-4",
+      "title": "Bloque 4 · Examen clínico y lesiones",
+      "subject": "Semiología",
+      "color": "#10b981",
+      "classSymbol": "⌕",
+      "classColor": "#14b8a6",
+      "description": "Palpación y reconocimiento razonado de lesiones frecuentes.",
+      "questions": [
+        {
+          "id": "semio-open-31",
+          "prompt": "Describe una secuencia sistemática del examen extraoral.",
+          "modelAnswer": "Observar simetría y tercios faciales, palpar bidigitalmente cara y cuello, recorrer cadenas ganglionares de ambos lados y examinar línea media y tiroides.",
+          "acceptedPoints": [
+            "Inspección",
+            "Palpación bidigital",
+            "Ganglios",
+            "Línea media"
+          ]
+        },
+        {
+          "id": "semio-open-32",
+          "prompt": "¿Qué características de un ganglio orientan a proceso reactivo y cuáles son señales de alarma?",
+          "modelAnswer": "Un ganglio móvil y sensible durante una infección suele ser reactivo. Fijación, dureza, persistencia, crecimiento progresivo o ausencia de dolor justifican estudio adicional.",
+          "acceptedPoints": [
+            "Móvil",
+            "Fijo",
+            "Duro",
+            "Persistente"
+          ]
+        },
+        {
+          "id": "semio-open-33",
+          "prompt": "Explica el origen y la presentación de un quiste del conducto tirogloso.",
+          "modelAnswer": "Se origina de restos del descenso embrionario de la tiroides desde el foramen ciego. Suele presentarse como masa en la línea media del cuello, a veces desde la infancia.",
+          "acceptedPoints": [
+            "Descenso tiroideo",
+            "Foramen ciego",
+            "Línea media"
+          ]
+        },
+        {
+          "id": "semio-open-34",
+          "prompt": "Compara efélides, melasma y léntigo solar.",
+          "modelAnswer": "Las efélides son pequeñas máculas que aumentan con el sol; el melasma es pigmentación facial adquirida relacionada con hormonas y UV; el léntigo refleja daño solar acumulado, sobre todo en mayores.",
+          "acceptedPoints": [
+            "Efélides",
+            "Hormonas",
+            "Daño acumulado"
+          ]
+        },
+        {
+          "id": "semio-open-35",
+          "prompt": "¿Cómo funciona la diascopía y qué diferencia entre telangiectasia y equimosis?",
+          "modelAnswer": "Se presiona con una lámina transparente. Una telangiectasia suele palidecer al vaciarse el vaso; una equimosis no, porque la sangre está extravasada.",
+          "acceptedPoints": [
+            "Presión transparente",
+            "Palidece",
+            "Extravasación"
+          ]
+        },
+        {
+          "id": "semio-open-36",
+          "prompt": "Describe rosácea y rinofima.",
+          "modelAnswer": "La rosácea es inflamación facial crónica con remisiones y exacerbaciones, eritema, pápulas o pústulas. El rinofima es una forma avanzada con engrosamiento nasal.",
+          "acceptedPoints": [
+            "Inflamación crónica",
+            "Exacerbaciones",
+            "Engrosamiento nasal"
+          ]
+        },
+        {
+          "id": "semio-open-37",
+          "prompt": "Relaciona acrocordones y acantosis nigricans con alteraciones metabólicas.",
+          "modelAnswer": "Múltiples acrocordones y acantosis nigricans en pliegues pueden asociarse a obesidad, resistencia a la insulina, prediabetes o diabetes.",
+          "acceptedPoints": [
+            "Acrocordones",
+            "Acantosis",
+            "Resistencia a insulina"
+          ]
+        },
+        {
+          "id": "semio-open-38",
+          "prompt": "Describe la técnica general de palpación intraoral.",
+          "modelAnswer": "Se palpa bidigitalmente, con un dedo intraoral y otro extraoral, recorriendo de manera continua y ordenada toda la región sin saltar zonas.",
+          "acceptedPoints": [
+            "Bidigital",
+            "Recorrido continuo",
+            "Sistemático"
+          ]
+        },
+        {
+          "id": "semio-open-39",
+          "prompt": "Compara queilitis exfoliativa, fisura labial y queilitis actínica.",
+          "modelAnswer": "La exfoliativa produce descamación por irritación; la fisura es una grieta recurrente, a menudo medial; la actínica es daño solar crónico, borra el límite del bermellón y posee potencial maligno.",
+          "acceptedPoints": [
+            "Descamación",
+            "Grieta",
+            "Daño solar",
+            "Potencial maligno"
+          ]
+        },
+        {
+          "id": "semio-open-40",
+          "prompt": "Diferencia gránulos de Fordyce, mácula melanótica y angioma cherry.",
+          "modelAnswer": "Fordyce: glándulas sebáceas ectópicas amarillentas. Mácula melanótica: pigmentación plana, usualmente labial. Angioma cherry: proliferación vascular roja adquirida con la edad.",
+          "acceptedPoints": [
+            "Sebáceas ectópicas",
+            "Pigmentación plana",
+            "Vascular roja"
+          ]
+        },
+        {
+          "id": "semio-open-71",
+          "prompt": "Describe la preparación completa de bandeja y paciente antes del examen clínico.",
+          "modelAnswer": "Se esteriliza instrumental, revisan radiografías, preparan sonda, espejos, bajalenguas, explorador, pinza, gasa y protección; luego se completa interrogatorio, signos vitales, radiografías indicadas, lavado de manos y guantes.",
+          "acceptedPoints": [
+            "Esterilización",
+            "Radiografías",
+            "Instrumental",
+            "Signos vitales",
+            "Protección"
+          ]
+        },
+        {
+          "id": "semio-open-72",
+          "prompt": "Construye el diagnóstico clínico diferencial básico de un quiste epidermoide cutáneo.",
+          "modelAnswer": "Se espera una masa benigna, lenta, asintomática, cubierta por piel normal y posiblemente en cara, cuello o pecho. Se confirma mediante escisión y evaluación patológica, especialmente si cambia o crece.",
+          "acceptedPoints": [
+            "Crecimiento lento",
+            "Asintomático",
+            "Piel normal",
+            "Escisión",
+            "Patología"
+          ]
+        },
+        {
+          "id": "semio-open-73",
+          "prompt": "Compara hiperplasia sebácea y queratosis seborreica por morfología y edad.",
+          "modelAnswer": "La hiperplasia sebácea produce pápulas amarillentas con depresión central en adultos de mediana o tercera edad. La queratosis seborreica es una placa café, opaca y adherida, frecuente después de los 50.",
+          "acceptedPoints": [
+            "Depresión central",
+            "Color amarillento",
+            "Placa adherida",
+            "Mayores de 50"
+          ]
+        },
+        {
+          "id": "semio-open-74",
+          "prompt": "Explica cuándo las máculas pigmentadas pueden ser un dato sistémico y no solo estético.",
+          "modelAnswer": "Las efélides suelen aumentar con el sol, pero múltiples máculas periorales pueden sugerir Peutz-Jeghers. Melasma se relaciona con hormonas y UV, y un léntigo refleja daño solar acumulado.",
+          "acceptedPoints": [
+            "Efélides",
+            "Peutz-Jeghers",
+            "Melasma",
+            "Daño solar"
+          ]
+        },
+        {
+          "id": "semio-open-75",
+          "prompt": "Diferencia telangiectasia, petequia, equimosis y angioma cherry.",
+          "modelAnswer": "Telangiectasia es dilatación vascular visible y puede palidecer; petequia es extravasación puntiforme; equimosis es extravasación extensa y no palidece; angioma cherry es proliferación vascular roja adquirida.",
+          "acceptedPoints": [
+            "Dilatación",
+            "Extravasación puntiforme",
+            "Equimosis",
+            "Proliferación vascular"
+          ]
+        },
+        {
+          "id": "semio-open-76",
+          "prompt": "Describe una evaluación clínica razonada de petequias múltiples.",
+          "modelAnswer": "Debe establecerse si hubo tos, vómito o trauma; revisar medicamentos y antecedentes hemorrágicos; explorar otras lesiones y solicitar TP, TPT, INR y recuento plaquetario si son numerosas o inexplicadas.",
+          "acceptedPoints": [
+            "Trauma o esfuerzo",
+            "Medicamentos",
+            "Antecedentes",
+            "TP/TPT/INR",
+            "Plaquetas"
+          ]
+        },
+        {
+          "id": "semio-open-77",
+          "prompt": "Explica la técnica de palpación cervical y el significado de movilidad ganglionar.",
+          "modelAnswer": "Se baja el mentón, se relaja el cuello, se palpa hacia arriba, se gira la cabeza para definir el esternocleidomastoideo y se comparan cadenas bilateralmente. Movilidad favorece reacción; fijación persistente preocupa.",
+          "acceptedPoints": [
+            "Mentón abajo",
+            "Esternocleidomastoideo",
+            "Bilateral",
+            "Móvil frente a fijo"
+          ]
+        },
+        {
+          "id": "semio-open-78",
+          "prompt": "Compara acrocordones y acantosis nigricans por forma, localización y asociación sistémica.",
+          "modelAnswer": "Los acrocordones son crecimientos pediculados con eje vascular, comunes en cuello y axilas. La acantosis es piel oscura y engrosada en pliegues. Ambas pueden orientar a resistencia a la insulina o diabetes.",
+          "acceptedPoints": [
+            "Pediculado",
+            "Eje vascular",
+            "Pliegues",
+            "Resistencia a insulina"
+          ]
+        },
+        {
+          "id": "semio-open-79",
+          "prompt": "Explica por qué la queilitis actínica requiere más atención que la exfoliativa.",
+          "modelAnswer": "La exfoliativa suele relacionarse con irritación o isotretinoína. La actínica representa daño solar crónico, borra el límite del bermellón y es potencialmente maligna; ulceración o cambios persistentes pueden requerir biopsia.",
+          "acceptedPoints": [
+            "Irritación",
+            "Daño solar",
+            "Bermellón",
+            "Potencial maligno",
+            "Biopsia"
+          ]
+        },
+        {
+          "id": "semio-open-80",
+          "prompt": "Propón un orden para describir cualquier lesión observada durante el examen.",
+          "modelAnswer": "Registrar localización, número, tamaño, forma, color, superficie, límites, consistencia, movilidad, dolor, duración y cambios; después correlacionar con antecedentes, diascopía o estudios cuando corresponda.",
+          "acceptedPoints": [
+            "Localización",
+            "Tamaño y forma",
+            "Color y superficie",
+            "Consistencia",
+            "Evolución"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "open-deck-1787780481952-dc59cf02-4c7b-4097-a526-3ea30b0b0f10",
+      "title": "Glosario P1",
+      "subject": "Materiales dentales",
+      "color": "#fbbf24",
+      "classSymbol": "🪥",
+      "classColor": "#fbbf24",
+      "description": "Glosario de palabras para el Primer Parcial",
+      "questions": [
+        {
+          "id": "open-question-1787780540804-c8764b90-2882-49ec-97be-1673e507c9a6",
+          "prompt": "Qué es la tixotropía?",
+          "modelAnswer": "Propiedad en la cual la viscosidad de un material disminuye cuando se somete a fuerza y se recupera cuando se libra de ella.",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1787780730153-7ff7f25c-39df-4027-80d1-f235c54a07eb",
+          "prompt": "Qué diferencia la deformación elástica y a la deformación plastica? Explique con la definición de cada una.",
+          "modelAnswer": "Deformación elástica: Deformación reversible donde el material regresa a su forma original cuando se elimina la fuerza.\n\nDeformación plástica: Deformación irreversible donde el material NO regresa a su forma original y queda deformado permanentemente tras la fuerza.",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1787780919052-376da703-d3df-4fab-baf6-df756675c374",
+          "prompt": "Mencione qué unidad de esfuerzo/tensión se utiliza para medir la fuerza de compresión del esmalte o amgalamas.",
+          "modelAnswer": "Megapascales (MPa)",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1787780975418-f63213e4-03de-4652-b37d-7118f3d8f025",
+          "prompt": "Qué es el módulo de elasticidad y qué mide?",
+          "modelAnswer": "Es el esfuerzo requerido para provocar una deformación elástica en un material. Determina qué tan rígido es dicho material.",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1787781041485-2559b0ce-7754-4f67-9fcf-25f715399903",
+          "prompt": "Qué es la tenacidad/tougness?",
+          "modelAnswer": "Capacidad de absorber energía elástica y posteriormente energía plástica antes de romperse. ",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1787781188100-3d8dc00b-8ae9-490f-a481-54c196bcffc6",
+          "prompt": "Qué es la resiliencia?",
+          "modelAnswer": "Es la capacidad de un material para absorber y almacenar energía elástica sin sufrir una deformación permanente.",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1787781216167-e5a3aaca-dd11-420d-b34e-39cbe92d7d11",
+          "prompt": "Qué es la resistencia a la compresión?",
+          "modelAnswer": "Capacidad de un material para resistir fuerzas compresivas antes de llegar al punto de fractura.",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1787781255417-6d0738ca-21ef-4f5d-8569-b9b0ce7bf4ac",
+          "prompt": "Qué es un material fragilizo (brittleness)?",
+          "modelAnswer": "Es la incapacidad de un material para sufrir deformación plástica.",
+          "acceptedPoints": [],
+          "explanation": "Pensemos en el vidrio. Es muy fuerte, pero conforme recibe fuerza, se deformará un poco elásticamente y antes de sufrir su \"deformación plástica irreversible\", se romperá. No sufre una deformación plástica porque se rompe antes de sufrirla.",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": "open-deck-1787781538967-69ceeff8-bc31-4fc2-aab9-7dd6772bd47f",
+      "title": "Amalgamas",
+      "subject": "Materiales dentales",
+      "color": "#808080",
+      "classSymbol": "🪥",
+      "classColor": "#fbbf24",
+      "description": "Contenido de amalgamas",
+      "questions": [
+        {
+          "id": "open-question-1787781564466-ffb1c3bf-4422-46c1-bb9f-a09e0f8c5147",
+          "prompt": "Defina una amalgama y mencione los cuatro elementos que la conforma.",
+          "modelAnswer": "Es un restaurador directo metálico.\nSe conforma por:\nMercurio con plata, estaño, cobre y zinc",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1787781616755-bf694d8d-cbb6-4232-9193-423ccf246755",
+          "prompt": "Cuáles son las diferentes fases de la amalgama y qué metales participan en cada una?",
+          "modelAnswer": "Fase gamma: Plata y Estaño\nFase gamma 1: Mercurio y Plata\nFase gamma 2: Mercurio y Estaño",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1787781842376-4a22241e-38bc-45e4-876c-fe0d4e3ecbe4",
+          "prompt": "Indique cuál es la fase gamma con peores propiedades mecánicas y más susceptible a corrosión. Cómo se elimina esta fase y cómo se nombra?",
+          "modelAnswer": "Fase gamma 2\nSe elimina al agregar suficiente Cobre\n--> Amalgama de fase dispersa ",
+          "acceptedPoints": [
+            "Amalgama con cobre abundante"
+          ],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1787782298423-9c66f223-010b-4b52-8ff9-7424a8cec9d4",
+          "prompt": "A grandes razgos, identifique el rol de cada metal de la aleación que conforma a una amalgama.",
+          "modelAnswer": "Mercurio: Permite la reacción entre los metales para formar la aleación.\n\nZinc: Funciona como desoxidante para proteger a los demás metales. (se oxida primero)\n\nEstaño: Reduce el punto de fusión y controla la expansión durante la reacción. (facilita la reacción)\n\nPlata y cobre: Aumentan la resistencia, dureza y reducen la corrosión\n",
+          "acceptedPoints": [],
+          "explanation": "Esta muy específico, pero en corto:\nMercurio: Permite la unión de los metales\nZinc: Protege a los metales durante la reacción\nEstaño: Facilita y controla la reacción\nPlata y cobre: Mayor dureza y resistencia a la aleación final",
+          "source": ""
+        },
+        {
+          "id": "open-question-1787782653453-9ae93265-1de0-4404-bc76-526b475c68ec",
+          "prompt": "Describa el proceso de formación de la amalgama.",
+          "modelAnswer": "Se da por medio de la amalgamación. El mercurio líquido y  la aleación de los demás metales en polvo se mezclan en un amalgamador.",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1787782732243-0c245703-702c-4e9e-8cdf-3f5981ae95ea",
+          "prompt": "Mencione una ventaja y una desventaja de las amalgamas",
+          "modelAnswer": "Ventaja: Resistente\nDesventaja: Poco estético",
+          "acceptedPoints": [
+            "Ventajas: Dura mucho tiempo, no necesita adhesión química",
+            "Desventajas: Requiere retención mecánica, Susceptible a corrosión, Requiere mayor desgaste de diente natural, mucha conductividad térmica"
+          ],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1787782903891-ebfc181c-d765-4028-93c1-8b42bac24f4b",
+          "prompt": "En dónde se prefiere el uso de restauraciones de amalgama?",
+          "modelAnswer": "En dientes posteriores, por resistencia y por ser poco estéticos.",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": "open-deck-1787783043024-4c22ff19-b163-4d55-9133-37fe98f9e6d2",
+      "title": "Composites",
+      "subject": "Materiales dentales",
+      "color": "#fbbf24",
+      "classSymbol": "🪥",
+      "classColor": "#fbbf24",
+      "description": "Resinas y un poco de fotocuración",
+      "questions": [
+        {
+          "id": "open-question-1787783096606-8eef1998-72cb-4df5-a7c8-2482347657de",
+          "prompt": "Qué son las composites o resinas compuestas?",
+          "modelAnswer": "Material multifásico donde cada fase mantiene sus propiedades físicas.",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1787783226090-02626e62-9a7a-4ee0-b1f4-207d2452c2a7",
+          "prompt": "Cuáles son los tres elementos que conforman a la resina compuesta.?Provea un ejemplo para cada uno.",
+          "modelAnswer": "Matriz orgánica/resinosa: Bis-GMA, Bis-EMA, UDMA\n\nMatriz inorgánica/relleno: Vidrio, Cuarzo, Zirconia\n\nAgente de acople: Silano",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1787783315671-9a73e2e1-1ba5-4719-b15e-5b20ee87c0f6",
+          "prompt": "Cuál es la función de la matriz resinosa/orgánica?",
+          "modelAnswer": "Permite la polimerización para convertirse en un material sólido.",
+          "acceptedPoints": [
+            "Permite la manipulación del material",
+            "Permite \"sostener\" las fases",
+            "Transmitir las fuerzas al relleno"
+          ],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1787783486220-2e85ea00-40d6-435b-bbc0-722ffe5e2bb0",
+          "prompt": "Cuál es la función del relleno inorgánico?",
+          "modelAnswer": "Aumenta la resistencia, rigidez y duerza",
+          "acceptedPoints": [
+            "Aumenta resistencia al desgaste",
+            "Reduce la contracción al reducir la cantidad de matriz orgánica"
+          ],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1787783561036-1e57d740-110b-4159-804c-eb75a89262b0",
+          "prompt": "Qué descubrimiento hizo posible la creación de las resinas modernas? Cuál es la función de este descubrimiento?",
+          "modelAnswer": "El silano. Permite la unión entre la matriz orgánica y el relleno inorgánico.",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1787783605468-38444f94-673e-4003-baed-9c56072e5157",
+          "prompt": "Cuál fue el primer monómero utilizado en la matriz resinosa y cuál es su forma polimerizada?",
+          "modelAnswer": "Metilmetacrilato (MMA) \nPolimerizada --> Polimetilmetacrilato (PMMA)",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1787783717907-94973b95-f47f-41e6-957e-a4be539d4e27",
+          "prompt": "Qué se agrega a la matriz resinosa para reducir su viscosidad y permitir mayor cantidad de relleno? Mencione un ejemplo.",
+          "modelAnswer": "Monómeros diluyentes.\n\nTEGDMA\nEGDMA\nMMA",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1787783772391-c096b0c3-f980-4d7a-a484-13aa10b3552e",
+          "prompt": "Qué herramienta se utiliza para endurecer al composite media vez está colocada en el diente?",
+          "modelAnswer": "Lámpara de fotocurado",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1787783840457-df707b1c-5624-4d5c-9b0f-f7881c2e2041",
+          "prompt": "Por qué la lámpara de fotocurado promueve la polimerización de la matriz resinosa?",
+          "modelAnswer": "Porque activa a fotoiniciadores en la matriz.",
+          "acceptedPoints": [],
+          "explanation": "Los fotoiniciadores liberan radicales libres para reaccionar los grupos metacrilatos de los monómeros de la matriz resinosa.",
+          "source": ""
+        },
+        {
+          "id": "open-question-1787783895207-60fb0fcb-014f-4b63-b295-00b097e5feae",
+          "prompt": "Mencione los 4 fotoiniciadores principales de la resina y su aproximado espectro de luz.",
+          "modelAnswer": "Canforquinona: 400-500 nm\nFenilpropanidiona: 400-450 nm\nIvocerina: 370-460\nLucerina TPO: 350-430",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1787784086974-b676454b-7789-4bd5-8ab5-08b457b8c6e5",
+          "prompt": "Cuál es la potencia recomendada que debe tener una lámpara de fotocurado? Cuál es la importancia de esto?",
+          "modelAnswer": "1000 - 1500 mW/cm2\nMejora la fotopenetración para llegar a activar fotoiniciadores de la matriz.",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1787784199040-062578e1-225e-47eb-88d2-a0de5efee85a",
+          "prompt": "Cuál es el espectro de luz ideal que debe tener una lámpara de fotocurado?",
+          "modelAnswer": "380-450nm",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1787784236307-6e937522-25b4-4ac8-b7b9-a9967229d03b",
+          "prompt": "Escriba, de más viejo a más moderno, las diferentes composites  de la historia.",
+          "modelAnswer": "Macrorelleno\nMicrorelleno\nHíbrido Tradicional\nMicrohíbrido\nNanorellenos (Universales)\nBulk-Fill (Baja resistencia)\n",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1787784340324-a0b32841-978f-4347-b5ce-94d8c68c2750",
+          "prompt": "Mencione cuál es el principal agente inhibidor de las resinas y cuál es su función en clínica.",
+          "modelAnswer": "Butilhidroxitolueno\n\nInhibe la polimerización lo suficiente para prolongar el tiempo de trabajo y manipulación del material.",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1787784588294-ad9a6063-3042-4d96-a140-5706b0e1129a",
+          "prompt": "Qué caracteriza al Macrorelleno y por qué se dejó de utilizar?",
+          "modelAnswer": "Era muy resistente.\nSe dejó de usar por su mal pulido y baja resistencia al desgaste.",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1787784623013-693f1703-2534-4d2a-8b5c-0299abc41c38",
+          "prompt": "Qué mejoró en el microrelleno y qué empeoró? En qué piezas dentales se utilizaban?",
+          "modelAnswer": "Mejoró su pulido y estética. Se preferían usar en dientes anteriores, porque no tenían mucha resistencia.",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1787784680451-c0f23102-52e1-4bc9-86d9-966dcb070277",
+          "prompt": "Cuál fue la primera resina en utilizarse de forma \"universal\" y qué la componía?",
+          "modelAnswer": "Los microhíbridos.\nTenían buen pulido y resistencia gracias a su densa distribución de partículas (MUY pequeñas).",
+          "acceptedPoints": [],
+          "explanation": "Se asemeja más al microrelleno que al macrorelleno, conservando lo mejor del híbrido tradicional.",
+          "source": ""
+        },
+        {
+          "id": "open-question-1787784838116-e513aad8-17fc-428a-a0c2-e61c36f51fae",
+          "prompt": "Qué necesita una resina fluida y dónde se utilizan?",
+          "modelAnswer": "Necesita mayor matriz orgánica.\nSe utilizan en:\n- Bordes incisales\n- Tercios cervicales vestibular o palatino",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1787784926216-067de4e1-0a8f-4bba-b6f4-19e6461faf8c",
+          "prompt": "Por qué el nanorelleno se considera una resina universal? Qué lo caracteriza?",
+          "modelAnswer": "Porque es muy estético y resistente, entonces puede utilizarse tanto en dientes anteriores como posteriores.\n\nSe caracteriza por nanopartículas (0-100nm) y nanoclusters.",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1787784997667-0f484b36-9a13-4ea5-b079-199f175a811b",
+          "prompt": "Mencione una ventaja y desventaja de las resinas Bulk-Fill (baja contracción)",
+          "modelAnswer": "Ventaja: Reduce tiempo de trabajo al poderse agregar en capas grandes\n\nDesventaja: Su translucidez los hace ver opacos y a veces grisáceos.\n",
+          "acceptedPoints": [
+            "Ventajas: Resistente, baja contracción"
+          ],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1787785074102-ea481a08-600c-4fae-b2f5-f0f043518676",
+          "prompt": "Mencione los dos monómeros de la matriz resinosa utilizada en resinas de baja contracción y la función de uno.",
+          "modelAnswer": "UDMA: Reduce viscosidad\nAUDMA: Alenta el proceso de polimerización, generando menor contracción.",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1787785138634-92415124-ccb1-4bec-a561-72b240f9ff88",
+          "prompt": "Qué tipo de lámpara de fotocurado fue la primera en utilizarse? Qué lo reemplazó y por qué?",
+          "modelAnswer": "Lámparas de UV fueron las primeras, pero se consideraban poco seguras. Por eso cambiamos a luz halógena",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1787785193718-075585e5-428d-4a92-9ccc-990acbd1ab59",
+          "prompt": "Por qué evolucionamos desde luz halógena a luz LED? Qué significa LED?",
+          "modelAnswer": "Porque la luz halógena tenía un espectro de luz muy limitado, entonces activaba menos fotoiniciadores.\n\nLED--> Luz Emitida por Diodo",
           "acceptedPoints": [],
           "explanation": "",
           "source": ""
