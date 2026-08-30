@@ -1,4 +1,4 @@
-# Atribuciones de imágenes — capítulos 9–15
+# Atribuciones de imágenes — capítulos 9–18
 
 Las imágenes se recortaron, redimensionaron y, en algunos casos, se ajustaron en color para adaptarlas al formato horizontal de las tarjetas de Odontoma.
 
@@ -10,6 +10,7 @@ Las imágenes se recortaron, redimensionaron y, en algunos casos, se ajustaron e
 - `cap14.jpg` — *Normal Lymph Node*. Ed Uthman, MD. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Normal_Lymph_Node.jpg). Licencia: CC BY-SA 2.0.
 - `cap15.jpg` — *Normal Epidermis and Dermis with Intradermal Nevus 10x*. Kilbad. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Normal_Epidermis_and_Dermis_with_Intradermal_Nevus_10x.JPG). Dominio público.
 - `cap17.jpg` — *Small intestine low mag*. Nephron. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Small_intestine_low_mag.jpg). Licencia: CC BY-SA 3.0 / GFDL 1.2 o posterior. La imagen se redimensionó y comprimió para la tarjeta horizontal.
+- `cap18.jpg` — *Liver-H&E*. Paulo Abrahamsohn. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Liver-H%26E.jpg). Licencia: CC BY-SA 4.0.
 - `coagulation-cascade.jpg` — *Blood Clotting Cascade*. Jcchem183. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Blood_Clotting_Cascade.png). Licencia: CC BY-SA 4.0. La imagen se redimensionó y se compuso sobre un fondo desenfocado para adaptarla a la tarjeta horizontal.
 
 ## Imágenes de decks principales

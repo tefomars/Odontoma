@@ -49,6 +49,7 @@ export default function HomeScreen({
     ">
 
       <div className="
+        home-navigation-row
         mb-5
         flex
         items-center

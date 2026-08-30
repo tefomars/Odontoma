@@ -3,6 +3,7 @@ import { cap14Flashcards } from "./cap14"
 import { cap15Flashcards } from "./cap15"
 import { cap16Flashcards } from "./cap16"
 import { cap17Flashcards } from "./cap17"
+import { cap18Flashcards } from "./cap18"
 import { articuloHemostasiaFlashcards } from "./articuloHemostasia"
 
 export type Flashcard = {
@@ -73999,6 +74000,7 @@ const histologiaFlashcardsBase: Flashcard[] = [
   ...cap15Flashcards,
   ...cap16Flashcards,
   ...cap17Flashcards,
+  ...cap18Flashcards,
   ...articuloHemostasiaFlashcards
 ]
 

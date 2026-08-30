@@ -5,11 +5,13 @@ import { cap14Flashcards } from "@/content/flashcards/histologia/cap14"
 import { cap15Flashcards } from "@/content/flashcards/histologia/cap15"
 import { cap16Flashcards } from "@/content/flashcards/histologia/cap16"
 import { cap17Flashcards } from "@/content/flashcards/histologia/cap17"
+import { cap18Flashcards } from "@/content/flashcards/histologia/cap18"
 import { cap13Questions } from "./cap13/questions"
 import { cap14Questions } from "./cap14/questions"
 import { cap15Questions } from "./cap15/questions"
 import { cap16Questions } from "./cap16/questions"
 import { cap17Questions } from "./cap17/questions"
+import { cap18Questions } from "./cap18/questions"
 import { hemostasiaQuestions } from "./articulos/hemostasiaQuestions"
 import { cap4Questions } from "./cap4/questions"
 import { cap5Questions } from "./cap5/questions"
@@ -51,6 +53,12 @@ const manualBanks = [
     chapter: "Capítulo 17",
     cards: cap17Flashcards,
     questions: cap17Questions,
+    expectedCount: 64
+  },
+  {
+    chapter: "Capítulo 18",
+    cards: cap18Flashcards,
+    questions: cap18Questions,
     expectedCount: 64
   }
 ]

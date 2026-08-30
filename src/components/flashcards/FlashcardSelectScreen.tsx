@@ -1417,6 +1417,20 @@ const CHAPTER_MENUS: ChapterMenu[] = [
     ]
   },
   {
+    chapter: "Capítulo 18",
+    title: "Sistema digestivo III: hígado y páncreas",
+    groups: [
+      { title: "Fundamentos y fisiología hepática", description: "Funciones, proteínas plasmáticas, vitaminas, minerales, bilis, metabolismo y detoxificación.", subtopics: ["Fundamentos del hígado", "Desarrollo y funciones generales", "Proteínas plasmáticas y lipoproteínas", "Vitaminas y minerales", "Cobre y enfermedad de Wilson", "Detoxificación y metabolismo", "Bilis y función endocrina"] },
+      { title: "Irrigación y organización hepática", description: "Flujo dual, lobulillo clásico, lobulillo portal, ácino y vulnerabilidad zonal.", subtopics: ["Irrigación hepática", "Lobulillo hepático clásico", "Lobulillo portal y ácino hepático", "Zonas acinares y lesión"] },
+      { title: "Sinusoides, Disse y fibrosis", description: "Endotelio, Kupffer, células estrelladas, linfa y remodelación fibrótica.", subtopics: ["Sinusoides y células de Kupffer", "Espacio de Disse y células estrelladas", "Fibrosis y linfa hepática"] },
+      { title: "Hepatocitos", description: "Polaridad, orgánulos, inclusiones, peroxisomas, REL, Golgi y lisosomas.", subtopics: ["Morfología del hepatocito", "Orgánulos e inclusiones", "REL, Golgi y peroxisomas"] },
+      { title: "Árbol biliar", description: "Canalículos, conductos de Hering, colangiocitos, conductos y esfínteres.", subtopics: ["Canalículos y conductos de Hering", "Colangiocitos y conductos", "Conductos extrahepáticos y esfínteres"] },
+      { title: "Vesícula biliar", description: "Pared, concentración de bilis, cubiertas y correlaciones clínicas.", subtopics: ["Organización de la vesícula", "Mucosa, cubierta y clínica vesicular", "Concentración de la bilis"] },
+      { title: "Páncreas exocrino", description: "Acinos, células centroacinares, enzimas, conductos y regulación secretora.", subtopics: ["Fundamentos del páncreas", "Acinos pancreáticos", "Enzimas y conductos pancreáticos", "Secreción pancreática"] },
+      { title: "Páncreas endocrino", description: "Islotes, tipos celulares, hormonas, insulina, perfusión y regulación.", subtopics: ["Islotes de Langerhans", "Células A, B y D", "Células insulares minoritarias", "Acciones de insulina y glucagón", "Regulación de los islotes", "Síntesis de insulina y péptido C", "Perfusión insuloacinar y correlación clínica"] }
+    ]
+  },
+  {
     chapter: "Artículo · Hemostasia y trombosis",
     title: "Hemostasia y trombosis",
     groups: [

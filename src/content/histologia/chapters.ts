@@ -12,12 +12,14 @@ import cap14Image from "../../assets/chapters/cap14.jpg"
 import cap15Image from "../../assets/chapters/cap15.jpg"
 import cap16Image from "../../assets/chapters/cap16.jpg"
 import cap17Image from "../../assets/chapters/cap17.jpg"
+import cap18Image from "../../assets/chapters/cap18.jpg"
 import coagulationCascadeImage from "../../assets/chapters/coagulation-cascade.jpg"
 import { cap13Questions } from "./cap13/questions"
 import { cap14Questions } from "./cap14/questions"
 import { cap15Questions } from "./cap15/questions"
 import { cap16Questions } from "./cap16/questions"
 import { cap17Questions } from "./cap17/questions"
+import { cap18Questions } from "./cap18/questions"
 import { cap4Questions } from "./cap4/questions"
 import { cap5Questions } from "./cap5/questions"
 import { cap6Questions } from "./cap6/questions"
@@ -182,6 +184,17 @@ export const chapters = [
     image: cap17Image,
     questionCount: cap17Questions.length,
     accent: "from-emerald-500/20 to-amber-500/20"
+  },
+
+  {
+    id: "Capítulo 18",
+    title: "Capítulo 18",
+    subtitle: "Sistema digestivo III",
+    description:
+      "Hígado, circulación y lobulillos hepáticos, vías biliares, vesícula biliar y páncreas.",
+    image: cap18Image,
+    questionCount: cap18Questions.length,
+    accent: "from-amber-500/20 to-emerald-500/20"
   },
 
   {
