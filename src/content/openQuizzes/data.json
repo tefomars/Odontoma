@@ -2175,6 +2175,147 @@
           "source": ""
         }
       ]
+    },
+    {
+      "id": "open-deck-1788647963794-8a26af60-dfa8-4af7-8061-72e515cdda8e",
+      "title": "Bioquímica Segundo Parcial - Gluconeogénesis",
+      "subject": "Bioquímica",
+      "color": "#e8e500",
+      "classSymbol": "▰",
+      "classColor": "#0f8017",
+      "description": "Producción de glucosa a partir de precursores no glúcidos.",
+      "questions": [
+        {
+          "id": "open-question-1788648012860-4a686cc0-1eeb-4ae2-8791-1ee014ad12ce",
+          "prompt": "En qué órganos puede suceder la gluconeogénesis? Por qué solo en estos órganos?",
+          "modelAnswer": "En el hígado (90%) y en el riñón (10%)\n\nPorque tienen la enzima glucosa-6-fosfatasa",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1788648059860-f5cbb945-0fd2-47b7-9644-d058096445fd",
+          "prompt": "Por qué una alta cantidad de ATP o Citrato estimulan a la gluconeogénesis?",
+          "modelAnswer": "Porque el proceso para crear glucosa consume mucho ATP",
+          "acceptedPoints": [],
+          "explanation": "Debemos tener una reserva lo suficientemente grande como para poder producir glucosa sin quedarnos sin ATP",
+          "source": ""
+        },
+        {
+          "id": "open-question-1788648196941-d016c3fc-bb13-4a1e-84b8-3ec4b2988b18",
+          "prompt": "En qué tejidos se considera esencial que siempre tengan glucosa disponible?",
+          "modelAnswer": "Cerebro\nMúsculo cardíaco y esquelético\nEritrocitos",
+          "acceptedPoints": [],
+          "explanation": "El proceso de la gluconeogénesis se da para poder siempre mantener los niveles de glucosa en sangre para perfundir estos tejidos, incluso en ayunas",
+          "source": ""
+        },
+        {
+          "id": "open-question-1788648288840-be4812af-b89e-461c-b6c1-f671ac80fbc4",
+          "prompt": "Explique brevemente el ciclo de glucosa-alanina",
+          "modelAnswer": "La alanina producida en músculo se transporta al hígado por sangre para transformarse en piruvato y generar glucosa",
+          "acceptedPoints": [],
+          "explanation": "En el músculo, la desaminación de aminoácidos transfiere su grupo amino a un piruvato que esté por ahí\nEsta alanina sale del músculo, viaja por sangre y llega al hígado\nEn el hígado se suelta el grupo amino de la alanina y se forma otra vez piruvato (y transfiere el grupo amino para formar urea)\nEl piruvato entra a gluconeogénesis y se transforma en glucosa",
+          "source": ""
+        },
+        {
+          "id": "open-question-1788648444322-fabcd7c5-8e98-4222-ad85-b27386012358",
+          "prompt": "Explique brevemente el ciclo de Cori",
+          "modelAnswer": "El lactato producido en músculo viaja por la sangre hacia el hígado para convertirse en glucosa",
+          "acceptedPoints": [],
+          "explanation": "El músculo produce lactato cuando entra en fermentación\nEste lactato puede salir de la sangre e ir al hígado\nEn el hígado el lactato se transforma en piruvato\nEl piruvato entra a gluconeogénesis",
+          "source": ""
+        },
+        {
+          "id": "open-question-1788648529453-8e6a335e-3e12-4772-8a74-009defe7bba8",
+          "prompt": "Cuáles son las tres reacciones control de la gluconeogénesis?",
+          "modelAnswer": "1. Reacción doble de: \nPiruvato --Piruvato Carboxilasa--> Oxaloacetato --Fosfoenolpiruvato carboxiquinasa--> Fosfoenolpiruvato\n\n2. Fructosa-1,6-bisfosfato --Fructosa-1,6-bisfosfatasa--> Fructosa-6-Fosfato\n\n3. Glucosa-6-Fosfato --Glucosa-6-Fosfatasa--> Glucosa",
+          "acceptedPoints": [],
+          "explanation": "Son Irreversibles, por eso son reacciones control",
+          "source": ""
+        },
+        {
+          "id": "open-question-1788648678950-7841da77-9a78-4235-9951-f6bd17326fd5",
+          "prompt": "Cuáles son inhibidores de la fructosa-1,6-bisfosfatasa?",
+          "modelAnswer": "Mucha AMP y Fructosa-2,6-bisfosfato",
+          "acceptedPoints": [],
+          "explanation": "AMP --> Significa que tenemos poca energía y no podemos seguir inviertiendo ATP a generar glucosa\nFructosa-2,6-bisfosfato --> Es un potente activador de la glucólisis, por lo que inhibe el proceso opuesto",
+          "source": ""
+        },
+        {
+          "id": "open-question-1788648853266-75303b29-8c2a-43b6-8b49-74109a443d96",
+          "prompt": "Cuál es la enzima bifuncional y sobre qué actúa? Qué funciones tiene?",
+          "modelAnswer": "PFK2/FBPasa2 (Fosfofructoquinasa-2/Fructosa Bisfosfatasa-2). Permite la síntesis o degradación de fructosa-2,6-bisfosfato\n\nFosfofructoquinasa-2 promueve la síntesis de la Fructosa-2,6-bisfosfato, lo que activa glucólisis e inhibe gluconeogénesis\n\nFructosa bisfosfatasa-2 promueve la degradación de Fructosa-2,6-bisfosfato, lo que activa gluconeogénesis e inhibe glucólisis",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1788649033064-6fda5b61-93c7-41c3-8cb1-ae912e20385e",
+          "prompt": "Cuál es el inhibidor principal de la piruvato carboxilasa? Cuál es su principal activador?",
+          "modelAnswer": "Inhibido por mucho ADP\nActivado por Acetil-CoA",
+          "acceptedPoints": [],
+          "explanation": "La reacción utiliza ATP, por lo que no se favorece cuando hay poco \n\nSe estimula por Acetil-CoA porque la reacción termina en la síntesis de oxaloacetato. Este oxaloacetato, en conjunto con el acetil-coa en exceso, pueden formar citrato y continuar el ciclo de Krebs",
+          "source": ""
+        },
+        {
+          "id": "open-question-1788649148714-96a656fa-fadc-4aac-85f9-2a8d717ae9b9",
+          "prompt": "Qué es la gluconeogénesis y cuál es su función?",
+          "modelAnswer": "Es la síntesis de glucosa a partir de precursores de glúcidos. Permite mantener los niveles de glucosa en sangre durante el ayuno.",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1788649188946-7dc9d5b4-00d9-433e-9def-2c7f1c488626",
+          "prompt": "Mencione por lo menos 3 precursores no glúcidos de la gluconeogénesis de quienes se puede sintetizar glucosa.",
+          "modelAnswer": "Oxaloacetato\nPiruvato\nGlicerol",
+          "acceptedPoints": [
+            "Aspartato (entre otros aminoácidos)",
+            "Propionil-CoA",
+            "Lactato"
+          ],
+          "explanation": "Recordar que oxaloacetato y piruvato son los principales\nGlicerol entra como por la mitad del ciclo gluconeogénico\n**No todos los aminoácidos pueden entrar en gluconeogénesis",
+          "source": ""
+        },
+        {
+          "id": "open-question-1788649366129-6f159204-8b95-471b-b908-1993ad433e26",
+          "prompt": "Indique la función de la glucosa-6-fosfatasa e indique su ubicación dentro de la célula.",
+          "modelAnswer": "Permite la FORMACIÓN de glucosa a partir de glucosa-6-fosfato\n\nEs una enzima transmembrana ubicada en el Retículo Endoplasmático Rugoso (RER). Defosforila a la G6P para que se coloque en una vesícula y abandone la célula sano y a salvo en forma de glucosa.",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1788649492944-6950f3d5-d2dd-4082-8866-5116f0471f7b",
+          "prompt": "En dónde sucede la gluconeogénesis?",
+          "modelAnswer": "Citosol",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1788649553545-3590977a-5c78-48f5-813f-6c2bd3a52f69",
+          "prompt": "Qué hormonas estimulan a la gluconeogénesis?",
+          "modelAnswer": "Glucagón y Adrenalina",
+          "acceptedPoints": [
+            "Cortisol",
+            "Somatotropina"
+          ],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1788649626943-0ffd1364-aea1-43fa-88f7-12e7ba3ac22b",
+          "prompt": "Llene los espacios en blanco:\nCualquier precursor de ___________ y __________ pueden ser precursores de glucosa",
+          "modelAnswer": "Oxaloacetato\nPiruvato",
+          "acceptedPoints": [
+            "Piruvato",
+            "Oxaloacetato"
+          ],
+          "explanation": "",
+          "source": ""
+        }
+      ]
     }
   ]
 }
