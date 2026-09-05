@@ -2036,6 +2036,145 @@
           "source": ""
         }
       ]
+    },
+    {
+      "id": "open-deck-1788572606700-7ea52d2a-c08d-41e8-8296-7864c72518f6",
+      "title": "Bioquímica Segundo Parcial - Glucogenogénesis y Glucogenólisis",
+      "subject": "Bioquímica",
+      "color": "#ff8100",
+      "classSymbol": "▰",
+      "classColor": "#0f8017",
+      "description": "Los procesos de síntesis y degradación de glucógeno",
+      "questions": [
+        {
+          "id": "open-question-1788572755061-12d698a7-31af-401e-a9b7-fd2e6176387d",
+          "prompt": "Cuáles son las hormonas que estimulan a la glucogenólisis?",
+          "modelAnswer": "Glucagón y Adrenalina",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1788572808569-8934e387-2591-4d3e-b38b-95b25b10ccbd",
+          "prompt": "Cuáles son las hormonas que estimulan a la glucogenogénesis?",
+          "modelAnswer": "Insulina",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1788572826936-d7c2816b-843d-45ee-8e4f-5aa4776e6071",
+          "prompt": "Cuáles son las dos enzimas que forman parte de la Enzima Desramificante del glucógeno y cuál es su función?",
+          "modelAnswer": "Transferasa: Transfiere 3 glucosas del glucógeno ramificado a una cadena diferente para dejar solo a una glucosa individual unida al enlace α(1->6)\n\nα 1,6-Glucosidasa: Escinde el enlace α(1->6) de la glucosa individual para liberarla ",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1788573005372-955aab08-c8b3-4eb8-b1c1-fb0653b406c7",
+          "prompt": "En cuál de los procesos metabólicos del glucógeno actúa la Glucógeno Fosforilasa y cuál es su función?",
+          "modelAnswer": "En la glucogenólisis: permite la escisión del enlace α(1->4) de glucógeno para convertirlo en glucosa-1-fosfato",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1788573281361-2596c4d1-3ab4-46c2-985a-72e9aee154f7",
+          "prompt": "Cuáles son los agentes inhibidores de la glucógeno fosforilasa?",
+          "modelAnswer": "Glucosa-6-fosfato y ATP en altas concentraciones",
+          "acceptedPoints": [],
+          "explanation": "Si tenemos suficiente energía, no hay por qué tener que degradar glucógeno para generar glucosa (para meterla a glucólisis y generar ATP). Altas concentraciones de G6P y ATP indican que tenemos suficiente energía celular e incluso deberíamos estar creando más glucógeno, no degradarlo.",
+          "source": ""
+        },
+        {
+          "id": "open-question-1788573408314-fd3b5428-60cf-4efc-b7c7-b78892eb05d1",
+          "prompt": "Cuál es un agente activador de la glucógeno fosforilasa y por qué?",
+          "modelAnswer": "AMP en altas concentraciones. Por que indica que hay poca energía disponible y deberíamos romper el glucógeno para generar glucosa y meterla a glucólisis",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1788573474281-f1ae771a-303f-45c6-8188-db92affdb76b",
+          "prompt": "Por qué el hígado es capaz de proveer glucosa (desde su glucógeno) como combustible al resto del cuerpo y no el músculo esquelético?",
+          "modelAnswer": "Por que la glucosa tiene la enzima glucosa-6-fosfatasa",
+          "acceptedPoints": [],
+          "explanation": "Esta enzima permite convertir la glucosa-6-fosfato (molécula sin transportador propio de membrana) a glucosa (que sí tiene transportador propio de membrana). Esto permite crear un compuesto que sí pueda salir de la célula.",
+          "source": ""
+        },
+        {
+          "id": "open-question-1788573612114-0d02bf7e-756f-48c6-8d17-b938f917b3e9",
+          "prompt": "Qué enzima importante permite que la glucosa-6-fosfato sintetizada en el hepatocito salga hacia la circulación?",
+          "modelAnswer": "Glucosa-6-Fosfatasa",
+          "acceptedPoints": [],
+          "explanation": "La defosforila a un compuesto (glucosa) que sí tiene transportador propio en membrana y puede salir",
+          "source": ""
+        },
+        {
+          "id": "open-question-1788573785382-41ed2658-ca0b-431c-a4ef-297bfa3897cb",
+          "prompt": "Qué es la glucogenina? Explicar cuándo y cómo actúa.",
+          "modelAnswer": "Es un dímero que permite iniciar la glucogenogénesis cuando no hay glucógeno disponible debido a un estado de ayuno prolongado (recordar que la glucógeno sintasa, para formar glucógeno, no puede actuar desde 0)\n\nLa glucogenina se conforma por dos residuos de tirosina que son capaces de unir glucosa libre. Forma una cadena inicial de cual la glucógeno sintasa ya puede formar enlaces α(1->4) y elongar la cadena de glucógeno.\n",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1788573996298-5f8ddb0a-1a88-4466-a0aa-133a026c471d",
+          "prompt": "Qué cataliza la enzima glucógeno sintasa y qué la diferencia de la Enzima Ramificante?",
+          "modelAnswer": "La enzima glucógeno sintasa cataliza la elongación de la cadena de glucógeno por enlaces α(1->4)\n\nLa enzima ramificante cataliza la ramificación de la cadena de glucógeno por enlaces α(1->6)",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1788574066815-1b0eddf6-847c-4b86-a1fe-f357ba8c2128",
+          "prompt": "Explique la regulación covalente de la glucógeno fosforilasa",
+          "modelAnswer": "El glucagón o insulina actúan --> Fosforilan a la glucógeno fosforilasa --> La activan --> Glucogenólisis\n\nSE ACTIVA CUANDO ESTÁ FOSFORILADA",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1788574236800-c598c435-d0fa-480e-81d5-ab28b0785a69",
+          "prompt": "Explique la regulación covalente de la glucógeno sintasa",
+          "modelAnswer": "Insulina actúa --> Defosforilan a la glucógeno sintasa --> La activan --> Glucogenogénesis\n\nSE ACTIVA CUANDO ESTÁ DEFOSFORILADA",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1788574262666-e6a9e4cf-9e50-4a42-ae04-e560becc6483",
+          "prompt": "En qué lugar de la célula ocurre la glucogenogénesis y glucogenólisis?",
+          "modelAnswer": "Citosol",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1788574301134-aa95bde9-f5d4-4259-bfa1-39ec1e2e34fc",
+          "prompt": "Mencione el nombre de las enzimas más importantes de:\nGlucogenogénesis\nGlucogenólisis",
+          "modelAnswer": "Glucogenogénesis:\nGlucógeno-Sintasa y Enzima Ramificante\n\nGlucogenólisis:\nGlucógeno-Fosforilasa y Enzima Desramificante",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1788574483367-61f3080d-1749-44be-a25e-5866a3100206",
+          "prompt": "Cuáles son los reguladores alostéricos de la glucógeno sintasa?",
+          "modelAnswer": "ATP y Glucosa-6-Fosfato --> Activan\n\nAMP --> Inactiva",
+          "acceptedPoints": [],
+          "explanation": "Si tenemos mucha energía se dará prioridad a almacenarla como glucógeno \nSi tenemos poca, pues no vamos a querer almacenar la glucosa, sino utilizarla para producir energía",
+          "source": ""
+        },
+        {
+          "id": "open-question-1788574544500-50bf60a4-a164-4a31-9db9-0dc3eab7b594",
+          "prompt": "Cuándo emplea el cuerpo la glucogenólisis?",
+          "modelAnswer": "Durante el ayuno",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        }
+      ]
     }
   ]
 }
