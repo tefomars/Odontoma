@@ -18,3 +18,15 @@ Las imágenes se recortaron, redimensionaron y, en algunos casos, se ajustaron e
 - La tarjeta de Histología reutiliza `cap14.jpg`, atribuida arriba.
 - `flashcard-decks/proceso-economico.jpg` — *Manuel Ayau dando una cátedra*. UFM / Ufmlabs. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:MANUEL_AYAU_CORDON.JPG). Licencia: CC BY-SA 3.0.
 - `flashcard-decks/hayek.jpg` — *Friedrich Hayek portrait*. DickClarkMises / Mises Institute. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Friedrich_Hayek_portrait.jpg). Licencia: CC BY-SA 3.0.
+
+## Diagramas de Bioquímica
+
+Estos diagramas se usan como fondo de las tarjetas de selección; se mantienen sus licencias y atribuciones originales.
+
+- `bioquimica/carbohydrate-metabolism.png` — *Carbohydrate Metabolism*. Eschopp. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Carbohydrate_Metabolism.png). Licencia: CC BY-SA 4.0.
+- `bioquimica/glycolysis.svg` — *Glycolysis*. YassineMrabet. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Glycolysis.svg). Licencias: CC BY-SA 3.0 y GFDL.
+- `bioquimica/krebs.png` — *Krebs cycle*. Mplanine. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Krebs_cycle.png). Licencia: CC BY 4.0.
+- `bioquimica/electron-transport.svg` — *ETC electron transport chain*. LadyofHats. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:ETC_electron_transport_chain.svg). Dominio público.
+- `bioquimica/glycogen.svg` — *Glycogen structure*. Mikael Häggström. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Glycogen_structure.svg). Dominio público.
+- `bioquimica/gluconeogenesis.svg` — *Gluconeogenesis-es*. AngelHerraez. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Gluconeogenesis-es.svg). Licencia: CC BY-SA 3.0.
+- `bioquimica/pentose-phosphate.svg` — *Pentose phosphate pathway*. Pisum. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Pentose_phosphate_pathway.svg). Dominio público.

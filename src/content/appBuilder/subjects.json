@@ -88,6 +88,14 @@
       "destination": "microbiologia"
     },
     {
+      "id": "bioquimica",
+      "title": "Bioquímica",
+      "subtitle": "Glucólisis, Krebs, cadena respiratoria, glucógeno y más",
+      "status": "Disponible",
+      "accentColor": "#16a34a",
+      "destination": "bioquimica"
+    },
+    {
       "id": "semiologia",
       "title": "Semiología",
       "subtitle": "Lesión celular, inflamación, historia clínica y examen clínico",

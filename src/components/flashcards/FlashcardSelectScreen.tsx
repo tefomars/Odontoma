@@ -1625,6 +1625,13 @@ function cardMatchesSelectedSubject(
     )
   }
 
+  if (subject === "bioquimica") {
+    return (
+      cardSubject === "bioquímica" ||
+      cardSubject === "bioquimica"
+    )
+  }
+
   return (
     cardSubject === "" ||
     cardSubject === "histología" ||
@@ -2078,6 +2085,8 @@ export default function FlashcardSelectScreen({
       ? "Proceso Económico I"
       : subject === "filosofia-de-hayek"
         ? "Filosofía de Hayek"
+        : subject === "bioquimica"
+          ? "Bioquímica"
         : subject === "semiologia"
           ? "Semiología"
         : "Histología"
@@ -2087,6 +2096,8 @@ export default function FlashcardSelectScreen({
       ? "Elegí un parcial y repasá por temas."
       : subject === "filosofia-de-hayek"
         ? "Elegí un bloque y repasá sus conceptos principales."
+        : subject === "bioquimica"
+          ? "Elegí un tema y repasá sus reacciones, regulación e integración metabólica."
         : subject === "semiologia"
           ? "Elegí un bloque y repasá por temas clínicos."
         : "Elegí un capítulo y repasá por bloques grandes."

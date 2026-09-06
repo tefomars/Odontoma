@@ -1108,9 +1108,11 @@ export default function SetupScreen({
                       `} />
 
                       <div className="phone-chapter-content relative flex flex-col justify-end p-5 pr-20">
-                        <p className="text-xs font-black uppercase tracking-[0.22em] text-zinc-200 drop-shadow">
-                          {chapter.id}
-                        </p>
+                        {chapter.id !== chapter.title && (
+                          <p className="text-xs font-black uppercase tracking-[0.22em] text-zinc-200 drop-shadow">
+                            {chapter.id}
+                          </p>
+                        )}
 
                         <h3 className="mt-2 text-2xl font-black text-white drop-shadow">
                           {chapter.title}
@@ -1287,16 +1289,18 @@ export default function SetupScreen({
 
                       <div>
 
-                        <p className="
-                          mb-2
-                          text-xs
-                          font-black
-                          uppercase
-                          tracking-[0.2em]
-                          text-zinc-300
-                        ">
-                          {chapter.id}
-                        </p>
+                        {chapter.id !== chapter.title && (
+                          <p className="
+                            mb-2
+                            text-xs
+                            font-black
+                            uppercase
+                            tracking-[0.2em]
+                            text-zinc-300
+                          ">
+                            {chapter.id}
+                          </p>
+                        )}
 
                         <h3 className="
                           text-xl

@@ -1,6 +1,7 @@
 import procesoEconomicoIFlashcards from "@/content/flashcards/proceso-economico-i/cards"
 import filosofiaDeHayekFlashcards from "@/content/flashcards/filosofia-de-hayek/cards"
 import semiologiaFlashcards from "@/content/flashcards/semiologia/cards"
+import bioquimicaFlashcards from "@/content/flashcards/bioquimica/cards"
 
 import {
   histologiaFlashcards,
@@ -20,6 +21,7 @@ export function getDefaultFlashcards(): Flashcard[] {
   return [
     ...histologiaFlashcards,
     ...semiologiaFlashcards,
+    ...bioquimicaFlashcards,
     ...procesoEconomicoIFlashcards,
     ...filosofiaDeHayekFlashcards
   ]

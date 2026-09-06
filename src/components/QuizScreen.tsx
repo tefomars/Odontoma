@@ -28,9 +28,11 @@ function getChapterTitle(chapterId: string) {
   const chapter =
     chapters.find(item => item.id === chapterId)
 
-  return chapter
-    ? `${chapter.id} · ${chapter.title}`
-    : chapterId
+  if (!chapter) return chapterId
+
+  return chapter.id === chapter.title
+    ? chapter.title
+    : `${chapter.id} · ${chapter.title}`
 }
 
 export default function QuizScreen({

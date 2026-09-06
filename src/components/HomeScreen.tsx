@@ -3,6 +3,7 @@ import histologiaImage from "@/assets/chapters/cap14.jpg"
 import microbiologiaImage from "@/assets/chapters/micro-cap20.jpg"
 import semiologiaImage from "@/assets/chapters/cap15.jpg"
 import hayekImage from "@/assets/flashcard-decks/hayek.jpg"
+import bioquimicaImage from "@/assets/bioquimica/carbohydrate-metabolism.png"
 
 import {
   homeSubjects,
@@ -24,6 +25,7 @@ const SUBJECT_IMAGES: Partial<Record<HomeSubject["destination"], string>> = {
   histologia: histologiaImage,
   "filosofia-de-hayek": hayekImage,
   microbiologia: microbiologiaImage,
+  bioquimica: bioquimicaImage,
   semiologia: semiologiaImage
 }
 

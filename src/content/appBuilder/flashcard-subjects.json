@@ -18,6 +18,15 @@
     "destination": "semiologia"
   },
   {
+    "id": "bioquimica",
+    "title": "Bioquímica",
+    "subtitle": "Metabolismo de carbohidratos",
+    "description": "Flashcards de glucólisis, Krebs, cadena respiratoria, glucógeno, gluconeogénesis y pentosas.",
+    "accent": "from-emerald-500/20 to-lime-500/10",
+    "accentColor": "#22c55e",
+    "destination": "bioquimica"
+  },
+  {
     "id": "proceso-economico-i",
     "title": "Proceso Económico I",
     "subtitle": "Material de clase",

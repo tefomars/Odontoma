@@ -71,6 +71,15 @@ import {
 } from "@/content/semiologia/chapters"
 
 import {
+  questions as bioquimicaQuestions,
+  questionCountsByChapter as bioquimicaQuestionCountsByChapter
+} from "@/content/bioquimica"
+
+import {
+  chapters as bioquimicaChapters
+} from "@/content/bioquimica/chapters"
+
+import {
   loadStats,
   saveStats,
   type AnswerStats
@@ -329,6 +338,8 @@ export default function App() {
       ? hayekQuestions
       : selectedSubject === "microbiologia"
         ? microbiologiaQuestions
+        : selectedSubject === "bioquimica"
+          ? bioquimicaQuestions
         : selectedSubject === "semiologia"
           ? semiologiaQuestions
         : histologiaQuestions
@@ -338,6 +349,8 @@ export default function App() {
       ? hayekChapters
       : selectedSubject === "microbiologia"
         ? microbiologiaChapters
+        : selectedSubject === "bioquimica"
+          ? bioquimicaChapters
         : selectedSubject === "semiologia"
           ? semiologiaChapters
         : histologiaChapters
@@ -347,6 +360,8 @@ export default function App() {
       ? hayekQuestionCountsByChapter
       : selectedSubject === "microbiologia"
         ? microbiologiaQuestionCountsByChapter
+        : selectedSubject === "bioquimica"
+          ? bioquimicaQuestionCountsByChapter
         : selectedSubject === "semiologia"
           ? semiologiaQuestionCountsByChapter
         : histologiaQuestionCountsByChapter
@@ -356,6 +371,8 @@ export default function App() {
       ? "Filosofía de Hayek"
       : selectedSubject === "microbiologia"
         ? "Microbiología"
+        : selectedSubject === "bioquimica"
+          ? "Bioquímica"
         : selectedSubject === "semiologia"
           ? "Semiología"
         : "Histología"
@@ -582,6 +599,8 @@ export default function App() {
           ? hayekQuestions
           : pausedSubject === "microbiologia"
             ? microbiologiaQuestions
+            : pausedSubject === "bioquimica"
+              ? bioquimicaQuestions
             : pausedSubject === "semiologia"
               ? semiologiaQuestions
             : histologiaQuestions

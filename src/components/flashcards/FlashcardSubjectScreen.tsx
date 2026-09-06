@@ -3,6 +3,7 @@ import histologiaDeckImage from "@/assets/chapters/cap14.jpg"
 import procesoEconomicoDeckImage from "@/assets/flashcard-decks/proceso-economico.jpg"
 import hayekDeckImage from "@/assets/flashcard-decks/hayek.jpg"
 import semiologiaDeckImage from "@/assets/chapters/cap15.jpg"
+import bioquimicaDeckImage from "@/assets/bioquimica/carbohydrate-metabolism.png"
 
 import {
   getDefaultFlashcards
@@ -42,6 +43,7 @@ type Props = {
 const destinationSubjectTitles: Record<string, string> = {
   histologia: "Histología",
   semiologia: "Semiología",
+  bioquimica: "Bioquímica",
   "proceso-economico-i": "Proceso Económico I",
   "filosofia-de-hayek": "Filosofía"
 }
@@ -49,6 +51,7 @@ const destinationSubjectTitles: Record<string, string> = {
 const destinationSubjectImages: Record<string, string> = {
   histologia: histologiaDeckImage,
   semiologia: semiologiaDeckImage,
+  bioquimica: bioquimicaDeckImage,
   "proceso-economico-i": procesoEconomicoDeckImage,
   "filosofia-de-hayek": hayekDeckImage
 }

@@ -2,6 +2,7 @@ export type SubjectDestination =
   | "histologia"
   | "filosofia-de-hayek"
   | "microbiologia"
+  | "bioquimica"
   | "semiologia"
   | "open-quizzes"
   | "coming-soon"
@@ -34,6 +35,7 @@ export type FlashcardSubjectDestination =
   | "proceso-economico-i"
   | "filosofia-de-hayek"
   | "semiologia"
+  | "bioquimica"
   | "coming-soon"
   | `custom-page:${string}`
 

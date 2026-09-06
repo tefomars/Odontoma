@@ -65,7 +65,8 @@ const flashcardDestinationOptions: Array<{ value: FlashcardSubjectDestination; l
   { value: "histologia", label: "Decks de Histología" },
   { value: "proceso-economico-i", label: "Decks de Proceso Económico I" },
   { value: "filosofia-de-hayek", label: "Decks de Filosofía" },
-  { value: "semiologia", label: "Decks de Semiología" }
+  { value: "semiologia", label: "Decks de Semiología" },
+  { value: "bioquimica", label: "Decks de Bioquímica" }
 ]
 
 const customDestinationOptionsForSubjects: Array<{
