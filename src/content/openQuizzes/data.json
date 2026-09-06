@@ -2316,6 +2316,142 @@
           "source": ""
         }
       ]
+    },
+    {
+      "id": "open-deck-1788658811250-ac986543-52bf-466c-a5d0-cf5e3bac58f7",
+      "title": "Bioquímica Segundo Parcial - Vía de las Pentosas Fosfato",
+      "subject": "Bioquímica",
+      "color": "#924600",
+      "classSymbol": "▰",
+      "classColor": "#0f8017",
+      "description": "Vía compleja que hace un montón de cositas.",
+      "questions": [
+        {
+          "id": "open-question-1788658870683-25f7388e-fa5f-495d-9821-957c67ebc2ac",
+          "prompt": "Cuál es el objetivo principal de la vía de las pentosas fosfato?",
+          "modelAnswer": "Producción de NADPH y Ribosa-5-Fosfato",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1788658898870-4114bbc2-a5a8-470b-b03b-fdeab9832350",
+          "prompt": "Nombre las dos fases de la vía de las pentosas fosfato y si son reversibles o no.",
+          "modelAnswer": "1. Vía oxidativa, no reversible\n2. Vía no oxidativa, reversible",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1788658954537-4c6d36d9-d05b-4399-a562-cd5516b83283",
+          "prompt": "En una célula, en dónde sucede la vía de las pentosas fosfato?",
+          "modelAnswer": "En el citosol",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1788658977017-d68f02f0-86c3-4ecf-bfd9-5df441f4f74b",
+          "prompt": "Cuál es la enzima reguladora principal de la fase oxidativa irreversible? Cuál es uno de sus productos de importancia?",
+          "modelAnswer": "Glucosa-6-fosfato Deshidrogenasa\n\nProduce NADPH",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1788659089431-6567894b-bb9e-40c5-8799-0b7b9f58cfeb",
+          "prompt": "Mencione por lo menos 3 tejidos donde suceda la Vía de las pentosas fosfato",
+          "modelAnswer": "Tejido adiposo\nGlándula mamaria\nCorteza Adrenal",
+          "acceptedPoints": [
+            "Eritrocitos",
+            "Hígado"
+          ],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1788659226570-2d01f1be-1488-417f-8c64-c61d968b97e1",
+          "prompt": "Mencione por lo menos 3 compuestos que se deriven de la Ribosa-5-Fosfato\n(NO proveniente de la fase de interconversión de azúcares)",
+          "modelAnswer": "Nucleótidos (AMP, ATP, etc)\nÁcidos nucleicos\nFAD+\nNAD+",
+          "acceptedPoints": [
+            "GMP",
+            "GTP",
+            "UDP",
+            "UTP",
+            "CoA"
+          ],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1788659525851-8c8fbaeb-5ec1-4eaa-b256-27c42d8d0be0",
+          "prompt": "Mencione por lo menos 2 compuestos que se deriven del NADPH",
+          "modelAnswer": "Colesterol\nEsteroides\n",
+          "acceptedPoints": [
+            "Ácidos grasos"
+          ],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1788659593520-4385162a-88fe-489c-8a49-35d19f28f07c",
+          "prompt": "Qué es la anemia hemolítica y cuál es su causa?",
+          "modelAnswer": "Es la hemólisis de eritrocitos por acumulación de H2O2. \nSe causa por una deficiencia en la enzima Glucosa-6-fosfato deshidrogenasa que provoca una deficiencia de NADPH",
+          "acceptedPoints": [],
+          "explanation": "La NADPH provée sus electrones a glutatión reductasa para convertir glutatión oxidado a glutatión reducido, que así puede unirse a H2O2 para neutralizarlo.",
+          "source": ""
+        },
+        {
+          "id": "open-question-1788659855707-c1da0bc0-bede-40f3-bc9e-5125aac52ec8",
+          "prompt": "Mencione 3 compuestos que puedan derivar de la fase no oxidativa, reversible",
+          "modelAnswer": "Ribosa-5-Fosfato\nGlucosa-6-Fosfato\nGliceraldehído-3-fosfato",
+          "acceptedPoints": [
+            "Fructosa-6-Fosfato"
+          ],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1788659994429-0577dfb7-e940-43f3-9e52-de90f509efd1",
+          "prompt": "Qué se produce en la vía oxidativa, irreversible?",
+          "modelAnswer": "2 NADPH y 1 Ribosa-5-Fosfato",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1788660020476-411f2041-7a19-4670-b090-ab9303c27cc0",
+          "prompt": "Cuando una célula necesita NADPH y no necesita Ribosa-5-Fosfato, qué vías utiliza?",
+          "modelAnswer": "La vía oxidativa y no oxidativa.",
+          "acceptedPoints": [],
+          "explanation": "Oxidativa porque genera NADPH\n\nNo oxidativa porque la ribosa-5-fosfato que se produjo puede convertirse en otro compuesto para degradarse o utilizarse en algo más.",
+          "source": ""
+        },
+        {
+          "id": "open-question-1788660292464-41973ccd-2c72-4525-82eb-8802de24afe6",
+          "prompt": "Cuando una célula necesita NADPH y Energía, qué vías utiliza?",
+          "modelAnswer": "Oxidativa y no oxidativa",
+          "acceptedPoints": [],
+          "explanation": "Oxidativa porque genera NADPH\n\nNo oxidativa porque la ribosa-5-fosfato que se produjo puede convertirse en glucosa-6-fosfato para generar ATP por glucólisis",
+          "source": ""
+        },
+        {
+          "id": "open-question-1788660342595-39a1f701-6be3-4279-9837-a526b15e5083",
+          "prompt": "Cuando una célula necesita NADPH y Ribosa-5-Fosfato, qué vías utiliza?",
+          "modelAnswer": "Solo la Oxidativa",
+          "acceptedPoints": [],
+          "explanation": "La oxidativa es suficiente para generar ambos NADPH y Ribosa-5-Fosfato. No es necesario malgastar recursos en algo que no necesitamos, por lo que no usaremos la otra vía.",
+          "source": ""
+        },
+        {
+          "id": "open-question-1788660391650-3cff59df-b376-47e9-8d9e-7a540083508e",
+          "prompt": "Cuando una célula necesita Ribosa-5-Fosfato pero no necesita NADPH, qué vías utiliza?",
+          "modelAnswer": "Solo usa la vía no oxidativa",
+          "acceptedPoints": [],
+          "explanation": "La vía no oxidativa no genera NADPH pero sí Ribosa-5-fosfato",
+          "source": ""
+        }
+      ]
     }
   ]
 }
