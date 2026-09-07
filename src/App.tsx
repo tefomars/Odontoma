@@ -225,6 +225,9 @@ export default function App() {
   const [selectedQuizMode, setSelectedQuizMode] =
     useState<"multiple-choice" | "open-ended" | "my-quizzes" | "history" | null>(null)
 
+  const [historySubject, setHistorySubject] =
+    useState<string | null>(null)
+
   const [selectedFlashcardSubject, setSelectedFlashcardSubject] =
     useState<string | null>(null)
 
@@ -1277,6 +1280,7 @@ export default function App() {
           }}
           onHistory={() => {
             setSelectedSubject(null)
+            setHistorySubject(null)
             setSelectedQuizMode("history")
           }}
           onSelectDestination={navigateToBuilderDestination}
@@ -1293,6 +1297,7 @@ export default function App() {
           onBack={() => setSelectedQuizMode(null)}
           onMainMenu={goToMainMenu}
           onReview={setReviewingAttempt}
+          subject={historySubject}
         />
       </ScreenTransition>
     )
@@ -1334,8 +1339,9 @@ export default function App() {
             deck={activeDeck}
             onBack={() => setActiveOpenQuizDeckId(null)}
             onMainMenu={goToMainMenu}
-            onHistory={() => {
+            onHistory={(subject) => {
               setActiveOpenQuizDeckId(null)
+              setHistorySubject(subject)
               setSelectedQuizMode("history")
             }}
           />
@@ -1408,9 +1414,10 @@ export default function App() {
               deck={openDeck}
               onBack={() => setActivePersonalOpenQuizDeckId(null)}
               onMainMenu={goToMainMenu}
-              onHistory={() => {
+              onHistory={(subject) => {
                 setActivePersonalOpenQuizDeckId(null)
                 setSelectedSubject(null)
+                setHistorySubject(subject)
                 setSelectedQuizMode("history")
               }}
             />

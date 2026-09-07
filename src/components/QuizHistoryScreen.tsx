@@ -10,10 +10,14 @@ type Props = {
   onBack: () => void
   onMainMenu: () => void
   onReview: (attempt: QuizAttempt) => void
+  subject?: string | null
 }
 
-export default function QuizHistoryScreen({ onBack, onMainMenu, onReview }: Props) {
+export default function QuizHistoryScreen({ onBack, onMainMenu, onReview, subject }: Props) {
   const [attempts, setAttempts] = useState(loadQuizHistory)
+  const visibleAttempts = subject
+    ? attempts.filter(attempt => attempt.subject === subject)
+    : attempts
 
   return (
     <main className="min-h-screen bg-[#09090b] px-5 py-8 text-white">
@@ -24,16 +28,16 @@ export default function QuizHistoryScreen({ onBack, onMainMenu, onReview }: Prop
         </div>
 
         <p className="text-xs font-black uppercase tracking-[0.25em] text-cyan-300">Historial local</p>
-        <h1 className="mt-3 text-5xl font-black tracking-tight md:text-7xl">Exámenes anteriores</h1>
-        <p className="mt-4 max-w-2xl text-zinc-400">Se conservan por separado los últimos 7 exámenes de opción múltiple y los últimos 7 exámenes escritos en este dispositivo.</p>
+        <h1 className="mt-3 text-5xl font-black tracking-tight md:text-7xl">{subject ? `Exámenes de ${subject}` : "Exámenes anteriores"}</h1>
+        <p className="mt-4 max-w-2xl text-zinc-400">{subject ? `Tus exámenes anteriores de ${subject} en este dispositivo.` : "Se conservan por separado los últimos 7 exámenes de opción múltiple y los últimos 7 exámenes escritos en este dispositivo."}</p>
 
-        {attempts.length === 0 ? (
+        {visibleAttempts.length === 0 ? (
           <div className="mt-10 rounded-[2rem] border border-dashed border-zinc-700 bg-zinc-900/50 p-10 text-center text-zinc-400">
-            Todavía no has terminado ningún examen.
+            {subject ? `Todavía no has terminado un examen de ${subject}.` : "Todavía no has terminado ningún examen."}
           </div>
         ) : (
           <div className="mt-10 grid gap-4">
-            {attempts.map(attempt => (
+            {visibleAttempts.map(attempt => (
               <article
                 key={attempt.id}
                 className="group flex flex-col gap-5 rounded-[2rem] border border-cyan-500/20 bg-cyan-500/5 p-6 text-left transition hover:border-cyan-400/50 hover:bg-cyan-500/10 sm:flex-row sm:items-center sm:justify-between"

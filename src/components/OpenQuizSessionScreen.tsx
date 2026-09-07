@@ -23,7 +23,7 @@ type Props = {
   deck: OpenQuizDeck
   onBack: () => void
   onMainMenu: () => void
-  onHistory: () => void
+  onHistory: (subject: string) => void
 }
 
 type AnswersByQuestion = Record<string, string>
@@ -132,6 +132,10 @@ export default function OpenQuizSessionScreen({
     { label: "Sin calificar", value: ungraded, color: "text-cyan-300" },
     { label: "No contestadas", value: unanswered, color: "text-zinc-300" }
   ], [gradeCounts, unanswered, ungraded])
+
+  const visibleSummary = summary.filter(item =>
+    !["Sin calificar", "No contestadas"].includes(item.label) || item.value > 0
+  )
 
   useEffect(() => {
     if (finished || questions.length === 0) return
@@ -265,19 +269,21 @@ export default function OpenQuizSessionScreen({
           <section className="w-full rounded-[2rem] border border-zinc-800 bg-[#111113] p-6 text-center shadow-2xl shadow-black/30 sm:p-10">
             <p className="text-xs font-black uppercase tracking-[0.25em] text-amber-300">Sesión terminada</p>
             <h1 className="mt-4 text-4xl font-black tracking-tight sm:text-5xl">{deck.title}</h1>
-            <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-5">
-              {summary.map(item => (
+            <div className="mt-8 grid grid-cols-2 gap-3 sm:[grid-template-columns:repeat(auto-fit,minmax(9rem,1fr))]">
+              {visibleSummary.map(item => (
                 <div key={item.label} className="rounded-2xl border border-zinc-800 bg-zinc-950 p-4">
                   <strong className={`block text-3xl ${item.color}`}>{item.value}</strong>
                   <span className="mt-1 block text-xs text-zinc-500">{item.label}</span>
                 </div>
               ))}
             </div>
-            <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row sm:flex-wrap">
-              <button onClick={() => setReviewing(true)} className="rounded-2xl bg-emerald-400 px-6 py-3 font-black text-zinc-950 hover:bg-emerald-300">Ver todas las respuestas</button>
-              <button onClick={restart} className="rounded-2xl bg-amber-300 px-6 py-3 font-black text-zinc-950 hover:bg-amber-200">Repetir</button>
-              <button onClick={onHistory} className="rounded-2xl border border-cyan-500/30 bg-cyan-500/10 px-6 py-3 font-black text-cyan-200 hover:bg-cyan-500/20">Exámenes anteriores</button>
-              <button onClick={onBack} className="rounded-2xl border border-zinc-700 bg-zinc-900 px-6 py-3 font-black text-zinc-200 hover:bg-zinc-800">Ver apartados</button>
+            <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+              <button onClick={() => setReviewing(true)} className="rounded-2xl bg-emerald-400 px-6 py-3 font-black text-zinc-950 hover:bg-emerald-300">Ver revisión</button>
+              <button onClick={restart} className="rounded-2xl bg-amber-300 px-6 py-3 font-black text-zinc-950 hover:bg-amber-200">Repetir examen</button>
+              <button onClick={() => onHistory(deck.subject || "Preguntas abiertas")} className="rounded-2xl border border-cyan-500/30 bg-cyan-500/10 px-6 py-3 font-black text-cyan-200 hover:bg-cyan-500/20">Exámenes de esta clase</button>
+              <button onClick={onBack} className="rounded-2xl border border-zinc-700 bg-zinc-900 px-6 py-3 font-black text-zinc-200 hover:bg-zinc-800">Volver a la clase</button>
+            </div>
+            <div className="mt-5 flex justify-center">
               <button onClick={onMainMenu} className="rounded-2xl border border-violet-500/30 bg-violet-500/10 px-6 py-3 font-black text-violet-200 hover:bg-violet-500/20">Menú principal</button>
             </div>
           </section>
