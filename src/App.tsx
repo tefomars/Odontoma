@@ -1138,7 +1138,10 @@ export default function App() {
             setSelectedSubject(null)
             setSelectedQuizMode("history")
           }}
-          onMainMenu={goToMainMenu}
+          onMainMenu={() => {
+            setRetryingOpenAttempt(null)
+            goToMainMenu()
+          }}
           onHistory={(subject) => {
             setRetryingOpenAttempt(null)
             setSelectedSubject(null)

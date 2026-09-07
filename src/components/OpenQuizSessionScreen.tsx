@@ -47,18 +47,9 @@ function isOpenQuizGrade(value: unknown): value is OpenQuizGrade {
 }
 
 function createInitialSession(deck: OpenQuizDeck, initialQuestions?: OpenQuizQuestion[]) {
-  if (initialQuestions) {
-    return {
-      questions: initialQuestions,
-      current: 0,
-      answers: {} as AnswersByQuestion,
-      revealedQuestionIds: [] as string[],
-      gradesByQuestion: {} as GradesByQuestion
-    }
-  }
-
   const saved = loadOpenQuizProgress(deck.id)
-  const byId = new Map(deck.questions.map(question => [question.id, question]))
+  const sourceQuestions = initialQuestions || deck.questions
+  const byId = new Map(sourceQuestions.map(question => [question.id, question]))
   const restoredQuestions = saved?.questionIds
     .map(id => byId.get(id))
     .filter((question): question is OpenQuizQuestion => Boolean(question))
@@ -92,7 +83,7 @@ function createInitialSession(deck: OpenQuizDeck, initialQuestions?: OpenQuizQue
   }
 
   return {
-    questions: shuffleQuestions(deck.questions),
+    questions: initialQuestions || shuffleQuestions(deck.questions),
     current: 0,
     answers: {} as AnswersByQuestion,
     revealedQuestionIds: [] as string[],
