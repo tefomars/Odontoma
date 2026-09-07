@@ -2152,7 +2152,7 @@
         },
         {
           "id": "open-question-1788574301134-aa95bde9-f5d4-4259-bfa1-39ec1e2e34fc",
-          "prompt": "Mencione el nombre de las enzimas más importantes de:\nGlucogenogénesis\nGlucogenólisis",
+          "prompt": "Mencione el nombre de las enzimas más importantes de: \nGlucogenogénesis y Glucogenólisis",
           "modelAnswer": "Glucogenogénesis:\nGlucógeno-Sintasa y Enzima Ramificante\n\nGlucogenólisis:\nGlucógeno-Fosforilasa y Enzima Desramificante",
           "acceptedPoints": [],
           "explanation": "",
