@@ -153,7 +153,7 @@ const fatMetabolismSeeds: readonly Seed[] = [
   ["Beta oxidación", "Transporte", "¿Qué metabolito inhibe CPT-I y evita oxidar ácidos grasos mientras se sintetizan?", "Malonil-CoA."],
   ["Beta oxidación", "Reacciones", "¿Cuáles son las cuatro reacciones repetidas de la beta oxidación?", "Oxidación por FAD, hidratación, oxidación por NAD+ y tiólisis por CoA."],
   ["Beta oxidación", "Reacciones", "¿Qué productos se obtienen por cada vuelta de beta oxidación?", "Un acetil-CoA, un NADH y un FADH₂; salvo en la última escisión, que libera dos acetil-CoA."],
-  ["Beta oxidación", "Rendimiento e integración", "¿Qué destinos puede tener el acetil-CoA producido por beta oxidación?", "Puede entrar al ciclo de Krebs. En hígado durante ayuno, cuando el oxaloacetato se desvía a gluconeogénesis, puede dirigirse a cetogénesis."],
+  ["Beta oxidación", "Rendimiento e integración", "¿Qué ocurre con el acetil-CoA producido por beta oxidación en condiciones de energía suficiente?", "Puede entrar al ciclo de Krebs o contribuir a la cetogénesis hepática."],
   ["Beta oxidación", "Rendimiento e integración", "¿Dónde se acortan inicialmente los ácidos grasos de cadena muy larga?", "En peroxisomas, antes de completar su oxidación en la mitocondria."],
   ["Beta oxidación", "Rendimiento e integración", "¿Cómo se procesan los ácidos grasos de número impar de carbonos?", "El último fragmento es propionil-CoA, que se convierte en succinil-CoA."],
   ["Beta oxidación", "Rendimiento e integración", "¿Qué hormonas favorecen la movilización de ácidos grasos en ayuno?", "Glucagón y adrenalina; la insulina la inhibe."],

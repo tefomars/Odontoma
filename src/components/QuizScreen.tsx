@@ -139,17 +139,7 @@ export default function QuizScreen({
       selectedAnswers: selected.map(index => options[index]),
       correctAnswers: correctAnswers.map(index => options[index]),
       explanation: question.explanation,
-      isCorrect: correct,
-      questionSnapshot: {
-        id: question.id,
-        chapter: question.chapter,
-        difficulty: question.difficulty,
-        type: question.type,
-        question: question.question,
-        options: [...options],
-        correctAnswers: [...correctAnswers],
-        explanation: question.explanation
-      }
+      isCorrect: correct
     })
 
     setChecked(true)

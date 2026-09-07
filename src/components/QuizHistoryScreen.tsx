@@ -10,11 +10,10 @@ type Props = {
   onBack: () => void
   onMainMenu: () => void
   onReview: (attempt: QuizAttempt) => void
-  onRetryIncorrect: (attempt: QuizAttempt) => void
   subject?: string | null
 }
 
-export default function QuizHistoryScreen({ onBack, onMainMenu, onReview, onRetryIncorrect, subject }: Props) {
+export default function QuizHistoryScreen({ onBack, onMainMenu, onReview, subject }: Props) {
   const [attempts, setAttempts] = useState(loadQuizHistory)
   const visibleAttempts = subject
     ? attempts.filter(attempt => attempt.subject === subject)
@@ -50,11 +49,6 @@ export default function QuizHistoryScreen({ onBack, onMainMenu, onReview, onRetr
                 </div>
                 <div className="flex flex-wrap gap-2">
                   <button type="button" onClick={() => onReview(attempt)} className="rounded-2xl bg-white/10 px-5 py-3 font-black text-cyan-100">Ver respuestas →</button>
-                  {attempt.responses.filter(response => response.grade === "incorrect" || (attempt.mode !== "open-ended" && !response.isCorrect)).length > 0 && (
-                    <button type="button" onClick={() => onRetryIncorrect(attempt)} className="rounded-2xl border border-rose-500/30 bg-rose-500/10 px-5 py-3 font-black text-rose-100 hover:bg-rose-500/20">
-                      Repasar incorrectas ({attempt.responses.filter(response => response.grade === "incorrect" || (attempt.mode !== "open-ended" && !response.isCorrect)).length})
-                    </button>
-                  )}
                   <button type="button" onClick={() => setAttempts(removeQuizAttempt(attempt.id))} className="rounded-2xl border border-red-500/20 px-4 py-3 text-sm font-black text-red-300 hover:bg-red-500/10">Quitar</button>
                 </div>
               </article>

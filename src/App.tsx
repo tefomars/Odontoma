@@ -29,7 +29,6 @@ import {
   getUserOpenQuizDeck,
   getUserQuizDeckMode,
   getUserQuizQuestionsByDeck,
-  loadUserQuizQuestions,
   loadUserQuizDecks
 } from "@/lib/userQuizzes"
 
@@ -107,7 +106,6 @@ import {
   openQuizClasses,
   openQuizDecks
 } from "@/content/openQuizzes"
-import type { OpenQuizDeck, OpenQuizQuestion } from "@/content/openQuizzes"
 
 import type {
   FlashcardSource
@@ -310,9 +308,6 @@ export default function App() {
     useState<QuizAttempt | null>(null)
 
   const [reviewingAttempt, setReviewingAttempt] =
-    useState<QuizAttempt | null>(null)
-
-  const [retryingOpenAttempt, setRetryingOpenAttempt] =
     useState<QuizAttempt | null>(null)
 
   const [hasPausedSession, setHasPausedSession] =
@@ -857,57 +852,6 @@ export default function App() {
     setCurrent(prev => prev + 1)
   }
 
-  function getIncorrectResponses(attempt: QuizAttempt) {
-    return attempt.responses.filter(response =>
-      response.grade === "incorrect" ||
-      (attempt.mode !== "open-ended" && !response.isCorrect)
-    )
-  }
-
-  function startIncorrectRetry(attempt: QuizAttempt) {
-    const incorrectResponses = getIncorrectResponses(attempt)
-
-    if (incorrectResponses.length === 0) return
-
-    if (attempt.mode === "open-ended") {
-      setRetryingOpenAttempt(attempt)
-      setReviewingAttempt(null)
-      setSelectedStudyMethod("quizzes")
-      setSelectedQuizMode("open-ended")
-      setSelectedSubject("open-quizzes")
-      return
-    }
-
-    const fallbackQuestions = [
-      ...histologiaQuestions,
-      ...hayekQuestions,
-      ...microbiologiaQuestions,
-      ...semiologiaQuestions,
-      ...bioquimicaQuestions,
-      ...loadUserQuizQuestions()
-    ]
-
-    const retryQuestions = incorrectResponses
-      .map(response => response.questionSnapshot || fallbackQuestions.find(question => question.id === response.questionId))
-      .filter(Boolean)
-
-    if (retryQuestions.length === 0) return
-
-    setSessionQuestions(retryQuestions)
-    setSessionResponses([])
-    setCompletedAttempt(null)
-    setReviewingAttempt(null)
-    setCurrent(0)
-    setScore(0)
-    setFinished(false)
-    setStarted(true)
-    setHasPausedSession(false)
-    setSelectedStudyMethod("quizzes")
-    setSelectedQuizMode("multiple-choice")
-    setSelectedSubject(attempt.subject || "histologia")
-    localStorage.removeItem("odontoma_paused_session")
-  }
-
   function goToMainMenu() {
 
     setSelectedStudyMethod(null)
@@ -1106,46 +1050,6 @@ export default function App() {
           onBack={() => setSelectedCustomPageId(null)}
           onMainMenu={goToMainMenu}
           onNavigate={navigateToBuilderDestination}
-        />
-      </ScreenTransition>
-    )
-  }
-
-  if (retryingOpenAttempt) {
-    const retryQuestions: OpenQuizQuestion[] = getIncorrectResponses(retryingOpenAttempt).map(response => ({
-      id: response.questionId,
-      prompt: response.question,
-      modelAnswer: response.correctAnswers[0] || "",
-      acceptedPoints: response.acceptedPoints || [],
-      explanation: response.explanation || "",
-      source: response.source || ""
-    }))
-    const retryDeck: OpenQuizDeck = {
-      id: `retry-${retryingOpenAttempt.id}`,
-      title: `Repaso de incorrectas · ${retryingOpenAttempt.title}`,
-      subject: retryingOpenAttempt.subject,
-      description: "Preguntas incorrectas de un intento específico.",
-      questions: retryQuestions
-    }
-
-    return (
-      <ScreenTransition screenKey={`retry-open-${retryingOpenAttempt.id}`}>
-        <OpenQuizSessionScreen
-          deck={retryDeck}
-          initialQuestions={retryQuestions}
-          onBack={() => {
-            setRetryingOpenAttempt(null)
-            setSelectedSubject(null)
-            setSelectedQuizMode("history")
-          }}
-          onMainMenu={goToMainMenu}
-          onHistory={(subject) => {
-            setRetryingOpenAttempt(null)
-            setSelectedSubject(null)
-            setHistorySubject(subject)
-            setSelectedQuizMode("history")
-          }}
-          onRetryIncorrect={startIncorrectRetry}
         />
       </ScreenTransition>
     )
@@ -1393,7 +1297,6 @@ export default function App() {
           onBack={() => setSelectedQuizMode(null)}
           onMainMenu={goToMainMenu}
           onReview={setReviewingAttempt}
-          onRetryIncorrect={startIncorrectRetry}
           subject={historySubject}
         />
       </ScreenTransition>
@@ -1441,7 +1344,6 @@ export default function App() {
               setHistorySubject(subject)
               setSelectedQuizMode("history")
             }}
-            onRetryIncorrect={startIncorrectRetry}
           />
         </ScreenTransition>
       )
@@ -1518,7 +1420,6 @@ export default function App() {
                 setHistorySubject(subject)
                 setSelectedQuizMode("history")
               }}
-              onRetryIncorrect={startIncorrectRetry}
             />
           </ScreenTransition>
         )
@@ -1636,10 +1537,6 @@ export default function App() {
           }}
           onRestart={restart}
           onMainMenu={goToMainMenu}
-          retryIncorrectCount={completedAttempt ? getIncorrectResponses(completedAttempt).length : 0}
-          onRetryIncorrect={() => {
-            if (completedAttempt) startIncorrectRetry(completedAttempt)
-          }}
         />
       </ScreenTransition>
 

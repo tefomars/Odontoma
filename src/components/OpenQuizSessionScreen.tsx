@@ -24,8 +24,6 @@ type Props = {
   onBack: () => void
   onMainMenu: () => void
   onHistory: (subject: string) => void
-  initialQuestions?: OpenQuizQuestion[]
-  onRetryIncorrect?: (attempt: QuizAttempt) => void
 }
 
 type AnswersByQuestion = Record<string, string>
@@ -46,17 +44,7 @@ function isOpenQuizGrade(value: unknown): value is OpenQuizGrade {
   return value === "incorrect" || value === "partial" || value === "correct"
 }
 
-function createInitialSession(deck: OpenQuizDeck, initialQuestions?: OpenQuizQuestion[]) {
-  if (initialQuestions) {
-    return {
-      questions: initialQuestions,
-      current: 0,
-      answers: {} as AnswersByQuestion,
-      revealedQuestionIds: [] as string[],
-      gradesByQuestion: {} as GradesByQuestion
-    }
-  }
-
+function createInitialSession(deck: OpenQuizDeck) {
   const saved = loadOpenQuizProgress(deck.id)
   const byId = new Map(deck.questions.map(question => [question.id, question]))
   const restoredQuestions = saved?.questionIds
@@ -104,11 +92,9 @@ export default function OpenQuizSessionScreen({
   deck,
   onBack,
   onMainMenu,
-  onHistory,
-  initialQuestions,
-  onRetryIncorrect
+  onHistory
 }: Props) {
-  const [initialSession] = useState(() => createInitialSession(deck, initialQuestions))
+  const [initialSession] = useState(() => createInitialSession(deck))
   const [questions, setQuestions] = useState(initialSession.questions)
   const [current, setCurrent] = useState(initialSession.current)
   const [answers, setAnswers] = useState<AnswersByQuestion>(initialSession.answers)
@@ -293,7 +279,6 @@ export default function OpenQuizSessionScreen({
             </div>
             <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
               <button onClick={() => setReviewing(true)} className="rounded-2xl bg-emerald-400 px-6 py-3 font-black text-zinc-950 hover:bg-emerald-300">Ver revisión</button>
-              {onRetryIncorrect && gradeCounts.incorrect > 0 && <button onClick={() => completedAttempt && onRetryIncorrect(completedAttempt)} className="rounded-2xl border border-rose-500/30 bg-rose-500/10 px-6 py-3 font-black text-rose-100 hover:bg-rose-500/20">Repasar incorrectas ({gradeCounts.incorrect})</button>}
               <button onClick={restart} className="rounded-2xl bg-amber-300 px-6 py-3 font-black text-zinc-950 hover:bg-amber-200">Repetir examen</button>
               <button onClick={() => onHistory(deck.subject || "Preguntas abiertas")} className="rounded-2xl border border-cyan-500/30 bg-cyan-500/10 px-6 py-3 font-black text-cyan-200 hover:bg-cyan-500/20">Exámenes de esta clase</button>
               <button onClick={onBack} className="rounded-2xl border border-zinc-700 bg-zinc-900 px-6 py-3 font-black text-zinc-200 hover:bg-zinc-800">Volver a la clase</button>

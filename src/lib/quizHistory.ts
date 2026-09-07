@@ -12,16 +12,6 @@ export type QuizResponseRecord = {
   source?: string
   isCorrect: boolean
   grade?: "incorrect" | "partial" | "correct" | "ungraded" | "unanswered"
-  questionSnapshot?: {
-    id: string
-    chapter?: string
-    difficulty?: "easy" | "medium" | "hard"
-    type: "single" | "multiple"
-    question: string
-    options: string[]
-    correctAnswers: number[]
-    explanation?: string
-  }
 }
 
 export type QuizAttempt = {

@@ -2080,8 +2080,8 @@
         },
         {
           "id": "open-question-1788573281361-2596c4d1-3ab4-46c2-985a-72e9aee154f7",
-          "prompt": "¿Cuáles son los reguladores alostéricos principales de la glucógeno fosforilasa en músculo?",
-          "modelAnswer": "ATP y glucosa-6-fosfato la inhiben; AMP la activa. En hígado, la glucosa también favorece su inactivación.",
+          "prompt": "Cuáles son los agentes inhibidores de la glucógeno fosforilasa?",
+          "modelAnswer": "Glucosa-6-fosfato y ATP en altas concentraciones",
           "acceptedPoints": [],
           "explanation": "Si tenemos suficiente energía, no hay por qué tener que degradar glucógeno para generar glucosa (para meterla a glucólisis y generar ATP). Altas concentraciones de G6P y ATP indican que tenemos suficiente energía celular e incluso deberíamos estar creando más glucógeno, no degradarlo.",
           "source": ""
@@ -2097,7 +2097,7 @@
         {
           "id": "open-question-1788573474281-f1ae771a-303f-45c6-8188-db92affdb76b",
           "prompt": "Por qué el hígado es capaz de proveer glucosa (desde su glucógeno) como combustible al resto del cuerpo y no el músculo esquelético?",
-          "modelAnswer": "Porque el hígado, a diferencia del músculo esquelético, expresa glucosa-6-fosfatasa.",
+          "modelAnswer": "Por que la glucosa tiene la enzima glucosa-6-fosfatasa",
           "acceptedPoints": [],
           "explanation": "Esta enzima permite convertir la glucosa-6-fosfato (molécula sin transportador propio de membrana) a glucosa (que sí tiene transportador propio de membrana). Esto permite crear un compuesto que sí pueda salir de la célula.",
           "source": ""
@@ -2113,7 +2113,7 @@
         {
           "id": "open-question-1788573785382-41ed2658-ca0b-431c-a4ef-297bfa3897cb",
           "prompt": "Qué es la glucogenina? Explicar cuándo y cómo actúa.",
-          "modelAnswer": "Es la proteína cebadora de una nueva partícula de glucógeno. Se autoglucosila en un residuo de tirosina y forma una cadena corta inicial; después la glucógeno sintasa puede elongarla mediante enlaces α(1→4). No actúa únicamente después de ayuno prolongado.",
+          "modelAnswer": "Es un dímero que permite iniciar la glucogenogénesis cuando no hay glucógeno disponible debido a un estado de ayuno prolongado (recordar que la glucógeno sintasa, para formar glucógeno, no puede actuar desde 0)\n\nLa glucogenina se es una enzima dimérica que contiene un residuo de tirosina que es capaz de unir glucosa libre. Forma una cadena inicial de cual la glucógeno sintasa ya puede formar enlaces α(1->4) y elongar la cadena de glucógeno.\n",
           "acceptedPoints": [],
           "explanation": "",
           "source": ""
@@ -2129,7 +2129,7 @@
         {
           "id": "open-question-1788574066815-1b0eddf6-847c-4b86-a1fe-f357ba8c2128",
           "prompt": "Explique la regulación covalente de la glucógeno fosforilasa",
-          "modelAnswer": "En hígado, glucagón; y en hígado o músculo, adrenalina: activan adenilato ciclasa → cAMP → PKA → fosforilasa quinasa. Esta fosforila y activa a la glucógeno fosforilasa, promoviendo glucogenólisis. La fosforilasa está activa cuando está fosforilada.",
+          "modelAnswer": "El glucagón o Adrenalina actúan --> Fosforilan a la glucógeno fosforilasa --> La activan --> Glucogenólisis\n\nSE ACTIVA CUANDO ESTÁ FOSFORILADA",
           "acceptedPoints": [],
           "explanation": "",
           "source": ""
@@ -2137,7 +2137,7 @@
         {
           "id": "open-question-1788574236800-c598c435-d0fa-480e-81d5-ab28b0785a69",
           "prompt": "Explique la regulación covalente de la glucógeno sintasa",
-          "modelAnswer": "La insulina favorece la acción de proteína fosfatasa 1, que desfosforila y activa a la glucógeno sintasa; así promueve glucogenogénesis. La sintasa está activa cuando está desfosforilada.",
+          "modelAnswer": "Insulina actúa --> Defosforilan a la glucógeno sintasa --> La activan --> Glucogenogénesis\n\nSE ACTIVA CUANDO ESTÁ DEFOSFORILADA",
           "acceptedPoints": [],
           "explanation": "",
           "source": ""
@@ -2160,10 +2160,10 @@
         },
         {
           "id": "open-question-1788574483367-61f3080d-1749-44be-a25e-5866a3100206",
-          "prompt": "¿Cuál es el regulador alostérico principal de la glucógeno sintasa?",
-          "modelAnswer": "La glucosa-6-fosfato la activa alostéricamente. Su regulación dominante también es covalente: la forma desfosforilada es la activa.",
+          "prompt": "Cuáles son los reguladores alostéricos de la glucógeno sintasa?",
+          "modelAnswer": "ATP y Glucosa-6-Fosfato --> Activan\n\nAMP --> Inactiva",
           "acceptedPoints": [],
-          "explanation": "ATP y AMP informan sobre el estado energético, pero no son los reguladores alostéricos principales de la glucógeno sintasa.",
+          "explanation": "Si tenemos mucha energía se dará prioridad a almacenarla como glucógeno \nSi tenemos poca, pues no vamos a querer almacenar la glucosa, sino utilizarla para producir energía",
           "source": ""
         },
         {
@@ -2204,7 +2204,7 @@
         {
           "id": "open-question-1788648196941-d016c3fc-bb13-4a1e-84b8-3ec4b2988b18",
           "prompt": "En qué tejidos se considera esencial que siempre tengan glucosa disponible?",
-          "modelAnswer": "Los eritrocitos dependen obligatoriamente de glucosa. El cerebro la utiliza de forma predominante, aunque en ayuno prolongado usa también cuerpos cetónicos. Músculo y corazón pueden usar con amplitud ácidos grasos y otros combustibles.",
+          "modelAnswer": "Cerebro\nMúsculo cardíaco y esquelético\nEritrocitos",
           "acceptedPoints": [],
           "explanation": "El proceso de la gluconeogénesis se da para poder siempre mantener los niveles de glucosa en sangre para perfundir estos tejidos, incluso en ayunas",
           "source": ""
@@ -2254,7 +2254,7 @@
           "prompt": "Cuál es el inhibidor principal de la piruvato carboxilasa? Cuál es su principal activador?",
           "modelAnswer": "Inhibido por mucho ADP\nActivado por Acetil-CoA",
           "acceptedPoints": [],
-          "explanation": "La reacción utiliza ATP, por lo que no se favorece cuando hay poco. El acetil-CoA activa a la piruvato carboxilasa y señala un estado en el que el oxaloacetato puede dirigirse a gluconeogénesis; además, el acetil-CoA inhibe a la piruvato deshidrogenasa.",
+          "explanation": "La reacción utiliza ATP, por lo que no se favorece cuando hay poco \n\nSe estimula por Acetil-CoA porque la reacción termina en la síntesis de oxaloacetato. Este oxaloacetato, en conjunto con el acetil-coa en exceso, pueden formar citrato y continuar el ciclo de Krebs",
           "source": ""
         },
         {
@@ -2268,19 +2268,19 @@
         {
           "id": "open-question-1788649188946-7dc9d5b4-00d9-433e-9def-2c7f1c488626",
           "prompt": "Mencione por lo menos 3 precursores no glúcidos de la gluconeogénesis de quienes se puede sintetizar glucosa.",
-          "modelAnswer": "Lactato, glicerol y aminoácidos glucogénicos (por ejemplo alanina). Piruvato y oxaloacetato son intermediarios importantes de la vía.",
+          "modelAnswer": "Oxaloacetato\nPiruvato\nGlicerol",
           "acceptedPoints": [
             "Aspartato (entre otros aminoácidos)",
             "Propionil-CoA",
             "Lactato"
           ],
-          "explanation": "Lactato, glicerol y aminoácidos glucogénicos son precursores fisiológicos importantes. No todos los aminoácidos pueden entrar en gluconeogénesis.",
+          "explanation": "Recordar que oxaloacetato y piruvato son los principales\nGlicerol entra como por la mitad del ciclo gluconeogénico\n**No todos los aminoácidos pueden entrar en gluconeogénesis",
           "source": ""
         },
         {
           "id": "open-question-1788649366129-6f159204-8b95-471b-b908-1993ad433e26",
           "prompt": "Indique la función de la glucosa-6-fosfatasa e indique su ubicación dentro de la célula.",
-          "modelAnswer": "Hidroliza glucosa-6-fosfato para formar glucosa libre y fosfato. Es una enzima de membrana del retículo endoplásmico, con el sitio catalítico hacia su lumen; luego la glucosa puede exportarse desde el hepatocito.",
+          "modelAnswer": "Permite la FORMACIÓN de glucosa a partir de glucosa-6-fosfato\n\nEs una enzima transmembrana ubicada en el Retículo Endoplasmático Rugoso (RER). Defosforila a la G6P para que se coloque en una vesícula y abandone la célula sano y a salvo en forma de glucosa.",
           "acceptedPoints": [],
           "explanation": "",
           "source": ""
@@ -2288,7 +2288,7 @@
         {
           "id": "open-question-1788649492944-6950f3d5-d2dd-4082-8866-5116f0471f7b",
           "prompt": "En dónde sucede la gluconeogénesis?",
-          "modelAnswer": "Entre mitocondria y citosol; el paso final de glucosa-6-fosfatasa se relaciona con el retículo endoplásmico.",
+          "modelAnswer": "Citosol",
           "acceptedPoints": [],
           "explanation": "",
           "source": ""
@@ -2306,8 +2306,8 @@
         },
         {
           "id": "open-question-1788649626943-0ffd1364-aea1-43fa-88f7-12e7ba3ac22b",
-          "prompt": "Llene los espacios en blanco: cualquier compuesto que pueda convertirse en ___________ u ___________ puede aportar carbono para gluconeogénesis.",
-          "modelAnswer": "Piruvato u oxaloacetato.",
+          "prompt": "Llene los espacios en blanco:\nCualquier precursor de ___________ y __________ pueden ser precursores de glucosa",
+          "modelAnswer": "Oxaloacetato\nPiruvato",
           "acceptedPoints": [
             "Piruvato",
             "Oxaloacetato"
@@ -2404,7 +2404,7 @@
         {
           "id": "open-question-1788659855707-c1da0bc0-bede-40f3-bc9e-5125aac52ec8",
           "prompt": "Mencione 3 compuestos que puedan derivar de la fase no oxidativa, reversible",
-          "modelAnswer": "Ribosa-5-fosfato, fructosa-6-fosfato y gliceraldehído-3-fosfato.",
+          "modelAnswer": "Ribosa-5-Fosfato\nGlucosa-6-Fosfato\nGliceraldehído-3-fosfato",
           "acceptedPoints": [
             "Fructosa-6-Fosfato"
           ],
@@ -2414,7 +2414,7 @@
         {
           "id": "open-question-1788659994429-0577dfb7-e940-43f3-9e52-de90f509efd1",
           "prompt": "Qué se produce en la vía oxidativa, irreversible?",
-          "modelAnswer": "2 NADPH, CO2 y ribulosa-5-fosfato, que puede isomerizarse a ribosa-5-fosfato.",
+          "modelAnswer": "2 NADPH y 1 Ribosa-5-Fosfato",
           "acceptedPoints": [],
           "explanation": "",
           "source": ""
@@ -2481,7 +2481,7 @@
         {
           "id": "open-question-1788740116979-fa762dfa-9715-44b7-867e-f58887437e4b",
           "prompt": "Qué tipo de ácidos grasos NO pueden sufrir beta-oxidación directamente y qué proceso necesitan sufrir para hacerlo?",
-          "modelAnswer": "Los ácidos grasos insaturados requieren enzimas auxiliares, como enoil-CoA isomerasa y en algunos casos 2,4-dienoil-CoA reductasa, para reordenar sus dobles enlaces y continuar la beta oxidación.",
+          "modelAnswer": "Ácidos grasos insaturados: Necesitan perder sus dobles enlaces por las enzimas Isomerasa y Reductasa",
           "acceptedPoints": [
             "Ácidos grasos con cadena muy larga: Deben ir a los peroxisomas para acortar su cadena para poder sufrir beta oxidación EN LA MITOCONDRIA"
           ],
@@ -2490,8 +2490,8 @@
         },
         {
           "id": "open-question-1788740231942-2446fbdc-a54c-4d4f-9b8f-82211e0bf93e",
-          "prompt": "¿Qué debe ocurrir antes de que un ácido graso de cadena larga entre a beta oxidación y qué enzima lo cataliza?",
-          "modelAnswer": "Debe activarse a acil-CoA por la acil-CoA sintetasa (tiocinasa), con gasto de ATP equivalente a 2 enlaces de alta energía.",
+          "prompt": "Qué necesita el ácido graso para poder atravesar la membrana mitocondrial externa? Qué enzima media este proceso?",
+          "modelAnswer": "Debe estar activado.\nSe activa por la Acil-Coa Sintetasa, que le agrega un CoA al ácido graso",
           "acceptedPoints": [],
           "explanation": "",
           "source": ""
@@ -2499,9 +2499,9 @@
         {
           "id": "open-question-1788740275508-e92bab4f-29cf-4dc9-9adb-2f448af4dd8e",
           "prompt": "Qué se tiene que hacer con el ácido graso activado para que logre atravesar la membrana mitocondrial interna?",
-          "modelAnswer": "La carnitina palmitoiltransferasa I (CPT-I) transfiere el grupo acilo a carnitina. La acilcarnitina cruza mediante una translocasa y la CPT-II regenera acil-CoA en la matriz.",
+          "modelAnswer": "La enzima Carnitina-AcilTransferasa 1 (CAT1) debe colocar al ácido graso en un transportador Carnitina, quien permite que atraviese la membrana. \n",
           "acceptedPoints": [],
-          "explanation": "En la matriz, CPT-II regenera el acil-CoA y libera carnitina para reciclarla.",
+          "explanation": "Media vez esté en la matriz, CAT2 libera al ácido graso y recicla a la Carnitina",
           "source": ""
         },
         {
@@ -2523,7 +2523,7 @@
         {
           "id": "open-question-1788740579560-5f1e695a-7da4-4234-8854-833435bd1455",
           "prompt": "Cuáles son los productos de la beta oxidación?",
-          "modelAnswer": "Cada vuelta genera 1 NADH y 1 FADH2 y acorta el acil-CoA en 2 carbonos; por lo general libera 1 acetil-CoA. La última escisión libera 2 acetil-CoA.",
+          "modelAnswer": "Por cada 2 carbonos de la cadena:\n- 1 Acetil-CoA\n- 1 NADH2\n- 1 FADH2",
           "acceptedPoints": [],
           "explanation": "",
           "source": ""
@@ -2539,7 +2539,7 @@
         {
           "id": "open-question-1788740725755-0de43aa3-7b0a-441d-b175-9c5bdb25668b",
           "prompt": "Cuáles son los posibles destinos del Acetil-CoA producto de la beta-oxidación?",
-          "modelAnswer": "Puede entrar al ciclo de Krebs. En hígado durante ayuno, cuando el oxaloacetato se desvía a gluconeogénesis y aumenta la beta oxidación, puede dirigirse a cetogénesis.",
+          "modelAnswer": "Ciclo de Krebs\nCetogénesis (cuando hay demasiado Acetil-CoA)",
           "acceptedPoints": [],
           "explanation": "",
           "source": ""
@@ -2547,7 +2547,7 @@
         {
           "id": "open-question-1788740758887-3e6f097d-185d-456c-8009-cfd15d89a419",
           "prompt": "Mencione el sitio de la célula donde sucede: Activación de ácidos grasos, Beta oxidación\n",
-          "modelAnswer": "Activación: cara citosólica de la membrana mitocondrial externa.\nBeta oxidación: matriz mitocondrial.",
+          "modelAnswer": "Activación: Citosol\nBeta oxidación: Matriz mitocondrial",
           "acceptedPoints": [],
           "explanation": "",
           "source": ""
@@ -2562,8 +2562,8 @@
         },
         {
           "id": "open-question-1788740893338-17141dfc-7ef5-4098-83c1-7ef8cb2f7f4d",
-          "prompt": "¿Qué combustibles predominan durante un ayuno corto y durante un ayuno más prolongado?",
-          "modelAnswer": "En ayuno corto predomina el glucógeno hepático. Conforme se prolonga, aumenta la lipólisis y la oxidación de ácidos grasos; la gluconeogénesis mantiene la glucosa y las cetonas adquieren mayor importancia. No existe un orden rígido único para todos los tejidos.",
+          "prompt": "Mencione el orden en que se consumen las diferentes moléculas energéticas cuando necesitamos obtener energía",
+          "modelAnswer": "1. Glucosa\n2. Glucógeno\n3. Aminoácidos\n4. Ácidos grasos",
           "acceptedPoints": [],
           "explanation": "",
           "source": ""
@@ -2584,7 +2584,7 @@
           "prompt": "Cuándo se forman los cuerpos cetónicos?",
           "modelAnswer": "Cuando hay degradación excesiva de ácidos grasos y se produce demasiada Acetil-CoA",
           "acceptedPoints": [],
-          "explanation": "En ayuno o déficit de insulina aumenta la beta oxidación. El oxaloacetato hepático se desvía hacia gluconeogénesis, lo que limita la entrada de acetil-CoA al ciclo de Krebs y favorece cetogénesis.",
+          "explanation": "Tanta que krebs ya no puede más",
           "source": ""
         },
         {
@@ -2598,15 +2598,15 @@
         {
           "id": "open-question-1788741049920-d9d56860-9973-4887-b689-6919b8615d4f",
           "prompt": "Cuál es el primer cuerpo cetónico y cómo se forma?",
-          "modelAnswer": "El acetoacetato. Dos acetil-CoA forman acetoacetil-CoA; luego se forma HMG-CoA y la HMG-CoA liasa libera acetoacetato.",
+          "modelAnswer": "El acetoacetato\n--> Se forma por condensación de dos moléculas de Acetil-CoA",
           "acceptedPoints": [],
           "explanation": "",
           "source": ""
         },
         {
           "id": "open-question-1788741074317-abda1397-df2f-4c84-8939-ff9d1e6c86b1",
-          "prompt": "Durante ayuno prolongado, ¿qué tejido aumenta de forma importante el uso de cuerpos cetónicos y por qué?",
-          "modelAnswer": "El cerebro aumenta mucho su uso, porque los cuerpos cetónicos atraviesan la barrera hematoencefálica y reducen su necesidad de glucosa. Corazón y músculo también pueden utilizarlos.",
+          "prompt": "Durante ayuno prolongado, qué tejido priorizan los cuerpos cetónicos para proveer energía?",
+          "modelAnswer": "Al cerebro, porque a diferencia de los ácidos grasos, ellos sí pueden atravesar la barrera hematoencefálica",
           "acceptedPoints": [],
           "explanation": "",
           "source": ""
@@ -2614,7 +2614,7 @@
         {
           "id": "open-question-1788741126052-eeb31947-09aa-40a1-923f-b97f686abaf9",
           "prompt": "Qué proceso debe sufrir el Acetoacetato para convertirse en 2 Acetil-CoA?",
-          "modelAnswer": "En tejidos extrahepáticos, la succinil-CoA:acetoacetato CoA transferasa (tiotransferasa) lo activa a acetoacetil-CoA y luego la tiolasa lo escinde en 2 acetil-CoA.",
+          "modelAnswer": "Dos enzimas deben actuar en élla: Transferasa y Tiolasa",
           "acceptedPoints": [],
           "explanation": "",
           "source": ""
@@ -2622,7 +2622,7 @@
         {
           "id": "open-question-1788741169615-81c96cd0-52a6-4ca8-a868-545a3a7fc6fb",
           "prompt": "Qué se obtiene a partir de un Acetoacetato?",
-          "modelAnswer": "En hígado, el acetoacetato puede reducirse reversiblemente a beta-hidroxibutirato o descarboxilarse a acetona. En tejidos extrahepáticos, tras activarse, puede dar 2 acetil-CoA para el ciclo de Krebs.",
+          "modelAnswer": "Puede ser:\n2 Acetil-Coa\nHidroxibutirato (Reversible)\nAcetona (Irreversible)",
           "acceptedPoints": [],
           "explanation": "",
           "source": ""
@@ -2630,7 +2630,7 @@
         {
           "id": "open-question-1788741201251-222bb5b6-2eba-480d-b5d0-ce6d9eef18ea",
           "prompt": "Qué es la cetoacidosis y qué cuadro clínico presenta?",
-          "modelAnswer": "Es una acidosis metabólica con anión gap elevado por exceso de cetoácidos, que consume bicarbonato. Puede producir náuseas, vómitos, deshidratación, respiración de Kussmaul y alteración del estado mental.",
+          "modelAnswer": "Es la acumulación de cuerpos cetónicos en la sangre.\nSe caracteriza por decaimiento y náuseas. \n--> Causa acidosis metabólica",
           "acceptedPoints": [],
           "explanation": "Acidosis metabólica porque los cuerpos cetónicos son ácidos y son tantos que acaban con las reservas de bicarbonato.",
           "source": ""

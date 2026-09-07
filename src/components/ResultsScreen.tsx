@@ -5,8 +5,6 @@ type Props = {
   onHistory: () => void
   onRestart: () => void
   onMainMenu: () => void
-  retryIncorrectCount?: number
-  onRetryIncorrect?: () => void
 }
 
 export default function ResultsScreen({
@@ -15,9 +13,7 @@ export default function ResultsScreen({
   onReview,
   onHistory,
   onRestart,
-  onMainMenu,
-  retryIncorrectCount = 0,
-  onRetryIncorrect
+  onMainMenu
 }: Props) {
 
   return (
@@ -41,15 +37,6 @@ export default function ResultsScreen({
           >
             Ver todas las respuestas
           </button>
-
-          {retryIncorrectCount > 0 && onRetryIncorrect && (
-            <button
-              onClick={onRetryIncorrect}
-              className="rounded-2xl border border-rose-500/30 bg-rose-500/10 px-8 py-4 font-black text-rose-100 hover:bg-rose-500/20 sm:col-span-2"
-            >
-              Repasar incorrectas ({retryIncorrectCount})
-            </button>
-          )}
 
           <button
             onClick={onHistory}
