@@ -42,7 +42,16 @@ export default function QuizReviewScreen({ attempt, onBack, onMainMenu }: Props)
                 <AnswerBox title="Tu respuesta" answers={response.selectedAnswers} tone={presentation.answerTone} />
                 <AnswerBox title={attempt.mode === "open-ended" ? "Respuesta modelo" : "Respuesta correcta"} answers={response.correctAnswers} tone="correct" />
               </div>
-              {response.explanation && <div className="mt-4 min-w-0 rounded-2xl border border-zinc-800 bg-black/20 p-4"><p className="text-xs font-black uppercase tracking-[0.18em] text-zinc-500">Explicación</p><p className="mt-2 whitespace-pre-wrap break-words leading-relaxed text-zinc-300 [overflow-wrap:anywhere]">{response.explanation}</p></div>}
+              {attempt.mode === "open-ended" && response.acceptedPoints && response.acceptedPoints.length > 0 && (
+                <div className="mt-4 min-w-0 rounded-2xl border border-amber-500/25 bg-amber-500/8 p-4">
+                  <p className="text-xs font-black uppercase tracking-[0.18em] text-amber-300">También se considera correcto mencionar</p>
+                  <ul className="mt-3 grid gap-2 text-sm leading-relaxed text-zinc-200">
+                    {response.acceptedPoints.map(point => <li key={point} className="flex gap-2"><span className="text-amber-300">✓</span><span>{point}</span></li>)}
+                  </ul>
+                </div>
+              )}
+              {response.explanation && <div className="mt-4 min-w-0 rounded-2xl border border-sky-500/25 bg-sky-500/8 p-4"><p className="text-xs font-black uppercase tracking-[0.18em] text-sky-300">Explicación</p><p className="mt-2 whitespace-pre-wrap break-words leading-relaxed text-zinc-200 [overflow-wrap:anywhere]">{response.explanation}</p></div>}
+              {attempt.mode === "open-ended" && response.source && <p className="mt-3 px-1 text-xs font-semibold text-zinc-500">Fuente: {response.source}</p>}
             </article>
           )})}
         </div>

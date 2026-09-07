@@ -2113,7 +2113,7 @@
         {
           "id": "open-question-1788573785382-41ed2658-ca0b-431c-a4ef-297bfa3897cb",
           "prompt": "Qué es la glucogenina? Explicar cuándo y cómo actúa.",
-          "modelAnswer": "Es un dímero que permite iniciar la glucogenogénesis cuando no hay glucógeno disponible debido a un estado de ayuno prolongado (recordar que la glucógeno sintasa, para formar glucógeno, no puede actuar desde 0)\n\nLa glucogenina se conforma por dos residuos de tirosina que son capaces de unir glucosa libre. Forma una cadena inicial de cual la glucógeno sintasa ya puede formar enlaces α(1->4) y elongar la cadena de glucógeno.\n",
+          "modelAnswer": "Es un dímero que permite iniciar la glucogenogénesis cuando no hay glucógeno disponible debido a un estado de ayuno prolongado (recordar que la glucógeno sintasa, para formar glucógeno, no puede actuar desde 0)\n\nLa glucogenina se es una enzima dimérica que contiene un residuo de tirosina que es capaz de unir glucosa libre. Forma una cadena inicial de cual la glucógeno sintasa ya puede formar enlaces α(1->4) y elongar la cadena de glucógeno.\n",
           "acceptedPoints": [],
           "explanation": "",
           "source": ""

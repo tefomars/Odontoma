@@ -8,6 +8,8 @@ export type QuizResponseRecord = {
   selectedAnswers: string[]
   correctAnswers: string[]
   explanation?: string
+  acceptedPoints?: string[]
+  source?: string
   isCorrect: boolean
   grade?: "incorrect" | "partial" | "correct" | "ungraded" | "unanswered"
 }

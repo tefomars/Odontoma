@@ -88,16 +88,6 @@ function createInitialSession(deck: OpenQuizDeck) {
   }
 }
 
-function buildExplanation(question: OpenQuizQuestion) {
-  return [
-    question.acceptedPoints.length > 0
-      ? `También se considera correcto mencionar:\n${question.acceptedPoints.map(point => `• ${point}`).join("\n")}`
-      : "",
-    question.explanation,
-    question.source ? `Fuente: ${question.source}` : ""
-  ].filter(Boolean).join("\n\n") || undefined
-}
-
 export default function OpenQuizSessionScreen({
   deck,
   onBack,
@@ -208,7 +198,9 @@ export default function OpenQuizSessionScreen({
         question: item.prompt,
         selectedAnswers: answer ? [answer] : [],
         correctAnswers: [item.modelAnswer],
-        explanation: buildExplanation(item),
+        explanation: item.explanation || undefined,
+        acceptedPoints: item.acceptedPoints,
+        source: item.source || undefined,
         isCorrect: grade === "correct",
         grade
       }
@@ -363,9 +355,12 @@ export default function OpenQuizSessionScreen({
                 )}
 
                 {(question.explanation || question.source) && (
-                  <section className="rounded-2xl border border-zinc-800 bg-zinc-950 p-5 text-sm text-zinc-400">
-                    {question.explanation && <p className="leading-relaxed">{question.explanation}</p>}
-                    {question.source && <p className="mt-3 font-black text-zinc-500">Fuente: {question.source}</p>}
+                  <section className="rounded-2xl border border-sky-500/25 bg-sky-500/8 p-5 text-sm text-zinc-200">
+                    {question.explanation && <>
+                      <p className="text-xs font-black uppercase tracking-[0.18em] text-sky-300">Explicación</p>
+                      <p className="mt-3 whitespace-pre-wrap leading-relaxed">{question.explanation}</p>
+                    </>}
+                    {question.source && <p className={`${question.explanation ? "mt-4 border-t border-sky-500/20 pt-4" : ""} text-xs font-semibold text-sky-200/70`}>Fuente: {question.source}</p>}
                   </section>
                 )}
 
