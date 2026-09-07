@@ -42,10 +42,18 @@ const compactSubtopics: Record<string, string> = {
   "Vía de las pentosas|Ribosa": "NADPH y relevancia clínica",
   "Vía de las pentosas|Clínica": "NADPH y relevancia clínica",
   "Vía de las pentosas|Integración": "NADPH y relevancia clínica",
-  "Vía de las pentosas|Tejidos": "NADPH y relevancia clínica"
+  "Vía de las pentosas|Tejidos": "NADPH y relevancia clínica",
+  "Beta oxidación|Fundamentos": "Movilización, transporte y reacciones",
+  "Beta oxidación|Transporte": "Movilización, transporte y reacciones",
+  "Beta oxidación|Reacciones": "Movilización, transporte y reacciones",
+  "Beta oxidación|Rendimiento e integración": "Rendimiento e integración",
+  "Cetogénesis|Fundamentos": "Síntesis y cuerpos cetónicos",
+  "Cetogénesis|Síntesis": "Síntesis y cuerpos cetónicos",
+  "Cetogénesis|Uso y regulación": "Uso y regulación clínica",
+  "Cetogénesis|Clínica": "Uso y regulación clínica"
 }
 
-const seeds: readonly Seed[] = [
+const coreSeeds: readonly Seed[] = [
   ["Glucólisis", "Panorama", "¿Dónde ocurre la glucólisis?", "En el citosol."],
   ["Glucólisis", "Panorama", "¿Cuál es el rendimiento neto de la glucólisis por glucosa?", "2 piruvatos, 2 ATP netos y 2 NADH."],
   ["Glucólisis", "Panorama", "¿Qué dos etapas funcionales tiene la glucólisis?", "Una fase de inversión de energía y una fase de obtención de energía."],
@@ -133,6 +141,39 @@ const seeds: readonly Seed[] = [
   ["Vía de las pentosas", "Integración", "Si una célula necesita NADPH pero no ribosa-5-fosfato, ¿qué hace con los carbonos?", "Usa las fases oxidativa y no oxidativa para reciclarlos hacia intermediarios glucolíticos."],
   ["Vía de las pentosas", "Tejidos", "¿Qué tejidos dependen mucho de la vía de las pentosas?", "Hígado, tejido adiposo, corteza suprarrenal, glándula mamaria lactante y eritrocitos."],
 ]
+
+const fatMetabolismSeeds: readonly Seed[] = [
+  ["Beta oxidación", "Fundamentos", "¿Qué es la beta oxidación?", "La degradación secuencial de ácidos grasos que libera unidades de acetil-CoA."],
+  ["Beta oxidación", "Fundamentos", "¿Dónde ocurre principalmente la beta oxidación de ácidos grasos de cadena larga?", "En la matriz mitocondrial."],
+  ["Beta oxidación", "Fundamentos", "¿Cuál es la forma circulante principal de los ácidos grasos no esterificados?", "Unidos a albúmina."],
+  ["Beta oxidación", "Transporte", "¿Qué enzima activa un ácido graso antes de degradarlo?", "La acil-CoA sintetasa, que forma acil-CoA."],
+  ["Beta oxidación", "Transporte", "¿Qué costo energético tiene la activación de un ácido graso a acil-CoA?", "Equivale a 2 enlaces de alta energía de ATP, porque ATP se convierte en AMP y PPi."],
+  ["Beta oxidación", "Transporte", "¿Qué papel tiene la carnitina en el metabolismo de ácidos grasos?", "Transporta grupos acilo de cadena larga a través de la membrana mitocondrial interna."],
+  ["Beta oxidación", "Transporte", "¿Qué enzima controla la entrada de acil-CoA de cadena larga a la mitocondria?", "Carnitina palmitoiltransferasa I (CPT-I)."],
+  ["Beta oxidación", "Transporte", "¿Qué metabolito inhibe CPT-I y evita oxidar ácidos grasos mientras se sintetizan?", "Malonil-CoA."],
+  ["Beta oxidación", "Reacciones", "¿Cuáles son las cuatro reacciones repetidas de la beta oxidación?", "Oxidación por FAD, hidratación, oxidación por NAD+ y tiólisis por CoA."],
+  ["Beta oxidación", "Reacciones", "¿Qué productos se obtienen por cada vuelta de beta oxidación?", "Un acetil-CoA, un NADH y un FADH₂; salvo en la última escisión, que libera dos acetil-CoA."],
+  ["Beta oxidación", "Rendimiento e integración", "¿Qué ocurre con el acetil-CoA producido por beta oxidación en condiciones de energía suficiente?", "Puede entrar al ciclo de Krebs o contribuir a la cetogénesis hepática."],
+  ["Beta oxidación", "Rendimiento e integración", "¿Dónde se acortan inicialmente los ácidos grasos de cadena muy larga?", "En peroxisomas, antes de completar su oxidación en la mitocondria."],
+  ["Beta oxidación", "Rendimiento e integración", "¿Cómo se procesan los ácidos grasos de número impar de carbonos?", "El último fragmento es propionil-CoA, que se convierte en succinil-CoA."],
+  ["Beta oxidación", "Rendimiento e integración", "¿Qué hormonas favorecen la movilización de ácidos grasos en ayuno?", "Glucagón y adrenalina; la insulina la inhibe."],
+
+  ["Cetogénesis", "Fundamentos", "¿Qué situación favorece la cetogénesis hepática?", "Ayuno prolongado, baja insulina o diabetes descompensada, con alta beta oxidación y exceso de acetil-CoA."],
+  ["Cetogénesis", "Fundamentos", "¿En qué compartimento celular se forman los cuerpos cetónicos?", "En la matriz mitocondrial hepática."],
+  ["Cetogénesis", "Síntesis", "¿Cuáles son los tres cuerpos cetónicos?", "Acetoacetato, beta-hidroxibutirato y acetona."],
+  ["Cetogénesis", "Síntesis", "¿Cuál es el primer cuerpo cetónico formado en la vía?", "Acetoacetato."],
+  ["Cetogénesis", "Síntesis", "¿Cuál es la enzima limitante de la cetogénesis?", "La HMG-CoA sintasa mitocondrial."],
+  ["Cetogénesis", "Síntesis", "¿Qué precursor inmediato se condensa para iniciar la síntesis de cuerpos cetónicos?", "Dos moléculas de acetil-CoA, que forman acetoacetil-CoA."],
+  ["Cetogénesis", "Uso y regulación", "¿Por qué el hígado produce cuerpos cetónicos pero no los usa?", "Porque carece de la enzima succinil-CoA:acetoacetato CoA transferasa (tiotransferasa)."],
+  ["Cetogénesis", "Uso y regulación", "¿Qué tejidos pueden utilizar cuerpos cetónicos como combustible?", "Músculo, corazón, corteza renal y cerebro durante ayuno prolongado."],
+  ["Cetogénesis", "Uso y regulación", "¿Por qué los cuerpos cetónicos pueden servir al cerebro pero los ácidos grasos de cadena larga no?", "Porque los cuerpos cetónicos atraviesan la barrera hematoencefálica con facilidad."],
+  ["Cetogénesis", "Uso y regulación", "¿Qué cuerpo cetónico no puede convertirse de nuevo en acetil-CoA?", "La acetona, que se elimina sobre todo por el aliento."],
+  ["Cetogénesis", "Clínica", "¿Qué es la cetonemia?", "El aumento de cuerpos cetónicos en la sangre."],
+  ["Cetogénesis", "Clínica", "¿Qué trastorno ácido-base puede producir una acumulación marcada de cuerpos cetónicos?", "Acidosis metabólica con anión gap elevado."],
+  ["Cetogénesis", "Clínica", "¿Cómo reduce la insulina la producción de cuerpos cetónicos?", "Inhibe la lipólisis, disminuye la llegada de ácidos grasos al hígado y reduce la beta oxidación."],
+]
+
+const seeds: readonly Seed[] = [...coreSeeds, ...fatMetabolismSeeds]
 
 export const bioquimicaFlashcards: Flashcard[] = seeds.map(([topic, subtopic, front, back], index) => ({
   id: `bioquimica-${topic.toLocaleLowerCase("es").normalize("NFD").replace(/[\u0300-\u036f]/g, "").replaceAll(/[^a-z0-9]+/g, "-").replaceAll(/^-|-$/g, "")}-${String(index + 1).padStart(3, "0")}`,

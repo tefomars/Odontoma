@@ -2,9 +2,9 @@ import { describe, expect, it } from "vitest"
 import { questions, questionCountsByChapter } from "."
 
 describe("quizzes de Bioquímica", () => {
-  it("cubre los seis temas de los cuestionarios escritos", () => {
-    expect(Object.keys(questionCountsByChapter)).toHaveLength(6)
-    for (const count of Object.values(questionCountsByChapter)) expect(count).toBeGreaterThanOrEqual(10)
+  it("cubre los ocho temas de los cuestionarios escritos", () => {
+    expect(Object.keys(questionCountsByChapter)).toHaveLength(8)
+    for (const count of Object.values(questionCountsByChapter)) expect(count).toBeGreaterThanOrEqual(16)
   })
 
   it("usa distractores distintos y distribuye las respuestas correctas", () => {

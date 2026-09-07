@@ -30,3 +30,5 @@ Estos diagramas se usan como fondo de las tarjetas de selección; se mantienen s
 - `bioquimica/glycogen.svg` — *Glycogen structure*. Mikael Häggström. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Glycogen_structure.svg). Dominio público.
 - `bioquimica/gluconeogenesis.svg` — *Gluconeogenesis-es*. AngelHerraez. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Gluconeogenesis-es.svg). Licencia: CC BY-SA 3.0.
 - `bioquimica/pentose-phosphate.svg` — *Pentose phosphate pathway*. Pisum. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Pentose_phosphate_pathway.svg). Dominio público.
+- `bioquimica/beta-oxidation.svg` — *Beta oksydacja*. Pisum. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Beta_oksydacja.svg). Dominio público.
+- `bioquimica/ketogenesis.svg` — *Ketogenesis*. Uthbrian. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Ketogenesis.svg). Dominio público.

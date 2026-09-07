@@ -5,6 +5,8 @@ import electronTransportImage from "@/assets/bioquimica/electron-transport.svg"
 import glycogenImage from "@/assets/bioquimica/glycogen.svg"
 import gluconeogenesisImage from "@/assets/bioquimica/gluconeogenesis.svg"
 import pentosePhosphateImage from "@/assets/bioquimica/pentose-phosphate.svg"
+import betaOxidationImage from "@/assets/bioquimica/beta-oxidation.svg"
+import ketogenesisImage from "@/assets/bioquimica/ketogenesis.svg"
 
 const entries = [
   ["Glucólisis", "Glucólisis", "Control, rendimiento, destinos del piruvato y reoxidación de NADH.", glycolysisImage],
@@ -12,7 +14,9 @@ const entries = [
   ["Cadena respiratoria", "Cadena respiratoria y fosforilación oxidativa", "Complejos, lanzaderas, gradiente de protones, ATP sintasa e inhibidores.", electronTransportImage],
   ["Metabolismo del glucógeno", "Glucogénesis y glucogenólisis", "Síntesis, degradación, regulación hormonal y diferencias entre hígado y músculo.", glycogenImage],
   ["Gluconeogénesis", "Gluconeogénesis", "Precursores, bypases, regulación y ciclos de Cori y glucosa-alanina.", gluconeogenesisImage],
-  ["Vía de las pentosas", "Vía de las pentosas fosfato", "NADPH, ribosa-5-fosfato, fases, G6PD e integración con glucólisis.", pentosePhosphateImage]
+  ["Vía de las pentosas", "Vía de las pentosas fosfato", "NADPH, ribosa-5-fosfato, fases, G6PD e integración con glucólisis.", pentosePhosphateImage],
+  ["Beta oxidación", "Beta oxidación de ácidos grasos", "Movilización, carnitina, reacciones, rendimiento, ácidos grasos impares e insaturados.", betaOxidationImage],
+  ["Cetogénesis", "Cetogénesis", "Cuerpos cetónicos, síntesis hepática, utilización extrahepática y cetoacidosis.", ketogenesisImage]
 ] as const
 
 export const chapters = entries.map(([id, title, description, image], index) => ({
