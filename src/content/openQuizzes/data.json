@@ -2452,6 +2452,206 @@
           "source": ""
         }
       ]
+    },
+    {
+      "id": "open-deck-1788739916882-3f185089-ffaa-4799-8b25-be4e8bf375fc",
+      "title": "Bioquímica Segundo Parcial - Beta Oxidación de Ácidos Grasos",
+      "subject": "Bioquímica",
+      "color": "#faff00",
+      "classSymbol": "▰",
+      "classColor": "#0f8017",
+      "description": "Conversión de ácidos grasos a energía",
+      "questions": [
+        {
+          "id": "open-question-1788740037311-f21cd1dd-eeaf-42a4-bbfc-095595afcb3e",
+          "prompt": "Qué es la beta oxidación?",
+          "modelAnswer": "Proceso por cual se rompen ácidos grasos para formar estructuras de 2 carbonos (Acetil-CoA)",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1788740063661-10cdf1f8-6e9f-4b9d-8c62-1d483b037912",
+          "prompt": "Explique qué sucede cuando el ácido graso tiene una cadena impar",
+          "modelAnswer": "Uno de los carbonos se rompe como triplete para formar Propionil-CoA\n\nEl resto de los carbonos pares se convierten en Acetil-CoA",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1788740116979-fa762dfa-9715-44b7-867e-f58887437e4b",
+          "prompt": "Qué tipo de ácidos grasos NO pueden sufrir beta-oxidación directamente y qué proceso necesitan sufrir para hacerlo?",
+          "modelAnswer": "Ácidos grasos insaturados: Necesitan perder sus dobles enlaces por las enzimas Isomerasa y Reductasa",
+          "acceptedPoints": [
+            "Ácidos grasos con cadena muy larga: Deben ir a los peroxisomas para acortar su cadena para poder sufrir beta oxidación EN LA MITOCONDRIA"
+          ],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1788740231942-2446fbdc-a54c-4d4f-9b8f-82211e0bf93e",
+          "prompt": "Qué necesita el ácido graso para poder atravesar la membrana mitocondrial externa? Qué enzima media este proceso?",
+          "modelAnswer": "Debe estar activado.\nSe activa por la Acil-Coa Sintetasa, que le agrega un CoA al ácido graso",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1788740275508-e92bab4f-29cf-4dc9-9adb-2f448af4dd8e",
+          "prompt": "Qué se tiene que hacer con el ácido graso activado para que logre atravesar la membrana mitocondrial interna?",
+          "modelAnswer": "La enzima Carnitina-AcilTransferasa 1 (CAT1) debe colocar al ácido graso en un transportador Carnitina, quien permite que atraviese la membrana. \n",
+          "acceptedPoints": [],
+          "explanation": "Media vez esté en la matriz, CAT2 libera al ácido graso y recicla a la Carnitina",
+          "source": ""
+        },
+        {
+          "id": "open-question-1788740387560-d1ae4187-85b1-4f26-8427-3c3848d4a60b",
+          "prompt": "Explique la relación entre los peroxisomas y los ácidos grasos",
+          "modelAnswer": "Permite la beta-oxidación de ácidos grasos de cadena muy larga para que cuando lleguen a la mitocondria el proceso sea más eficiente.",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1788740482458-108f9a8d-6496-4e14-9855-2a4f032d8863",
+          "prompt": "Explique el trayecto de ácidos grasos desde el adipocito hasta el músculo/hígado",
+          "modelAnswer": "1. Movilización de ácidos grasos inducido por glucagón o adrenalina\n2. Ácidos grasos se transportan por albúmina en el torrente sanguíneo\n3. Llegan al hígado o músculo para sufrir beta-oxidación",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1788740579560-5f1e695a-7da4-4234-8854-833435bd1455",
+          "prompt": "Cuáles son los productos de la beta oxidación?",
+          "modelAnswer": "Por cada 2 carbonos de la cadena:\n- 1 Acetil-CoA\n- 1 NADH2\n- 1 FADH2",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1788740667589-12077c9b-9e07-43bb-b8b0-6eca54522c42",
+          "prompt": "Qué cuatro procesos se llevan a cabo por cada dos carbonos de la cadena del ácido graso, en la beta oxidación?",
+          "modelAnswer": "1. Oxidación por FAD+\n2. Hidratación\n3. Oxidación por NAD+\n4. Tiólisis por CoA",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1788740725755-0de43aa3-7b0a-441d-b175-9c5bdb25668b",
+          "prompt": "Cuáles son los posibles destinos del Acetil-CoA producto de la beta-oxidación?",
+          "modelAnswer": "Ciclo de Krebs\nCetogénesis (cuando hay demasiado Acetil-CoA)",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1788740758887-3e6f097d-185d-456c-8009-cfd15d89a419",
+          "prompt": "Mencione el sitio de la célula donde sucede: Activación de ácidos grasos, Beta oxidación\n",
+          "modelAnswer": "Activación: Citosol\nBeta oxidación: Matriz mitocondrial",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1788740851820-e332d2f5-c8bd-47da-a8cf-4a201157b78f",
+          "prompt": "Cuál es el uso del Propionil-CoA?",
+          "modelAnswer": "Entra al Ciclo de Krebs",
+          "acceptedPoints": [],
+          "explanation": "Entra como Succinil-CoA para generar ATP y NADH",
+          "source": ""
+        },
+        {
+          "id": "open-question-1788740893338-17141dfc-7ef5-4098-83c1-7ef8cb2f7f4d",
+          "prompt": "Mencione el orden en que se consumen las diferentes moléculas energéticas cuando necesitamos obtener energía",
+          "modelAnswer": "1. Glucosa\n2. Glucógeno\n3. Aminoácidos\n4. Ácidos grasos",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": "open-deck-1788740943918-6441a862-a66b-4b1a-b8af-c70bd6e6094c",
+      "title": "Bioquímica Segundo Parcial - Cetogénesis",
+      "subject": "Bioquímica",
+      "color": "#0f8017",
+      "classSymbol": "▰",
+      "classColor": "#0f8017",
+      "description": "Cuando tenemos demasiada Acetil-CoA y no sabemos que hacer con ella...",
+      "questions": [
+        {
+          "id": "open-question-1788740958835-adb5b9af-73ea-40fc-8611-17abf3d560e7",
+          "prompt": "Cuándo se forman los cuerpos cetónicos?",
+          "modelAnswer": "Cuando hay degradación excesiva de ácidos grasos y se produce demasiada Acetil-CoA",
+          "acceptedPoints": [],
+          "explanation": "Tanta que krebs ya no puede más",
+          "source": ""
+        },
+        {
+          "id": "open-question-1788741009315-621a5166-dfac-4d10-9236-882986d23a52",
+          "prompt": "Cuáles son los tres cuerpos cetónicos principales?",
+          "modelAnswer": "1. Acetoacetato\n2. Hidroxibutirato\n3. Acetona",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1788741049920-d9d56860-9973-4887-b689-6919b8615d4f",
+          "prompt": "Cuál es el primer cuerpo cetónico y cómo se forma?",
+          "modelAnswer": "El acetoacetato\n--> Se forma por condensación de dos moléculas de Acetil-CoA",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1788741074317-abda1397-df2f-4c84-8939-ff9d1e6c86b1",
+          "prompt": "Durante ayuno prolongado, qué tejido priorizan los cuerpos cetónicos para proveer energía?",
+          "modelAnswer": "Al cerebro, porque a diferencia de los ácidos grasos, ellos sí pueden atravesar la barrera hematoencefálica",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1788741126052-eeb31947-09aa-40a1-923f-b97f686abaf9",
+          "prompt": "Qué proceso debe sufrir el Acetoacetato para convertirse en 2 Acetil-CoA?",
+          "modelAnswer": "Dos enzimas deben actuar en élla: Transferasa y Tiolasa",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1788741169615-81c96cd0-52a6-4ca8-a868-545a3a7fc6fb",
+          "prompt": "Qué se obtiene a partir de un Acetoacetato?",
+          "modelAnswer": "Puede ser:\n2 Acetil-Coa\nHidroxibutirato (Reversible)\nAcetona (Irreversible)",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1788741201251-222bb5b6-2eba-480d-b5d0-ce6d9eef18ea",
+          "prompt": "Qué es la cetoacidosis y qué cuadro clínico presenta?",
+          "modelAnswer": "Es la acumulación de cuerpos cetónicos en la sangre.\nSe caracteriza por decaimiento y náuseas. \n--> Causa acidosis metabólica",
+          "acceptedPoints": [],
+          "explanation": "Acidosis metabólica porque los cuerpos cetónicos son ácidos y son tantos que acaban con las reservas de bicarbonato.",
+          "source": ""
+        },
+        {
+          "id": "open-question-1788741275033-c0d26267-6f0d-41c1-a5ff-5beecba4464e",
+          "prompt": "A qué tejido no pueden proveer energía los cuerpos cetónicos?",
+          "modelAnswer": "Al hígado",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1788741299246-a3853099-97a2-4d51-8df7-279bf261bf28",
+          "prompt": "Cómo podemos inhibir la cetogénesis?",
+          "modelAnswer": "Inhibiendo la movilización de ácidos grasos y, de esta forma, limitar la beta-oxidación y sus productos de Acetil-CoA",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        }
+      ]
     }
   ]
 }
