@@ -2260,7 +2260,7 @@
         {
           "id": "open-question-1788649148714-96a656fa-fadc-4aac-85f9-2a8d717ae9b9",
           "prompt": "Qué es la gluconeogénesis y cuál es su función?",
-          "modelAnswer": "Es la síntesis de glucosa a partir de precursores de glúcidos. Permite mantener los niveles de glucosa en sangre durante el ayuno.",
+          "modelAnswer": "Es la síntesis de glucosa a partir de precursores no glúcidos. Permite mantener los niveles de glucosa en sangre durante el ayuno.",
           "acceptedPoints": [],
           "explanation": "",
           "source": ""
