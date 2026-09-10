@@ -85,6 +85,7 @@ import {
 import {
   loadStats,
   saveStats,
+  resetQuestionBankStats,
   type AnswerStats
 } from "@/lib/stats"
 
@@ -122,9 +123,12 @@ import {
 
 import {
   saveQuizAttempt,
+  removeQuizAttemptsForQuestionIds,
   type QuizAttempt,
   type QuizResponseRecord
 } from "@/lib/quizHistory"
+
+import { deleteFsrsCardHistory } from "@/lib/flashcardStorage"
 
 function VersionBadge() {
   return (
@@ -234,6 +238,8 @@ export default function App() {
       amount: number
       preference: "new" | "incorrect" | "mixed"
     } | null>(null)
+
+  const [prePartialQuizReview, setPrePartialQuizReview] = useState(false)
 
   const [selectedCustomPageId, setSelectedCustomPageId] =
     useState<string | null>(null)
@@ -931,6 +937,7 @@ export default function App() {
     setShowBackup(false)
     setShowPrePartialReview(false)
     setPrePartialFlashcardReview(null)
+    setPrePartialQuizReview(false)
     setSelectedCustomPageId(null)
     setSelectedSubject(null)
     setSelectedQuizMode(null)
@@ -979,6 +986,7 @@ export default function App() {
     if (selected.length === 0) return
 
     setShowPrePartialReview(false)
+    setPrePartialQuizReview(true)
     setSelectedStudyMethod("quizzes")
     setSelectedQuizMode("multiple-choice")
     setSelectedSubject("histologia")
@@ -1000,11 +1008,63 @@ export default function App() {
     preference: "new" | "incorrect" | "mixed"
   ) {
     setShowPrePartialReview(false)
+    setPrePartialQuizReview(false)
     setSelectedStudyMethod("flashcards")
     setPrePartialFlashcardReview({ amount, preference })
   }
 
+  function resetPrePartialCitoIIProgress() {
+    const confirmed = window.confirm(
+      "¿Reiniciar el progreso de Parcial 2 · Cito II? Se borrarán únicamente sus respuestas, incorrectas, flashcards e intentos. El resto de Odontoma no cambiará."
+    )
+
+    if (!confirmed) return
+
+    const questionIds = citoIIPrePartialQuestions.map(question => question.id)
+    resetQuestionBankStats(citoIIPrePartialQuestions)
+    removeQuizAttemptsForQuestionIds(questionIds)
+    deleteFsrsCardHistory(citoIIPrePartialFlashcards.map(card => card.id))
+
+    // Refresh in-memory data immediately so Nuevas and Incorrectas reflect
+    // the reset without requiring a page reload.
+    setStats(loadStats())
+    setSessionQuestions([])
+    setSessionResponses([])
+    setCompletedAttempt(null)
+    setReviewingAttempt(null)
+    setCurrent(0)
+    setScore(0)
+    setStarted(false)
+    setFinished(false)
+    setPrePartialFlashcardReview(null)
+    setPrePartialQuizReview(false)
+    setShowPrePartialReview(true)
+  }
+
   function goBack() {
+
+    // Pre-partial flashcards are a nested route, even though they reuse the
+    // global Flashcards screen. Keep swipe-back aligned with its Volver button.
+    if (prePartialFlashcardReview) {
+      setPrePartialFlashcardReview(null)
+      setSelectedStudyMethod(null)
+      setShowPrePartialReview(true)
+      return
+    }
+
+    if (prePartialQuizReview) {
+      setPrePartialQuizReview(false)
+      setStarted(false)
+      setFinished(false)
+      setSessionQuestions([])
+      setSessionResponses([])
+      setCurrent(0)
+      setScore(0)
+      setSelectedStudyMethod(null)
+      setShowPrePartialReview(true)
+      localStorage.removeItem("odontoma_paused_session")
+      return
+    }
 
     if (showBackup) {
       setShowBackup(false)
@@ -1285,6 +1345,7 @@ export default function App() {
           onMainMenu={goToMainMenu}
           onStartMultipleChoice={startPrePartialMultipleChoice}
           onStartFlashcards={startPrePartialFlashcards}
+          onResetPartial={resetPrePartialCitoIIProgress}
         />
       </ScreenTransition>
     )

@@ -24,6 +24,8 @@ import {
   suspendFlashcard
 } from "@/lib/suspendedFlashcards"
 
+import { shuffleArray } from "@/lib/shuffleQuestion"
+
 import type { Flashcard } from "@/content/flashcards/histologia/cards"
 
 type Props = {
@@ -229,12 +231,25 @@ export default function FlashcardReviewScreen({
 
   const dueCards =
     useMemo(
-      () =>
-        getDueFsrsCards(
+      () => {
+        const ordered = getDueFsrsCards(
           reviewEligibleCards,
           storage.cards,
           newCardOrderSeed
-        ).slice(0, limit),
+        )
+
+        // FSRS must still serve due reviews before unseen cards, but the
+        // cards within each group should not appear in topic/source order.
+        const dueReviewCount = reviewEligibleCards.filter(card => {
+          const state = storage.cards[card.id]
+          return Boolean(state) && new Date(state.dueDate).getTime() <= Date.now()
+        }).length
+
+        return [
+          ...shuffleArray(ordered.slice(0, dueReviewCount)),
+          ...shuffleArray(ordered.slice(dueReviewCount))
+        ].slice(0, limit)
+      },
       [reviewEligibleCards, storage, newCardOrderSeed, limit]
     )
 

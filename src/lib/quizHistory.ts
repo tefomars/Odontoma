@@ -100,3 +100,15 @@ export function removeQuizAttempt(attemptId: string) {
   localStorage.setItem(QUIZ_HISTORY_KEY, JSON.stringify(next))
   return next
 }
+
+export function removeQuizAttemptsForQuestionIds(questionIds: string[]) {
+  if (questionIds.length === 0) return loadQuizHistory()
+
+  const ids = new Set(questionIds)
+  const next = loadQuizHistory().filter(attempt =>
+    !attempt.responses.some(response => ids.has(response.questionId))
+  )
+
+  localStorage.setItem(QUIZ_HISTORY_KEY, JSON.stringify(next))
+  return next
+}

@@ -235,8 +235,8 @@ const facts: Fact[] = [
   },
   {
     "id": 46,
-    "question": "Sobre intestino grueso, mencione características correctas.",
-    "answer": "Contiene glándulas intestinales, absorbe agua y electrolitos, carece de vellosidades y posee abundantes células caliciformes."
+    "question": "¿Qué tres rasgos especializados presenta la lámina propia del intestino grueso?",
+    "answer": "Meseta de colágeno, vaina fibroblástica pericríptica y GALT más desarrollado, continuo con el íleon terminal."
   },
   {
     "id": 47,
@@ -710,7 +710,7 @@ const authoredDistractors: Record<number, [string, string, string]> = {
   43: ["Glándulas submucosas de Brunner.", "Vellosidades más largas que en yeyuno.", "Criptas gástricas profundas."],
   44: ["Posee vellosidades cortas y pocas células caliciformes.", "Posee glándulas de Brunner en la submucosa.", "Presenta placas de Peyer en toda la pared."],
   45: ["Duodeno, yeyuno, íleon y colon.", "Ciego, yeyuno, colon y recto.", "Colon, hígado, recto y conducto anal."],
-  46: ["Presenta vellosidades y absorbe principalmente nutrientes.", "Carece de glándulas intestinales y secreta HCl.", "Posee glándulas de Brunner y placas de Peyer como rasgo dominante."]
+  46: ["Meseta de colágeno, muscular de la mucosa engrosada y ausencia de GALT.", "Vaina fibroblástica pericríptica, vellosidades altas y placas de Peyer aisladas.", "Glándulas de Brunner, meseta de colágeno y GALT limitado al apéndice."]
   ,47: ["Masticatoria, glandular y especializada.", "De revestimiento, serosa y especializada.", "Masticatoria, respiratoria y gustativa."],
   48: ["Paladar blando y mucosa alveolar; epitelio plano estratificado no queratinizado.", "Encía y mejilla; epitelio cilíndrico simple.", "Lengua ventral y paladar duro; epitelio pseudoestratificado."],
   49: ["Mucosa masticatoria de la encía y paladar duro.", "Mucosa de revestimiento de mejillas y labios.", "Mucosa glandular de la submucosa lingual."],

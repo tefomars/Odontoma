@@ -121,3 +121,66 @@ export function deleteQuestionStats(questionIds: string[]) {
 
   saveStats(stats)
 }
+
+/**
+ * Removes the recorded progress for a self-contained bank without resetting
+ * the rest of the application's statistics. Tags are adjusted by exactly the
+ * same records that are being removed.
+ */
+export function resetQuestionBankStats(
+  questions: Array<{ id: string; tags?: string[] }>
+) {
+  if (questions.length === 0) return loadStats()
+
+  const stats = loadStats()
+  const tagDeltas: Record<string, { correct: number; incorrect: number }> = {}
+  let removedCorrect = 0
+  let removedIncorrect = 0
+
+  for (const question of questions) {
+    const record = stats.questions[question.id]
+    if (!record) continue
+
+    const correct = record.correct || 0
+    const incorrect = record.incorrect || 0
+    removedCorrect += correct
+    removedIncorrect += incorrect
+
+    for (const tag of question.tags || []) {
+      const delta = tagDeltas[tag] || { correct: 0, incorrect: 0 }
+      delta.correct += correct
+      delta.incorrect += incorrect
+      tagDeltas[tag] = delta
+    }
+
+    delete stats.questions[question.id]
+  }
+
+  stats.totalAnswered = Math.max(0, stats.totalAnswered - removedCorrect - removedIncorrect)
+  stats.totalCorrect = Math.max(0, stats.totalCorrect - removedCorrect)
+
+  for (const [tag, delta] of Object.entries(tagDeltas)) {
+    const record = stats.tags[tag]
+    if (!record) continue
+
+    const correct = Math.max(0, (record.correct || 0) - delta.correct)
+    const incorrect = Math.max(0, (record.incorrect || 0) - delta.incorrect)
+
+    if (correct === 0 && incorrect === 0) {
+      delete stats.tags[tag]
+    } else {
+      stats.tags[tag] = {
+        ...record,
+        correct,
+        incorrect,
+        recent: [],
+        correctStreak: 0,
+        lastCorrect: undefined,
+        lastAnsweredAt: undefined
+      }
+    }
+  }
+
+  saveStats(stats)
+  return stats
+}

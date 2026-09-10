@@ -9,6 +9,7 @@ type Props = {
   onMainMenu: () => void
   onStartMultipleChoice: (amount: number, preference: ReviewMode) => void
   onStartFlashcards: (amount: number, preference: ReviewMode) => void
+  onResetPartial: () => void
 }
 
 const classes = [
@@ -21,7 +22,7 @@ type ReviewType = "Opción múltiple" | "Flashcards esenciales"
 type ReviewPreference = "Nuevas" | "Incorrectas" | "Mezcla"
 type ReviewMode = "new" | "incorrect" | "mixed"
 
-export default function PrePartialReviewScreen({ onBack, onMainMenu, onStartMultipleChoice, onStartFlashcards }: Props) {
+export default function PrePartialReviewScreen({ onBack, onMainMenu, onStartMultipleChoice, onStartFlashcards, onResetPartial }: Props) {
   const [selectedClass, setSelectedClass] = useState<(typeof classes)[number] | null>(null)
   const [reviewType, setReviewType] = useState<ReviewType | null>(null)
   const [selectedPreference, setSelectedPreference] = useState<ReviewPreference>("Mezcla")
@@ -122,6 +123,16 @@ export default function PrePartialReviewScreen({ onBack, onMainMenu, onStartMult
                       Todas
                     </button>
                   </div>
+                  <button
+                    type="button"
+                    onClick={onResetPartial}
+                    className="mt-5 w-full rounded-xl border border-rose-400/40 bg-rose-500/10 px-3 py-3 text-sm font-black text-rose-200 transition hover:bg-rose-500/20"
+                  >
+                    ↺ Reiniciar progreso de este parcial
+                  </button>
+                  <p className="mt-2 text-center text-xs leading-relaxed text-zinc-500">
+                    Solo borra el avance de este banco: nuevas, incorrectas, flashcards e intentos.
+                  </p>
                 </article>
               ))}
             </div>
