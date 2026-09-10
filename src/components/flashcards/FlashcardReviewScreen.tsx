@@ -24,12 +24,17 @@ import {
   suspendFlashcard
 } from "@/lib/suspendedFlashcards"
 
+import type { Flashcard } from "@/content/flashcards/histologia/cards"
+
 type Props = {
   onBack: () => void
   onMenu?: () => void
   selectedTopic?: string
   selectedSubtopic?: string
   source?: FlashcardSource
+  cards?: Flashcard[]
+  limit?: number
+  reviewPreference?: "new" | "incorrect" | "mixed"
 }
 
 const ratingLabels: Record<FsrsRating, string> = {
@@ -107,7 +112,10 @@ export default function FlashcardReviewScreen({
   onMenu,
   selectedTopic = "all",
   selectedSubtopic,
-  source = "default"
+  source = "default",
+  cards: suppliedCards,
+  limit,
+  reviewPreference = "mixed"
 }: Props) {
 
   const [storage, setStorage] =
@@ -142,13 +150,13 @@ export default function FlashcardReviewScreen({
         void suspendedVersion
 
         return filterActiveFlashcards(
-          getFlashcardsBySource(
+          suppliedCards ?? getFlashcardsBySource(
             source,
             source === "user" ? selectedTopic : undefined
           )
         )
       },
-      [source, selectedTopic, suspendedVersion]
+      [source, selectedTopic, suppliedCards, suspendedVersion]
     )
 
   const filteredCards =
@@ -198,15 +206,36 @@ export default function FlashcardReviewScreen({
       [allCards, selectedTopic, selectedSubtopic, source]
     )
 
+  const reviewEligibleCards =
+    useMemo(
+      () => {
+        if (reviewPreference === "new") {
+          return filteredCards.filter(card => !storage.cards[card.id])
+        }
+
+        if (reviewPreference === "incorrect") {
+          const incorrectIds = new Set(
+            storage.reviews
+              .filter(review => review.rating === "again")
+              .map(review => review.cardId)
+          )
+          return filteredCards.filter(card => incorrectIds.has(card.id))
+        }
+
+        return filteredCards
+      },
+      [filteredCards, reviewPreference, storage]
+    )
+
   const dueCards =
     useMemo(
       () =>
         getDueFsrsCards(
-          filteredCards,
+          reviewEligibleCards,
           storage.cards,
           newCardOrderSeed
-        ),
-      [filteredCards, storage, newCardOrderSeed]
+        ).slice(0, limit),
+      [reviewEligibleCards, storage, newCardOrderSeed, limit]
     )
 
   const nextDueDate =

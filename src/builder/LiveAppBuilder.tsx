@@ -50,6 +50,8 @@ const destinationOptions: Array<{
 const mainMenuDestinationOptions: Array<{ value: AppMenuDestination; label: string }> = [
   { value: "quizzes", label: "Abrir Quizzes" },
   { value: "flashcards", label: "Abrir Flashcards" },
+  { value: "pre-partial", label: "Repaso pre-parcial" },
+  { value: "backup", label: "Abrir Backup" },
   { value: "coming-soon", label: "Sin acción por ahora" }
 ]
 

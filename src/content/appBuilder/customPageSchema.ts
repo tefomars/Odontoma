@@ -5,6 +5,8 @@ export type CustomPageDestination =
   | "multiple-choice"
   | "open-ended"
   | "my-quizzes"
+  | "backup"
+  | "pre-partial"
   | "coming-soon"
   | `custom-page:${string}`
 
@@ -34,6 +36,8 @@ const knownDestinations = new Set([
   "multiple-choice",
   "open-ended",
   "my-quizzes",
+  "backup",
+  "pre-partial",
   "coming-soon"
 ])
 

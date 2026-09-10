@@ -18,6 +18,24 @@
         "subtitle": "Repasá tarjetas con FSRS, decks por materia y tus propios mazos.",
         "symbol": "↻",
         "accentColor": "#10b981"
+      },
+      {
+        "id": "pre-partial",
+        "eyebrow": "Repaso rápido",
+        "title": "Repaso pre-parcial",
+        "subtitle": "Exámenes y Flashcards de conceptos fundamentales para repasos un día antes del parcial...",
+        "symbol": "⚡",
+        "accentColor": "#f59e0b",
+        "destination": "pre-partial"
+      },
+      {
+        "id": "backup",
+        "eyebrow": "Tus datos",
+        "title": "Backup",
+        "subtitle": "Exportá, importá y protegé tu progreso y tus quizzes.",
+        "symbol": "⇅",
+        "accentColor": "#38bdf8",
+        "destination": "backup"
       }
     ]
   },

@@ -55,6 +55,9 @@ type HomeSubject = {
   destination:
     | "histologia"
     | "filosofia-de-hayek"
+    | "microbiologia"
+    | "bioquimica"
+    | "semiologia"
     | "open-quizzes"
     | "coming-soon"
 }
@@ -93,7 +96,13 @@ type FlashcardSubjectBlock = {
   description: string
   accent: string
   accentColor: string
-  destination: "histologia" | "proceso-economico-i" | "filosofia-de-hayek" | "coming-soon"
+  destination:
+    | "histologia"
+    | "proceso-economico-i"
+    | "filosofia-de-hayek"
+    | "semiologia"
+    | "bioquimica"
+    | "coming-soon"
 }
 
 const builderThemePath = path.resolve(
@@ -287,6 +296,8 @@ function validateHomeContent(value: unknown): value is HomeContent {
     "histologia",
     "filosofia-de-hayek",
     "microbiologia",
+    "bioquimica",
+    "semiologia",
     "open-quizzes",
     "coming-soon"
   ])
@@ -308,7 +319,18 @@ function validateHomeContent(value: unknown): value is HomeContent {
     return false
   }
 
-  const menuDestinations = new Set(["home", "quizzes", "flashcards", "multiple-choice", "open-ended", "my-quizzes", "coming-soon"])
+  const menuDestinations = new Set([
+    "home",
+    "quizzes",
+    "flashcards",
+    "multiple-choice",
+    "open-ended",
+    "my-quizzes",
+    "history",
+    "backup",
+    "pre-partial",
+    "coming-soon"
+  ])
   const validMenuDestination = (destination?: string) => destination === undefined ||
     menuDestinations.has(destination) || /^custom-page:[a-z0-9][a-z0-9-]{0,149}$/i.test(destination)
   const validCards = (cards: AppMenuCard[]) => cards.length <= 100 &&
@@ -354,7 +376,14 @@ function validateHomeContent(value: unknown): value is HomeContent {
 function validateFlashcardSubjects(value: unknown): value is FlashcardSubjectBlock[] {
   if (!Array.isArray(value) || value.length > 100) return false
   const ids = new Set<string>()
-  const destinations = new Set(["histologia", "proceso-economico-i", "filosofia-de-hayek", "coming-soon"])
+  const destinations = new Set([
+    "histologia",
+    "proceso-economico-i",
+    "filosofia-de-hayek",
+    "semiologia",
+    "bioquimica",
+    "coming-soon"
+  ])
   return value.every(subject => {
     if (!subject ||
       !validText(subject.id, 150, true) || ids.has(subject.id) ||

@@ -1,6 +1,5 @@
 import logoImage from "@/assets/logo.png"
 
-import BackupPanel from "@/components/BackupPanel"
 import {
   mainMenuContent,
   type AppMenuCard,
@@ -118,7 +117,6 @@ export default function StudyMethodScreen({
           </div>
         </section>
 
-        {!editorMode && <BackupPanel />}
       </div>
     </main>
   )

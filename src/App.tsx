@@ -23,6 +23,8 @@ import OpenQuizSessionScreen from "./components/OpenQuizSessionScreen"
 import QuizHistoryScreen from "./components/QuizHistoryScreen"
 import QuizReviewScreen from "./components/QuizReviewScreen"
 import CustomPageScreen from "./components/CustomPageScreen"
+import BackupScreen from "./components/BackupScreen"
+import PrePartialReviewScreen from "./components/PrePartialReviewScreen"
 import { customPages, type CustomPageDestination } from "@/content/appBuilder/customPages"
 
 import {
@@ -112,6 +114,11 @@ import type { OpenQuizDeck, OpenQuizQuestion } from "@/content/openQuizzes"
 import type {
   FlashcardSource
 } from "@/lib/flashcardDecks"
+
+import {
+  citoIIPrePartialFlashcards,
+  citoIIPrePartialQuestions
+} from "@/content/prePartial/citoII"
 
 import {
   saveQuizAttempt,
@@ -217,6 +224,16 @@ export default function App() {
 
   const [selectedStudyMethod, setSelectedStudyMethod] =
     useState<"quizzes" | "flashcards" | null>(null)
+
+  const [showBackup, setShowBackup] = useState(false)
+
+  const [showPrePartialReview, setShowPrePartialReview] = useState(false)
+
+  const [prePartialFlashcardReview, setPrePartialFlashcardReview] =
+    useState<{
+      amount: number
+      preference: "new" | "incorrect" | "mixed"
+    } | null>(null)
 
   const [selectedCustomPageId, setSelectedCustomPageId] =
     useState<string | null>(null)
@@ -911,6 +928,9 @@ export default function App() {
   function goToMainMenu() {
 
     setSelectedStudyMethod(null)
+    setShowBackup(false)
+    setShowPrePartialReview(false)
+    setPrePartialFlashcardReview(null)
     setSelectedCustomPageId(null)
     setSelectedSubject(null)
     setSelectedQuizMode(null)
@@ -936,7 +956,65 @@ export default function App() {
     setReviewingAttempt(null)
   }
 
+  function startPrePartialMultipleChoice(
+    amount: number,
+    preference: "new" | "incorrect" | "mixed"
+  ) {
+    const answered = (questionId: string) => {
+      const record = stats.questions?.[questionId]
+      return (record?.correct || 0) + (record?.incorrect || 0)
+    }
+
+    const pool =
+      preference === "new"
+        ? citoIIPrePartialQuestions.filter(question => answered(question.id) === 0)
+        : preference === "incorrect"
+          ? citoIIPrePartialQuestions.filter(question => (stats.questions?.[question.id]?.incorrect || 0) > 0)
+          : citoIIPrePartialQuestions
+
+    const selected = shuffleQuestionsBalanced(
+      shuffleArray(pool).slice(0, amount)
+    )
+
+    if (selected.length === 0) return
+
+    setShowPrePartialReview(false)
+    setSelectedStudyMethod("quizzes")
+    setSelectedQuizMode("multiple-choice")
+    setSelectedSubject("histologia")
+    setSelectedChapters(["Parcial 2 · Cito II"])
+    setSessionQuestions(selected)
+    setSessionResponses([])
+    setCompletedAttempt(null)
+    setReviewingAttempt(null)
+    setCurrent(0)
+    setScore(0)
+    setFinished(false)
+    setStarted(true)
+    setHasPausedSession(false)
+    localStorage.removeItem("odontoma_paused_session")
+  }
+
+  function startPrePartialFlashcards(
+    amount: number,
+    preference: "new" | "incorrect" | "mixed"
+  ) {
+    setShowPrePartialReview(false)
+    setSelectedStudyMethod("flashcards")
+    setPrePartialFlashcardReview({ amount, preference })
+  }
+
   function goBack() {
+
+    if (showBackup) {
+      setShowBackup(false)
+      return
+    }
+
+    if (showPrePartialReview) {
+      setShowPrePartialReview(false)
+      return
+    }
 
     if (selectedCustomPageId) {
       setSelectedCustomPageId(null)
@@ -1061,6 +1139,16 @@ export default function App() {
 
     setSelectedCustomPageId(null)
     if (destination === "home") return goToMainMenu()
+    if (destination === "backup") {
+      setShowBackup(true)
+      setShowPrePartialReview(false)
+      return
+    }
+    if (destination === "pre-partial") {
+      setShowPrePartialReview(true)
+      setShowBackup(false)
+      return
+    }
     if (destination === "quizzes") {
       setSelectedStudyMethod("quizzes")
       setSelectedQuizMode(null)
@@ -1181,6 +1269,27 @@ export default function App() {
     )
   }
 
+  if (showBackup) {
+    return (
+      <ScreenTransition screenKey="backup">
+        <BackupScreen onBack={() => setShowBackup(false)} onMainMenu={goToMainMenu} />
+      </ScreenTransition>
+    )
+  }
+
+  if (showPrePartialReview) {
+    return (
+      <ScreenTransition screenKey="pre-partial-review">
+        <PrePartialReviewScreen
+          onBack={() => setShowPrePartialReview(false)}
+          onMainMenu={goToMainMenu}
+          onStartMultipleChoice={startPrePartialMultipleChoice}
+          onStartFlashcards={startPrePartialFlashcards}
+        />
+      </ScreenTransition>
+    )
+  }
+
 
   if (!selectedStudyMethod) {
 
@@ -1201,6 +1310,24 @@ export default function App() {
   }
 
   if (selectedStudyMethod === "flashcards") {
+
+    if (prePartialFlashcardReview) {
+      return (
+        <ScreenTransition screenKey={`prepartial-flashcards-${prePartialFlashcardReview.amount}-${prePartialFlashcardReview.preference}`}>
+          <FlashcardReviewScreen
+            cards={citoIIPrePartialFlashcards}
+            limit={prePartialFlashcardReview.amount}
+            reviewPreference={prePartialFlashcardReview.preference}
+            onMenu={goToMainMenu}
+            onBack={() => {
+              setPrePartialFlashcardReview(null)
+              setSelectedStudyMethod(null)
+              setShowPrePartialReview(true)
+            }}
+          />
+        </ScreenTransition>
+      )
+    }
 
     if (!selectedFlashcardSubject) {
 
@@ -1338,8 +1465,18 @@ export default function App() {
           selectedTopic={selectedFlashcardTopic}
           selectedSubtopic={selectedFlashcardSubtopic || undefined}
           source={selectedFlashcardSource}
+          cards={prePartialFlashcardReview ? citoIIPrePartialFlashcards : undefined}
+          limit={prePartialFlashcardReview?.amount}
+          reviewPreference={prePartialFlashcardReview?.preference}
           onMenu={goToMainMenu}
           onBack={() => {
+
+            if (prePartialFlashcardReview) {
+              setPrePartialFlashcardReview(null)
+              setSelectedStudyMethod(null)
+              setShowPrePartialReview(true)
+              return
+            }
 
             if (selectedFlashcardSource === "user") {
               setActiveUserTopicId(selectedFlashcardTopic)
