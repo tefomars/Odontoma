@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import {
   citoIIPrePartialFlashcards,
   citoIIPrePartialQuestions
@@ -10,6 +10,8 @@ type Props = {
   onStartMultipleChoice: (amount: number, preference: ReviewMode) => void
   onStartFlashcards: (amount: number, preference: ReviewMode) => void
   onResetPartial: () => void
+  initialReviewType?: ReviewType | null
+  onReviewTypeChange: (type: ReviewType | null) => void
 }
 
 const classes = [
@@ -22,14 +24,22 @@ type ReviewType = "Opción múltiple" | "Flashcards esenciales"
 type ReviewPreference = "Nuevas" | "Incorrectas" | "Mezcla"
 type ReviewMode = "new" | "incorrect" | "mixed"
 
-export default function PrePartialReviewScreen({ onBack, onMainMenu, onStartMultipleChoice, onStartFlashcards, onResetPartial }: Props) {
-  const [selectedClass, setSelectedClass] = useState<(typeof classes)[number] | null>(null)
-  const [reviewType, setReviewType] = useState<ReviewType | null>(null)
+export default function PrePartialReviewScreen({ onBack, onMainMenu, onStartMultipleChoice, onStartFlashcards, onResetPartial, initialReviewType = null, onReviewTypeChange }: Props) {
+  const [selectedClass, setSelectedClass] = useState<(typeof classes)[number] | null>(
+    initialReviewType ? classes[0] : null
+  )
+  const [reviewType, setReviewType] = useState<ReviewType | null>(initialReviewType)
   const [selectedPreference, setSelectedPreference] = useState<ReviewPreference>("Mezcla")
+
+  useEffect(() => {
+    setReviewType(initialReviewType)
+    setSelectedClass(initialReviewType ? classes[0] : null)
+  }, [initialReviewType])
 
   function closeDialog() {
     setSelectedClass(null)
     setReviewType(null)
+    onReviewTypeChange(null)
   }
 
   function pageBack() {
@@ -82,9 +92,10 @@ export default function PrePartialReviewScreen({ onBack, onMainMenu, onStartMult
                   multipleChoiceCount={citoIIPrePartialQuestions.length}
                   flashcardCount={citoIIPrePartialFlashcards.length}
                   onSelect={type => {
-                  setSelectedClass(item)
-                  setReviewType(type)
-                }} />
+                    setSelectedClass(item)
+                    setReviewType(type)
+                    onReviewTypeChange(type)
+                  }} />
               ))}
             </div>
           ) : (

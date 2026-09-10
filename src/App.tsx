@@ -130,6 +130,8 @@ import {
 
 import { deleteFsrsCardHistory } from "@/lib/flashcardStorage"
 
+type PrePartialReviewType = "Opción múltiple" | "Flashcards esenciales"
+
 function VersionBadge() {
   return (
     <div className="app-version-badge hidden lg:block">
@@ -232,6 +234,9 @@ export default function App() {
   const [showBackup, setShowBackup] = useState(false)
 
   const [showPrePartialReview, setShowPrePartialReview] = useState(false)
+
+  const [prePartialReviewType, setPrePartialReviewType] =
+    useState<PrePartialReviewType | null>(null)
 
   const [prePartialFlashcardReview, setPrePartialFlashcardReview] =
     useState<{
@@ -936,6 +941,7 @@ export default function App() {
     setSelectedStudyMethod(null)
     setShowBackup(false)
     setShowPrePartialReview(false)
+    setPrePartialReviewType(null)
     setPrePartialFlashcardReview(null)
     setPrePartialQuizReview(false)
     setSelectedCustomPageId(null)
@@ -1072,6 +1078,11 @@ export default function App() {
     }
 
     if (showPrePartialReview) {
+      if (prePartialReviewType) {
+        setPrePartialReviewType(null)
+        return
+      }
+
       setShowPrePartialReview(false)
       return
     }
@@ -1341,11 +1352,16 @@ export default function App() {
     return (
       <ScreenTransition screenKey="pre-partial-review">
         <PrePartialReviewScreen
-          onBack={() => setShowPrePartialReview(false)}
+          onBack={() => {
+            setShowPrePartialReview(false)
+            setPrePartialReviewType(null)
+          }}
           onMainMenu={goToMainMenu}
           onStartMultipleChoice={startPrePartialMultipleChoice}
           onStartFlashcards={startPrePartialFlashcards}
           onResetPartial={resetPrePartialCitoIIProgress}
+          initialReviewType={prePartialReviewType}
+          onReviewTypeChange={setPrePartialReviewType}
         />
       </ScreenTransition>
     )
