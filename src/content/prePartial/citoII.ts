@@ -670,44 +670,44 @@ function distinctDistractors(fact: Fact) {
 // from a generic answer pool: every option is a nearby, plausible confusion.
 const authoredDistractors: Record<number, [string, string, string]> = {
   1: ["Melanocito; produce melanina.", "Célula de Langerhans; presenta antígenos.", "Célula de Merkel; participa en mecanorrecepción."],
-  2: ["Célula de Langerhans derivada de médula ósea y presentadora de antígenos.", "Queratinocito basal que transfiere queratina a células vecinas.", "Célula de Merkel asociada a terminaciones nerviosas sensitivas."],
-  3: ["Melanocito del estrato basal que sintetiza melanina.", "Célula de Merkel basal que interviene en sensibilidad táctil.", "Queratinocito espinoso unido por desmosomas."],
-  4: ["Melanocito basal encargado de la síntesis de melanina.", "Célula de Langerhans suprabasal que presenta antígenos.", "Queratinocito granular que forma gránulos de queratohialina."],
+  2: ["Célula de Langerhans.", "Queratinocito.", "Célula de Merkel."],
+  3: ["Melanocito.", "Célula de Merkel.", "Queratinocito."],
+  4: ["Melanocito.", "Célula de Langerhans.", "Queratinocito."],
   5: ["Folículo piloso y glándula sudorípara ecrina.", "Glándula sebácea y glándula sudorípara apocrina.", "Músculo erector del pelo y glándula sudorípara ecrina."],
   6: ["Ecrinas: secreción oleosa hacia el folículo piloso; apocrinas: termorregulación general.", "Ecrinas: axila y región anogenital; apocrinas: palmas y plantas para termorregulación.", "Ecrinas: secreción asociada al folículo; apocrinas: secreción acuosa en toda la superficie corporal."],
   7: ["Barrera protectora, producción de células sanguíneas y digestión de lípidos.", "Regulación térmica, filtración renal y producción de bilis.", "Sensibilidad, locomoción, almacenamiento de glucógeno y hematopoyesis."],
   8: ["Basal, espinoso, lúcido, granuloso y córneo.", "Espinoso, basal, granuloso, lúcido y córneo.", "Basal, granuloso, espinoso, lúcido y córneo."],
-  9: ["Estrato espinoso, apoyado sobre la membrana basal.", "Estrato granuloso, con células madre epidérmicas.", "Estrato lúcido, con células madre epidérmicas."],
-  10: ["Estrato basal, con queratinocitos unidos por desmosomas prominentes.", "Estrato granuloso, con evaginaciones unidas por hemidesmosomas.", "Estrato córneo, con queratinocitos nucleados unidos por desmosomas."],
-  11: ["Estrato espinoso, con gránulos de queratohialina.", "Estrato basal, con gránulos de queratohialina.", "Estrato lúcido, con gránulos de queratohialina."],
+  9: ["Estrato espinoso.", "Estrato granuloso.", "Estrato lúcido."],
+  10: ["Estrato basal.", "Estrato granuloso.", "Estrato córneo."],
+  11: ["Estrato espinoso.", "Estrato basal.", "Estrato lúcido."],
   12: ["Células nucleadas con gránulos de queratohialina.", "Células cúbicas con abundantes melanocitos.", "Células dendríticas con función de presentación antigénica."],
   13: ["Depósito de proteínas insolubles en la cara externa y capa lipídica interna.", "Depósito de queratohialina interna y capa lipídica externa.", "Depósito de proteínas solubles internas y capa lipídica externa."],
-  15: ["Piel gruesa con folículos pilosos en axila; piel delgada sin folículos en palmas.", "Piel gruesa con estrato córneo delgado en palmas; piel delgada con estrato córneo grueso.", "Piel gruesa definida por dermis reticular más delgada y glándulas sebáceas."],
+  15: ["La piel gruesa tiene epidermis más gruesa, pero presenta folículos pilosos y se ubica en axila; la piel delgada carece de folículos y predomina en palmas.", "La piel gruesa tiene epidermis más delgada, estrato córneo fino y glándulas sebáceas; la piel delgada posee epidermis más gruesa y se ubica en plantas.", "La piel gruesa tiene epidermis más gruesa, conserva folículos pilosos y se localiza en cuero cabelludo; la piel delgada carece de anexos y se ubica en palmas."],
   16: ["Epidermis, hipodermis y dermis; la dermis contiene tejido adiposo.", "Dermis y serosa; la epidermis se ubica profunda a la hipodermis.", "Epidermis y mucosa; la hipodermis forma parte de la epidermis."],
   17: ["Dermis basal y dermis espinosa.", "Dermis granulosa y dermis córnea.", "Dermis mucosa y dermis submucosa."],
-  18: ["Dermis reticular, con tejido conjuntivo laxo y capilares superficiales.", "Hipodermis, con haces de colágeno y terminaciones nerviosas superficiales.", "Estrato basal, con tejido conjuntivo laxo y vasos sanguíneos."],
-  19: ["Dermis papilar, con haces gruesos de colágeno y líneas de tensión.", "Hipodermis, con haces de colágeno y líneas de tensión.", "Estrato espinoso, con haces gruesos de colágeno y líneas de tensión."],
+  18: ["Dermis reticular.", "Hipodermis.", "Estrato basal."],
+  19: ["Dermis papilar.", "Hipodermis.", "Estrato espinoso."],
   21: ["Papilas dérmicas y glándulas sebáceas.", "Crestas epidérmicas y glándulas sudoríparas.", "Folículos pilosos y dermis reticular." ]
   ,22: ["Mucosa, muscular de la mucosa, submucosa y serosa.", "Epitelio, lámina propia, muscular externa y adventicia.", "Mucosa, subserosa, muscular interna y serosa."],
   23: ["Epitelio de revestimiento, submucosa y muscular externa.", "Epitelio de revestimiento, lámina propia y muscular externa.", "Lámina propia, plexo de Meissner y muscular de la mucosa."],
-  25: ["Plexo mientérico de Auerbach, entre capas musculares.", "Plexo subepitelial, en la lámina propia.", "Plexo celíaco, en la serosa."],
-  26: ["Plexo de Meissner, en la submucosa.", "Plexo subepitelial, en la lámina propia.", "Plexo celíaco, en la adventicia."],
+  25: ["Plexo mientérico de Auerbach.", "Plexo subepitelial.", "Plexo celíaco."],
+  26: ["Plexo de Meissner.", "Plexo subepitelial.", "Plexo celíaco."],
   28: ["Quilo.", "Bolo alimenticio.", "Jugo gástrico."],
   29: ["Glándulas cardiales.", "Glándulas pilóricas.", "Glándulas de Brunner."],
   30: ["Ácido clorhídrico, pepsinógeno, moco y gastrina.", "Bicarbonato, pepsina, factor intrínseco y moco.", "Ácido clorhídrico, amilasa, factor intrínseco y moco."],
-  31: ["Células principales, que secretan pepsinógeno.", "Células mucosas del cuello, que secretan moco.", "Células enteroendocrinas, que secretan gastrina."],
-  32: ["Células parietales, que secretan HCl y factor intrínseco.", "Células mucosas del cuello, que secretan mucina.", "Células enteroendocrinas, que secretan hormonas."],
+  31: ["Células principales.", "Células mucosas del cuello.", "Células enteroendocrinas."],
+  32: ["Células parietales.", "Células mucosas del cuello.", "Células enteroendocrinas."],
   33: ["Vellosidades, criptas y glándulas de Brunner.", "Microvellosidades, placas de Peyer y criptas.", "Pliegues longitudinales, vellosidades y haustras."],
   34: ["Epitelio plano estratificado queratinizado.", "Epitelio cúbico simple.", "Epitelio cilíndrico pseudoestratificado."],
-  35: ["Células caliciformes, que secretan mucina.", "Células de Paneth, que secretan defensinas.", "Células enteroendocrinas, que secretan hormonas."],
-  36: ["Enterocitos, que absorben nutrientes.", "Células de Paneth, que secretan péptidos antimicrobianos.", "Células M, que transportan antígenos."],
-  37: ["Células caliciformes, que producen mucina.", "Células M, que transportan antígenos hacia placas de Peyer.", "Enterocitos, que absorben nutrientes."],
-  38: ["Células de Paneth, que secretan sustancias antimicrobianas.", "Células caliciformes, que secretan mucina.", "Enterocitos, que transportan nutrientes."],
-  39: ["Células de Paneth, ubicadas en criptas intestinales.", "Células caliciformes, secretoras de mucina.", "Enterocitos, con microvellosidades."],
+  35: ["Células caliciformes.", "Células de Paneth.", "Células enteroendocrinas."],
+  36: ["Enterocitos.", "Células de Paneth.", "Células M."],
+  37: ["Células caliciformes.", "Células M.", "Enterocitos."],
+  38: ["Células de Paneth.", "Células caliciformes.", "Enterocitos."],
+  39: ["Células de Paneth.", "Células caliciformes.", "Enterocitos."],
   40: ["Glándulas pilóricas.", "Glándulas fúndicas.", "Glándulas de Lieberkühn."],
   41: ["Secreción ácida con pepsinógeno, glucoproteínas neutras, ácido clorhídrico y células con características parietales.", "Secreción alcalina con moco, glucoproteínas ácidas, bicarbonato y células con características de producción hormonal.", "Secreción alcalina con moco, glucoproteínas neutras y alcalinas, ácido clorhídrico y células con características de producción de zimógeno."],
-  42: ["Vellosidades altas con abundantes placas de Peyer.", "Glándulas fúndicas profundas en la mucosa.", "Ausencia de vellosidades con criptas rectas."],
-  43: ["Glándulas submucosas de Brunner.", "Vellosidades más largas que en yeyuno.", "Criptas gástricas profundas."],
+  42: ["Placas de Peyer.", "Glándulas fúndicas.", "Criptas de Lieberkühn."],
+  43: ["Glándulas de Brunner.", "Glándulas fúndicas.", "Criptas gástricas."],
   44: ["Posee vellosidades cortas y pocas células caliciformes.", "Posee glándulas de Brunner en la submucosa.", "Presenta placas de Peyer en toda la pared."],
   45: ["Duodeno, yeyuno, íleon y colon.", "Ciego, yeyuno, colon y recto.", "Colon, hígado, recto y conducto anal."],
   46: ["Meseta de colágeno, muscular de la mucosa engrosada y ausencia de GALT.", "Vaina fibroblástica pericríptica, vellosidades altas y placas de Peyer aisladas.", "Glándulas de Brunner, meseta de colágeno y GALT limitado al apéndice."]
@@ -724,12 +724,12 @@ const authoredDistractors: Record<number, [string, string, string]> = {
   58: ["Esmalte, dentina, cemento y pulpa dental.", "Dentina, esmalte, ligamento periodontal y hueso alveolar.", "Cemento, pulpa, esmalte y epitelio de unión."],
   60: ["Amelogénesis, secreción salival, gusto y termorregulación.", "Formación de esmalte, digestión de carbohidratos y fonación.", "Producción de dentina, secreción de bilis y propiocepción."],
   62: ["Acino seroso.", "Conducto intercalado.", "Lobulillo salival."],
-  63: ["Submandibular, mixta con predominio seroso.", "Sublingual, predominantemente mucosa.", "Glándula de Von Ebner, serosa lingual."],
+  63: ["Submandibular.", "Sublingual.", "Glándula de Von Ebner."],
   64: ["Parótida.", "Sublingual.", "Glándula salival menor labial."],
-  65: ["Parótida, con un conducto principal largo.", "Submandibular, con conducto de Wharton.", "Glándula de Von Ebner, con conductos hacia surcos linguales."],
+  65: ["Parótida.", "Submandibular.", "Glándula de Von Ebner."],
   66: ["Secretar amilasa hacia la luz de los acinos.", "Modificar electrolitos dentro de los conductos estriados.", "Presentar antígenos en la lámina propia."],
   67: ["Inicia la digestión proteica por pepsina y acidifica el pH bucal.", "Emulsifica lípidos por sales biliares y elimina toda microbiota.", "Inicia digestión de lípidos por lipasa pancreática y produce factor intrínseco." ]
-  ,69: ["Páncreas, cubierto por cápsula de Glisson.", "Bazo, órgano glandular mayor del organismo.", "Vesícula biliar, órgano principal de metabolismo."],
+  ,69: ["Páncreas.", "Bazo.", "Vesícula biliar."],
   70: ["Conducto biliar común.", "Hígado.", "Páncreas exocrino."],
   71: ["Hígado.", "Vesícula biliar.", "Bazo."],
   72: ["Jugo pancreático.", "Moco alcalino.", "Factor intrínseco."],
@@ -921,12 +921,19 @@ export const citoIIPrePartialFlashcards: Flashcard[] = [
   ...diabetesEssentialFlashcards
 ]
 
+// Flashcards may retain useful explanatory detail, but a multiple-choice
+// alternative must not announce itself by being the only long or qualified
+// option. These versions match the form of their nearby distractors.
+const quizCorrectOverrides: Record<number, string> = {
+  8: "Basal, espinoso, granuloso, lúcido y córneo."
+}
+
 const seeds: ManualQuizSeed[] = facts.map(fact => ({
   id: `prepartial-cito2-${fact.id}`,
   topic: topicFor(fact.id),
   difficulty: "medium",
   question: multipleChoicePrompt(fact),
-  correct: trueFalseCorrect[fact.id] ?? fact.answer,
+  correct: trueFalseCorrect[fact.id] ?? quizCorrectOverrides[fact.id] ?? fact.answer,
   distractors: distinctDistractors(fact),
   explanation: fact.answer
 }))
