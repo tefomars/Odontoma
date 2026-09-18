@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Sistema respiratorio</title>
+  <desc id="desc">Ilustración estilizada de bronquiolos y alvéolos.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#082e42"/>
+      <stop offset=".52" stop-color="#164e63"/>
+      <stop offset="1" stop-color="#3b1d5a"/>
+    </linearGradient>
+    <radialGradient id="alveolus"><stop stop-color="#d5f5ff"/><stop offset=".55" stop-color="#65c7dc"/><stop offset="1" stop-color="#24718d"/></radialGradient>
+    <filter id="blur"><feGaussianBlur stdDeviation="18"/></filter>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <g opacity=".28" filter="url(#blur)" fill="#90e7ef">
+    <circle cx="132" cy="130" r="150"/><circle cx="1410" cy="120" r="190"/><circle cx="1220" cy="760" r="220"/>
+  </g>
+  <g fill="none" stroke="#b6eff3" stroke-linecap="round" opacity=".85">
+    <path d="M530 30 C535 200 560 286 680 375 C768 440 820 520 822 690" stroke-width="34"/>
+    <path d="M580 260 C414 340 300 408 182 560" stroke-width="23"/>
+    <path d="M623 323 C810 352 972 414 1116 560" stroke-width="23"/>
+    <path d="M710 420 C630 510 565 594 520 755" stroke-width="17"/>
+    <path d="M795 481 C972 520 1122 596 1294 760" stroke-width="17"/>
+  </g>
+  <g fill="url(#alveolus)" stroke="#e2fbff" stroke-width="7">
+    <circle cx="153" cy="588" r="58"/><circle cx="235" cy="530" r="50"/><circle cx="283" cy="624" r="62"/><circle cx="215" cy="692" r="53"/>
+    <circle cx="476" cy="768" r="64"/><circle cx="560" cy="716" r="48"/><circle cx="614" cy="798" r="58"/>
+    <circle cx="1117" cy="564" r="62"/><circle cx="1204" cy="515" r="52"/><circle cx="1268" cy="599" r="64"/><circle cx="1197" cy="670" r="51"/>
+    <circle cx="1289" cy="774" r="66"/><circle cx="1382" cy="726" r="50"/><circle cx="1432" cy="807" r="60"/>
+  </g>
+  <g fill="#ffffff" opacity=".16"><circle cx="196" cy="582" r="18"/><circle cx="273" cy="612" r="18"/><circle cx="1158" cy="552" r="18"/><circle cx="1240" cy="593" r="19"/><circle cx="1330" cy="767" r="20"/></g>
+</svg>

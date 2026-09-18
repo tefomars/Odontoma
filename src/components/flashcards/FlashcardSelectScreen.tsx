@@ -1403,31 +1403,61 @@ const CHAPTER_MENUS: ChapterMenu[] = [
     chapter: "Capítulo 17",
     title: "Sistema digestivo II: tubo digestivo",
     groups: [
-      { title: "Pared y control del tubo digestivo", description: "Capas, amplificación de superficie, plexos entéricos, motilidad y esfínteres.", subtopics: ["Organización general de la pared", "Amplificación, mucosa y motilidad", "Plexos y esfínteres"] },
-      { title: "Esófago", description: "Mucosa protectora, transición muscular, glándulas, cubierta externa e inervación.", subtopics: ["Mucosa y organización", "Glándulas e inervación"] },
-      { title: "Estómago: mucosa y protección", description: "Regiones, pliegues, fovéolas, barrera moco-bicarbonato y citoprotección.", subtopics: ["Regiones, pliegues y mucosa superficial", "Barrera y citoprotección gástrica"] },
-      { title: "Glándulas y células gástricas", description: "Glándulas fúndicas, células principales y parietales, ácido y correlaciones clínicas.", subtopics: ["Glándulas fúndicas", "Células de las glándulas fúndicas", "Secreción de ácido y clínica gástrica"] },
-      { title: "Hormonas, cardias y píloro", description: "Sistema enteroendocrino, hormonas gastrointestinales, glándulas regionales y renovación.", subtopics: ["Sistema enteroendocrino", "Hormonas gastrointestinales", "Cardias, píloro y renovación"] },
-      { title: "Intestino delgado: superficie y células", description: "Pliegues, vellosidades, criptas, enterocitos, células de Paneth, caliciformes y M.", subtopics: ["Organización y superficie", "Enterocitos y transporte", "Células de la mucosa intestinal"] },
-      { title: "Absorción e inmunidad intestinal", description: "Digestión de nutrientes, transporte epitelial, IgA, GALT y placas de Peyer.", subtopics: ["Digestión y absorción", "Inmunidad mucosa"] },
-      { title: "Duodeno, motilidad y renovación", description: "Glándulas de Brunner, segmentación, peristaltismo y recambio del epitelio.", subtopics: ["Submucosa, motilidad y renovación"] },
-      { title: "Colon", description: "Mucosa, criptas, células, lámina propia, tenias, haustras y motilidad colónica.", subtopics: ["Organización de la mucosa colónica", "Lámina propia, muscular y serosa"] },
-      { title: "Apéndice, recto y ano", description: "Rasgos diferenciales, transición epitelial, glándulas y esfínteres.", subtopics: ["Apéndice, recto y conducto anal"] },
-      { title: "Inflamación y cáncer colorrectal", description: "Linfáticos, pólipos, secuencia adenoma-carcinoma y signos clínicos.", subtopics: ["Inflamación y cáncer colorrectal"] }
+      {
+        title: "Pared y control del tubo digestivo",
+        description: "Capas, plexos entéricos, cubiertas y esfínteres.",
+        subtopics: ["Mucosa y submucosa", "Muscular externa y plexos", "Serosa, adventicia y esfínteres"]
+      },
+      {
+        title: "Esófago",
+        description: "Mucosa protectora, glándulas y transición muscular.",
+        subtopics: ["Mucosa esofágica", "Glándulas esofágicas", "Muscular externa y unión gastroesofágica"]
+      },
+      {
+        title: "Estómago",
+        description: "Regiones, barrera mucosa, células fúndicas y regulación.",
+        subtopics: ["Regiones y fovéolas", "Barrera mucosa", "Pared gástrica", "Tipos celulares", "Secreción ácida y pepsina", "Factor intrínseco y farmacología", "Regulación enteroendocrina", "Clínica gástrica", "Renovación epitelial", "Células y secreción", "Regulación y Helicobacter", "Protección y renovación"]
+      },
+      {
+        title: "Intestino delgado",
+        description: "Vellosidades, absorción, criptas, inmunidad y duodeno.",
+        subtopics: ["Vellosidades y microvellosidades", "Absorción y transporte", "Diferencias regionales", "Células de Paneth y M", "Renovación de criptas", "IgA y GALT", "Duodeno y glándulas de Brunner", "Digestión y enteroendocrinas", "GALT y células M", "Absorción intestinal"]
+      },
+      {
+        title: "Colon, apéndice y ano",
+        description: "Mucosa, pared, apéndice, recto y canal anal.",
+        subtopics: ["Mucosa y células colónicas", "Renovación de criptas", "Lámina propia y drenaje", "Tenias y haustras", "Ciego y apéndice", "Recto y canal anal", "Esfínteres y hemorroides", "Mucosa y meseta de colágeno", "Linfáticos y pólipos", "Cáncer y clínica colónica"]
+      },
+      {
+        title: "Repaso integrador",
+        description: "Detalles cortos para diferenciar estructuras y mecanismos.",
+        subtopics: ["Pared y estómago", "Intestino delgado", "Colon y apéndice", "Canal anal"]
+      }
     ]
   },
   {
     chapter: "Capítulo 18",
-    title: "Sistema digestivo III: hígado y páncreas",
+    title: "Sistema digestivo III: hígado, vesícula biliar y páncreas",
     groups: [
-      { title: "Fundamentos y fisiología hepática", description: "Funciones, proteínas plasmáticas, vitaminas, minerales, bilis, metabolismo y detoxificación.", subtopics: ["Fundamentos del hígado", "Desarrollo y funciones generales", "Proteínas plasmáticas y lipoproteínas", "Vitaminas y minerales", "Cobre y enfermedad de Wilson", "Detoxificación y metabolismo", "Bilis y función endocrina"] },
-      { title: "Irrigación y organización hepática", description: "Flujo dual, lobulillo clásico, lobulillo portal, ácino y vulnerabilidad zonal.", subtopics: ["Irrigación hepática", "Lobulillo hepático clásico", "Lobulillo portal y ácino hepático", "Zonas acinares y lesión"] },
-      { title: "Sinusoides, Disse y fibrosis", description: "Endotelio, Kupffer, células estrelladas, linfa y remodelación fibrótica.", subtopics: ["Sinusoides y células de Kupffer", "Espacio de Disse y células estrelladas", "Fibrosis y linfa hepática"] },
-      { title: "Hepatocitos", description: "Polaridad, orgánulos, inclusiones, peroxisomas, REL, Golgi y lisosomas.", subtopics: ["Morfología del hepatocito", "Orgánulos e inclusiones", "REL, Golgi y peroxisomas"] },
-      { title: "Árbol biliar", description: "Canalículos, conductos de Hering, colangiocitos, conductos y esfínteres.", subtopics: ["Canalículos y conductos de Hering", "Colangiocitos y conductos", "Conductos extrahepáticos y esfínteres"] },
-      { title: "Vesícula biliar", description: "Pared, concentración de bilis, cubiertas y correlaciones clínicas.", subtopics: ["Organización de la vesícula", "Mucosa, cubierta y clínica vesicular", "Concentración de la bilis"] },
-      { title: "Páncreas exocrino", description: "Acinos, células centroacinares, enzimas, conductos y regulación secretora.", subtopics: ["Fundamentos del páncreas", "Acinos pancreáticos", "Enzimas y conductos pancreáticos", "Secreción pancreática"] },
-      { title: "Páncreas endocrino", description: "Islotes, tipos celulares, hormonas, insulina, perfusión y regulación.", subtopics: ["Islotes de Langerhans", "Células A, B y D", "Células insulares minoritarias", "Acciones de insulina y glucagón", "Regulación de los islotes", "Síntesis de insulina y péptido C", "Perfusión insuloacinar y correlación clínica"] }
+      { title: "Hígado", description: "Fundamentos, flujo sanguíneo, lobulillos, sinusoides y hepatocitos.", subtopics: ["Fundamentos y desarrollo", "Irrigación y lobulillos", "Sinusoides, Disse y fibrosis"] },
+      { title: "Fisiología hepática", description: "Proteínas plasmáticas, vitaminas, metabolismo y bilis.", subtopics: ["Proteínas y lipoproteínas", "Vitaminas, hierro y cobre", "Metabolismo y bilis"] },
+      { title: "Hepatocitos y árbol biliar", description: "Orgánulos, canalículos y rutas de salida de la bilis.", subtopics: ["Morfología y organelos", "Canalículos y conductos intrahepáticos", "Vías extrahepáticas y flujo biliar"] },
+      { title: "Vesícula biliar", description: "Pared, concentración de la bilis y correlaciones importantes.", subtopics: ["Pared y concentración de bilis"] },
+      { title: "Páncreas exocrino", description: "Acinos, conductos, enzimas y regulación digestiva.", subtopics: ["Acinos y conductos", "Enzimas y regulación"] },
+      { title: "Páncreas endocrino", description: "Islotes, hormonas, glucemia y síntesis de insulina.", subtopics: ["Islotes de Langerhans", "Hormonas y regulación insular", "Síntesis de insulina y clínica"] }
+    ]
+  },
+  {
+    chapter: "Capítulo 19",
+    title: "Sistema respiratorio",
+    groups: [
+      { title: "Fundamentos respiratorios", description: "Organización de las porciones conductora y respiratoria, y acondicionamiento del aire.", subtopics: ["Organización y acondicionamiento"] },
+      { title: "Cavidades nasales", description: "Vestíbulo, mucosa respiratoria, olfacción, senos y defensas locales.", subtopics: ["Vestíbulo y región respiratoria", "Región olfatoria y senos", "Defensa, olfacción y clínica"] },
+      { title: "Faringe y laringe", description: "Pliegues, fonación, epitelios protectores y adaptación al estrés mecánico.", subtopics: ["Organización y pliegues laríngeos", "Revestimiento y correlación clínica"] },
+      { title: "Tráquea", description: "Capas de la pared, sostén cartilaginoso, epitelio y aclaramiento mucociliar.", subtopics: ["Capas y sostén de la pared", "Epitelio y depuración mucociliar"] },
+      { title: "Bronquios y bronquiolos", description: "Ramificación, pared bronquial, células club y transición respiratoria.", subtopics: ["Ramificación y pared bronquial", "Estructura y células club", "Porción respiratoria y asma"] },
+      { title: "Alvéolos", description: "Neumocitos, surfactante, barrera hematogaseosa y macrófagos alveolares.", subtopics: ["Tabiques y neumocitos", "Barrera hematogaseosa y defensa"] },
+      { title: "Circulación y clínica", description: "Irrigación doble, linfáticos, inervación y correlaciones respiratorias frecuentes.", subtopics: ["Irrigación, linfáticos e inervación", "Rinitis, fibrosis quística y EPOC"] }
     ]
   },
   {

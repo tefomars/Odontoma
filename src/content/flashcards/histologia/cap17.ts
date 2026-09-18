@@ -302,7 +302,7 @@ const groups: readonly Group[] = [
 const slug = (value: string) => value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")
 
 export const cap17Flashcards: Flashcard[] = groups.flatMap(group =>
-  group.facts.flatMap(([label, detail], index) => {
+  group.facts.map(([label, detail], index) => {
     const base = `histo-cap17-${slug(group.subtopic)}-${String(index + 1).padStart(3, "0")}`
     const common = {
       subject: "Histología",
@@ -313,9 +313,6 @@ export const cap17Flashcards: Flashcard[] = groups.flatMap(group =>
       tags: ["Capítulo 17", group.subtopic]
     }
 
-    return [
-      { ...common, id: `${base}-a`, front: `En ${group.subtopic.toLowerCase()}, ¿qué caracteriza a ${label}?`, back: detail },
-      { ...common, id: `${base}-b`, front: `En ${group.subtopic.toLowerCase()}, ¿qué concepto corresponde a esta descripción: ${detail}`, back: label }
-    ]
+    return { ...common, id: base, front: `En ${group.subtopic.toLowerCase()}, ¿qué es ${label}?`, back: detail }
   })
 )

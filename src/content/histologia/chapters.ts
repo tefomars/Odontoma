@@ -13,6 +13,7 @@ import cap15Image from "../../assets/chapters/cap15.jpg"
 import cap16Image from "../../assets/chapters/cap16.jpg"
 import cap17Image from "../../assets/chapters/cap17.jpg"
 import cap18Image from "../../assets/chapters/cap18.jpg"
+import cap19Image from "../../assets/chapters/cap19.png"
 import coagulationCascadeImage from "../../assets/chapters/coagulation-cascade.jpg"
 import { cap13Questions } from "./cap13/questions"
 import { cap14Questions } from "./cap14/questions"
@@ -20,6 +21,7 @@ import { cap15Questions } from "./cap15/questions"
 import { cap16Questions } from "./cap16/questions"
 import { cap17Questions } from "./cap17/questions"
 import { cap18Questions } from "./cap18/questions"
+import { cap19Questions } from "./cap19/questions"
 import { cap4Questions } from "./cap4/questions"
 import { cap5Questions } from "./cap5/questions"
 import { cap6Questions } from "./cap6/questions"
@@ -195,6 +197,17 @@ export const chapters = [
     image: cap18Image,
     questionCount: cap18Questions.length,
     accent: "from-amber-500/20 to-emerald-500/20"
+  },
+
+  {
+    id: "Capítulo 19",
+    title: "Capítulo 19",
+    subtitle: "Sistema respiratorio",
+    description:
+      "Cavidades nasales, vías de conducción, bronquiolos, alvéolos, surfactante y circulación pulmonar.",
+    image: cap19Image,
+    questionCount: cap19Questions.length,
+    accent: "from-cyan-500/20 to-sky-500/20"
   },
 
   {

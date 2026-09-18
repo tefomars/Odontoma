@@ -12,6 +12,7 @@ import { cap15Questions } from "./cap15/questions"
 import { cap16Questions } from "./cap16/questions"
 import { cap17Questions } from "./cap17/questions"
 import { cap18Questions } from "./cap18/questions"
+import { cap19Questions } from "./cap19/questions"
 import { hemostasiaQuestions } from "./articulos/hemostasiaQuestions"
 import { cap4Questions } from "./cap4/questions"
 import { cap5Questions } from "./cap5/questions"
@@ -60,7 +61,7 @@ const manualBanks = [
     cards: cap18Flashcards,
     questions: cap18Questions,
     expectedCount: 64
-  }
+  },
 ]
 
 describe("bancos manuales de Citohistología II", () => {
