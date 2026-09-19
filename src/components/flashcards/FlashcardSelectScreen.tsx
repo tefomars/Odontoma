@@ -1461,6 +1461,17 @@ const CHAPTER_MENUS: ChapterMenu[] = [
     ]
   },
   {
+    chapter: "Capítulo 20",
+    title: "Aparato urinario",
+    groups: [
+      { title: "Fundamentos y riñón", description: "Homeostasis, función endocrina y organización macroscópica del riñón.", subtopics: ["Funciones y organización", "Anatomía macroscópica y compartimentos"] },
+      { title: "Nefrona y filtración", description: "Segmentos tubulares, corpúsculo renal, barrera de filtración y aparato yuxtaglomerular.", subtopics: ["Segmentos, polos y tipos", "Barrera de filtración y cápsula", "Mesangio y aparato yuxtaglomerular", "Selectividad, lesión e identificación"] },
+      { title: "Función tubular", description: "Reabsorción proximal, asa de Henle, ajuste distal y concentración de orina.", subtopics: ["Morfología y reabsorción", "Contracorriente y ajuste iónico", "Células, hormonas y acuaporinas", "Distal, conector e identificación", "Concentración, intersticio y equilibrio"] },
+      { title: "Circulación renal", description: "Vascularización, vasos rectos, control autonómico y efectos hemodinámicos.", subtopics: ["Vasos, linfáticos e inervación"] },
+      { title: "Vías urinarias", description: "Urotelio, distensión, uréter, vejiga, uretra y control de micción.", subtopics: ["Urotelio y distensión", "Uréter, vejiga y uretra", "Detalles histológicos y uretra"] }
+    ]
+  },
+  {
     chapter: "Artículo · Hemostasia y trombosis",
     title: "Hemostasia y trombosis",
     groups: [

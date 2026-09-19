@@ -22,6 +22,7 @@ import { cap16Questions } from "./cap16/questions"
 import { cap17Questions } from "./cap17/questions"
 import { cap18Questions } from "./cap18/questions"
 import { cap19Questions } from "./cap19/questions"
+import { cap20Questions } from "./cap20/questions"
 import { cap4Questions } from "./cap4/questions"
 import { cap5Questions } from "./cap5/questions"
 import { cap6Questions } from "./cap6/questions"
@@ -208,6 +209,16 @@ export const chapters = [
     image: cap19Image,
     questionCount: cap19Questions.length,
     accent: "from-cyan-500/20 to-sky-500/20"
+  },
+  {
+    id: "Capítulo 20",
+    title: "Capítulo 20",
+    subtitle: "Aparato urinario",
+    description:
+      "Riñón, nefrona, filtración glomerular, función tubular, vías urinarias y micción.",
+    image: cap19Image,
+    questionCount: cap20Questions.length,
+    accent: "from-sky-500/20 to-indigo-500/20"
   },
 
   {

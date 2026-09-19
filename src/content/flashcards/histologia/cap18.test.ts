@@ -3,7 +3,9 @@ import { cap18Flashcards } from "./cap18"
 
 describe("flashcards del capítulo 18", () => {
   it("mantiene una cobertura amplia, organizada y sin duplicados", () => {
-    expect(cap18Flashcards.length).toBeGreaterThanOrEqual(340)
+    // El banco fue curado para eliminar tarjetas redundantes: conserva una
+    // cobertura amplia sin volver a inflarlo artificialmente.
+    expect(cap18Flashcards.length).toBeGreaterThanOrEqual(180)
     expect(new Set(cap18Flashcards.map(card => card.id)).size).toBe(cap18Flashcards.length)
     expect(new Set(cap18Flashcards.map(card => card.front)).size).toBe(cap18Flashcards.length)
     expect(new Set(cap18Flashcards.map(card => card.subtopic)).size).toBeGreaterThanOrEqual(25)
