@@ -132,6 +132,11 @@ export default function FlashcardReviewScreen({
   const [currentIndex, setCurrentIndex] =
     useState(0)
 
+  // Al deshacer, la tarjeta debe volver a mostrarse de inmediato. No puede
+  // depender del orden de FSRS, que se recalcula y se mezcla tras cada review.
+  const [undoFocusedCardId, setUndoFocusedCardId] =
+    useState<string | null>(null)
+
   const [suspendedVersion, setSuspendedVersion] =
     useState(0)
 
@@ -271,8 +276,13 @@ export default function FlashcardReviewScreen({
       ? currentIndex % dueCards.length
       : 0
 
+  const undoFocusedCard =
+    undoFocusedCardId
+      ? filteredCards.find(card => card.id === undoFocusedCardId)
+      : undefined
+
   const currentCard =
-    dueCards[safeCurrentIndex]
+    undoFocusedCard ?? dueCards[safeCurrentIndex]
 
   const currentState =
     currentCard
@@ -405,7 +415,10 @@ export default function FlashcardReviewScreen({
     saveFsrsStorage(nextStorage)
     setShowAnswer(false)
     setUndoReviewStack(stack => stack.slice(0, -1))
-    setCurrentIndex(0)
+    setUndoFocusedCardId(undoReview.cardId)
+    window.requestAnimationFrame(() => {
+      setCardAnimationKey(value => value + 1)
+    })
   }
 
   function handleMobileReviewTap(
@@ -461,6 +474,7 @@ export default function FlashcardReviewScreen({
 
     suspendFlashcard(currentCard.id)
     setShowAnswer(false)
+    setUndoFocusedCardId(null)
     setCurrentIndex(0)
     setSuspendedVersion(value => value + 1)
   }
@@ -492,6 +506,7 @@ export default function FlashcardReviewScreen({
 
     setStorage(nextStorage)
     saveFsrsStorage(nextStorage)
+    setUndoFocusedCardId(null)
     setUndoReviewStack(stack => [
       ...stack,
       {
