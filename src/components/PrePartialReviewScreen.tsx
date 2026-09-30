@@ -1,15 +1,14 @@
 import { useEffect, useState } from "react"
-import {
-  citoIIPrePartialFlashcards,
-  citoIIPrePartialQuestions
-} from "@/content/prePartial/citoII"
+import { prePartialBanks } from "@/content/prePartial/banks"
 
 type Props = {
   onBack: () => void
   onMainMenu: () => void
-  onStartMultipleChoice: (amount: number, preference: ReviewMode) => void
-  onStartFlashcards: (amount: number, preference: ReviewMode) => void
-  onResetPartial: () => void
+  onStartMultipleChoice: (partial: string, amount: number, preference: ReviewMode) => void
+  onStartFlashcards: (partial: string, amount: number, preference: ReviewMode) => void
+  onResetPartial: (partial: string) => void
+  pausedPartial?: string | null
+  onContinuePartial: () => void
   initialReviewType?: ReviewType | null
   onReviewTypeChange: (type: ReviewType | null) => void
 }
@@ -18,13 +17,12 @@ const classes = [
   { title: "Citohistología", description: "Capítulos, tejidos y sistemas.", accentColor: "#a78bfa", symbol: "⌬" }
 ]
 
-const partials = ["Parcial 2 · Cito II"]
 const reviewAmounts = [10, 20] as const
 type ReviewType = "Opción múltiple" | "Flashcards esenciales"
 type ReviewPreference = "Nuevas" | "Incorrectas" | "Mezcla"
 type ReviewMode = "new" | "incorrect" | "mixed"
 
-export default function PrePartialReviewScreen({ onBack, onMainMenu, onStartMultipleChoice, onStartFlashcards, onResetPartial, initialReviewType = null, onReviewTypeChange }: Props) {
+export default function PrePartialReviewScreen({ onBack, onMainMenu, onStartMultipleChoice, onStartFlashcards, onResetPartial, pausedPartial, onContinuePartial, initialReviewType = null, onReviewTypeChange }: Props) {
   const [selectedClass, setSelectedClass] = useState<(typeof classes)[number] | null>(
     initialReviewType ? classes[0] : null
   )
@@ -50,7 +48,7 @@ export default function PrePartialReviewScreen({ onBack, onMainMenu, onStartMult
     onBack()
   }
 
-  function startReview(amount: number) {
+  function startReview(partial: string, amount: number) {
     if (!reviewType) return
 
     const preference =
@@ -61,11 +59,11 @@ export default function PrePartialReviewScreen({ onBack, onMainMenu, onStartMult
           : "mixed"
 
     if (reviewType === "Opción múltiple") {
-      onStartMultipleChoice(amount, preference)
+      onStartMultipleChoice(partial, amount, preference)
       return
     }
 
-    onStartFlashcards(amount, preference)
+    onStartFlashcards(partial, amount, preference)
   }
 
   return (
@@ -89,8 +87,8 @@ export default function PrePartialReviewScreen({ onBack, onMainMenu, onStartMult
                 <ClassBank
                   key={item.title}
                   {...item}
-                  multipleChoiceCount={citoIIPrePartialQuestions.length}
-                  flashcardCount={citoIIPrePartialFlashcards.length}
+                  multipleChoiceCount={prePartialBanks.reduce((count, bank) => count + bank.questions.length, 0)}
+                  flashcardCount={prePartialBanks.reduce((count, bank) => count + bank.flashcards.length, 0)}
                   onSelect={type => {
                     setSelectedClass(item)
                     setReviewType(type)
@@ -100,13 +98,18 @@ export default function PrePartialReviewScreen({ onBack, onMainMenu, onStartMult
             </div>
           ) : (
             <div className="mt-8 grid gap-4 sm:grid-cols-3">
-              {partials.map((partial, index) => (
-                <article key={partial} className="rounded-3xl border border-zinc-700 bg-zinc-950 p-5">
-                  <p className="text-xs font-black uppercase tracking-[0.2em]" style={{ color: selectedClass.accentColor }}>Bloque {index + 1}</p>
-                  <h2 className="mt-3 text-2xl font-black">{partial}</h2>
+              {prePartialBanks.filter(bank => reviewType === "Opción múltiple" || bank.flashcards.length > 0).map(bank => (
+                <article key={bank.id} className="rounded-3xl border border-zinc-700 bg-zinc-950 p-5">
+                  <p className="text-xs font-black uppercase tracking-[0.2em]" style={{ color: selectedClass.accentColor }}>Citohistología</p>
+                  <h2 className="mt-3 text-2xl font-black">{bank.id}</h2>
                   <p className="mt-2 text-sm leading-relaxed text-zinc-500">
-                    Banco exclusivo de {reviewType?.toLowerCase()} · {reviewType === "Opción múltiple" ? citoIIPrePartialQuestions.length : citoIIPrePartialFlashcards.length} {reviewType === "Opción múltiple" ? "preguntas" : "flashcards"}.
+                    Banco exclusivo de {reviewType?.toLowerCase()} · {reviewType === "Opción múltiple" ? bank.questions.length : bank.flashcards.length} {reviewType === "Opción múltiple" ? "preguntas" : "flashcards"}.
                   </p>
+                  {reviewType === "Opción múltiple" && pausedPartial === bank.id && (
+                    <button type="button" onClick={onContinuePartial} className="mt-4 w-full rounded-xl border border-emerald-400/50 bg-emerald-500/10 px-3 py-3 text-sm font-black text-emerald-200 hover:bg-emerald-500/20">
+                      Continuar examen guardado
+                    </button>
+                  )}
                   <div className="mt-5 flex flex-wrap justify-center gap-2">
                     {(["Nuevas", "Incorrectas", "Mezcla"] as ReviewPreference[]).map(preference => (
                       <button
@@ -126,17 +129,17 @@ export default function PrePartialReviewScreen({ onBack, onMainMenu, onStartMult
                   </div>
                   <div className="mt-6 grid grid-cols-3 gap-2">
                     {reviewAmounts.map(amount => (
-                      <button key={amount} type="button" onClick={() => startReview(amount)} className="rounded-xl border px-2 py-3 text-sm font-black transition hover:brightness-125" style={{ borderColor: `${selectedClass.accentColor}88`, color: selectedClass.accentColor, backgroundColor: `${selectedClass.accentColor}14` }}>
+                      <button key={amount} type="button" onClick={() => startReview(bank.id, amount)} className="rounded-xl border px-2 py-3 text-sm font-black transition hover:brightness-125" style={{ borderColor: `${selectedClass.accentColor}88`, color: selectedClass.accentColor, backgroundColor: `${selectedClass.accentColor}14` }}>
                         Repasar {amount}
                       </button>
                     ))}
-                    <button type="button" onClick={() => startReview(reviewType === "Opción múltiple" ? citoIIPrePartialQuestions.length : citoIIPrePartialFlashcards.length)} className="rounded-xl border px-2 py-3 text-sm font-black transition hover:brightness-125" style={{ borderColor: `${selectedClass.accentColor}88`, color: selectedClass.accentColor, backgroundColor: `${selectedClass.accentColor}14` }}>
+                    <button type="button" onClick={() => startReview(bank.id, reviewType === "Opción múltiple" ? bank.questions.length : bank.flashcards.length)} className="rounded-xl border px-2 py-3 text-sm font-black transition hover:brightness-125" style={{ borderColor: `${selectedClass.accentColor}88`, color: selectedClass.accentColor, backgroundColor: `${selectedClass.accentColor}14` }}>
                       Todas
                     </button>
                   </div>
                   <button
                     type="button"
-                    onClick={onResetPartial}
+                    onClick={() => onResetPartial(bank.id)}
                     className="mt-5 w-full rounded-xl border border-rose-400/40 bg-rose-500/10 px-3 py-3 text-sm font-black text-rose-200 transition hover:bg-rose-500/20"
                   >
                     ↺ Reiniciar progreso de este parcial

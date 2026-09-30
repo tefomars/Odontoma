@@ -116,10 +116,7 @@ import type {
   FlashcardSource
 } from "@/lib/flashcardDecks"
 
-import {
-  citoIIPrePartialFlashcards,
-  citoIIPrePartialQuestions
-} from "@/content/prePartial/citoII"
+import { getPrePartialBank, prePartialBanks } from "@/content/prePartial/banks"
 
 import {
   saveQuizAttempt,
@@ -131,6 +128,20 @@ import {
 import { deleteFsrsCardHistory } from "@/lib/flashcardStorage"
 
 type PrePartialReviewType = "Opción múltiple" | "Flashcards esenciales"
+
+function getPausedPrePartialId() {
+  try {
+    const raw = localStorage.getItem("odontoma_paused_session")
+    if (!raw) return null
+    const chapters: unknown = JSON.parse(raw).selectedChapters
+    if (!Array.isArray(chapters)) return null
+    return chapters.find((chapter): chapter is string =>
+      typeof chapter === "string" && Boolean(getPrePartialBank(chapter))
+    ) || null
+  } catch {
+    return null
+  }
+}
 
 function VersionBadge() {
   return (
@@ -238,8 +249,12 @@ export default function App() {
   const [prePartialReviewType, setPrePartialReviewType] =
     useState<PrePartialReviewType | null>(null)
 
+  const [prePartialActivePartial, setPrePartialActivePartial] =
+    useState<string | null>(null)
+
   const [prePartialFlashcardReview, setPrePartialFlashcardReview] =
     useState<{
+      partial: string
       amount: number
       preference: "new" | "incorrect" | "mixed"
     } | null>(null)
@@ -602,6 +617,10 @@ export default function App() {
 
     setHasPausedSession(true)
     setStarted(false)
+    if (prePartialQuizReview) {
+      setShowPrePartialReview(true)
+      setSelectedStudyMethod(null)
+    }
   }
 
   function continuePausedSession() {
@@ -639,7 +658,10 @@ export default function App() {
               ? bioquimicaQuestions
             : pausedSubject === "semiologia"
               ? semiologiaQuestions
-            : histologiaQuestions
+            : [
+                ...histologiaQuestions,
+                ...prePartialBanks.flatMap(bank => bank.questions)
+              ]
       const restoredQuestions =
         pausedSubject === "my-quizzes"
           ? savedQuestions
@@ -678,6 +700,12 @@ export default function App() {
         pausedSession.selectedChapters || []
       )
 
+      const pausedPartial = (pausedSession.selectedChapters || []).find(
+        (chapter: string) => Boolean(getPrePartialBank(chapter))
+      )
+      setPrePartialActivePartial(pausedPartial || null)
+      setPrePartialQuizReview(Boolean(pausedPartial))
+
       setSelectedDifficulties(
         pausedSession.selectedDifficulties || [
           "easy",
@@ -697,6 +725,9 @@ export default function App() {
       setFinished(false)
       setStarted(true)
       setHasPausedSession(false)
+      setShowPrePartialReview(false)
+      setSelectedStudyMethod("quizzes")
+      setSelectedQuizMode("multiple-choice")
 
       localStorage.removeItem(
         "odontoma_paused_session"
@@ -861,7 +892,9 @@ export default function App() {
         title:
           selectedSubject === "my-quizzes"
             ? "My quizzes"
-            : quizTitle,
+            : prePartialQuizReview && prePartialActivePartial
+              ? prePartialActivePartial
+              : quizTitle,
         subject: selectedSubject || "histologia",
         completedAt: new Date().toISOString(),
         score,
@@ -942,6 +975,7 @@ export default function App() {
     setShowBackup(false)
     setShowPrePartialReview(false)
     setPrePartialReviewType(null)
+    setPrePartialActivePartial(null)
     setPrePartialFlashcardReview(null)
     setPrePartialQuizReview(false)
     setSelectedCustomPageId(null)
@@ -970,9 +1004,13 @@ export default function App() {
   }
 
   function startPrePartialMultipleChoice(
+    partial: string,
     amount: number,
     preference: "new" | "incorrect" | "mixed"
   ) {
+    const bank = getPrePartialBank(partial)
+    if (!bank) return
+
     const answered = (questionId: string) => {
       const record = stats.questions?.[questionId]
       return (record?.correct || 0) + (record?.incorrect || 0)
@@ -980,10 +1018,10 @@ export default function App() {
 
     const pool =
       preference === "new"
-        ? citoIIPrePartialQuestions.filter(question => answered(question.id) === 0)
+        ? bank.questions.filter(question => answered(question.id) === 0)
         : preference === "incorrect"
-          ? citoIIPrePartialQuestions.filter(question => (stats.questions?.[question.id]?.incorrect || 0) > 0)
-          : citoIIPrePartialQuestions
+          ? bank.questions.filter(question => (stats.questions?.[question.id]?.incorrect || 0) > 0)
+          : bank.questions
 
     const selected = shuffleQuestionsBalanced(
       shuffleArray(pool).slice(0, amount)
@@ -993,10 +1031,11 @@ export default function App() {
 
     setShowPrePartialReview(false)
     setPrePartialQuizReview(true)
+    setPrePartialActivePartial(partial)
     setSelectedStudyMethod("quizzes")
     setSelectedQuizMode("multiple-choice")
     setSelectedSubject("histologia")
-    setSelectedChapters(["Parcial 2 · Cito II"])
+    setSelectedChapters([partial])
     setSessionQuestions(selected)
     setSessionResponses([])
     setCompletedAttempt(null)
@@ -1010,26 +1049,38 @@ export default function App() {
   }
 
   function startPrePartialFlashcards(
+    partial: string,
     amount: number,
     preference: "new" | "incorrect" | "mixed"
   ) {
+    const bank = getPrePartialBank(partial)
+    if (!bank?.flashcards.length) return
+
     setShowPrePartialReview(false)
     setPrePartialQuizReview(false)
+    setPrePartialActivePartial(partial)
     setSelectedStudyMethod("flashcards")
-    setPrePartialFlashcardReview({ amount, preference })
+    setPrePartialFlashcardReview({ partial, amount, preference })
   }
 
-  function resetPrePartialCitoIIProgress() {
+  function resetPrePartialProgress(partial: string) {
+    const bank = getPrePartialBank(partial)
+    if (!bank) return
+
     const confirmed = window.confirm(
-      "¿Reiniciar el progreso de Parcial 2 · Cito II? Se borrarán únicamente sus respuestas, incorrectas, flashcards e intentos. El resto de Odontoma no cambiará."
+      `¿Reiniciar el progreso de ${partial}? Se borrarán únicamente sus respuestas, incorrectas, flashcards e intentos. El resto de Odontoma no cambiará.`
     )
 
     if (!confirmed) return
 
-    const questionIds = citoIIPrePartialQuestions.map(question => question.id)
-    resetQuestionBankStats(citoIIPrePartialQuestions)
+    const questionIds = bank.questions.map(question => question.id)
+    resetQuestionBankStats(bank.questions)
     removeQuizAttemptsForQuestionIds(questionIds)
-    deleteFsrsCardHistory(citoIIPrePartialFlashcards.map(card => card.id))
+    deleteFsrsCardHistory(bank.flashcards.map(card => card.id))
+    if (getPausedPrePartialId() === partial) {
+      localStorage.removeItem("odontoma_paused_session")
+      setHasPausedSession(false)
+    }
 
     // Refresh in-memory data immediately so Nuevas and Incorrectas reflect
     // the reset without requiring a page reload.
@@ -1359,7 +1410,9 @@ export default function App() {
           onMainMenu={goToMainMenu}
           onStartMultipleChoice={startPrePartialMultipleChoice}
           onStartFlashcards={startPrePartialFlashcards}
-          onResetPartial={resetPrePartialCitoIIProgress}
+          onResetPartial={resetPrePartialProgress}
+          pausedPartial={hasPausedSession ? getPausedPrePartialId() : null}
+          onContinuePartial={continuePausedSession}
           initialReviewType={prePartialReviewType}
           onReviewTypeChange={setPrePartialReviewType}
         />
@@ -1390,9 +1443,9 @@ export default function App() {
 
     if (prePartialFlashcardReview) {
       return (
-        <ScreenTransition screenKey={`prepartial-flashcards-${prePartialFlashcardReview.amount}-${prePartialFlashcardReview.preference}`}>
+        <ScreenTransition screenKey={`prepartial-flashcards-${prePartialFlashcardReview.partial}-${prePartialFlashcardReview.amount}-${prePartialFlashcardReview.preference}`}>
           <FlashcardReviewScreen
-            cards={citoIIPrePartialFlashcards}
+            cards={getPrePartialBank(prePartialFlashcardReview.partial)?.flashcards}
             limit={prePartialFlashcardReview.amount}
             reviewPreference={prePartialFlashcardReview.preference}
             onMenu={goToMainMenu}
@@ -1542,7 +1595,7 @@ export default function App() {
           selectedTopic={selectedFlashcardTopic}
           selectedSubtopic={selectedFlashcardSubtopic || undefined}
           source={selectedFlashcardSource}
-          cards={prePartialFlashcardReview ? citoIIPrePartialFlashcards : undefined}
+          cards={prePartialFlashcardReview ? getPrePartialBank(prePartialFlashcardReview.partial)?.flashcards : undefined}
           limit={prePartialFlashcardReview?.amount}
           reviewPreference={prePartialFlashcardReview?.preference}
           onMenu={goToMainMenu}
@@ -1851,7 +1904,13 @@ export default function App() {
             setSelectedSubject(null)
             setSelectedQuizMode("history")
           }}
-          onRestart={restart}
+          onRestart={() => {
+            if (prePartialQuizReview && prePartialActivePartial) {
+              startPrePartialMultipleChoice(prePartialActivePartial, sessionQuestions.length, "mixed")
+            } else {
+              restart()
+            }
+          }}
           onMainMenu={goToMainMenu}
           retryIncorrectCount={completedAttempt ? getIncorrectResponses(completedAttempt).length : 0}
           onRetryIncorrect={() => {
