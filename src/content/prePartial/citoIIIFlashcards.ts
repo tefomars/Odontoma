@@ -1,5 +1,5 @@
 import type { Flashcard } from "@/content/flashcards/histologia/cards"
-import { CITO_III_PARTIAL } from "./citoIII"
+import { CITO_II_THIRD_PARTIAL } from "./citoIII"
 
 type Group = {
   topic: string
@@ -136,11 +136,11 @@ export const citoIIIPrePartialFlashcards: Flashcard[] = groups.flatMap((group, g
     id: `prepartial-cito3-card-${String(groupIndex * 10 + cardIndex + 1).padStart(3, "0")}`,
     subject: "Citohistología",
     book: "Repaso pre-parcial",
-    chapter: CITO_III_PARTIAL,
+    chapter: CITO_II_THIRD_PARTIAL,
     topic: group.topic,
     subtopic: "Conceptos esenciales",
     front,
     back,
-    tags: ["Repaso pre-parcial", "Cito III", group.topic],
+    tags: ["Repaso pre-parcial", "Parcial 3 · Cito II", group.topic],
   }))
 )

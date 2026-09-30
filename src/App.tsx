@@ -135,9 +135,10 @@ function getPausedPrePartialId() {
     if (!raw) return null
     const chapters: unknown = JSON.parse(raw).selectedChapters
     if (!Array.isArray(chapters)) return null
-    return chapters.find((chapter): chapter is string =>
+    const savedPartial = chapters.find((chapter): chapter is string =>
       typeof chapter === "string" && Boolean(getPrePartialBank(chapter))
-    ) || null
+    )
+    return savedPartial ? getPrePartialBank(savedPartial)?.id || null : null
   } catch {
     return null
   }
@@ -696,12 +697,13 @@ export default function App() {
       setScore(pausedSession.score || 0)
       setSessionResponses(pausedSession.sessionResponses || [])
 
-      setSelectedChapters(
-        pausedSession.selectedChapters || []
+      const restoredChapters: string[] = (pausedSession.selectedChapters || []).map(
+        (chapter: string) => getPrePartialBank(chapter)?.id || chapter
       )
+      setSelectedChapters(restoredChapters)
 
-      const pausedPartial = (pausedSession.selectedChapters || []).find(
-        (chapter: string) => Boolean(getPrePartialBank(chapter))
+      const pausedPartial = restoredChapters.find(
+        chapter => Boolean(getPrePartialBank(chapter))
       )
       setPrePartialActivePartial(pausedPartial || null)
       setPrePartialQuizReview(Boolean(pausedPartial))

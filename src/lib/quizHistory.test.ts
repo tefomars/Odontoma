@@ -78,4 +78,32 @@ describe("quiz history", () => {
 
     expect(loadQuizHistory().map(item => item.id)).toEqual(["attempt-1"])
   })
+
+  it("muestra el nombre correcto del tercer parcial en intentos antiguos", () => {
+    localStorage.setItem(QUIZ_HISTORY_KEY, JSON.stringify([{
+      ...attempt(1),
+      title: "Parcial 3 · Cito III",
+      responses: [{
+        questionId: "quiz-cito3-01",
+        question: "Pregunta",
+        chapter: "Parcial 3 · Cito III",
+        selectedAnswers: [],
+        correctAnswers: ["Respuesta"],
+        isCorrect: false,
+        questionSnapshot: {
+          id: "quiz-cito3-01",
+          chapter: "Parcial 3 · Cito III",
+          type: "single",
+          question: "Pregunta",
+          options: ["Respuesta", "Otra"],
+          correctAnswers: [0]
+        }
+      }]
+    }]))
+
+    const [saved] = loadQuizHistory()
+    expect(saved.title).toBe("Parcial 3 · Cito II")
+    expect(saved.responses[0].chapter).toBe("Parcial 3 · Cito II")
+    expect(saved.responses[0].questionSnapshot?.chapter).toBe("Parcial 3 · Cito II")
+  })
 })

@@ -949,6 +949,30 @@ button:active:not(:disabled) {
   overflow: hidden !important;
 }
 
+/* La barra del repaso de tarjetas ocupa espacio propio; no debe tapar las
+   etiquetas al inicio de la tarjeta, especialmente bajo el safe area móvil. */
+.screen-transition-inner > .flashcard-review-shell {
+  height: 100dvh !important;
+  min-height: 100dvh !important;
+  overflow: hidden !important;
+  padding-top: max(1.25rem, env(safe-area-inset-top)) !important;
+  padding-bottom: max(1.25rem, env(safe-area-inset-bottom)) !important;
+}
+
+.flashcard-review-shell > .flashcard-review-content {
+  height: 100% !important;
+  min-height: 0 !important;
+  overflow: hidden !important;
+}
+
+.flashcard-review-content > .flashcard-review-card {
+  min-height: 0 !important;
+  flex: 1 1 0% !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  -webkit-overflow-scrolling: touch;
+}
+
 /* En mobile dejamos respirar un poco el header fijo */
 @media (max-width: 767px) {
   .flashcard-fixed-shell {

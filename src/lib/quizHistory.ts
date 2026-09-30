@@ -1,6 +1,9 @@
 export const QUIZ_HISTORY_KEY = "odontoma_quiz_history_v1"
 export const QUIZ_HISTORY_LIMIT_PER_MODE = 7
 
+const OLD_THIRD_PARTIAL_NAME = "Parcial 3 · Cito III"
+const THIRD_PARTIAL_NAME = "Parcial 3 · Cito II"
+
 export type QuizResponseRecord = {
   questionId: string
   question: string
@@ -71,13 +74,31 @@ function limitHistoryByMode(attempts: QuizAttempt[]) {
   })
 }
 
+function currentPartialName(name?: string) {
+  return name === OLD_THIRD_PARTIAL_NAME ? THIRD_PARTIAL_NAME : name
+}
+
+function updateLegacyPartialName(attempt: QuizAttempt): QuizAttempt {
+  return {
+    ...attempt,
+    title: currentPartialName(attempt.title) || attempt.title,
+    responses: attempt.responses.map(response => ({
+      ...response,
+      chapter: currentPartialName(response.chapter),
+      questionSnapshot: response.questionSnapshot
+        ? { ...response.questionSnapshot, chapter: currentPartialName(response.questionSnapshot.chapter) }
+        : undefined
+    }))
+  }
+}
+
 export function loadQuizHistory(): QuizAttempt[] {
   try {
     const raw = localStorage.getItem(QUIZ_HISTORY_KEY)
     if (!raw) return []
     const parsed: unknown = JSON.parse(raw)
     if (!Array.isArray(parsed)) return []
-    return limitHistoryByMode(parsed.filter(isAttempt))
+    return limitHistoryByMode(parsed.filter(isAttempt).map(updateLegacyPartialName))
   } catch {
     return []
   }

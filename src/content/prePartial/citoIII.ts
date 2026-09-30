@@ -1,7 +1,7 @@
 import { createManualQuizBankFromRows, type ManualQuizRow } from "@/content/histologia/manualQuiz"
 import type { HistologiaQuizQuestion } from "@/content/histologia/quizFromFlashcards"
 
-export const CITO_III_PARTIAL = "Parcial 3 · Cito III"
+export const CITO_II_THIRD_PARTIAL = "Parcial 3 · Cito II"
 
 // Banco exclusivo para la última vuelta. Se apoya en los capítulos 19 y 20 de
 // Ross; del capítulo 20 solo usa el texto anterior al apartado de láminas.
@@ -87,11 +87,11 @@ const statements: readonly [id: string, topic: string, statement: string, isTrue
   ["cito3-74", "Urinario · filtro", "Una gran cantidad de albúmina urinaria es compatible con una barrera glomerular intacta porque la albúmina se filtra libremente.", false, "La barrera restringe la albúmina; la albuminuria importante puede señalar lesión del filtro."],
 ]
 
-const multipleChoice = createManualQuizBankFromRows(CITO_III_PARTIAL, multipleChoiceRows)
+const multipleChoice = createManualQuizBankFromRows(CITO_II_THIRD_PARTIAL, multipleChoiceRows)
 
 const trueFalse: HistologiaQuizQuestion[] = statements.map(([id, topic, question, isTrue, explanation]) => ({
   id: `quiz-${id}`,
-  chapter: CITO_III_PARTIAL,
+  chapter: CITO_II_THIRD_PARTIAL,
   topic,
   difficulty: "hard",
   type: "single",
@@ -99,7 +99,7 @@ const trueFalse: HistologiaQuizQuestion[] = statements.map(([id, topic, question
   options: ["Verdadero", "Falso"],
   correctAnswers: [isTrue ? 0 : 1],
   explanation,
-  tags: [CITO_III_PARTIAL, topic, "Banco manual"]
+  tags: [CITO_II_THIRD_PARTIAL, topic, "Banco manual"]
 }))
 
 export const citoIIIPrePartialQuestions: HistologiaQuizQuestion[] = [

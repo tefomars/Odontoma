@@ -703,7 +703,6 @@ export default function FlashcardReviewScreen({
       overflow-hidden
       bg-[#09090b]
       p-5
-      pt-20
       text-white
     ">
       <div className="
@@ -717,21 +716,16 @@ export default function FlashcardReviewScreen({
       ">
         <div className="
           flashcard-review-header
-          absolute
-          left-1/2
-          top-0
-          z-[999]
+          relative
+          z-10
           flex
           w-full
-          max-w-3xl
-          -translate-x-1/2
+          shrink-0
           items-center
           justify-between
           gap-4
-          bg-[#09090b]/95
-          px-5
-          py-4
-          backdrop-blur
+          bg-[#09090b]
+          pb-4
         ">
           <button
             type="button"

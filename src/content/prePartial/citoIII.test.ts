@@ -3,10 +3,16 @@ import { cap19Questions } from "@/content/histologia/cap19/questions"
 import { cap20Questions } from "@/content/histologia/cap20/questions"
 import { histologiaFlashcards } from "@/content/flashcards/histologia/cards"
 import { citoIIPrePartialQuestions } from "./citoII"
-import { CITO_III_PARTIAL, citoIIIPrePartialQuestions } from "./citoIII"
+import { CITO_II_THIRD_PARTIAL, citoIIIPrePartialQuestions } from "./citoIII"
 import { citoIIIPrePartialFlashcards } from "./citoIIIFlashcards"
+import { getPrePartialBank } from "./banks"
 
-describe("banco exclusivo de Parcial 3 · Cito III", () => {
+describe("banco exclusivo de Parcial 3 · Cito II", () => {
+  it("reconoce el nombre anterior sin cambiar los IDs del banco", () => {
+    expect(getPrePartialBank("Parcial 3 · Cito III")?.id).toBe(CITO_II_THIRD_PARTIAL)
+    expect(getPrePartialBank(CITO_II_THIRD_PARTIAL)?.questions).toBe(citoIIIPrePartialQuestions)
+  })
+
   it("ofrece 60 opciones múltiples y 14 verdadero/falso sin reutilizar preguntas de otros bancos", () => {
     expect(citoIIIPrePartialQuestions).toHaveLength(74)
     expect(citoIIIPrePartialQuestions.filter(question => question.options.length === 4)).toHaveLength(60)
@@ -23,7 +29,7 @@ describe("banco exclusivo de Parcial 3 · Cito III", () => {
     expect(ids.every(id => !otherIds.has(id))).toBe(true)
 
     for (const question of citoIIIPrePartialQuestions) {
-      expect(question.chapter).toBe(CITO_III_PARTIAL)
+      expect(question.chapter).toBe(CITO_II_THIRD_PARTIAL)
       expect(question.options.length).toBe(new Set(question.options).size)
       expect(question.correctAnswers).toHaveLength(1)
       expect(question.explanation.length).toBeGreaterThan(20)
@@ -38,7 +44,7 @@ describe("banco exclusivo de Parcial 3 · Cito III", () => {
     expect(new Set(ids).size).toBe(ids.length)
     expect(ids.every(id => !normalIds.has(id))).toBe(true)
     for (const card of citoIIIPrePartialFlashcards) {
-      expect(card.chapter).toBe(CITO_III_PARTIAL)
+      expect(card.chapter).toBe(CITO_II_THIRD_PARTIAL)
       expect(card.book).toBe("Repaso pre-parcial")
       expect(card.front.length).toBeGreaterThan(20)
       expect(card.back.trim().length).toBeGreaterThan(0)
