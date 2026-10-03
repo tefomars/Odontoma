@@ -6,6 +6,7 @@ import type {
   OpenQuizDeck,
   OpenQuizQuestion
 } from "@/content/openQuizzes"
+import { getOpenQuizPartial, groupOpenQuizDecks } from "@/content/openQuizzes/partials"
 
 const CONTENT_DRAFT_KEY = "odontoma-open-quiz-builder-draft-v1"
 
@@ -108,6 +109,7 @@ export default function OpenQuizContentEditor() {
   }, [content])
 
   const selectedClass = classes.find(item => item.name === selectedClassName)
+  const selectedClassGroups = useMemo(() => groupOpenQuizDecks(selectedClass?.decks || []), [selectedClass])
 
   const selectedDeck = content.decks.find(deck => deck.id === selectedDeckId)
   const selectedQuestion = selectedDeck?.questions.find(
@@ -477,7 +479,28 @@ export default function OpenQuizContentEditor() {
               </div>
 
               <div className="deck-list">
-                {selectedClass.decks.map(deck => (
+                {selectedClassGroups.partials.map(group => (
+                  <div key={group.number}>
+                    <p className="eyebrow" style={{ margin: "18px 0 8px" }}>PARCIAL {group.number}</p>
+                    {group.decks.map(deck => (
+                      <button
+                        key={deck.id}
+                        className={`deck-list-item ${deck.id === selectedDeckId ? "selected" : ""}`}
+                        onClick={() => {
+                          setSelectedDeckId(deck.id)
+                          setSelectedQuestionId(null)
+                        }}
+                      >
+                        <strong>{deck.title || "Sin título"}</strong>
+                        <span>{deck.questions.length} {deck.questions.length === 1 ? "pregunta" : "preguntas"}</span>
+                      </button>
+                    ))}
+                  </div>
+                ))}
+                {selectedClassGroups.ungrouped.length > 0 && selectedClassGroups.partials.length > 0 && (
+                  <p className="eyebrow" style={{ margin: "18px 0 8px" }}>SIN PARCIAL</p>
+                )}
+                {selectedClassGroups.ungrouped.map(deck => (
                   <button
                     key={deck.id}
                     className={`deck-list-item ${deck.id === selectedDeckId ? "selected" : ""}`}
@@ -547,6 +570,17 @@ export default function OpenQuizContentEditor() {
                 >
                   {classes.map(item => (
                     <option key={item.name} value={item.name}>{item.name}</option>
+                  ))}
+                </select>
+              </BuilderField>
+              <BuilderField label="Parcial" hint="Organiza este cuestionario en la carpeta correspondiente. Los títulos antiguos se detectan automáticamente.">
+                <select
+                  value={getOpenQuizPartial(selectedDeck) ?? ""}
+                  onChange={event => updateDeck({ partial: event.target.value ? Number(event.target.value) : null })}
+                >
+                  <option value="">Sin parcial</option>
+                  {Array.from({ length: 9 }, (_, index) => index + 1).map(number => (
+                    <option key={number} value={number}>Parcial {number}</option>
                   ))}
                 </select>
               </BuilderField>

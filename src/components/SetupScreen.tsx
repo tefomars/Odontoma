@@ -158,6 +158,27 @@ export default function SetupScreen({
             )
           }
         ].filter(group => group.chapters.length > 0)
+      : title === "Bioquímica"
+        ? [
+            {
+              id: "bioquimica-parcial-1",
+              title: "Parcial 1",
+              range: "Glucólisis, ciclo de Krebs y cadena respiratoria",
+              chapters: chapters.filter(chapter => chapter.subtitle === "Primer parcial")
+            },
+            {
+              id: "bioquimica-parcial-2",
+              title: "Parcial 2",
+              range: "Glucógeno, gluconeogénesis y metabolismo energético",
+              chapters: chapters.filter(chapter => chapter.subtitle === "Segundo parcial")
+            },
+            {
+              id: "bioquimica-parcial-3",
+              title: "Parcial 3",
+              range: "Síntesis de lípidos, eicosanoides y colesterol",
+              chapters: chapters.filter(chapter => chapter.subtitle === "Tercer parcial")
+            }
+          ].filter(group => group.chapters.length > 0)
       : [
           {
             id: "all",

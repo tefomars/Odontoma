@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" role="img" aria-label="Núcleo de cuatro anillos del colesterol">
+  <defs><linearGradient id="a" x2="1" y2="1"><stop stop-color="#162747"/><stop offset="1" stop-color="#29416a"/></linearGradient></defs>
+  <path fill="url(#a)" d="M0 0h800v400H0z"/>
+  <g fill="#8cbed1" fill-opacity=".16" stroke="#b8ebee" stroke-width="9" stroke-linejoin="round"><path d="M155 187l58-82h102l58 82-58 82H213z"/><path d="M373 187l58-82h102l58 82-58 82H431z"/><path d="M373 187l-58-82-58 82 58 82z"/><path d="M591 187l52-64 76 27 3 93-79 25z"/></g>
+  <g stroke="#a5e4e7" stroke-width="7" stroke-linecap="round" opacity=".75"><path d="M722 243l54 25"/><path d="M155 187l-67-26"/></g>
+  <circle cx="83" cy="159" r="17" fill="#f7d6b2"/>
+</svg>

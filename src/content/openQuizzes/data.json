@@ -2652,6 +2652,530 @@
           "source": ""
         }
       ]
+    },
+    {
+      "id": "open-deck-1791043252457-277587f0-32da-43f9-94eb-5da0dd9785b4",
+      "title": "Bioquímica Tercer Parcial - Síntesis de Ácidos Grasos",
+      "subject": "Bioquímica",
+      "color": "#797e00",
+      "classSymbol": "▰",
+      "classColor": "#0f8017",
+      "description": "Síntesis de ácidos grasos",
+      "questions": [
+        {
+          "id": "open-question-1791043286723-3cd98721-5afa-40ee-bd5b-b0da6fbeb113",
+          "prompt": "Cuáles son las dos enzimas reguladoras principales en la síntesis de ácidos grasos?",
+          "modelAnswer": "Acetil-CoA Carboxilasa\nCitrato Liasa",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1791043381772-de36e9e9-ef30-4de9-9f74-9416aec46a58",
+          "prompt": "Qué enzima añade enlaces dobles (insaturaciones) a los ácidos grasos?",
+          "modelAnswer": "Desaturasa",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1791043436255-54ba1ea9-c31f-4715-8b97-b2cf0fabbff2",
+          "prompt": "Desde qué molécula se inicia la síntesis de ácidos grasos?",
+          "modelAnswer": "Acetil-CoA",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1791043463821-fd8cdb5d-825a-4a85-9366-c3bdeccee591",
+          "prompt": "Mencione los dos ácidos grasos esenciales",
+          "modelAnswer": "Ácido alfa-Linolénico\nÁcido Linoleico",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1791043512622-2865ba11-c07e-4c96-aaf2-1151bfd3390d",
+          "prompt": "Qué condiciones favorecen la síntesis de ácidos grasos?",
+          "modelAnswer": "Gran cantidad de:\n- Acetil-CoA\n- Suficiente glucosa\n- Suficiente energía",
+          "acceptedPoints": [],
+          "explanation": "Solo cuando tenemos todos los demás requisitos del cuerpo previstos podemos comenzar a sintetizar ácidos grasos para almacenar energía.",
+          "source": ""
+        },
+        {
+          "id": "open-question-1791043570687-7ef857a9-5f9b-42f8-9a1c-31f07b371920",
+          "prompt": "En qué consisten las reacciones empleadas por la ácido graso sintasa?",
+          "modelAnswer": "7 ciclos de reacciones que consisten en:\n1. Condensación\n2. Reducción por NADPH\n3. Deshidratación\n4. Reducción por NADPH\n",
+          "acceptedPoints": [],
+          "explanation": "Los cuatro suceden para unir los carbonos que provienen de Malonil-CoA para formar las cadenas de ácidos grasos\n14 carbonos provienen del malonil-CoA y 2 carbonos ya se hallaban presentes como cebadores para iniciar el proceso",
+          "source": ""
+        },
+        {
+          "id": "open-question-1791043849092-11398732-f182-46c8-bf95-7fb02a4858b8",
+          "prompt": "En qué consiste la regulación covalente del Acetil-CoA Carboxilasa?",
+          "modelAnswer": "Fosforilación lo inactiva\nDesfosforilación lo activa",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1791043910571-cbd4ca23-8e33-47cc-96ce-623fa07d1b94",
+          "prompt": "Dónde sucede la síntesis de ácidos grasos?",
+          "modelAnswer": "Citosol",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1791043919321-26c13b26-a120-432c-9434-964d63dbd61a",
+          "prompt": "Dónde se modifica el ácido palmítico para elongar su cadena y formar otros ácidos grasos?",
+          "modelAnswer": "Retículo endoplasmático liso (REL)",
+          "acceptedPoints": [
+            "Mitocondria y citosol, poquito."
+          ],
+          "explanation": "Por medio de elongasas",
+          "source": ""
+        },
+        {
+          "id": "open-question-1791043954587-5b869fe6-69fd-4ff5-831a-0f71d073f513",
+          "prompt": "Qué hace el complejo Acetil-CoA Carboxilasa?",
+          "modelAnswer": "Convierte el acetil-coa del citosol en malonil-coa",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1791044021689-2e50dc59-9447-41ce-84ff-71e52aa885d5",
+          "prompt": "Qué es la ácido graso sintasa?",
+          "modelAnswer": "Complejo compuesto por 7 enzimas que convierte malonil-coa en ácido palmítico",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1791044067171-db66a604-5a15-4d78-80ca-61041ed2cac5",
+          "prompt": "Qué enzimas componen a la Acetil-CoA Carboxilasa",
+          "modelAnswer": "Biotina-Carboxilasa\nTrans-Carboxilasa",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1791044112855-d693769c-1ed0-4ef2-9254-c2f994f23b90",
+          "prompt": "Qué proteína del complejo ácido graso sintasa une al malonil-coa?",
+          "modelAnswer": "Proteína portadora de acilo",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1791044131254-fcd044cd-468e-4cec-a33e-3f016e38b93d",
+          "prompt": "De dónde proviene el NADPH utilizado en el proceso de reducción para sintetizar ácidos grasos?",
+          "modelAnswer": "Vía de las pentosas fosfato",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1791044174104-9c96768a-7b5e-4400-af7c-03697cc1311f",
+          "prompt": "Explique el proceso por el cual el Acetil-CoA se transporta hacia el citosol.",
+          "modelAnswer": "1. Acetil-CoA de la mitocondria reacciona con Oxaloacetato\n2. Se forma Citrato\n3. Citrato tiene transportador mitocondrial propio entonces sale al citosol\n4. Citrato-Liasa rompe al Citrato para convertirlo en acetil-CoA + Oxaloacetato\n5. Acetil-CoA queda en citosol y el oxaloacetato se transforma en malato para regresar a la mitocondria",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1791044345737-7b35fc8f-6d4e-427a-9308-4e3152d69bdc",
+          "prompt": "Explique la regulación hormonal de la lipogénesis brevemente",
+          "modelAnswer": "Insulina promueve lipogénesis\nGlucagón y adrenalina inhiben lipogénesis e inducen movilización de ácidos grasos",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1791044638505-34376be5-35c4-4746-9901-4c792c8803b3",
+          "prompt": "Qué enzima del REL permite la elongación de ácidos grasos como ácido palmítico?",
+          "modelAnswer": "Elongasa",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": "open-deck-1791044845963-18d8bb43-05bc-4446-8b71-999fbd48abf3",
+      "title": "Bioquímica Tercer Parcial - Eicosanoides",
+      "subject": "Bioquímica",
+      "color": "#ee0000",
+      "classSymbol": "▰",
+      "classColor": "#0f8017",
+      "description": "Eicosanoides, AINES, Ácido Araquidónico y todo ese rollo",
+      "questions": [
+        {
+          "id": "open-question-1791044895544-78a74500-efeb-4dfd-a7e6-69c135620fcf",
+          "prompt": "Qué son los Eicosanoides?",
+          "modelAnswer": "Lípidos compuestos por 20 átomos de carbono",
+          "acceptedPoints": [
+            "Eico- = 20"
+          ],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1791044975094-ffaf7a01-1df8-4dc8-adef-b84486c84ae5",
+          "prompt": "Cuáles son los principales Eicosanoides?",
+          "modelAnswer": "Prostaglandinas\nTromboxanos \nLeucotrienos",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1791044999277-b82e7422-5c39-4821-9113-35c9a84bb48e",
+          "prompt": "Cuál es la función de la Fosfolipasa A?",
+          "modelAnswer": "Cataliza la escisión de un fosfolípido de membrana para liberar al Ácido Araquidónico",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1791045058280-c654364b-f589-4658-a4fa-32afab38b55a",
+          "prompt": "En breve, en qué consiste la vía de la Ciclooxigenasa?",
+          "modelAnswer": "Ácido araquidónico ---ENZIMA COX 1 o 2----> Prostaglandinas o Tromboxanos",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1791045130115-6777f483-c032-4cf2-9c16-52acefc0cc7f",
+          "prompt": "En breve, en qué consiste la vía de la Lipooxigenasa?",
+          "modelAnswer": "Ácido araquidónico ---ENZIMA LOX----> Leucotrienos",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1791045191593-d246e627-93b4-4fb6-9bf3-04c0f75441a4",
+          "prompt": "Cuál es la enzima COX constructiva/fisiológica y cuál es la COX Inducible/activable?",
+          "modelAnswer": "COX1 - Constructiva/fisiológica\nCOX2 - Inducible/activable",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1791045264776-e3a2c349-6baa-4677-88ca-3e2015cd549f",
+          "prompt": "Mencione algunas funciones de la COX-1",
+          "modelAnswer": "Protección gástrica al sintetizar prostaglandinas que inducen aumento del espesor mucoso\nFavorecen la agregación plaquetaria al sintetizar Tromboxanos\nControla procesos de vasoconstricción (TXA2) y vasodilatación (PGE2)",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1791045463876-def7cf46-9750-41f0-9cfc-ca8c7977d1f4",
+          "prompt": "Mencione algunas funciones de la COX-2",
+          "modelAnswer": "Formación de Prostaglandinas asociadas al dolor e inflamación",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1791045541425-fbdbb526-ddac-4a4e-bd85-ed990a91a403",
+          "prompt": "Cómo actúan los AINES, a nivel general?",
+          "modelAnswer": "Inhiben la producción de prostaglandinas y tromboxanos al desactivar a las Ciclooxigenasas (COX)",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1791045592525-e356df0c-fdf7-473b-afdb-18fe390650f2",
+          "prompt": "Qué tipos de AINES hay y cuáles son sus mecanismos de acción?",
+          "modelAnswer": "AINE no selectivo --> Inhibe COX-1 y COX-2\nAINE selectivo --> Solo inhibe COX-2",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1791045659258-2c0536c9-a278-4c00-86ee-33cca70b2895",
+          "prompt": "Qué efectos fisiológicos efectúan los AINES no selectivos?",
+          "modelAnswer": "Inhiben dolor e inflamación (COX-2) pero también inhiben funciones fisiológicas normales (COX-1) como la protección gástrica",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1791045885378-ac007e66-8fae-4441-aee9-5c63d166ac17",
+          "prompt": "Qué función general cumplen los leucotrienos?",
+          "modelAnswer": "Participan en reacciones alérgicas, induciendo broncoconstricción y mayor secreción mucosa\nAumentan permeabilidad vascular",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1791045971580-b366df3b-4d6b-44de-b3d3-38857a9b6744",
+          "prompt": "Qué función general cumplen los Tromboxanos?",
+          "modelAnswer": "Agregación plaquetaria\nVasoconstricción",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1791045998546-9cb4d8b8-3c3a-4819-aeb6-5b92ad1f0a67",
+          "prompt": "Qué función general cumplen las Prostaglandinas?",
+          "modelAnswer": "Median respuestas de inflamación, dolor y fiebre\nAumentan la capa de moco del estómagos\nControlan la función renal\nPueden funcionar como antiagregantes plaquetarios y vasodilatadores (prostaciclina)",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1791046066814-89386b2f-a090-48ce-9bc0-2468a7cb3db8",
+          "prompt": "Qué medicamentos inhiben la vía de la lipooxigenasa?",
+          "modelAnswer": "Zileutón",
+          "acceptedPoints": [],
+          "explanation": "Montelukast y Zafirlukast solo inhiben el receptor de LTE\nZileutón inhibe directamente a la enzima Lipooxigenasa",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": "open-deck-1791046233930-6c04e0cd-248b-430a-83d2-1b4afa09c88c",
+      "title": "Bioquímica Tercer Parcial - Lipoproteínas",
+      "subject": "Bioquímica",
+      "color": "#f58c6c",
+      "classSymbol": "▰",
+      "classColor": "#0f8017",
+      "description": "Lipoproteínas (HDL, VLDL, LDL, Quilomicrones) y componentes",
+      "questions": [
+        {
+          "id": "open-question-1791046279479-8c96b79a-83b4-4c61-912d-036a47eab22c",
+          "prompt": "Qué compone a las lipoproteínas?",
+          "modelAnswer": "Apoproteínas periféricas\nLípidos polares periféricos\n\nLípidos hidrófobos internos",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1791046344447-a56d57b4-18c8-4ef0-8dc8-26bf7758831a",
+          "prompt": "Qué componentes suelen hallarse en el núcleo de la lipoproteína?",
+          "modelAnswer": "Triglicéridos\nColesteril Éster (ésteres de colesterol)",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1791046454997-5315d6b1-0b87-449b-9b62-4cdb50c28168",
+          "prompt": "Qué componentes suelen hallarse en la superficie de la lipoproteína?",
+          "modelAnswer": "Apoproteínas\nCabezas polares lipídicas\nColesterol libre",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1791046514281-8b874986-6b16-4717-9cad-880658418d60",
+          "prompt": "Cuáles son las 4 lipoproteínas?",
+          "modelAnswer": "Quilomicrones\nVLDL\nLDL\nHDL",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1791046538474-15b5a0ed-e5a8-496a-88ef-00f8d882e6c0",
+          "prompt": "Función de la HDL",
+          "modelAnswer": "Transporte de colesterol desde los tejidos hacia el hígado",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1791046550088-2b2f66e7-5308-4e07-b3a3-fa3696c64a40",
+          "prompt": "Función de la LDL",
+          "modelAnswer": "Transporte de colesterol desde el hígado hacia los tejidos",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1791046559682-1e8d1e93-7686-47f9-8bc9-177946a9dabd",
+          "prompt": "Función de los Quilomicrones",
+          "modelAnswer": "Transporte de triglicéridos y lípidos desde el intestino hacia la circulación/tejidos",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1791046585832-92466c3c-cf03-409b-be1a-497ad2837928",
+          "prompt": "Función de la VLDL",
+          "modelAnswer": "Transporte de triglicéridos desde el hígado hacia los tejidos",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1791046597763-92dcc803-7cc9-44f0-b03a-d62db51bdead",
+          "prompt": "Qué son los quilomicrones remanentes?",
+          "modelAnswer": "Es lo que queda del Quilomicrón cuando ya entregó sus triglicéridos a los tejidos",
+          "acceptedPoints": [
+            "Quilomicrón con poco o nada de triglicéridos"
+          ],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1791046683630-6f7a8389-90ee-49ec-a54d-a085907effe1",
+          "prompt": "Dónde se ubica la lipoproteína lipasa?",
+          "modelAnswer": "Se expresa como una enzima transmembrana en la membrana celular de las células del endotelio capilar",
+          "acceptedPoints": [
+            "Membrana de células endoteliales"
+          ],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1791047251908-db6253d9-0ab8-45cf-a6a0-1df2d4d79eae",
+          "prompt": "Qué función tiene la lipoproteína lipasa?",
+          "modelAnswer": "Descompone a los triglicéridos transportados en Quilomicrones y VLDL en ácidos grasos libres utilizables por los tejidos",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1791047336042-8a10079f-8599-4896-a965-fe4a16321124",
+          "prompt": "Cómo se introduce la LDL a los tejidos?",
+          "modelAnswer": "1. Se une a su receptor LDL de la célula diana por su ligando Apo B-100\n2. Endocitosis mediada por receptores",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1791047410876-9f5cfd58-2a09-40b1-91b0-2c8dc200f507",
+          "prompt": "Qué le sucede al LDL media vez se halla dentro de la célula?",
+          "modelAnswer": "Se degrada en los lisosomas para liberar el colesterol y componentes adicionales",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1791047460925-a5e36da1-8b11-40ed-ad0a-f1b82e11eedb",
+          "prompt": "Qué es una célula espumosa y cómo se forma?",
+          "modelAnswer": "Es un macrófago que fagocitó grandes cantidades de LDL oxidado",
+          "acceptedPoints": [],
+          "explanation": "Se llenan de colesterol y lípidos oxidados que no puede digerir fácilmente",
+          "source": ""
+        },
+        {
+          "id": "open-question-1791047518768-03e494c7-3d6b-466c-8f40-343a9e770b83",
+          "prompt": "Qué es la enzima LCAT y qué función tiene?",
+          "modelAnswer": "La Lecitina Colesterol Acil Transferasa (LCAT) se encarga de esterificar colesterol libre para conviertirlo en Colesteril Éster (Éster de colesterol) para volverlo más hidrofóbico y permitir que se mantenga en el centro de lipoproteínas. Esto permite que se puede transportar en la circulación fácilmente y además, albergar una mayor cantidad de colesterol por unidad de área.",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1791047671194-9b83c413-5018-475d-b2a1-3ca8c66d0712",
+          "prompt": "Dónde se halla la LCAT y qué la activa?",
+          "modelAnswer": "En la superficie de las HDL\nSe activa por la Apoproteína A1 (que se halla en circulación y tejidos)",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": "open-deck-1791047735413-c864ef67-e8cf-4c49-8a40-e620bed4662d",
+      "title": "Bioquímica Tercer Parcial - Colesterol",
+      "subject": "Bioquímica",
+      "color": "#df683d",
+      "classSymbol": "▰",
+      "classColor": "#0f8017",
+      "description": "Colesterol",
+      "questions": [
+        {
+          "id": "open-question-1791047776061-df2cf92c-42ac-498f-86a0-6b29831de0ba",
+          "prompt": "Cuál es la estructura química del colesterol?",
+          "modelAnswer": "27 carbonos total\n4 Anillos (ABCD)\nCadena lateral\nGrupo -OH ",
+          "acceptedPoints": [],
+          "explanation": "Los anillos ABC se componen por 6 carbonos y el anillo D por 5",
+          "source": ""
+        },
+        {
+          "id": "open-question-1791047889062-a5257bf4-7399-41b6-9582-774ed8c2689d",
+          "prompt": "Mencione los 5 pasos más importantes de la síntesis de colesterol",
+          "modelAnswer": "Acetil CoA --HMG-CoA Sintasa--> HMG-CoA\nHMG-CoA --HMG-CoA Reductasa--> Mevalonato\nMevalonato --> IPP\nIPP --> Escualeno\nEscualeno --> Colesterol",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1791048479924-67a69879-2d7e-449b-9fe2-be7a2617a8de",
+          "prompt": "Cuál es la enzima y reacción que regula la síntesis de colesterol?",
+          "modelAnswer": "HMG-CoA --HMG-CoA Reductasa--> Mevalonato\n\nHMG-CoA Reductasa como enzima más importante",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1791048527766-123e80e4-b100-427c-97c4-0a7a7d8e1e67",
+          "prompt": "Qué es la SREBP y qué hace?",
+          "modelAnswer": "Factores de transcripción maestros que regulan la síntesis de colesterol y expresión de receptores LDL",
+          "acceptedPoints": [],
+          "explanation": "Codifica las proteínas que emplean estas funciones.\nSREBP-2 es la de colesterol",
+          "source": ""
+        },
+        {
+          "id": "open-question-1791048574948-c1521ce4-a325-401c-a0a6-8b8984c32039",
+          "prompt": "Cuáles son los derivados del colesterol?",
+          "modelAnswer": "Sales biliares (ácido cólico y quenodesoxicólico)\nHormonas esteroides (mineralocorticoides, hormonas sexuales, Glucocorticoides)\nVitamina D",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1791048679381-69a814ce-7425-49fb-9eb7-b00c6405fa79",
+          "prompt": "Función general de la vitamina D",
+          "modelAnswer": "Regula los niveles de fosfato y calcio en el cuerpo",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1791048701598-6c4f1478-e164-44ab-9f3d-5b30cb8422cb",
+          "prompt": "Función general de las sales biliares",
+          "modelAnswer": "Emulsificar grasas para facilitar su absorción en los intestinos",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1791048725183-1ed86559-a1e1-431e-a1b1-ffd3ffe7b9e9",
+          "prompt": "Función general de los mineralocorticoides",
+          "modelAnswer": "Regular el equilibrio hidroeléctrico del cuerpo\n(electrolitos y agua)",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1791048749414-4c3a1838-1c1a-4426-917b-ccc1031445d5",
+          "prompt": "Función general de los glucocorticoides",
+          "modelAnswer": "Regular el metabolismo del cuerpo\nRegular respuestas ante daño e inflamación",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1791048781149-15d059f6-e2ed-4aa5-8d62-c55050508b31",
+          "prompt": "Función general de hormonas sexuales",
+          "modelAnswer": "Regulan el desarrollo y reproducción sexual",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1791048909756-2367e1ac-81cd-40e7-8ee8-89d8cd0683eb",
+          "prompt": "Precursor de toda hormona esteroidea que es un derivado del colesterol",
+          "modelAnswer": "Pregnenolona",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        }
+      ]
     }
   ]
 }

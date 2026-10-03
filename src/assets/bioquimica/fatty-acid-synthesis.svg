@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" role="img" aria-label="Cadena de ácido graso en crecimiento">
+  <defs><linearGradient id="a" x2="1" y2="1"><stop stop-color="#062b34"/><stop offset="1" stop-color="#143b55"/></linearGradient><pattern id="p" width="54" height="54" patternUnits="userSpaceOnUse"><circle cx="9" cy="9" r="2" fill="#8ee9d4" opacity=".2"/></pattern></defs>
+  <path fill="url(#a)" d="M0 0h800v400H0z"/><path fill="url(#p)" d="M0 0h800v400H0z"/>
+  <g stroke="#77e7d0" stroke-width="8" stroke-linecap="round" opacity=".8"><path d="M95 245l72-42 72 42 72-42 72 42 72-42 72 42 72-42 72 42"/></g>
+  <g fill="#c9fff0"><circle cx="95" cy="245" r="14"/><circle cx="239" cy="245" r="14"/><circle cx="383" cy="245" r="14"/><circle cx="527" cy="245" r="14"/><circle cx="671" cy="245" r="14"/></g>
+  <g fill="#c0dbff" opacity=".6"><circle cx="169" cy="115" r="23"/><circle cx="305" cy="100" r="16"/><circle cx="487" cy="120" r="28"/><circle cx="630" cy="105" r="18"/></g>
+</svg>

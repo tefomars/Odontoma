@@ -11,7 +11,7 @@ export type BioquimicaQuestion = {
   explanation: string
 }
 
-type Row = readonly [
+export type Row = readonly [
   topic: string,
   difficulty: BioquimicaQuestion["difficulty"],
   question: string,
@@ -168,7 +168,7 @@ const extensionRows: readonly Row[] = [
   ["Cetogénesis", "medium", "¿Qué relación explica mejor la conexión entre beta oxidación y cetogénesis?", "La beta oxidación genera acetil-CoA, cuya acumulación hepática favorece cuerpos cetónicos.", "La cetogénesis produce malonil-CoA para inhibir beta oxidación.", "La beta oxidación convierte acetona en glucosa.", "La cetogénesis reemplaza por completo al ciclo de Krebs.", "Cuando hay más acetil-CoA del que el ciclo de Krebs puede manejar, el hígado puede desviarlo a cetogénesis."],
 ]
 
-const rows: readonly Row[] = [...coreRows, ...extensionRows]
+const rows: readonly Row[] = [...coreRows, ...extensionRows, ...partial3Rows]
 
 function slug(value: string) {
   return value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLocaleLowerCase("es").replaceAll(/[^a-z0-9]+/g, "-").replaceAll(/^-|-$/g, "")
@@ -193,3 +193,4 @@ export const bioquimicaQuestions: BioquimicaQuestion[] = rows.map((row, index) =
     explanation
   }
 })
+import { partial3Rows } from "./partial3Questions"

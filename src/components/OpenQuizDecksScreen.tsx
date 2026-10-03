@@ -1,11 +1,16 @@
-import { useLayoutEffect, useMemo, useState } from "react"
+import { useLayoutEffect, useMemo } from "react"
 
 import logoImage from "@/assets/logo.png"
 import type { OpenQuizClass, OpenQuizDeck } from "@/content/openQuizzes"
+import { groupOpenQuizDecks } from "@/content/openQuizzes/partials"
 
 type Props = {
   classes: OpenQuizClass[]
   decks: OpenQuizDeck[]
+  selectedClass: string | null
+  selectedPartial: number | null
+  onSelectClass: (className: string) => void
+  onSelectPartial: (partial: number) => void
   onBack: () => void
   onMainMenu: () => void
   onStart: (deckId: string) => void
@@ -14,8 +19,7 @@ type Props = {
 const DEFAULT_CLASS_SYMBOL = "▰"
 const DEFAULT_CLASS_COLOR = "#fbbf24"
 
-export default function OpenQuizDecksScreen({ classes: classDefinitions, decks, onBack, onMainMenu, onStart }: Props) {
-  const [selectedClass, setSelectedClass] = useState<string | null>(null)
+export default function OpenQuizDecksScreen({ classes: classDefinitions, decks, selectedClass, selectedPartial, onSelectClass, onSelectPartial, onBack, onMainMenu, onStart }: Props) {
   const classes = useMemo(() => {
     const grouped = new Map<string, OpenQuizDeck[]>()
     decks.forEach(deck => {
@@ -41,20 +45,22 @@ export default function OpenQuizDecksScreen({ classes: classDefinitions, decks, 
     return [...defined, ...legacy]
   }, [classDefinitions, decks])
   const activeClass = classes.find(item => item.name === selectedClass)
+  const groups = useMemo(() => groupOpenQuizDecks(activeClass?.decks || []), [activeClass])
+  const activePartial = groups.partials.find(item => item.number === selectedPartial)
 
   useLayoutEffect(() => {
     if (!window.matchMedia("(max-width: 1023px)").matches) return
     window.scrollTo(0, 0)
     document.documentElement.scrollTop = 0
     document.body.scrollTop = 0
-  }, [selectedClass])
+  }, [selectedClass, selectedPartial])
 
   return (
     <main className="min-h-screen overflow-y-auto bg-[#09090b] px-4 py-5 text-white sm:px-6 lg:px-8 lg:py-10">
       <div className="mx-auto max-w-6xl">
         <div className="mb-5 flex flex-wrap items-center justify-between gap-2">
-          <button type="button" onClick={() => activeClass ? setSelectedClass(null) : onBack()} className="rounded-2xl border border-zinc-800 bg-zinc-950 px-4 py-2 text-sm font-black text-zinc-400 hover:bg-zinc-900 hover:text-white">
-            ← {activeClass ? "Clases" : "Volver"}
+          <button type="button" onClick={onBack} className="rounded-2xl border border-zinc-800 bg-zinc-950 px-4 py-2 text-sm font-black text-zinc-400 hover:bg-zinc-900 hover:text-white">
+            ← {activePartial ? "Parciales" : activeClass ? "Clases" : "Volver"}
           </button>
           <button type="button" onClick={onMainMenu} className="rounded-2xl border border-violet-500/30 bg-violet-500/10 px-4 py-2 text-sm font-black text-violet-200 hover:bg-violet-500/20">
             Menú principal
@@ -65,32 +71,72 @@ export default function OpenQuizDecksScreen({ classes: classDefinitions, decks, 
           <div className="mb-8 flex items-center gap-4">
             <img src={logoImage} alt="Odontoma" className="h-14 w-14 object-contain" />
             <div>
-              <p className="text-xs font-black uppercase tracking-[0.25em] text-amber-300">{activeClass ? "Clase" : "Respuesta libre"}</p>
-              <h1 className="mt-2 text-4xl font-black tracking-tight sm:text-5xl">{activeClass?.name || "Elegí una clase"}</h1>
+              <p className="text-xs font-black uppercase tracking-[0.25em] text-amber-300">{activePartial ? activeClass?.name : activeClass ? "Clase" : "Respuesta libre"}</p>
+              <h1 className="mt-2 text-4xl font-black tracking-tight sm:text-5xl">{activePartial ? `Parcial ${activePartial.number}` : activeClass?.name || "Elegí una clase"}</h1>
             </div>
           </div>
 
           <p className="mb-8 max-w-3xl text-base leading-relaxed text-zinc-400">
             {activeClass
-              ? "Elegí el examen o apartado que querés practicar."
+              ? activePartial ? "Elegí el cuestionario que querés practicar." : groups.partials.length > 0 ? "Elegí un parcial para ver sus cuestionarios." : "Elegí el examen o apartado que querés practicar."
               : "Tus preguntas abiertas están organizadas por materia para que encuentres cada examen más rápido."}
           </p>
 
           {classes.length === 0 ? (
             <EmptyState />
-          ) : activeClass ? (
+          ) : activePartial ? (
             <div className="grid gap-4 md:grid-cols-2">
-              {activeClass.decks.map(deck => (
-                <DeckCard key={deck.id} deck={deck} classColor={activeClass.color} onStart={onStart} />
+              {activePartial.decks.map(deck => (
+                <DeckCard key={deck.id} deck={deck} classColor={activeClass?.color || DEFAULT_CLASS_COLOR} onStart={onStart} />
               ))}
             </div>
+          ) : activeClass ? (
+            groups.partials.length > 0 ? (
+              <>
+                <div className="grid gap-4 md:grid-cols-2">
+                  {groups.partials.map(group => (
+                    <button
+                      key={group.number}
+                      type="button"
+                      onClick={() => onSelectPartial(group.number)}
+                      className="group rounded-[1.5rem] border p-6 text-left transition hover:scale-[1.01]"
+                      style={{ borderColor: `${activeClass.color}45`, backgroundColor: `${activeClass.color}0D` }}
+                    >
+                      <div className="mb-6 flex items-center justify-between gap-3">
+                        <span className="text-xs font-black uppercase tracking-[0.2em]" style={{ color: activeClass.color }}>{activeClass.name}</span>
+                        <span className="text-sm font-bold text-zinc-400">{group.decks.length} {group.decks.length === 1 ? "cuestionario" : "cuestionarios"}</span>
+                      </div>
+                      <h2 className="text-3xl font-black tracking-tight">Parcial {group.number}</h2>
+                      <p className="mt-3 text-sm text-zinc-400">{group.decks.reduce((total, deck) => total + deck.questions.length, 0)} preguntas abiertas</p>
+                      <p className="mt-6 text-sm font-black" style={{ color: activeClass.color }}>Ver cuestionarios →</p>
+                    </button>
+                  ))}
+                </div>
+                {groups.ungrouped.length > 0 && (
+                  <section className="mt-8">
+                    <h2 className="mb-4 text-lg font-black">Otros cuestionarios</h2>
+                    <div className="grid gap-4 md:grid-cols-2">
+                      {groups.ungrouped.map(deck => (
+                        <DeckCard key={deck.id} deck={deck} classColor={activeClass.color} onStart={onStart} />
+                      ))}
+                    </div>
+                  </section>
+                )}
+              </>
+            ) : (
+              <div className="grid gap-4 md:grid-cols-2">
+                {activeClass.decks.map(deck => (
+                  <DeckCard key={deck.id} deck={deck} classColor={activeClass.color} onStart={onStart} />
+                ))}
+              </div>
+            )
           ) : (
               <div className="grid gap-4 md:grid-cols-2">
                 {classes.map(item => (
                   <button
                     key={item.name}
                     type="button"
-                    onClick={() => setSelectedClass(item.name)}
+                    onClick={() => onSelectClass(item.name)}
                     className="group rounded-[1.5rem] border p-6 text-left transition hover:scale-[1.01]"
                     style={{
                       borderColor: `${item.color}45`,

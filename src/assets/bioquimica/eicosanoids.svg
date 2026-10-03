@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" role="img" aria-label="Ramificación de vías de eicosanoides">
+  <defs><linearGradient id="a" x2="1" y2="1"><stop stop-color="#102845"/><stop offset="1" stop-color="#24224d"/></linearGradient></defs>
+  <path fill="url(#a)" d="M0 0h800v400H0z"/>
+  <g fill="none" stroke-linecap="round" stroke-width="10"><path d="M75 205h275" stroke="#98e7f2"/><path d="M350 205q82 0 105-95h245" stroke="#f4b3c9"/><path d="M350 205q82 0 105 95h245" stroke="#ad9cff"/></g>
+  <g fill="#f9fdff"><circle cx="350" cy="205" r="19"/><circle cx="455" cy="110" r="13"/><circle cx="455" cy="300" r="13"/></g>
+  <g fill="none" stroke="#e6c9ff" stroke-width="3" opacity=".55"><circle cx="680" cy="110" r="42"/><circle cx="680" cy="300" r="42"/><circle cx="110" cy="205" r="48"/></g>
+</svg>

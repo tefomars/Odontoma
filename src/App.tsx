@@ -310,6 +310,12 @@ export default function App() {
   const [activeOpenQuizDeckId, setActiveOpenQuizDeckId] =
     useState<string | null>(null)
 
+  const [selectedOpenQuizClass, setSelectedOpenQuizClass] =
+    useState<string | null>(null)
+
+  const [selectedOpenQuizPartial, setSelectedOpenQuizPartial] =
+    useState<number | null>(null)
+
   const [started, setStarted] =
     useState(false)
 
@@ -995,6 +1001,8 @@ export default function App() {
     setActiveUserQuizDeckId(null)
     setActivePersonalOpenQuizDeckId(null)
     setActiveOpenQuizDeckId(null)
+    setSelectedOpenQuizClass(null)
+    setSelectedOpenQuizPartial(null)
 
     setStarted(false)
     setFinished(false)
@@ -1230,6 +1238,16 @@ export default function App() {
         return
       }
 
+      if (selectedSubject === "open-quizzes" && selectedOpenQuizPartial !== null) {
+        setSelectedOpenQuizPartial(null)
+        return
+      }
+
+      if (selectedSubject === "open-quizzes" && selectedOpenQuizClass) {
+        setSelectedOpenQuizClass(null)
+        return
+      }
+
       if (selectedSubject) {
         setSelectedSubject(null)
 
@@ -1295,6 +1313,8 @@ export default function App() {
       setSelectedQuizMode("open-ended")
       setSelectedSubject("open-quizzes")
       setActiveOpenQuizDeckId(null)
+      setSelectedOpenQuizClass(null)
+      setSelectedOpenQuizPartial(null)
       return
     }
     if (destination === "my-quizzes") {
@@ -1640,6 +1660,8 @@ export default function App() {
             setSelectedQuizMode("open-ended")
             setSelectedSubject("open-quizzes")
             setActiveOpenQuizDeckId(null)
+            setSelectedOpenQuizClass(null)
+            setSelectedOpenQuizPartial(null)
           }}
           onSelectMyQuizzes={() => {
             setSelectedQuizMode("my-quizzes")
@@ -1724,10 +1746,14 @@ export default function App() {
         <OpenQuizDecksScreen
           classes={openQuizClasses}
           decks={openQuizDecks}
-          onBack={() => {
-            setSelectedSubject(null)
-            setSelectedQuizMode(null)
+          selectedClass={selectedOpenQuizClass}
+          selectedPartial={selectedOpenQuizPartial}
+          onSelectClass={className => {
+            setSelectedOpenQuizClass(className)
+            setSelectedOpenQuizPartial(null)
           }}
+          onSelectPartial={setSelectedOpenQuizPartial}
+          onBack={goBack}
           onMainMenu={goToMainMenu}
           onStart={setActiveOpenQuizDeckId}
         />

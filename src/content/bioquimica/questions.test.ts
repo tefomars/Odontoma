@@ -2,9 +2,15 @@ import { describe, expect, it } from "vitest"
 import { questions, questionCountsByChapter } from "."
 
 describe("quizzes de Bioquímica", () => {
-  it("cubre los ocho temas de los cuestionarios escritos", () => {
-    expect(Object.keys(questionCountsByChapter)).toHaveLength(8)
+  it("cubre los doce temas de los tres parciales", () => {
+    expect(Object.keys(questionCountsByChapter)).toHaveLength(12)
     for (const count of Object.values(questionCountsByChapter)) expect(count).toBeGreaterThanOrEqual(16)
+  })
+
+  it("incluye un banco propio para cada tema del tercer parcial", () => {
+    for (const topic of ["Síntesis de ácidos grasos", "Eicosanoides", "Lipoproteínas", "Colesterol"]) {
+      expect(questionCountsByChapter[topic]).toBe(topic === "Colesterol" ? 17 : 16)
+    }
   })
 
   it("usa distractores distintos y distribuye las respuestas correctas", () => {

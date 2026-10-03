@@ -44,6 +44,7 @@ const destinationOptions: Array<{
   { value: "histologia", label: "Histología existente", description: "Abre los capítulos actuales de Histología." },
   { value: "filosofia-de-hayek", label: "Filosofía existente", description: "Abre los capítulos actuales de Hayek." },
   { value: "microbiologia", label: "Microbiología", description: "Abre los capítulos y quizzes de Microbiología." },
+  { value: "bioquimica", label: "Bioquímica", description: "Abre los capítulos y quizzes de los tres parciales de Bioquímica." },
   { value: "semiologia", label: "Semiología", description: "Abre los bloques y quizzes de Semiología." }
 ]
 
