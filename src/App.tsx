@@ -1374,12 +1374,6 @@ export default function App() {
             setRetryingOpenAttempt(null)
             goToMainMenu()
           }}
-          onHistory={(subject) => {
-            setRetryingOpenAttempt(null)
-            setSelectedSubject(null)
-            setHistorySubject(subject)
-            setSelectedQuizMode("history")
-          }}
           onRetryIncorrect={startIncorrectRetry}
         />
       </ScreenTransition>
@@ -1730,11 +1724,6 @@ export default function App() {
             deck={activeDeck}
             onBack={() => setActiveOpenQuizDeckId(null)}
             onMainMenu={goToMainMenu}
-            onHistory={(subject) => {
-              setActiveOpenQuizDeckId(null)
-              setHistorySubject(subject)
-              setSelectedQuizMode("history")
-            }}
             onRetryIncorrect={startIncorrectRetry}
           />
         </ScreenTransition>
@@ -1810,12 +1799,6 @@ export default function App() {
               deck={openDeck}
               onBack={() => setActivePersonalOpenQuizDeckId(null)}
               onMainMenu={goToMainMenu}
-              onHistory={(subject) => {
-                setActivePersonalOpenQuizDeckId(null)
-                setSelectedSubject(null)
-                setHistorySubject(subject)
-                setSelectedQuizMode("history")
-              }}
               onRetryIncorrect={startIncorrectRetry}
             />
           </ScreenTransition>

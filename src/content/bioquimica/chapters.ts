@@ -2,15 +2,15 @@ import { questionCountsByChapter } from "."
 import glycolysisImage from "@/assets/bioquimica/glycolysis.svg"
 import krebsImage from "@/assets/bioquimica/krebs.png"
 import electronTransportImage from "@/assets/bioquimica/electron-transport.svg"
-import glycogenImage from "@/assets/bioquimica/glycogen.svg"
-import gluconeogenesisImage from "@/assets/bioquimica/gluconeogenesis.svg"
-import pentosePhosphateImage from "@/assets/bioquimica/pentose-phosphate.svg"
-import betaOxidationImage from "@/assets/bioquimica/beta-oxidation.svg"
-import ketogenesisImage from "@/assets/bioquimica/ketogenesis.svg"
-import fattyAcidSynthesisImage from "@/assets/bioquimica/fatty-acid-synthesis.svg"
-import eicosanoidsImage from "@/assets/bioquimica/eicosanoids.svg"
-import lipoproteinsImage from "@/assets/bioquimica/lipoproteins.svg"
-import cholesterolImage from "@/assets/bioquimica/cholesterol.svg"
+import glycogenImage from "@/assets/bioquimica/selection/glycogen.jpg"
+import gluconeogenesisImage from "@/assets/bioquimica/selection/gluconeogenesis.jpg"
+import pentosePhosphateImage from "@/assets/bioquimica/selection/pentose-phosphate.jpg"
+import betaOxidationImage from "@/assets/bioquimica/selection/beta-oxidation.jpg"
+import ketogenesisImage from "@/assets/bioquimica/selection/ketogenesis.jpg"
+import fattyAcidSynthesisImage from "@/assets/bioquimica/selection/fatty-acid-synthesis.jpg"
+import eicosanoidsImage from "@/assets/bioquimica/selection/eicosanoids.jpg"
+import lipoproteinsImage from "@/assets/bioquimica/selection/lipoproteins.jpg"
+import cholesterolImage from "@/assets/bioquimica/selection/cholesterol.jpg"
 
 const entries = [
   ["Glucólisis", "Glucólisis", "Control, rendimiento, destinos del piruvato y reoxidación de NADH.", glycolysisImage],
@@ -27,9 +27,25 @@ const entries = [
   ["Colesterol", "Colesterol", "Síntesis, HMG-CoA reductasa, SREBP y derivados.", cholesterolImage]
 ] as const
 
+const eyebrowByChapterId: Record<string, string> = {
+  "Glucólisis": "Vía central de la glucosa",
+  "Ciclo de Krebs": "Ciclo del ácido cítrico",
+  "Cadena respiratoria": "Cadena respiratoria",
+  "Metabolismo del glucógeno": "Metabolismo del glucógeno",
+  "Gluconeogénesis": "Síntesis de glucosa",
+  "Vía de las pentosas": "Vía de las pentosas",
+  "Beta oxidación": "Beta oxidación",
+  "Cetogénesis": "Cuerpos cetónicos",
+  "Síntesis de ácidos grasos": "Lipogénesis",
+  "Eicosanoides": "Mediadores lipídicos",
+  "Lipoproteínas": "Transporte de lípidos",
+  "Colesterol": "Metabolismo del colesterol"
+}
+
 export const chapters = entries.map(([id, title, description, image], index) => ({
   id,
   title,
+  eyebrow: eyebrowByChapterId[id],
   subtitle: index < 3 ? "Primer parcial" : index < 8 ? "Segundo parcial" : "Tercer parcial",
   description,
   image,

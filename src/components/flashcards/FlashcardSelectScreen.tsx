@@ -1472,6 +1472,18 @@ const CHAPTER_MENUS: ChapterMenu[] = [
     ]
   },
   {
+    chapter: "Capítulo 21",
+    title: "Órganos endocrinos",
+    groups: [
+      { title: "Fundamentos endocrinos", description: "Glándulas, tipos de señalización y mecanismos hormonales.", subtopics: ["Fundamentos endocrinos"] },
+      { title: "Hipófisis e hipotálamo", description: "Origen, regiones, circulación porta, células y hormonas.", subtopics: ["Hipófisis e hipotálamo"] },
+      { title: "Glándula pineal", description: "Pinealocitos, melatonina y cuerpos arenáceos.", subtopics: ["Glándula pineal"] },
+      { title: "Glándula tiroides", description: "Folículos, coloide, síntesis de T3/T4 y células C.", subtopics: ["Glándula tiroides"] },
+      { title: "Glándulas paratiroides", description: "Células principales, oxífilas y acciones de PTH.", subtopics: ["Glándulas paratiroides"] },
+      { title: "Glándulas suprarrenales", description: "Zonas corticales, médula, hormonas y desarrollo fetal.", subtopics: ["Glándulas suprarrenales"] }
+    ]
+  },
+  {
     chapter: "Artículo · Hemostasia y trombosis",
     title: "Hemostasia y trombosis",
     groups: [

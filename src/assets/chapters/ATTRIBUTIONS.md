@@ -1,4 +1,4 @@
-# Atribuciones de imágenes — capítulos 9–18
+# Atribuciones de imágenes — capítulos y botones de selección
 
 Las imágenes se recortaron, redimensionaron y, en algunos casos, se ajustaron en color para adaptarlas al formato horizontal de las tarjetas de Odontoma.
 
@@ -12,6 +12,7 @@ Las imágenes se recortaron, redimensionaron y, en algunos casos, se ajustaron e
 - `cap17.jpg` — *Small intestine low mag*. Nephron. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Small_intestine_low_mag.jpg). Licencia: CC BY-SA 3.0 / GFDL 1.2 o posterior. La imagen se redimensionó y comprimió para la tarjeta horizontal.
 - `cap18.jpg` — *Liver-H&E*. Paulo Abrahamsohn. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Liver-H%26E.jpg). Licencia: CC BY-SA 4.0.
 - `cap19.png` — *Lung histology 200x unlabelled*. RWhitwam, con microfotografía original de Michael Hortsch / University of Michigan Medical School. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Lung_histology_200x_unlabelled.png). Licencia: CC BY-SA 4.0.
+- `cap21.jpg` — *Thyroid gland - high mag*. Nephron. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Thyroid_gland_-_high_mag.jpg). Licencia: CC BY-SA 3.0. Se descargó una versión reducida y la tarjeta la recorta visualmente.
 - `coagulation-cascade.jpg` — *Blood Clotting Cascade*. Jcchem183. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Blood_Clotting_Cascade.png). Licencia: CC BY-SA 4.0. La imagen se redimensionó y se compuso sobre un fondo desenfocado para adaptarla a la tarjeta horizontal.
 
 ## Imágenes de decks principales
@@ -22,7 +23,7 @@ Las imágenes se recortaron, redimensionaron y, en algunos casos, se ajustaron e
 
 ## Diagramas de Bioquímica
 
-Estos diagramas se usan como fondo de las tarjetas de selección; se mantienen sus licencias y atribuciones originales.
+Estos diagramas siguen en el proyecto con sus licencias originales. Los botones de los parciales 2 y 3 usan ahora las fotografías acreditadas más abajo.
 
 - `bioquimica/carbohydrate-metabolism.png` — *Carbohydrate Metabolism*. Eschopp. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Carbohydrate_Metabolism.png). Licencia: CC BY-SA 4.0.
 - `bioquimica/glycolysis.svg` — *Glycolysis*. YassineMrabet. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Glycolysis.svg). Licencias: CC BY-SA 3.0 y GFDL.
@@ -33,3 +34,17 @@ Estos diagramas se usan como fondo de las tarjetas de selección; se mantienen s
 - `bioquimica/pentose-phosphate.svg` — *Pentose phosphate pathway*. Pisum. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Pentose_phosphate_pathway.svg). Dominio público.
 - `bioquimica/beta-oxidation.svg` — *Beta oksydacja*. Pisum. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Beta_oksydacja.svg). Dominio público.
 - `bioquimica/ketogenesis.svg` — *Ketogenesis*. Uthbrian. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Ketogenesis.svg). Dominio público.
+
+## Fotografías de selección — Bioquímica, parciales 2 y 3
+
+Son fondos temáticos: muestran tejidos, orgánulos, muestras o correlaciones clínicas relacionadas; no representan directamente cada reacción bioquímica. Se descargaron versiones reducidas y la interfaz las recorta visualmente con `background-size: cover`, sin modificar su color ni contenido.
+
+- `bioquimica/selection/glycogen.jpg` — *Glycogen storage disorder (PAS stain)*, glucógeno en hepatocitos. Department of Pathology, Calicut Medical College. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Glycogen_storage_disorder_(PAS_stain).jpg). Licencia: CC BY-SA 4.0.
+- `bioquimica/selection/gluconeogenesis.jpg` — *Liver (26 2 07) Cross-section*, tejido hepático. Josef Reischig. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Liver_(26_2_07)_Cross-section.jpg). Licencia: CC BY-SA 3.0.
+- `bioquimica/selection/pentose-phosphate.jpg` — *SEM blood cells*, eritrocitos que dependen del NADPH producido por esta vía. Bruce Wetzel y Harry Schaefer / National Cancer Institute. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:SEM_blood_cells.jpg). Dominio público.
+- `bioquimica/selection/beta-oxidation.jpg` — *Mitochondria - TEM*, mitocondria observada por microscopía electrónica. Louisa Howard. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Mitochondria_-_TEM.jpg). Dominio público.
+- `bioquimica/selection/ketogenesis.jpg` — *Ketonuria*, prueba de cuerpos cetónicos en orina. Colin. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Ketonuria.jpg). Dominio público.
+- `bioquimica/selection/fatty-acid-synthesis.jpg` — *3T3-L1 adipocyty*, gotículas lipídicas teñidas con Oil Red O en adipocitos. KristyPet. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:3T3-L1_adipocyty.jpg). Licencia: CC BY-SA 4.0.
+- `bioquimica/selection/eicosanoids.jpg` — *Margination of neutrophils*, reacción inflamatoria relacionada con mediadores eicosanoides. Department of Pathology, Calicut Medical College. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Margination_of_neutrophils.jpg). Licencia: CC BY-SA 4.0.
+- `bioquimica/selection/lipoproteins.jpg` — *Lipemic sérum ex1*, muestra de suero lipémico. J3D3. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Lipemic_s%C3%A9rum_ex1.jpg). Licencia: CC BY-SA 4.0.
+- `bioquimica/selection/cholesterol.jpg` — *Cholesterol Crystals Synovial Fluid Polarized Light*, cristales de colesterol bajo luz polarizada. Ed Uthman. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Cholesterol_Crystals_Synovial_Fluid_Polarized_Light.jpg). Licencia: CC BY 3.0.

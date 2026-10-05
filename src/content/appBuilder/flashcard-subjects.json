@@ -20,8 +20,8 @@
   {
     "id": "bioquimica",
     "title": "Bioquímica",
-    "subtitle": "Metabolismo de carbohidratos",
-    "description": "Flashcards de glucólisis, Krebs, cadena respiratoria, glucógeno, gluconeogénesis y pentosas.",
+    "subtitle": "Metabolismo y lípidos",
+    "description": "Flashcards de los tres parciales: carbohidratos, energía, ácidos grasos, eicosanoides, lipoproteínas y colesterol.",
     "accent": "from-emerald-500/20 to-lime-500/10",
     "accentColor": "#22c55e",
     "destination": "bioquimica"

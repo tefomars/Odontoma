@@ -23,7 +23,6 @@ type Props = {
   deck: OpenQuizDeck
   onBack: () => void
   onMainMenu: () => void
-  onHistory: (subject: string) => void
   initialQuestions?: OpenQuizQuestion[]
   onRetryIncorrect?: (attempt: QuizAttempt) => void
 }
@@ -95,7 +94,6 @@ export default function OpenQuizSessionScreen({
   deck,
   onBack,
   onMainMenu,
-  onHistory,
   initialQuestions,
   onRetryIncorrect
 }: Props) {
@@ -282,15 +280,14 @@ export default function OpenQuizSessionScreen({
                 </div>
               ))}
             </div>
-            <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-              <button onClick={() => setReviewing(true)} className="rounded-2xl bg-emerald-400 px-6 py-3 font-black text-zinc-950 hover:bg-emerald-300">Ver revisión</button>
-              {onRetryIncorrect && gradeCounts.incorrect > 0 && <button onClick={() => completedAttempt && onRetryIncorrect(completedAttempt)} className="rounded-2xl border border-rose-500/30 bg-rose-500/10 px-6 py-3 font-black text-rose-100 hover:bg-rose-500/20">Repasar incorrectas ({gradeCounts.incorrect})</button>}
-              <button onClick={restart} className="rounded-2xl bg-amber-300 px-6 py-3 font-black text-zinc-950 hover:bg-amber-200">Repetir examen</button>
-              <button onClick={() => onHistory(deck.subject || "Preguntas abiertas")} className="rounded-2xl border border-cyan-500/30 bg-cyan-500/10 px-6 py-3 font-black text-cyan-200 hover:bg-cyan-500/20">Exámenes de esta clase</button>
-              <button onClick={onBack} className="rounded-2xl border border-zinc-700 bg-zinc-900 px-6 py-3 font-black text-zinc-200 hover:bg-zinc-800">Volver a la clase</button>
+            <div className="mx-auto mt-8 flex max-w-md flex-col gap-3">
+              <button onClick={() => setReviewing(true)} className="min-h-14 rounded-2xl bg-emerald-400 px-6 py-3 font-black text-zinc-950 hover:bg-emerald-300">Ver revisión</button>
+              {onRetryIncorrect && gradeCounts.incorrect > 0 && <button onClick={() => completedAttempt && onRetryIncorrect(completedAttempt)} className="min-h-14 rounded-2xl border border-rose-500/30 bg-rose-500/10 px-6 py-3 font-black text-rose-100 hover:bg-rose-500/20">Repasar incorrectas ({gradeCounts.incorrect})</button>}
+              <button onClick={restart} className="min-h-14 rounded-2xl bg-amber-300 px-6 py-3 font-black text-zinc-950 hover:bg-amber-200">Repetir examen</button>
             </div>
-            <div className="mt-5 flex justify-center">
-              <button onClick={onMainMenu} className="rounded-2xl border border-violet-500/30 bg-violet-500/10 px-6 py-3 font-black text-violet-200 hover:bg-violet-500/20">Menú principal</button>
+            <div className="mx-auto mt-6 grid max-w-md gap-3 border-t border-zinc-800 pt-6 sm:grid-cols-2">
+              <button onClick={onBack} className="min-h-14 rounded-2xl border border-zinc-700 bg-zinc-900 px-6 py-3 font-black text-zinc-200 hover:bg-zinc-800">Volver a la clase</button>
+              <button onClick={onMainMenu} className="min-h-14 rounded-2xl border border-violet-500/30 bg-violet-500/10 px-6 py-3 font-black text-violet-200 hover:bg-violet-500/20">Menú principal</button>
             </div>
           </section>
         </div>

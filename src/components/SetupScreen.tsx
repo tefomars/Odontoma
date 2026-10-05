@@ -9,6 +9,7 @@ type Props = {
   chapters: {
     id: string
     title: string
+    eyebrow?: string
     subtitle: string
     description: string
     image: string
@@ -1129,9 +1130,9 @@ export default function SetupScreen({
                       `} />
 
                       <div className="phone-chapter-content relative flex flex-col justify-end p-5 pr-20">
-                        {chapter.id !== chapter.title && (
+                        {(chapter.eyebrow || chapter.id !== chapter.title) && (
                           <p className="text-xs font-black uppercase tracking-[0.22em] text-zinc-200 drop-shadow">
-                            {chapter.id}
+                            {chapter.eyebrow || chapter.id}
                           </p>
                         )}
 
@@ -1310,7 +1311,7 @@ export default function SetupScreen({
 
                       <div>
 
-                        {chapter.id !== chapter.title && (
+                        {(chapter.eyebrow || chapter.id !== chapter.title) && (
                           <p className="
                             mb-2
                             text-xs
@@ -1319,7 +1320,7 @@ export default function SetupScreen({
                             tracking-[0.2em]
                             text-zinc-300
                           ">
-                            {chapter.id}
+                            {chapter.eyebrow || chapter.id}
                           </p>
                         )}
 

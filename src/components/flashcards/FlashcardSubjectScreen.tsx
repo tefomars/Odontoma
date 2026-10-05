@@ -1,3 +1,5 @@
+import { Fragment } from "react"
+
 import logoImage from "@/assets/logo.png"
 import histologiaDeckImage from "@/assets/chapters/cap14.jpg"
 import procesoEconomicoDeckImage from "@/assets/flashcard-decks/proceso-economico.jpg"
@@ -27,6 +29,7 @@ import {
 import { flashcardSubjectBlocks } from "@/content/appBuilder/flashcardSubjects"
 import type { FlashcardSubjectBlock } from "@/content/appBuilder"
 import { relayWheelToPanel } from "@/lib/nestedScroll"
+import { groupSubjectSections } from "@/lib/subjectSections"
 
 type Props = {
   onBack: () => void
@@ -106,6 +109,9 @@ export default function FlashcardSubjectScreen({
         storage.cards
       )
     ).length
+
+  const { primary, secondary, upcoming } = groupSubjectSections(subjects)
+  const orderedSubjects = [...primary, ...secondary, ...upcoming]
 
   return (
     <main
@@ -385,14 +391,30 @@ export default function FlashcardSubjectScreen({
             gap-4
             lg:grid-cols-3
           ">
-            {subjects.map(subject => {
+            {primary.length > 0 && (
+              <h3 className="lg:col-span-3 text-xs font-black uppercase tracking-[0.25em] text-emerald-300">
+                Materias principales
+              </h3>
+            )}
+            {orderedSubjects.map((subject, index) => {
               const available = subject.destination !== "coming-soon"
               const contentSubjectTitle = destinationSubjectTitles[subject.destination] || subject.title
               const subjectImage = destinationSubjectImages[subject.destination]
               return (
+              <Fragment key={subject.id}>
+              {index === primary.length && secondary.length > 0 && (
+                <div className="mt-6 border-t border-zinc-800 pt-6 lg:col-span-3">
+                  <h3 className="text-xs font-black uppercase tracking-[0.25em] text-sky-300">Clases secundarias</h3>
+                  <p className="mt-1 text-sm text-zinc-500">Otros cursos, separados de los mazos principales.</p>
+                </div>
+              )}
+              {index === primary.length + secondary.length && upcoming.length > 0 && (
+                <h3 className="mt-6 border-t border-zinc-800 pt-6 text-xs font-black uppercase tracking-[0.25em] text-zinc-500 lg:col-span-3">
+                  Próximamente
+                </h3>
+              )}
               <div
                 className="relative"
-                key={subject.id}
                 draggable={editorMode}
                 onDragStart={event => event.dataTransfer.setData("text/odontoma-card", subject.id)}
                 onDragOver={event => editorMode && event.preventDefault()}
@@ -516,6 +538,7 @@ export default function FlashcardSubjectScreen({
                 </button>
               )}
               </div>
+              </Fragment>
             )})}
           </div>
 

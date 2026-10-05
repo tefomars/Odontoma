@@ -50,7 +50,15 @@ const compactSubtopics: Record<string, string> = {
   "Cetogénesis|Fundamentos": "Síntesis y cuerpos cetónicos",
   "Cetogénesis|Síntesis": "Síntesis y cuerpos cetónicos",
   "Cetogénesis|Uso y regulación": "Uso y regulación clínica",
-  "Cetogénesis|Clínica": "Uso y regulación clínica"
+  "Cetogénesis|Clínica": "Uso y regulación clínica",
+  "Síntesis de ácidos grasos|Sustratos y reacciones": "Sustratos y reacciones",
+  "Síntesis de ácidos grasos|Regulación y destinos": "Regulación y destinos",
+  "Eicosanoides|Rutas y mediadores": "Rutas y mediadores",
+  "Eicosanoides|Fármacos y clínica": "Fármacos y clínica",
+  "Lipoproteínas|Estructura y transporte": "Estructura y transporte",
+  "Lipoproteínas|Enzimas y captación": "Enzimas y captación",
+  "Colesterol|Síntesis y regulación": "Síntesis y regulación",
+  "Colesterol|Derivados y función": "Derivados y función"
 }
 
 const coreSeeds: readonly Seed[] = [
@@ -173,7 +181,80 @@ const fatMetabolismSeeds: readonly Seed[] = [
   ["Cetogénesis", "Clínica", "¿Cómo reduce la insulina la producción de cuerpos cetónicos?", "Inhibe la lipólisis, disminuye la llegada de ácidos grasos al hígado y reduce la beta oxidación."],
 ]
 
-const seeds: readonly Seed[] = [...coreSeeds, ...fatMetabolismSeeds]
+// Las tarjetas del tercer parcial se basan en el banco temático de opción
+// múltiple existente; se mantienen separadas de la sección de repaso pre-parcial.
+const partial3Seeds: readonly Seed[] = [
+  ["Síntesis de ácidos grasos", "Sustratos y reacciones", "¿Qué enzima inicia la formación de malonil-CoA?", "La acetil-CoA carboxilasa convierte acetil-CoA en malonil-CoA."],
+  ["Síntesis de ácidos grasos", "Sustratos y reacciones", "¿Qué productos genera la citrato liasa en el citosol?", "Acetil-CoA y oxaloacetato."],
+  ["Síntesis de ácidos grasos", "Sustratos y reacciones", "¿Por qué se exporta citrato desde la mitocondria durante la lipogénesis?", "Para llevar carbonos de acetil-CoA al citosol, donde ocurre la síntesis."],
+  ["Síntesis de ácidos grasos", "Sustratos y reacciones", "¿En qué compartimento ocurre la síntesis de ácidos grasos?", "En el citosol."],
+  ["Síntesis de ácidos grasos", "Sustratos y reacciones", "¿Cuál es el producto principal del complejo ácido graso sintasa?", "Ácido palmítico."],
+  ["Síntesis de ácidos grasos", "Sustratos y reacciones", "¿Qué vía aporta NADPH a la síntesis de ácidos grasos?", "La vía de las pentosas fosfato."],
+  ["Síntesis de ácidos grasos", "Sustratos y reacciones", "¿Para qué utiliza NADPH cada ciclo de la ácido graso sintasa?", "Para dos reacciones de reducción."],
+  ["Síntesis de ácidos grasos", "Sustratos y reacciones", "¿Cuál es el orden de reacciones de cada ciclo de la ácido graso sintasa?", "Condensación, reducción, deshidratación y segunda reducción."],
+  ["Síntesis de ácidos grasos", "Sustratos y reacciones", "¿Qué componente del complejo sintasa transporta el grupo malonilo?", "La proteína portadora de acilo (ACP)."],
+  ["Síntesis de ácidos grasos", "Regulación y destinos", "¿Qué le ocurre a la acetil-CoA carboxilasa al fosforilarse?", "Disminuye su actividad; la desfosforilación la activa."],
+  ["Síntesis de ácidos grasos", "Regulación y destinos", "¿Qué hormona favorece la lipogénesis en estado alimentado?", "La insulina."],
+  ["Síntesis de ácidos grasos", "Regulación y destinos", "¿Qué estado de sustratos y energía favorece la lipogénesis?", "Abundancia de acetil-CoA, glucosa y energía."],
+  ["Síntesis de ácidos grasos", "Regulación y destinos", "¿Qué efecto tienen glucagón y adrenalina sobre la lipogénesis?", "La inhiben y favorecen la movilización de ácidos grasos."],
+  ["Síntesis de ácidos grasos", "Regulación y destinos", "¿Cuáles son los dos ácidos grasos esenciales tratados en el temario?", "Linoleico y alfa-linolénico."],
+  ["Síntesis de ácidos grasos", "Regulación y destinos", "¿Dónde puede elongarse el palmitato después de su síntesis?", "En el retículo endoplásmico liso."],
+  ["Síntesis de ácidos grasos", "Regulación y destinos", "¿Qué cambio introducen las desaturasas en una cadena de ácido graso?", "Enlaces dobles o insaturaciones."],
+
+  ["Eicosanoides", "Rutas y mediadores", "¿Cuántos carbonos caracterizan a los eicosanoides?", "Veinte carbonos."],
+  ["Eicosanoides", "Rutas y mediadores", "¿Qué enzima libera ácido araquidónico de los fosfolípidos de membrana?", "La fosfolipasa A₂."],
+  ["Eicosanoides", "Rutas y mediadores", "¿Qué dos familias de mediadores proceden de la vía COX?", "Prostaglandinas y tromboxanos."],
+  ["Eicosanoides", "Rutas y mediadores", "¿Qué familia de mediadores procede de la vía LOX?", "Leucotrienos."],
+  ["Eicosanoides", "Rutas y mediadores", "¿Cuál isoforma COX es principalmente constitutiva?", "COX-1."],
+  ["Eicosanoides", "Rutas y mediadores", "¿Cuál isoforma COX es principalmente inducible durante la inflamación?", "COX-2."],
+  ["Eicosanoides", "Rutas y mediadores", "¿Qué hacen los tromboxanos sobre vasos y plaquetas?", "Favorecen vasoconstricción y agregación plaquetaria."],
+  ["Eicosanoides", "Rutas y mediadores", "¿Qué hace la prostaciclina sobre vasos y plaquetas?", "Favorece vasodilatación e inhibe la agregación plaquetaria."],
+  ["Eicosanoides", "Rutas y mediadores", "¿Qué efectos tienen los leucotrienos en una reacción alérgica?", "Broncoconstricción, aumento de moco y mayor permeabilidad vascular."],
+  ["Eicosanoides", "Fármacos y clínica", "¿Qué enzima inhiben los AINEs para reducir prostaglandinas?", "La ciclooxigenasa (COX)."],
+  ["Eicosanoides", "Fármacos y clínica", "¿Qué isoformas bloquea un AINE no selectivo?", "COX-1 y COX-2."],
+  ["Eicosanoides", "Fármacos y clínica", "¿Cuál es la diana preferente de un AINE selectivo de COX-2?", "La vía de prostaglandinas dependiente de COX-2."],
+  ["Eicosanoides", "Fármacos y clínica", "¿Por qué un AINE no selectivo puede irritar la mucosa gástrica?", "Al inhibir COX-1 reduce prostaglandinas protectoras de la mucosa."],
+  ["Eicosanoides", "Fármacos y clínica", "¿Qué fármaco del temario inhibe la vía de lipooxigenasa?", "Zileutón."],
+  ["Eicosanoides", "Rutas y mediadores", "¿Cuáles son las tres familias principales de eicosanoides estudiadas?", "Prostaglandinas, tromboxanos y leucotrienos."],
+  ["Eicosanoides", "Fármacos y clínica", "Si se bloquea COX, ¿qué vía del ácido araquidónico no se inhibe directamente?", "La vía LOX que produce leucotrienos."],
+
+  ["Lipoproteínas", "Estructura y transporte", "¿Qué lípidos se ubican en el núcleo hidrófobo de una lipoproteína?", "Triglicéridos y ésteres de colesterol."],
+  ["Lipoproteínas", "Estructura y transporte", "¿Qué componentes forman la superficie de una lipoproteína?", "Fosfolípidos, colesterol libre y apoproteínas."],
+  ["Lipoproteínas", "Estructura y transporte", "¿Qué lipoproteína transporta triglicéridos absorbidos en el intestino?", "El quilomicrón."],
+  ["Lipoproteínas", "Estructura y transporte", "¿Qué lipoproteína exporta triglicéridos sintetizados en el hígado?", "La VLDL."],
+  ["Lipoproteínas", "Estructura y transporte", "¿Qué lipoproteína entrega colesterol a tejidos mediante el receptor LDL?", "La LDL."],
+  ["Lipoproteínas", "Estructura y transporte", "¿Qué lipoproteína participa en el transporte reverso de colesterol?", "La HDL, desde tejidos periféricos hacia el hígado."],
+  ["Lipoproteínas", "Estructura y transporte", "¿Qué es un quilomicrón remanente?", "La partícula que queda tras entregar gran parte de sus triglicéridos."],
+  ["Lipoproteínas", "Enzimas y captación", "¿Dónde actúa la lipoproteína lipasa sobre quilomicrones y VLDL?", "Asociada a la superficie del endotelio capilar."],
+  ["Lipoproteínas", "Enzimas y captación", "¿Qué reacción cataliza la lipoproteína lipasa?", "Hidroliza triglicéridos de quilomicrones y VLDL, liberando ácidos grasos."],
+  ["Lipoproteínas", "Estructura y transporte", "¿Cuáles son las cuatro lipoproteínas principales del temario?", "Quilomicrones, VLDL, LDL y HDL."],
+  ["Lipoproteínas", "Enzimas y captación", "¿Qué apoproteína de LDL reconoce su receptor celular?", "Apo B-100."],
+  ["Lipoproteínas", "Enzimas y captación", "¿Cómo entra LDL a una célula después de unirse a su receptor?", "Por endocitosis mediada por receptor."],
+  ["Lipoproteínas", "Enzimas y captación", "¿Dónde se libera el colesterol de una LDL internalizada?", "En los lisosomas, tras degradarse la partícula."],
+  ["Lipoproteínas", "Enzimas y captación", "¿Qué célula forma una célula espumosa al acumular LDL oxidada?", "Un macrófago."],
+  ["Lipoproteínas", "Enzimas y captación", "¿Qué reacción cataliza LCAT sobre HDL?", "Esterifica colesterol libre; el éster pasa al núcleo de HDL."],
+  ["Lipoproteínas", "Enzimas y captación", "¿Qué apoproteína activa LCAT?", "Apo A-I."],
+
+  ["Colesterol", "Síntesis y regulación", "¿Cuántos carbonos y anillos tiene el colesterol?", "27 carbonos y cuatro anillos."],
+  ["Colesterol", "Síntesis y regulación", "Además de los anillos, ¿qué grupos estructurales se mencionan para el colesterol?", "Una cadena lateral y un grupo hidroxilo (-OH)."],
+  ["Colesterol", "Derivados y función", "¿Qué función general tienen las hormonas sexuales derivadas del colesterol?", "Participan en el desarrollo y la reproducción sexual."],
+  ["Colesterol", "Síntesis y regulación", "¿Cuál es el precursor inicial de la síntesis de colesterol?", "El acetil-CoA."],
+  ["Colesterol", "Síntesis y regulación", "¿Qué enzima forma HMG-CoA antes de la etapa reguladora?", "La HMG-CoA sintasa."],
+  ["Colesterol", "Síntesis y regulación", "¿Qué reacción cataliza la HMG-CoA reductasa?", "Convierte HMG-CoA en mevalonato."],
+  ["Colesterol", "Síntesis y regulación", "¿Cuál es la diana de las estatinas?", "La HMG-CoA reductasa."],
+  ["Colesterol", "Derivados y función", "¿Qué tres tipos de derivados importantes se forman a partir del colesterol?", "Sales biliares, hormonas esteroideas y vitamina D."],
+  ["Colesterol", "Síntesis y regulación", "¿Qué intermediario sigue al mevalonato en el esquema resumido?", "IPP (isopentenil pirofosfato)."],
+  ["Colesterol", "Síntesis y regulación", "¿Qué intermediario sigue al IPP en el esquema resumido?", "Escualeno."],
+  ["Colesterol", "Síntesis y regulación", "¿Qué procesos génicos regula SREBP?", "La síntesis de colesterol y la expresión de receptores LDL."],
+  ["Colesterol", "Síntesis y regulación", "¿Qué tipo de molécula reguladora es SREBP?", "Un factor de transcripción."],
+  ["Colesterol", "Derivados y función", "¿Para qué sirven principalmente las sales biliares?", "Emulsionan grasas y facilitan su absorción intestinal."],
+  ["Colesterol", "Derivados y función", "¿Qué intermediario inicia la síntesis de hormonas esteroideas a partir de colesterol?", "La pregnenolona."],
+  ["Colesterol", "Derivados y función", "¿Qué derivado del colesterol participa en el balance de calcio y fosfato?", "La vitamina D."],
+  ["Colesterol", "Derivados y función", "¿Qué familia de esteroides regula agua y electrolitos?", "Los mineralocorticoides."],
+  ["Colesterol", "Derivados y función", "¿Qué familia de esteroides modula el metabolismo y la inflamación?", "Los glucocorticoides."],
+]
+
+const seeds: readonly Seed[] = [...coreSeeds, ...fatMetabolismSeeds, ...partial3Seeds]
 
 export const bioquimicaFlashcards: Flashcard[] = seeds.map(([topic, subtopic, front, back], index) => ({
   id: `bioquimica-${topic.toLocaleLowerCase("es").normalize("NFD").replace(/[\u0300-\u036f]/g, "").replaceAll(/[^a-z0-9]+/g, "-").replaceAll(/^-|-$/g, "")}-${String(index + 1).padStart(3, "0")}`,

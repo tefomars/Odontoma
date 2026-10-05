@@ -2815,10 +2815,8 @@
           "id": "open-question-1791044895544-78a74500-efeb-4dfd-a7e6-69c135620fcf",
           "prompt": "Qué son los Eicosanoides?",
           "modelAnswer": "Lípidos compuestos por 20 átomos de carbono",
-          "acceptedPoints": [
-            "Eico- = 20"
-          ],
-          "explanation": "",
+          "acceptedPoints": [],
+          "explanation": "Eico- = 20",
           "source": ""
         },
         {
@@ -2920,7 +2918,7 @@
         {
           "id": "open-question-1791045998546-9cb4d8b8-3c3a-4819-aeb6-5b92ad1f0a67",
           "prompt": "Qué función general cumplen las Prostaglandinas?",
-          "modelAnswer": "Median respuestas de inflamación, dolor y fiebre\nAumentan la capa de moco del estómagos\nControlan la función renal\nPueden funcionar como antiagregantes plaquetarios y vasodilatadores (prostaciclina)",
+          "modelAnswer": "Median respuestas de inflamación, dolor y fiebre\nAumentan la capa de moco del estómago\nControlan la función renal\nPueden funcionar como antiagregantes plaquetarios y vasodilatadores (prostaciclina)",
           "acceptedPoints": [],
           "explanation": "",
           "source": ""
@@ -3063,7 +3061,7 @@
         {
           "id": "open-question-1791047518768-03e494c7-3d6b-466c-8f40-343a9e770b83",
           "prompt": "Qué es la enzima LCAT y qué función tiene?",
-          "modelAnswer": "La Lecitina Colesterol Acil Transferasa (LCAT) se encarga de esterificar colesterol libre para conviertirlo en Colesteril Éster (Éster de colesterol) para volverlo más hidrofóbico y permitir que se mantenga en el centro de lipoproteínas. Esto permite que se puede transportar en la circulación fácilmente y además, albergar una mayor cantidad de colesterol por unidad de área.",
+          "modelAnswer": "La Lecitina Colesterol Acil Transferasa (LCAT) se encarga de esterificar colesterol libre para convertirlo en Colesteril Éster (Éster de colesterol) para volverlo más hidrofóbico y permitir que se mantenga en el centro de lipoproteínas. Esto permite que se puede transportar en la circulación fácilmente y además, albergar una mayor cantidad de colesterol por unidad de área.",
           "acceptedPoints": [],
           "explanation": "",
           "source": ""
