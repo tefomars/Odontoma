@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { prePartialBanks } from "@/content/prePartial/banks"
 
 type Props = {
@@ -28,11 +28,6 @@ export default function PrePartialReviewScreen({ onBack, onMainMenu, onStartMult
   )
   const [reviewType, setReviewType] = useState<ReviewType | null>(initialReviewType)
   const [selectedPreference, setSelectedPreference] = useState<ReviewPreference>("Mezcla")
-
-  useEffect(() => {
-    setReviewType(initialReviewType)
-    setSelectedClass(initialReviewType ? classes[0] : null)
-  }, [initialReviewType])
 
   function closeDialog() {
     setSelectedClass(null)
@@ -120,7 +115,7 @@ export default function PrePartialReviewScreen({ onBack, onMainMenu, onStartMult
                         style={{
                           borderColor: selectedPreference === preference ? selectedClass.accentColor : "#3f3f46",
                           color: selectedPreference === preference ? selectedClass.accentColor : "#a1a1aa",
-                          backgroundColor: selectedPreference === preference ? `${selectedClass.accentColor}18` : "#09090b"
+                          backgroundColor: selectedPreference === preference ? `${selectedClass.accentColor}18` : "var(--background)"
                         }}
                       >
                         {preference}

@@ -722,7 +722,7 @@ export default function SetupScreen({
 
               {showOptions && createPortal(
 
-                <div className="
+                <div data-appearance-portal className="
                   fixed
                   inset-0
                   z-50
@@ -1037,7 +1037,7 @@ export default function SetupScreen({
 
         
         {phoneChaptersOpen && createPortal(
-          <div className="mobile-chapters-popup fixed inset-0 z-50 bg-[#09090b]">
+          <div data-appearance-portal className="mobile-chapters-popup fixed inset-0 z-50 bg-[#09090b]">
             <div className="mx-auto flex h-[100dvh] w-full max-w-md flex-col bg-[#09090b] px-4 pb-[max(1rem,env(safe-area-inset-bottom))] pt-[max(1rem,env(safe-area-inset-top))]">
               <div className="mb-4 flex shrink-0 items-start justify-between gap-4">
                 <div>

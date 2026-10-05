@@ -1,4 +1,4 @@
-import { Fragment } from "react"
+import { Fragment, type CSSProperties } from "react"
 
 import logoImage from "@/assets/logo.png"
 import histologiaDeckImage from "@/assets/chapters/cap14.jpg"
@@ -280,6 +280,8 @@ export default function FlashcardSubjectScreen({
           </div>
 
           <button
+            data-appearance-card="color"
+            style={{ "--oa-section-accent": "#10b981" } as CSSProperties}
             type="button"
             onClick={onSelectMyDecks}
             className="
@@ -305,7 +307,7 @@ export default function FlashcardSubjectScreen({
               lg:justify-between
             ">
               <div>
-                <p className="
+                <p data-appearance-accent-label className="
                   text-xs
                   font-black
                   uppercase

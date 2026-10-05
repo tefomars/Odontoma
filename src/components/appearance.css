@@ -1,0 +1,208 @@
+:root{--oa-bg:#09090b;--oa-panel:#111113;--oa-raised:#202024;--oa-text:#fafafa;--oa-muted:#a1a1aa;--oa-border:#303036;--oa-accent:#a78bfa;--oa-solid:#7c3aed;--oa-on-solid:#fff}
+:root[data-appearance-theme=light]{--oa-bg:#f5f5f8;--oa-panel:#fff;--oa-raised:#eaeaf0;--oa-text:#515563;--oa-muted:#70737c;--oa-border:#d9d7e2}
+:root[data-appearance-theme=graphite]{--oa-bg:#202226;--oa-panel:#292c31;--oa-raised:#363a40;--oa-text:#edf0f3;--oa-muted:#b0b6bf;--oa-border:#4b5159}
+:root[data-appearance-theme=midnight]{--oa-bg:#0b1222;--oa-panel:#111d33;--oa-raised:#1b2c49;--oa-text:#eaf1ff;--oa-muted:#a0b1ce;--oa-border:#2a4062}
+:root[data-appearance-theme=paper]{--oa-bg:#f0e7d7;--oa-panel:#fbf5e9;--oa-raised:#e9dcc5;--oa-text:#645642;--oa-muted:#7a6951;--oa-border:#dbccb3}
+:root[data-appearance-theme]:not([data-appearance-theme=original]){--background:var(--oa-bg);--foreground:var(--oa-text);--card:var(--oa-panel);--card-foreground:var(--oa-text);--popover:var(--oa-panel);--popover-foreground:var(--oa-text);--secondary:var(--oa-raised);--secondary-foreground:var(--oa-text);--muted:var(--oa-raised);--muted-foreground:var(--oa-muted);--border:var(--oa-border);--input:var(--oa-border)}
+:root[data-appearance-theme]:not([data-appearance-theme=original]) #odontoma-original-ui{background:var(--oa-bg);color:var(--oa-text)}
+:root[data-appearance-theme]:not([data-appearance-theme=original]) [data-appearance-portal]{color:var(--oa-text)}
+:root[data-appearance-theme]:not([data-appearance-theme=original]) :is(#odontoma-original-ui, [data-appearance-portal]) :is(.flashcard-fixed-shell,.flashcard-book-shell,.flashcard-book-topbar,.flashcard-review-header){background:var(--oa-bg)!important}
+:root[data-appearance-theme]:not([data-appearance-theme=original]) :is(#odontoma-original-ui, [data-appearance-portal]) .quiz-screen :is([data-slot=card],.rounded-\[28px\]){border-color:var(--oa-border)!important}
+/* Keep photographs and the text over them readable in light palettes. */
+:root[data-appearance-theme]:not([data-appearance-theme=original]) :is(#odontoma-original-ui, [data-appearance-portal]) [data-screen-key=home] button:has([style*="background-image"]) :is(h1,h2,h3,[class~=text-white]){color:#fff!important}
+:root[data-appearance-theme]:not([data-appearance-theme=original]) :is(#odontoma-original-ui, [data-appearance-portal]) [data-screen-key=home] button:has([style*="background-image"]) [class*=text-zinc-]{color:#d4d4d8!important}
+/* Only menu decoration adopts the chosen accent; answer status colors are untouched. */
+:root[data-appearance-light=false]:not([data-appearance-accent=original])[data-appearance-accent] :is(#odontoma-original-ui, [data-appearance-portal]) :is([data-screen-key=study-method],[data-screen-key=quiz-mode]) button[style*="background-color"]{background-color:color-mix(in srgb,var(--oa-accent) 9%,var(--oa-panel))!important;border-color:color-mix(in srgb,var(--oa-accent) 35%,var(--oa-border))!important}
+:root[data-appearance-light=false]:not([data-appearance-accent=original])[data-appearance-accent] :is(#odontoma-original-ui, [data-appearance-portal]) :is([data-screen-key=study-method],[data-screen-key=quiz-mode]) [style^="color:"]{color:var(--oa-accent)!important}
+:root[data-appearance-light=false]:not([data-appearance-accent=original])[data-appearance-accent] :is(#odontoma-original-ui, [data-appearance-portal]) :is([data-screen-key=study-method],[data-screen-key=quiz-mode]) div[style*="background-color"]{background-color:color-mix(in srgb,var(--oa-accent) 15%,transparent)!important}
+:root[data-appearance-light=true][data-appearance-accent=original] :is(#odontoma-original-ui, [data-appearance-portal]) :is([data-screen-key=study-method],[data-screen-key=quiz-mode]) :is(p,div)[style^="color:"]{filter:brightness(.65)}
+.oa-trigger{position:fixed;bottom:max(16px,env(safe-area-inset-bottom));left:16px;z-index:100;display:flex;align-items:center;gap:9px;min-height:44px;padding:11px 15px;border:1px solid var(--oa-border);border-radius:15px;background:color-mix(in srgb,var(--oa-panel) 94%,transparent);color:var(--oa-text);box-shadow:0 5px 24px #0003;backdrop-filter:blur(14px);font-family:Inter,system-ui,sans-serif;font-size:12px;font-weight:650;cursor:pointer;transition:border-color .2s,transform .2s}
+.oa-trigger:hover{border-color:var(--oa-accent);transform:translateY(-2px)}.oa-trigger svg,.oa-heading-icon svg{width:20px;height:20px;flex-shrink:0}.oa-trigger i{width:8px;height:8px;border-radius:50%;margin-left:4px}.oa-trigger:focus-visible,.oa-dialog button:focus-visible{outline:2px solid var(--oa-accent);outline-offset:4px}
+.oa-dialog{position:fixed;inset:auto auto 76px 16px;margin:0;padding:0;width:410px;max-width:calc(100vw - 32px);max-height:calc(100dvh - 100px);border:1px solid var(--oa-border);border-radius:24px;background:var(--oa-panel);color:var(--oa-text);box-shadow:0 28px 100px #0007;font-family:Inter,system-ui,sans-serif;overflow:hidden;color-scheme:inherit}.oa-dialog[open]{display:flex;flex-direction:column;animation:oa-in .18s ease-out}.oa-dialog::backdrop{background:#06071112}.oa-dialog button{font:inherit;color:inherit;cursor:pointer}.oa-heading{padding:24px 24px 20px;display:flex;align-items:center;gap:12px;flex-shrink:0;border-bottom:1px solid var(--oa-border)}.oa-heading-icon{height:42px;width:42px;display:grid;place-items:center;background:color-mix(in srgb,var(--oa-accent) 12%,transparent);color:var(--oa-accent);border:1px solid color-mix(in srgb,var(--oa-accent) 20%,transparent);border-radius:13px}.oa-heading p{font-size:9px;letter-spacing:1.6px;margin:0 0 5px;color:var(--oa-muted);font-weight:650}.oa-heading h2{font-size:22px;font-weight:750;line-height:1.2;letter-spacing:-.6px;margin:0}.oa-close{margin-left:auto;width:32px;height:32px;border:1px solid var(--oa-border);border-radius:10px;background:transparent;font-size:24px!important;line-height:1}.oa-close:hover{background:var(--oa-raised)}.oa-scroll{padding:20px 24px 0;overflow:auto;overscroll-behavior:contain;min-height:0}.oa-section-heading{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:14px}.oa-section-heading h3{font-size:12px;font-weight:750;margin:0}.oa-section-heading>span{font-size:10px;color:var(--oa-muted)}.oa-themes{display:grid;grid-template-columns:repeat(3,1fr);gap:12px 10px;margin-bottom:25px}.oa-theme{text-align:left;padding:0;border:0;background:none;min-width:0}.oa-theme strong{display:block;font-size:11px;margin:8px 0 3px;font-weight:650}.oa-theme small{display:block;font-size:9px;color:var(--oa-muted);line-height:1.4}.oa-mini{height:70px;border:1px solid var(--oa-border);border-radius:9px;padding:10px;position:relative;transition:box-shadow .2s}.oa-theme.is-selected .oa-mini{outline:2px solid var(--oa-accent);outline-offset:2px}.oa-mini-title{width:54%;height:4px;border-radius:3px;background:currentColor;opacity:.65;margin-bottom:8px}.oa-mini-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:4px}.oa-mini-grid>div{padding:5px;border-radius:3px;height:16px;display:flex;gap:4px;align-items:center}.oa-mini-grid i{height:5px;width:5px;flex-shrink:0;border-radius:2px}.oa-mini-grid span{height:2px;width:12px;background:currentColor;opacity:.4}.oa-mini>b{position:absolute;right:-5px;top:-6px;width:17px;height:17px;background:var(--oa-solid);color:white;border-radius:50%;display:grid;place-items:center;font-size:10px}.oa-accents{display:grid;grid-template-columns:repeat(6,1fr);gap:5px}.oa-accents button{border:0;background:none;display:flex;align-items:center;flex-direction:column;gap:9px;padding:4px 0}.oa-accents button>span{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;color:#101014;font-size:16px;font-weight:800}.oa-accents button.is-selected>span{outline:2px solid var(--oa-text);outline-offset:3px}.oa-accents small{font-size:8px;color:var(--oa-muted)}.oa-note{display:flex;gap:9px;margin-top:22px;padding:13px;background:var(--oa-raised);border-radius:12px}.oa-note>span{color:var(--oa-accent);font-size:17px}.oa-note p{font-size:11px;line-height:1.5;margin:0}.oa-note small{font-size:10px;color:var(--oa-muted);display:block;margin-top:5px}.oa-footer{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:20px 24px 12px;flex-shrink:0}.oa-reset{font-size:10px!important;font-weight:600!important;color:var(--oa-muted)!important;background:none;border:0;padding:10px 0}.oa-reset:hover{color:var(--oa-text)!important}.oa-done{border:0;background:var(--oa-solid);color:white!important;font-size:11px!important;font-weight:700!important;padding:11px 18px;border-radius:10px;display:flex;gap:25px}.oa-demo-note{font-size:9px;text-align:center;color:var(--oa-muted);margin:0;padding:0 20px 17px;flex-shrink:0;line-height:1.5}
+@keyframes oa-in{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:600px){.oa-dialog{inset:auto 12px max(12px,env(safe-area-inset-bottom)) 12px;width:calc(100% - 24px);max-width:none;max-height:calc(100dvh - 40px);border-radius:23px}.oa-heading{padding:20px}.oa-scroll{padding:18px 20px 0}.oa-footer{padding-left:20px;padding-right:20px}.oa-trigger{left:12px;bottom:max(12px,env(safe-area-inset-bottom));padding:11px;width:44px;height:44px;border-radius:14px}.oa-trigger>span,.oa-trigger>i{display:none}.oa-themes{margin-bottom:22px}.oa-mini{height:63px;padding:8px}.oa-theme small{font-size:8px}.oa-dialog[open]{animation:none}}
+@media(prefers-reduced-motion:reduce){.oa-dialog[open]{animation:none}.oa-trigger,.oa-mini{transition:none}}
+
+/* The settings entry belongs to the main menu, not the viewport. */
+.oa-trigger{position:static;min-width:44px;justify-content:center;font-family:inherit}
+@media(max-width:600px){.oa-trigger{position:static;width:auto;height:auto;padding:11px 15px}.oa-trigger>span,.oa-trigger>i{display:inline}}
+
+/* Subject cards stay dark over photographs, even when the app palette is light. */
+:root[data-appearance-light=true] #odontoma-original-ui [data-screen-key=home] button:has(> [style*="background-image"]) [class~="text-emerald-300"]{color:#a7f3d0!important}
+
+/* Palette bridge for the existing utilities used by Odontoma. */
+
+:root[data-appearance-theme]:not([data-appearance-theme=original]) :is(#odontoma-original-ui, [data-appearance-portal]) [class~="bg-[#09090b]"]{background-color:var(--oa-bg)!important}
+:root[data-appearance-theme]:not([data-appearance-theme=original]) :is(#odontoma-original-ui, [data-appearance-portal]) [class~="bg-[#0d0d10]"]{background-color:var(--oa-bg)!important}
+:root[data-appearance-theme]:not([data-appearance-theme=original]) :is(#odontoma-original-ui, [data-appearance-portal]) [class~="bg-[#111113]"]{background-color:var(--oa-panel)!important}
+:root[data-appearance-theme]:not([data-appearance-theme=original]) :is(#odontoma-original-ui, [data-appearance-portal]) [class~="bg-[#111118]"]{background-color:var(--oa-panel)!important}
+:root[data-appearance-theme]:not([data-appearance-theme=original]) :is(#odontoma-original-ui, [data-appearance-portal]) [class~="bg-[#262637]"]{background-color:var(--oa-raised)!important}
+:root[data-appearance-theme]:not([data-appearance-theme=original]) :is(#odontoma-original-ui, [data-appearance-portal]) [class~="bg-[#323248]"]{background-color:var(--oa-raised)!important}
+:root[data-appearance-theme]:not([data-appearance-theme=original]) :is(#odontoma-original-ui, [data-appearance-portal]) [class~="text-zinc-50"]{color:var(--oa-text)!important}
+:root[data-appearance-theme]:not([data-appearance-theme=original]) :is(#odontoma-original-ui, [data-appearance-portal]) [class~="text-zinc-100"]{color:var(--oa-text)!important}
+:root[data-appearance-theme]:not([data-appearance-theme=original]) :is(#odontoma-original-ui, [data-appearance-portal]) [class~="text-zinc-200"]{color:var(--oa-text)!important}
+:root[data-appearance-theme]:not([data-appearance-theme=original]) :is(#odontoma-original-ui, [data-appearance-portal]) [class~="bg-zinc-200"]{background-color:var(--oa-muted)!important}
+:root[data-appearance-theme]:not([data-appearance-theme=original]) :is(#odontoma-original-ui, [data-appearance-portal]) [class~="text-zinc-300"]{color:var(--oa-text)!important}
+:root[data-appearance-theme]:not([data-appearance-theme=original]) :is(#odontoma-original-ui, [data-appearance-portal]) [class~="text-zinc-400"]{color:var(--oa-muted)!important}
+:root[data-appearance-theme]:not([data-appearance-theme=original]) :is(#odontoma-original-ui, [data-appearance-portal]) [class~="text-zinc-500"]{color:var(--oa-muted)!important}
+:root[data-appearance-theme]:not([data-appearance-theme=original]) :is(#odontoma-original-ui, [data-appearance-portal]) [class~="text-zinc-600"]{color:var(--oa-muted)!important}
+:root[data-appearance-theme]:not([data-appearance-theme=original]) :is(#odontoma-original-ui, [data-appearance-portal]) [class~="border-zinc-600"]{border-color:var(--oa-border)!important}
+:root[data-appearance-theme]:not([data-appearance-theme=original]) :is(#odontoma-original-ui, [data-appearance-portal]) [class~="bg-zinc-700"]{background-color:var(--oa-raised)!important}
+:root[data-appearance-theme]:not([data-appearance-theme=original]) :is(#odontoma-original-ui, [data-appearance-portal]) [class~="border-zinc-700"]{border-color:var(--oa-border)!important}
+:root[data-appearance-theme]:not([data-appearance-theme=original]) :is(#odontoma-original-ui, [data-appearance-portal]) [class~="bg-zinc-700/5"]{background-color:color-mix(in srgb,var(--oa-raised) 5%,transparent)!important}
+:root[data-appearance-theme]:not([data-appearance-theme=original]) :is(#odontoma-original-ui, [data-appearance-portal]) [class~="bg-zinc-700/50"]{background-color:color-mix(in srgb,var(--oa-raised) 50%,transparent)!important}
+:root[data-appearance-theme]:not([data-appearance-theme=original]) :is(#odontoma-original-ui, [data-appearance-portal]) [class~="bg-zinc-800"]{background-color:var(--oa-raised)!important}
+:root[data-appearance-theme]:not([data-appearance-theme=original]) :is(#odontoma-original-ui, [data-appearance-portal]) [class~="border-zinc-800"]{border-color:var(--oa-border)!important}
+:root[data-appearance-theme]:not([data-appearance-theme=original]) :is(#odontoma-original-ui, [data-appearance-portal]) [class~="bg-zinc-800/20"]{background-color:color-mix(in srgb,var(--oa-raised) 20%,transparent)!important}
+:root[data-appearance-theme]:not([data-appearance-theme=original]) :is(#odontoma-original-ui, [data-appearance-portal]) [class~="bg-zinc-800/30"]{background-color:color-mix(in srgb,var(--oa-raised) 30%,transparent)!important}
+:root[data-appearance-theme]:not([data-appearance-theme=original]) :is(#odontoma-original-ui, [data-appearance-portal]) [class~="bg-zinc-900"]{background-color:var(--oa-panel)!important}
+:root[data-appearance-theme]:not([data-appearance-theme=original]) :is(#odontoma-original-ui, [data-appearance-portal]) [class~="border-zinc-900"]{border-color:var(--oa-border)!important}
+:root[data-appearance-theme]:not([data-appearance-theme=original]) :is(#odontoma-original-ui, [data-appearance-portal]) [class~="bg-zinc-900/5"]{background-color:color-mix(in srgb,var(--oa-panel) 5%,transparent)!important}
+:root[data-appearance-theme]:not([data-appearance-theme=original]) :is(#odontoma-original-ui, [data-appearance-portal]) [class~="bg-zinc-900/50"]{background-color:color-mix(in srgb,var(--oa-panel) 50%,transparent)!important}
+:root[data-appearance-theme]:not([data-appearance-theme=original]) :is(#odontoma-original-ui, [data-appearance-portal]) [class~="bg-zinc-900/80"]{background-color:color-mix(in srgb,var(--oa-panel) 80%,transparent)!important}
+:root[data-appearance-theme]:not([data-appearance-theme=original]) :is(#odontoma-original-ui, [data-appearance-portal]) [class~="text-zinc-950"]{color:var(--oa-muted)!important}
+:root[data-appearance-theme]:not([data-appearance-theme=original]) :is(#odontoma-original-ui, [data-appearance-portal]) [class~="bg-zinc-950"]{background-color:var(--oa-panel)!important}
+:root[data-appearance-theme]:not([data-appearance-theme=original]) :is(#odontoma-original-ui, [data-appearance-portal]) [class~="bg-zinc-950/5"]{background-color:color-mix(in srgb,var(--oa-panel) 5%,transparent)!important}
+:root[data-appearance-theme]:not([data-appearance-theme=original]) :is(#odontoma-original-ui, [data-appearance-portal]) [class~="bg-zinc-950/50"]{background-color:color-mix(in srgb,var(--oa-panel) 50%,transparent)!important}
+:root[data-appearance-theme]:not([data-appearance-theme=original]) :is(#odontoma-original-ui, [data-appearance-portal]) [class~="bg-zinc-950/60"]{background-color:color-mix(in srgb,var(--oa-panel) 60%,transparent)!important}
+:root[data-appearance-theme]:not([data-appearance-theme=original]) :is(#odontoma-original-ui, [data-appearance-portal]) [class~="bg-zinc-950/70"]{background-color:color-mix(in srgb,var(--oa-panel) 70%,transparent)!important}
+:root[data-appearance-theme]:not([data-appearance-theme=original]) :is(#odontoma-original-ui, [data-appearance-portal]) [class~="text-slate-300"]{color:var(--oa-text)!important}
+:root[data-appearance-theme]:not([data-appearance-theme=original]) :is(#odontoma-original-ui, [data-appearance-portal]) [class~="bg-slate-600"]{background-color:var(--oa-muted)!important}
+:root[data-appearance-theme]:not([data-appearance-theme=original]) :is(#odontoma-original-ui, [data-appearance-portal]) [class~="bg-slate-700"]{background-color:var(--oa-raised)!important}
+:root[data-appearance-theme]:not([data-appearance-theme=original]) :is(#odontoma-original-ui, [data-appearance-portal]) [class~="bg-slate-800"]{background-color:var(--oa-raised)!important}
+:root[data-appearance-theme]:not([data-appearance-theme=original]) :is(#odontoma-original-ui, [data-appearance-portal]) [class~="bg-slate-900"]{background-color:var(--oa-panel)!important}
+:root[data-appearance-theme]:not([data-appearance-theme=original]) :is(#odontoma-original-ui, [data-appearance-portal]) [class~="bg-slate-950"]{background-color:var(--oa-panel)!important}
+:root[data-appearance-theme]:not([data-appearance-theme=original]) :is(#odontoma-original-ui, [data-appearance-portal]) [class~=text-white]{color:var(--oa-text)!important}
+:root[data-appearance-theme]:not([data-appearance-theme=original]) :is(#odontoma-original-ui, [data-appearance-portal]) [class~=bg-white]{background-color:var(--oa-text)!important}
+:root[data-appearance-theme]:not([data-appearance-theme=original]) :is(#odontoma-original-ui, [data-appearance-portal]) [class~=bg-white]{color:var(--oa-bg)!important}
+:root[data-appearance-theme]:not([data-appearance-theme=original]) :is(#odontoma-original-ui, [data-appearance-portal]) [class~="bg-white/10"]{background-color:color-mix(in srgb,var(--oa-text) 10%,transparent)!important}
+:root:is([data-appearance-accent]:not([data-appearance-accent=original]),[data-appearance-light=true]) :is(#odontoma-original-ui, [data-appearance-portal]) [class~="text-violet-100"]{color:var(--oa-accent)!important}
+:root:is([data-appearance-accent]:not([data-appearance-accent=original]),[data-appearance-light=true]) :is(#odontoma-original-ui, [data-appearance-portal]) [class~="text-violet-200"]{color:var(--oa-accent)!important}
+:root:is([data-appearance-accent]:not([data-appearance-accent=original]),[data-appearance-light=true]) :is(#odontoma-original-ui, [data-appearance-portal]) [class~="text-violet-300"]{color:var(--oa-accent)!important}
+:root:is([data-appearance-accent]:not([data-appearance-accent=original]),[data-appearance-light=true]) :is(#odontoma-original-ui, [data-appearance-portal]) [class~="bg-violet-400"]{background-color:var(--oa-solid)!important}
+:root:is([data-appearance-accent]:not([data-appearance-accent=original]),[data-appearance-light=true]) :is(#odontoma-original-ui, [data-appearance-portal]) [class~="border-violet-400"]{border-color:var(--oa-accent)!important}
+:root:is([data-appearance-accent]:not([data-appearance-accent=original]),[data-appearance-light=true]) :is(#odontoma-original-ui, [data-appearance-portal]) [class~="border-violet-400/5"]{border-color:color-mix(in srgb,var(--oa-accent) 5%,transparent)!important}
+:root:is([data-appearance-accent]:not([data-appearance-accent=original]),[data-appearance-light=true]) :is(#odontoma-original-ui, [data-appearance-portal]) [class~="border-violet-400/50"]{border-color:color-mix(in srgb,var(--oa-accent) 50%,transparent)!important}
+:root:is([data-appearance-accent]:not([data-appearance-accent=original]),[data-appearance-light=true]) :is(#odontoma-original-ui, [data-appearance-portal]) [class~="border-violet-400/60"]{border-color:color-mix(in srgb,var(--oa-accent) 60%,transparent)!important}
+:root:is([data-appearance-accent]:not([data-appearance-accent=original]),[data-appearance-light=true]) :is(#odontoma-original-ui, [data-appearance-portal]) [class~="border-violet-400/70"]{border-color:color-mix(in srgb,var(--oa-accent) 70%,transparent)!important}
+:root:is([data-appearance-accent]:not([data-appearance-accent=original]),[data-appearance-light=true]) :is(#odontoma-original-ui, [data-appearance-portal]) [class~="hover:bg-violet-400"]:hover{background-color:var(--oa-solid)!important}
+:root:is([data-appearance-accent]:not([data-appearance-accent=original]),[data-appearance-light=true]) :is(#odontoma-original-ui, [data-appearance-portal]) [class~="hover:border-violet-400"]:hover{border-color:var(--oa-accent)!important}
+:root:is([data-appearance-accent]:not([data-appearance-accent=original]),[data-appearance-light=true]) :is(#odontoma-original-ui, [data-appearance-portal]) [class~="hover:border-violet-400/60"]:hover{border-color:color-mix(in srgb,var(--oa-accent) 60%,transparent)!important}
+:root:is([data-appearance-accent]:not([data-appearance-accent=original]),[data-appearance-light=true]) :is(#odontoma-original-ui, [data-appearance-portal]) [class~="hover:border-violet-400/70"]:hover{border-color:color-mix(in srgb,var(--oa-accent) 70%,transparent)!important}
+:root:is([data-appearance-accent]:not([data-appearance-accent=original]),[data-appearance-light=true]) :is(#odontoma-original-ui, [data-appearance-portal]) [class~="focus:border-violet-400"]:focus{border-color:var(--oa-accent)!important}
+:root:is([data-appearance-accent]:not([data-appearance-accent=original]),[data-appearance-light=true]) :is(#odontoma-original-ui, [data-appearance-portal]) [class~="bg-violet-400"][class~=text-white]{color:white!important}
+:root:is([data-appearance-accent]:not([data-appearance-accent=original]),[data-appearance-light=true]) :is(#odontoma-original-ui, [data-appearance-portal]) [class~="bg-violet-500"]{background-color:var(--oa-solid)!important}
+:root:is([data-appearance-accent]:not([data-appearance-accent=original]),[data-appearance-light=true]) :is(#odontoma-original-ui, [data-appearance-portal]) [class~="border-violet-500"]{border-color:var(--oa-accent)!important}
+:root:is([data-appearance-accent]:not([data-appearance-accent=original]),[data-appearance-light=true]) :is(#odontoma-original-ui, [data-appearance-portal]) [class~="border-violet-500/5"]{border-color:color-mix(in srgb,var(--oa-accent) 5%,transparent)!important}
+:root:is([data-appearance-accent]:not([data-appearance-accent=original]),[data-appearance-light=true]) :is(#odontoma-original-ui, [data-appearance-portal]) [class~="bg-violet-500/10"]{background-color:color-mix(in srgb,var(--oa-accent) 10%,transparent)!important}
+:root:is([data-appearance-accent]:not([data-appearance-accent=original]),[data-appearance-light=true]) :is(#odontoma-original-ui, [data-appearance-portal]) [class~="bg-violet-500/15"]{background-color:color-mix(in srgb,var(--oa-accent) 15%,transparent)!important}
+:root:is([data-appearance-accent]:not([data-appearance-accent=original]),[data-appearance-light=true]) :is(#odontoma-original-ui, [data-appearance-portal]) [class~="bg-violet-500/20"]{background-color:color-mix(in srgb,var(--oa-accent) 20%,transparent)!important}
+:root:is([data-appearance-accent]:not([data-appearance-accent=original]),[data-appearance-light=true]) :is(#odontoma-original-ui, [data-appearance-portal]) [class~="bg-violet-500/25"]{background-color:color-mix(in srgb,var(--oa-accent) 25%,transparent)!important}
+:root:is([data-appearance-accent]:not([data-appearance-accent=original]),[data-appearance-light=true]) :is(#odontoma-original-ui, [data-appearance-portal]) [class~="border-violet-500/30"]{border-color:color-mix(in srgb,var(--oa-accent) 30%,transparent)!important}
+:root:is([data-appearance-accent]:not([data-appearance-accent=original]),[data-appearance-light=true]) :is(#odontoma-original-ui, [data-appearance-portal]) [class~="border-violet-500/40"]{border-color:color-mix(in srgb,var(--oa-accent) 40%,transparent)!important}
+:root:is([data-appearance-accent]:not([data-appearance-accent=original]),[data-appearance-light=true]) :is(#odontoma-original-ui, [data-appearance-portal]) [class~="border-violet-500/50"]{border-color:color-mix(in srgb,var(--oa-accent) 50%,transparent)!important}
+:root:is([data-appearance-accent]:not([data-appearance-accent=original]),[data-appearance-light=true]) :is(#odontoma-original-ui, [data-appearance-portal]) [class~="hover:bg-violet-500"]:hover{background-color:var(--oa-solid)!important}
+:root:is([data-appearance-accent]:not([data-appearance-accent=original]),[data-appearance-light=true]) :is(#odontoma-original-ui, [data-appearance-portal]) [class~="hover:border-violet-500"]:hover{border-color:var(--oa-accent)!important}
+:root:is([data-appearance-accent]:not([data-appearance-accent=original]),[data-appearance-light=true]) :is(#odontoma-original-ui, [data-appearance-portal]) [class~="hover:bg-violet-500/10"]:hover{background-color:color-mix(in srgb,var(--oa-accent) 10%,transparent)!important}
+:root:is([data-appearance-accent]:not([data-appearance-accent=original]),[data-appearance-light=true]) :is(#odontoma-original-ui, [data-appearance-portal]) [class~="hover:bg-violet-500/15"]:hover{background-color:color-mix(in srgb,var(--oa-accent) 15%,transparent)!important}
+:root:is([data-appearance-accent]:not([data-appearance-accent=original]),[data-appearance-light=true]) :is(#odontoma-original-ui, [data-appearance-portal]) [class~="hover:bg-violet-500/20"]:hover{background-color:color-mix(in srgb,var(--oa-accent) 20%,transparent)!important}
+:root:is([data-appearance-accent]:not([data-appearance-accent=original]),[data-appearance-light=true]) :is(#odontoma-original-ui, [data-appearance-portal]) [class~="hover:bg-violet-500/25"]:hover{background-color:color-mix(in srgb,var(--oa-accent) 25%,transparent)!important}
+:root:is([data-appearance-accent]:not([data-appearance-accent=original]),[data-appearance-light=true]) :is(#odontoma-original-ui, [data-appearance-portal]) [class~="hover:border-violet-500/40"]:hover{border-color:color-mix(in srgb,var(--oa-accent) 40%,transparent)!important}
+:root:is([data-appearance-accent]:not([data-appearance-accent=original]),[data-appearance-light=true]) :is(#odontoma-original-ui, [data-appearance-portal]) [class~="focus:border-violet-500"]:focus{border-color:var(--oa-accent)!important}
+:root:is([data-appearance-accent]:not([data-appearance-accent=original]),[data-appearance-light=true]) :is(#odontoma-original-ui, [data-appearance-portal]) [class~="bg-violet-500"][class~=text-white]{color:white!important}
+:root:is([data-appearance-accent]:not([data-appearance-accent=original]),[data-appearance-light=true]) :is(#odontoma-original-ui, [data-appearance-portal]) [class~="text-violet-600"]{color:var(--oa-accent)!important}
+:root[data-appearance-light=true] :is(#odontoma-original-ui, [data-appearance-portal]) [class~="text-emerald-100"]{color:#047857!important}
+:root[data-appearance-light=true] :is(#odontoma-original-ui, [data-appearance-portal]) [class~="text-emerald-200"]{color:#047857!important}
+:root[data-appearance-light=true] :is(#odontoma-original-ui, [data-appearance-portal]) [class~="text-emerald-300"]{color:#047857!important}
+:root[data-appearance-light=true] :is(#odontoma-original-ui, [data-appearance-portal]) [class~="text-red-200"]{color:#b91c1c!important}
+:root[data-appearance-light=true] :is(#odontoma-original-ui, [data-appearance-portal]) [class~="text-red-300"]{color:#b91c1c!important}
+/* Semantic colors must remain readable even when the accent is Original. */
+:root[data-appearance-light=true] :is(#odontoma-original-ui, [data-appearance-portal]) :is([class~="text-rose-100"],[class~="text-rose-200"],[class~="text-rose-300"]){color:#9f1239!important}
+:root[data-appearance-light=true] :is(#odontoma-original-ui, [data-appearance-portal]) [class~="text-teal-300"]{color:#0f766e!important}
+:root[data-appearance-light=true] :is(#odontoma-original-ui, [data-appearance-portal]) [class~="text-emerald-300/60"]{color:#047857!important}
+:root[data-appearance-light=true] :is(#odontoma-original-ui, [data-appearance-portal]) [class~="text-sky-200/70"]{color:#0369a1!important}
+:root[data-appearance-light=true] :is(#odontoma-original-ui, [data-appearance-portal]) [class~="text-amber-200"]{color:#92400e!important}
+:root[data-appearance-light=true] :is(#odontoma-original-ui, [data-appearance-portal]) [class~="text-amber-300"]{color:#92400e!important}
+:root[data-appearance-light=true] :is(#odontoma-original-ui, [data-appearance-portal]) [class~="text-sky-200"]{color:#0369a1!important}
+:root[data-appearance-light=true] :is(#odontoma-original-ui, [data-appearance-portal]) [class~="text-sky-300"]{color:#0369a1!important}
+:root[data-appearance-light=true] :is(#odontoma-original-ui, [data-appearance-portal]) [class~="text-cyan-100"]{color:#0e7490!important}
+:root[data-appearance-light=true] :is(#odontoma-original-ui, [data-appearance-portal]) [class~="text-cyan-200"]{color:#0e7490!important}
+:root[data-appearance-light=true] :is(#odontoma-original-ui, [data-appearance-portal]) [class~="text-cyan-300"]{color:#0e7490!important}
+:root[data-appearance-theme]:not([data-appearance-theme=original]) :is(#odontoma-original-ui, [data-appearance-portal]) [class~="from-[#111118]"]{--tw-gradient-from:var(--oa-panel)!important}
+:root[data-appearance-light=true] :is(#odontoma-original-ui, [data-appearance-portal]) [class*=shadow-black]{box-shadow:0 8px 25px #29233612!important}
+:root[data-appearance-light=true] :is(#odontoma-original-ui, [data-appearance-portal]) .quiz-screen :is([data-slot=card],.rounded-\[28px\]){box-shadow:0 12px 35px #29233616!important}
+
+/* Contrast islands: image cards and solid actions keep their light foregrounds.
+   Their local tokens also cover nested labels affected by the neutral palette. */
+:root[data-appearance-light=true] :is(#odontoma-original-ui, [data-appearance-portal]) button:has(> [style*="background-image"]) {
+  --oa-text: #fafafa;
+  --oa-muted: #d4d4d8;
+  --oa-accent: color-mix(in srgb, var(--oa-solid) 35%, #fff);
+  background-color: #111113 !important;
+  color: var(--oa-text) !important;
+}
+:root[data-appearance-light=true] :is(#odontoma-original-ui, [data-appearance-portal]) button:is(
+  [class~="bg-violet-400"], [class~="bg-violet-500"], [class~="bg-violet-600"],
+  [class~="bg-purple-400"], [class~="bg-purple-500"], [class~="bg-purple-600"]
+) {
+  --oa-text: #fff;
+  --oa-muted: #e4e4e7;
+  color: #fff !important;
+}
+:root[data-appearance-light=true] :is(#odontoma-original-ui, [data-appearance-portal]) button:is(
+  [class~="bg-violet-400"], [class~="bg-violet-500"], [class~="bg-violet-600"]
+) [class~="bg-white"] {
+  background-color: #fff !important;
+  color: var(--oa-solid) !important;
+}
+
+/* Shared light-theme hierarchy across all screens. */
+:root[data-appearance-theme][data-appearance-light=true] :is(#odontoma-original-ui, [data-appearance-portal]) :is(h1,h2,h3)[class] {
+  color: var(--oa-heading, var(--oa-text)) !important;
+  font-weight: 700 !important;
+}
+:root[data-appearance-light=true] :is(#odontoma-original-ui, [data-appearance-portal]) button:has(> [style*="background-image"]),
+:root[data-appearance-light=true] :is(#odontoma-original-ui, [data-appearance-portal]) button:is(
+  [class~="bg-violet-400"], [class~="bg-violet-500"], [class~="bg-violet-600"],
+  [class~="bg-purple-400"], [class~="bg-purple-500"], [class~="bg-purple-600"]
+) { --oa-heading: #fff; }
+
+/* Light menus keep a paper-like surface. The accent appears in edge details,
+   icon backgrounds and labels while the large surfaces remain soft. */
+:root[data-appearance-light=true][data-appearance-accent]:not([data-appearance-accent=original]) :is(#odontoma-original-ui, [data-appearance-portal]) [data-appearance-card=color] {
+  --oa-section-accent: var(--oa-solid) !important;
+}
+:root[data-appearance-theme][data-appearance-light=true] :is(#odontoma-original-ui, [data-appearance-portal]) [data-appearance-card=color] {
+  --oa-heading: var(--oa-text);
+  --oa-card-ink: color-mix(in srgb, var(--oa-section-accent) 48%, #494238);
+  color: var(--oa-text) !important;
+  background-color: color-mix(in srgb, var(--oa-section-accent) 5%, var(--oa-panel)) !important;
+  border-color: color-mix(in srgb, var(--oa-section-accent) 30%, var(--oa-border)) !important;
+  box-shadow: inset 0 3px 0 color-mix(in srgb, var(--oa-section-accent) 72%, var(--oa-panel)) !important;
+}
+:root[data-appearance-theme][data-appearance-light=true] :is(#odontoma-original-ui, [data-appearance-portal]) [data-appearance-card=color] [style^="color:"] {
+  color: var(--oa-card-ink) !important;
+  filter: none !important;
+}
+:root[data-appearance-theme][data-appearance-light=true] :is(#odontoma-original-ui, [data-appearance-portal]) [data-appearance-card=color] :is(div,span)[style*="background-color"] {
+  background-color: color-mix(in srgb, var(--oa-section-accent) 14%, var(--oa-panel)) !important;
+  border-color: color-mix(in srgb, var(--oa-section-accent) 45%, var(--oa-border)) !important;
+}
+
+:root[data-appearance-light=true] :is(#odontoma-original-ui, [data-appearance-portal]) [class~=font-black] { font-weight: 700 !important; }
+
+:root[data-appearance-theme=paper] :is(#odontoma-original-ui, [data-appearance-portal]) [class*=shadow-black] {
+  box-shadow: 0 8px 26px #73582f0d !important;
+}
+
+/* Non-semantic navigation accents (including personal flashcard decks). */
+:root[data-appearance-accent]:not([data-appearance-accent=original])[data-appearance-light=false] :is(#odontoma-original-ui, [data-appearance-portal]) [data-appearance-card=color] {
+  background-color: color-mix(in srgb, var(--oa-accent) 9%, var(--oa-panel)) !important;
+  border-color: color-mix(in srgb, var(--oa-accent) 35%, var(--oa-border)) !important;
+}
+:root[data-appearance-accent]:not([data-appearance-accent=original]) :is(#odontoma-original-ui, [data-appearance-portal]) [data-appearance-card=color] [data-appearance-accent-label] {
+  color: var(--oa-card-ink, var(--oa-accent)) !important;
+}
+:root[data-appearance-light=true] :is(#odontoma-original-ui, [data-appearance-portal]) [data-appearance-card=color] [class~="bg-black/30"] {
+  background-color: var(--oa-raised) !important;
+}

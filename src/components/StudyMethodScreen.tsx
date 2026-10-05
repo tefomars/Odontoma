@@ -1,4 +1,6 @@
+import type { CSSProperties } from "react"
 import logoImage from "@/assets/logo.png"
+import AppearanceSettings from "./AppearanceSettings"
 
 import {
   mainMenuContent,
@@ -66,7 +68,7 @@ export default function StudyMethodScreen({
                   if (sourceId) onReorderCard?.(sourceId, card.id)
                 }}
               >
-                <button
+                <button data-appearance-card="color"
                   type="button"
                   disabled={!editorMode && (card.destination || card.id) === "coming-soon"}
                   onClick={() => {
@@ -78,9 +80,10 @@ export default function StudyMethodScreen({
                   }}
                   className="group relative h-full w-full overflow-hidden rounded-[1.75rem] border p-6 text-left transition-all hover:scale-[1.01]"
                   style={{
+                    "--oa-section-accent": card.accentColor,
                     borderColor: `${card.accentColor}55`,
                     backgroundColor: `${card.accentColor}18`
-                  }}
+                  } as CSSProperties}
                 >
                   <div className="mb-6 flex items-start justify-between gap-4">
                     <div
@@ -115,6 +118,7 @@ export default function StudyMethodScreen({
               </div>
             ))}
           </div>
+          {!editorMode && <div className="mt-6 flex justify-end"><AppearanceSettings /></div>}
         </section>
 
       </div>

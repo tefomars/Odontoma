@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react"
 import logoImage from "@/assets/logo.png"
 
 import {
@@ -141,15 +142,16 @@ function QuizTypeCard({
         if (sourceId) onReorderCard?.(sourceId, card.id)
       }}
     >
-      <button
+      <button data-appearance-card="color"
         type="button"
         disabled={!editorMode && (card.destination || card.id) === "coming-soon"}
         onClick={onClick}
         className={`group h-full w-full rounded-[2rem] border p-7 text-left transition hover:scale-[1.01] ${compact ? "min-h-[170px]" : "min-h-[260px]"}`}
         style={{
+          "--oa-section-accent": card.accentColor,
           borderColor: `${card.accentColor}55`,
           backgroundColor: `${card.accentColor}18`
-        }}
+        } as CSSProperties}
       >
         <div className={`${compact ? "mb-5" : "mb-10"} flex items-start justify-between gap-4`}>
           <span

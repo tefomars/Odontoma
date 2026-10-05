@@ -18,7 +18,7 @@ ReactDOM.createRoot(
 
   <React.StrictMode>
     <UiOverrideApplier />
-    <App />
+    <div id="odontoma-original-ui"><App /></div>
     <Analytics />
   </React.StrictMode>
 

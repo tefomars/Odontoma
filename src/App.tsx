@@ -1419,6 +1419,7 @@ export default function App() {
     return (
       <ScreenTransition screenKey="pre-partial-review">
         <PrePartialReviewScreen
+          key={prePartialReviewType ?? "choose"}
           onBack={() => {
             setShowPrePartialReview(false)
             setPrePartialReviewType(null)
