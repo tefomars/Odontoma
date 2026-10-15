@@ -1710,7 +1710,7 @@
         {
           "id": "open-question-1787783486220-2e85ea00-40d6-435b-bbc0-722ffe5e2bb0",
           "prompt": "Cuál es la función del relleno inorgánico?",
-          "modelAnswer": "Aumenta la resistencia, rigidez y duerza",
+          "modelAnswer": "Aumenta la resistencia, rigidez y dureza",
           "acceptedPoints": [
             "Aumenta resistencia al desgaste",
             "Reduce la contracción al reducir la cantidad de matriz orgánica"
