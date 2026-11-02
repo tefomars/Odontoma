@@ -4,10 +4,10 @@ import { createRoot } from "react-dom/client"
 import "../index.css"
 import "./builder.css"
 
-import OpenQuizContentEditor from "./OpenQuizContentEditor"
-import LiveAppBuilder from "./LiveAppBuilder"
-import UniversalUiEditor from "./UniversalUiEditor"
-import CustomPagesEditor from "./CustomPagesEditor"
+import StudioWorkspace from "./StudioWorkspace"
+import { useHistoryState } from "./useHistoryState"
+import { useDraftStatus } from "./draftStatus"
+import { useWorkspaceHistory } from "./workspaceBridge"
 import type { BuilderTheme } from "./theme"
 import { installZoomLock } from "../lib/zoomLock"
 
@@ -114,22 +114,26 @@ function getDraft() {
   }
 }
 
-function BuilderApp() {
-  const [activePanel, setActivePanel] =
-    useState<"app" | "pages" | "universal" | "appearance" | "content">("app")
-
-  const [theme, setTheme] = useState<BuilderTheme>(getDraft)
+function AppearanceEditor({ active }: { active: boolean }) {
+  const themeHistory = useHistoryState<BuilderTheme>(getDraft(), 80, "theme")
+  const { state: theme, setState: setTheme, reset: resetTheme } = themeHistory
+  useWorkspaceHistory(active, themeHistory)
   const [appliedTheme, setAppliedTheme] = useState<BuilderTheme>(defaults)
   const [status, setStatus] = useState("Cargando configuración actual…")
   const [saving, setSaving] = useState(false)
+  const [themeLoaded, setThemeLoaded] = useState(false)
+  useDraftStatus("theme", themeLoaded, theme, appliedTheme)
 
   useEffect(() => {
+    const hadDraft = Boolean(localStorage.getItem(DRAFT_KEY))
     fetch("/__odontoma-builder/theme")
       .then(response => {
         if (!response.ok) throw new Error("No disponible")
         return response.json() as Promise<BuilderTheme>
       })
       .then(value => {
+        if (!hadDraft) resetTheme(value)
+        setThemeLoaded(true)
         setAppliedTheme(value)
         setStatus(
           value.enabled
@@ -140,12 +144,18 @@ function BuilderApp() {
       .catch(() => {
         setStatus("Abre este editor desde el servidor local de Odontoma.")
       })
-  }, [])
+  }, [resetTheme])
 
   useEffect(() => {
+    if (!themeLoaded) return
     localStorage.setItem(DRAFT_KEY, JSON.stringify(theme))
-  }, [theme])
+  }, [theme, themeLoaded])
 
+  useEffect(() => {
+    const flush = (e: Event) => { if (themeLoaded) (e as CustomEvent).detail.files.theme = theme }
+    window.addEventListener("odontoma-flush-drafts", flush)
+    return () => window.removeEventListener("odontoma-flush-drafts", flush)
+  }, [theme, themeLoaded])
   const previewStyle = useMemo(() => ({
     "--preview-primary-bg": theme.primaryBackground,
     "--preview-primary-fg": theme.primaryForeground,
@@ -162,7 +172,7 @@ function BuilderApp() {
   }) as React.CSSProperties, [theme])
 
   function updateNumber(key: NumericThemeKey, value: number) {
-    setTheme(current => ({ ...current, [key]: value }))
+    setTheme(current => ({ ...current, enabled: true, [key]: value }))
   }
 
   function updateColor(key: ColorThemeKey, value: string) {
@@ -217,86 +227,6 @@ function BuilderApp() {
   }
 
   return (
-    <main className="builder-app">
-      <header className="builder-header">
-        <div>
-          <span className="local-badge">SOLO LOCAL</span>
-          <p className="eyebrow">ODONTOMA · VISUAL BUILDER</p>
-          <h1>
-            {activePanel === "app"
-              ? "Construye la estructura de Odontoma."
-              : activePanel === "pages"
-                ? "Crea pantallas enteras con bloques."
-              : activePanel === "universal"
-                ? "Ajustes avanzados de cualquier pantalla."
-              : activePanel === "appearance"
-                ? "Edita el estilo sin tocar código."
-                : "Crea contenido sin tocar código."}
-          </h1>
-          <p className="intro">
-            {activePanel === "app"
-              ? "Agrega, duplica, ordena y conecta los menús reales."
-              : activePanel === "pages"
-                ? "Combina títulos, texto, tarjetas, botones y separadores."
-              : activePanel === "universal"
-                ? "Navega por la app y selecciona cualquier texto o bloque."
-              : activePanel === "appearance"
-                ? "Experimenta dentro de la vista previa."
-                : "Agrega clases, cuestionarios, preguntas, respuestas y criterios de corrección."}
-            {" "}Odontoma no cambia hasta que pulses{" "}
-            <strong>Aplicar al proyecto</strong>.
-          </p>
-        </div>
-        <a className="app-link" href="/" target="_blank" rel="noreferrer">
-          Abrir Odontoma ↗
-        </a>
-      </header>
-
-      <nav className="builder-navigation" aria-label="Secciones del builder">
-        <button
-          className={activePanel === "app" ? "active" : ""}
-          onClick={() => setActivePanel("app")}
-        >
-          <span>▣</span>
-          Estructura
-        </button>
-        <button
-          className={activePanel === "pages" ? "active" : ""}
-          onClick={() => setActivePanel("pages")}
-        >
-          <span>▤</span>
-          Pantallas
-        </button>
-        <button
-          className={activePanel === "content" ? "active" : ""}
-          onClick={() => setActivePanel("content")}
-        >
-          <span>✎</span>
-          Contenido
-        </button>
-        <button
-          className={activePanel === "appearance" ? "active" : ""}
-          onClick={() => setActivePanel("appearance")}
-        >
-          <span>◐</span>
-          Apariencia
-        </button>
-        <button
-          className={activePanel === "universal" ? "active" : ""}
-          onClick={() => setActivePanel("universal")}
-        >
-          <span>◎</span>
-          Avanzado
-        </button>
-      </nav>
-
-      {activePanel === "app" ? (
-        <LiveAppBuilder />
-      ) : activePanel === "pages" ? (
-        <CustomPagesEditor />
-      ) : activePanel === "universal" ? (
-        <UniversalUiEditor />
-      ) : activePanel === "appearance" ? (
       <section className="workspace">
         <aside className="controls-panel">
           <div className="panel-heading">
@@ -316,7 +246,7 @@ function BuilderApp() {
                   onClick={() => setTheme(current => ({
                     ...current,
                     ...preset.values,
-                    enabled: current.enabled
+                    enabled: true
                   }))}
                 >
                   <strong>{preset.name}</strong>
@@ -509,15 +439,6 @@ function BuilderApp() {
           </div>
         </section>
       </section>
-      ) : (
-        <OpenQuizContentEditor />
-      )}
-
-      <footer>
-        Este editor no se incluye en el build público de Vercel. Los cambios
-        permanentes quedan en archivos locales, versionables y reversibles.
-      </footer>
-    </main>
   )
 }
 
@@ -597,6 +518,6 @@ function RangeControl({
 
 createRoot(document.getElementById("builder-root")!).render(
   <StrictMode>
-    <BuilderApp />
+    <StudioWorkspace appearance={active => <AppearanceEditor active={active}/>} />
   </StrictMode>
 )

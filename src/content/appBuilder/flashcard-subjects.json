@@ -61,5 +61,25 @@
     "accent": "from-emerald-500/20 to-teal-500/10",
     "accentColor": "#10b981",
     "destination": "coming-soon"
+  },
+  {
+    "id": "d5f74a1c-8bcb-49e9-ab73-ee8adf4ad33a",
+    "title": "Nueva materia",
+    "subtitle": "FLASHCARDS",
+    "description": "Elegí un capítulo para estudiar.",
+    "accent": "from-violet-500/20 to-sky-500/20",
+    "accentColor": "#8b5cf6",
+    "destination": "bank:d5f74a1c-8bcb-49e9-ab73-ee8adf4ad33a",
+    "hidden": true
+  },
+  {
+    "id": "dc1726d6-d877-43e8-97db-8d8e188a6959",
+    "title": "Farmacología",
+    "subtitle": "FLASHCARDS",
+    "description": "Elegí un capítulo para estudiar.",
+    "accent": "from-violet-500/20 to-sky-500/20",
+    "accentColor": "#8b5cf6",
+    "destination": "bank:dc1726d6-d877-43e8-97db-8d8e188a6959",
+    "hidden": true
   }
 ]

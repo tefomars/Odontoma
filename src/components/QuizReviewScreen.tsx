@@ -1,4 +1,5 @@
 import type { QuizAttempt } from "@/lib/quizHistory"
+import StudyImage from "./StudyImage"
 
 type Props = {
   attempt: QuizAttempt
@@ -38,6 +39,7 @@ export default function QuizReviewScreen({ attempt, onBack, onMainMenu }: Props)
                 <span className={`rounded-full px-3 py-1 text-xs font-black ${presentation.badgeClass}`}>{presentation.label}</span>
               </div>
               <h2 className="mt-4 break-words text-2xl font-black leading-tight [overflow-wrap:anywhere]">{response.question}</h2>
+              <StudyImage src={response.image} alt={response.imageAlt} />
               <div className={`mt-6 grid min-w-0 gap-4 ${attempt.mode === "open-ended" ? "grid-cols-1" : "md:grid-cols-2"}`}>
                 <AnswerBox title="Tu respuesta" answers={response.selectedAnswers} tone={presentation.answerTone} />
                 <AnswerBox title={attempt.mode === "open-ended" ? "Respuesta modelo" : "Respuesta correcta"} answers={response.correctAnswers} tone="correct" />

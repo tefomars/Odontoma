@@ -1,11 +1,12 @@
 import { useEffect, useMemo, useState, type ReactNode } from "react"
 
+import ResponsivePreview from "./ResponsivePreview"
 import HomeScreen from "@/components/HomeScreen"
 import QuizModeScreen from "@/components/QuizModeScreen"
 import StudyMethodScreen from "@/components/StudyMethodScreen"
 import FlashcardSubjectScreen from "@/components/flashcards/FlashcardSubjectScreen"
 import { flashcardSubjectBlocks } from "@/content/appBuilder/flashcardSubjects"
-import { customPages } from "@/content/appBuilder/customPages"
+import { studioBanks } from "@/content/studio/catalog"
 
 import {
   homeContent,
@@ -18,6 +19,14 @@ import {
   type SubjectDestination
 } from "@/content/appBuilder"
 
+import { ImageField } from "./LibraryEditor"
+import { useDraftStatus } from "./draftStatus"
+import { syncBankAccessNames } from "./bankNames"
+import { globalJournal } from "./globalHistory"
+import type { CreationEvent } from "./contentCreation"
+import { publishIndex, useWorkspaceBanks, useWorkspacePages, useWorkspaceHistory, workspaceNavigate, type WorkspaceTarget } from "./workspaceBridge"
+import { organization, defaultSection, type Organization, type SubjectSection } from "@/content/appBuilder/organization"
+import { getStudyBank } from "@/content/studio/catalog"
 import { saveBuilderSnapshot } from "./builderSnapshots"
 import { useHistoryState } from "./useHistoryState"
 
@@ -39,6 +48,7 @@ const destinationOptions: Array<{
   label: string
   description: string
 }> = [
+  ...studioBanks.filter(b => b.kind === "course").map(bank => ({ value: `bank:${bank.id}` as SubjectDestination, label: bank.title, description: "Abre el banco editable de esta materia." })),
   { value: "coming-soon", label: "Próximamente", description: "La tarjeta se muestra desactivada." },
   { value: "open-quizzes", label: "Preguntas abiertas", description: "Abre los apartados de respuesta libre." },
   { value: "histologia", label: "Histología existente", description: "Abre los capítulos actuales de Histología." },
@@ -49,6 +59,7 @@ const destinationOptions: Array<{
 ]
 
 const mainMenuDestinationOptions: Array<{ value: AppMenuDestination; label: string }> = [
+  ...studioBanks.filter(b => b.kind === "course").flatMap(bank => [{ value: `bank:${bank.id}` as AppMenuDestination, label: `Quiz: ${bank.title}` }, { value: `flashcard-bank:${bank.id}` as AppMenuDestination, label: `Flashcards: ${bank.title}` }]),
   { value: "quizzes", label: "Abrir Quizzes" },
   { value: "flashcards", label: "Abrir Flashcards" },
   { value: "pre-partial", label: "Repaso pre-parcial" },
@@ -57,6 +68,7 @@ const mainMenuDestinationOptions: Array<{ value: AppMenuDestination; label: stri
 ]
 
 const quizDestinationOptions: Array<{ value: AppMenuDestination; label: string }> = [
+  ...studioBanks.filter(b => b.kind === "course").map(bank => ({ value: `bank:${bank.id}` as AppMenuDestination, label: `Banco: ${bank.title}` })),
   { value: "multiple-choice", label: "Opción múltiple" },
   { value: "open-ended", label: "Respuestas abiertas" },
   { value: "my-quizzes", label: "My quizzes" },
@@ -64,6 +76,7 @@ const quizDestinationOptions: Array<{ value: AppMenuDestination; label: string }
 ]
 
 const flashcardDestinationOptions: Array<{ value: FlashcardSubjectDestination; label: string }> = [
+  ...studioBanks.filter(b => b.kind === "course").map(bank => ({ value: `bank:${bank.id}` as FlashcardSubjectDestination, label: `Tarjetas: ${bank.title}` })),
   { value: "coming-soon", label: "Sin contenido por ahora" },
   { value: "histologia", label: "Decks de Histología" },
   { value: "proceso-economico-i", label: "Decks de Proceso Económico I" },
@@ -72,15 +85,6 @@ const flashcardDestinationOptions: Array<{ value: FlashcardSubjectDestination; l
   { value: "bioquimica", label: "Decks de Bioquímica" }
 ]
 
-const customDestinationOptionsForSubjects: Array<{
-  value: SubjectDestination
-  label: string
-  description: string
-}> = customPages.map(page => ({
-  value: `custom-page:${page.id}`,
-  label: `Pantalla: ${page.title}`,
-  description: "Abre una pantalla creada en el constructor."
-}))
 
 function createId() {
   return `subject-${Date.now()}-${crypto.randomUUID()}`
@@ -116,8 +120,11 @@ function readFlashcardSubjectsDraft() {
   }
 }
 
-export default function LiveAppBuilder() {
-  const contentHistory = useHistoryState<HomeContent>(homeContent)
+export default function LiveAppBuilder({ active = true, target }: { active?: boolean; target?: WorkspaceTarget }) {
+  const draftPages = useWorkspacePages()
+  const draftBanks = useWorkspaceBanks()
+  const bankDestinations = draftBanks.filter(b => b.kind === "course" && !b.archived).flatMap(b => [{ value: `bank:${b.id}` as AppMenuDestination, label: `Quiz: ${b.title}` }, { value: `flashcard-bank:${b.id}` as AppMenuDestination, label: `Flashcards: ${b.title}` }])
+  const contentHistory = useHistoryState<HomeContent>(homeContent, 80, "home")
   const content = contentHistory.state
   const setContent = contentHistory.setState
   const [appliedContent, setAppliedContent] = useState<HomeContent>(homeContent)
@@ -126,12 +133,52 @@ export default function LiveAppBuilder() {
   const [status, setStatus] = useState("Cargando las pantallas reales…")
   const [loaded, setLoaded] = useState(false)
   const [saving, setSaving] = useState(false)
-  const flashcardHistory = useHistoryState<FlashcardSubjectBlock[]>(flashcardSubjectBlocks)
+  const flashcardHistory = useHistoryState<FlashcardSubjectBlock[]>(flashcardSubjectBlocks, 80, "decks")
   const flashcardSubjects = flashcardHistory.state
   const setFlashcardSubjects = flashcardHistory.setState
   const [appliedFlashcardSubjects, setAppliedFlashcardSubjects] = useState<FlashcardSubjectBlock[]>(flashcardSubjectBlocks)
   const [flashcardSubjectsLoaded, setFlashcardSubjectsLoaded] = useState(false)
   const [previewDevice, setPreviewDevice] = useState<PreviewDevice>("desktop")
+  const [org, setOrg] = useState<Organization>(() => { try { return JSON.parse(localStorage.getItem("odontoma-organization-draft-v1") || "null") || organization } catch { return organization } })
+  useWorkspaceHistory(active, view === "flashcard-subjects" ? flashcardHistory : contentHistory)
+  useEffect(() => {
+    const sync = (event: Event) => {
+      const { bankId, title } = (event as CustomEvent<{ bankId: string; title: string }>).detail
+      if (!loaded || !flashcardSubjectsLoaded) { alert("Esperá a que carguen las tarjetas."); return }
+      const next = syncBankAccessNames(content, flashcardSubjects, bankId, title)
+      if (JSON.stringify(next) === JSON.stringify({ home: content, decks: flashcardSubjects })) { alert("No hay tarjetas con otro título para este banco."); return }
+      if (!confirm("¿Usar este nombre también en las tarjetas que abren este banco? No modifica preguntas, respuestas ni progreso. Deshacer global recupera los cambios en orden.")) return
+      globalJournal.batch("Renombrar accesos al banco", () => { setContent(next.home); setFlashcardSubjects(next.decks) })
+      alert("Títulos actualizados en el borrador. Guardar en Odontoma aplica todo.")
+    }
+    window.addEventListener("odontoma-sync-bank-title", sync)
+    return () => window.removeEventListener("odontoma-sync-bank-title", sync)
+  }, [loaded, flashcardSubjectsLoaded, content, flashcardSubjects, setContent, setFlashcardSubjects])
+  useDraftStatus("home", loaded, content, appliedContent)
+  useDraftStatus("decks", flashcardSubjectsLoaded, flashcardSubjects, appliedFlashcardSubjects)
+  useEffect(() => {
+    const create = (e: Event) => {
+      const detail = (e as CustomEvent<CreationEvent>).detail, r = detail.request
+      if (!detail.accepted || !r.newBank || r.kind !== "course" || r.type === "written") return
+      const destination = `bank:${r.bankId}` as const
+      setContent(c => ({ ...c, subjects: [...c.subjects, { id: r.bankId, title: r.title, subtitle: "Elegí un capítulo para practicar.", status: "Disponible", accentColor: "#8b5cf6", destination, sectionId: r.sectionId, hidden: !r.quizAccess, image: r.image }] }))
+      setFlashcardSubjects(c => [...c, { id: r.bankId, title: r.title, subtitle: "FLASHCARDS", description: "Elegí un capítulo para estudiar.", accent: "from-violet-500/20 to-sky-500/20", accentColor: "#8b5cf6", destination, sectionId: r.sectionId, hidden: !r.flashcardAccess, image: r.image }])
+    }
+    window.addEventListener("odontoma-create-access", create)
+    return () => window.removeEventListener("odontoma-create-access", create)
+  }, [setContent, setFlashcardSubjects])
+  // eslint-disable-next-line react-hooks/set-state-in-effect -- Synchronize an explicit workspace navigation request.
+  useEffect(() => { if (!target || !loaded || !flashcardSubjectsLoaded) return; if (target.view) setView(target.view); setSelection(target.id ? { kind: target.view === "flashcard-subjects" ? "flashcard-subject" : target.view === "main-menu" ? "main-card" : target.view === "quiz-menu" ? "quiz-card" : "subject", id: target.id } : null) }, [target, loaded, flashcardSubjectsLoaded])
+  useEffect(() => {
+    const index = (e: Event) => { const detail = (e as CustomEvent).detail; if (detail.area === "organization") setOrg(detail.items) }
+    window.addEventListener("odontoma-workspace-index", index); return () => window.removeEventListener("odontoma-workspace-index", index)
+  }, [])
+  useEffect(() => {
+    if (loaded && flashcardSubjectsLoaded) publishIndex("structure", { home: content, decks: flashcardSubjects })
+    const flush = (e: Event) => { if (loaded) (e as CustomEvent).detail.files.home = content; if (flashcardSubjectsLoaded) (e as CustomEvent).detail.files.decks = flashcardSubjects }
+    window.addEventListener("odontoma-flush-drafts", flush); return () => window.removeEventListener("odontoma-flush-drafts", flush)
+  }, [content, flashcardSubjects, loaded, flashcardSubjectsLoaded])
+
 
   useEffect(() => {
     fetch("/__odontoma-builder/home-content")
@@ -148,8 +195,8 @@ export default function LiveAppBuilder() {
         setLoaded(true)
       })
       .catch(() => {
-        setStatus("No se pudo cargar el contenido editable.")
-        setLoaded(true)
+        setStatus("No se pudo cargar el contenido editable. Recargá el builder.")
+        setLoaded(false)
       })
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
@@ -166,8 +213,8 @@ export default function LiveAppBuilder() {
         setFlashcardSubjectsLoaded(true)
       })
       .catch(() => {
-        setStatus("No se pudieron cargar los bloques de Flashcards.")
-        setFlashcardSubjectsLoaded(true)
+        setStatus("No se pudieron cargar los bloques de Flashcards. Recargá el builder.")
+        setFlashcardSubjectsLoaded(false)
       })
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
@@ -223,12 +270,12 @@ export default function LiveAppBuilder() {
         !card.symbol.trim() ||
         !/^#[0-9a-f]{6}$/i.test(card.accentColor)
       ) ||
-      content.subjects.some(subject =>
+      content.subjects.filter(subject => !subject.hidden).some(subject =>
         !subject.title.trim() ||
         !subject.status.trim() ||
         !/^#[0-9a-f]{6}$/i.test(subject.accentColor)
       ) ||
-      flashcardSubjects.some(subject =>
+      flashcardSubjects.filter(subject => !subject.hidden).some(subject =>
         !subject.title.trim() ||
         !subject.subtitle.trim() ||
         !subject.description.trim() ||
@@ -236,7 +283,7 @@ export default function LiveAppBuilder() {
       )
   }, [content, flashcardSubjects])
 
-  const customDestinationOptions = customPages.map(page => ({
+  const customDestinationOptions = draftPages.map(page => ({
     value: `custom-page:${page.id}` as AppMenuDestination,
     label: `Pantalla: ${page.title}`
   }))
@@ -366,8 +413,8 @@ export default function LiveAppBuilder() {
   }
 
   function deleteFlashcardSubject() {
-    if (!selectedFlashcardSubject) return
-    setFlashcardSubjects(current => current.filter(subject => subject.id !== selectedFlashcardSubject.id))
+    if (!selectedFlashcardSubject || !confirm("¿Quitar solo esta tarjeta de acceso? El banco, sus preguntas y el progreso se conservan. Podés recuperarla desde Tarjetas quitadas o deshacer.")) return
+    setFlashcardSubjects(current => current.map(subject => subject.id === selectedFlashcardSubject.id ? { ...subject, hidden: true } : subject))
     setSelection(null)
     setStatus(`“${selectedFlashcardSubject.title}” se quitó del borrador.`)
   }
@@ -443,10 +490,10 @@ export default function LiveAppBuilder() {
   }
 
   function deleteSubject() {
-    if (!selectedSubject) return
+    if (!selectedSubject || !confirm("¿Quitar solo esta tarjeta de acceso? El banco, sus preguntas y el progreso se conservan. Podés recuperarla desde Tarjetas quitadas o deshacer.")) return
     setContent(current => ({
       ...current,
-      subjects: current.subjects.filter(subject => subject.id !== selectedSubject.id)
+      subjects: current.subjects.map(subject => subject.id === selectedSubject.id ? { ...subject, hidden: true } : subject)
     }))
     setSelection(null)
     setStatus(`“${selectedSubject.title}” se quitó del borrador. Aplicá para guardar o descartá para recuperarla.`)
@@ -517,6 +564,7 @@ export default function LiveAppBuilder() {
           {view === "flashcard-subjects" && <button className="stage-add-button" onClick={addFlashcardSubject}>+ Agregar deck</button>}
         </div>
 
+        {(view === "subjects" || view === "flashcard-subjects") && <details className="studio-removed-cards"><summary>Tarjetas quitadas de esta pantalla</summary>{(view === "subjects" ? content.subjects : flashcardSubjects).filter(s => s.hidden).map(s => <button key={s.id} onClick={() => { if (view === "subjects") setContent(c => ({ ...c, subjects: c.subjects.map(item => item.id === s.id ? { ...item, hidden: false } : item) })); else setFlashcardSubjects(c => c.map(item => item.id === s.id ? { ...item, hidden: false } : item)) }}>Recuperar {s.title}</button>)}</details>}
         <div className="builder-qol-toolbar">
           <div className="history-controls">
             <button onClick={activeHistory.undo} disabled={!activeHistory.canUndo}>↶ Deshacer</button>
@@ -536,7 +584,7 @@ export default function LiveAppBuilder() {
           <button className={view === "flashcard-subjects" ? "active" : ""} onClick={() => chooseView("flashcard-subjects")}>Decks de Flashcards</button>
         </nav>
 
-        <div className={`live-app-preview preview-device-${previewDevice}`}>
+        <ResponsivePreview device={previewDevice}>
           {view === "main-menu" ? (
             <StudyMethodScreen
               content={content.mainMenu}
@@ -564,6 +612,7 @@ export default function LiveAppBuilder() {
           ) : view === "subjects" ? (
             <HomeScreen
               subjects={content.subjects}
+              sections={org.quizzes}
               editorMode
               onSelectSubject={() => undefined}
               onAddSubject={addSubject}
@@ -573,6 +622,7 @@ export default function LiveAppBuilder() {
           ) : (
             <FlashcardSubjectScreen
               subjects={flashcardSubjects}
+              sections={org.flashcards}
               editorMode
               onBack={() => undefined}
               onMainMenu={() => undefined}
@@ -583,7 +633,7 @@ export default function LiveAppBuilder() {
               onReorderSubject={reorderFlashcardSubject}
             />
           )}
-        </div>
+        </ResponsivePreview>
       </div>
 
       <aside className={`live-inspector ${selection ? "open" : ""}`}>
@@ -620,7 +670,7 @@ export default function LiveAppBuilder() {
                   <ColorField value={selectedCard.accentColor} onChange={accentColor => updateCard({ accentColor })} />
                   <InspectorField label="¿Qué abre este botón?">
                     <select value={selectedCard.destination || selectedCard.id} onChange={event => updateCard({ destination: event.target.value as AppMenuDestination })}>
-                      {[...(selection.kind === "main-card" ? mainMenuDestinationOptions : quizDestinationOptions), ...customDestinationOptions].map(option => (
+                      {[...(selection.kind === "main-card" ? mainMenuDestinationOptions : quizDestinationOptions).filter(o => !o.value.startsWith("bank:") && !o.value.startsWith("flashcard-bank:")), ...bankDestinations, ...customDestinationOptions].map(option => (
                         <option key={option.value} value={option.value}>{option.label}</option>
                       ))}
                     </select>
@@ -644,6 +694,7 @@ export default function LiveAppBuilder() {
               {selectedSubject && (
                 <SubjectFields
                   subject={selectedSubject}
+                  sections={org.quizzes}
                   selectedIndex={selectedIndex}
                   total={content.subjects.length}
                   onChange={updateSubject}
@@ -654,13 +705,14 @@ export default function LiveAppBuilder() {
               )}
               {selectedFlashcardSubject && (
                 <>
-                  <TextField label="Título" value={selectedFlashcardSubject.title} onChange={title => updateFlashcardSubject({ title })} />
+                  <SectionField sections={org.flashcards} value={selectedFlashcardSubject.sectionId || defaultSection(selectedFlashcardSubject.destination)} onChange={sectionId => updateFlashcardSubject({ sectionId })}/><ImageField label="Portada de la materia" value={selectedFlashcardSubject.image} onChange={image => updateFlashcardSubject({ image })}/><ContentLinks destination={selectedFlashcardSubject.destination} title={selectedFlashcardSubject.title}/>
+                  <TextField label="Título de tarjeta (solo este acceso)" value={selectedFlashcardSubject.title} onChange={title => updateFlashcardSubject({ title })} />
                   <TextField label="Etiqueta" value={selectedFlashcardSubject.subtitle} onChange={subtitle => updateFlashcardSubject({ subtitle })} />
                   <TextField label="Descripción" value={selectedFlashcardSubject.description} multiline onChange={description => updateFlashcardSubject({ description })} />
                   <ColorField value={selectedFlashcardSubject.accentColor} onChange={accentColor => updateFlashcardSubject({ accentColor })} />
                   <InspectorField label="¿Qué decks abre?">
                     <select value={selectedFlashcardSubject.destination} onChange={event => updateFlashcardSubject({ destination: event.target.value as FlashcardSubjectDestination, subtitle: event.target.value === "coming-soon" ? "Próximamente" : selectedFlashcardSubject.subtitle })}>
-                      {[...flashcardDestinationOptions, ...customDestinationOptions].map(option => <option key={option.value} value={option.value}>{option.label}</option>)}
+                      {[...flashcardDestinationOptions.filter(o => !o.value.startsWith("bank:")), ...draftBanks.filter(b => b.kind === "course" && !b.archived).map(b => ({ value: `bank:${b.id}`, label: b.title })), ...customDestinationOptions].map(option => <option key={option.value} value={option.value}>{option.label}</option>)}
                     </select>
                   </InspectorField>
                   <div className="order-controls">
@@ -722,16 +774,19 @@ function ColorField({ value, onChange }: { value: string; onChange: (value: stri
   )
 }
 
-function SubjectFields({ subject, selectedIndex, total, onChange, onMove, onDuplicate, onDelete }: { subject: HomeSubject; selectedIndex: number; total: number; onChange: (changes: Partial<HomeSubject>) => void; onMove: (direction: -1 | 1) => void; onDuplicate: () => void; onDelete: () => void }) {
+function SubjectFields({ subject, sections, selectedIndex, total, onChange, onMove, onDuplicate, onDelete }: { subject: HomeSubject; sections: SubjectSection[]; selectedIndex: number; total: number; onChange: (changes: Partial<HomeSubject>) => void; onMove: (direction: -1 | 1) => void; onDuplicate: () => void; onDelete: () => void }) {
+  const draftPages = useWorkspacePages()
+  const draftBanks = useWorkspaceBanks()
   return (
     <>
-      <TextField label="Título" value={subject.title} onChange={title => onChange({ title })} />
+      <SectionField sections={sections} value={subject.sectionId || defaultSection(subject.destination)} onChange={sectionId => onChange({ sectionId })}/><ImageField label="Portada de la materia" value={subject.image} onChange={image => onChange({ image })}/><ContentLinks destination={subject.destination} title={subject.title}/>
+      <TextField label="Título de tarjeta (solo este acceso)" value={subject.title} onChange={title => onChange({ title })} />
       <TextField label="Descripción" value={subject.subtitle} multiline onChange={subtitle => onChange({ subtitle })} />
       <TextField label="Texto del estado" value={subject.status} onChange={status => onChange({ status })} />
       <ColorField value={subject.accentColor} onChange={accentColor => onChange({ accentColor })} />
       <InspectorField label="¿Qué abre esta tarjeta?" hint="Podés dejarla como próximamente hasta crear su contenido.">
         <select value={subject.destination} onChange={event => onChange({ destination: event.target.value as SubjectDestination, status: event.target.value === "coming-soon" ? "Próximamente" : "Disponible" })}>
-          {[...destinationOptions, ...customDestinationOptionsForSubjects].map(option => <option key={option.value} value={option.value}>{option.label}</option>)}
+          {[...destinationOptions.filter(o => !o.value.startsWith("bank:")), ...draftBanks.filter(b => b.kind === "course" && !b.archived).map(b => ({ value: `bank:${b.id}`, label: b.title })), ...draftPages.map(p => ({ value: `custom-page:${p.id}`, label: `Menú: ${p.title}` }))].map(option => <option key={option.value} value={option.value}>{option.label}</option>)}
         </select>
         <small className="destination-help">{destinationOptions.find(option => option.value === subject.destination)?.description || "Abre una pantalla creada en el constructor."}</small>
       </InspectorField>
@@ -752,4 +807,13 @@ function InspectorField({ label, hint, children }: { label: string; hint?: strin
       {children}
     </label>
   )
+}
+
+function SectionField({ sections, value, onChange }: { sections: SubjectSection[]; value: string; onChange: (value: string) => void }) {
+  return <label className="inspector-field"><span>Subdivisión</span><select value={sections.some(s => s.id === value) ? value : sections[0]?.id} onChange={e => onChange(e.target.value)}>{sections.map(s => <option key={s.id} value={s.id}>{s.title}</option>)}</select><button onClick={() => workspaceNavigate({ panel: "sections" })}>＋ Administrar subdivisiones</button></label>
+}
+function ContentLinks({ destination, title }: { destination: string; title: string }) {
+  const draftBanks = useWorkspaceBanks()
+  const bank = getStudyBank(destination) || draftBanks.find(b => b.id === destination.replace(/^bank:/, ""))
+  return <div className="studio-context-links">{bank && <><button onClick={() => workspaceNavigate({ panel: "library", bankId: bank.id, mode: "questions" })}>Editar preguntas</button><button onClick={() => workspaceNavigate({ panel: "library", bankId: bank.id, mode: "flashcards" })}>Editar flashcards</button></>}<button onClick={() => workspaceNavigate({ panel: "written", subject: bank?.subject || title })}>Ver escritas de esta clase</button></div>
 }

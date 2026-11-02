@@ -70,6 +70,7 @@ export default function StudyMethodScreen({
               >
                 <button data-appearance-card="color"
                   type="button"
+                  data-studio-target={JSON.stringify({ panel: "structure", view: "main-menu", id: card.id })}
                   disabled={!editorMode && (card.destination || card.id) === "coming-soon"}
                   onClick={() => {
                     if (editorMode) return onEditCard?.(card)
@@ -78,7 +79,7 @@ export default function StudyMethodScreen({
                     if (action) action()
                     else onSelectDestination?.(destination)
                   }}
-                  className="group relative h-full w-full overflow-hidden rounded-[1.75rem] border p-6 text-left transition-all hover:scale-[1.01]"
+                  className="study-method-card group relative h-full w-full rounded-[1.75rem] border p-6 text-left transition-colors"
                   style={{
                     "--oa-section-accent": card.accentColor,
                     borderColor: `${card.accentColor}55`,

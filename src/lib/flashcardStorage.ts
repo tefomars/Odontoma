@@ -1,6 +1,7 @@
 import type {
   FsrsStorage
 } from "@/lib/fsrs"
+import { studioBanks } from "@/content/studio/catalog"
 
 const STORAGE_KEY =
   "odontoma_fsrs_storage"
@@ -21,6 +22,9 @@ export function loadFsrsStorage(): FsrsStorage {
 
     const parsed =
       JSON.parse(raw)
+    for (const card of studioBanks.flatMap(bank => bank.flashcards)) {
+      if (card.legacyId && parsed.cards?.[card.legacyId] && !parsed.cards[card.id]) parsed.cards[card.id] = structuredClone(parsed.cards[card.legacyId])
+    }
 
     return {
       cards: parsed.cards || {},

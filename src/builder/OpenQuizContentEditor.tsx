@@ -1,4 +1,10 @@
 import { useEffect, useMemo, useState } from "react"
+import { useDraftStatus } from "./draftStatus"
+import { addWrittenContent, type CreationEvent } from "./contentCreation"
+import { publishIndex, useWorkspaceHistory, type WorkspaceTarget } from "./workspaceBridge"
+import { useHistoryState } from "./useHistoryState"
+import { ImageField } from "./LibraryEditor"
+import WrittenBatchTools from "./WrittenBatchTools"
 
 import type {
   OpenQuizContent,
@@ -34,9 +40,7 @@ function normalizeContent(value: OpenQuizContent): OpenQuizContent {
     ...deck,
     questions: deck.questions.map(question => ({
       ...question,
-      acceptedPoints: question.acceptedPoints
-        .map(point => point.trim())
-        .filter(Boolean)
+      acceptedPoints: [...question.acceptedPoints]
     }))
   }))
 
@@ -57,8 +61,10 @@ function normalizeContent(value: OpenQuizContent): OpenQuizContent {
   return { classes, decks }
 }
 
-export default function OpenQuizContentEditor() {
-  const [content, setContent] = useState<OpenQuizContent>(emptyContent)
+export default function OpenQuizContentEditor({ active = true, target }: { active?: boolean; target?: WorkspaceTarget }) {
+  const contentHistory = useHistoryState<OpenQuizContent>(emptyContent, 80, "written")
+  useWorkspaceHistory(active, contentHistory)
+  const { state: content, setState: setContent, reset: resetContent } = contentHistory
   const [appliedContent, setAppliedContent] = useState<OpenQuizContent>(emptyContent)
   const [selectedClassName, setSelectedClassName] = useState<string | null>(null)
   const [classNameDraft, setClassNameDraft] = useState("")
@@ -66,6 +72,22 @@ export default function OpenQuizContentEditor() {
   const [selectedQuestionId, setSelectedQuestionId] = useState<string | null>(null)
   const [status, setStatus] = useState("Cargando contenido…")
   const [publishing, setPublishing] = useState(false)
+  const [contentLoaded, setContentLoaded] = useState(false)
+  useDraftStatus("written", contentLoaded, content, appliedContent)
+  useEffect(() => {
+    const create = (e: Event) => {
+      const d = (e as CustomEvent<CreationEvent>).detail, r = d.request
+      if (!contentLoaded || r.type !== "written") return
+      try {
+        setContent(addWrittenContent(content, r, () => newId("open"))); setStatus("Cuestionario agregado al borrador. Guardá para aplicarlo.")
+        d.accepted = true; d.target = { panel: "written", id: r.deckId, subject: r.subject }
+      } catch (error) { d.error = String(error) }
+    }
+    const existing = (e: Event) => { const d = (e as CustomEvent).detail; if (d.type === "written") d.texts = content.decks.find(deck => deck.id === d.deckId)?.questions.map(q => q.prompt) || [] }
+    window.addEventListener("odontoma-create-content", create); window.addEventListener("odontoma-import-existing", existing)
+    return () => { window.removeEventListener("odontoma-create-content", create); window.removeEventListener("odontoma-import-existing", existing) }
+  }, [content, contentLoaded, setContent])
+  useEffect(() => { const flush = (event: Event) => { if (contentLoaded) (event as CustomEvent<{ files: Record<string, unknown> }>).detail.files.written = content }; window.addEventListener("odontoma-flush-drafts", flush); return () => window.removeEventListener("odontoma-flush-drafts", flush) }, [content, contentLoaded])
 
   useEffect(() => {
     fetch("/__odontoma-builder/open-quizzes")
@@ -77,9 +99,10 @@ export default function OpenQuizContentEditor() {
         const draft = readDraft()
         const applied = normalizeContent(value)
         const initial = normalizeContent(draft || value)
+        setContentLoaded(true)
 
         setAppliedContent(applied)
-        setContent(initial)
+        resetContent(initial)
         setSelectedClassName(initial.classes?.[0]?.name || null)
         setClassNameDraft(initial.classes?.[0]?.name || "")
         setSelectedDeckId(initial.decks.find(deck => deck.subject === initial.classes?.[0]?.name)?.id || null)
@@ -92,8 +115,17 @@ export default function OpenQuizContentEditor() {
       .catch(() => {
         setStatus("No se pudo abrir el archivo de contenido local.")
       })
-  }, [])
+  }, [resetContent])
 
+  /* eslint-disable react-hooks/set-state-in-effect -- Select an externally requested class/deck after loading. */
+  useEffect(() => {
+    if (!contentLoaded || !target) return
+    const selected = target.id ? content.decks.find(d => d.id === target.id) : undefined
+    const name = selected?.subject || target.subject
+    if (name) { setSelectedClassName(name); setClassNameDraft(name); setSelectedDeckId(selected?.id || content.decks.find(d => d.subject === name)?.id || null); setSelectedQuestionId(null) }
+  }, [target, contentLoaded]) // eslint-disable-line react-hooks/exhaustive-deps
+  /* eslint-enable react-hooks/set-state-in-effect */
+  useEffect(() => { if (contentLoaded) publishIndex("written", { classes: content.classes, decks: content.decks.map(d => ({ id: d.id, title: d.title, subject: d.subject, partial: d.partial })) }) }, [content, contentLoaded])
   const classes = useMemo(() => {
     const grouped = new Map<string, OpenQuizDeck[]>()
 
@@ -608,6 +640,7 @@ export default function OpenQuizContentEditor() {
                 </div>
               </BuilderField>
               <BuilderField label="Descripción">
+                <WrittenBatchTools key={selectedDeck.id} deck={selectedDeck} onChange={questions => updateDeck({ questions })} />
                 <textarea
                   value={selectedDeck.description || ""}
                   onChange={event => updateDeck({ description: event.target.value })}
@@ -637,6 +670,10 @@ export default function OpenQuizContentEditor() {
                   ) : selectedDeck.questions.map((question, index) => (
                     <button
                       key={question.id}
+                      draggable
+                      onDragStart={e => e.dataTransfer.setData("text/plain", question.id)}
+                      onDragOver={e => e.preventDefault()}
+                      onDrop={e => { e.preventDefault(); const from = selectedDeck.questions.findIndex(q => q.id === e.dataTransfer.getData("text/plain")); if (from < 0) return; const list = [...selectedDeck.questions]; const [item] = list.splice(from, 1); list.splice(index, 0, item); updateDeck({ questions: list }) }}
                       className={`question-list-item ${question.id === selectedQuestionId ? "selected" : ""}`}
                       onClick={() => setSelectedQuestionId(question.id)}
                     >
@@ -668,6 +705,7 @@ export default function OpenQuizContentEditor() {
                     </div>
 
                     <BuilderField label="Pregunta" required>
+                      <div className="actions"><button type="button" onClick={() => { const copy = { ...selectedQuestion, id: `open-${crypto.randomUUID()}` }; updateDeck({ questions: [...selectedDeck.questions, copy] }); setSelectedQuestionId(copy.id) }}>Duplicar</button>{[-1,1].map(step => <button type="button" key={step} onClick={() => { const list = [...selectedDeck.questions]; const from = list.findIndex(q => q.id === selectedQuestion.id); const to = from + step; if (to < 0 || to >= list.length) return; [list[from], list[to]] = [list[to], list[from]]; updateDeck({ questions: list }) }}>{step < 0 ? "↑ Mover arriba" : "↓ Mover abajo"}</button>)}</div>
                       <textarea
                         value={selectedQuestion.prompt}
                         onChange={event => updateQuestion({ prompt: event.target.value })}
@@ -699,6 +737,7 @@ export default function OpenQuizContentEditor() {
                       />
                     </BuilderField>
 
+                    <ImageField label="Imagen de la pregunta" value={selectedQuestion.image} onChange={image => updateQuestion({ image })} />
                     <BuilderField label="Explicación opcional">
                       <textarea
                         value={selectedQuestion.explanation || ""}
@@ -731,6 +770,8 @@ export default function OpenQuizContentEditor() {
             )}
           </div>
           <div className="actions">
+            <button className="builder-button secondary" onClick={contentHistory.undo} disabled={!contentHistory.canUndo}>↶ Deshacer</button>
+            <button className="builder-button secondary" onClick={contentHistory.redo} disabled={!contentHistory.canRedo}>↷ Rehacer</button>
             <button className="builder-button secondary" onClick={discardDraft} disabled={publishing}>
               Descartar borrador
             </button>
@@ -746,7 +787,7 @@ export default function OpenQuizContentEditor() {
               onClick={publishContent}
               disabled={publishing || validationIssues.length > 0}
             >
-              {publishing ? "Publicando…" : "Publicar en Odontoma"}
+              {publishing ? "Guardando…" : "Aplicar al proyecto local"}
             </button>
           </div>
         </footer>

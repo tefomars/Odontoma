@@ -1,4 +1,6 @@
 import { useRef, useState } from "react"
+import FlashcardStudyModeSwitch from "./FlashcardStudyModeSwitch"
+import { useFlashcardStudyMode } from "@/lib/flashcardStudyMode"
 
 import {
   addUserFlashcard,
@@ -75,6 +77,7 @@ export default function UserTopicScreen({
   const storage =
     (void refreshKey, loadFsrsStorage())
 
+  const [studyMode] = useFlashcardStudyMode()
   const dueCount =
     cards.filter(card =>
       isFsrsCardDue(card.id, storage.cards)
@@ -401,7 +404,7 @@ export default function UserTopicScreen({
 
             <button
               type="button"
-              disabled={dueCount === 0}
+              disabled={(studyMode === "free" ? cards.length : dueCount) === 0}
               onClick={onReview}
               className={`
                 rounded-2xl
@@ -411,16 +414,17 @@ export default function UserTopicScreen({
                 font-black
 
                 ${
-                  dueCount > 0
+                  (studyMode === "free" ? cards.length : dueCount) > 0
                     ? "bg-emerald-500 text-black hover:bg-emerald-400"
                     : "cursor-not-allowed bg-zinc-800 text-zinc-500"
                 }
               `}
             >
-              Repasar deck
+              {studyMode === "free" ? "Repasar sin espera" : "Repasar deck"}
             </button>
           </div>
 
+          <FlashcardStudyModeSwitch/>
           <div className="
             mb-6
             rounded-[1.5rem]

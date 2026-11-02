@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "quizzes": [
+    {
+      "id": "primary",
+      "title": "Materias principales",
+      "description": "",
+      "color": "#c4b5fd"
+    },
+    {
+      "id": "secondary",
+      "title": "Clases secundarias",
+      "description": "Otras clases, separadas de las materias principales.",
+      "color": "#7dd3fc"
+    },
+    {
+      "id": "upcoming",
+      "title": "Próximamente",
+      "description": "",
+      "color": "#a1a1aa"
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "primary",
+      "title": "Materias principales",
+      "description": "",
+      "color": "#6ee7b7"
+    },
+    {
+      "id": "secondary",
+      "title": "Clases secundarias",
+      "description": "Otros cursos, separados de los mazos principales.",
+      "color": "#7dd3fc"
+    },
+    {
+      "id": "upcoming",
+      "title": "Próximamente",
+      "description": "",
+      "color": "#a1a1aa"
+    }
+  ]
+}

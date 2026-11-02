@@ -1094,3 +1094,45 @@ button:active:not(:disabled) {
     display: none !important;
   }
 }
+/* Lift without scaling: resizing the rounded border at the end of a hover
+   transition can expose corner tiles in the browser's compositor. Keep the
+   surface at its original dimensions in every interaction state. */
+button.study-method-card {
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: none;
+  background-clip: padding-box;
+  transform: translateY(0);
+  scale: none;
+  transition: transform 160ms ease, box-shadow 160ms ease, background-color 160ms ease;
+}
+
+button.study-method-card:hover:not(:disabled),
+button.study-method-card:active:not(:disabled) {
+  filter: none;
+  scale: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  button.study-method-card:hover:not(:disabled) {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgb(0 0 0 / 24%);
+  }
+}
+
+button.study-method-card:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: 0 3px 10px rgb(0 0 0 / 12%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  button.study-method-card:hover:not(:disabled),
+  button.study-method-card:active:not(:disabled) {
+    transform: none;
+  }
+}
+
+button.study-method-card:focus-visible {
+  outline: 2px solid var(--oa-section-accent, #a78bfa);
+  outline-offset: 4px;
+}

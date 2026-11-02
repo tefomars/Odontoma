@@ -6,6 +6,7 @@ import {
 } from "react"
 
 import logoImage from "@/assets/logo.png"
+import { getStudyBank, studioBanks } from "@/content/studio/catalog"
 import { histologiaChapters } from "@/content/histologia/chapters"
 
 import {
@@ -28,6 +29,9 @@ import {
 } from "@/lib/suspendedFlashcards"
 
 import { relayWheelToPanel } from "@/lib/nestedScroll"
+
+import FlashcardStudyModeSwitch from "./FlashcardStudyModeSwitch"
+import { useFlashcardStudyMode, setFlashcardStudyMode } from "@/lib/flashcardStudyMode"
 
 type Props = {
   subject?: string
@@ -64,7 +68,7 @@ type ChapterCourseGroup = {
 }
 
 const HISTOLOGY_CHAPTER_IMAGES = new Map(
-  histologiaChapters.map(chapter => [chapter.id, chapter.image])
+  [...histologiaChapters, ...studioBanks.flatMap(bank => bank.chapters)].map(chapter => [chapter.id, chapter.image])
 )
 
 const CHAPTER_MENUS: ChapterMenu[] = [
@@ -1648,6 +1652,7 @@ function cardMatchesSelectedSubject(
 ) {
   const cardSubject =
     String(card.subject || "").toLowerCase()
+  if (getStudyBank(subject)) return cardSubject === getStudyBank(subject)?.subject.toLowerCase()
 
   if (subject === "proceso-economico-i") {
     return (
@@ -2134,7 +2139,7 @@ export default function FlashcardSelectScreen({
     )
 
   const subjectTitle =
-    subject === "proceso-economico-i"
+    getStudyBank(subject)?.title || (subject === "proceso-economico-i"
       ? "Proceso Económico I"
       : subject === "filosofia-de-hayek"
         ? "Filosofía de Hayek"
@@ -2142,7 +2147,7 @@ export default function FlashcardSelectScreen({
           ? "Bioquímica"
         : subject === "semiologia"
           ? "Semiología"
-        : "Histología"
+        : "Histología")
 
   const subjectDescription =
     subject === "proceso-economico-i"
@@ -2247,7 +2252,7 @@ export default function FlashcardSelectScreen({
 
           return {
             chapter,
-            title: chapter,
+            title: getStudyBank(subject)?.chapters.find(c => c.id === chapter)?.title || chapter,
             groups: subtopics.map(subtopic => ({
               title: subtopic,
               description: `${chapterCards.filter(card => card.subtopic === subtopic).length} cartas`,
@@ -2285,7 +2290,11 @@ export default function FlashcardSelectScreen({
           new Set(manualMenus.map(menu => menu.chapter))
 
         return [
-          ...manualMenus,
+          ...manualMenus.map(menu => {
+            const covered = new Set(menu.groups.flatMap(group => group.subtopics))
+            const missing = [...new Set(defaultCards.filter(c => c.chapter === menu.chapter && !covered.has(c.subtopic)).map(c => c.subtopic))]
+            return { ...menu, title: getStudyBank(subject)?.chapters.find(c => c.id === menu.chapter)?.title || menu.title, groups: [...menu.groups, ...missing.map(subtopic => ({ title: subtopic, description: "", subtopics: [subtopic] }))] }
+          }),
           ...generatedChapterMenus.filter(
             menu => !manualChapters.has(menu.chapter)
           )
@@ -2379,6 +2388,7 @@ export default function FlashcardSelectScreen({
     })
   }, [selectedChapter])
 
+  const [studyMode] = useFlashcardStudyMode()
   const totalReviews =
     storage.reviews.length
 
@@ -2459,6 +2469,7 @@ export default function FlashcardSelectScreen({
           lg:p-6
         ">
           <div className="flashcard-chapter-static shrink-0">
+          <FlashcardStudyModeSwitch/>
           <div className="
             mb-3
             flex
@@ -2622,12 +2633,7 @@ export default function FlashcardSelectScreen({
               <button
                 type="button"
                 aria-label="Repasar primero las tarjetas vencidas que ya habías estudiado."
-                onClick={() =>
-                  onSelectTopic(
-                    "__reviewed_due",
-                    "default"
-                  )
-                }
+                onClick={() => { setFlashcardStudyMode("fsrs"); onSelectTopic("__reviewed_due", "default") }}
                 className="
                   relative
                   rounded-3xl
@@ -2664,7 +2670,7 @@ export default function FlashcardSelectScreen({
             </div>
           </div>
 
-          {defaultDue === 0 && nextDefaultDue && (
+          {studyMode === "fsrs" && defaultDue === 0 && nextDefaultDue && (
             <p className="
               mb-6
               rounded-2xl
@@ -2883,7 +2889,7 @@ export default function FlashcardSelectScreen({
                             font-semibold
                             text-zinc-300
                           ">
-                            {chapterDue}/{chapterCards.length} pendientes
+                            {studyMode === "free" ? `${chapterCards.length} disponibles sin espera` : `${chapterDue}/${chapterCards.length} pendientes`}
                           </p>
                           </span>
                         </button>
@@ -3052,7 +3058,7 @@ export default function FlashcardSelectScreen({
                               font-black
                               text-zinc-300
                             ">
-                              {groupDue}/{groupCards.length}
+                              {studyMode === "free" ? groupCards.length : `${groupDue}/${groupCards.length}`}
                             </span>
                           </div>
 
@@ -3280,7 +3286,7 @@ export default function FlashcardSelectScreen({
                           font-black
                           text-zinc-200
                         ">
-                          {groupDue}/{groupCards.length}
+                          {studyMode === "free" ? groupCards.length : `${groupDue}/${groupCards.length}`}
                         </span>
                       </div>
                     </button>

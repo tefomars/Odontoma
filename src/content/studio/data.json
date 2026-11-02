@@ -1,0 +1,72 @@
+{
+  "version": 1,
+  "banks": [
+    {
+      "id": "d5f74a1c-8bcb-49e9-ab73-ee8adf4ad33a",
+      "title": "Nueva materia",
+      "subject": "Materia d5f74a",
+      "kind": "course",
+      "chapters": [
+        {
+          "id": "chapter-407df244-dd01-458a-bc43-8040673f22d9",
+          "title": "Nuevo capítulo",
+          "subtitle": "",
+          "description": "",
+          "image": "",
+          "accent": "from-violet-500/20 to-sky-500/20",
+          "questionCount": 0
+        }
+      ],
+      "questions": [],
+      "flashcards": []
+    },
+    {
+      "id": "dc1726d6-d877-43e8-97db-8d8e188a6959",
+      "title": "Farmacología",
+      "subject": "Farmacología",
+      "kind": "course",
+      "chapters": [
+        {
+          "id": "chapter-d5e3060b-9c7f-4b44-b08a-5928f98d0794",
+          "title": "Bloque 1",
+          "subtitle": "test1",
+          "description": "",
+          "image": "",
+          "accent": "from-violet-500/20 to-sky-500/20",
+          "questionCount": 0
+        },
+        {
+          "id": "chapter-e7431e3a-fa5c-42df-9f58-f7cc92f6a6ac",
+          "title": "Bloque 2",
+          "subtitle": "test2",
+          "description": "",
+          "image": "",
+          "accent": "from-violet-500/20 to-sky-500/20",
+          "questionCount": 0
+        }
+      ],
+      "questions": [
+        {
+          "id": "studio-0a3eb510-60bf-4f9d-9afc-a90742e395f6",
+          "chapter": "chapter-d5e3060b-9c7f-4b44-b08a-5928f98d0794",
+          "topic": "Prueba",
+          "difficulty": "easy",
+          "type": "single",
+          "question": "Hola que tal skibidi",
+          "options": [
+            "Opción A",
+            "Opción B",
+            "Opción C",
+            "Opción D"
+          ],
+          "correctAnswers": [
+            0
+          ],
+          "explanation": "guat",
+          "tags": []
+        }
+      ],
+      "flashcards": []
+    }
+  ]
+}

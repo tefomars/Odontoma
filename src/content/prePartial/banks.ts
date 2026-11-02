@@ -1,19 +1,7 @@
-import { citoIIPrePartialFlashcards, citoIIPrePartialQuestions } from "./citoII"
-import { CITO_II_THIRD_PARTIAL, citoIIIPrePartialQuestions } from "./citoIII"
-import { citoIIIPrePartialFlashcards } from "./citoIIIFlashcards"
+import { CITO_II_THIRD_PARTIAL } from "./citoIII"
+import { studioBanks } from "../studio/catalog"
 
-export const prePartialBanks = [
-  {
-    id: "Parcial 2 · Cito II",
-    questions: citoIIPrePartialQuestions,
-    flashcards: citoIIPrePartialFlashcards
-  },
-  {
-    id: CITO_II_THIRD_PARTIAL,
-    questions: citoIIIPrePartialQuestions,
-    flashcards: citoIIIPrePartialFlashcards
-  }
-]
+export const prePartialBanks = studioBanks.filter(bank => bank.kind === "prepartial" && bank.enabled !== false)
 
 export function getPrePartialBank(id: string) {
   // La etiqueta anterior puede permanecer en una sesión de examen guardada.

@@ -11,9 +11,10 @@ import {
   homeSubjects,
   type HomeSubject
 } from "@/content/appBuilder"
-import { groupSubjectSections } from "@/lib/subjectSections"
+import { organization, subjectSections, type SubjectSection } from "@/content/appBuilder/organization"
 
 type Props = {
+  sections?: SubjectSection[]
   onSelectSubject: (subject: string) => void
   onBack?: () => void
   onMainMenu?: () => void
@@ -37,13 +38,15 @@ export default function HomeScreen({
   onBack,
   onMainMenu,
   subjects = homeSubjects,
+  sections = organization.quizzes,
   editorMode = false,
   onAddSubject,
   onEditSubject,
   onReorderSubject
 }: Props) {
-  const { primary, secondary, upcoming } = groupSubjectSections(subjects)
-  const orderedSubjects = [...primary, ...secondary, ...upcoming]
+  const groups = subjectSections(subjects, sections)
+  const orderedSubjects = groups.flatMap(g => g.items)
+  const headings = new Map(groups.filter(g => g.items.length).map(g => [g.items[0].id, g]))
 
   return (
 
@@ -150,33 +153,17 @@ export default function HomeScreen({
           gap-5
           md:grid-cols-2
         ">
-          {primary.length > 0 && (
-            <h2 className="md:col-span-2 text-sm font-black uppercase tracking-[0.22em] text-violet-300">
-              Materias principales
-            </h2>
-          )}
-
-          {orderedSubjects.map((subject, index) => {
+          {orderedSubjects.map((subject) => {
 
             const available =
               subject.destination !== "coming-soon"
 
             const subjectImage =
-              SUBJECT_IMAGES[subject.destination]
+              subject.image ?? SUBJECT_IMAGES[subject.destination]
 
             return (
               <Fragment key={subject.id}>
-              {index === primary.length && secondary.length > 0 && (
-                <div className="mt-6 border-t border-zinc-800 pt-6 md:col-span-2">
-                  <h2 className="text-sm font-black uppercase tracking-[0.22em] text-sky-300">Clases secundarias</h2>
-                  <p className="mt-1 text-sm text-zinc-500">Otras clases, separadas de las materias principales.</p>
-                </div>
-              )}
-              {index === primary.length + secondary.length && upcoming.length > 0 && (
-                <h2 className="mt-6 border-t border-zinc-800 pt-6 text-sm font-black uppercase tracking-[0.22em] text-zinc-500 md:col-span-2">
-                  Próximamente
-                </h2>
-              )}
+              {headings.has(subject.id) && <div className="md:col-span-2 mt-4 border-b border-zinc-800 pb-3" data-studio-target='{"panel":"sections"}'><h2 className="text-xs font-black uppercase tracking-[0.23em]" style={{ color: headings.get(subject.id)!.color }}>{headings.get(subject.id)!.title}</h2>{headings.get(subject.id)!.description && <p className="mt-1 text-sm text-zinc-500">{headings.get(subject.id)!.description}</p>}</div>}
               <div
                 className="relative"
                 draggable={editorMode}
@@ -191,6 +178,7 @@ export default function HomeScreen({
               >
               <button
                 type="button"
+                data-studio-target={JSON.stringify({ panel: "structure", view: "subjects", id: subject.id })}
                 disabled={!available && !editorMode}
                 onClick={() => {
                   if (editorMode) {

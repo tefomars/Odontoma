@@ -1,4 +1,6 @@
 export type CustomPageDestination =
+  | `bank:${string}`
+  | `flashcard-bank:${string}`
   | "home"
   | "quizzes"
   | "flashcards"
@@ -11,6 +13,7 @@ export type CustomPageDestination =
   | `custom-page:${string}`
 
 export type CustomPageBlock = {
+  image?: string
   id: string
   type: "heading" | "text" | "button" | "callout" | "divider"
   title?: string
@@ -21,6 +24,7 @@ export type CustomPageBlock = {
 }
 
 export type CustomPage = {
+  layout?: { maxWidth: number; columns: number; gap: number; padding: number }
   id: string
   eyebrow: string
   title: string
@@ -51,7 +55,7 @@ function validColor(value: unknown) {
 
 export function isCustomPageDestination(value: unknown): value is CustomPageDestination {
   return typeof value === "string" &&
-    (knownDestinations.has(value) || /^custom-page:[a-z0-9][a-z0-9-]{0,149}$/i.test(value))
+    (knownDestinations.has(value) || /^(custom-page|bank|flashcard-bank):[a-z0-9][a-z0-9-]{0,149}$/i.test(value))
 }
 
 export function validateCustomPages(value: unknown): value is CustomPage[] {
@@ -67,6 +71,7 @@ export function validateCustomPages(value: unknown): value is CustomPage[] {
       !validText(item.description, 1000) || !validColor(item.accentColor) ||
       !Array.isArray(item.blocks) || item.blocks.length > 200) return false
     pageIds.add(item.id)
+    if (item.layout && (!Number.isFinite(item.layout.maxWidth) || item.layout.maxWidth < 320 || item.layout.maxWidth > 1800 || ![1,2,3].includes(item.layout.columns) || item.layout.gap < 0 || item.layout.gap > 80 || item.layout.padding < 0 || item.layout.padding > 80)) return false
 
     return item.blocks.every(block => {
       if (!block || typeof block !== "object") return false
@@ -76,6 +81,7 @@ export function validateCustomPages(value: unknown): value is CustomPage[] {
         !validText(candidate.title || "", 300) || !validText(candidate.text || "", 4000) ||
         !validText(candidate.symbol || "", 20) ||
         (candidate.accentColor !== undefined && !validColor(candidate.accentColor)) ||
+        (candidate.image !== undefined && (typeof candidate.image !== "string" || !/^(https?:\/\/|data:image\/(png|jpeg|webp|gif);base64,|\/(src|assets|media)\/|$)/.test(candidate.image))) ||
         (candidate.destination !== undefined && !isCustomPageDestination(candidate.destination))) return false
       blockIds.add(candidate.id)
       return true

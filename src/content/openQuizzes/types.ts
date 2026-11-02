@@ -1,4 +1,6 @@
 export type OpenQuizQuestion = {
+  image?: string
+  imageAlt?: string
   id: string
   prompt: string
   modelAnswer: string

@@ -1,5 +1,8 @@
 import { useState } from "react"
+import { reviewClassPresentation } from "@/content/appBuilder/organization"
 import { prePartialBanks } from "@/content/prePartial/banks"
+
+import FlashcardStudyModeSwitch from "./flashcards/FlashcardStudyModeSwitch"
 
 type Props = {
   onBack: () => void
@@ -10,21 +13,21 @@ type Props = {
   pausedPartial?: string | null
   onContinuePartial: () => void
   initialReviewType?: ReviewType | null
+  initialSubject?: string | null
+  onClassChange?: (subject: string) => void
   onReviewTypeChange: (type: ReviewType | null) => void
 }
 
-const classes = [
-  { title: "Citohistología", description: "Capítulos, tejidos y sistemas.", accentColor: "#a78bfa", symbol: "⌬" }
-]
+const classes = [...new Set(prePartialBanks.map(bank => bank.subject))].map(subject => ({ subject, ...reviewClassPresentation(subject), accentColor: reviewClassPresentation(subject).color }))
 
 const reviewAmounts = [10, 20] as const
 type ReviewType = "Opción múltiple" | "Flashcards esenciales"
 type ReviewPreference = "Nuevas" | "Incorrectas" | "Mezcla"
 type ReviewMode = "new" | "incorrect" | "mixed"
 
-export default function PrePartialReviewScreen({ onBack, onMainMenu, onStartMultipleChoice, onStartFlashcards, onResetPartial, pausedPartial, onContinuePartial, initialReviewType = null, onReviewTypeChange }: Props) {
+export default function PrePartialReviewScreen({ onBack, onMainMenu, onStartMultipleChoice, onStartFlashcards, onResetPartial, pausedPartial, onContinuePartial, initialReviewType = null, onReviewTypeChange, initialSubject, onClassChange }: Props) {
   const [selectedClass, setSelectedClass] = useState<(typeof classes)[number] | null>(
-    initialReviewType ? classes[0] : null
+    initialReviewType ? classes.find(c => c.subject === initialSubject) || classes[0] : null
   )
   const [reviewType, setReviewType] = useState<ReviewType | null>(initialReviewType)
   const [selectedPreference, setSelectedPreference] = useState<ReviewPreference>("Mezcla")
@@ -82,21 +85,23 @@ export default function PrePartialReviewScreen({ onBack, onMainMenu, onStartMult
                 <ClassBank
                   key={item.title}
                   {...item}
-                  multipleChoiceCount={prePartialBanks.reduce((count, bank) => count + bank.questions.length, 0)}
-                  flashcardCount={prePartialBanks.reduce((count, bank) => count + bank.flashcards.length, 0)}
+                  multipleChoiceCount={prePartialBanks.filter(b => b.subject === item.subject).reduce((count, bank) => count + bank.questions.length, 0)}
+                  flashcardCount={prePartialBanks.filter(b => b.subject === item.subject).reduce((count, bank) => count + bank.flashcards.length, 0)}
                   onSelect={type => {
                     setSelectedClass(item)
+                    onClassChange?.(item.subject)
                     setReviewType(type)
                     onReviewTypeChange(type)
                   }} />
               ))}
             </div>
           ) : (
-            <div className="mt-8 grid gap-4 sm:grid-cols-3">
-              {prePartialBanks.filter(bank => reviewType === "Opción múltiple" || bank.flashcards.length > 0).map(bank => (
+            <>{reviewType === "Flashcards esenciales" && <div className="mt-8"><FlashcardStudyModeSwitch/></div>}
+            <div className="mt-4 grid gap-4 sm:grid-cols-3">
+              {prePartialBanks.filter(bank => bank.subject === selectedClass.subject && (reviewType === "Opción múltiple" || bank.flashcards.length > 0)).map(bank => (
                 <article key={bank.id} className="rounded-3xl border border-zinc-700 bg-zinc-950 p-5">
-                  <p className="text-xs font-black uppercase tracking-[0.2em]" style={{ color: selectedClass.accentColor }}>Citohistología</p>
-                  <h2 className="mt-3 text-2xl font-black">{bank.id}</h2>
+                  <p className="text-xs font-black uppercase tracking-[0.2em]" style={{ color: selectedClass.accentColor }}>{selectedClass.title}</p>
+                  <h2 className="mt-3 text-2xl font-black">{bank.title}</h2>
                   <p className="mt-2 text-sm leading-relaxed text-zinc-500">
                     Banco exclusivo de {reviewType?.toLowerCase()} · {reviewType === "Opción múltiple" ? bank.questions.length : bank.flashcards.length} {reviewType === "Opción múltiple" ? "preguntas" : "flashcards"}.
                   </p>
@@ -144,7 +149,7 @@ export default function PrePartialReviewScreen({ onBack, onMainMenu, onStartMult
                   </p>
                 </article>
               ))}
-            </div>
+            </div></>
           )}
         </section>
       </div>

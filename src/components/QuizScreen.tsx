@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react"
+import StudyImage from "./StudyImage"
 
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
@@ -9,6 +10,7 @@ import type { QuizResponseRecord } from "@/lib/quizHistory"
 
 type Props = {
   question: any
+  chapterTitle?: string
   current: number
   total: number
   score: number
@@ -37,6 +39,7 @@ function getChapterTitle(chapterId: string) {
 
 export default function QuizScreen({
   question,
+  chapterTitle,
   current,
   total,
   score,
@@ -133,6 +136,8 @@ export default function QuizScreen({
     }
 
     onAnswered({
+      image: question.image,
+      imageAlt: question.imageAlt,
       questionId: question.id,
       question: question.question,
       chapter: question.chapter,
@@ -141,6 +146,8 @@ export default function QuizScreen({
       explanation: question.explanation,
       isCorrect: correct,
       questionSnapshot: {
+        image: question.image,
+        imageAlt: question.imageAlt,
         id: question.id,
         chapter: question.chapter,
         difficulty: question.difficulty,
@@ -348,7 +355,7 @@ export default function QuizScreen({
 
             <div className="quiz-chapter-score mt-2 flex w-full min-w-0 items-center justify-between gap-4">
               <p className="min-w-0 text-zinc-500">
-                {getChapterTitle(question.chapter)}
+                {chapterTitle || getChapterTitle(question.chapter)}
               </p>
 
               <Badge className="shrink-0" variant="outline">
@@ -455,7 +462,7 @@ export default function QuizScreen({
               </h2>
 
             </div>
-
+            <StudyImage src={question.image} alt={question.imageAlt} maxHeight="24vh" />
           </div>
 
           <div className="

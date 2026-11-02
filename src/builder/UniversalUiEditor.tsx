@@ -1,4 +1,10 @@
 import { useEffect, useRef, useState, type ReactNode } from "react"
+import { collectProjectDraft } from "./projectDraft"
+import type { ProjectSnapshot } from "./projectHistory"
+import { validateStudio } from "@/content/studio/schema"
+import { useDraftStatus, useDraftReports } from "./draftStatus"
+import { useWorkspaceHistory, workspaceNavigate, type WorkspaceTarget } from "./workspaceBridge"
+import { useHistoryState } from "./useHistoryState"
 
 import type { UiOverride } from "@/content/appBuilder/uiOverrides"
 
@@ -113,6 +119,8 @@ function applyPreviewOverrides(document: Document, overrides: UiOverride[]) {
       if (override.backgroundColor) element.style.setProperty("background-color", override.backgroundColor, "important")
       if (override.borderColor) element.style.setProperty("border-color", override.borderColor, "important")
       if (override.borderRadius !== undefined) element.style.setProperty("border-radius", `${override.borderRadius}px`, "important")
+      if (override.maxWidth !== undefined) { element.style.setProperty("max-width", `min(100%, ${override.maxWidth}px)`, "important"); element.style.setProperty("min-width", "0", "important") }
+      if (override.padding !== undefined) element.style.setProperty("padding", `min(5vw, ${override.padding}px)`, "important")
     } catch {
       // Un selector antiguo no debe romper la vista editable.
     }
@@ -133,18 +141,50 @@ function findContainerTarget(start: HTMLElement, root: HTMLElement) {
   return target && target !== root && root.contains(target) ? target : null
 }
 
-export default function UniversalUiEditor() {
+export default function UniversalUiEditor({ active = true, target }: { active?: boolean; target?: WorkspaceTarget }) {
   const iframeRef = useRef<HTMLIFrameElement>(null)
+  const editorsReady = useDraftReports().every(r => r.ready)
+  const [draftProject, setDraftProject] = useState<ProjectSnapshot | null>(null)
+  const [frameVersion, setFrameVersion] = useState(0)
+  const [preparingPreview, setPreparingPreview] = useState(false)
+  async function previewDraft() {
+    setPreparingPreview(true)
+    try { const p = await collectProjectDraft(); const errors = validateStudio(p.files.library); if (errors.length) throw new Error(errors.slice(0, 4).join("\n")); setDraftProject(p); setFrameVersion(v => v + 1); setSelection(null); setMode("navigate"); setStatus("Borrador cargado: prueba aislada, sin guardar ni modificar progreso real.") } catch (e) { setStatus(String(e)) } finally { setPreparingPreview(false) }
+  }
   const selectedNodeRef = useRef<HTMLElement | null>(null)
   const [mode, setMode] = useState<SelectionMode>("navigate")
-  const [overrides, setOverrides] = useState<UiOverride[]>([])
+  const overrideHistory = useHistoryState<UiOverride[]>([], 80, "overrides")
+  const { state: overrides, setState: setOverrides, reset: resetOverrides } = overrideHistory
+  useWorkspaceHistory(active, overrideHistory)
+  const [device, setDevice] = useState("desktop")
+  const [originalTarget, setOriginalTarget] = useState<WorkspaceTarget | null>(null)
   const [appliedOverrides, setAppliedOverrides] = useState<UiOverride[]>([])
   const [selection, setSelection] = useState<SelectedElement | null>(null)
   const [status, setStatus] = useState("Cargando personalizaciones…")
   const [loaded, setLoaded] = useState(false)
+  useDraftStatus("overrides", loaded, overrides, appliedOverrides)
   const [saving, setSaving] = useState(false)
   const [currentScreenKey, setCurrentScreenKey] = useState<string | null>(null)
 
+  useEffect(() => {
+    const receive = (e: MessageEvent) => {
+      if (e.origin !== window.location.origin || e.source !== iframeRef.current?.contentWindow) return
+      if (e.data?.type === "odontoma-draft-ready" && draftProject) iframeRef.current?.contentWindow?.postMessage({ type: "odontoma-draft-project", project: draftProject }, window.location.origin)
+      if (e.data?.type === "odontoma-draft-mounted" && target?.destination) iframeRef.current?.contentWindow?.postMessage({ type: "odontoma-preview-navigate", destination: target.destination }, window.location.origin)
+    }
+    window.addEventListener("message", receive); return () => window.removeEventListener("message", receive)
+  }, [draftProject, target])
+  useEffect(() => {
+    const navigate = () => { if (target?.destination) iframeRef.current?.contentWindow?.postMessage({ type: "odontoma-preview-navigate", destination: target.destination }, window.location.origin) }
+    navigate()
+    const frame = iframeRef.current; frame?.addEventListener("load", navigate)
+    return () => frame?.removeEventListener("load", navigate)
+  }, [target])
+  useEffect(() => {
+    const flush = (event: Event) => { if (loaded) (event as CustomEvent).detail.files.overrides = overrides }
+    window.addEventListener("odontoma-flush-drafts", flush)
+    return () => window.removeEventListener("odontoma-flush-drafts", flush)
+  }, [loaded, overrides])
   useEffect(() => {
     fetch("/__odontoma-builder/ui-overrides")
       .then(response => {
@@ -154,19 +194,21 @@ export default function UniversalUiEditor() {
       .then(value => {
         const draft = readDraft()
         setAppliedOverrides(value)
-        setOverrides(draft || value)
+        resetOverrides(draft || value)
         setStatus(draft ? "Se recuperó tu borrador universal." : "Navegá hasta cualquier pantalla para editarla.")
         setLoaded(true)
       })
       .catch(() => {
-        setStatus("No se pudieron cargar las personalizaciones.")
-        setLoaded(true)
+        setStatus("No se pudieron cargar las personalizaciones. Recargá el builder.")
+        setLoaded(false)
       })
-  }, [])
+  }, [resetOverrides])
 
   useEffect(() => {
-    if (loaded) localStorage.setItem(UI_DRAFT_KEY, JSON.stringify(overrides))
-  }, [loaded, overrides])
+    if (!loaded) return
+    if (JSON.stringify(overrides) === JSON.stringify(appliedOverrides)) localStorage.removeItem(UI_DRAFT_KEY)
+    else localStorage.setItem(UI_DRAFT_KEY, JSON.stringify(overrides))
+  }, [loaded, overrides, appliedOverrides])
 
   useEffect(() => {
     const frame = iframeRef.current
@@ -197,6 +239,8 @@ export default function UniversalUiEditor() {
           return
         }
 
+        const semantic = rawTarget.closest<HTMLElement>("[data-studio-target]")?.dataset.studioTarget
+        try { setOriginalTarget(semantic ? JSON.parse(semantic) : null) } catch { setOriginalTarget(null) }
         const selector = pathFromRoot(target, root)
         if (!selector) return
         const computed = frame.contentWindow!.getComputedStyle(target)
@@ -286,6 +330,8 @@ export default function UniversalUiEditor() {
     if (changes.backgroundColor) node.style.setProperty("background-color", changes.backgroundColor, "important")
     if (changes.borderColor) node.style.setProperty("border-color", changes.borderColor, "important")
     if (changes.borderRadius !== undefined) node.style.setProperty("border-radius", `${changes.borderRadius}px`, "important")
+    if (changes.maxWidth !== undefined) { node.style.setProperty("max-width", `min(100%, ${changes.maxWidth}px)`, "important"); node.style.setProperty("min-width", "0", "important") }
+    if (changes.padding !== undefined) node.style.setProperty("padding", `min(5vw, ${changes.padding}px)`, "important")
   }
 
   function removeSelectedOverride() {
@@ -396,15 +442,15 @@ export default function UniversalUiEditor() {
             <button className={mode === "container" ? "active" : ""} onClick={() => setMode("container")}>Bloques</button>
           </div>
         </div>
-        <p className="universal-hint">
+        <div className="studio-segmented">{[["desktop", "Computadora"], ["tablet", "Tablet"], ["phone", "Teléfono"]].map(([value, label]) => <button key={value} className={device === value ? "active" : ""} onClick={() => setDevice(value)}>{label}</button>)}<button disabled={!editorsReady || preparingPreview} onClick={() => void previewDraft()}>{preparingPreview ? "Preparando…" : draftProject ? "↻ Actualizar borrador" : "Probar borrador sin guardar"}</button><button onClick={() => { setDraftProject(null); setFrameVersion(v => v + 1) }}>Ver proyecto guardado</button></div><p className="studio-preview-notice">{draftProject ? "BORRADOR AISLADO · Incluye los cambios pendientes al momento de cargarlo. Actualizalo después de editar. Sus respuestas y progreso son temporales y no afectan datos reales." : "PROYECTO GUARDADO · Para probar cambios pendientes sin aplicarlos, elegí Probar borrador sin guardar. El modo guardado utiliza el almacenamiento normal de la app."}</p><p className="universal-hint">
           {mode === "navigate"
             ? "Usá la app normalmente hasta llegar a la pantalla que querés modificar."
             : mode === "text"
               ? "Pulsá un título, descripción, etiqueta o símbolo."
               : "Pulsá un botón, tarjeta o sección para editarlo, duplicarlo u ocultarlo."}
         </p>
-        <div className="universal-frame-wrap">
-          <iframe ref={iframeRef} src="/?builder-preview=1" title="Odontoma editable" />
+        <div className={`universal-frame-wrap studio-preview-${device}`}>
+          <iframe ref={iframeRef} src={draftProject ? `/builder-draft.html?builder-preview=1&v=${frameVersion}` : `/?builder-preview=1&v=${frameVersion}`} title="Odontoma editable" />
         </div>
       </div>
 
@@ -416,6 +462,7 @@ export default function UniversalUiEditor() {
               <button className="inspector-close" onClick={() => setSelection(null)} aria-label="Cerrar editor">×</button>
             </header>
             <div className="inspector-fields">
+              {originalTarget && <button className="studio-primary" onClick={() => workspaceNavigate(originalTarget)}>Editar contenido y navegación originales ↗</button>}
               {mode === "text" && (
                 <InspectorField label="Texto">
                   <textarea rows={5} value={selectedOverride?.text ?? selection.originalText} onChange={event => updateSelection({ text: event.target.value })} />
@@ -429,6 +476,8 @@ export default function UniversalUiEditor() {
                   <InspectorField label="Color del fondo"><ColorInput value={selectedOverride?.backgroundColor || selection.backgroundColor} onChange={backgroundColor => updateSelection({ backgroundColor })} /></InspectorField>
                   <InspectorField label="Color del borde"><ColorInput value={selectedOverride?.borderColor || selection.borderColor} onChange={borderColor => updateSelection({ borderColor })} /></InspectorField>
                   <InspectorField label="Radio"><input type="range" min="0" max="120" value={selectedOverride?.borderRadius ?? selection.borderRadius} onChange={event => updateSelection({ borderRadius: Number(event.target.value) })} /><code>{selectedOverride?.borderRadius ?? selection.borderRadius}px</code></InspectorField>
+                  <InspectorField label="Ancho máximo (se adapta a móvil)"><input type="range" min="240" max="1800" step="20" value={selectedOverride?.maxWidth || 1200} onChange={e => updateSelection({ maxWidth: Number(e.target.value) })}/><span>{selectedOverride?.maxWidth || "Automático"}</span></InspectorField>
+                  <InspectorField label="Espacio interno"><input type="range" min="0" max="64" value={selectedOverride?.padding ?? 24} onChange={e => updateSelection({ padding: Number(e.target.value) })}/></InspectorField>
                   <div className="structure-actions">
                     <button type="button" onClick={duplicateSelectedBlock}>＋ Duplicar bloque</button>
                     <button type="button" className="danger" onClick={hideSelectedBlock}>− Ocultar bloque</button>
@@ -457,6 +506,7 @@ export default function UniversalUiEditor() {
           <div className="inspector-status"><span className="status-dot active" /><p>{status}</p></div>
           <p className="destination-help">{overrides.length} personalizaciones en el borrador.</p>
           <div className="actions">
+            <button className="builder-button secondary" onClick={overrideHistory.undo} disabled={!overrideHistory.canUndo}>↶ Deshacer</button><button className="builder-button secondary" onClick={overrideHistory.redo} disabled={!overrideHistory.canRedo}>↷ Rehacer</button>
             <button className="builder-button secondary" onClick={discardDraft} disabled={saving}>Descartar</button>
             <button className="builder-button apply" onClick={applyOverrides} disabled={saving}>{saving ? "Aplicando…" : "Aplicar a Odontoma"}</button>
           </div>

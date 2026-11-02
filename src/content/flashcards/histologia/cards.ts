@@ -10,6 +10,10 @@ import { cap21Flashcards } from "./cap21"
 import { articuloHemostasiaFlashcards } from "./articuloHemostasia"
 
 export type Flashcard = {
+  image?: string
+  legacyId?: string
+  backImage?: string
+  imageAlt?: string
   id: string
   subject: string
   book: string

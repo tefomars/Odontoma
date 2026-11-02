@@ -1,4 +1,9 @@
 import { useEffect, useEffectEvent, useMemo, useState } from "react"
+import StudyImage from "../StudyImage"
+import FreeFlashcardReviewScreen from "./FreeFlashcardReviewScreen"
+import FlashcardStudyModeSwitch from "./FlashcardStudyModeSwitch"
+import { useFlashcardStudyMode, setFlashcardStudyMode } from "@/lib/flashcardStudyMode"
+import { selectFlashcardScope, selectFlashcardPreference } from "@/lib/flashcardPractice"
 
 
 import {
@@ -109,7 +114,7 @@ function getNextDueDate(
   return new Date(futureDueDates[0]).toISOString()
 }
 
-export default function FlashcardReviewScreen({
+function ScheduledFlashcardReviewScreen({
   onBack,
   onMenu,
   selectedTopic = "all",
@@ -166,73 +171,8 @@ export default function FlashcardReviewScreen({
       [source, selectedTopic, suppliedCards, suspendedVersion]
     )
 
-  const filteredCards =
-    useMemo(
-      () => {
-
-        if (
-          source === "default" &&
-          selectedSubtopic?.startsWith("__subtopics:")
-        ) {
-          const subtopics =
-            selectedSubtopic
-              .replace("__subtopics:", "")
-              .split("||")
-              .filter(Boolean)
-
-          return allCards.filter(
-            card =>
-              card.chapter === selectedTopic &&
-              subtopics.includes(card.subtopic)
-          )
-        }
-
-        if (selectedSubtopic) {
-          return allCards.filter(
-            card =>
-              card.topic === selectedTopic &&
-              card.subtopic === selectedSubtopic
-          )
-        }
-
-        if (
-          source === "default" &&
-          selectedTopic.startsWith("Capítulo")
-        ) {
-          return allCards.filter(
-            card => card.chapter === selectedTopic
-          )
-        }
-
-        return source === "user" || selectedTopic === "all"
-          ? allCards
-          : allCards.filter(
-              card => card.topic === selectedTopic
-            )
-      },
-      [allCards, selectedTopic, selectedSubtopic, source]
-    )
-
-  const reviewEligibleCards =
-    useMemo(
-      () => {
-        if (reviewPreference === "new") {
-          return filteredCards.filter(card => !storage.cards[card.id])
-        }
-
-        if (reviewPreference === "incorrect") {
-          const incorrectIds = new Set(
-            storage.reviews
-              .filter(review => review.rating === "again")
-              .map(review => review.cardId)
-          )
-          return filteredCards.filter(card => incorrectIds.has(card.id))
-        }
-
-        return filteredCards
-      },
-      [filteredCards, reviewPreference, storage]
-    )
+  const filteredCards = useMemo(() => selectFlashcardScope(allCards, source, selectedTopic, selectedSubtopic), [allCards, source, selectedTopic, selectedSubtopic])
+  const reviewEligibleCards = useMemo(() => selectFlashcardPreference(filteredCards, storage, reviewPreference, selectedTopic), [filteredCards, storage, reviewPreference, selectedTopic])
 
   const dueCards =
     useMemo(
@@ -330,7 +270,7 @@ export default function FlashcardReviewScreen({
 
     function handleKeyDown(event: KeyboardEvent) {
 
-      if (!currentCard) return
+      if (!currentCard || event.repeat || (event.target as HTMLElement)?.closest("[data-flashcard-mode-switch]")) return
 
       if (
         event.target instanceof HTMLInputElement ||
@@ -633,6 +573,8 @@ export default function FlashcardReviewScreen({
               Ya repasaste todas las tarjetas vencidas.
             </p>
 
+            <FlashcardStudyModeSwitch/>
+            {filteredCards.length > 0 && <button type="button" onClick={() => setFlashcardStudyMode("free")} className="mt-4 w-full rounded-2xl bg-violet-500 px-5 py-4 font-black text-white">Repasar sin esperar al FSRS</button>}
             {nextDueDate ? (
               <div className="
                 mt-6
@@ -760,6 +702,7 @@ export default function FlashcardReviewScreen({
           </div>
         </div>
 
+        <div className="shrink-0"><FlashcardStudyModeSwitch/></div>
         <section
           key={`${currentCard.id}-${cardAnimationKey}`}
           className={`
@@ -893,6 +836,7 @@ export default function FlashcardReviewScreen({
             ">
               {currentCard.front}
             </h1>
+            <StudyImage src={currentCard.image} alt={currentCard.imageAlt} />
 
             {showAnswer && (
               <div className="
@@ -927,6 +871,7 @@ export default function FlashcardReviewScreen({
                 ">
                   {currentCard.back}
                 </p>
+                <StudyImage src={currentCard.backImage} alt={currentCard.imageAlt} />
 
                 {currentState && (
                   <div className="
@@ -1027,4 +972,9 @@ export default function FlashcardReviewScreen({
       </div>
     </main>
   )
+}
+
+export default function FlashcardReviewScreen(props: Props) {
+  const [mode] = useFlashcardStudyMode()
+  return mode === "free" ? <FreeFlashcardReviewScreen {...props}/> : <ScheduledFlashcardReviewScreen {...props}/>
 }

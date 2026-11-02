@@ -3,6 +3,8 @@ import { useEffect } from "react"
 import { uiOverrides, type UiOverride } from "@/content/appBuilder/uiOverrides"
 
 function applyOverride(element: HTMLElement, override: UiOverride) {
+  if (override.maxWidth !== undefined) { element.style.setProperty("max-width", `min(100%, ${override.maxWidth}px)`, "important"); element.style.setProperty("min-width", "0", "important"); element.style.setProperty("box-sizing", "border-box", "important") }
+  if (override.padding !== undefined) element.style.setProperty("padding", `min(5vw, ${override.padding}px)`, "important")
   if (override.hidden === true) {
     element.style.setProperty("display", "none", "important")
   } else if (override.hidden === false) {

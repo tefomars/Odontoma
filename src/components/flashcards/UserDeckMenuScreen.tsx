@@ -1,4 +1,6 @@
 import { useMemo } from "react"
+import FlashcardStudyModeSwitch from "./FlashcardStudyModeSwitch"
+import { useFlashcardStudyMode } from "@/lib/flashcardStudyMode"
 
 import {
   getUserFlashcardsByTopic,
@@ -54,11 +56,13 @@ export default function UserDeckMenuScreen({
       []
     )
 
+  const [mode] = useFlashcardStudyMode()
   const dueCount =
     cards.filter(card =>
       isFsrsCardDue(card.id, storage.cards)
     ).length
 
+  const reviewCount = mode === "free" ? cards.length : dueCount
   return (
     <main className="
       min-h-screen
@@ -194,6 +198,7 @@ export default function UserDeckMenuScreen({
             </span>
           </div>
 
+          <FlashcardStudyModeSwitch/>
           <div className="
             mt-8
             grid
@@ -202,7 +207,7 @@ export default function UserDeckMenuScreen({
           ">
             <button
               type="button"
-              disabled={dueCount === 0}
+              disabled={reviewCount === 0}
               onClick={onReview}
               className={`
                 rounded-[1.75rem]
@@ -212,7 +217,7 @@ export default function UserDeckMenuScreen({
                 transition-all
 
                 ${
-                  dueCount > 0
+                  reviewCount > 0
                     ? "border-emerald-500/30 bg-emerald-500/10 hover:bg-emerald-500/20"
                     : "cursor-not-allowed border-zinc-800 bg-zinc-950 opacity-60"
                 }
@@ -243,7 +248,7 @@ export default function UserDeckMenuScreen({
                 leading-relaxed
                 text-zinc-400
               ">
-                Repasar las cartas pendientes con FSRS.
+                {mode === "free" ? "Repetí todas las tarjetas, aunque estén en cooldown. No modifica FSRS." : "Repasar las cartas pendientes con FSRS."}
               </p>
 
               <p className="
@@ -252,8 +257,8 @@ export default function UserDeckMenuScreen({
                 font-black
                 text-emerald-200
               ">
-                {dueCount > 0
-                  ? `${dueCount} pendientes →`
+                {reviewCount > 0
+                  ? `${reviewCount} ${mode === "free" ? "tarjetas sin espera" : "pendientes"} →`
                   : "Sin pendientes ahora"}
               </p>
             </button>

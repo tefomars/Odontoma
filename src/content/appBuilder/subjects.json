@@ -120,6 +120,23 @@
       "status": "Disponible",
       "accentColor": "#14b8a6",
       "destination": "semiologia"
+    },
+    {
+      "id": "subject-1793549494351-011b5840-fdbf-4521-94c8-010fefbba585",
+      "title": "Nueva materia",
+      "subtitle": "Agregá una descripción breve.",
+      "status": "Próximamente",
+      "accentColor": "#0d9488",
+      "destination": "coming-soon"
+    },
+    {
+      "id": "subject-1793549489091-43062017-2d70-49af-bb03-8a4e7516aad8",
+      "title": "Nueva materia",
+      "subtitle": "Agregá una descripción breve.",
+      "status": "Próximamente",
+      "accentColor": "#0d9488",
+      "destination": "coming-soon",
+      "sectionId": "secondary"
     }
   ]
 }

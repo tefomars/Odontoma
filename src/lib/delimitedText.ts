@@ -1,10 +1,15 @@
-export type SupportedDelimiter = "\t" | ","
+export type SupportedDelimiter = "\t" | "," | ";"
 
 export function detectDelimiter(text: string): SupportedDelimiter {
-  const firstDataLine =
-    text.split(/\r?\n/).find(line => line.trim()) || ""
-
-  return firstDataLine.includes("\t") ? "\t" : ","
+  const counts = { "\t": 0, ",": 0, ";": 0 }
+  let quoted = false
+  for (let i = 0; i < text.length; i++) {
+    const c = text[i]
+    if (c === '"') { if (quoted && text[i + 1] === '"') { i++; continue }; quoted = !quoted }
+    if (!quoted && (c === "\n" || c === "\r")) { if (Object.values(counts).some(Boolean)) break; continue }
+    if (!quoted && c in counts) counts[c]++
+  }
+  return counts["\t"] > 0 ? "\t" : counts[";"] > counts[","] ? ";" : ","
 }
 
 export function parseDelimitedRows(

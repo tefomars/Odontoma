@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react"
+import StudyImage from "./StudyImage"
 
 import logoImage from "@/assets/logo.png"
 
@@ -202,6 +203,8 @@ export default function OpenQuizSessionScreen({
       const grade = grades[item.id] || (answer ? "ungraded" : "unanswered")
       return {
         questionId: item.id,
+        image: item.image,
+        imageAlt: item.imageAlt,
         question: item.prompt,
         selectedAnswers: answer ? [answer] : [],
         correctAnswers: [item.modelAnswer],
@@ -332,6 +335,7 @@ export default function OpenQuizSessionScreen({
               </div>
             </div>
             <h1 className="text-2xl font-black leading-tight tracking-tight sm:text-4xl">{question.prompt}</h1>
+            <StudyImage src={question.image} alt={question.imageAlt} />
           </header>
 
           <div className="p-5 sm:p-8">

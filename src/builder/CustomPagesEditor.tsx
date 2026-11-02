@@ -4,7 +4,11 @@ import CustomPageScreen from "@/components/CustomPageScreen"
 import type { CustomPage, CustomPageBlock, CustomPageDestination } from "@/content/appBuilder/customPages"
 
 import { loadBuilderSnapshots, saveBuilderSnapshot } from "./builderSnapshots"
+import { useDraftStatus } from "./draftStatus"
+import { publishIndex, useWorkspaceBanks, useWorkspaceHistory, workspaceNavigate, type WorkspaceTarget } from "./workspaceBridge"
+import ResponsivePreview from "./ResponsivePreview"
 import { useHistoryState } from "./useHistoryState"
+import { ImageField } from "./LibraryEditor"
 
 const DRAFT_KEY = "odontoma-custom-pages-draft-v1"
 
@@ -34,12 +38,14 @@ function defaultBlock(type: CustomPageBlock["type"]): CustomPageBlock {
   return base
 }
 
-export default function CustomPagesEditor() {
-  const history = useHistoryState<CustomPage[]>([])
+export default function CustomPagesEditor({ active = true, target }: { active?: boolean; target?: WorkspaceTarget }) {
+  const history = useHistoryState<CustomPage[]>([], 80, "pages")
+  useWorkspaceHistory(active, history)
   const [applied, setApplied] = useState<CustomPage[]>([])
   const [selection, setSelection] = useState<Selection | null>(null)
   const [status, setStatus] = useState("Cargando pantallas…")
   const [loaded, setLoaded] = useState(false)
+  useDraftStatus("pages", loaded, history.state, applied)
   const [saving, setSaving] = useState(false)
   const [device, setDevice] = useState<Device>("desktop")
   const [draggedBlockId, setDraggedBlockId] = useState<string | null>(null)
@@ -59,7 +65,7 @@ export default function CustomPagesEditor() {
         setStatus(draft ? "Se recuperó tu borrador de pantallas." : "Podés crear una pantalla desde cero usando bloques.")
       })
       .catch(() => {
-        setLoaded(true)
+        setLoaded(false)
         setStatus("No se pudieron cargar las pantallas personalizadas.")
       })
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
@@ -70,6 +76,18 @@ export default function CustomPagesEditor() {
     else localStorage.setItem(DRAFT_KEY, JSON.stringify(history.state))
   }, [applied, history.state, loaded])
 
+  /* eslint-disable react-hooks/set-state-in-effect -- Workspace navigation selects a page after external loading. */
+  useEffect(() => {
+    if (!loaded || !target) return
+    if (target.id === "__new") addPage("menu")
+    else if (target.id) setSelection(target.blockId ? { kind: "block", pageId: target.id, id: target.blockId } : { kind: "page", id: target.id })
+  }, [target, loaded]) // eslint-disable-line react-hooks/exhaustive-deps
+  /* eslint-enable react-hooks/set-state-in-effect */
+  useEffect(() => {
+    if (loaded) publishIndex("pages", history.state.map(p => ({ id: p.id, title: p.title, blocks: p.blocks })))
+    const flush = (e: Event) => { if (loaded) (e as CustomEvent).detail.files.pages = history.state }
+    window.addEventListener("odontoma-flush-drafts", flush); return () => window.removeEventListener("odontoma-flush-drafts", flush)
+  }, [history.state, loaded])
   const selectedPageId = selection?.kind === "page" ? selection.id : selection?.pageId
   const selectedPage = history.state.find(page => page.id === selectedPageId)
   const selectedBlock = selection?.kind === "block"
@@ -114,6 +132,7 @@ export default function CustomPagesEditor() {
     }
     history.setState(current => [...current, page])
     setSelection({ kind: "page", id: page.id })
+    workspaceNavigate({ panel: "pages", id: page.id })
     setStatus("Pantalla creada en el borrador.")
   }
 
@@ -205,23 +224,6 @@ export default function CustomPagesEditor() {
     setStatus("Borrador descartado. Volviste a las pantallas aplicadas.")
   }
 
-  useEffect(() => {
-    const handleShortcut = (event: KeyboardEvent) => {
-      const target = event.target as HTMLElement | null
-      if (target?.matches("input, textarea, select, [contenteditable='true']")) return
-      if (!(event.metaKey || event.ctrlKey)) return
-      if (event.key.toLowerCase() === "z") {
-        event.preventDefault()
-        if (event.shiftKey) history.redo()
-        else history.undo()
-      } else if (event.key.toLowerCase() === "y") {
-        event.preventDefault()
-        history.redo()
-      }
-    }
-    window.addEventListener("keydown", handleShortcut)
-    return () => window.removeEventListener("keydown", handleShortcut)
-  }, [history])
 
   return (
     <section className="page-builder">
@@ -242,6 +244,7 @@ export default function CustomPagesEditor() {
       </aside>
 
       <div className="page-stage">
+        <div className="studio-context-links"><button onClick={() => addPage("menu")}>＋ Menú</button><button onClick={() => addPage("simple")}>＋ Página</button><button onClick={() => addPage("lesson")}>＋ Guía</button></div>
         <div className="page-toolbar">
           <div className="history-controls">
             <button onClick={history.undo} disabled={!history.canUndo}>↶ Deshacer</button>
@@ -260,8 +263,8 @@ export default function CustomPagesEditor() {
               <span>Agregar:</span>
               <button onClick={() => addBlock("heading")}>Título</button><button onClick={() => addBlock("text")}>Texto</button><button onClick={() => addBlock("button")}>Botón</button><button onClick={() => addBlock("callout")}>Tarjeta</button><button onClick={() => addBlock("divider")}>Separador</button>
             </div>
-            <div className={`custom-page-preview device-${device}`}>
-              <CustomPageScreen page={selectedPage} onBack={() => undefined} onMainMenu={() => undefined} onNavigate={() => undefined} />
+            <div className="custom-page-preview">
+              <ResponsivePreview device={device}><CustomPageScreen page={selectedPage} onBack={() => undefined} onMainMenu={() => undefined} onNavigate={() => undefined} /></ResponsivePreview>
               <div className="block-overlay-list">
                 {selectedPage.blocks.map(block => (
                   <button draggable key={block.id} className={selectedBlock?.id === block.id ? "active" : ""} onDragStart={() => setDraggedBlockId(block.id)} onDragOver={event => event.preventDefault()} onDrop={(event: DragEvent<HTMLButtonElement>) => { event.preventDefault(); if (draggedBlockId) moveBlock(draggedBlockId, block.id); setDraggedBlockId(null) }} onClick={() => setSelection({ kind: "block", pageId: selectedPage.id, id: block.id })}>
@@ -282,6 +285,9 @@ export default function CustomPagesEditor() {
               <Field label="Etiqueta"><input value={selectedPage.eyebrow} onChange={event => updatePage({ eyebrow: event.target.value })} /></Field>
               <Field label="Título"><input value={selectedPage.title} onChange={event => updatePage({ title: event.target.value })} /></Field>
               <Field label="Descripción"><textarea rows={4} value={selectedPage.description} onChange={event => updatePage({ description: event.target.value })} /></Field>
+              <Field label="Ancho máximo del menú"><input type="range" min="320" max="1800" step="20" value={selectedPage.layout?.maxWidth || 1024} onChange={e => updatePage({ layout: { columns: 1, gap: 16, padding: 24, ...selectedPage.layout, maxWidth: Number(e.target.value) } })}/><span>{selectedPage.layout?.maxWidth || 1024}px · se ajusta al ancho de móvil</span></Field>
+              <Field label="Columnas en pantalla grande"><select value={selectedPage.layout?.columns || 1} onChange={e => updatePage({ layout: { maxWidth: 1024, gap: 16, padding: 24, ...selectedPage.layout, columns: Number(e.target.value) } })}>{[1,2,3].map(n => <option key={n} value={n}>{n}</option>)}</select></Field>
+              <Field label="Espacio entre bloques"><input type="range" min="0" max="80" value={selectedPage.layout?.gap ?? 16} onChange={e => updatePage({ layout: { maxWidth: 1024, columns: 1, padding: 24, ...selectedPage.layout, gap: Number(e.target.value) } })}/></Field>
               <ColorField value={selectedPage.accentColor} onChange={accentColor => updatePage({ accentColor })} />
               <button className="inspector-delete" onClick={deletePage}>Eliminar pantalla completa</button>
             </> : <BlockFields block={selectedBlock} pages={history.state} onChange={updateBlock} onDuplicate={duplicateBlock} onDelete={deleteBlock} />}
@@ -299,13 +305,16 @@ export default function CustomPagesEditor() {
 }
 
 function BlockFields({ block, pages, onChange, onDuplicate, onDelete }: { block: CustomPageBlock; pages: CustomPage[]; onChange: (changes: Partial<CustomPageBlock>) => void; onDuplicate: () => void; onDelete: () => void }) {
+  const banks = useWorkspaceBanks()
   const destinations: Array<{ value: CustomPageDestination; label: string }> = [
-    { value: "home", label: "Menú principal" }, { value: "quizzes", label: "Quizzes" }, { value: "flashcards", label: "Flashcards" }, { value: "multiple-choice", label: "Opción múltiple" }, { value: "open-ended", label: "Respuestas abiertas" }, { value: "my-quizzes", label: "My quizzes" }, ...pages.map(page => ({ value: `custom-page:${page.id}` as CustomPageDestination, label: `Pantalla: ${page.title}` }))
+    ...banks.filter(b => b.kind === "course" && !b.archived).flatMap(bank => [{ value: `bank:${bank.id}` as CustomPageDestination, label: `Quiz: ${bank.title}` }, { value: `flashcard-bank:${bank.id}` as CustomPageDestination, label: `Flashcards: ${bank.title}` }]),
+    { value: "pre-partial", label: "Repaso pre-parcial" }, { value: "backup", label: "Backup" }, { value: "home", label: "Menú principal" }, { value: "quizzes", label: "Quizzes" }, { value: "flashcards", label: "Flashcards" }, { value: "multiple-choice", label: "Opción múltiple" }, { value: "open-ended", label: "Respuestas abiertas" }, { value: "my-quizzes", label: "My quizzes" }, ...pages.map(page => ({ value: `custom-page:${page.id}` as CustomPageDestination, label: `Pantalla: ${page.title}` }))
   ]
   return <>
     {(block.type === "heading" || block.type === "button" || block.type === "callout") && <Field label="Título"><input value={block.title || ""} onChange={event => onChange({ title: event.target.value })} /></Field>}
     {(block.type === "text" || block.type === "button" || block.type === "callout") && <Field label={block.type === "text" ? "Texto" : "Descripción"}><textarea rows={5} value={block.text || ""} onChange={event => onChange({ text: event.target.value })} /></Field>}
     {(block.type === "button" || block.type === "callout") && <><Field label="Símbolo"><input value={block.symbol || ""} onChange={event => onChange({ symbol: event.target.value })} /></Field><ColorField value={block.accentColor || "#8b5cf6"} onChange={accentColor => onChange({ accentColor })} /></>}
+    {(block.type === "button" || block.type === "callout") && <ImageField label="Imagen del bloque" value={block.image} onChange={image => onChange({ image })}/>}
     {block.type === "button" && <Field label="¿Qué abre?"><select value={block.destination || "home"} onChange={event => onChange({ destination: event.target.value as CustomPageDestination })}>{destinations.map(item => <option key={item.value} value={item.value}>{item.label}</option>)}</select></Field>}
     <div className="structure-actions"><button onClick={onDuplicate}>＋ Duplicar bloque</button><button className="danger" onClick={onDelete}>− Eliminar bloque</button></div>
   </>

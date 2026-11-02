@@ -144,6 +144,7 @@ function QuizTypeCard({
     >
       <button data-appearance-card="color"
         type="button"
+        data-studio-target={JSON.stringify({ panel: "structure", view: "quiz-menu", id: card.id })}
         disabled={!editorMode && (card.destination || card.id) === "coming-soon"}
         onClick={onClick}
         className={`group h-full w-full rounded-[2rem] border p-7 text-left transition hover:scale-[1.01] ${compact ? "min-h-[170px]" : "min-h-[260px]"}`}

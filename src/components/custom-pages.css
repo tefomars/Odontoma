@@ -1,0 +1,1 @@
+.custom-page-blocks{grid-template-columns:minmax(0,1fr)}.custom-page-blocks>*{min-width:0;overflow-wrap:anywhere}.custom-page-blocks>h2,.custom-page-blocks>p,.custom-page-blocks>hr{grid-column:1/-1}@media(min-width:768px){.custom-page-blocks{grid-template-columns:repeat(var(--page-columns,1),minmax(0,1fr))}}

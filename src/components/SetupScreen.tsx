@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { createPortal } from "react-dom"
 
 import logoImage from "@/assets/logo.png"
+import { chapterEyebrow } from "@/lib/studyLabels"
 
 type Props = {
   title: string
@@ -129,7 +130,7 @@ export default function SetupScreen({
   onClearSession
 }: Props) {
 
-  const chapterGroups =
+  const chapterGroupsBase =
     title === "Histología"
       ? [
           {
@@ -194,6 +195,10 @@ export default function SetupScreen({
     chapters.length > 0 &&
     selectedChapters.length === 0
   )
+
+  const groupedIds = new Set(chapterGroupsBase.flatMap(group => group.chapters.map(chapter => chapter.id)))
+  const ungrouped = chapters.filter(chapter => !groupedIds.has(chapter.id))
+  const chapterGroups = ungrouped.length ? [...chapterGroupsBase, { id: "additional", title: "Otros capítulos", range: "", chapters: ungrouped }] : chapterGroupsBase
 
   const [showOptions, setShowOptions] =
     useState(false)
@@ -1130,9 +1135,9 @@ export default function SetupScreen({
                       `} />
 
                       <div className="phone-chapter-content relative flex flex-col justify-end p-5 pr-20">
-                        {(chapter.eyebrow || chapter.id !== chapter.title) && (
+                        {chapterEyebrow(chapter) && (
                           <p className="text-xs font-black uppercase tracking-[0.22em] text-zinc-200 drop-shadow">
-                            {chapter.eyebrow || chapter.id}
+                            {chapterEyebrow(chapter)}
                           </p>
                         )}
 
@@ -1311,7 +1316,7 @@ export default function SetupScreen({
 
                       <div>
 
-                        {(chapter.eyebrow || chapter.id !== chapter.title) && (
+                        {chapterEyebrow(chapter) && (
                           <p className="
                             mb-2
                             text-xs
@@ -1320,7 +1325,7 @@ export default function SetupScreen({
                             tracking-[0.2em]
                             text-zinc-300
                           ">
-                            {chapter.eyebrow || chapter.id}
+                            {chapterEyebrow(chapter)}
                           </p>
                         )}
 

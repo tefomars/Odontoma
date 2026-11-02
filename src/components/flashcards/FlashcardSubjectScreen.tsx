@@ -1,6 +1,7 @@
 import { Fragment, type CSSProperties } from "react"
 
 import logoImage from "@/assets/logo.png"
+import { getStudyBank } from "@/content/studio/catalog"
 import histologiaDeckImage from "@/assets/chapters/cap14.jpg"
 import procesoEconomicoDeckImage from "@/assets/flashcard-decks/proceso-economico.jpg"
 import hayekDeckImage from "@/assets/flashcard-decks/hayek.jpg"
@@ -29,9 +30,10 @@ import {
 import { flashcardSubjectBlocks } from "@/content/appBuilder/flashcardSubjects"
 import type { FlashcardSubjectBlock } from "@/content/appBuilder"
 import { relayWheelToPanel } from "@/lib/nestedScroll"
-import { groupSubjectSections } from "@/lib/subjectSections"
+import { organization, subjectSections, type SubjectSection } from "@/content/appBuilder/organization"
 
 type Props = {
+  sections?: SubjectSection[]
   onBack: () => void
   onMainMenu: () => void
   onSelectSubject: (subject: string) => void
@@ -69,6 +71,7 @@ export default function FlashcardSubjectScreen({
   onSelectSubject,
   onSelectMyDecks,
   subjects = flashcardSubjectBlocks,
+  sections = organization.flashcards,
   editorMode = false,
   onAddSubject,
   onEditSubject,
@@ -110,8 +113,9 @@ export default function FlashcardSubjectScreen({
       )
     ).length
 
-  const { primary, secondary, upcoming } = groupSubjectSections(subjects)
-  const orderedSubjects = [...primary, ...secondary, ...upcoming]
+  const groups = subjectSections(subjects, sections)
+  const orderedSubjects = groups.flatMap(g => g.items)
+  const headings = new Map(groups.filter(g => g.items.length).map(g => [g.items[0].id, g]))
 
   return (
     <main
@@ -393,28 +397,13 @@ export default function FlashcardSubjectScreen({
             gap-4
             lg:grid-cols-3
           ">
-            {primary.length > 0 && (
-              <h3 className="lg:col-span-3 text-xs font-black uppercase tracking-[0.25em] text-emerald-300">
-                Materias principales
-              </h3>
-            )}
-            {orderedSubjects.map((subject, index) => {
+            {orderedSubjects.map((subject) => {
               const available = subject.destination !== "coming-soon"
-              const contentSubjectTitle = destinationSubjectTitles[subject.destination] || subject.title
-              const subjectImage = destinationSubjectImages[subject.destination]
+              const contentSubjectTitle = getStudyBank(subject.destination)?.subject || destinationSubjectTitles[subject.destination] || subject.title
+              const subjectImage = subject.image ?? destinationSubjectImages[subject.destination]
               return (
               <Fragment key={subject.id}>
-              {index === primary.length && secondary.length > 0 && (
-                <div className="mt-6 border-t border-zinc-800 pt-6 lg:col-span-3">
-                  <h3 className="text-xs font-black uppercase tracking-[0.25em] text-sky-300">Clases secundarias</h3>
-                  <p className="mt-1 text-sm text-zinc-500">Otros cursos, separados de los mazos principales.</p>
-                </div>
-              )}
-              {index === primary.length + secondary.length && upcoming.length > 0 && (
-                <h3 className="mt-6 border-t border-zinc-800 pt-6 text-xs font-black uppercase tracking-[0.25em] text-zinc-500 lg:col-span-3">
-                  Próximamente
-                </h3>
-              )}
+              {headings.has(subject.id) && <div className="lg:col-span-3 mt-4 border-b border-zinc-800 pb-3" data-studio-target='{"panel":"sections"}'><h2 className="text-xs font-black uppercase tracking-[0.23em]" style={{ color: headings.get(subject.id)!.color }}>{headings.get(subject.id)!.title}</h2>{headings.get(subject.id)!.description && <p className="mt-1 text-sm text-zinc-500">{headings.get(subject.id)!.description}</p>}</div>}
               <div
                 className="relative"
                 draggable={editorMode}
@@ -429,6 +418,7 @@ export default function FlashcardSubjectScreen({
               >
               <button
                 type="button"
+                data-studio-target={JSON.stringify({ panel: "structure", view: "flashcard-subjects", id: subject.id })}
                 disabled={!editorMode && !available}
                 onClick={() => editorMode
                   ? onEditSubject?.(subject)

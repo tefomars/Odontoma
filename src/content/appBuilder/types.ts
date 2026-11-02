@@ -1,4 +1,5 @@
 export type SubjectDestination =
+  | `bank:${string}`
   | "histologia"
   | "filosofia-de-hayek"
   | "microbiologia"
@@ -9,6 +10,9 @@ export type SubjectDestination =
   | `custom-page:${string}`
 
 export type HomeSubject = {
+  hidden?: boolean
+  sectionId?: string
+  image?: string
   id: string
   title: string
   subtitle: string
@@ -31,6 +35,7 @@ export type AppMenuCard = {
 export type AppMenuDestination = import("./customPageSchema").CustomPageDestination
 
 export type FlashcardSubjectDestination =
+  | `bank:${string}`
   | "histologia"
   | "proceso-economico-i"
   | "filosofia-de-hayek"
@@ -40,6 +45,9 @@ export type FlashcardSubjectDestination =
   | `custom-page:${string}`
 
 export type FlashcardSubjectBlock = {
+  hidden?: boolean
+  sectionId?: string
+  image?: string
   id: string
   title: string
   subtitle: string

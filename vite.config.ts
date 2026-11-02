@@ -1,4 +1,5 @@
 import { defineConfig } from "vite"
+import { studioServer, validateStoredNavigation } from "./src/builder/studioServer.ts"
 
 import react from "@vitejs/plugin-react"
 
@@ -48,6 +49,9 @@ type OpenQuizContent = {
 }
 
 type HomeSubject = {
+  hidden?: boolean
+  image?: string
+  sectionId?: string
   id: string
   title: string
   subtitle: string
@@ -91,6 +95,9 @@ type AppMenuCard = {
 }
 
 type FlashcardSubjectBlock = {
+  hidden?: boolean
+  image?: string
+  sectionId?: string
   id: string
   title: string
   subtitle: string
@@ -158,6 +165,10 @@ function isLocalOrigin(origin?: string) {
   } catch {
     return false
   }
+}
+
+function validImage(value: unknown) {
+  return value === undefined || (typeof value === "string" && /^(https?:\/\/|data:image\/(png|jpeg|webp|gif);base64,|\/(src|assets|media)\/|$)/.test(value))
 }
 
 function validColor(value: unknown): value is string {
@@ -335,7 +346,7 @@ function validateHomeContent(value: unknown): value is HomeContent {
     "coming-soon"
   ])
   const validMenuDestination = (destination?: string) => destination === undefined ||
-    menuDestinations.has(destination) || /^custom-page:[a-z0-9][a-z0-9-]{0,149}$/i.test(destination)
+    menuDestinations.has(destination) || /^(custom-page|bank|flashcard-bank):[a-z0-9][a-z0-9-]{0,149}$/i.test(destination)
   const validCards = (cards: AppMenuCard[]) => cards.length <= 100 &&
     cards.every(card =>
       validText(card.id, 80, true) &&
@@ -366,7 +377,10 @@ function validateHomeContent(value: unknown): value is HomeContent {
       !validText(subject.subtitle, 800) ||
       !validText(subject.status, 80, true) ||
       !validColor(subject.accentColor) ||
-      !(destinations.has(subject.destination) || /^custom-page:[a-z0-9][a-z0-9-]{0,149}$/i.test(subject.destination))
+      !validImage(subject.image) ||
+      (subject.hidden !== undefined && typeof subject.hidden !== "boolean") ||
+      (subject.sectionId !== undefined && !validText(subject.sectionId, 150, true)) ||
+      !(destinations.has(subject.destination) || /^(custom-page|bank):[a-z0-9][a-z0-9-]{0,149}$/i.test(subject.destination))
     ) {
       return false
     }
@@ -395,7 +409,7 @@ function validateFlashcardSubjects(value: unknown): value is FlashcardSubjectBlo
       !validText(subject.description, 800, true) ||
       !validText(subject.accent, 120, true) ||
       !validColor(subject.accentColor) ||
-      !(destinations.has(subject.destination) || /^custom-page:[a-z0-9][a-z0-9-]{0,149}$/i.test(subject.destination))
+      !(destinations.has(subject.destination) || /^(custom-page|bank):[a-z0-9][a-z0-9-]{0,149}$/i.test(subject.destination))
     ) return false
     ids.add(subject.id)
     return true
@@ -415,6 +429,8 @@ function localBuilderPlugin(): Plugin {
 
         if (
           pathname !== "/builder.html" &&
+          pathname !== "/builder-preview.html" &&
+          pathname !== "/builder-draft.html" &&
           pathname !== "/__odontoma-builder/theme" &&
           pathname !== "/__odontoma-builder/open-quizzes" &&
           pathname !== "/__odontoma-builder/home-content" &&
@@ -438,7 +454,7 @@ function localBuilderPlugin(): Plugin {
           return
         }
 
-        if (pathname === "/builder.html") {
+        if (pathname === "/builder.html" || pathname === "/builder-preview.html" || pathname === "/builder-draft.html") {
           next()
           return
         }
@@ -446,15 +462,19 @@ function localBuilderPlugin(): Plugin {
         if (request.method === "GET") {
           response.setHeader("Cache-Control", "no-store")
           response.setHeader("Content-Type", "application/json")
+          if (pathname === "/__odontoma-builder/home-content") {
+            const value = JSON.parse(await fs.readFile(homeContentPath, "utf8"))
+            response.end(JSON.stringify(value)); return
+          }
+          if (pathname === "/__odontoma-builder/flashcard-subjects") {
+            const value = JSON.parse(await fs.readFile(flashcardSubjectsPath, "utf8"))
+            response.end(JSON.stringify(value)); return
+          }
           response.end(
             await fs.readFile(
               pathname === "/__odontoma-builder/open-quizzes"
                 ? openQuizContentPath
-                : pathname === "/__odontoma-builder/home-content"
-                  ? homeContentPath
-                  : pathname === "/__odontoma-builder/flashcard-subjects"
-                    ? flashcardSubjectsPath
-                    : pathname === "/__odontoma-builder/custom-pages"
+                : pathname === "/__odontoma-builder/custom-pages"
                       ? customPagesPath
                   : pathname === "/__odontoma-builder/ui-overrides"
                     ? uiOverridesPath
@@ -471,6 +491,7 @@ function localBuilderPlugin(): Plugin {
           return
         }
 
+        request.setEncoding("utf8")
         let body = ""
 
         request.on("data", chunk => {
@@ -482,7 +503,7 @@ function localBuilderPlugin(): Plugin {
             pathname === "/__odontoma-builder/flashcard-subjects" ||
             pathname === "/__odontoma-builder/custom-pages" ||
             pathname === "/__odontoma-builder/ui-overrides"
-              ? 5_000_000
+              ? 40_000_000
               : 20_000
 
           if (body.length > maximumBodyLength) {
@@ -518,6 +539,7 @@ function localBuilderPlugin(): Plugin {
                 return
               }
 
+              await validateStoredNavigation(server, "home", value)
               await fs.writeFile(
                 homeContentPath,
                 `${JSON.stringify(value, null, 2)}\n`
@@ -535,6 +557,7 @@ function localBuilderPlugin(): Plugin {
                 return
               }
 
+              await validateStoredNavigation(server, "decks", value)
               await fs.writeFile(
                 flashcardSubjectsPath,
                 `${JSON.stringify(value, null, 2)}\n`
@@ -552,6 +575,7 @@ function localBuilderPlugin(): Plugin {
                 return
               }
 
+              await validateStoredNavigation(server, "pages", value)
               await fs.writeFile(customPagesPath, `${JSON.stringify(value, null, 2)}\n`)
               response.setHeader("Content-Type", "application/json")
               response.end(JSON.stringify({ ok: true }))
@@ -625,6 +649,7 @@ export default defineConfig({
 
   plugins: [
     react(),
+    studioServer({ written: validateOpenQuizContent, home: validateHomeContent, decks: validateFlashcardSubjects, pages: validateCustomPages, overrides: validateUiOverrides, theme: validateTheme }),
     tailwindcss(),
     localBuilderPlugin(),
   ],

@@ -1,12 +1,13 @@
 import { describe, expect, it } from "vitest"
 
-import { homeSubjects } from "@/content/appBuilder"
-import { flashcardSubjectBlocks } from "@/content/appBuilder/flashcardSubjects"
 import { groupSubjectSections } from "./subjectSections"
+
+// Fixtures: editing content in the builder must not invalidate grouping tests.
+const subjects = (...destinations: string[]) => destinations.map(destination => ({ destination }))
 
 describe("secciones de materias", () => {
   it("ubica Hayek debajo de las materias principales en Quizzes", () => {
-    const sections = groupSubjectSections(homeSubjects)
+    const sections = groupSubjectSections(subjects("histologia", "microbiologia", "bioquimica", "semiologia", "filosofia-de-hayek"))
     expect(sections.primary.map(subject => subject.destination)).toEqual([
       "histologia", "microbiologia", "bioquimica", "semiologia"
     ])
@@ -14,7 +15,7 @@ describe("secciones de materias", () => {
   })
 
   it("separa Hayek y Proceso Económico en Flashcards sin ocultar próximos bloques", () => {
-    const sections = groupSubjectSections(flashcardSubjectBlocks)
+    const sections = groupSubjectSections(subjects("histologia", "semiologia", "bioquimica", "proceso-economico-i", "filosofia-de-hayek", "coming-soon", "coming-soon"))
     expect(sections.primary.map(subject => subject.destination)).toEqual([
       "histologia", "semiologia", "bioquimica"
     ])
@@ -22,5 +23,11 @@ describe("secciones de materias", () => {
       "proceso-economico-i", "filosofia-de-hayek"
     ])
     expect(sections.upcoming).toHaveLength(2)
+  })
+
+  it("incluye materias nuevas sin perderlas ni contarlas como próximas", () => {
+    const sections = groupSubjectSections(subjects("histologia", "bank:nueva-materia", "filosofia-de-hayek"))
+    expect(sections.primary.map(s => s.destination)).toEqual(["histologia", "bank:nueva-materia"])
+    expect(sections.secondary.map(s => s.destination)).toEqual(["filosofia-de-hayek"])
   })
 })

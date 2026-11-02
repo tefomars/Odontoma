@@ -1,10 +1,6 @@
-import procesoEconomicoIFlashcards from "@/content/flashcards/proceso-economico-i/cards"
-import filosofiaDeHayekFlashcards from "@/content/flashcards/filosofia-de-hayek/cards"
-import semiologiaFlashcards from "@/content/flashcards/semiologia/cards"
-import bioquimicaFlashcards from "@/content/flashcards/bioquimica/cards"
+import { studioBanks } from "@/content/studio/catalog"
 
 import {
-  histologiaFlashcards,
   type Flashcard
 } from "@/content/flashcards/histologia/cards"
 
@@ -18,13 +14,7 @@ export type FlashcardSource =
   | "user"
 
 export function getDefaultFlashcards(): Flashcard[] {
-  return [
-    ...histologiaFlashcards,
-    ...semiologiaFlashcards,
-    ...bioquimicaFlashcards,
-    ...procesoEconomicoIFlashcards,
-    ...filosofiaDeHayekFlashcards
-  ]
+  return studioBanks.filter(bank => bank.kind === "course" && !bank.archived).flatMap(bank => bank.flashcards)
 }
 
 export function getMyFlashcards() {

@@ -5,6 +5,8 @@ const OLD_THIRD_PARTIAL_NAME = "Parcial 3 · Cito III"
 const THIRD_PARTIAL_NAME = "Parcial 3 · Cito II"
 
 export type QuizResponseRecord = {
+  image?: string
+  imageAlt?: string
   questionId: string
   question: string
   chapter?: string
@@ -16,6 +18,8 @@ export type QuizResponseRecord = {
   isCorrect: boolean
   grade?: "incorrect" | "partial" | "correct" | "ungraded" | "unanswered"
   questionSnapshot?: {
+    image?: string
+    imageAlt?: string
     id: string
     chapter?: string
     difficulty?: "easy" | "medium" | "hard"

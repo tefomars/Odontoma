@@ -1,4 +1,4 @@
-import { useLayoutEffect, useMemo, useRef, useState, type ReactNode } from "react"
+import { useEffect, useLayoutEffect, useMemo, useRef, useState, type ReactNode } from "react"
 import { useSwipeBack } from "@/hooks/useSwipeBack"
 
 import HomeScreen from "./components/HomeScreen"
@@ -36,6 +36,9 @@ import {
 } from "@/lib/userQuizzes"
 
 import packageJson from "../package.json"
+import { getStudyBank, getStudyQuestions, studioBanks } from "@/content/studio/catalog"
+import { chapterDisplayName } from "@/lib/studyLabels"
+import { resetFreeFlashcardProgress } from "@/lib/freeFlashcardProgress"
 
 import {
   questions as histologiaQuestions,
@@ -249,6 +252,7 @@ export default function App() {
 
   const [prePartialReviewType, setPrePartialReviewType] =
     useState<PrePartialReviewType | null>(null)
+  const [prePartialReviewSubject, setPrePartialReviewSubject] = useState<string | null>(null)
 
   const [prePartialActivePartial, setPrePartialActivePartial] =
     useState<string | null>(null)
@@ -264,6 +268,9 @@ export default function App() {
 
   const [selectedCustomPageId, setSelectedCustomPageId] =
     useState<string | null>(null)
+  const customPageHistory = useRef<string[]>([])
+  const customPageOrigin = useRef<(() => void) | null>(null)
+  const builderReturn = useRef<{ page: string; destination: string } | null>(null)
 
   const [selectedSubject, setSelectedSubject] =
     useState<string | null>(null)
@@ -391,7 +398,7 @@ export default function App() {
       }
     })
 
-  const quizQuestions =
+  const legacyQuizQuestions =
     selectedSubject === "filosofia-de-hayek"
       ? hayekQuestions
       : selectedSubject === "microbiologia"
@@ -402,7 +409,7 @@ export default function App() {
           ? semiologiaQuestions
         : histologiaQuestions
 
-  const quizChapters =
+  const legacyQuizChapters =
     selectedSubject === "filosofia-de-hayek"
       ? hayekChapters
       : selectedSubject === "microbiologia"
@@ -413,7 +420,7 @@ export default function App() {
           ? semiologiaChapters
         : histologiaChapters
 
-  const quizQuestionCountsByChapter =
+  const legacyQuizQuestionCountsByChapter =
     selectedSubject === "filosofia-de-hayek"
       ? hayekQuestionCountsByChapter
       : selectedSubject === "microbiologia"
@@ -424,7 +431,7 @@ export default function App() {
           ? semiologiaQuestionCountsByChapter
         : histologiaQuestionCountsByChapter
 
-  const quizTitle =
+  const legacyQuizTitle =
     selectedSubject === "filosofia-de-hayek"
       ? "Filosofía de Hayek"
       : selectedSubject === "microbiologia"
@@ -434,6 +441,12 @@ export default function App() {
         : selectedSubject === "semiologia"
           ? "Semiología"
         : "Histología"
+
+  const activeBank = getStudyBank(selectedSubject || "histologia")
+  const quizQuestions = activeBank?.questions || legacyQuizQuestions
+  const quizChapters = activeBank?.chapters || legacyQuizChapters
+  const quizQuestionCountsByChapter = activeBank ? Object.fromEntries(activeBank.chapters.map(c => [c.id, activeBank.questions.filter(q => q.chapter === c.id).length])) : legacyQuizQuestionCountsByChapter
+  const quizTitle = activeBank?.title || legacyQuizTitle
 
   const availableQuestions =
     useMemo(() => {
@@ -656,7 +669,7 @@ export default function App() {
         pausedSession.sessionQuestions || []
       const pausedSubject =
         pausedSession.quizSubject || "histologia"
-      const currentQuestionBank =
+      const legacyQuestionBank =
         pausedSubject === "filosofia-de-hayek"
           ? hayekQuestions
           : pausedSubject === "microbiologia"
@@ -669,6 +682,7 @@ export default function App() {
                 ...histologiaQuestions,
                 ...prePartialBanks.flatMap(bank => bank.questions)
               ]
+      const currentQuestionBank = getStudyQuestions(pausedSubject).length ? [...getStudyQuestions(pausedSubject), ...prePartialBanks.flatMap(bank => bank.questions)] : legacyQuestionBank
       const restoredQuestions =
         pausedSubject === "my-quizzes"
           ? savedQuestions
@@ -901,7 +915,7 @@ export default function App() {
           selectedSubject === "my-quizzes"
             ? "My quizzes"
             : prePartialQuizReview && prePartialActivePartial
-              ? prePartialActivePartial
+              ? getPrePartialBank(prePartialActivePartial)?.title || prePartialActivePartial
               : quizTitle,
         subject: selectedSubject || "histologia",
         completedAt: new Date().toISOString(),
@@ -948,6 +962,7 @@ export default function App() {
     }
 
     const fallbackQuestions = [
+      ...studioBanks.flatMap(bank => bank.questions),
       ...histologiaQuestions,
       ...hayekQuestions,
       ...microbiologiaQuestions,
@@ -978,6 +993,9 @@ export default function App() {
   }
 
   function goToMainMenu() {
+    builderReturn.current = null
+    customPageHistory.current = []
+    customPageOrigin.current = null
 
     setSelectedStudyMethod(null)
     setShowBackup(false)
@@ -1044,7 +1062,7 @@ export default function App() {
     setPrePartialActivePartial(partial)
     setSelectedStudyMethod("quizzes")
     setSelectedQuizMode("multiple-choice")
-    setSelectedSubject("histologia")
+    setSelectedSubject(`bank:${bank.id}`)
     setSelectedChapters([partial])
     setSessionQuestions(selected)
     setSessionResponses([])
@@ -1078,11 +1096,12 @@ export default function App() {
     if (!bank) return
 
     const confirmed = window.confirm(
-      `¿Reiniciar el progreso de ${partial}? Se borrarán únicamente sus respuestas, incorrectas, flashcards e intentos. El resto de Odontoma no cambiará.`
+      `¿Reiniciar el progreso de ${bank.title}? Se borrarán únicamente sus respuestas, incorrectas, flashcards e intentos. El resto de Odontoma no cambiará.`
     )
 
     if (!confirmed) return
 
+    resetFreeFlashcardProgress(bank.flashcards.map(card => card.id))
     const questionIds = bank.questions.map(question => question.id)
     resetQuestionBankStats(bank.questions)
     removeQuizAttemptsForQuestionIds(questionIds)
@@ -1109,6 +1128,20 @@ export default function App() {
   }
 
   function goBack() {
+    const entry = builderReturn.current
+    if (entry && !started && !reviewingAttempt && !showMastery && !selectedFlashcardTopic && !activeOpenQuizDeckId && !activeUserTopicId && !showSuspendedFlashcards) {
+      const destination = entry.destination
+      const atEntry = destination.startsWith("bank:") ? selectedSubject === destination
+        : destination.startsWith("flashcard-bank:") ? selectedFlashcardSubject === `bank:${destination.slice("flashcard-bank:".length)}`
+        : destination === "quizzes" ? selectedStudyMethod === "quizzes" && !selectedQuizMode && !selectedSubject
+        : destination === "multiple-choice" ? selectedQuizMode === "multiple-choice" && !selectedSubject
+        : destination === "flashcards" ? selectedStudyMethod === "flashcards" && !selectedFlashcardSubject
+        : destination === "backup" ? showBackup
+        : destination === "open-ended" ? selectedSubject === "open-quizzes" && !selectedOpenQuizClass && !selectedOpenQuizPartial
+        : destination === "pre-partial" ? showPrePartialReview && !prePartialReviewType
+        : false
+      if (atEntry) { setSelectedCustomPageId(entry.page); builderReturn.current = null; setSelectedStudyMethod(null); setSelectedSubject(null); setSelectedQuizMode(null); setSelectedFlashcardSubject(null); setShowBackup(false); setShowPrePartialReview(false); return }
+    }
 
     // Pre-partial flashcards are a nested route, even though they reuse the
     // global Flashcards screen. Keep swipe-back aligned with its Volver button.
@@ -1149,7 +1182,9 @@ export default function App() {
     }
 
     if (selectedCustomPageId) {
-      setSelectedCustomPageId(null)
+      const previous = customPageHistory.current.pop()
+      setSelectedCustomPageId(previous || null)
+      if (!previous) { customPageOrigin.current?.(); customPageOrigin.current = null }
       return
     }
 
@@ -1274,7 +1309,20 @@ export default function App() {
   }
 
   function navigateToBuilderDestination(destination: CustomPageDestination | string) {
+    if (selectedCustomPageId && !destination.startsWith("custom-page:") && destination !== "home") builderReturn.current = { page: selectedCustomPageId, destination }
+    if (destination.startsWith("bank:")) { setSelectedCustomPageId(null); setSelectedStudyMethod("quizzes"); setSelectedQuizMode("multiple-choice"); setSelectedSubject(destination); setSelectedChapters([]); return }
+    if (destination.startsWith("flashcard-bank:")) { setSelectedCustomPageId(null); setSelectedStudyMethod("flashcards"); setSelectedFlashcardSubject(`bank:${destination.slice("flashcard-bank:".length)}`); return }
     if (destination.startsWith("custom-page:")) {
+      if (selectedCustomPageId) customPageHistory.current.push(selectedCustomPageId)
+      else if (!customPageOrigin.current) customPageOrigin.current = () => {
+        setSelectedStudyMethod(selectedStudyMethod)
+        setSelectedQuizMode(selectedQuizMode)
+        setSelectedSubject(selectedSubject)
+        setSelectedFlashcardSubject(selectedFlashcardSubject)
+        setShowBackup(showBackup)
+        setShowPrePartialReview(showPrePartialReview)
+        setPrePartialReviewType(prePartialReviewType)
+      }
       setSelectedCustomPageId(destination.slice("custom-page:".length))
       return
     }
@@ -1325,6 +1373,21 @@ export default function App() {
     }
   }
 
+  // Only the private same-origin builder iframe can request preview navigation.
+  useEffect(() => {
+    if (!new URLSearchParams(window.location.search).has("builder-preview") || window.parent === window) return
+    const listener = (e: MessageEvent) => {
+      if (e.origin !== window.location.origin || e.source !== window.parent || e.data?.type !== "odontoma-preview-navigate" || typeof e.data.destination !== "string") return
+      goToMainMenu()
+      navigateToBuilderDestination(e.data.destination)
+      builderReturn.current = null
+      customPageHistory.current = []
+      customPageOrigin.current = null
+    }
+    window.addEventListener("message", listener)
+    return () => window.removeEventListener("message", listener)
+  })
+
   const question =
     sessionQuestions[current]
 
@@ -1335,7 +1398,7 @@ export default function App() {
       <ScreenTransition screenKey={`custom-page-${selectedCustomPage.id}`}>
         <CustomPageScreen
           page={selectedCustomPage}
-          onBack={() => setSelectedCustomPageId(null)}
+          onBack={goBack}
           onMainMenu={goToMainMenu}
           onNavigate={navigateToBuilderDestination}
         />
@@ -1410,7 +1473,7 @@ export default function App() {
   if (showBackup) {
     return (
       <ScreenTransition screenKey="backup">
-        <BackupScreen onBack={() => setShowBackup(false)} onMainMenu={goToMainMenu} />
+        <BackupScreen onBack={goBack} onMainMenu={goToMainMenu} />
       </ScreenTransition>
     )
   }
@@ -1420,10 +1483,7 @@ export default function App() {
       <ScreenTransition screenKey="pre-partial-review">
         <PrePartialReviewScreen
           key={prePartialReviewType ?? "choose"}
-          onBack={() => {
-            setShowPrePartialReview(false)
-            setPrePartialReviewType(null)
-          }}
+          onBack={goBack}
           onMainMenu={goToMainMenu}
           onStartMultipleChoice={startPrePartialMultipleChoice}
           onStartFlashcards={startPrePartialFlashcards}
@@ -1431,6 +1491,8 @@ export default function App() {
           pausedPartial={hasPausedSession ? getPausedPrePartialId() : null}
           onContinuePartial={continuePausedSession}
           initialReviewType={prePartialReviewType}
+          initialSubject={prePartialReviewSubject}
+          onClassChange={setPrePartialReviewSubject}
           onReviewTypeChange={setPrePartialReviewType}
         />
       </ScreenTransition>
@@ -1482,7 +1544,7 @@ export default function App() {
 
         <ScreenTransition screenKey="flashcard-subject">
           <FlashcardSubjectScreen
-            onBack={() => setSelectedStudyMethod(null)}
+            onBack={goBack}
             onMainMenu={goToMainMenu}
             onSelectMyDecks={() => {
               setSelectedFlashcardSubject("my")
@@ -1585,7 +1647,7 @@ export default function App() {
         <ScreenTransition screenKey="flashcard-select">
           <FlashcardSelectScreen
             subject={selectedFlashcardSubject || "histologia"}
-            onBack={() => setSelectedFlashcardSubject(null)}
+            onBack={goBack}
             onShowSuspended={() => setShowSuspendedFlashcards(true)}
             onSelectTopic={(topic, source) => {
               setSelectedFlashcardTopic(topic)
@@ -1612,7 +1674,7 @@ export default function App() {
           selectedTopic={selectedFlashcardTopic}
           selectedSubtopic={selectedFlashcardSubtopic || undefined}
           source={selectedFlashcardSource}
-          cards={prePartialFlashcardReview ? getPrePartialBank(prePartialFlashcardReview.partial)?.flashcards : undefined}
+          cards={selectedFlashcardSource === "default" ? getStudyBank(selectedFlashcardSubject || "histologia")?.flashcards : undefined}
           limit={prePartialFlashcardReview?.amount}
           reviewPreference={prePartialFlashcardReview?.preference}
           onMenu={goToMainMenu}
@@ -1645,7 +1707,7 @@ export default function App() {
 
       <ScreenTransition screenKey="quiz-mode">
         <QuizModeScreen
-          onBack={() => setSelectedStudyMethod(null)}
+          onBack={goBack}
           onMainMenu={goToMainMenu}
           onSelectMultipleChoice={() => {
             setSelectedQuizMode("multiple-choice")
@@ -1679,7 +1741,7 @@ export default function App() {
     return (
       <ScreenTransition screenKey="quiz-history">
         <QuizHistoryScreen
-          onBack={() => setSelectedQuizMode(null)}
+          onBack={goBack}
           onMainMenu={goToMainMenu}
           onReview={setReviewingAttempt}
           onRetryIncorrect={startIncorrectRetry}
@@ -1695,7 +1757,7 @@ export default function App() {
 
       <ScreenTransition screenKey="home">
         <HomeScreen
-          onBack={() => setSelectedQuizMode(null)}
+          onBack={goBack}
           onMainMenu={goToMainMenu}
           onSelectSubject={(subject) => {
             if (subject.startsWith("custom-page:")) {
@@ -1881,9 +1943,7 @@ export default function App() {
           availableQuestionsCount={availableQuestions.length}
           modeCounts={modeCounts}
           hasPausedSession={hasPausedSession && sessionQuestions.length > 0 && !finished}
-          onBackHome={() => {
-            setSelectedSubject(null)
-          }}
+          onBackHome={goBack}
           onMainMenu={goToMainMenu}
           onStart={startPractice}
           onMastery={
@@ -1958,6 +2018,7 @@ export default function App() {
       <QuizScreen
         key={question.id}
         question={question}
+        chapterTitle={getStudyBank(selectedSubject)?.chapters.find(c => c.id === question.chapter) ? chapterDisplayName(getStudyBank(selectedSubject)!.chapters.find(c => c.id === question.chapter)!) : undefined}
         current={current}
         total={sessionQuestions.length}
         score={score}
