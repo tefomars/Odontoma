@@ -8,7 +8,7 @@ describe("main-menu hover rendering", () => {
   it("keeps the scoped rounded surface, destinations and arrow animation", () => {
     const html = renderToStaticMarkup(<StudyMethodScreen editorMode onSelectQuizzes={() => {}} onSelectFlashcards={() => {}} />)
     expect(html).toContain("study-method-card group")
-    expect(html).not.toMatch(/class="study-method-card[^\"]*overflow-hidden/)
+    expect(html).not.toMatch(/class="study-method-card[^"]*overflow-hidden/)
     expect(html).not.toContain("hover:scale-[1.01]")
     expect(html).toContain("group-hover:rotate-12")
     expect(html).toContain("main-menu")
@@ -25,7 +25,7 @@ describe("main-menu hover rendering", () => {
   })
   it("avoids native button painting and clipped gradient layers on the animated surface", () => {
     expect(styles).toMatch(/button\.study-method-card\s*\{[^}]*-webkit-appearance: none;[^}]*appearance: none;[^}]*background-image: none;[^}]*background-clip: padding-box;/)
-    const cardStyles = styles.slice(styles.indexOf("button.study-method-card {"))
+    const cardStyles = styles.slice(styles.indexOf("button.study-method-card {"), styles.indexOf("button.open-quiz-deck-card {"))
     expect(cardStyles).not.toContain("linear-gradient")
     expect(cardStyles).not.toMatch(/scale\(/)
   })

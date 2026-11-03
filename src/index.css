@@ -1136,3 +1136,47 @@ button.study-method-card:focus-visible {
   outline: 2px solid var(--oa-section-accent, #a78bfa);
   outline-offset: 4px;
 }
+
+/* Written questionnaires share the lift feedback in every class. Keep their
+   rounded borders at a fixed size, just like the main-menu cards. */
+button.open-quiz-deck-card {
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: none;
+  background-clip: padding-box;
+  transform: translateY(0);
+  scale: none;
+  transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+}
+
+button.open-quiz-deck-card:hover:not(:disabled),
+button.open-quiz-deck-card:active:not(:disabled) {
+  filter: none;
+  scale: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  button.open-quiz-deck-card:hover:not(:disabled) {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgb(0 0 0 / 24%);
+  }
+}
+
+button.open-quiz-deck-card:active:not(:disabled) {
+  transform: translateY(1px);
+  box-shadow: 0 3px 10px rgb(0 0 0 / 12%);
+  transition-duration: 60ms;
+}
+
+button.open-quiz-deck-card:focus-visible {
+  outline: 2px solid var(--ring, #a78bfa);
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  button.open-quiz-deck-card:hover:not(:disabled),
+  button.open-quiz-deck-card:active:not(:disabled) {
+    transform: none;
+    transition: none;
+  }
+}

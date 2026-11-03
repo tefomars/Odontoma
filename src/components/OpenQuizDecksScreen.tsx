@@ -177,7 +177,7 @@ function DeckCard({ deck, classColor, onStart }: { deck: OpenQuizDeck; classColo
       type="button"
       disabled={deck.questions.length === 0}
       onClick={() => onStart(deck.id)}
-      className="group rounded-[1.5rem] border p-6 text-left transition hover:brightness-110 disabled:cursor-not-allowed disabled:border-zinc-800 disabled:bg-zinc-950 disabled:opacity-60"
+      className="open-quiz-deck-card group rounded-[1.5rem] border p-6 text-left disabled:cursor-not-allowed disabled:border-zinc-800 disabled:bg-zinc-950 disabled:opacity-60"
       style={{ borderColor: `${color}45`, backgroundColor: `${color}0D` }}
     >
       <div className="mb-5 flex items-start justify-between gap-4">
