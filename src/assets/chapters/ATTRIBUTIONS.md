@@ -1,6 +1,11 @@
 # Atribuciones de imágenes — capítulos y botones de selección
 
+- Capítulo 2 reutiliza `src/assets/bioquimica/selection/beta-oxidation.jpg` — *Mitochondria - TEM*, Louisa Howard, dominio público. Procedencia documentada también en la sección Bioquímica de este archivo.
+- `cap3.jpg` — *Clara cell lung - TEM*, micrografía electrónica de célula bronquiolar con núcleo, nucléolo y orgánulos citoplasmáticos. Louisa Howard / Dartmouth Electron Microscope Facility. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Clara_cell_lung_-_TEM.jpg). Dominio público, liberado por la autora. Original de 640 × 480 px; sin retoques, recorte visual mediante la interfaz.
+
 Las imágenes se recortaron, redimensionaron y, en algunos casos, se ajustaron en color para adaptarlas al formato horizontal de las tarjetas de Odontoma.
+
+- `cap1.jpg` — *A Binocular Microscope*, fotografía de un microscopio óptico compuesto. Suneksiriaaron. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:A_Binocular_Microscope.jpg). Licencia: [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/). Versión reducida de 960 px, sin retoques adicionales; recorte visual en la tarjeta.
 
 - `cap9.jpg` — *Yellow adipose tissue in paraffin section - lipids washed out*. Cortesía del Department of Histology, Jagiellonian University Medical College. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Yellow_adipose_tissue_in_paraffin_section_-_lipids_washed_out.jpg). Licencias: CC BY-SA 3.0 y GFDL 1.2 o posterior.
 - `cap10.jpg` — *WBC (neutrophil) at centre, numerous erythrocytes and platelets (dot like bodies) in Wright's stained peripheral blood smear (PBS) microscopy*. Ajay Kumar Chaurasiya. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:WBC_(neutrophil)_at_centre,_numerous_erythrocytes_and_platelets_(dot_like_bodies)_in_Wright%27s_stained_peripheral_blood_smear_(PBS)_microscopy.jpg). Licencia: CC BY-SA 4.0.
@@ -13,7 +18,10 @@ Las imágenes se recortaron, redimensionaron y, en algunos casos, se ajustaron e
 - `cap18.jpg` — *Liver-H&E*. Paulo Abrahamsohn. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Liver-H%26E.jpg). Licencia: CC BY-SA 4.0.
 - `cap19.png` — *Lung histology 200x unlabelled*. RWhitwam, con microfotografía original de Michael Hortsch / University of Michigan Medical School. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Lung_histology_200x_unlabelled.png). Licencia: CC BY-SA 4.0.
 - `cap21.jpg` — *Thyroid gland - high mag*. Nephron. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Thyroid_gland_-_high_mag.jpg). Licencia: CC BY-SA 3.0. Se descargó una versión reducida y la tarjeta la recorta visualmente.
+- `cap22.jpg` — *Seminiferous tubule and sperm low mag*, microfotografía con H&E. Nephron. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Seminiferous_tubule_and_sperm_low_mag.jpg). Licencia: [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/). Versión reducida de 960 px, sin cambios de color; la tarjeta la recorta visualmente. Esta imagen conserva su licencia CC BY-SA 3.0.
 - `coagulation-cascade.jpg` — *Blood Clotting Cascade*. Jcchem183. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Blood_Clotting_Cascade.png). Licencia: CC BY-SA 4.0. La imagen se redimensionó y se compuso sobre un fondo desenfocado para adaptarla a la tarjeta horizontal.
+
+- `cap23.jpg` — *Graafian Follicle, Human Ovary*. Ed Uthman. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Graafian_Follicle,_Human_Ovary_(3595010317).jpg). Licencia: [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/). Versión reducida de 960 px, sin retoques; la tarjeta la recorta visualmente.
 
 ## Imágenes de decks principales
 

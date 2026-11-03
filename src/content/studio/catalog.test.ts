@@ -51,7 +51,9 @@ describe("biblioteca oficial editable", () => {
     const restored = resolveStudioBanks(saved)
     expect(restored[0].questions).toEqual(full.banks[0].questions)
     expect(restored[0].flashcards).toEqual(full.banks[0].flashcards)
-    expect(restored[0].chapters[0].questionCount).toBe(27)
+    for (const chapter of restored[0].chapters) {
+      expect(chapter.questionCount).toBe(full.banks[0].questions.filter(question => question.chapter === chapter.id).length)
+    }
     expect(restored.slice(1)).toEqual(full.banks.slice(1))
   })
 })

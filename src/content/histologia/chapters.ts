@@ -1,4 +1,10 @@
+import cap1Image from "../../assets/chapters/cap1.jpg"
+import cap2Image from "../../assets/bioquimica/selection/beta-oxidation.jpg"
+import cap3Image from "../../assets/chapters/cap3.jpg"
 import cap4Image from "../../assets/chapters/cap4.png"
+import { cap1Questions } from "./cap1/questions"
+import { cap2Questions } from "./cap2/questions"
+import { cap3Questions } from "./cap3/questions"
 import cap5Image from "../../assets/chapters/cap5.png"
 import cap6Image from "../../assets/chapters/cap6.png"
 import cap7Image from "../../assets/chapters/cap7.png"
@@ -15,6 +21,8 @@ import cap17Image from "../../assets/chapters/cap17.jpg"
 import cap18Image from "../../assets/chapters/cap18.jpg"
 import cap19Image from "../../assets/chapters/cap19.png"
 import cap21Image from "../../assets/chapters/cap21.jpg"
+import cap22Image from "../../assets/chapters/cap22.jpg"
+import cap23Image from "../../assets/chapters/cap23.jpg"
 import coagulationCascadeImage from "../../assets/chapters/coagulation-cascade.jpg"
 import { cap13Questions } from "./cap13/questions"
 import { cap14Questions } from "./cap14/questions"
@@ -25,6 +33,8 @@ import { cap18Questions } from "./cap18/questions"
 import { cap19Questions } from "./cap19/questions"
 import { cap20Questions } from "./cap20/questions"
 import { cap21Questions } from "./cap21/questions"
+import { cap22Questions } from "./cap22/questions"
+import { cap23Questions } from "./cap23/questions"
 import { cap4Questions } from "./cap4/questions"
 import { cap5Questions } from "./cap5/questions"
 import { cap6Questions } from "./cap6/questions"
@@ -37,6 +47,34 @@ import { cap12Questions } from "./cap12/questions"
 import { hemostasiaQuestions } from "./articulos/hemostasiaQuestions"
 
 export const chapters = [
+  {
+    id: "Capítulo 1",
+    title: "Capítulo 1",
+    subtitle: "Métodos de estudio histológico",
+    description:
+      "Fijación, procesamiento, tinciones, histoquímica, inmunomarcación, técnicas moleculares y microscopía.",
+    image: cap1Image,
+    questionCount: cap1Questions.length,
+    accent: "from-teal-500/20 to-indigo-500/20"
+  },
+  {
+    id: "Capítulo 2",
+    title: "Capítulo 2",
+    subtitle: "Citoplasma celular",
+    description: "Membrana, tráfico vesicular, orgánulos, degradación, citoesqueleto e inclusiones.",
+    image: cap2Image,
+    questionCount: cap2Questions.length,
+    accent: "from-cyan-500/20 to-violet-500/20"
+  },
+  {
+    id: "Capítulo 3",
+    title: "Capítulo 3",
+    subtitle: "Núcleo celular",
+    description: "Cromatina, nucléolo, envoltura y poros nucleares, ciclo celular, mitosis, meiosis y muerte celular.",
+    image: cap3Image,
+    questionCount: cap3Questions.length,
+    accent: "from-indigo-500/20 to-rose-500/20"
+  },
   {
     id: "Capítulo 4",
     title: "Capítulo 4",
@@ -233,6 +271,26 @@ export const chapters = [
     accent: "from-violet-500/20 to-cyan-500/20"
   },
 
+  {
+    id: "Capítulo 22",
+    title: "Capítulo 22",
+    subtitle: "Aparato reproductor masculino",
+    description:
+      "Testículo, espermatogénesis, células de Sertoli, vías espermáticas, glándulas accesorias y pene.",
+    image: cap22Image,
+    questionCount: cap22Questions.length,
+    accent: "from-indigo-500/20 to-rose-500/20"
+  },
+  {
+    id: "Capítulo 23",
+    title: "Capítulo 23",
+    subtitle: "Aparato reproductor femenino",
+    description:
+      "Ovario, folículos, ovulación, trompas, ciclo endometrial, cuello uterino, placenta, vagina, vulva y glándula mamaria.",
+    image: cap23Image,
+    questionCount: cap23Questions.length,
+    accent: "from-rose-500/20 to-violet-500/20"
+  },
   {
     id: "Artículo · Hemostasia y trombosis",
     title: "Artículo",

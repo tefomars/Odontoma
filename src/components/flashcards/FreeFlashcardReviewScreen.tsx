@@ -1,6 +1,5 @@
 import { useEffect, useEffectEvent, useState } from "react"
 import StudyImage from "../StudyImage"
-import FlashcardStudyModeSwitch from "./FlashcardStudyModeSwitch"
 import { getFlashcardsBySource, type FlashcardSource } from "@/lib/flashcardDecks"
 import { filterActiveFlashcards } from "@/lib/suspendedFlashcards"
 import { shuffleArray } from "@/lib/shuffleQuestion"
@@ -117,10 +116,9 @@ export default function FreeFlashcardReviewScreen({ onBack, onMenu, selectedTopi
       <div className="flashcard-review-content mx-auto flex h-full max-w-3xl flex-col overflow-hidden">
         <header className="flashcard-review-header flex shrink-0 flex-wrap items-center justify-between gap-2 pb-2">
           <button type="button" onClick={onBack} className="rounded-2xl border border-zinc-700 px-4 py-2 text-sm font-black text-zinc-300">← Volver</button>
-          <span className="text-xs font-black text-violet-300">Sin espera{currentCard ? ` · ${session.cursor + 1} / ${session.queue.length}` : ""}</span>
+          <span className="text-xs font-black text-violet-300">{currentCard ? `${session.cursor + 1} / ${session.queue.length}` : ""}</span>
           {onMenu && <button type="button" onClick={onMenu} className="rounded-2xl border border-violet-500/30 px-3 py-2 text-xs font-black text-violet-200">Menú principal</button>}
         </header>
-        <div className="shrink-0"><FlashcardStudyModeSwitch/></div>
         <section onPointerUp={tap} className="flashcard-review-card flex min-h-0 flex-1 flex-col overflow-y-auto rounded-[2rem] border border-zinc-800 bg-[#111113] p-5 md:p-8">
           <div className="mb-4 flex flex-wrap items-center justify-between gap-2">
             <p className="text-xs text-zinc-400" role="status">{completed} de {active.length} completadas en este bloque · Avance guardado en este dispositivo</p>

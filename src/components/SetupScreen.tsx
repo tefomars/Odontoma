@@ -134,6 +134,15 @@ export default function SetupScreen({
     title === "Histología"
       ? [
           {
+            id: "fundamentos-histologia",
+            title: "Fundamentos",
+            range: "Métodos y biología celular",
+            chapters: chapters.filter(chapter => {
+              const number = Number(chapter.id.match(/\d+/)?.[0])
+              return number >= 1 && number <= 3
+            })
+          },
+          {
             id: "citohistologia-i",
             title: "Citohistología I",
             range: "Capítulos 4–12",

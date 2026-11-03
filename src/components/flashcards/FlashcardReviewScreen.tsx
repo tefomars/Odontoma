@@ -1,8 +1,7 @@
 import { useEffect, useEffectEvent, useMemo, useState } from "react"
 import StudyImage from "../StudyImage"
 import FreeFlashcardReviewScreen from "./FreeFlashcardReviewScreen"
-import FlashcardStudyModeSwitch from "./FlashcardStudyModeSwitch"
-import { useFlashcardStudyMode, setFlashcardStudyMode } from "@/lib/flashcardStudyMode"
+import { useFlashcardStudyMode } from "@/lib/flashcardStudyMode"
 import { selectFlashcardScope, selectFlashcardPreference } from "@/lib/flashcardPractice"
 import { loadUserFlashcardTopics } from "@/lib/userFlashcards"
 import { flashcardTopicLabel } from "@/lib/studyLabels"
@@ -576,8 +575,7 @@ function ScheduledFlashcardReviewScreen({
               Ya repasaste todas las tarjetas vencidas.
             </p>
 
-            <FlashcardStudyModeSwitch/>
-            {filteredCards.length > 0 && <button type="button" onClick={() => setFlashcardStudyMode("free")} className="mt-4 w-full rounded-2xl bg-violet-500 px-5 py-4 font-black text-white">Repasar sin esperar al FSRS</button>}
+            {filteredCards.length > 0 && <p className="mt-4 text-sm text-zinc-400">Para repetirlas sin esperar, elegí «Solo flashcards» en «Elige un deck».</p>}
             {nextDueDate ? (
               <div className="
                 mt-6
@@ -705,7 +703,6 @@ function ScheduledFlashcardReviewScreen({
           </div>
         </div>
 
-        <div className="shrink-0"><FlashcardStudyModeSwitch/></div>
         <section
           key={`${currentCard.id}-${cardAnimationKey}`}
           className={`

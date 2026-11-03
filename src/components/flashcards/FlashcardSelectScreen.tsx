@@ -30,7 +30,6 @@ import {
 
 import { relayWheelToPanel } from "@/lib/nestedScroll"
 
-import FlashcardStudyModeSwitch from "./FlashcardStudyModeSwitch"
 import { useFlashcardStudyMode, setFlashcardStudyMode } from "@/lib/flashcardStudyMode"
 
 type Props = {
@@ -72,6 +71,46 @@ const HISTOLOGY_CHAPTER_IMAGES = new Map(
 )
 
 const CHAPTER_MENUS: ChapterMenu[] = [
+  {
+    chapter: "Capítulo 1",
+    title: "Métodos de estudio histológico",
+    groups: [
+      { title: "Preparación de tejidos", description: "Fijación, inclusión, cortes por congelación, planos y artefactos.", subtopics: ["Fijación y conservación", "Procesamiento y cortes", "Congelación, planos y artefactos"] },
+      { title: "Tinciones e histoquímica", description: "Basofilia, acidofilia, PAS, Feulgen, metacromasia y actividad enzimática.", subtopics: ["Química de los colorantes", "PAS, Feulgen y tinciones selectivas", "Digestión e histoquímica enzimática"] },
+      { title: "Técnicas moleculares", description: "Anticuerpos, inmunomarcación, hibridación, FISH y autorradiografía.", subtopics: ["Inmunocitoquímica e inmunomarcación", "Hibridación y FISH", "Autorradiografía"] },
+      { title: "Microscopía óptica", description: "Resolución, aumento, iluminación de Köhler y sistemas de contraste.", subtopics: ["Aumento, resolución y componentes", "Iluminación de Köhler", "Contraste de fases, campo oscuro y polarización"] },
+      { title: "Fluorescencia y superresolución", description: "Cortes ópticos, confocal, lámina de luz y técnicas de alta resolución y expansión.", subtopics: ["Fluorescencia y cortes ópticos", "Superresolución y expansión"] },
+      { title: "Microscopía electrónica", description: "TEM, preparación ultrafina, SEM y criofractura de membranas.", subtopics: ["Transmisión y preparación ultrafina", "Barrido y criofractura"] },
+      { title: "Superficie y microscopía digital", description: "Fuerza atómica, portaobjetos virtuales y límites del zoom digital.", subtopics: ["Fuerza atómica y microscopía virtual"] }
+    ]
+  },
+  {
+    chapter: "Capítulo 2",
+    title: "Citoplasma celular",
+    groups: [
+      { title: "Membrana y transporte", description: "Bicapa, glucocáliz, microdominios, señales y transporte de solutos.", subtopics: ["Organización de la membrana", "Proteínas y microdominios", "Señalización y paso de solutos"] },
+      { title: "Tráfico vesicular", description: "Captación, secreción, fusión, clasificación endosomal y reciclaje.", subtopics: ["Pinocitosis y fagocitosis", "Endocitosis mediada por receptores", "Exocitosis y proteínas de fusión", "Endosomas y clasificación de carga"] },
+      { title: "Lisosomas y degradación", description: "Hidrolasas, autofagia, enfermedades de depósito y proteasomas.", subtopics: ["Hidrolasas y destino lisosómico", "Autofagia y cuerpos residuales", "Trastornos de almacenamiento", "Ubiquitina y proteasomas"] },
+      { title: "Retículo endoplasmático y Golgi", description: "Síntesis y control de calidad de proteínas, REL y clasificación vesicular.", subtopics: ["Ribosomas y RER", "Direccionamiento y control de calidad", "REL y especialización metabólica", "Golgi y cubiertas vesiculares"] },
+      { title: "Mitocondrias y peroxisomas", description: "Compartimentos, energía, genoma, importación y oxidación peroxisómica.", subtopics: ["Arquitectura mitocondrial", "Energía y genoma mitocondrial", "Peroxisomas"] },
+      { title: "Citoesqueleto", description: "Microtúbulos, motores, actina, proteínas asociadas y filamentos intermedios.", subtopics: ["Microtúbulos y dinámica", "Motores y fármacos microtubulares", "Actina y motilidad", "Proteínas asociadas a actina", "Filamentos intermedios"] },
+      { title: "Centrosoma y cilios", description: "Centriolos, huso, cuerpos basales y axonemas.", subtopics: ["Centriolos y organización microtubular", "Cuerpos basales y axonemas"] },
+      { title: "Inclusiones y citosol", description: "Pigmentos, glucógeno, gotas lipídicas y matriz citoplasmática.", subtopics: ["Pigmentos y reservas", "Matriz citoplasmática"] }
+    ]
+  },
+  {
+    chapter: "Capítulo 3",
+    title: "Núcleo celular",
+    groups: [
+      { title: "Cromatina y cromosomas", description: "Eucromatina, nucleosomas, heterocromatina, cariotipo y telómeros.", subtopics: ["Organización del núcleo", "Nucleosomas y compactación", "Heterocromatina y cuerpo de Barr", "Cromosomas, cariotipo y telómeros"] },
+      { title: "Nucléolo", description: "Regiones nucleolares, ARNr y ensamblaje de subunidades ribosómicas.", subtopics: ["Producción y ensamblaje ribosómico"] },
+      { title: "Envoltura y transporte nuclear", description: "Membranas, láminas, poros, importinas y exportinas.", subtopics: ["Membranas y lámina nuclear", "Poros, importación y exportación"] },
+      { title: "Renovación y ciclo celular", description: "Quiescencia, fases, cantidad de ADN, controles y ciclinas–Cdk.", subtopics: ["Poblaciones celulares y quiescencia", "Fases y cantidad de ADN", "Puntos de control y cáncer", "Ciclinas y Cdk"] },
+      { title: "Mitosis", description: "Cohesión, huso, separación de cromátidas y citocinesis.", subtopics: ["Cromátidas y huso", "Etapas y citocinesis"] },
+      { title: "Meiosis", description: "Profase I, recombinación, divisiones reduccional y ecuacional.", subtopics: ["Profase I y recombinación", "Divisiones y contenido genético"] },
+      { title: "Muerte celular", description: "Morfología, apoptosis, anoikis y otras respuestas reguladas.", subtopics: ["Morfología y homeostasis", "Regulación de apoptosis y anoikis", "Otras respuestas de muerte regulada"] }
+    ]
+  },
   {
     chapter: "Capítulo 4",
     title: "Tejidos",
@@ -1488,6 +1527,32 @@ const CHAPTER_MENUS: ChapterMenu[] = [
     ]
   },
   {
+    chapter: "Capítulo 22",
+    title: "Aparato reproductor masculino",
+    groups: [
+      { title: "Testículo y desarrollo", description: "Diferenciación sexual, organización, termorregulación y control hormonal.", subtopics: ["Diferenciación sexual", "Organización y termorregulación", "Intersticio y control hormonal"] },
+      { title: "Espermatogénesis", description: "Espermatogonias, meiosis, espermiogénesis, espermatozoide y ciclo seminífero.", subtopics: ["Espermatogonias y meiosis", "Espermiogénesis y espermiación", "Espermatozoide y ciclo seminífero"] },
+      { title: "Células de Sertoli", description: "Morfología, uniones, barrera hematotesticular, sostén y secreción.", subtopics: ["Morfología y uniones", "Barrera hematotesticular y secreción"] },
+      { title: "Vías espermáticas", description: "Túbulos rectos, red testicular, eferentes, epidídimo y deferente.", subtopics: ["Túbulos rectos, rete y eferentes", "Epidídimo y maduración", "Deferente y conducto eyaculador"] },
+      { title: "Glándulas accesorias y semen", description: "Vesículas seminales, próstata, glándulas bulbouretrales y composición del semen.", subtopics: ["Vesículas seminales", "Próstata", "Glándulas bulbouretrales y semen"] },
+      { title: "Pene", description: "Tejido eréctil, circulación, erección y control autonómico.", subtopics: ["Tejido eréctil y control vascular"] }
+    ]
+  },
+  {
+    chapter: "Capítulo 23",
+    title: "Aparato reproductor femenino",
+    groups: [
+      { title: "Ovario y folículos", description: "Organización, etapas foliculares, tecas, regulación hormonal, cuerpo lúteo y atresia.", subtopics: ["Organización del ovario", "Folículos primordiales y primarios", "Folículos antrales y tecas", "Regulación folicular", "Cuerpo lúteo y atresia"] },
+      { title: "Ovulación y fecundación", description: "Meiosis, liberación del ovocito, capacitación, reacción cortical y formación del cigoto.", subtopics: ["Meiosis y ovulación", "Capacitación y fecundación"] },
+      { title: "Trompas uterinas", description: "Segmentos, mucosa, células ciliadas, secreción y transporte.", subtopics: ["Pared y transporte tubáricos"] },
+      { title: "Útero y ciclo menstrual", description: "Pared, irrigación y cambios proliferativos, secretores y menstruales.", subtopics: ["Pared e irrigación uterinas", "Fases del endometrio"] },
+      { title: "Cuello uterino", description: "Moco, epitelios, zona de transformación y citología cervical.", subtopics: ["Mucosa cervical y citología"] },
+      { title: "Implantación y placenta", description: "Blastocisto, decidua, vellosidades, circulación, barrera y hormonas placentarias.", subtopics: ["Blastocisto y decidua", "Vellosidades y organización placentarias", "Circulación e intercambio placentarios", "Función endocrina placentaria"] },
+      { title: "Vagina y vulva", description: "Epitelio, pared, defensa local, genitales externos y glándulas vestibulares.", subtopics: ["Pared vaginal", "Genitales externos"] },
+      { title: "Glándula mamaria", description: "Unidades ductolobulillares, gestación, secreción láctea, reflejos e involución.", subtopics: ["Arquitectura y conductos mamarios", "Gestación y secreción láctea", "Control hormonal e involución"] }
+    ]
+  },
+  {
     chapter: "Artículo · Hemostasia y trombosis",
     title: "Hemostasia y trombosis",
     groups: [
@@ -2293,7 +2358,11 @@ export default function FlashcardSelectScreen({
           ...manualMenus.map(menu => {
             const covered = new Set(menu.groups.flatMap(group => group.subtopics))
             const missing = [...new Set(defaultCards.filter(c => c.chapter === menu.chapter && !covered.has(c.subtopic)).map(c => c.subtopic))]
-            return { ...menu, title: getStudyBank(subject)?.chapters.find(c => c.id === menu.chapter)?.title || menu.title, groups: [...menu.groups, ...missing.map(subtopic => ({ title: subtopic, description: "", subtopics: [subtopic] }))] }
+            const chapter = getStudyBank(subject)?.chapters.find(c => c.id === menu.chapter)
+            const title = chapter?.title && chapter.title !== chapter.id
+              ? chapter.title
+              : chapter?.subtitle || menu.title
+            return { ...menu, title, groups: [...menu.groups, ...missing.map(subtopic => ({ title: subtopic, description: "", subtopics: [subtopic] }))] }
           }),
           ...generatedChapterMenus.filter(
             menu => !manualChapters.has(menu.chapter)
@@ -2323,6 +2392,14 @@ export default function FlashcardSelectScreen({
             /^Art[ií]culo(?:\s|\b)/i.test(chapter)
 
         return [
+          {
+            title: "Fundamentos",
+            range: "Métodos y biología celular",
+            menus: availableChapterMenus.filter(menu => {
+              const number = getChapterNumber(menu.chapter)
+              return !isArticle(menu.chapter) && number >= 1 && number <= 3
+            })
+          },
           {
             title: "Citohistología I",
             range: "Capítulos 4–12",
@@ -2469,7 +2546,6 @@ export default function FlashcardSelectScreen({
           lg:p-6
         ">
           <div className="flashcard-chapter-static shrink-0">
-          <FlashcardStudyModeSwitch/>
           <div className="
             mb-3
             flex
@@ -2504,7 +2580,7 @@ export default function FlashcardSelectScreen({
                     tracking-[0.25em]
                     text-violet-300
                   ">
-                    Flashcards FSRS
+                    {studyMode === "free" ? "Solo flashcards" : "Flashcards FSRS"}
                   </p>
 
                   <h1 className={`

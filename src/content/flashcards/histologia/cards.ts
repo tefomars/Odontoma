@@ -1,3 +1,6 @@
+import { cap1Flashcards } from "./cap1"
+import { cap2Flashcards } from "./cap2"
+import { cap3Flashcards } from "./cap3"
 import { cap13Flashcards } from "./cap13"
 import { cap14Flashcards } from "./cap14"
 import { cap15Flashcards } from "./cap15"
@@ -7,6 +10,8 @@ import { cap18RebuiltFlashcards } from "./cap18Rebuilt"
 import { cap19RebuiltFlashcards } from "./cap19Rebuilt"
 import { cap20RebuiltFlashcards } from "./cap20Rebuilt"
 import { cap21Flashcards } from "./cap21"
+import { cap22Flashcards } from "./cap22"
+import { cap23Flashcards } from "./cap23"
 import { articuloHemostasiaFlashcards } from "./articuloHemostasia"
 
 export type Flashcard = {
@@ -26,6 +31,9 @@ export type Flashcard = {
 }
 
 const histologiaFlashcardsBase: Flashcard[] = [
+  ...cap1Flashcards,
+  ...cap2Flashcards,
+  ...cap3Flashcards,
   {
     "id": "histo-cap10-fundamentos-de-la-sangre-0001",
     "subject": "Histología",
@@ -74011,6 +74019,8 @@ const histologiaFlashcardsBase: Flashcard[] = [
   ...cap19RebuiltFlashcards,
   ...cap20RebuiltFlashcards,
   ...cap21Flashcards,
+  ...cap22Flashcards,
+  ...cap23Flashcards,
   ...articuloHemostasiaFlashcards
 ]
 

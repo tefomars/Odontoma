@@ -1,3 +1,6 @@
+import { cap1Questions } from "./cap1/questions"
+import { cap2Questions } from "./cap2/questions"
+import { cap3Questions } from "./cap3/questions"
 import { cap4Questions } from "./cap4/questions"
 import { cap5Questions } from "./cap5/questions"
 import { cap6Questions } from "./cap6/questions"
@@ -16,9 +19,14 @@ import { cap18Questions } from "./cap18/questions"
 import { cap19Questions } from "./cap19/questions"
 import { cap20Questions } from "./cap20/questions"
 import { cap21Questions } from "./cap21/questions"
+import { cap22Questions } from "./cap22/questions"
+import { cap23Questions } from "./cap23/questions"
 import { hemostasiaQuestions } from "./articulos/hemostasiaQuestions"
 
 export const questions = [
+  ...cap1Questions,
+  ...cap2Questions,
+  ...cap3Questions,
   ...cap4Questions,
   ...cap5Questions,
   ...cap6Questions,
@@ -37,10 +45,15 @@ export const questions = [
   ...cap19Questions,
   ...cap20Questions,
   ...cap21Questions,
+  ...cap22Questions,
+  ...cap23Questions,
   ...hemostasiaQuestions
 ]
 
 export const questionCountsByChapter = {
+  "Capítulo 1": cap1Questions.length,
+  "Capítulo 2": cap2Questions.length,
+  "Capítulo 3": cap3Questions.length,
   "Capítulo 4": cap4Questions.length,
   "Capítulo 5": cap5Questions.length,
   "Capítulo 6": cap6Questions.length,
@@ -59,5 +72,7 @@ export const questionCountsByChapter = {
   "Capítulo 19": cap19Questions.length,
   "Capítulo 20": cap20Questions.length,
   "Capítulo 21": cap21Questions.length,
+  "Capítulo 22": cap22Questions.length,
+  "Capítulo 23": cap23Questions.length,
   "Artículo · Hemostasia y trombosis": hemostasiaQuestions.length
 }

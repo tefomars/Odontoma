@@ -1017,6 +1017,17 @@ button:active:not(:disabled) {
   -webkit-overflow-scrolling: touch;
 }
 
+/* This compact choice stays side by side, unlike the full-width mobile deck cards. */
+.flashcard-book-shell [data-flashcard-mode-picker] .flashcard-mode-options {
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 8px !important;
+}
+
+.flashcard-book-shell [data-flashcard-mode-picker] > h2 {
+  font-size: 11px !important;
+  line-height: 1.4 !important;
+}
+
 /* Quita el look de textbox/highlight feo dentro de cards */
 .flashcard-book-shell button,
 .flashcard-book-shell h1,

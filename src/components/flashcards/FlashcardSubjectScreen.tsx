@@ -13,6 +13,7 @@ import {
 } from "@/lib/flashcardDecks"
 
 import FsrsOptimizerPanel from "@/components/flashcards/FsrsOptimizerPanel"
+import FlashcardStudyModeSwitch from "./FlashcardStudyModeSwitch"
 
 import {
   loadUserFlashcards,
@@ -206,7 +207,7 @@ export default function FlashcardSubjectScreen({
             lg:items-end
             lg:justify-between
           ">
-            <div>
+            <div className="min-w-0 lg:flex-1">
               <div className="
                 mb-4
                 flex
@@ -255,32 +256,7 @@ export default function FlashcardSubjectScreen({
               </p>
             </div>
 
-            <div className="
-              rounded-[1.5rem]
-              border
-              border-zinc-800
-              bg-zinc-950
-              px-5
-              py-4
-            ">
-              <p className="
-                text-xs
-                font-black
-                uppercase
-                tracking-[0.25em]
-                text-zinc-500
-              ">
-                Sistema
-              </p>
-
-              <p className="
-                mt-2
-                text-2xl
-                font-black
-              ">
-                FSRS
-              </p>
-            </div>
+            <FlashcardStudyModeSwitch preview={editorMode} />
           </div>
 
           <button
