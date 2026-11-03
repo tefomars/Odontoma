@@ -1,3 +1,4 @@
+import { requireBrowserStorage } from "./storageSafety"
 const STORAGE_KEY =
   "odontoma_fsrs_parameters"
 
@@ -51,7 +52,7 @@ export function saveFsrsParameters(
   parameters: OdontomaFsrsParameters
 ) {
 
-  localStorage.setItem(
+  requireBrowserStorage(
     STORAGE_KEY,
     JSON.stringify(parameters)
   )

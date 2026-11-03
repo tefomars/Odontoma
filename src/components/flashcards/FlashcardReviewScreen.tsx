@@ -353,8 +353,8 @@ function ScheduledFlashcardReviewScreen({
 
     if (!nextStorage) return
 
+    if (!saveFsrsStorage(nextStorage)) return
     setStorage(nextStorage)
-    saveFsrsStorage(nextStorage)
     setShowAnswer(false)
     setUndoReviewStack(stack => stack.slice(0, -1))
     setUndoFocusedCardId(undoReview.cardId)
@@ -446,8 +446,8 @@ function ScheduledFlashcardReviewScreen({
       ]
     }
 
+    if (!saveFsrsStorage(nextStorage)) return
     setStorage(nextStorage)
-    saveFsrsStorage(nextStorage)
     setUndoFocusedCardId(null)
     setUndoReviewStack(stack => [
       ...stack,

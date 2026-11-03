@@ -1,3 +1,4 @@
+import { requireBrowserStorage } from "./storageSafety"
 const SUSPENDED_KEY =
   "odontoma_suspended_flashcards"
 
@@ -24,7 +25,7 @@ export function saveSuspendedFlashcardIds(
   ids: string[]
 ) {
 
-  localStorage.setItem(
+  requireBrowserStorage(
     SUSPENDED_KEY,
     JSON.stringify(Array.from(new Set(ids)))
   )

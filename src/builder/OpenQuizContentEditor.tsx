@@ -1,3 +1,4 @@
+import { writeBrowserStorage } from "../lib/storageSafety"
 import { useEffect, useMemo, useState } from "react"
 import { useDraftStatus } from "./draftStatus"
 import { addWrittenContent, type CreationEvent } from "./contentCreation"
@@ -356,7 +357,7 @@ export default function OpenQuizContentEditor({ active = true, target }: { activ
   }
 
   function saveDraft() {
-    localStorage.setItem(CONTENT_DRAFT_KEY, JSON.stringify(content))
+    if (!writeBrowserStorage(CONTENT_DRAFT_KEY, JSON.stringify(content))) return
     setStatus("Borrador guardado solo en esta máquina. Todavía no está publicado.")
   }
 

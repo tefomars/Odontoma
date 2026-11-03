@@ -1,6 +1,7 @@
+import { requireBrowserStorage } from "./storageSafety"
 export function saveSession(session: any) {
 
-  localStorage.setItem(
+  requireBrowserStorage(
     "odontoma_session",
     JSON.stringify(session)
   )

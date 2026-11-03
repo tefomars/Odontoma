@@ -1,5 +1,6 @@
 import { useEffect, useLayoutEffect, useMemo, useRef, useState, type ReactNode } from "react"
 import { useSwipeBack } from "@/hooks/useSwipeBack"
+import { writeBrowserStorage } from "@/lib/storageSafety"
 
 import HomeScreen from "./components/HomeScreen"
 import StudyMethodScreen from "./components/StudyMethodScreen"
@@ -630,10 +631,10 @@ export default function App() {
       sessionResponses
     }
 
-    localStorage.setItem(
+    if (!writeBrowserStorage(
       "odontoma_paused_session",
       JSON.stringify(pausedSession)
-    )
+    )) return
 
     setHasPausedSession(true)
     setStarted(false)
@@ -929,7 +930,7 @@ export default function App() {
           .filter((response): response is QuizResponseRecord => Boolean(response))
       }
 
-      saveQuizAttempt(attempt)
+      if (!saveQuizAttempt(attempt)) return
       setCompletedAttempt(attempt)
       setHasPausedSession(false)
       localStorage.removeItem("odontoma_paused_session")

@@ -1,3 +1,4 @@
+import { requireBrowserStorage } from "./storageSafety"
 import type {
   Flashcard
 } from "@/content/flashcards/histologia/cards"
@@ -54,7 +55,7 @@ export function saveUserFlashcardTopics(
   topics: UserFlashcardTopic[]
 ) {
 
-  localStorage.setItem(
+  requireBrowserStorage(
     TOPICS_KEY,
     JSON.stringify(topics)
   )
@@ -105,7 +106,7 @@ export function saveUserFlashcards(
   cards: Flashcard[]
 ) {
 
-  localStorage.setItem(
+  requireBrowserStorage(
     CARDS_KEY,
     JSON.stringify(cards)
   )

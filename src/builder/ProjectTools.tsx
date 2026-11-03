@@ -1,9 +1,12 @@
 import { useCallback, useEffect, useState } from "react"
 import { createPortal } from "react-dom"
-import { draft } from "./LibraryEditor"
+import { draft, libraryDraftRecord } from "./LibraryEditor"
 import { useDraftReports, useNavigationIssues, type DraftArea } from "./draftStatus"
 import { workspaceNavigate, type WorkspaceTarget } from "./workspaceBridge"
-import { localHistoryDate, type HistoryEntry, type ProjectSnapshot } from "./projectHistory"
+import { describeChanges, localHistoryDate, type HistoryEntry, type ProjectSnapshot } from "./projectHistory"
+import { libraryChanges, writtenChanges } from "./librarySafety"
+import { collectProjectDraft } from "./projectDraft"
+import type { StudioData } from "@/content/studio/schema"
 
 const keys: Record<string, string> = { written: "odontoma-open-quiz-builder-draft-v1", home: "odontoma-home-builder-draft-v2", decks: "odontoma-flashcard-subjects-builder-draft-v1", pages: "odontoma-custom-pages-draft-v1", overrides: "odontoma-ui-overrides-draft-v1", theme: "odontoma-builder-draft-v1", organization: "odontoma-organization-draft-v1" }
 async function json(url: string, options?: RequestInit) { const r = await fetch(url, options); if (!r.ok) throw new Error(await r.text()); return r.json() }
@@ -17,12 +20,27 @@ export default function ProjectTools() {
   const [busy, setBusy] = useState(false)
   const [saveError, setSaveError] = useState("")
   const [review, setReview] = useState(false)
+  const [baseProject, setBaseProject] = useState<ProjectSnapshot | null>(null)
+  const [savePreview, setSavePreview] = useState<ProjectSnapshot | null>(null)
+  const [previewBusy, setPreviewBusy] = useState(false)
+  useEffect(() => { let active = true; Promise.all([json("/__odontoma-studio/project"), json("/__odontoma-studio/catalog")]).then(([project, library]) => { if (active) setBaseProject({ ...project, files: { ...project.files, library } }) }).catch(e => setSaveError(String(e))); return () => { active = false } }, [])
   const reports = useDraftReports()
   const issues = useNavigationIssues()
   const dirty = reports.filter(r => r.dirty)
   const ready = reports.every(r => r.ready)
   const errors = issues.filter(i => i.severity === "error")
-  const canSave = ready && dirty.length > 0 && !errors.length && !busy
+  const blocked = reports.filter(r => r.blocked)
+  const canSave = ready && Boolean(baseProject) && dirty.length > 0 && !errors.length && !blocked.length && !busy
+  const prepareReview = useCallback(async () => {
+    setReview(true); setSavePreview(null); setSaveError("")
+    if (!ready || !baseProject) return
+    setPreviewBusy(true)
+    try {
+      const preview = await collectProjectDraft()
+      if (preview.revision !== baseProject.revision) throw new Error("El proyecto guardado cambió en otra ventana. Exportá tu borrador antes de recargar; no se guardó nada.")
+      setSavePreview(preview)
+    } catch (error) { setSaveError(String(error)) } finally { setPreviewBusy(false) }
+  }, [ready, baseProject])
   useEffect(() => { window.dispatchEvent(new CustomEvent("odontoma-save-busy", { detail: busy })) }, [busy])
   useEffect(() => {
     if (!dirty.length || busy) return
@@ -36,7 +54,7 @@ export default function ProjectTools() {
   const [kind, setKind] = useState(false)
   const refresh = useCallback(async () => { setVersions(await json("/__odontoma-studio/history")) }, [])
   const applyAll = useCallback(async () => {
-    if (!canSave) return
+    if (!canSave || !savePreview) return
     setSaveError("")
     setBusy(true)
     try {
@@ -44,21 +62,25 @@ export default function ProjectTools() {
       window.dispatchEvent(new CustomEvent("odontoma-flush-drafts", { detail: pendingWrites }))
       await Promise.all(pendingWrites.writes)
       const project = await json("/__odontoma-studio/project")
+      if (project.revision !== baseProject?.revision) throw new Error("El proyecto cambió en otra ventana. No se guardó nada. Exportá tu borrador y recargá para comparar.")
       for (const [area, key] of Object.entries(keys)) { const raw = localStorage.getItem(key); if (raw) project.files[area] = JSON.parse(raw) }
       Object.assign(project.files, pendingWrites.files)
       const library = await draft(); if (library) project.files.library = library
-      await json("/__odontoma-studio/project", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(project) })
+      if (JSON.stringify(project.files) !== JSON.stringify(savePreview.files)) throw new Error("El borrador cambió después del resumen. Volvé a abrir Revisar cambios antes de confirmar.")
+      await json("/__odontoma-studio/project", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ...project, expectedRevision: baseProject?.revision, libraryBaseRevision: (await libraryDraftRecord())?.baseRevision }) })
       await clearDrafts()
       sessionStorage.setItem("odontoma-builder-last-save", "Guardado en Odontoma local. Se creó una copia anterior. Publicá con tu comando habitual cuando quieras.")
       window.location.reload()
     } catch (e) { setStatus(String(e)); setSaveError(String(e)); setBusy(false) }
-  }, [canSave])
+  }, [canSave, savePreview, baseProject])
   useEffect(() => {
     const show = () => { setOpen(true); void refresh().catch(e => setStatus(String(e))) }
-    const save = (e: KeyboardEvent) => { if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "s") { e.preventDefault(); if (!busy) void applyAll() } }
+    const reviewSave = () => { if (!busy) void prepareReview() }
+    const save = (e: KeyboardEvent) => { if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "s") { e.preventDefault(); if (!busy) void prepareReview() } }
     window.addEventListener("odontoma-open-history", show); window.addEventListener("keydown", save)
-    return () => { window.removeEventListener("odontoma-open-history", show); window.removeEventListener("keydown", save) }
-  }, [applyAll, busy, refresh])
+    window.addEventListener("odontoma-request-save-review", reviewSave)
+    return () => { window.removeEventListener("odontoma-open-history", show); window.removeEventListener("keydown", save); window.removeEventListener("odontoma-request-save-review", reviewSave) }
+  }, [prepareReview, busy, refresh])
   useEffect(() => {
     if (!open && !review) return
     const previous = document.activeElement as HTMLElement | null
@@ -81,7 +103,8 @@ export default function ProjectTools() {
     if (!pending) return
     setBusy(true)
     try {
-      await json("/__odontoma-studio/project", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ...pending.project, restore: true }) })
+      const current = await json("/__odontoma-studio/project")
+      await json("/__odontoma-studio/project", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ...pending.project, restore: true, expectedRevision: current.revision }) })
       await clearDrafts()
       sessionStorage.setItem("odontoma-builder-last-save", "Versión restaurada LOCALMENTE. Se guardó una copia del estado anterior. Vercel no cambió: publicá nuevamente para actualizar el sitio.")
       window.location.reload()
@@ -91,12 +114,13 @@ export default function ProjectTools() {
     setBusy(true)
     try { await json("/__odontoma-studio/checkpoint", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ label: label.trim() || "Punto de recuperación", publication: kind }) }); setLabel(""); setStatus("Punto creado del proyecto guardado. Los borradores sin aplicar no se incluyen."); await refresh() } catch (e) { setStatus(String(e)) } finally { setBusy(false) }
   }
+  const changeCounts = baseProject && savePreview ? { ...libraryChanges(baseProject.files.library as StudioData, savePreview.files.library as StudioData), written: writtenChanges(baseProject.files.written, savePreview.files.written) } : null
   return <div className="studio-project-tools">
-    <button className={`studio-save-status ${dirty.length ? "has-changes" : ""}`} onClick={() => setReview(true)} aria-label="Revisar cambios y enlaces">{!ready ? `Cargando editores (${reports.filter(r => r.ready).length}/8)…` : errors.length ? `${errors.length} enlaces por corregir` : dirty.length ? `${dirty.length} ${dirty.length === 1 ? "sección con cambios pendientes" : "secciones con cambios pendientes"}` : "Todo guardado · local"}</button>
+    <button className={`studio-save-status ${dirty.length ? "has-changes" : ""}`} onClick={() => void prepareReview()} aria-label="Revisar cambios y enlaces">{!ready ? `Cargando editores (${reports.filter(r => r.ready).length}/8)…` : blocked.length ? "Borrador recuperado: requiere revisión" : errors.length ? `${errors.length} enlaces por corregir` : dirty.length ? `${dirty.length} ${dirty.length === 1 ? "sección con cambios pendientes" : "secciones con cambios pendientes"}` : "Todo guardado · local"}</button>
     <button onClick={() => { setOpen(true); void refresh().catch(e => setStatus(String(e))) }}>↶ Historial y backups</button>
-    <button className="studio-primary" disabled={!canSave} onClick={() => void applyAll()}>{busy ? "Procesando…" : "Guardar en Odontoma"} <kbd>⌘S</kbd></button>
+    <button className="studio-primary" disabled={!canSave} onClick={() => void prepareReview()}>{busy ? "Procesando…" : "Guardar en Odontoma"} <kbd>⌘S</kbd></button>
     {saveError && <button className="studio-save-error" role="alert" title={saveError} onClick={() => setReview(true)}>No se guardó. Ver el error y revisar cambios.</button>}
-    {review && createPortal(<div className="studio-modal-backdrop studio-shell" onClick={() => setReview(false)}><section className="studio-history-modal" role="dialog" aria-modal="true" aria-label="Cambios pendientes y enlaces" onClick={e => e.stopPropagation()} onKeyDown={e => { if (e.key === "Escape") setReview(false) }}><header><h2>Cambios y enlaces</h2><button autoFocus aria-label="Cerrar revisión" onClick={() => setReview(false)}>×</button></header><p>Guardar aplica todas las secciones modificadas en esta computadora. No publica en Git ni Vercel.</p>{reports.filter(r => r.dirty || !r.ready).map(r => <article key={r.area}><strong>{r.label}</strong><p>{r.ready ? "Cambios pendientes" : "Todavía no se pudo cargar. Recargá el builder antes de guardar."}</p><button onClick={() => { const targets: Record<DraftArea, WorkspaceTarget> = { library: { panel: "library" }, home: { panel: "structure", view: "main-menu" }, decks: { panel: "structure", view: "flashcard-subjects" }, written: { panel: "written" }, pages: { panel: "pages" }, organization: { panel: "sections" }, theme: { panel: "appearance" }, overrides: { panel: "preview" } }; workspaceNavigate(targets[r.area]); setReview(false) }}>Ir al editor</button></article>)}{ready && !dirty.length && <p>No hay cambios pendientes.</p>}<h3>Revisión de navegación</h3>{!issues.length && <p>Sin enlaces rotos detectados.</p>}{issues.map(i => <article key={i.id}><strong>{i.severity === "error" ? "Corregir antes de guardar" : "Aviso"}</strong><p>{i.message}</p><button onClick={() => { workspaceNavigate(i.target); setReview(false) }}>Ir a este botón</button></article>)}<p role="status">{status}</p><button className="studio-primary" disabled={!canSave} onClick={() => { setReview(false); void applyAll() }}>Guardar todo en Odontoma</button></section></div>, document.body)}
+    {review && createPortal(<div className="studio-modal-backdrop studio-shell" onClick={() => setReview(false)}><section className="studio-history-modal" role="dialog" aria-modal="true" aria-label="Cambios pendientes y enlaces" onClick={e => e.stopPropagation()} onKeyDown={e => { if (e.key === "Escape") setReview(false) }}><header><h2>Cambios y enlaces</h2><button autoFocus aria-label="Cerrar revisión" onClick={() => setReview(false)}>×</button></header><p>Guardar aplica todas las secciones modificadas en esta computadora. No publica en Git ni Vercel.</p>{previewBusy && <p role="status">Preparando resumen…</p>}{changeCounts && <section aria-label="Resumen antes de guardar"><h3>Esto es lo que vas a guardar</h3>{Object.entries(changeCounts).map(([type, counts]) => <p key={type}><strong>{type === "questions" ? "Opción múltiple" : type === "written" ? "Preguntas escritas" : "Flashcards"}:</strong> {counts.added} agregadas · {counts.modified} modificadas · {counts.removed} eliminadas</p>)}{baseProject && savePreview && <ul>{describeChanges(baseProject, savePreview).map(change => <li key={change}>{change}</li>)}</ul>}</section>}{blocked.map(report => <p role="alert" key={report.area}>{report.blocked}</p>)}{saveError && <p role="alert">{saveError}</p>}{reports.filter(r => r.dirty || !r.ready).map(r => <article key={r.area}><strong>{r.label}</strong><p>{r.ready ? "Cambios pendientes" : "Todavía no se pudo cargar. Recargá el builder antes de guardar."}</p><button onClick={() => { const targets: Record<DraftArea, WorkspaceTarget> = { library: { panel: "library" }, home: { panel: "structure", view: "main-menu" }, decks: { panel: "structure", view: "flashcard-subjects" }, written: { panel: "written" }, pages: { panel: "pages" }, organization: { panel: "sections" }, theme: { panel: "appearance" }, overrides: { panel: "preview" } }; workspaceNavigate(targets[r.area]); setReview(false) }}>Ir al editor</button></article>)}{ready && !dirty.length && <p>No hay cambios pendientes.</p>}<h3>Revisión de navegación</h3>{!issues.length && <p>Sin enlaces rotos detectados.</p>}{issues.map(i => <article key={i.id}><strong>{i.severity === "error" ? "Corregir antes de guardar" : "Aviso"}</strong><p>{i.message}</p><button onClick={() => { workspaceNavigate(i.target); setReview(false) }}>Ir a este botón</button></article>)}<p role="status">{status}</p><button className="studio-primary" disabled={!canSave || !savePreview || Boolean(saveError) || previewBusy} onClick={() => void applyAll()}>Confirmar guardado local</button></section></div>, document.body)}
     {open && createPortal(<div className="studio-modal-backdrop studio-shell" role="presentation"><section className="studio-history-modal" role="dialog" aria-modal="true" aria-label="Historial y backups">
       <header><div><small>RECUPERACIÓN LOCAL</small><h2>Historial y backups</h2></div><button aria-label="Cerrar historial" onClick={() => { setOpen(false); setPending(null) }}>×</button></header>
       <p>De más reciente a más antigua · hora de Guatemala. Las copias automáticas conservan el estado <strong>anterior</strong> al cambio. Restaurar no publica ni revierte código.</p>

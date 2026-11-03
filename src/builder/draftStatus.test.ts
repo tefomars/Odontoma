@@ -12,3 +12,11 @@ it("distingue carga, edición pendiente y deshacer a la versión guardada", () =
   expect(getDraftReports().find(r => r.area === "written")?.dirty).toBe(true)
   setDraftReport("written", true, false)
 })
+
+it("retains a recovery block until explicitly reviewed", () => {
+  setDraftReport("library", true, true, "Revisar borrador antiguo")
+  expect(getDraftReports().find(r => r.area === "library")?.blocked).toBe("Revisar borrador antiguo")
+  setDraftReport("library", true, true)
+  expect(getDraftReports().find(r => r.area === "library")?.blocked).toBeUndefined()
+  setDraftReport("library", true, false)
+})

@@ -1,3 +1,4 @@
+import { writeBrowserStorage } from "../lib/storageSafety"
 import { StrictMode, useEffect, useMemo, useState } from "react"
 import { createRoot } from "react-dom/client"
 
@@ -5,6 +6,7 @@ import "../index.css"
 import "./builder.css"
 
 import StudioWorkspace from "./StudioWorkspace"
+import StorageNotice from "../components/StorageNotice"
 import { useHistoryState } from "./useHistoryState"
 import { useDraftStatus } from "./draftStatus"
 import { useWorkspaceHistory } from "./workspaceBridge"
@@ -148,7 +150,7 @@ function AppearanceEditor({ active }: { active: boolean }) {
 
   useEffect(() => {
     if (!themeLoaded) return
-    localStorage.setItem(DRAFT_KEY, JSON.stringify(theme))
+    writeBrowserStorage(DRAFT_KEY, JSON.stringify(theme))
   }, [theme, themeLoaded])
 
   useEffect(() => {
@@ -518,6 +520,7 @@ function RangeControl({
 
 createRoot(document.getElementById("builder-root")!).render(
   <StrictMode>
+    <StorageNotice />
     <StudioWorkspace appearance={active => <AppearanceEditor active={active}/>} />
   </StrictMode>
 )

@@ -30,7 +30,8 @@ import {
 
 import { relayWheelToPanel } from "@/lib/nestedScroll"
 
-import { useFlashcardStudyMode, setFlashcardStudyMode } from "@/lib/flashcardStudyMode"
+import { useFlashcardStudyMode } from "@/lib/flashcardStudyMode"
+import { loadFreeFlashcardProgress, selectFreeFlashcards } from "@/lib/freeFlashcardProgress"
 
 type Props = {
   subject?: string
@@ -2466,8 +2467,11 @@ export default function FlashcardSelectScreen({
   }, [selectedChapter])
 
   const [studyMode] = useFlashcardStudyMode()
+  const freeProgress = loadFreeFlashcardProgress()
+  const freeCards = [...defaultCards, ...myCards]
+  const pendingFree = selectFreeFlashcards(freeCards, freeProgress, "mixed").length
   const totalReviews =
-    storage.reviews.length
+    studyMode === "free" ? freeCards.filter(card => freeProgress[card.id]?.status === "completed").length : storage.reviews.length
 
   const suspendedCount =
     loadSuspendedFlashcardIds().length
@@ -2628,7 +2632,7 @@ export default function FlashcardSelectScreen({
                   tracking-[0.2em]
                   text-zinc-500
                 ">
-                  Reviews
+                  {studyMode === "free" ? "Completadas" : "Reviews"}
                 </p>
 
                 <p className="
@@ -2665,7 +2669,7 @@ export default function FlashcardSelectScreen({
                   font-black
                   text-white
                 ">
-                  {defaultDue + myDue}
+                  {studyMode === "free" ? pendingFree : defaultDue + myDue}
                 </p>
               </div>
 
@@ -2706,10 +2710,10 @@ export default function FlashcardSelectScreen({
 
               </button>
 
-              <button
+              {studyMode === "fsrs" && <button
                 type="button"
                 aria-label="Repasar primero las tarjetas vencidas que ya habías estudiado."
-                onClick={() => { setFlashcardStudyMode("fsrs"); onSelectTopic("__reviewed_due", "default") }}
+                onClick={() => onSelectTopic("__reviewed_due", "default")}
                 className="
                   relative
                   rounded-3xl
@@ -2741,7 +2745,7 @@ export default function FlashcardSelectScreen({
                   Repasar
                 </p>
 
-              </button>
+              </button>}
 
             </div>
           </div>

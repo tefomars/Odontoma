@@ -1,3 +1,5 @@
+import { writeBrowserStorage } from "./storageSafety"
+
 export const QUIZ_HISTORY_KEY = "odontoma_quiz_history_v1"
 export const QUIZ_HISTORY_LIMIT_PER_MODE = 7
 
@@ -118,7 +120,7 @@ export function saveQuizAttempt(attempt: QuizAttempt) {
 
   const limited = limitHistoryByMode(next)
 
-  localStorage.setItem(QUIZ_HISTORY_KEY, JSON.stringify(limited))
+  if (!writeBrowserStorage(QUIZ_HISTORY_KEY, JSON.stringify(limited))) return null
   return limited
 }
 

@@ -1,5 +1,6 @@
 import type { OpenQuizGrade } from "@/content/openQuizzes"
 import type { QuizResponseRecord } from "@/lib/quizHistory"
+import { writeBrowserStorage, removeBrowserStorage } from "./storageSafety"
 
 export const OPEN_QUIZ_PROGRESS_KEY = "odontoma_open_quiz_progress_v1"
 
@@ -40,7 +41,7 @@ export function loadOpenQuizProgress(deckId: string) {
 }
 
 export function saveOpenQuizProgress(progress: OpenQuizProgress) {
-  localStorage.setItem(OPEN_QUIZ_PROGRESS_KEY, JSON.stringify({
+  return writeBrowserStorage(OPEN_QUIZ_PROGRESS_KEY, JSON.stringify({
     ...loadAll(),
     [progress.deckId]: progress
   }))
@@ -51,8 +52,8 @@ export function clearOpenQuizProgress(deckId: string) {
   delete stored[deckId]
 
   if (Object.keys(stored).length === 0) {
-    localStorage.removeItem(OPEN_QUIZ_PROGRESS_KEY)
+    return removeBrowserStorage(OPEN_QUIZ_PROGRESS_KEY)
   } else {
-    localStorage.setItem(OPEN_QUIZ_PROGRESS_KEY, JSON.stringify(stored))
+    return writeBrowserStorage(OPEN_QUIZ_PROGRESS_KEY, JSON.stringify(stored))
   }
 }

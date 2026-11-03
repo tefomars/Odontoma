@@ -1,3 +1,4 @@
+import { writeBrowserStorage } from "../lib/storageSafety"
 import { useEffect, useState } from "react"
 import { organization, validateOrganization, reviewClassPresentation, type Organization, type ReviewClassStyle } from "@/content/appBuilder/organization"
 import { useHistoryState } from "./useHistoryState"
@@ -22,7 +23,7 @@ export default function SectionsEditor({ active, target }: { active: boolean; ta
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
   useEffect(() => {
     if (!loaded) return
-    localStorage.setItem("odontoma-organization-draft-v1", JSON.stringify(history.state))
+    writeBrowserStorage("odontoma-organization-draft-v1", JSON.stringify(history.state))
     publishIndex("organization", history.state)
     const flush = (event: Event) => { (event as CustomEvent).detail.files.organization = history.state }
     window.addEventListener("odontoma-flush-drafts", flush)

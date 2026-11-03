@@ -1,3 +1,4 @@
+import { writeBrowserStorage } from "../lib/storageSafety"
 import { useEffect, useRef, useState, type ReactNode } from "react"
 import { collectProjectDraft } from "./projectDraft"
 import type { ProjectSnapshot } from "./projectHistory"
@@ -61,6 +62,17 @@ function pathFromRoot(element: HTMLElement, root: HTMLElement) {
     if (element === cloneRoot) return prefix
     const suffix = pathFromRoot(element, cloneRoot)
     return suffix ? `${prefix} > ${suffix}` : prefix
+  }
+
+  // Stable semantic anchors survive inserting/reordering sibling menu cards.
+  const anchor = element.closest<HTMLElement>("[data-studio-target]")
+  if (anchor && anchor !== root && root.contains(anchor)) {
+    const prefix = `[data-studio-target=${JSON.stringify(anchor.dataset.studioTarget)}]`
+    if (root.querySelectorAll(prefix).length === 1) {
+      if (element === anchor) return prefix
+      const suffix = pathFromRoot(element, anchor)
+      return suffix ? `${prefix} > ${suffix}` : prefix
+    }
   }
 
   const parts: string[] = []
@@ -165,6 +177,7 @@ export default function UniversalUiEditor({ active = true, target }: { active?: 
   useDraftStatus("overrides", loaded, overrides, appliedOverrides)
   const [saving, setSaving] = useState(false)
   const [currentScreenKey, setCurrentScreenKey] = useState<string | null>(null)
+  const [unmatchedOverrides, setUnmatchedOverrides] = useState(0)
 
   useEffect(() => {
     const receive = (e: MessageEvent) => {
@@ -207,7 +220,7 @@ export default function UniversalUiEditor({ active = true, target }: { active?: 
   useEffect(() => {
     if (!loaded) return
     if (JSON.stringify(overrides) === JSON.stringify(appliedOverrides)) localStorage.removeItem(UI_DRAFT_KEY)
-    else localStorage.setItem(UI_DRAFT_KEY, JSON.stringify(overrides))
+    else writeBrowserStorage(UI_DRAFT_KEY, JSON.stringify(overrides))
   }, [loaded, overrides, appliedOverrides])
 
   useEffect(() => {
@@ -276,6 +289,11 @@ export default function UniversalUiEditor({ active = true, target }: { active?: 
       const syncScreen = () => {
         const root = document.querySelector<HTMLElement>("[data-screen-key]")
         setCurrentScreenKey(root?.dataset.screenKey || null)
+        const missing = overrides.filter(override => {
+          if (!root || override.screenKey !== root.dataset.screenKey) return false
+          try { return !root.querySelector(override.selector) } catch { return true }
+        }).length
+        setUnmatchedOverrides(missing)
       }
       syncScreen()
       const observer = new MutationObserver(syncScreen)
@@ -504,6 +522,7 @@ export default function UniversalUiEditor({ active = true, target }: { active?: 
         )}
         <footer className="inspector-actions">
           <div className="inspector-status"><span className="status-dot active" /><p>{status}</p></div>
+          {unmatchedOverrides > 0 && <p role="status">{unmatchedOverrides} ajustes visuales no encuentran su elemento en esta pantalla. Revisalos en el editor; no se borraron automáticamente.</p>}
           <p className="destination-help">{overrides.length} personalizaciones en el borrador.</p>
           <div className="actions">
             <button className="builder-button secondary" onClick={overrideHistory.undo} disabled={!overrideHistory.canUndo}>↶ Deshacer</button><button className="builder-button secondary" onClick={overrideHistory.redo} disabled={!overrideHistory.canRedo}>↷ Rehacer</button>

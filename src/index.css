@@ -1191,3 +1191,12 @@ button.open-quiz-deck-card:focus-visible {
     transition: none;
   }
 }
+/* Storage failures must be visible even while a full-screen study panel is open. */
+.storage-notice {
+  position: fixed; z-index: 2147483647; top: max(12px, env(safe-area-inset-top));
+  left: 50%; transform: translateX(-50%); width: min(92vw, 650px);
+  padding: 16px; border: 1px solid #f59e0b; border-radius: 16px;
+  background: #271b09; color: #fff; box-shadow: 0 8px 32px #0009;
+}
+.storage-notice p { margin: 0 0 8px; }
+.storage-notice button { padding: 8px 14px; border: 1px solid #f59e0b; border-radius: 10px; }

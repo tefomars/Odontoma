@@ -10,6 +10,7 @@ import { describeChanges, projectCounts, historyDate, type ProjectSnapshot } fro
 import { renderBuilderCss, type BuilderTheme } from "./theme.ts"
 import { validateWrittenContent, normalizeWrittenForSave } from "../content/openQuizzes/validation.ts"
 import type { OpenQuizContent } from "../content/openQuizzes/types.ts"
+import { contentRevision } from "./librarySafety.ts"
 
 function assertNavigation(project: NavigationProject) {
   const errors = validateNavigation(project).filter(i => i.severity === "error")
@@ -29,7 +30,8 @@ export function studioServer(validators: Record<string, (value: unknown) => bool
     const contentPath = path.join(root, "src/content/studio/data.json")
     const historyPath = path.join(root, ".odontoma-history")
     const files = { library: "src/content/studio/data.json", written: "src/content/openQuizzes/data.json", home: "src/content/appBuilder/subjects.json", decks: "src/content/appBuilder/flashcard-subjects.json", pages: "src/content/appBuilder/custom-pages.json", overrides: "src/content/appBuilder/ui-overrides.json", theme: "src/builder/applied-theme.json", organization: "src/content/appBuilder/organization.json" }
-    async function project() { return { app: "Odontoma Project", version: 1, files: Object.fromEntries(await Promise.all(Object.entries(files).map(async ([key, file]) => [key, JSON.parse(await fs.readFile(path.join(root, file), "utf8"))]))) } }
+    async function project() { const content = Object.fromEntries(await Promise.all(Object.entries(files).map(async ([key, file]) => [key, JSON.parse(await fs.readFile(path.join(root, file), "utf8"))]))); return { app: "Odontoma Project", version: 1, files: content, revision: await contentRevision(content) } }
+    let savingProject = false
     let snapshotTime = 0
     async function snapshot(value: ProjectSnapshot, label = "Antes de aplicar cambios", kind = "automatic") {
       snapshotTime = Math.max(Date.now(), snapshotTime + 1)
@@ -54,6 +56,9 @@ export function studioServer(validators: Record<string, (value: unknown) => bool
         }
         if (route === "/__odontoma-studio/project" && req.method === "GET") { res.setHeader("Content-Type", "application/json"); res.setHeader("Content-Disposition", 'attachment; filename="odontoma-proyecto-editable.json"'); res.end(JSON.stringify(await project())); return }
         if (route === "/__odontoma-studio/project" && req.method === "POST") {
+          if (savingProject) { res.statusCode = 409; throw new Error("Otro guardado está en curso. Esperá y revisá antes de reintentar.") }
+          savingProject = true
+          try {
           let body = ""; for await (const chunk of req) { body += chunk; if (body.length > 40_000_000) throw new Error("Backup demasiado grande") }
           const value = JSON.parse(body)
           if (value.app !== "Odontoma Project" || value.version !== 1 || !value.files) throw new Error("No es un backup de proyecto Odontoma.")
@@ -62,6 +67,8 @@ export function studioServer(validators: Record<string, (value: unknown) => bool
           const catalog = await server.ssrLoadModule("/src/content/studio/catalog.ts")
           const library = { version: 1, banks: catalog.resolveStudioBanks(value.files.library) }
           const previous = await project()
+          if (value.expectedRevision !== previous.revision) { res.statusCode = 409; throw new Error("El proyecto cambió desde que abriste el editor. No se guardó nada: exportá tu borrador y recargá para comparar versiones.") }
+          if (!value.restore && value.libraryBaseRevision !== await contentRevision({ version: 1, banks: catalog.resolveStudioBanks(previous.files.library) })) { res.statusCode = 409; throw new Error("La biblioteca cambió respecto de la base del borrador. No se guardó nada: revisá el borrador recuperado en Biblioteca.") }
           const beforeBanks = catalog.resolveStudioBanks(previous.files.library)
           const menus = value.restore ? { home: value.files.home, decks: value.files.decks } : registerNewCourseCards(value.files.home, value.files.decks, new Set(beforeBanks.map((b: { id: string }) => b.id)), library.banks)
           value.files.home = menus.home; value.files.decks = menus.decks
@@ -78,6 +85,7 @@ export function studioServer(validators: Record<string, (value: unknown) => bool
           try { for (const [key, file] of Object.entries(files)) { await fs.writeFile(path.join(root, `${file}.tmp`), JSON.stringify(value.files[key], null, 2) + "\n"); await fs.rename(path.join(root, `${file}.tmp`), path.join(root, file)) }; await fs.writeFile(path.join(root, "src/builder/applied-theme.css"), renderBuilderCss(value.files.theme as BuilderTheme)) }
           catch (error) { for (const [key, file] of Object.entries(files)) await fs.writeFile(path.join(root, file), JSON.stringify(previous.files[key], null, 2) + "\n"); await fs.writeFile(path.join(root, "src/builder/applied-theme.css"), renderBuilderCss(previous.files.theme as BuilderTheme)); throw error }
           res.end(JSON.stringify({ ok: true })); return
+          } finally { savingProject = false }
         }
         if (route === "/__odontoma-studio/organization" && req.method === "GET") { res.setHeader("Content-Type", "application/json"); res.end(JSON.stringify((await project()).files.organization)); return }
         if (route === "/__odontoma-studio/organization" && req.method === "POST") {
@@ -112,7 +120,7 @@ export function studioServer(validators: Record<string, (value: unknown) => bool
         if (route === "/__odontoma-studio/backup" && req.method === "GET") {
           res.setHeader("Content-Type", "application/gzip")
           res.setHeader("Content-Disposition", `attachment; filename="odontoma-proyecto-${new Date().toISOString().slice(0,10)}.tar.gz"`)
-          const child = spawn("tar", ["--exclude=./node_modules", "--exclude=./dist", "--exclude=./.vercel", "--exclude=./.env", "--exclude=./.env.*", "--exclude=./.odontoma-history", "-czf", "-", "-C", root, "."])
+          const child = spawn("tar", ["--exclude=./.git", "--exclude=./node_modules", "--exclude=./dist", "--exclude=./.vercel", "--exclude=./.env", "--exclude=./.env.*", "--exclude=./.odontoma-history", "-czf", "-", "-C", root, "."])
           child.stdout.pipe(res); child.on("error", () => res.destroy()); res.on("close", () => { if (!res.writableEnded && !child.killed) child.kill() }); return
         }
         if (route === "/__odontoma-studio/catalog" && req.method === "GET") {
@@ -130,19 +138,23 @@ export function studioServer(validators: Record<string, (value: unknown) => bool
           res.setHeader("Content-Type", "application/json"); res.end(JSON.stringify({ version: 1, banks: catalog.resolveStudioBanks(JSON.parse(await fs.readFile(path.join(historyPath, name), "utf8"))) })); return
         }
         if (route === "/__odontoma-studio/catalog" && req.method === "POST") {
+          if (savingProject) { res.statusCode = 409; throw new Error("Otro guardado está en curso.") }
+          savingProject = true
+          try {
           let body = ""
           for await (const chunk of req) { body += chunk; if (body.length > 40_000_000) throw new Error("La biblioteca supera el tamaño permitido.") }
           const data = JSON.parse(body)
           const issues = validateStudio(data)
           if (issues.length) throw new Error(issues.slice(0,8).join("\n"))
+          const catalog = await server.ssrLoadModule("/src/content/studio/catalog.ts")
+          const previous = await project()
+          const beforeBanks = catalog.resolveStudioBanks(previous.files.library)
+          if (data.baseRevision !== await contentRevision({ version: 1, banks: beforeBanks })) { res.statusCode = 409; throw new Error("La biblioteca cambió respecto del borrador. Exportá el borrador y recargá antes de guardar.") }
           // Imported asset URLs are supplied by Vite at runtime; retain their original imports.
           for (const bank of data.banks) for (const chapter of bank.chapters) if (chapter.image?.startsWith("/src/")) chapter.image = "@legacy"
           await fs.mkdir(historyPath, { recursive: true })
           await snapshot(await project() as ProjectSnapshot, "Antes de guardar biblioteca")
           await fs.copyFile(contentPath, path.join(historyPath, `${new Date().toISOString().replaceAll(":", "_")}.json`))
-          const catalog = await server.ssrLoadModule("/src/content/studio/catalog.ts")
-          const previous = await project()
-          const beforeBanks = catalog.resolveStudioBanks(previous.files.library)
           const menus = registerNewCourseCards(previous.files.home as import("../content/appBuilder/types").HomeContent, previous.files.decks as import("../content/appBuilder/types").FlashcardSubjectBlock[], new Set(beforeBanks.map((b: { id: string }) => b.id)), data.banks)
           if (!validators.home?.(menus.home) || !validators.decks?.(menus.decks)) throw new Error("Los menús no pueden registrar más materias. Revisá sus tarjetas.")
           assertNavigation({ ...menus, pages: previous.files.pages as NavigationProject["pages"], banks: catalog.resolveStudioBanks(catalog.compactStudioData(data)) })
@@ -155,9 +167,10 @@ export function studioServer(validators: Record<string, (value: unknown) => bool
             throw error
           }
           res.setHeader("Content-Type", "application/json"); res.end(JSON.stringify({ ok: true })); return
+          } finally { savingProject = false }
         }
         res.statusCode = 405; res.end("Operación no disponible")
-      } catch (error) { res.statusCode = 400; res.end(error instanceof Error ? error.message : "No se pudo guardar") }
+      } catch (error) { if (res.statusCode < 400) res.statusCode = 400; res.end(error instanceof Error ? error.message : "No se pudo guardar") }
     })
   } }
 }

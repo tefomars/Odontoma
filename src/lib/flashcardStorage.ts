@@ -2,12 +2,14 @@ import type {
   FsrsStorage
 } from "@/lib/fsrs"
 import { studioBanks } from "@/content/studio/catalog"
+import { writeBrowserStorage, removeBrowserStorage } from "./storageSafety"
 
 const STORAGE_KEY =
   "odontoma_fsrs_storage"
 
 export function loadFsrsStorage(): FsrsStorage {
 
+  try {
   const raw =
     localStorage.getItem(STORAGE_KEY)
 
@@ -17,8 +19,6 @@ export function loadFsrsStorage(): FsrsStorage {
       reviews: []
     }
   }
-
-  try {
 
     const parsed =
       JSON.parse(raw)
@@ -44,7 +44,7 @@ export function saveFsrsStorage(
   storage: FsrsStorage
 ) {
 
-  localStorage.setItem(
+  return writeBrowserStorage(
     STORAGE_KEY,
     JSON.stringify(storage)
   )
@@ -52,7 +52,7 @@ export function saveFsrsStorage(
 
 export function clearFsrsStorage() {
 
-  localStorage.removeItem(
+  return removeBrowserStorage(
     STORAGE_KEY
   )
 }

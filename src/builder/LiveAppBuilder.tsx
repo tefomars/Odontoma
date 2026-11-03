@@ -1,3 +1,4 @@
+import { writeBrowserStorage } from "../lib/storageSafety"
 import { useEffect, useMemo, useState, type ReactNode } from "react"
 
 import ResponsivePreview from "./ResponsivePreview"
@@ -221,7 +222,7 @@ export default function LiveAppBuilder({ active = true, target }: { active?: boo
   useEffect(() => {
     if (!loaded) return
     if (JSON.stringify(content) === JSON.stringify(appliedContent)) localStorage.removeItem(HOME_DRAFT_KEY)
-    else localStorage.setItem(HOME_DRAFT_KEY, JSON.stringify(content))
+    else writeBrowserStorage(HOME_DRAFT_KEY, JSON.stringify(content))
   }, [appliedContent, content, loaded])
 
   useEffect(() => {
@@ -229,7 +230,7 @@ export default function LiveAppBuilder({ active = true, target }: { active?: boo
     if (JSON.stringify(flashcardSubjects) === JSON.stringify(appliedFlashcardSubjects)) {
       localStorage.removeItem(FLASHCARD_SUBJECTS_DRAFT_KEY)
     } else {
-      localStorage.setItem(FLASHCARD_SUBJECTS_DRAFT_KEY, JSON.stringify(flashcardSubjects))
+      writeBrowserStorage(FLASHCARD_SUBJECTS_DRAFT_KEY, JSON.stringify(flashcardSubjects))
     }
   }, [appliedFlashcardSubjects, flashcardSubjects, flashcardSubjectsLoaded])
 

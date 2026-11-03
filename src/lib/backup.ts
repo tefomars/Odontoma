@@ -68,13 +68,13 @@ export async function importOdontomaBackup(
   const backup =
     JSON.parse(text) as OdontomaBackup
 
-  if (backup.app !== "Odontoma" || backup.version !== 1) {
+  if (!backup || backup.app !== "Odontoma" || backup.version !== 1) {
     throw new Error("Archivo inválido")
   }
 
   if (
     !backup.localStorage ||
-    typeof backup.localStorage !== "object"
+    typeof backup.localStorage !== "object" || Array.isArray(backup.localStorage)
   ) {
     throw new Error("Backup incompleto")
   }
@@ -83,11 +83,16 @@ export async function importOdontomaBackup(
     Object.entries(backup.localStorage)
       .filter(([key]) => key.startsWith("odontoma_"))
 
-  for (const [, value] of incomingEntries) {
+  for (const [key, value] of incomingEntries) {
     if (typeof value !== "string") {
       throw new Error("Backup inválido: contiene datos incompatibles.")
     }
 
+    // This existing preference is intentionally stored as plain text, not JSON.
+    if (key === "odontoma_flashcard_study_mode_v1") {
+      if (value !== "fsrs" && value !== "free") throw new Error("Backup inválido: modo de flashcards desconocido.")
+      continue
+    }
     try {
       JSON.parse(value)
     } catch {
@@ -105,26 +110,19 @@ export async function importOdontomaBackup(
     if (value !== null) previousEntries.push([key, value])
   }
 
-  function clearOdontomaStorage() {
-    const keys =
-      Array.from({ length: localStorage.length }, (_, index) =>
-        localStorage.key(index)
-      ).filter((key): key is string => Boolean(key?.startsWith("odontoma_")))
-
-    for (const key of keys) localStorage.removeItem(key)
-  }
-
   try {
-    clearOdontomaStorage()
+    // Write before removing obsolete keys: quota failures can roll back originals.
     for (const [key, value] of incomingEntries) {
       localStorage.setItem(key, value)
     }
+    const incomingKeys = new Set(incomingEntries.map(([key]) => key))
+    for (const [key] of previousEntries) if (!incomingKeys.has(key)) localStorage.removeItem(key)
   } catch {
-    clearOdontomaStorage()
-    for (const [key, value] of previousEntries) {
-      localStorage.setItem(key, value)
-    }
-
+    try {
+      const previousKeys = new Set(previousEntries.map(([key]) => key))
+      for (const [key] of incomingEntries) if (!previousKeys.has(key)) localStorage.removeItem(key)
+      for (const [key, value] of previousEntries) if (localStorage.getItem(key) !== value) localStorage.setItem(key, value)
+    } catch { throw new Error("No se pudo completar ni revertir toda la restauración. Conservá el archivo de backup y liberá espacio antes de reintentar.") }
     throw new Error("No se pudo restaurar el backup. Tus datos anteriores se conservaron.")
   }
 }

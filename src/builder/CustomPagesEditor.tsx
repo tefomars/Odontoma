@@ -1,3 +1,4 @@
+import { writeBrowserStorage } from "../lib/storageSafety"
 import { useEffect, useMemo, useState, type DragEvent, type ReactNode } from "react"
 
 import CustomPageScreen from "@/components/CustomPageScreen"
@@ -73,7 +74,7 @@ export default function CustomPagesEditor({ active = true, target }: { active?: 
   useEffect(() => {
     if (!loaded) return
     if (JSON.stringify(history.state) === JSON.stringify(applied)) localStorage.removeItem(DRAFT_KEY)
-    else localStorage.setItem(DRAFT_KEY, JSON.stringify(history.state))
+    else writeBrowserStorage(DRAFT_KEY, JSON.stringify(history.state))
   }, [applied, history.state, loaded])
 
   /* eslint-disable react-hooks/set-state-in-effect -- Workspace navigation selects a page after external loading. */

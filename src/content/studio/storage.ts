@@ -24,7 +24,12 @@ function applyChanges<T extends { id: string }>(before: T[], edits?: Changes<T>)
   const result = new Map(before.map(item => [item.id, item]))
   for (const id of edits.removed) result.delete(id)
   for (const item of edits.upserts) result.set(item.id, item)
-  return edits.order ? edits.order.map(id => result.get(id)!).filter(Boolean) : [...result.values()]
+  if (!edits.order) return [...result.values()]
+  const orderedIds = new Set(edits.order)
+  return [
+    ...edits.order.map(id => result.get(id)!).filter(Boolean),
+    ...[...result.values()].filter(item => !orderedIds.has(item.id))
+  ]
 }
 
 export function applyBankPatch(bank: StudyBank, patch?: BankPatch): StudyBank {

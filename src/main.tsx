@@ -4,6 +4,7 @@ import { Analytics } from '@vercel/analytics/react'
 
 import App from './App'
 import UiOverrideApplier from './components/UiOverrideApplier'
+import StorageNotice from './components/StorageNotice'
 import { installZoomLock } from './lib/zoomLock'
 
 import './index.css'
@@ -18,6 +19,7 @@ ReactDOM.createRoot(
 
   <React.StrictMode>
     <UiOverrideApplier />
+    <StorageNotice />
     <div id="odontoma-original-ui"><App /></div>
     <Analytics />
   </React.StrictMode>

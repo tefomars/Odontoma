@@ -1,3 +1,4 @@
+import { writeBrowserStorage } from "./storageSafety"
 export type AnswerStats = {
   correct: number
   incorrect: number
@@ -101,7 +102,7 @@ export function loadStats(): OdontomaStats {
 
 export function saveStats(stats: OdontomaStats) {
 
-  localStorage.setItem(
+  return writeBrowserStorage(
     "odontoma_stats",
     JSON.stringify(stats)
   )

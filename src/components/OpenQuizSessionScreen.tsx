@@ -229,14 +229,14 @@ export default function OpenQuizSessionScreen({
       mode: "open-ended"
     }
 
-    saveQuizAttempt(attempt)
-    clearOpenQuizProgress(deck.id)
+    if (!saveQuizAttempt(attempt)) return
+    if (!clearOpenQuizProgress(deck.id)) return
     setCompletedAttempt(attempt)
     setFinished(true)
   }
 
   function restart() {
-    clearOpenQuizProgress(deck.id)
+    if (!clearOpenQuizProgress(deck.id)) return
     setQuestions(shuffleQuestions(deck.questions))
     setCurrent(0)
     setAnswers({})
@@ -248,7 +248,7 @@ export default function OpenQuizSessionScreen({
   }
 
   function saveAndLeave(destination: () => void) {
-    saveOpenQuizProgress({
+    if (!saveOpenQuizProgress({
       deckId: deck.id,
       questionIds: questions.map(item => item.id),
       current,
@@ -256,7 +256,7 @@ export default function OpenQuizSessionScreen({
       revealedQuestionIds,
       gradesByQuestion,
       savedAt: new Date().toISOString()
-    })
+    })) return
     destination()
   }
 

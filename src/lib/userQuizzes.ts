@@ -1,3 +1,4 @@
+import { requireBrowserStorage } from "./storageSafety"
 import {
   parseDelimitedRows,
   serializeDelimitedRows
@@ -88,7 +89,7 @@ export function saveUserQuizDecks(
   decks: UserQuizDeck[]
 ) {
 
-  localStorage.setItem(
+  requireBrowserStorage(
     DECKS_KEY,
     JSON.stringify(decks)
   )
@@ -170,7 +171,7 @@ export function saveUserQuizQuestions(
   questions: UserQuizQuestion[]
 ) {
 
-  localStorage.setItem(
+  requireBrowserStorage(
     QUESTIONS_KEY,
     JSON.stringify(questions)
   )
