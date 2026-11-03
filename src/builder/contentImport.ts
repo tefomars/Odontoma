@@ -2,7 +2,7 @@ import { detectDelimiter, parseDelimitedRows } from "../lib/delimitedText"
 import type { ImportKind } from "./contentFormats"
 const isSafeImage = (value: string) => /^(https?:\/\/|data:image\/(png|jpeg|webp|gif);base64,|\/(src|assets|media)\/)/.test(value)
 
-export type ImportedItem = { question?: string; options?: string[]; correctAnswers?: number[]; explanation?: string; difficulty?: string; front?: string; back?: string; prompt?: string; modelAnswer?: string; acceptedPoints?: string[]; topic?: string; subtopic?: string; image?: string; backImage?: string; imageAlt?: string; tags?: string[] }
+export type ImportedItem = { question?: string; options?: string[]; correctAnswers?: number[]; explanation?: string; difficulty?: string; front?: string; back?: string; prompt?: string; modelAnswer?: string; acceptedPoints?: string[]; topic?: string; subtopic?: string; image?: string; backImage?: string; imageAlt?: string; backImageAlt?: string; tags?: string[] }
 export type ImportDocument = { records?: Record<string, unknown>[]; table?: string[][] }
 export type ColumnMapping = Record<string, number>
 export type ImportRow = { row: number; item?: ImportedItem; error?: string; duplicate?: boolean }
@@ -23,9 +23,9 @@ export function readImport(text: string, kind: ImportKind): ImportDocument {
   // Excel in Spanish often uses semicolons; quoted delimiters remain supported.
   return { table: parseDelimitedRows(trimmed, detectDelimiter(trimmed)) }
 }
-const aliases: Record<string, string[]> = { question: ["question", "pregunta", "prompt", "enunciado", "frente", "front", "afirmacion"], answer: ["answer", "respuesta", "correcta", "correctas", "respuestacorrecta", "modelanswer", "respuestamodelo", "back", "reverso"], explanation: ["explanation", "explicacion", "retroalimentacion"], acceptedPoints: ["acceptedpoints", "puntosaceptados", "alternativasaceptadas"], topic: ["topic", "tema"], subtopic: ["subtopic", "subtema"], image: ["image", "imagen"], backImage: ["backimage", "imagenrespuesta"], imageAlt: ["imagealt", "descripcionimagen"], difficulty: ["difficulty", "dificultad"], tags: ["tags", "etiquetas"] }
+const aliases: Record<string, string[]> = { question: ["question", "pregunta", "prompt", "enunciado", "frente", "front", "afirmacion"], answer: ["answer", "respuesta", "correcta", "correctas", "respuestacorrecta", "modelanswer", "respuestamodelo", "back", "reverso"], explanation: ["explanation", "explicacion", "retroalimentacion"], acceptedPoints: ["acceptedpoints", "puntosaceptados", "alternativasaceptadas"], topic: ["topic", "tema"], subtopic: ["subtopic", "subtema"], image: ["image", "imagen", "imagenpregunta", "imagendelapregunta"], backImage: ["backimage", "answerimage", "imagenrespuesta", "imagendelarespuesta"], imageAlt: ["imagealt", "descripcionimagen"], backImageAlt: ["backimagealt", "descripcionimagenrespuesta"], difficulty: ["difficulty", "dificultad"], tags: ["tags", "etiquetas"] }
 export function importFields(kind: ImportKind) {
-  return [["question", kind === "flashcards" ? "Frente" : "Pregunta / afirmación"], ...(kind === "multiple-choice" ? Array.from({ length: 8 }, (_, i) => [String.fromCharCode(65 + i), `Opción ${String.fromCharCode(65 + i)}`]) : []), ["answer", kind === "flashcards" ? "Respuesta" : "Respuesta correcta / modelo"], ...(kind === "written" ? [["acceptedPoints", "Puntos aceptados"]] : []), ["explanation", "Explicación"], ["topic", "Tema"], ["subtopic", "Subtema"], ["image", "Imagen"], ["backImage", "Imagen de respuesta"], ["imageAlt", "Descripción de imagen"], ["difficulty", "Dificultad"], ["tags", "Etiquetas"]]
+  return [["question", kind === "flashcards" ? "Frente" : "Pregunta / afirmación"], ...(kind === "multiple-choice" ? Array.from({ length: 8 }, (_, i) => [String.fromCharCode(65 + i), `Opción ${String.fromCharCode(65 + i)}`]) : []), ["answer", kind === "flashcards" ? "Respuesta" : "Respuesta correcta / modelo"], ...(kind === "written" ? [["acceptedPoints", "Puntos aceptados"]] : []), ["explanation", "Explicación"], ["topic", "Tema"], ["subtopic", "Subtema"], ["image", "Imagen"], ["backImage", "Imagen de respuesta"], ["imageAlt", "Descripción de imagen"], ["backImageAlt", "Descripción de imagen de respuesta"], ["difficulty", "Dificultad"], ["tags", "Etiquetas"]]
 }
 export function detectColumns(table: string[][], kind: ImportKind) {
   const header = table[0] || []
@@ -63,7 +63,7 @@ export function analyzeImport(document: ImportDocument, kind: ImportKind, existi
     try {
       const question = text(record.question || record.prompt || record.front)
       if (!question) throw new Error("Falta la pregunta o el frente.")
-      const item: ImportedItem = { topic: text(record.topic), subtopic: text(record.subtopic), image: text(record.image), backImage: text(record.backImage), imageAlt: text(record.imageAlt), tags: list(record.tags) }
+      const item: ImportedItem = { topic: text(record.topic), subtopic: text(record.subtopic), image: text(record.image), backImage: text(record.backImage), imageAlt: text(record.imageAlt), backImageAlt: text(record.backImageAlt), tags: list(record.tags) }
       for (const f of ["image", "backImage"] as const) if (item[f] && !isSafeImage(item[f])) throw new Error("Imagen inválida: usá una URL HTTP(S), una imagen del proyecto o una imagen incrustada.")
       if (kind === "flashcards" || kind === "written") {
         const answer = text(record.answer || record.modelAnswer || record.back)

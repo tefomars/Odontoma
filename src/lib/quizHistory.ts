@@ -7,6 +7,8 @@ const THIRD_PARTIAL_NAME = "Parcial 3 · Cito II"
 export type QuizResponseRecord = {
   image?: string
   imageAlt?: string
+  backImage?: string
+  backImageAlt?: string
   questionId: string
   question: string
   chapter?: string

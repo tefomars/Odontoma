@@ -1,0 +1,196 @@
+/* The written editor lives beside the Studio tree, so its available width is
+   smaller than the viewport. Size fields to the panel, not the browser. */
+.studio-shell .studio-main .content-builder {
+  width: 100%;
+  min-width: 0;
+  padding: 0 !important;
+}
+
+.studio-shell .studio-main .content-editor-panel {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  container: written-editor / inline-size;
+}
+
+.studio-shell .content-builder .question-editor {
+  padding: 0 !important;
+  border-radius: 0 !important;
+}
+
+.studio-shell .content-builder :is(.question-form, .builder-field) {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.studio-shell .content-builder fieldset {
+  min-width: 0;
+  min-inline-size: 0;
+}
+
+.studio-shell .content-builder fieldset input {
+  display: block;
+  width: 100%;
+  margin-top: 8px;
+}
+
+.studio-shell .content-builder legend {
+  max-width: 100%;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.studio-shell .content-builder :is(
+  .deck-fields, .builder-field, .builder-field-heading,
+  .content-editor-header > div, .question-form, .question-form-heading > div,
+  .class-style-editor > label, .sidebar-section-heading > div,
+  .content-actions > div
+) {
+  min-width: 0;
+}
+
+.studio-shell .content-builder :is(
+  .content-editor-header, .question-list-heading, .question-form-heading,
+  .sidebar-section-heading, .content-actions
+) {
+  flex-wrap: wrap;
+}
+
+.studio-shell .content-builder :is(
+  .content-editor-header h2, .sidebar-section-heading strong,
+  .class-list-item strong, .deck-list-item strong
+) {
+  max-width: 100%;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.studio-shell .content-builder .sidebar-section-heading > div {
+  flex-basis: 100%;
+}
+
+.studio-shell .content-builder .class-name-editor {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.studio-shell .content-builder .class-name-editor input {
+  width: 100%;
+}
+
+.studio-shell .content-builder .class-style-editor {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr);
+}
+
+.studio-shell .content-builder .class-color-control {
+  min-width: 0;
+  flex-wrap: wrap;
+}
+
+.studio-shell .content-builder .class-color-control input {
+  flex: 0 0 30px;
+}
+
+.studio-shell .content-builder .deck-fields {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.studio-shell .content-builder .builder-field-heading {
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 4px 12px;
+}
+
+.studio-shell .content-builder .builder-field-heading small {
+  flex-basis: 100%;
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+
+.studio-shell .content-builder .deck-color-editor {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.studio-shell .content-builder :is(input, textarea, select) {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.studio-shell .content-builder .question-workspace {
+  flex: 1;
+  min-width: 0;
+}
+
+.studio-shell .content-builder .content-actions .actions {
+  flex: 1 1 100%;
+  min-width: 0;
+  width: 100%;
+}
+
+.studio-shell .content-builder .content-actions {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  min-width: 0;
+  width: 100%;
+}
+
+.studio-shell .content-builder .content-actions button {
+  min-width: 0;
+  white-space: normal;
+}
+
+@container written-editor (max-width: 680px) {
+  .studio-shell .content-builder .deck-fields,
+  .studio-shell .studio-main .content-builder .question-workspace {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .studio-shell .content-builder .question-list-panel {
+    border-right: 0;
+    border-bottom: 1px solid #27272a;
+  }
+
+  .studio-shell .content-builder .question-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+    gap: 6px;
+    max-height: 240px;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .studio-shell .content-builder .question-list-item {
+    min-width: 0;
+  }
+
+  .studio-shell .content-builder :is(.deck-fields, .question-form, .content-editor-header) {
+    padding: 18px;
+  }
+}
+
+@media (max-width: 1150px) {
+  .studio-shell .studio-main .content-sidebar {
+    display: block;
+    border-right: 0;
+    border-bottom: 1px solid #27272a;
+  }
+
+  .studio-shell .studio-main .content-sidebar-scroll {
+    max-height: 320px;
+    overflow-y: auto;
+  }
+
+  .studio-shell .content-builder .class-list {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  }
+
+  .studio-shell .content-builder .deck-list {
+    display: grid;
+    max-height: none;
+    overflow-x: visible;
+  }
+
+  .studio-shell .content-builder .deck-list-item {
+    min-width: 0;
+  }
+}

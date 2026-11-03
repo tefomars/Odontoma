@@ -4,6 +4,8 @@ import FreeFlashcardReviewScreen from "./FreeFlashcardReviewScreen"
 import FlashcardStudyModeSwitch from "./FlashcardStudyModeSwitch"
 import { useFlashcardStudyMode, setFlashcardStudyMode } from "@/lib/flashcardStudyMode"
 import { selectFlashcardScope, selectFlashcardPreference } from "@/lib/flashcardPractice"
+import { loadUserFlashcardTopics } from "@/lib/userFlashcards"
+import { flashcardTopicLabel } from "@/lib/studyLabels"
 
 
 import {
@@ -125,6 +127,7 @@ function ScheduledFlashcardReviewScreen({
   reviewPreference = "mixed"
 }: Props) {
 
+  const [userTopics] = useState(() => source === "user" ? loadUserFlashcardTopics() : [])
   const [storage, setStorage] =
     useState(() => loadFsrsStorage())
 
@@ -737,10 +740,10 @@ function ScheduledFlashcardReviewScreen({
               font-black
               text-violet-200
             ">
-              {currentCard.chapter}
+              {source === "user" ? flashcardTopicLabel(currentCard, source, userTopics) : currentCard.chapter}
             </span>
 
-            <span className="
+            {source !== "user" && <span className="
               rounded-full
               bg-zinc-800
               px-3
@@ -749,8 +752,8 @@ function ScheduledFlashcardReviewScreen({
               font-black
               text-zinc-300
             ">
-              {source === "user" ? currentCard.chapter : currentCard.topic}
-            </span>
+              {currentCard.topic}
+            </span>}
           </div>
 
           <div className="

@@ -36,7 +36,7 @@ export function addWrittenContent(data: OpenQuizContent, request: ContentCreatio
   const classItem = classes.find(c => c.name === request.subject) || { id: id(), name: request.subject.trim(), symbol: "▰", color: "#22c55e" }
   const questions = request.items.map(q => {
     if (!q.prompt?.trim() || !q.modelAnswer?.trim()) throw new Error("Hay una pregunta escrita incompleta.")
-    return { id: id(), prompt: q.prompt, modelAnswer: q.modelAnswer, acceptedPoints: q.acceptedPoints || [], explanation: q.explanation || "", image: q.image, imageAlt: q.imageAlt }
+    return { id: id(), prompt: q.prompt, modelAnswer: q.modelAnswer, acceptedPoints: q.acceptedPoints || [], explanation: q.explanation || "", image: q.image, imageAlt: q.imageAlt, backImage: q.backImage, backImageAlt: q.backImageAlt }
   })
   const deck = found || { id: request.deckId, subject: classItem.name, title: request.title.trim(), partial: request.partial || null, description: "", color: classItem.color, classColor: classItem.color, classSymbol: classItem.symbol, questions: [] }
   if (found && found.subject !== classItem.name) throw new Error("El cuestionario no pertenece a esa clase.")

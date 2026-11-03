@@ -3,7 +3,7 @@ export const formatNames: Record<ImportKind, string> = { "multiple-choice": "Opc
 export function formatExample(kind: ImportKind) {
   const common = { topic: "Tema o sección", image: "", imageAlt: "" }
   const item = kind === "flashcards" ? { front: "¿Qué estructura conecta X con Y?", back: "Respuesta concreta y breve.", subtopic: "Subtema", ...common, backImage: "", tags: [] }
-    : kind === "written" ? { question: "¿Qué función cumple X?", answer: "Respuesta modelo.", acceptedPoints: ["Concepto aceptado", "Otro concepto aceptado"], explanation: "Explicación adicional, separada de la respuesta.", ...common }
+    : kind === "written" ? { question: "¿Qué función cumple X?", answer: "Respuesta modelo.", acceptedPoints: ["Concepto aceptado", "Otro concepto aceptado"], explanation: "Explicación adicional, separada de la respuesta.", ...common, backImage: "", backImageAlt: "" }
     : kind === "true-false" ? { question: "Afirmación que el estudiante debe evaluar.", answer: false, explanation: "Por qué es falsa y cómo se corrige.", ...common }
     : { question: "¿Cuál de estas alternativas describe X?", options: ["Alternativa A", "Alternativa B", "Alternativa C", "Alternativa D"], answer: "B", explanation: "Justificación breve.", difficulty: "medium", ...common }
   return { format: "odontoma-import", version: 1, type: kind, items: [item] }
@@ -19,7 +19,7 @@ export function aiPrompt(kind: ImportKind) {
 Tipo: ${formatNames[kind]}.
 ${criteria}
 
-Entregá SOLO JSON válido, sin comentarios ni bloques Markdown, con esta estructura exacta. Reemplazá el ejemplo por todos los elementos necesarios. No generés IDs, bancos, capítulos ni datos de progreso: elegiré el destino en el builder. image, backImage e imageAlt son opcionales; dejalos vacíos si no hay imágenes proporcionadas.
+Entregá SOLO JSON válido, sin comentarios ni bloques Markdown, con esta estructura exacta. Reemplazá el ejemplo por todos los elementos necesarios. No generés IDs, bancos, capítulos ni datos de progreso: elegiré el destino en el builder. image, backImage, imageAlt y backImageAlt son opcionales; dejalos vacíos si no hay imágenes proporcionadas. En escritos, image acompaña la pregunta y backImage solo aparece al revelar la respuesta.
 ${JSON.stringify(formatExample(kind), null, 2)}
 
 MATERIAL:

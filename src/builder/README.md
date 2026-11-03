@@ -73,7 +73,11 @@ progreso; cambiar el texto no crea una pregunta nueva.
 - Las preguntas permiten una o varias respuestas correctas. Los archivos JSON
   también admiten preguntas con dos opciones, como Verdadero/Falso.
 - Las tarjetas permiten imagen en frente y respuesta. Las preguntas escritas y
-  de opción múltiple admiten imagen en el enunciado. Se aceptan archivos JPG,
+  de opción múltiple admiten imagen en el enunciado. Las escritas también admiten
+  una **Imagen de la respuesta**, visible solo al revelar la respuesta modelo y
+  en la revisión del examen. Se conserva al repasar incorrectas y al importar o
+  exportar el cuestionario (JSON o TSV con columnas `image`, `backImage`,
+  `imageAlt` y `backImageAlt`). Se aceptan archivos JPG,
   PNG, WebP y GIF; se convierten a imágenes estáticas WebP de hasta 1600 px.
 - Las imágenes importadas por archivo se guardan con el contenido, no quedan
   enlazadas a tu carpeta Downloads. Una URL externa seguirá dependiendo de ese sitio.

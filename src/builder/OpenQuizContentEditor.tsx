@@ -5,6 +5,8 @@ import { publishIndex, useWorkspaceHistory, type WorkspaceTarget } from "./works
 import { useHistoryState } from "./useHistoryState"
 import { ImageField } from "./LibraryEditor"
 import WrittenBatchTools from "./WrittenBatchTools"
+import "./written-editor.css"
+import { normalizeWrittenForSave, validateWrittenContent } from "@/content/openQuizzes/validation"
 
 import type {
   OpenQuizContent,
@@ -148,21 +150,7 @@ export default function OpenQuizContentEditor({ active = true, target }: { activ
     question => question.id === selectedQuestionId
   )
 
-  const validationIssues = useMemo(() => {
-    const issues: string[] = []
-
-    for (const deck of content.decks) {
-      if (!deck.title.trim()) issues.push("Cada apartado necesita un título.")
-      if (!deck.subject.trim()) issues.push("Cada apartado debe pertenecer a una clase.")
-
-      for (const question of deck.questions) {
-        if (!question.prompt.trim()) issues.push("Hay una pregunta sin enunciado.")
-        if (!question.modelAnswer.trim()) issues.push("Hay una pregunta sin respuesta modelo.")
-      }
-    }
-
-    return [...new Set(issues)]
-  }, [content])
+  const validationIssues = useMemo(() => validateWrittenContent(content), [content])
 
   function uniqueClassName() {
     const used = new Set(classes.map(item => item.name.toLocaleLowerCase()))
@@ -377,7 +365,7 @@ export default function OpenQuizContentEditor({ active = true, target }: { activ
 
     setPublishing(true)
     setStatus("Publicando contenido…")
-    const normalizedContent = normalizeContent(content)
+    const normalizedContent = normalizeWrittenForSave(normalizeContent(content))
 
     try {
       const response = await fetch("/__odontoma-builder/open-quizzes", {
@@ -714,6 +702,11 @@ export default function OpenQuizContentEditor({ active = true, target }: { activ
                       />
                     </BuilderField>
 
+                    <ImageField label="Imagen de la pregunta" value={selectedQuestion.image} onChange={image => updateQuestion({ image })} />
+                    <BuilderField label="Descripción de la imagen de la pregunta (opcional)">
+                      <input value={selectedQuestion.imageAlt || ""} onChange={event => updateQuestion({ imageAlt: event.target.value })} />
+                    </BuilderField>
+
                     <BuilderField label="Respuesta modelo" required hint="La respuesta completa que se mostrará después.">
                       <textarea
                         value={selectedQuestion.modelAnswer}
@@ -721,6 +714,12 @@ export default function OpenQuizContentEditor({ active = true, target }: { activ
                         placeholder="Respuesta esperada…"
                         rows={5}
                       />
+                    </BuilderField>
+
+                    <ImageField label="Imagen de la respuesta" value={selectedQuestion.backImage} onChange={backImage => updateQuestion({ backImage })} />
+                    <p className="text-sm text-zinc-400">Esta imagen solo se muestra al revelar la respuesta modelo y en la revisión del examen.</p>
+                    <BuilderField label="Descripción de la imagen de la respuesta (opcional)">
+                      <input value={selectedQuestion.backImageAlt || ""} onChange={event => updateQuestion({ backImageAlt: event.target.value })} />
                     </BuilderField>
 
                     <BuilderField
@@ -737,7 +736,6 @@ export default function OpenQuizContentEditor({ active = true, target }: { activ
                       />
                     </BuilderField>
 
-                    <ImageField label="Imagen de la pregunta" value={selectedQuestion.image} onChange={image => updateQuestion({ image })} />
                     <BuilderField label="Explicación opcional">
                       <textarea
                         value={selectedQuestion.explanation || ""}

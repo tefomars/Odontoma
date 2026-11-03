@@ -42,7 +42,7 @@ export default function QuizReviewScreen({ attempt, onBack, onMainMenu }: Props)
               <StudyImage src={response.image} alt={response.imageAlt} />
               <div className={`mt-6 grid min-w-0 gap-4 ${attempt.mode === "open-ended" ? "grid-cols-1" : "md:grid-cols-2"}`}>
                 <AnswerBox title="Tu respuesta" answers={response.selectedAnswers} tone={presentation.answerTone} />
-                <AnswerBox title={attempt.mode === "open-ended" ? "Respuesta modelo" : "Respuesta correcta"} answers={response.correctAnswers} tone="correct" />
+                <AnswerBox title={attempt.mode === "open-ended" ? "Respuesta modelo" : "Respuesta correcta"} answers={response.correctAnswers} tone="correct" image={response.backImage} imageAlt={response.backImageAlt} />
               </div>
               {attempt.mode === "open-ended" && response.acceptedPoints && response.acceptedPoints.length > 0 && (
                 <div className="mt-4 min-w-0 rounded-2xl border border-amber-500/25 bg-amber-500/8 p-4">
@@ -95,13 +95,14 @@ function getResponsePresentation(grade: QuizAttempt["responses"][number]["grade"
   }
 }
 
-function AnswerBox({ title, answers, tone }: { title: string; answers: string[]; tone: "correct" | "partial" | "wrong" | "neutral" }) {
+function AnswerBox({ title, answers, tone, image, imageAlt }: { title: string; answers: string[]; tone: "correct" | "partial" | "wrong" | "neutral"; image?: string; imageAlt?: string }) {
   return (
     <div className={`min-w-0 overflow-visible rounded-2xl border p-4 ${tone === "partial" ? "border-amber-500/25 bg-amber-500/10" : tone === "correct" ? "border-emerald-500/25 bg-emerald-500/10" : tone === "neutral" ? "border-zinc-700 bg-zinc-800/30" : "border-red-500/25 bg-red-500/10"}`}>
       <p className="text-xs font-black uppercase tracking-[0.18em] text-zinc-400">{title}</p>
       <ul className="mt-3 grid gap-2">
         {answers.length > 0 ? answers.map((answer, index) => <li key={`${index}-${answer.slice(0, 40)}`} className="whitespace-pre-wrap break-words font-semibold leading-relaxed text-zinc-100 [overflow-wrap:anywhere]">{answer}</li>) : <li className="text-zinc-500">Sin respuesta</li>}
       </ul>
+      <StudyImage src={image} alt={imageAlt || "Imagen de la respuesta modelo"} />
     </div>
   )
 }

@@ -205,6 +205,8 @@ export default function OpenQuizSessionScreen({
         questionId: item.id,
         image: item.image,
         imageAlt: item.imageAlt,
+        backImage: item.backImage,
+        backImageAlt: item.backImageAlt,
         question: item.prompt,
         selectedAnswers: answer ? [answer] : [],
         correctAnswers: [item.modelAnswer],
@@ -356,6 +358,7 @@ export default function OpenQuizSessionScreen({
                 <section className="rounded-2xl border border-emerald-500/25 bg-emerald-500/8 p-5">
                   <p className="text-xs font-black uppercase tracking-[0.18em] text-emerald-300">Respuesta modelo</p>
                   <p className="mt-3 whitespace-pre-wrap leading-relaxed text-zinc-100">{question.modelAnswer}</p>
+                  <StudyImage src={question.backImage} alt={question.backImageAlt || "Imagen de la respuesta modelo"} />
                 </section>
 
                 {question.acceptedPoints.length > 0 && (

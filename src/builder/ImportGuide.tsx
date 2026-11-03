@@ -15,7 +15,7 @@ export default function ImportGuide({ initialKind = "multiple-choice" }: { initi
   async function copy(text: string) { try { await navigator.clipboard.writeText(text); setStatus("Copiado. Podés pegarlo en cualquier AI o editor.") } catch { setStatus("No se pudo copiar automáticamente. Seleccioná el texto de abajo y copialo.") } }
   function csv() {
     const rows = kind === "flashcards" ? [["Frente", "Respuesta", "Subtema"], ["¿Qué estructura conecta X con Y?", "Respuesta breve.", "Subtema"]]
-      : kind === "written" ? [["Pregunta", "Respuesta modelo", "Puntos aceptados", "Explicación"], ["¿Qué función cumple X?", "Respuesta modelo.", "Concepto 1|Concepto 2", "Explicación adicional."]]
+      : kind === "written" ? [["Pregunta", "Respuesta modelo", "Puntos aceptados", "Explicación", "image", "imageAlt", "backImage", "backImageAlt"], ["¿Qué función cumple X?", "Respuesta modelo.", "Concepto 1|Concepto 2", "Explicación adicional.", "", "", "", ""]]
       : kind === "true-false" ? [["Afirmación", "Correcta", "Explicación"], ["Afirmación para evaluar.", "Falso", "Justificación."]]
       : [["Pregunta", "A", "B", "C", "D", "Correcta", "Explicación"], ["¿Cuál describe X?", "Alternativa A", "Alternativa B", "Alternativa C", "Alternativa D", "B", "Justificación."]]
     downloadText("\uFEFF" + serializeDelimitedRows(rows, ","), `odontoma-${kind}-plantilla.csv`, "text/csv;charset=utf-8")

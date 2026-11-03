@@ -21,3 +21,9 @@ it("crea escritos con explicación separada y no reemplaza preguntas existentes"
   expect(after.decks[0].questions).toHaveLength(2)
   expect(after.decks[0].questions[0]).toMatchObject({ prompt: "P", modelAnswer: "R", explanation: "E" })
 })
+it("conserva ambas imágenes al crear/importar un escrito", () => {
+  const media = { image: "/media/pregunta.png", imageAlt: "Pregunta", backImage: "/media/respuesta.png", backImageAlt: "Respuesta" }
+  const rows = analyzeImport({ records: [{ question: "P", answer: "R", ...media }] }, "written", [])
+  const result = addWrittenContent({ classes: [], decks: [] }, { ...request, type: "written", items: [rows[0].item!] }, () => crypto.randomUUID())
+  expect(result.decks[0].questions[0]).toMatchObject(media)
+})

@@ -8,6 +8,8 @@ import { validateOrganization } from "../content/appBuilder/organizationSchema.t
 import { registerNewCourseCards } from "../content/studio/menuRegistration.ts"
 import { describeChanges, projectCounts, historyDate, type ProjectSnapshot } from "./projectHistory.ts"
 import { renderBuilderCss, type BuilderTheme } from "./theme.ts"
+import { validateWrittenContent, normalizeWrittenForSave } from "../content/openQuizzes/validation.ts"
+import type { OpenQuizContent } from "../content/openQuizzes/types.ts"
 
 function assertNavigation(project: NavigationProject) {
   const errors = validateNavigation(project).filter(i => i.severity === "error")
@@ -63,7 +65,13 @@ export function studioServer(validators: Record<string, (value: unknown) => bool
           const beforeBanks = catalog.resolveStudioBanks(previous.files.library)
           const menus = value.restore ? { home: value.files.home, decks: value.files.decks } : registerNewCourseCards(value.files.home, value.files.decks, new Set(beforeBanks.map((b: { id: string }) => b.id)), library.banks)
           value.files.home = menus.home; value.files.decks = menus.decks
-          for (const key of Object.keys(files)) if (key === "library" ? validateStudio(library).length > 0 : !(key === "organization" ? validateOrganization(value.files[key]) : validators[key]?.(value.files[key]))) throw new Error(`Backup inválido en ${key}`)
+          for (const key of Object.keys(files)) {
+            if (key === "written") {
+              const issues = validateWrittenContent(value.files.written)
+              if (issues.length) throw new Error(`No se guardó el contenido de escritas:\n${issues.slice(0, 12).join("\n")}`)
+            } else if (key === "library" ? validateStudio(library).length > 0 : !(key === "organization" ? validateOrganization(value.files[key]) : validators[key]?.(value.files[key]))) throw new Error(`Backup inválido en ${key}`)
+          }
+          value.files.written = normalizeWrittenForSave(value.files.written as OpenQuizContent)
           assertNavigation({ home: value.files.home, decks: value.files.decks, pages: value.files.pages, banks: library.banks })
           value.files.library = catalog.compactStudioData(library)
           await snapshot(previous as ProjectSnapshot, value.saveLabel ? `Antes de guardar: ${String(value.saveLabel).slice(0, 120)}` : "Antes de guardar o restaurar")

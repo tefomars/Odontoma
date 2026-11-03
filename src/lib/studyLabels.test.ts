@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest"
-import { chapterEyebrow } from "./studyLabels"
+import { chapterEyebrow, flashcardTopicLabel } from "./studyLabels"
 
 describe("etiquetas visibles de capítulos", () => {
   it("no expone las claves generadas por el builder", () => {
@@ -16,4 +16,21 @@ import { chapterDisplayName } from "./studyLabels"
 it("usa el título humano del capítulo nuevo dentro del quiz", () => {
   expect(chapterDisplayName({ id: "chapter-a6dca6b0", title: "Capítulo de prueba" })).toBe("Capítulo de prueba")
   expect(chapterDisplayName({ id: "17", title: "Tubo digestivo" })).toBe("17 · Tubo digestivo")
+})
+
+describe("etiquetas de flashcards personales", () => {
+  const id = "topic-1793655178704-d6b27a37-54a7-41be-81a6-fe8ba88953ff"
+  it("muestra el nombre actual del mazo, no su ID ni un nombre antiguo", () => {
+    expect(flashcardTopicLabel({ topic: id, chapter: "Nombre antiguo" }, "user", [{ id, name: "Respiratorio" }])).toBe("Respiratorio")
+  })
+  it("usa el nombre conservado en importaciones antiguas o una etiqueta neutral", () => {
+    expect(flashcardTopicLabel({ topic: id, chapter: "Respiratorio" }, "user")).toBe("Respiratorio")
+    expect(flashcardTopicLabel({ topic: id, chapter: id }, "user")).toBe("Mis flashcards")
+    expect(flashcardTopicLabel({ topic: id, chapter: "" }, "user")).toBe("Mis flashcards")
+  })
+  it("conserva los temas de tarjetas oficiales y no modifica el contenido", () => {
+    const card = { topic: "Alvéolos", chapter: "Capítulo 19" }
+    expect(flashcardTopicLabel(card, "default")).toBe("Alvéolos")
+    expect(card).toEqual({ topic: "Alvéolos", chapter: "Capítulo 19" })
+  })
 })

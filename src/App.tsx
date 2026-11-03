@@ -1410,6 +1410,10 @@ export default function App() {
     const retryQuestions: OpenQuizQuestion[] = getIncorrectResponses(retryingOpenAttempt).map(response => ({
       id: response.questionId,
       prompt: response.question,
+      image: response.image,
+      imageAlt: response.imageAlt,
+      backImage: response.backImage,
+      backImageAlt: response.backImageAlt,
       modelAnswer: response.correctAnswers[0] || "",
       acceptedPoints: response.acceptedPoints || [],
       explanation: response.explanation || "",

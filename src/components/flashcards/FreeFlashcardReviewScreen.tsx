@@ -7,6 +7,8 @@ import { shuffleArray } from "@/lib/shuffleQuestion"
 import { advanceFreeReview, createFreeReview, selectFlashcardScope, undoFreeReview } from "@/lib/flashcardPractice"
 import { loadFreeFlashcardProgress, resetFreeFlashcardProgress, saveFreeFlashcardResult, selectFreeFlashcards, type FreeFlashcardResult } from "@/lib/freeFlashcardProgress"
 import type { Flashcard } from "@/content/flashcards/histologia/cards"
+import { loadUserFlashcardTopics } from "@/lib/userFlashcards"
+import { flashcardTopicLabel } from "@/lib/studyLabels"
 
 type Props = {
   onBack: () => void
@@ -21,6 +23,7 @@ type Props = {
 type UndoResult = { cardId: string; previous?: FreeFlashcardResult }
 
 export default function FreeFlashcardReviewScreen({ onBack, onMenu, selectedTopic = "all", selectedSubtopic, source = "default", cards, limit, reviewPreference = "mixed" }: Props) {
+  const [userTopics] = useState(() => source === "user" ? loadUserFlashcardTopics() : [])
   // Keep the selected bank stable for this session. Progress is independent of FSRS.
   const [scope] = useState(() => selectFlashcardScope(
     cards ?? getFlashcardsBySource(source, source === "user" ? selectedTopic : undefined),
@@ -126,7 +129,7 @@ export default function FreeFlashcardReviewScreen({ onBack, onMenu, selectedTopi
           {storageError && <p role="alert" className="mb-4 rounded-xl border border-rose-400/40 bg-rose-500/10 p-3 text-sm text-rose-200">{storageError}</p>}
           {currentCard ? <>
             <div className="mb-4 flex flex-wrap items-center gap-2">
-              {currentCard.topic && <span className="break-words rounded-full bg-violet-500/15 px-3 py-1 text-xs font-black text-violet-200">{currentCard.topic}</span>}
+              {flashcardTopicLabel(currentCard, source, userTopics) && <span className="break-words rounded-full bg-violet-500/15 px-3 py-1 text-xs font-black text-violet-200">{flashcardTopicLabel(currentCard, source, userTopics)}</span>}
               {currentCard.subtopic && <span className="break-words rounded-full bg-zinc-800 px-3 py-1 text-xs font-bold text-zinc-300">{currentCard.subtopic}</span>}
               {undoResults.length > 0 && <button type="button" onClick={undo} className="rounded-xl border border-amber-500/40 px-3 py-2 text-xs font-black text-amber-200">Deshacer ({undoResults.length})</button>}
             </div>

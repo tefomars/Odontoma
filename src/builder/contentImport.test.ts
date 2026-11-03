@@ -43,4 +43,13 @@ describe("formatos compartibles e importación", () => {
     const old = { questions: [{ prompt: "P", modelAnswer: "R", acceptedPoints: ["A"], explanation: "E" }] }
     expect(analyzeImport(readImport("\u0060\u0060\u0060json\n" + JSON.stringify(old) + "\n\u0060\u0060\u0060", "written"), "written", [])[0].item).toMatchObject({ prompt: "P", modelAnswer: "R", explanation: "E", acceptedPoints: ["A"] })
   })
+  it("importa y valida imágenes de pregunta y respuesta de escritos en TSV y JSON", () => {
+    const text = 'Pregunta\tRespuesta modelo\tPuntos aceptados\tExplicación\timage\timageAlt\tbackImage\tbackImageAlt\nP\tR\tA\tE\t/media/p.png\tPregunta\t/media/r.png\tSolución'
+    const doc = readImport(text, "written"), columns = detectColumns(doc.table!, "written")
+    expect(analyzeImport(doc, "written", [], columns.mapping, columns.hasHeader)[0].item).toMatchObject({
+      prompt: "P", modelAnswer: "R", image: "/media/p.png", imageAlt: "Pregunta", backImage: "/media/r.png", backImageAlt: "Solución"
+    })
+    expect(analyzeImport({ records: [{ question: "P", answer: "R", backImage: "javascript:alert(1)" }] }, "written", [])[0].error).toContain("Imagen inválida")
+    expect(formatExample("written").items[0]).toHaveProperty("backImage")
+  })
 })

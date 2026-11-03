@@ -14,8 +14,13 @@ import type { Plugin } from "vite"
 import { renderBuilderCss, type BuilderTheme } from "./src/builder/theme.ts"
 import { validateUiOverrides } from "./src/content/appBuilder/uiOverrideSchema.ts"
 import { validateCustomPages } from "./src/content/appBuilder/customPageSchema.ts"
+import { validateWrittenContent, normalizeWrittenForSave } from "./src/content/openQuizzes/validation.ts"
 
 type OpenQuizQuestion = {
+  image?: string
+  imageAlt?: string
+  backImage?: string
+  backImageAlt?: string
   id: string
   prompt: string
   modelAnswer: string
@@ -217,89 +222,7 @@ function validText(
 }
 
 function validateOpenQuizContent(value: unknown): value is OpenQuizContent {
-  if (!value || typeof value !== "object") return false
-
-  const content = value as Partial<OpenQuizContent>
-
-  if (!Array.isArray(content.decks) || content.decks.length > 200) {
-    return false
-  }
-
-  if (
-    content.classes !== undefined &&
-    (!Array.isArray(content.classes) || content.classes.length > 100)
-  ) {
-    return false
-  }
-
-  const classIds = new Set<string>()
-  const classNames = new Set<string>()
-
-  if (content.classes && !content.classes.every(item => {
-    const normalizedName = item?.name.trim().toLocaleLowerCase()
-    if (
-      !item ||
-      !validText(item.id, 150, true) ||
-      classIds.has(item.id) ||
-      !validText(item.name, 120, true) ||
-      classNames.has(normalizedName) ||
-      !validText(item.symbol, 12, true) ||
-      !validColor(item.color)
-    ) {
-      return false
-    }
-
-    classIds.add(item.id)
-    classNames.add(normalizedName)
-    return true
-  })) {
-    return false
-  }
-
-  const deckIds = new Set<string>()
-  const questionIds = new Set<string>()
-
-  return content.decks.every(deck => {
-    if (
-      !deck ||
-      !validText(deck.id, 150, true) ||
-      deckIds.has(deck.id) ||
-      !validText(deck.title, 180, true) ||
-      !validText(deck.subject, 120) ||
-      (deck.partial !== undefined && deck.partial !== null &&
-        (!Number.isInteger(deck.partial) || deck.partial < 1 || deck.partial > 9)) ||
-      (deck.color !== undefined && !validColor(deck.color)) ||
-      !validText(deck.classSymbol || "", 12) ||
-      (deck.classColor !== undefined && !validColor(deck.classColor)) ||
-      !validText(deck.description || "", 800) ||
-      !Array.isArray(deck.questions) ||
-      deck.questions.length > 2_000
-    ) {
-      return false
-    }
-
-    deckIds.add(deck.id)
-
-    return deck.questions.every(question => {
-      if (
-        !question ||
-        !validText(question.id, 150, true) ||
-        questionIds.has(question.id) ||
-        !validText(question.prompt, 3_000, true) ||
-        !validText(question.modelAnswer, 12_000, true) ||
-        !Array.isArray(question.acceptedPoints) ||
-        question.acceptedPoints.length > 100 ||
-        !question.acceptedPoints.every(point => validText(point, 1_000, true)) ||
-        !validText(question.explanation || "", 12_000) ||
-        !validText(question.source || "", 1_000)
-      ) {
-        return false
-      }
-
-      questionIds.add(question.id)
-      return true
-    })
-  })
+  return validateWrittenContent(value).length === 0
 }
 
 function validateHomeContent(value: unknown): value is HomeContent {
@@ -518,13 +441,13 @@ function localBuilderPlugin(): Plugin {
             if (pathname === "/__odontoma-builder/open-quizzes") {
               if (!validateOpenQuizContent(value)) {
                 response.statusCode = 400
-                response.end("Contenido de preguntas abiertas inválido")
+                response.end(validateWrittenContent(value).slice(0, 12).join("\n"))
                 return
               }
 
               await fs.writeFile(
                 openQuizContentPath,
-                `${JSON.stringify(value, null, 2)}\n`
+                `${JSON.stringify(normalizeWrittenForSave(value), null, 2)}\n`
               )
 
               response.setHeader("Content-Type", "application/json")
