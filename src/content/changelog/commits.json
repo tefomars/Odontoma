@@ -1,5 +1,11 @@
 [
   {
+    "id": "git-35d41c71b376003cd6f60098222b3dea37d4ba42",
+    "date": "2026-11-04T21:36:19.000Z",
+    "title": "Nuevo menu y cambie pos. de backups. Agregue changelog, bugfixes y autonomidad en el backend",
+    "body": ""
+  },
+  {
     "id": "git-78ab97100bfde42e57193d078f5e7251df2d7d6a",
     "date": "2026-11-04T13:10:32.000Z",
     "title": "proceso II y examenes proceso I y II",

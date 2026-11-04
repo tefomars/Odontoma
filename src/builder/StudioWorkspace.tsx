@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState, useSyncExternalStore, type ReactNode } from "react"
+import { memo, useEffect, useMemo, useState, useSyncExternalStore, type ReactNode } from "react"
 import { globalJournal } from "./globalHistory"
 import ImportGuide from "./ImportGuide"
 import ContentWizard from "./ContentWizard"
@@ -16,14 +16,26 @@ import ChangelogEditor from "./ChangelogEditor"
 import { organization, subjectSections, reviewClassPresentation, type Organization } from "@/content/appBuilder/organization"
 import { studioBanks } from "@/content/studio/catalog"
 import { customPages } from "@/content/appBuilder/customPages"
-import { workspaceNavigate, type WorkspaceTarget, type BankIndex } from "./workspaceBridge"
+import { workspaceNavigate, type WorkspaceTarget, type BankIndex, type WrittenIndex } from "./workspaceBridge"
+import { groupWrittenDecks } from "@/content/openQuizzes/categories"
 import type { HomeContent, FlashcardSubjectBlock } from "@/content/appBuilder"
 import "./workspace.css"
+
+// Keep every editor mounted for drafts/save/undo, but do not redraw unrelated
+// editors when the workspace toolbar or another editor's index changes.
+const StableLibraryEditor = memo(LibraryEditor)
+const StableWrittenEditor = memo(OpenQuizContentEditor)
+const StablePagesEditor = memo(CustomPagesEditor)
+const StableLiveAppBuilder = memo(LiveAppBuilder)
+const StableSectionsEditor = memo(SectionsEditor)
+const StableChangelogEditor = memo(ChangelogEditor)
+const StableUniversalEditor = memo(UniversalUiEditor)
+const StableContentWizard = memo(ContentWizard)
+const StableImportGuide = memo(ImportGuide)
 
 function initialTarget(): WorkspaceTarget { try { return JSON.parse(sessionStorage.getItem("odontoma-workspace-target") || "null") || { panel: "structure", view: "main-menu" } } catch { return { panel: "structure", view: "main-menu" } } }
 const labels: Record<string, string> = { create: "Agregar contenido", formats: "Formatos y prompts para AI", library: "Contenido", structure: "Menús y tarjetas", pages: "Menú personalizado", written: "Preguntas escritas", preview: "App navegable", appearance: "Apariencia global", sections: "Subdivisiones", changelog: "Versión e historial de cambios" }
 type PageIndex = Pick<CustomPage, "id" | "title" | "blocks">
-type WrittenIndex = { classes: { id: string; name: string }[]; decks: { id: string; title: string; subject: string }[] }
 
 export default function StudioWorkspace({ appearance }: { appearance: (active: boolean) => ReactNode }) {
   const [target, setTarget] = useState<WorkspaceTarget>(initialTarget)
@@ -90,19 +102,23 @@ export default function StudioWorkspace({ appearance }: { appearance: (active: b
       <details open><summary>Menús personalizados <button aria-label="Crear menú" onClick={e => { e.preventDefault(); pick({ panel: "pages", id: "__new" }) }}>＋</button></summary>{pages.filter(p => matches(p.title)).map(p => <button key={p.id} className={target.panel === "pages" && target.id === p.id ? "selected" : ""} onClick={() => pick({ panel: "pages", id: p.id })}>↳ {p.title}</button>)}{!pages.length && <small>Creá un menú con ＋ y enlazalo desde cualquier botón.</small>}</details>
       <p className="studio-tree-label">CONTENIDO</p><details open><summary>Materias <button aria-label="Crear materia" onClick={e => { e.preventDefault(); setCreate("course"); setName(""); setSubject("") }}>＋</button></summary>{courses.map(treeBank)}</details>
       <details open><summary>Repaso pre-parcial <button aria-label="Crear clase o parcial de repaso" onClick={e => { e.preventDefault(); setCreate("prepartial"); setName(""); setSubject("") }}>＋</button></summary>{[...new Set(reviews.map(b => b.subject))].map(s => <details key={s}><summary>{reviewClassPresentation(s, org).title}<button aria-label={`Editar clase de repaso ${reviewClassPresentation(s, org).title}`} onClick={e => { e.preventDefault(); pick({ panel: "sections", id: "review-class", subject: s }) }}>✎</button></summary>{reviews.filter(b => b.subject === s).map(treeBank)}</details>)}</details>
-      <details><summary>Cuestionarios escritos</summary><button onClick={() => pick({ panel: "written" })}>＋ Administrar clases y cuestionarios</button>{written.classes.filter(c => matches(c.name)).map(c => <details key={c.id}><summary>{c.name}</summary>{written.decks.filter(d => d.subject === c.name).map(d => <button key={d.id} onClick={() => pick({ panel: "written", subject: c.name, id: d.id })}>{d.title}</button>)}</details>)}</details>
+      <details><summary>Cuestionarios escritos</summary><button onClick={() => pick({ panel: "written" })}>＋ Administrar clases y cuestionarios</button>{written.classes.filter(c => matches(c.name)).map(c => {
+        const groups = groupWrittenDecks(written.decks.filter(d => d.subject === c.name).map(d => ({ ...d, questions: [] })), c.categories)
+        const exam = (d: WrittenIndex["decks"][number]) => <button key={d.id} onClick={() => pick({ panel: "written", subject: c.name, id: d.id })}>{d.title}</button>
+        return <details key={c.id}><summary>{c.name}</summary><button onClick={() => pick({ panel: "written", subject: c.name })}>✎ Categorías y cuestionarios</button>{groups.categories.map(group => <details key={group.id}><summary>{group.name}</summary>{group.decks.map(exam)}</details>)}{groups.ungrouped.map(exam)}</details>
+      })}</details>
       {structure && <details><summary>Tarjetas por subdivisión</summary>{(["quizzes", "flashcards"] as const).map(scope => <details key={scope}><summary>{scope === "quizzes" ? "Quizzes" : "Flashcards"}</summary>{subjectSections<HomeContent["subjects"][number] | FlashcardSubjectBlock>(scope === "quizzes" ? structure.home.subjects : structure.decks, org[scope]).map(g => <details key={g.id}><summary>{g.title}</summary>{g.items.filter(s => matches(s.title)).map(s => <button key={s.id} onClick={() => pick({ panel: "structure", view: scope === "quizzes" ? "subjects" : "flashcard-subjects", id: s.id })}>{s.title}</button>)}</details>)}</details>)}</details>}
       <p className="studio-tree-label">HERRAMIENTAS</p><button className={target.panel === "preview" ? "selected" : ""} onClick={() => pick({ panel: "preview", destination: "home" })}>◉ Navegar y editar la app</button><button onClick={() => pick({ panel: "appearance" })}>◐ Apariencia global</button><button onClick={() => window.dispatchEvent(new Event("odontoma-open-history"))}>↶ Historial y backups</button><button onClick={() => setHelp(!help)}>？Cómo trabajar</button>
     </aside>
     <section className="studio-main"><header className="studio-contextbar"><div><small>ODONTOMA / {labels[target.panel] || "Proyecto"}</small><h1>{bank && target.panel === "library" ? `${bank.title} · ${target.mode === "flashcards" ? "Flashcards" : "Opción múltiple"}` : target.panel === "pages" ? pages.find(p => p.id === target.id)?.title || "Nuevo menú" : labels[target.panel]}</h1></div>{target.panel !== "preview" && <button onClick={() => pick({ panel: "preview", destination: previewDestination })}>◉ Ver esta parte en la app</button>}<a href="/" target="_blank" rel="noreferrer">Abrir app ↗</a></header>
       {help && <div className="studio-help"><button onClick={() => setHelp(false)}>×</button><h2>Un solo lugar para trabajar</h2><p>1. Elegí una clase o pantalla en el árbol. 2. Editá o importá; los borradores se conservan al cambiar de sección. 3. Probá el borrador sin guardar o usá Guardar en Odontoma para aplicar todo. 4. Probá la app y publicá con tu comando habitual.</p><p>Para agregar una subdivisión: Subdivisiones y organización. Para asignarle una materia: editá su tarjeta en Materias de quizzes/flashcards. Para crear un menú: ＋ en Menús personalizados; después elegilo en «¿Qué abre?» de un botón.</p><p>La vista navegable permite elegir el proyecto guardado o Probar borrador sin guardar. El borrador usa progreso temporal aislado; Actualizar borrador recarga los cambios más recientes. El historial restaura contenido editable, no código ni Vercel. Descargá el .tar.gz para una copia completa.</p></div>}
-      <div hidden={target.panel !== "changelog"}><ChangelogEditor active={target.panel === "changelog"} target={target.panel === "changelog" ? target : undefined}/></div>
-      <div hidden={target.panel !== "create"}><ContentWizard /></div><div hidden={target.panel !== "formats"}><ImportGuide /></div><div hidden={target.panel !== "library"}><LibraryEditor active={target.panel === "library"} target={target.panel === "library" ? target : undefined}/></div>
-      <div hidden={target.panel !== "structure"}><LiveAppBuilder active={target.panel === "structure"} target={target.panel === "structure" ? target : undefined}/></div>
-      <div hidden={target.panel !== "pages"}><CustomPagesEditor active={target.panel === "pages"} target={target.panel === "pages" ? target : undefined}/></div>
-      <div hidden={target.panel !== "written"}><OpenQuizContentEditor active={target.panel === "written"} target={target.panel === "written" ? target : undefined}/></div>
-      <div hidden={target.panel !== "sections"}><SectionsEditor active={target.panel === "sections"} target={target.panel === "sections" ? target : undefined}/></div>
-      <div hidden={target.panel !== "preview"}><UniversalUiEditor active={target.panel === "preview"} target={target.panel === "preview" ? target : undefined}/></div>
+      <div hidden={target.panel !== "changelog"}><StableChangelogEditor active={target.panel === "changelog"} target={target.panel === "changelog" ? target : undefined}/></div>
+      <div hidden={target.panel !== "create"}><StableContentWizard /></div><div hidden={target.panel !== "formats"}><StableImportGuide /></div><div hidden={target.panel !== "library"}><StableLibraryEditor active={target.panel === "library"} target={target.panel === "library" ? target : undefined}/></div>
+      <div hidden={target.panel !== "structure"}><StableLiveAppBuilder active={target.panel === "structure"} target={target.panel === "structure" ? target : undefined}/></div>
+      <div hidden={target.panel !== "pages"}><StablePagesEditor active={target.panel === "pages"} target={target.panel === "pages" ? target : undefined}/></div>
+      <div hidden={target.panel !== "written"}><StableWrittenEditor active={target.panel === "written"} target={target.panel === "written" ? target : undefined}/></div>
+      <div hidden={target.panel !== "sections"}><StableSectionsEditor active={target.panel === "sections"} target={target.panel === "sections" ? target : undefined}/></div>
+      <div hidden={target.panel !== "preview"}><StableUniversalEditor active={target.panel === "preview"} target={target.panel === "preview" ? target : undefined}/></div>
       <div hidden={target.panel !== "appearance"}>{appearance(target.panel === "appearance")}</div>
     </section></div>
     {create && <div className="studio-modal-backdrop"><form className="studio-create-modal" role="dialog" aria-modal="true" aria-label={create === "course" ? "Crear materia" : "Crear repaso pre-parcial"} onSubmit={e => { e.preventDefault(); if (!name.trim() || !subject.trim()) return; pick({ panel: "library", id: create === "course" ? "__new-course" : "__new-prepartial", name: name.trim(), subject: subject.trim(), mode: "questions" }); setCreate(null) }}><h2>{create === "course" ? "Crear una materia" : "Crear un banco de repaso"}</h2><label>Clase<input autoFocus required placeholder="Bioquímica" value={subject} onChange={e => { setSubject(e.target.value); if (create === "course") setName(e.target.value) }}/></label><label>Nombre del banco<input required placeholder={create === "course" ? "Bioquímica" : "Parcial 3"} value={name} onChange={e => setName(e.target.value)}/></label><p>{create === "prepartial" ? "Los bancos con la misma clase se agrupan juntos. Cada parcial conserva su progreso independiente." : "Podrás agregar capítulos, preguntas y flashcards. Las escritas se administran con su propio banco."}</p><button className="studio-primary" type="submit">Crear y editar</button><button type="button" onClick={() => setCreate(null)}>Cancelar</button></form></div>}

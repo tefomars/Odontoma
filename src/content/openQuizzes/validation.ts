@@ -23,6 +23,19 @@ export function validateWrittenContent(value: unknown): string[] {
     if (!text(item.name, 120, true) || classNames.has(name)) issues.push(`${where}: nombre vacío, repetido o mayor de 120 caracteres.`)
     if (!text(item.symbol, 12, true)) issues.push(`${where}: falta el símbolo o supera 12 caracteres.`)
     if (!color(item.color)) issues.push(`${where}: el color debe tener formato #RRGGBB.`)
+    if (item.categories !== undefined) {
+      if (!Array.isArray(item.categories) || item.categories.length > 200) issues.push(`${where}: categorías inválidas (máximo 200).`)
+      else {
+        const ids = new Set<string>(), names = new Set<string>()
+        for (const category of item.categories) {
+          if (!object(category)) { issues.push(`${where}: categoría inválida.`); continue }
+          const name = String(category.name).trim().toLocaleLowerCase("es")
+          if (!text(category.id, 150, true) || ids.has(String(category.id))) issues.push(`${where}: identificador de categoría vacío o repetido.`)
+          if (!text(category.name, 120, true) || names.has(name)) issues.push(`${where}: nombre de categoría vacío, repetido o mayor de 120 caracteres.`)
+          ids.add(String(category.id)); names.add(name)
+        }
+      }
+    }
     classIds.add(String(item.id)); classNames.add(name)
   }
   const deckIds = new Set<string>(), questionIds = new Set<string>()
@@ -34,6 +47,10 @@ export function validateWrittenContent(value: unknown): string[] {
     if (!text(deck.title, 180, true)) issues.push(`${where}: falta el título o supera 180 caracteres.`)
     if (!text(deck.subject, 120, true)) issues.push(`${where}: falta la clase o supera 120 caracteres.`)
     if (deck.partial !== undefined && deck.partial !== null && (!Number.isInteger(deck.partial) || Number(deck.partial) < 1 || Number(deck.partial) > 9)) issues.push(`${where}: elegí un parcial entre 1 y 9, o Sin parcial.`)
+    if (deck.categoryId !== undefined && deck.categoryId !== null) {
+      const owner = classes.find(item => object(item) && item.name === deck.subject)
+      if (!text(deck.categoryId, 150, true) || !object(owner) || !Array.isArray(owner.categories) || !owner.categories.some(category => object(category) && category.id === deck.categoryId)) issues.push(`${where}: la categoría no existe en esta clase.`)
+    }
     if (deck.color !== undefined && !color(deck.color)) issues.push(`${where}: color del cuestionario inválido.`)
     if (!optionalText(deck.classSymbol, 12)) issues.push(`${where}: símbolo de clase inválido.`)
     if (deck.classColor !== undefined && !color(deck.classColor)) issues.push(`${where}: color de clase inválido.`)

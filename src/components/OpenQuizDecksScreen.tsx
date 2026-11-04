@@ -2,15 +2,15 @@ import { useLayoutEffect, useMemo } from "react"
 
 import logoImage from "@/assets/logo.png"
 import type { OpenQuizClass, OpenQuizDeck } from "@/content/openQuizzes"
-import { groupOpenQuizDecks } from "@/content/openQuizzes/partials"
+import { groupWrittenDecks } from "@/content/openQuizzes/categories"
 
 type Props = {
   classes: OpenQuizClass[]
   decks: OpenQuizDeck[]
   selectedClass: string | null
-  selectedPartial: number | null
+  selectedPartial: string | null
   onSelectClass: (className: string) => void
-  onSelectPartial: (partial: number) => void
+  onSelectPartial: (categoryId: string) => void
   onBack: () => void
   onMainMenu: () => void
   onStart: (deckId: string) => void
@@ -45,8 +45,8 @@ export default function OpenQuizDecksScreen({ classes: classDefinitions, decks, 
     return [...defined, ...legacy]
   }, [classDefinitions, decks])
   const activeClass = classes.find(item => item.name === selectedClass)
-  const groups = useMemo(() => groupOpenQuizDecks(activeClass?.decks || []), [activeClass])
-  const activePartial = groups.partials.find(item => item.number === selectedPartial)
+  const groups = useMemo(() => groupWrittenDecks(activeClass?.decks || [], classDefinitions.find(item => item.name === selectedClass)?.categories), [activeClass, classDefinitions, selectedClass])
+  const activePartial = groups.categories.find(item => item.id === selectedPartial)
 
   useLayoutEffect(() => {
     if (!window.matchMedia("(max-width: 1023px)").matches) return
@@ -60,7 +60,7 @@ export default function OpenQuizDecksScreen({ classes: classDefinitions, decks, 
       <div className="mx-auto max-w-6xl">
         <div className="mb-5 flex flex-wrap items-center justify-between gap-2">
           <button type="button" onClick={onBack} className="rounded-2xl border border-zinc-800 bg-zinc-950 px-4 py-2 text-sm font-black text-zinc-400 hover:bg-zinc-900 hover:text-white">
-            ← {activePartial ? "Parciales" : activeClass ? "Clases" : "Volver"}
+            ← {activePartial ? "Categorías" : activeClass ? "Clases" : "Volver"}
           </button>
           <button type="button" onClick={onMainMenu} className="rounded-2xl border border-violet-500/30 bg-violet-500/10 px-4 py-2 text-sm font-black text-violet-200 hover:bg-violet-500/20">
             Menú principal
@@ -72,13 +72,13 @@ export default function OpenQuizDecksScreen({ classes: classDefinitions, decks, 
             <img src={logoImage} alt="Odontoma" className="h-14 w-14 object-contain" />
             <div>
               <p className="text-xs font-black uppercase tracking-[0.25em] text-amber-300">{activePartial ? activeClass?.name : activeClass ? "Clase" : "Respuesta libre"}</p>
-              <h1 className="mt-2 text-4xl font-black tracking-tight sm:text-5xl">{activePartial ? `Parcial ${activePartial.number}` : activeClass?.name || "Elegí una clase"}</h1>
+              <h1 className="mt-2 break-words text-4xl font-black tracking-tight sm:text-5xl">{activePartial ? activePartial.name : activeClass?.name || "Elegí una clase"}</h1>
             </div>
           </div>
 
           <p className="mb-8 max-w-3xl text-base leading-relaxed text-zinc-400">
             {activeClass
-              ? activePartial ? "Elegí el cuestionario que querés practicar." : groups.partials.length > 0 ? "Elegí un parcial para ver sus cuestionarios." : "Elegí el examen o apartado que querés practicar."
+              ? activePartial ? "Elegí el cuestionario que querés practicar." : groups.categories.length > 0 ? "Elegí una categoría para ver sus cuestionarios." : "Elegí el examen o apartado que querés practicar."
               : "Tus preguntas abiertas están organizadas por materia para que encuentres cada examen más rápido."}
           </p>
 
@@ -86,19 +86,20 @@ export default function OpenQuizDecksScreen({ classes: classDefinitions, decks, 
             <EmptyState />
           ) : activePartial ? (
             <div className="grid gap-4 md:grid-cols-2">
+              {activePartial.decks.length === 0 && <p className="text-zinc-400">Todavía no hay cuestionarios en esta categoría.</p>}
               {activePartial.decks.map(deck => (
                 <DeckCard key={deck.id} deck={deck} classColor={activeClass?.color || DEFAULT_CLASS_COLOR} onStart={onStart} />
               ))}
             </div>
           ) : activeClass ? (
-            groups.partials.length > 0 ? (
+            groups.categories.length > 0 ? (
               <>
                 <div className="grid gap-4 md:grid-cols-2">
-                  {groups.partials.map(group => (
+                  {groups.categories.map(group => (
                     <button
-                      key={group.number}
+                      key={group.id}
                       type="button"
-                      onClick={() => onSelectPartial(group.number)}
+                      onClick={() => onSelectPartial(group.id)}
                       className="group rounded-[1.5rem] border p-6 text-left transition hover:scale-[1.01]"
                       style={{ borderColor: `${activeClass.color}45`, backgroundColor: `${activeClass.color}0D` }}
                     >
@@ -106,7 +107,7 @@ export default function OpenQuizDecksScreen({ classes: classDefinitions, decks, 
                         <span className="text-xs font-black uppercase tracking-[0.2em]" style={{ color: activeClass.color }}>{activeClass.name}</span>
                         <span className="text-sm font-bold text-zinc-400">{group.decks.length} {group.decks.length === 1 ? "cuestionario" : "cuestionarios"}</span>
                       </div>
-                      <h2 className="text-3xl font-black tracking-tight">Parcial {group.number}</h2>
+                      <h2 className="break-words text-3xl font-black tracking-tight">{group.name}</h2>
                       <p className="mt-3 text-sm text-zinc-400">{group.decks.reduce((total, deck) => total + deck.questions.length, 0)} preguntas abiertas</p>
                       <p className="mt-6 text-sm font-black" style={{ color: activeClass.color }}>Ver cuestionarios →</p>
                     </button>

@@ -7,6 +7,7 @@ import { studioServer } from "./studioServer"
 import { contentRevision } from "./librarySafety"
 import { validChangelog } from "@/content/changelog/model"
 import organization from "@/content/appBuilder/organization.json"
+import { moveWrittenDeck } from "@/content/openQuizzes/categories"
 
 const roots: string[] = []
 afterEach(async () => { for (const root of roots.splice(0)) await rm(root, { recursive: true, force: true }) })
@@ -87,6 +88,40 @@ describe("changelog in full project saves and backups", () => {
     const invalid = structuredClone(current)
     invalid.files.changelog.appVersion = "nueva versión"
     expect((await app.save(invalid)).status).toBe(400)
+    expect(await app.project()).toEqual(current)
+  })
+})
+
+describe("written categories through full project save and restore", () => {
+  it("persists category and exam order, backs them up, and restores without editing questions", async () => {
+    const app = await fixture()
+    const start = await app.project()
+    start.files.written = {
+      classes: [{ id: "materials", name: "Materiales", symbol: "X", color: "#123456", categories: [{ id: "y2", name: "Año 2" }, { id: "p12", name: "Parcial 12" }] }],
+      decks: ["A", "B"].map(id => ({ id, title: id, subject: "Materiales", categoryId: "p12", questions: [{ id: `q-${id}`, prompt: "Pregunta original", modelAnswer: "Respuesta original", explanation: "Explicación original", acceptedPoints: ["Dos palabras"], image: "/media/q.png", backImage: "/media/a.png" }] }))
+    }
+    expect((await app.save(start)).status).toBe(200)
+    const before = await app.project()
+    const next = structuredClone(before)
+    next.files.written = moveWrittenDeck(next.files.written, "B", -1)
+    next.files.written.classes[0].categories.reverse()
+    expect((await app.save(next)).status).toBe(200)
+    expect((await app.project()).files.written).toEqual(next.files.written)
+    const names = JSON.parse((await app.request("/__odontoma-studio/project-revisions")).output)
+    const snapshot = JSON.parse((await app.request(`/__odontoma-studio/project-revisions/${names[0]}`)).output)
+    expect(snapshot.files.written).toEqual(before.files.written)
+    snapshot.restore = true; snapshot.revision = (await app.project()).revision
+    expect((await app.save(snapshot)).status).toBe(200)
+    expect((await app.project()).files.written).toEqual(before.files.written)
+  })
+  it("rejects invalid category references before any file changes", async () => {
+    const app = await fixture()
+    const current = await app.project()
+    const invalid = structuredClone(current)
+    invalid.files.written = { classes: [], decks: [{ id: "A", title: "Quiz", subject: "Clase", categoryId: "missing", questions: [] }] }
+    const response = await app.save(invalid)
+    expect(response.status).toBe(400)
+    expect(response.output).toContain("la categoría no existe")
     expect(await app.project()).toEqual(current)
   })
 })

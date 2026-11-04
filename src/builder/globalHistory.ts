@@ -10,7 +10,14 @@ export class GlobalJournal {
   subscribe = (fn: () => void) => { this.listeners.add(fn); return () => { this.listeners.delete(fn) } }
   getSnapshot = () => this.snapshot
   setContext(area: string, target: unknown) { this.context = { area, target } }
-  private emit() { this.snapshot = { canUndo: !!this.past.length, canRedo: !!this.future.length, undoLabel: this.past.at(-1)?.label || "", redoLabel: this.future.at(-1)?.label || "" }; this.listeners.forEach(fn => fn()) }
+  private emit() {
+    const next = { canUndo: !!this.past.length, canRedo: !!this.future.length, undoLabel: this.past.at(-1)?.label || "", redoLabel: this.future.at(-1)?.label || "" }
+    // Recording a keystroke still updates the journal immediately. Only the
+    // toolbar's observable state is deduplicated, not edits or undo entries.
+    if (next.canUndo === this.snapshot.canUndo && next.canRedo === this.snapshot.canRedo && next.undoLabel === this.snapshot.undoLabel && next.redoLabel === this.snapshot.redoLabel) return
+    this.snapshot = next
+    this.listeners.forEach(fn => fn())
+  }
   record(change: JournalChange, label: string, mergeKey?: object, now = Date.now()) {
     if (Object.is(change.before, change.after)) return
     if (this.group) {

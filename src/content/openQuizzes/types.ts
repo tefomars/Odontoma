@@ -16,6 +16,8 @@ export type OpenQuizDeck = {
   title: string
   subject: string
   partial?: number | null
+  /** Undefined preserves legacy partial grouping; null explicitly means ungrouped. */
+  categoryId?: string | null
   color?: string
   classSymbol?: string
   classColor?: string
@@ -28,7 +30,10 @@ export type OpenQuizClass = {
   name: string
   symbol: string
   color: string
+  categories?: OpenQuizCategory[]
 }
+
+export type OpenQuizCategory = { id: string; name: string }
 
 export type OpenQuizContent = {
   classes?: OpenQuizClass[]

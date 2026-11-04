@@ -324,7 +324,7 @@ export default function App() {
     useState<string | null>(null)
 
   const [selectedOpenQuizPartial, setSelectedOpenQuizPartial] =
-    useState<number | null>(null)
+    useState<string | null>(null)
 
   const [started, setStarted] =
     useState(false)

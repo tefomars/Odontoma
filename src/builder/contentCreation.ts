@@ -4,12 +4,13 @@ import type { OpenQuizContent } from "../content/openQuizzes/types"
 import type { ImportedItem } from "./contentImport"
 import type { ImportKind } from "./contentFormats"
 import type { WorkspaceTarget } from "./workspaceBridge"
+import { groupWrittenDecks } from "../content/openQuizzes/categories"
 
 export type ContentCreation = {
   type: ImportKind; kind: "course" | "prepartial"; subject: string; title: string
   bankId: string; newBank: boolean; chapterId: string; newChapter: boolean; chapterTitle: string
   deckId: string; newDeck: boolean; image: string; quizAccess: boolean; flashcardAccess: boolean; sectionId: string
-  items: ImportedItem[]; partial?: number | null
+  items: ImportedItem[]; partial?: number | null; categoryName?: string
 }
 export type CreationEvent = { request: ContentCreation; accepted?: boolean; target?: WorkspaceTarget; error?: string }
 export function addLibraryContent(data: StudioData, request: ContentCreation, id: () => string): StudioData {
@@ -32,13 +33,30 @@ export function addWrittenContent(data: OpenQuizContent, request: ContentCreatio
   const found = data.decks.find(d => d.id === request.deckId)
   if (request.newDeck && found) throw new Error("Ya existe ese cuestionario.")
   if (!request.newDeck && !found) throw new Error("El cuestionario ya no está disponible.")
-  const classes = data.classes || []
-  const classItem = classes.find(c => c.name === request.subject) || { id: id(), name: request.subject.trim(), symbol: "▰", color: "#22c55e" }
+  let classes = data.classes || []
+  let classItem = classes.find(c => c.name === request.subject) || { id: id(), name: request.subject.trim(), symbol: "▰", color: "#22c55e" }
+  let categoryId: string | null | undefined
+  if (request.newDeck && request.categoryName !== undefined) {
+    categoryId = null
+    const name = request.categoryName.trim()
+    if (name) {
+      if (name.length > 120) throw new Error("El nombre de la categoría supera 120 caracteres.")
+      const categories = groupWrittenDecks(data.decks.filter(deck => deck.subject === classItem.name), classItem.categories).categories.map(({ id, name }) => ({ id, name }))
+      let category = categories.find(item => item.name.trim().toLocaleLowerCase("es") === name.toLocaleLowerCase("es"))
+      if (!category) {
+        if (categories.length >= 200) throw new Error("Máximo 200 categorías por clase.")
+        category = { id: id(), name }; categories.push(category)
+      }
+      categoryId = category.id
+      classItem = { ...classItem, categories }
+      classes = classes.map(item => item.id === classItem.id ? classItem : item)
+    }
+  }
   const questions = request.items.map(q => {
     if (!q.prompt?.trim() || !q.modelAnswer?.trim()) throw new Error("Hay una pregunta escrita incompleta.")
     return { id: id(), prompt: q.prompt, modelAnswer: q.modelAnswer, acceptedPoints: q.acceptedPoints || [], explanation: q.explanation || "", image: q.image, imageAlt: q.imageAlt, backImage: q.backImage, backImageAlt: q.backImageAlt }
   })
-  const deck = found || { id: request.deckId, subject: classItem.name, title: request.title.trim(), partial: request.partial || null, description: "", color: classItem.color, classColor: classItem.color, classSymbol: classItem.symbol, questions: [] }
+  const deck = found || { id: request.deckId, subject: classItem.name, title: request.title.trim(), partial: request.partial || null, ...(categoryId !== undefined ? { categoryId } : {}), description: "", color: classItem.color, classColor: classItem.color, classSymbol: classItem.symbol, questions: [] }
   if (found && found.subject !== classItem.name) throw new Error("El cuestionario no pertenece a esa clase.")
   const updated = { ...deck, questions: [...deck.questions, ...questions] }
   return { ...data, classes: classes.some(c => c.name === classItem.name) ? classes : [...classes, classItem], decks: found ? data.decks.map(d => d.id === deck.id ? updated : d) : [...data.decks, updated] }

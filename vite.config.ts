@@ -35,6 +35,7 @@ type OpenQuizDeck = {
   title: string
   subject: string
   partial?: number | null
+  categoryId?: string | null
   color?: string
   classSymbol?: string
   classColor?: string
@@ -47,6 +48,7 @@ type OpenQuizClass = {
   name: string
   symbol: string
   color: string
+  categories?: { id: string; name: string }[]
 }
 
 type OpenQuizContent = {

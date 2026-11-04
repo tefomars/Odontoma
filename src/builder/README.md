@@ -2,6 +2,30 @@
 
 ## Espacio de trabajo unificado
 
+La escritura actualiza el borrador y el historial inmediatamente; no hay un
+temporizador que retrase el texto antes de Guardar o cambiar de sección.
+Los editores siguen montados para conservar los borradores, pero las secciones
+sin cambios no se vuelven a dibujar con cada tecla. El árbol se actualiza cuando
+cambian títulos, categorías, orden o cantidades. Las diferencias completas para
+recuperar una biblioteca solo se calculan cuando existe un conflicto real.
+
+### Categorías y orden de cuestionarios escritos
+
+En **Cuestionarios escritos → Administrar clases y cuestionarios**, elegí una clase
+y desplegá **Categorías y orden**. Podés agregar carpetas con nombres libres
+(Año 1, Parcial 12, Unidad clínica…), renombrarlas y moverlas con ↑/↓.
+Los parciales antiguos se muestran automáticamente; no hay que recrearlos.
+En cada cuestionario, el campo **Categoría** permite cambiarlo de carpeta o dejarlo
+en **Sin categoría**. Las flechas junto al cuestionario cambian su orden dentro
+de su carpeta. El árbol y la app usan el mismo orden manual en PC y móvil.
+
+Quitar una categoría mueve sus cuestionarios a Sin categoría; no elimina preguntas,
+respuestas ni IDs de exámenes/intentos. Deshacer/Rehacer revierte estas operaciones.
+**Agregar contenido → Respuestas escritas** también permite elegir una categoría
+existente o escribir una nueva al crear/importar un cuestionario.
+Para conservarlo usá **Guardar en Odontoma**; las categorías y el orden quedan
+incluidos en los backups editables y la vista de borrador. Después publicá normalmente.
+
 El árbol de la izquierda es la navegación principal. Tiene los menús de la app,
 materias, capítulos, repasos agrupados por clase, escritas y menús personalizados.
 Buscá por nombre o desplegá una clase. Elegí Quiz, Flashcards o Escritas sin salir

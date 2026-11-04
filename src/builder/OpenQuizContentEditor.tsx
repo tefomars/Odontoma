@@ -15,7 +15,8 @@ import type {
   OpenQuizDeck,
   OpenQuizQuestion
 } from "@/content/openQuizzes"
-import { getOpenQuizPartial, groupOpenQuizDecks } from "@/content/openQuizzes/partials"
+import { groupWrittenDecks, moveWrittenDeck, setWrittenCategories, writtenCategoryId } from "@/content/openQuizzes/categories"
+import WrittenCategoriesEditor from "./WrittenCategoriesEditor"
 
 const CONTENT_DRAFT_KEY = "odontoma-open-quiz-builder-draft-v1"
 
@@ -128,7 +129,7 @@ export default function OpenQuizContentEditor({ active = true, target }: { activ
     if (name) { setSelectedClassName(name); setClassNameDraft(name); setSelectedDeckId(selected?.id || content.decks.find(d => d.subject === name)?.id || null); setSelectedQuestionId(null) }
   }, [target, contentLoaded]) // eslint-disable-line react-hooks/exhaustive-deps
   /* eslint-enable react-hooks/set-state-in-effect */
-  useEffect(() => { if (contentLoaded) publishIndex("written", { classes: content.classes, decks: content.decks.map(d => ({ id: d.id, title: d.title, subject: d.subject, partial: d.partial })) }) }, [content, contentLoaded])
+  useEffect(() => { if (contentLoaded) publishIndex("written", { classes: content.classes, decks: content.decks.map(d => ({ id: d.id, title: d.title, subject: d.subject, partial: d.partial, categoryId: d.categoryId })) }) }, [content, contentLoaded])
   const classes = useMemo(() => {
     const grouped = new Map<string, OpenQuizDeck[]>()
 
@@ -144,7 +145,7 @@ export default function OpenQuizContentEditor({ active = true, target }: { activ
   }, [content])
 
   const selectedClass = classes.find(item => item.name === selectedClassName)
-  const selectedClassGroups = useMemo(() => groupOpenQuizDecks(selectedClass?.decks || []), [selectedClass])
+  const selectedClassGroups = useMemo(() => groupWrittenDecks(selectedClass?.decks || [], selectedClass?.categories), [selectedClass])
 
   const selectedDeck = content.decks.find(deck => deck.id === selectedDeckId)
   const selectedQuestion = selectedDeck?.questions.find(
@@ -499,11 +500,13 @@ export default function OpenQuizContentEditor({ active = true, target }: { activ
                 </label>
               </div>
 
+              <WrittenCategoriesEditor key={selectedClass.id} content={content} subject={selectedClass.name} onChange={setContent}/>
               <div className="deck-list">
-                {selectedClassGroups.partials.map(group => (
-                  <div key={group.number}>
-                    <p className="eyebrow" style={{ margin: "18px 0 8px" }}>PARCIAL {group.number}</p>
-                    {group.decks.map(deck => (
+                {selectedClassGroups.categories.map(group => (
+                  <div key={group.id}>
+                    <p className="eyebrow" style={{ margin: "18px 0 8px" }}>{group.name}</p>
+                    {group.decks.map((deck, index) => (
+                      <div key={deck.id} className="written-deck-row">
                       <button
                         key={deck.id}
                         className={`deck-list-item ${deck.id === selectedDeckId ? "selected" : ""}`}
@@ -515,13 +518,19 @@ export default function OpenQuizContentEditor({ active = true, target }: { activ
                         <strong>{deck.title || "Sin título"}</strong>
                         <span>{deck.questions.length} {deck.questions.length === 1 ? "pregunta" : "preguntas"}</span>
                       </button>
+                      <div className="written-order-buttons">
+                        <button type="button" aria-label={`Subir cuestionario ${deck.title}`} disabled={index === 0} onClick={() => setContent(current => moveWrittenDeck(current, deck.id, -1))}>↑</button>
+                        <button type="button" aria-label={`Bajar cuestionario ${deck.title}`} disabled={index === group.decks.length - 1} onClick={() => setContent(current => moveWrittenDeck(current, deck.id, 1))}>↓</button>
+                      </div>
+                      </div>
                     ))}
                   </div>
                 ))}
-                {selectedClassGroups.ungrouped.length > 0 && selectedClassGroups.partials.length > 0 && (
-                  <p className="eyebrow" style={{ margin: "18px 0 8px" }}>SIN PARCIAL</p>
+                {selectedClassGroups.ungrouped.length > 0 && selectedClassGroups.categories.length > 0 && (
+                  <p className="eyebrow" style={{ margin: "18px 0 8px" }}>SIN CATEGORÍA</p>
                 )}
-                {selectedClassGroups.ungrouped.map(deck => (
+                {selectedClassGroups.ungrouped.map((deck, index) => (
+                  <div key={deck.id} className="written-deck-row">
                   <button
                     key={deck.id}
                     className={`deck-list-item ${deck.id === selectedDeckId ? "selected" : ""}`}
@@ -533,6 +542,11 @@ export default function OpenQuizContentEditor({ active = true, target }: { activ
                     <strong>{deck.title || "Sin título"}</strong>
                     <span>{deck.questions.length} {deck.questions.length === 1 ? "pregunta" : "preguntas"}</span>
                   </button>
+                  <div className="written-order-buttons">
+                    <button type="button" aria-label={`Subir cuestionario ${deck.title}`} disabled={index === 0} onClick={() => setContent(current => moveWrittenDeck(current, deck.id, -1))}>↑</button>
+                    <button type="button" aria-label={`Bajar cuestionario ${deck.title}`} disabled={index === selectedClassGroups.ungrouped.length - 1} onClick={() => setContent(current => moveWrittenDeck(current, deck.id, 1))}>↓</button>
+                  </div>
+                  </div>
                 ))}
               </div>
 
@@ -584,7 +598,7 @@ export default function OpenQuizContentEditor({ active = true, target }: { activ
                   value={selectedDeck.subject}
                   onChange={event => {
                     const nextClass = event.target.value
-                    updateDeck({ subject: nextClass })
+                    updateDeck({ subject: nextClass, categoryId: null })
                     setSelectedClassName(nextClass)
                     setClassNameDraft(nextClass)
                   }}
@@ -594,14 +608,18 @@ export default function OpenQuizContentEditor({ active = true, target }: { activ
                   ))}
                 </select>
               </BuilderField>
-              <BuilderField label="Parcial" hint="Organiza este cuestionario en la carpeta correspondiente. Los títulos antiguos se detectan automáticamente.">
+              <BuilderField label="Categoría" hint="Creá, renombrá y ordená las carpetas en Categorías y orden, a la izquierda. Los parciales actuales se conservan.">
                 <select
-                  value={getOpenQuizPartial(selectedDeck) ?? ""}
-                  onChange={event => updateDeck({ partial: event.target.value ? Number(event.target.value) : null })}
+                  aria-label="Categoría del cuestionario"
+                  value={writtenCategoryId(selectedDeck) ?? ""}
+                  onChange={event => {
+                    const categoryId = event.target.value || null
+                    setContent(current => ({ ...setWrittenCategories(current, selectedDeck.subject, selectedClassGroups.categories.map(({ id, name }) => ({ id, name }))), decks: current.decks.map(deck => deck.id === selectedDeck.id ? { ...deck, categoryId } : deck) }))
+                  }}
                 >
-                  <option value="">Sin parcial</option>
-                  {Array.from({ length: 9 }, (_, index) => index + 1).map(number => (
-                    <option key={number} value={number}>Parcial {number}</option>
+                  <option value="">Sin categoría</option>
+                  {selectedClassGroups.categories.map(category => (
+                    <option key={category.id} value={category.id}>{category.name}</option>
                   ))}
                 </select>
               </BuilderField>

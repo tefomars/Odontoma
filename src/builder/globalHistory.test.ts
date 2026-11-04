@@ -40,3 +40,40 @@ it("agrupa escritura continua en un campo, pero no ediciones en campos distintos
   journal.record({ area: "home", before: value, after: "Otro campo", apply: v => { value = String(v) } }, "Descripción", other, 1300)
   journal.undo(); expect(value).toBe("ABC")
 })
+
+it("registra cada tecla sin despertar a todos los editores si la barra no cambió", () => {
+  const journal = new GlobalJournal(), field = {}
+  let value = "", notifications = 0
+  const unsubscribe = journal.subscribe(() => { notifications++ })
+  let snapshot: ReturnType<GlobalJournal["getSnapshot"]> | undefined
+  for (let i = 0; i < 100; i++) {
+    const before = value; value += String(i % 10)
+    journal.record({ area: "written", before, after: value, apply: v => { value = String(v) } }, "Escritas", field, 1000 + i)
+    if (snapshot) expect(journal.getSnapshot()).toBe(snapshot)
+    snapshot = journal.getSnapshot()
+  }
+  expect(notifications).toBe(1)
+  const complete = value
+  journal.undo(); expect(value).toBe("")
+  journal.redo(); expect(value).toBe(complete)
+  expect(notifications).toBe(3)
+  unsubscribe()
+})
+
+it("no elimina acciones independientes aunque el estado visible del historial sea idéntico", () => {
+  const journal = new GlobalJournal()
+  let value = 0, notifications = 0
+  journal.subscribe(() => { notifications++ })
+  for (let i = 1; i <= 5; i++) {
+    const before = value; value = i
+    journal.record({ area: "written", before, after: i, apply: v => { value = Number(v) } }, "Escritas")
+  }
+  expect(notifications).toBe(1)
+  for (let i = 4; i >= 0; i--) { journal.undo(); expect(value).toBe(i) }
+  for (let i = 1; i <= 5; i++) { journal.redo(); expect(value).toBe(i) }
+  journal.undo()
+  journal.record({ area: "written", before: value, after: 20, apply: v => { value = Number(v) } }, "Escritas")
+  expect(journal.getSnapshot().canRedo).toBe(false)
+  journal.forget("written")
+  expect(journal.getSnapshot().canUndo).toBe(false)
+})

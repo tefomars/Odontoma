@@ -10,7 +10,7 @@ const decks: OpenQuizDeck[] = ["Semiología", "Materiales dentales"].map((subjec
   questions: [{ id: `q-${index}`, prompt: "Pregunta", modelAnswer: "Respuesta", acceptedPoints: [] }]
 }))
 const render = (subject: string, partial: number | null = null, items = decks) => renderToStaticMarkup(
-  <OpenQuizDecksScreen classes={[]} decks={items} selectedClass={subject} selectedPartial={partial}
+  <OpenQuizDecksScreen classes={[]} decks={items} selectedClass={subject} selectedPartial={partial === null ? null : `partial:${partial}`}
     onSelectClass={() => {}} onSelectPartial={() => {}} onBack={() => {}} onMainMenu={() => {}} onStart={() => {}} />
 )
 

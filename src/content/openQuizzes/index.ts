@@ -11,6 +11,7 @@ export const openQuizClasses = openQuizContent.classes || []
 export type {
   OpenQuizContent,
   OpenQuizClass,
+  OpenQuizCategory,
   OpenQuizDeck,
   OpenQuizGrade,
   OpenQuizQuestion

@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useSyncExternalStore } from "react"
 import type { NavigationIssue } from "@/content/appBuilder/navigationValidation"
+import { draftValuesEqual } from "./draftEquality"
 
 export const draftLabels = { library: "Bancos de preguntas y flashcards", home: "Menús y tarjetas de quizzes", decks: "Tarjetas de flashcards", written: "Cuestionarios escritos", pages: "Menús personalizados", organization: "Subdivisiones y clases de repaso", theme: "Apariencia global", overrides: "Edición directa de la app", changelog: "Versión e historial de cambios" } as const
 export type DraftArea = keyof typeof draftLabels
@@ -15,9 +16,8 @@ export function setDraftReport(area: DraftArea, ready: boolean, dirty: boolean, 
   listeners.forEach(fn => fn())
 }
 export function useDraftStatus(area: DraftArea, ready: boolean, value: unknown, saved: unknown, blocked?: string) {
-  const text = useMemo(() => JSON.stringify(value), [value])
-  const savedText = useMemo(() => JSON.stringify(saved), [saved])
-  useEffect(() => { setDraftReport(area, ready, ready && text !== savedText, blocked) }, [area, ready, text, savedText, blocked])
+  const dirty = useMemo(() => !draftValuesEqual(value, saved), [value, saved])
+  useEffect(() => { setDraftReport(area, ready, ready && dirty, blocked) }, [area, ready, dirty, blocked])
 }
 export const getDraftReports = () => reports
 export function useDraftReports() { return useSyncExternalStore(subscribe, getDraftReports, getDraftReports) }

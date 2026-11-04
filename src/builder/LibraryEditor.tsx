@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 import { useHistoryState } from "./useHistoryState"
 import { validateStudio, type StudioData, type StudyBank, type StudyQuestion } from "@/content/studio/schema"
 import type { Flashcard } from "@/content/flashcards/histologia/cards"
@@ -68,11 +68,11 @@ export default function LibraryEditor({ active = true, target }: { active?: bool
   const bank = history.state.banks.find(b => b.id === bankId)
   const chapterId = bank?.chapters.some(c => c.id === selectedChapterId) ? selectedChapterId : bank?.chapters[0]?.id || ""
   const chapter = bank?.chapters.find(c => c.id === chapterId)
-  const items = bank ? bank[mode] : []
+  const items = useMemo(() => bank ? bank[mode] : [], [bank, mode])
   const selected = items.find(q => q.id === selectedId)
   const question = mode === "questions" ? selected as StudyQuestion | undefined : undefined
   const card = mode === "flashcards" ? selected as Flashcard | undefined : undefined
-  const issues = loaded ? validateStudio(history.state) : []
+  const issues = useMemo(() => loaded ? validateStudio(history.state) : [], [history.state, loaded])
   const libraryState = history.state, setLibraryState = history.setState
   useEffect(() => {
     const create = (e: Event) => {
@@ -165,8 +165,9 @@ export default function LibraryEditor({ active = true, target }: { active?: bool
       setImportTarget(bankId + chapterId + mode); setImportText(text); setStatus("Revisá las filas y columnas en el importador de este capítulo, abajo.")
     } catch (e) { setStatus(String(e)) }
   }
-  const visible = items.filter(q => (!chapterId || q.chapter === chapterId) && JSON.stringify(q).toLowerCase().includes(search.toLowerCase()))
-  const recoveredChanges = libraryChanges(applied, history.state)
+  const needle = search.trim().toLowerCase()
+  const visible = useMemo(() => items.filter(q => (!chapterId || q.chapter === chapterId) && (!needle || JSON.stringify(q).toLowerCase().includes(needle))), [items, chapterId, needle])
+  const recoveredChanges = useMemo(() => conflict ? libraryChanges(applied, history.state) : { questions: { added: 0, modified: 0, removed: 0 }, flashcards: { added: 0, modified: 0, removed: 0 } }, [conflict, applied, history.state])
   return <><div className="library-recovery-status" role={conflict ? "alert" : "status"}>
     {conflict ? <><strong>Borrador recuperado de otra versión: no se aplicó nada</strong><p>Puede contener ediciones tuyas y omitir contenido agregado después. Descargarlo no cambia la app.</p><p>Preguntas: +{recoveredChanges.questions.added} · {recoveredChanges.questions.modified} modificadas · {recoveredChanges.questions.removed} eliminadas. Flashcards: +{recoveredChanges.flashcards.added} · {recoveredChanges.flashcards.modified} modificadas · {recoveredChanges.flashcards.removed} eliminadas.</p><button onClick={() => download(history.state, "odontoma-borrador-recuperado.json")}>Descargar borrador recuperado</button><button onClick={async () => { if (!confirm(`¿Revisaste las diferencias? Este borrador reemplazaría ${recoveredChanges.questions.removed} preguntas y ${recoveredChanges.flashcards.removed} tarjetas eliminadas. Solo habilita guardar: todavía no aplica nada.`)) return; setBaseRevision(await contentRevision(applied)); setConflict(false); setStatus("Borrador revisado. Comprobá el resumen antes de guardar.") }}>Revisé las diferencias: habilitar guardado</button><button onClick={async () => { if (!confirm("Se descargará tu borrador como copia y se abrirá el contenido actual. Podés recuperar el borrador importando esa copia. ¿Continuar?")) return; download(history.state, "odontoma-borrador-recuperado.json"); history.reset(applied); setBaseRevision(await contentRevision(applied)); setConflict(false); setStatus("Biblioteca actual abierta. La copia del borrador se descargó por separado.") }}>Descargar borrador y usar versión actual</button></> : <span>{draftSavedAt ? `Borrador local guardado: ${new Date(draftSavedAt).toLocaleString("es-GT", { timeZone: "America/Guatemala" })}` : "Biblioteca local"}. Publicar en Git/Vercel sigue siendo un paso separado.</span>}
   </div><section className="library-editor">
