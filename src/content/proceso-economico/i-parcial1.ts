@@ -1,0 +1,186 @@
+import { defineQuestions, type QuestionDraft } from "./questionBank"
+
+const drafts: QuestionDraft[] = [
+  ["001", "Acción, bienes y producción", "Lucía deja de trabajar una tarde para visitar a su familia, aunque pierde ingresos. ¿Cómo interpreta esa elección la teoría de la acción?", [
+    "Prefiere la satisfacción esperada de la visita al ingreso sacrificado.",
+    "Considera que la visita tiene un costo de oportunidad igual a cero.",
+    "Demuestra que las decisiones sin ganancia monetaria carecen de finalidad.",
+    "Prueba que el ingreso perdido excede el valor que atribuye a la visita.",
+  ], "La acción persigue una mejora subjetiva, no necesariamente una ganancia monetaria. El trabajo que deja de realizar representa una alternativa sacrificada."],
+  ["002", "Acción, bienes y producción", "Un molino compra trigo y lo transforma en harina que una familia utiliza para cocinar. Respecto al pan que finalmente consume la familia, ¿cómo se clasifican el trigo y el molino?", [
+    "Son medios de producción vinculados indirectamente con la satisfacción final.",
+    "Son bienes de consumo porque ambos tienen un precio de mercado.",
+    "Son capital monetario porque pueden venderse a un precio de mercado.",
+    "Son bienes de orden inferior por encontrarse antes que el pan en el proceso.",
+  ], "Su función en este proceso es producir un bien destinado al consumo. La clasificación depende del uso, no de que el bien tenga precio o se desgaste."],
+  ["003", "Acción, bienes y producción", "Fabricar un queso exige un día de trabajo y treinta días de maduración sin trabajo adicional. ¿Qué comparación describe mejor los períodos involucrados?", [
+    "El período de producción supera al tiempo de trabajo efectivo.",
+    "El tiempo de trabajo incluye los treinta días de maduración.",
+    "El período de producción termina antes de iniciar la maduración.",
+    "El período de serviciabilidad equivale al día de fabricación.",
+  ], "La producción también puede requerir espera por procesos naturales. La serviciabilidad se refiere al tiempo durante el cual el bien presta servicios, no al trabajo necesario para fabricarlo."],
+  ["004", "División del trabajo", "Ana produce por día 8 panes o 4 camisas; Luis produce 6 panes o 2 camisas. Con costos constantes, ¿qué especialización permite aprovechar sus ventajas comparativas?", [
+    "Ana en camisas y Luis en panes, por sus costos de oportunidad.",
+    "Ana en panes y Luis en camisas, por sus cantidades absolutas.",
+    "Ana en ambos productos y Luis en ninguno, por su menor productividad.",
+    "Ambos en camisas, porque es el producto de menor producción diaria.",
+  ], "Una camisa cuesta 2 panes a Ana y 3 a Luis; Ana tiene ventaja comparativa en camisas. Un pan cuesta 1/2 camisa a Ana y 1/3 a Luis; Luis la tiene en panes.", "hard"],
+  ["005", "División del trabajo", "Un cirujano escribe más rápido que su asistente, pero operar una hora le permite aportar mucho más valor. ¿Por qué puede convenir que el asistente redacte los informes?", [
+    "La ventaja absoluta al escribir no determina el menor costo de oportunidad.",
+    "La especialización requiere que el asistente escriba más palabras por hora.",
+    "La división del trabajo se determina comparando solo la velocidad al escribir.",
+    "La ventaja comparativa corresponde a quien tiene mayor productividad en ambas tareas.",
+  ], "El costo relevante incluye aquello a lo que renuncia cada persona. Que el cirujano sea más rápido en ambas tareas no impide ganancias por especialización."],
+  ["006", "División del trabajo", "Para fabricar un teléfono intervienen personas que desconocen cómo producir muchas de sus piezas. ¿Qué explica que puedan cooperar sin dominar todo el proceso?", [
+    "La especialización permite combinar conocimientos dispersos mediante intercambios.",
+    "Los precios transmiten a cada trabajador todas las técnicas de las demás etapas.",
+    "El intercambio transfiere íntegramente a cada participante el conocimiento de los demás.",
+    "La especialización permite producir por separado sin coordinar los distintos aportes.",
+  ], "La división del trabajo aprovecha capacidades y conocimientos distintos. Coordinar aportes no exige que todos posean la totalidad del conocimiento productivo."],
+  ["007", "Mercado y valor", "Dos compradores observan el mismo cuadro: uno ofrece Q500 y otro Q50. Sus materiales y horas de elaboración son idénticos. ¿Qué conclusión es compatible con el valor subjetivo?", [
+    "Un mismo objeto puede ocupar posiciones distintas en sus preferencias.",
+    "El comprador que ofrece menos necesariamente desconoce el costo productivo.",
+    "Las horas de trabajo fijan una valoración igual para ambos compradores.",
+    "La diferencia de ofertas demuestra que el cuadro carece de utilidad.",
+  ], "La valoración depende de la relación entre el bien y los fines de cada persona. El costo histórico no obliga a que todos atribuyan la misma importancia al objeto."],
+  ["008", "Mercado y valor", "Una empresa produce zapatos costosos que los consumidores dejan de comprar. ¿Qué señala la pérdida si los recursos tenían usos alternativos mejor valorados?", [
+    "Que los costos incurridos no garantizan una valoración suficiente del producto.",
+    "Que el trabajo incorporado asegura recuperar los costos al vender después.",
+    "Que el valor de los zapatos queda fijado por la factura de los insumos.",
+    "Que las preferencias dejan de influir una vez terminada la producción.",
+  ], "La decisión de producir no asegura que los consumidores valoren el resultado por encima de los recursos utilizados. La pérdida comunica un desacierto de coordinación."],
+  ["009", "Imputación, utilidad y marginalidad", "Una panadería recibe pedidos muy rentables de un pan especial y aumenta lo que está dispuesta a pagar por su harina específica. ¿Qué relación ilustra?", [
+    "La valoración esperada del producto influye en la valoración de sus factores.",
+    "El precio histórico de la harina determina la disposición a comprar pan.",
+    "La utilidad de la harina se vuelve independiente de sus usos productivos.",
+    "La valoración del factor aumenta aunque desaparezca la demanda del producto.",
+  ], "La imputación vincula el valor de los medios con los fines que permiten alcanzar. En este caso, la expectativa de ventas modifica la demanda del insumo."],
+  ["010", "Imputación, utilidad y marginalidad", "Una familia utiliza cuatro recipientes idénticos de agua para beber, cocinar, asearse y regar una planta, en ese orden de prioridad. Si pierde uno, ¿qué uso sacrifica primero?", [
+    "Regar la planta, por ser el uso menos urgente entre los satisfechos.",
+    "Beber, porque fue el primer uso al que asignó un recipiente.",
+    "Cocinar, porque representa el uso promedio de los recipientes.",
+    "Asearse, porque el último recipiente vale tanto como todos juntos.",
+  ], "La pérdida de una unidad intercambiable se enfrenta renunciando al uso marginal, no al más importante. La utilidad total del agua no es la utilidad de esa unidad."],
+  ["011", "Imputación, utilidad y marginalidad", "Un estudiante pagaría hasta Q40 por su primer café y hasta Q15 por el segundo. Si ambos cuestan Q20 y no hay otros efectos, ¿qué elección es coherente?", [
+    "Comprar un café, porque el segundo aporta menos valor que su precio.",
+    "Comprar dos cafés, porque el valor del primero supera ambos precios.",
+    "No comprar ninguno, porque el valor del segundo está bajo el precio.",
+    "Comprar dos cafés, porque las unidades idénticas tienen igual utilidad marginal.",
+  ], "Se compara el valor marginal de cada unidad con su costo. La primera supera Q20; la segunda no, aunque físicamente sea idéntica."],
+  ["012", "Oferta, demanda y precio", "El precio del té sube y algunos consumidores compran más café. Si los demás determinantes del mercado de café permanecen iguales, ¿qué cambio se espera?", [
+    "La demanda de café se desplaza y tienden a aumentar precio y cantidad.",
+    "La oferta de café se desplaza y tienden a disminuir precio y cantidad.",
+    "La demanda de café no cambia y solo hay movimiento por su propio precio.",
+    "La oferta de café no cambia y tienden a disminuir precio y cantidad.",
+  ], "El encarecimiento de un sustituto modifica la demanda de café a cada precio. No es un movimiento provocado inicialmente por el precio del propio café."],
+  ["013", "Oferta, demanda y precio", "Una cosecha excepcional reduce el costo de ofrecer tomates. Con demanda sin cambios, ¿qué combinación describe el nuevo equilibrio competitivo?", [
+    "Menor precio y mayor cantidad, por un aumento de la oferta.",
+    "Mayor precio y mayor cantidad, por un aumento de la demanda.",
+    "Menor precio y menor cantidad, por una caída de la demanda.",
+    "Mayor precio y menor cantidad, por una reducción de la oferta.",
+  ], "Una mayor oferta permite vender más a cada precio. Con la demanda constante, el ajuste de equilibrio reduce el precio y aumenta la cantidad intercambiada."],
+  ["014", "Oferta, demanda y precio", "A Q12 se desean comprar 150 unidades y vender 90. Sin controles de precios y con curvas habituales, ¿qué presión genera esa situación?", [
+    "Al alza sobre el precio, por un exceso de demanda de 60 unidades.",
+    "A la baja sobre el precio, por un exceso de oferta de 60 unidades.",
+    "Al alza sobre el precio, por un exceso de oferta de 240 unidades.",
+    "A la baja sobre el precio, por un exceso de demanda de 240 unidades.",
+  ], "La cantidad demandada excede a la ofrecida en 150 − 90 = 60. Esa escasez al precio vigente genera presión para que el precio suba."],
+  ["015", "Oferta, demanda y precio", "Un comprador pagaría hasta Q100 y el vendedor aceptaría desde Q60. Acuerdan Q80. ¿Cómo se distribuyen los excedentes de esta transacción?", [
+    "Q20 para el comprador y Q20 para el vendedor.",
+    "Q40 para el comprador y Q40 para el vendedor.",
+    "Q80 para el comprador y Q20 para el vendedor.",
+    "Q20 para el comprador y Q60 para el vendedor.",
+  ], "El comprador obtiene 100 − 80 = Q20 y el vendedor 80 − 60 = Q20. El excedente conjunto es Q40, no Q80."],
+  ["016", "Oferta, demanda y precio", "Aumentan simultáneamente la demanda y la oferta de bicicletas. Sin conocer la magnitud de los desplazamientos, ¿qué puede afirmarse con curvas habituales?", [
+    "La cantidad de equilibrio aumenta; el cambio del precio es indeterminado.",
+    "El precio de equilibrio aumenta; el cambio de la cantidad es indeterminado.",
+    "La cantidad de equilibrio disminuye; el cambio del precio es indeterminado.",
+    "El precio de equilibrio disminuye; el cambio de la cantidad es indeterminado.",
+  ], "Ambos desplazamientos aumentan la cantidad. Sus efectos sobre el precio son opuestos: la mayor demanda lo eleva y la mayor oferta lo reduce.", "hard"],
+  ["017", "Elasticidad", "Al subir el precio un 10%, la cantidad demandada cae aproximadamente un 4%. En ese tramo, ¿qué ocurre con la demanda y el ingreso total?", [
+    "Es inelástica y el ingreso total tiende a aumentar.",
+    "Es elástica y el ingreso total tiende a aumentar.",
+    "Es inelástica y el ingreso total tiende a disminuir.",
+    "Es elástica y el ingreso total tiende a disminuir.",
+  ], "La elasticidad en valor absoluto es aproximadamente 0.4. La cantidad cae proporcionalmente menos que lo que sube el precio, de modo que el ingreso aumenta."],
+  ["018", "Elasticidad", "Un vendedor baja su precio un 5% y la cantidad demandada aumenta un 15%. ¿Qué evaluación corresponde a ese tramo de demanda?", [
+    "La respuesta es elástica y la rebaja tiende a elevar el ingreso total.",
+    "La respuesta es inelástica y la rebaja tiende a elevar el ingreso total.",
+    "La respuesta es elástica y la rebaja tiende a reducir el ingreso total.",
+    "La respuesta es unitaria y la rebaja tiende a reducir el ingreso total.",
+  ], "La cantidad responde proporcionalmente más que el precio: |15/5| = 3. El mayor volumen compensa la rebaja en este caso."],
+  ["019", "Elasticidad", "Dos servicios tienen la misma demanda inicial. Uno cuenta con muchos sustitutos cercanos y el otro con pocos. Manteniendo lo demás igual, ¿cuál suele perder más clientes ante una subida porcentual de precio?", [
+    "El primero, porque los compradores pueden cambiar con más facilidad.",
+    "El segundo, porque la escasez de sustitutos facilita abandonar el servicio.",
+    "Ambos igual, porque compartir demanda inicial implica igual elasticidad.",
+    "El primero, porque tener sustitutos vuelve perfectamente rígida su demanda.",
+  ], "La disponibilidad de sustitutos suele aumentar la sensibilidad al precio. Una misma cantidad inicial no implica curvas con igual elasticidad."],
+  ["020", "Elasticidad", "El ingreso de una familia aumenta un 20% y su compra de un alimento cae un 5%, manteniendo precios constantes. ¿Qué clasificación describe el alimento en este caso?", [
+    "Inferior, con elasticidad ingreso negativa para esa familia.",
+    "Normal básico, con elasticidad ingreso positiva menor que uno.",
+    "De lujo, con elasticidad ingreso positiva mayor que uno.",
+    "Normal básico, con elasticidad ingreso negativa menor que uno.",
+  ], "La elasticidad ingreso es −5/20 = −0.25. «Inferior» describe cómo responde su demanda al ingreso; no es un juicio sobre su calidad nutricional."],
+  ["021", "Elasticidad", "Un cultivo necesita varios meses para ampliar la cosecha, pero puede aumentar su superficie el año siguiente. ¿Qué comparación de oferta es más razonable, manteniendo lo demás igual?", [
+    "Más inelástica inmediatamente y más elástica con tiempo para ajustar.",
+    "Más elástica inmediatamente y más inelástica con tiempo para ajustar.",
+    "Igualmente elástica siempre, porque el producto mantiene su naturaleza.",
+    "Perfectamente elástica siempre, porque el precio puede cambiar libremente.",
+  ], "El tiempo permite modificar capacidad, superficie y otros factores. La libertad para cambiar precios no elimina las restricciones físicas de corto plazo."],
+  ["022", "Intervención, impuestos y mercado negro", "El alquiler de equilibrio sería Q2,000 y se fija un máximo exigible de Q1,500. Sin otras medidas, ¿qué desajuste predice el modelo competitivo básico?", [
+    "Más viviendas demandadas que ofrecidas al precio autorizado.",
+    "Más viviendas ofrecidas que demandadas al precio autorizado.",
+    "Igual cantidad ofrecida y demandada al precio anterior.",
+    "Menor demanda y mayor oferta por el abaratamiento legal.",
+  ], "Un techo por debajo del equilibrio es vinculante: aumenta la cantidad demandada y reduce la ofrecida respecto del equilibrio. La norma no crea por sí misma viviendas adicionales."],
+  ["023", "Intervención, impuestos y mercado negro", "El precio de equilibrio de un grano es Q50 y se establece un mínimo de Q40. Si el mercado sigue pudiendo transar a Q50, ¿qué efecto directo tiene ese mínimo?", [
+    "No altera el equilibrio, porque queda por debajo del precio de mercado.",
+    "Genera excedentes, porque cualquier precio mínimo restringe las ventas.",
+    "Genera escasez, porque obliga a todos los compradores a pagar Q40.",
+    "Reduce el precio a Q40, porque el mínimo reemplaza el equilibrio.",
+  ], "Un precio mínimo solo es vinculante cuando impide alcanzar el equilibrio por estar por encima de él. Aquí permite que se siga negociando a Q50."],
+  ["024", "Intervención, impuestos y mercado negro", "En dos mercados que parten del mismo equilibrio, con igual curva lineal de oferta, se aplica un impuesto pequeño por unidad. La demanda lineal de A es menos elástica que la de B. ¿Dónde soportan los compradores una mayor proporción de la carga?", [
+    "En A, porque su cantidad demandada responde menos al encarecimiento.",
+    "En B, porque sus compradores pueden sustituir más fácilmente el producto.",
+    "En ambos igual, porque comparten el mismo impuesto por unidad vendida.",
+    "En B, porque una mayor respuesta de la demanda permite trasladar más carga.",
+  ], "La incidencia depende de las elasticidades relativas, no de quién entrega el impuesto. Con la oferta igual, una demanda menos elástica tiende a trasladar más carga a compradores."],
+  ["025", "Intervención, impuestos y mercado negro", "Un impuesto reduce las ventas de 100 a 80 unidades. Algunas de las 20 transacciones perdidas habrían beneficiado a comprador y vendedor. ¿Qué representa su beneficio neto no realizado?", [
+    "Pérdida de eficiencia, distinta del ingreso que recibe el fisco.",
+    "Recaudación fiscal, equivalente a toda la reducción de intercambios.",
+    "Excedente del productor, equivalente al impuesto pagado por unidad.",
+    "Excedente del consumidor, transferido íntegramente a los compradores restantes.",
+  ], "La recaudación es una transferencia al Estado; el excedente de intercambios mutuamente beneficiosos que dejan de ocurrir constituye pérdida irrecuperable de eficiencia."],
+  ["026", "Intervención, impuestos y mercado negro", "Un techo vinculante para un medicamento genera faltantes y algunos vendedores exigen pagos ocultos. ¿Qué relación explica esos pagos en el modelo básico?", [
+    "La escasez mantiene disposición a pagar por encima del precio legal.",
+    "El techo aumenta la oferta hasta eliminar la competencia entre compradores.",
+    "La abundancia obliga a compradores a ofrecer primas sobre el precio.",
+    "El precio legal elimina el costo de oportunidad del inventario disponible.",
+  ], "Prohibir un precio no elimina las valoraciones ni la escasez. Los pagos ocultos son una posible forma de racionamiento ilegal, no una consecuencia de mayor abundancia."],
+  ["027", "Frontera y ventaja comparativa", "Una economía utiliza plenamente sus recursos en dos bienes. Con tecnología fija, quiere producir más de uno. ¿Qué implica moverse sobre su frontera de posibilidades de producción?", [
+    "Renunciar a parte del otro bien para liberar recursos productivos.",
+    "Obtener más de ambos bienes sin modificar los recursos utilizados.",
+    "Reducir ambos bienes para conservar el mismo costo de oportunidad.",
+    "Expandir automáticamente la frontera al cambiar la combinación elegida.",
+  ], "Sobre una frontera eficiente existe un sacrificio entre usos alternativos de recursos escasos. Cambiar la combinación no equivale a aumentar la capacidad productiva."],
+  ["028", "Frontera y ventaja comparativa", "Una economía produce dentro de su frontera porque mantiene maquinaria y trabajadores desocupados. ¿Qué permitiría aumentar ambos bienes sin nueva tecnología?", [
+    "Aprovechar recursos ociosos y acercarse a la frontera existente.",
+    "Cambiar de un punto eficiente a otro sobre la misma frontera.",
+    "Reducir la disponibilidad total de factores para ampliar la frontera.",
+    "Elevar precios nominales para desplazar físicamente la frontera productiva.",
+  ], "Un punto interior puede reflejar recursos desaprovechados. Utilizarlos mejor permite producir más sin que necesariamente cambie la frontera potencial."],
+  ["029", "Frontera y ventaja comparativa", "Un país produce café con menos recursos que su vecino y telas con muchos menos recursos que él. ¿Qué información falta para recomendar la especialización por ventaja comparativa?", [
+    "Cuánto café sacrifica cada país por producir una unidad de tela.",
+    "Cuál de los dos países logra producir más unidades de ambos bienes.",
+    "Cuál producto tiene el precio nominal más elevado en cada moneda.",
+    "Cuántos habitantes tiene cada país antes de iniciar el intercambio.",
+  ], "La ventaja comparativa requiere comparar costos de oportunidad relativos. La superioridad absoluta en ambos productos no determina por sí sola el patrón de especialización."],
+  ["030", "Oferta, demanda y precio", "Al caer el ingreso disminuye la demanda de un bien normal, mientras aumentan sus costos de producción. Con curvas habituales, ¿qué resultado puede determinarse sin conocer las magnitudes?", [
+    "La cantidad disminuye y el precio puede subir o bajar.",
+    "El precio disminuye y la cantidad puede subir o bajar.",
+    "La cantidad aumenta y el precio puede subir o bajar.",
+    "El precio aumenta y la cantidad puede subir o bajar.",
+  ], "La menor demanda y la menor oferta reducen ambas la cantidad. Sus efectos sobre el precio son opuestos, por lo que hace falta conocer sus magnitudes.", "hard"],
+]
+
+export const procesoIParcial1 = defineQuestions("pe1-p1", "Parcial 1", drafts)

@@ -59,11 +59,13 @@ const destinationSubjectImages: Record<string, string> = {
   semiologia: semiologiaDeckImage,
   bioquimica: bioquimicaDeckImage,
   "proceso-economico-i": procesoEconomicoDeckImage,
+  "bank:proceso-economico-ii": procesoEconomicoDeckImage,
   "filosofia-de-hayek": hayekDeckImage
 }
 
 const destinationSubjectImagePositions: Record<string, string> = {
-  "proceso-economico-i": "center 18%"
+  "proceso-economico-i": "center 18%",
+  "bank:proceso-economico-ii": "center 18%"
 }
 
 export default function FlashcardSubjectScreen({

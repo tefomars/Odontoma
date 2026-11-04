@@ -1,0 +1,186 @@
+import { defineQuestions, type QuestionDraft } from "./questionBank"
+
+const drafts: QuestionDraft[] = [
+  ["001", "El Estado y sus funciones", "Cambia el presidente y su gabinete, pero continúan las leyes, los tribunales y las obligaciones públicas. ¿Qué distinción ayuda a describir esa continuidad?", [
+    "El gobierno es una administración temporal dentro de una organización estatal persistente.",
+    "El Estado es el conjunto temporal de gobernantes y el gobierno la organización persistente.",
+    "El gobierno comprende toda la población y el Estado solo a los funcionarios electos.",
+    "El Estado se limita al territorio y el gobierno incluye por sí solo todo el orden jurídico.",
+  ], "La organización estatal no se identifica con quienes ocupan temporalmente los cargos de gobierno. El relevo de autoridades no elimina por sí mismo sus instituciones."],
+  ["002", "El Estado y sus funciones", "En el argumento de Hobbes, personas que temen agresiones recíprocas aceptan un poder común. ¿Qué problema intenta resolver ese acuerdo?", [
+    "La inseguridad derivada de carecer de una autoridad común que garantice la paz.",
+    "La desigualdad de ingresos derivada de permitir diferencias de productividad entre individuos.",
+    "La dificultad de valorar capital sin mercados de medios de producción transferibles.",
+    "La falta de especialización derivada de que cada persona produzca solo para sí misma.",
+  ], "El argumento hobbesiano justifica el poder común como respuesta al conflicto y la inseguridad. No supone que constituirlo elimine la escasez o todas las diferencias personales."],
+  ["003", "El Estado y sus funciones", "Un gobernante decide proteger caminos y producción porque espera recaudar de esa misma población durante muchos años. ¿Qué lógica destaca la teoría del bandido estacionario?", [
+    "Un horizonte duradero puede darle incentivos para preservar la base que grava.",
+    "Un horizonte duradero elimina cualquier incentivo para extraer recursos ajenos.",
+    "La protección prueba que el poder nació necesariamente de un contrato voluntario.",
+    "La recaudación futura depende solo del tipo impositivo y no de la producción.",
+  ], "La teoría analiza incentivos de una autoridad que espera permanecer frente a la extracción itinerante. No equipara ese incentivo con benevolencia ni con consentimiento de los gobernados."],
+  ["004", "El Estado y sus funciones", "Un gobierno protege contratos, pero propone además decidir qué profesión debe ejercer cada persona. En la concepción limitada del Estado de Mises, ¿cuál es la diferencia relevante?", [
+    "Garantizar un marco de cooperación difiere de dirigir las elecciones productivas individuales.",
+    "Garantizar contratos exige asignar previamente todas las profesiones y los salarios.",
+    "Dirigir profesiones sustituye la necesidad de proteger la vida y la propiedad.",
+    "Proteger propiedad impide que existan reglas comunes contra el uso de violencia.",
+  ], "En esa concepción, proteger vida, propiedad y paz facilita la cooperación. Eso se distingue de reemplazar la coordinación de decisiones individuales por órdenes productivas."],
+  ["005", "El Estado y sus funciones", "Una autoridad permite que grupos locales atiendan una tarea que pueden resolver y actúa cuando esa capacidad resulta insuficiente. ¿Qué criterio organiza esa distribución?", [
+    "Subsidiariedad: asignar intervención superior cuando el nivel cercano no basta.",
+    "Centralización: reservar todas las tareas al nivel territorial más elevado.",
+    "Uniformidad: exigir que cada tarea tenga idéntica solución en todos los lugares.",
+    "Exclusividad: prohibir que organizaciones locales participen en tareas colectivas.",
+  ], "La subsidiariedad evalúa qué nivel puede realizar la función adecuadamente. No implica centralizar todo ni excluir de antemano toda actuación de niveles superiores."],
+  ["006", "El Estado y sus funciones", "El Estado anuncia nuevas prestaciones permanentes, pero no prevé ingresos ni fuentes sostenibles para cubrirlas. ¿Qué restricción debe evaluar el análisis económico?", [
+    "Los recursos tienen usos alternativos y financiar prestaciones exige sacrificios.",
+    "El costo económico se limita a recaudar, sin incluir recursos desplazados de otros usos.",
+    "La financiación mediante deuda reemplaza los recursos reales que deben consumirse hoy.",
+    "El costo de prestaciones permanentes puede evaluarse solo con el presupuesto del primer año.",
+  ], "Una finalidad deseable no elimina la restricción de recursos. El análisis debe identificar costos, financiación y alternativas sacrificadas, sin confundir objetivos con medios disponibles."],
+  ["007", "El Estado y sus funciones", "El gobierno aumenta su endeudamiento en un mercado de fondos prestables con ahorro ofrecido fijo. Sin entradas externas ni acomodación monetaria, ¿qué riesgo aparece para la inversión privada?", [
+    "Puede encarecerse su financiación por mayor demanda sobre los mismos fondos.",
+    "Puede abaratarse su financiación porque la deuda pública crea ahorro real idéntico.",
+    "Debe duplicarse su financiación porque ambos prestatarios utilizan fondos distintos.",
+    "Debe desaparecer el interés porque el sector público participa como demandante.",
+  ], "Bajo esos supuestos, competir por un ahorro limitado presiona el interés y puede desplazar inversión privada. Se explicitan las condiciones para no afirmar un efecto inevitable en cualquier contexto."],
+  ["008", "El Estado y sus funciones", "Un gobierno sustituye impuestos actuales por deuda, sin reducir sus gastos. ¿Qué evaluación evita considerar esa decisión como financiación sin costo?", [
+    "Difiere pagos y crea obligaciones futuras; no elimina los recursos utilizados hoy.",
+    "Elimina el costo porque quienes compran los bonos conservan su valor nominal.",
+    "Reduce automáticamente el gasto real en el monto exacto de los bonos vendidos.",
+    "Convierte todo gasto público corriente en inversión productiva por definición.",
+  ], "Emitir deuda modifica cómo y cuándo se financia el gasto. No borra su costo de oportunidad ni el servicio de las obligaciones contraídas."],
+  ["009", "Ingresos públicos e impuestos", "Dos normas recaudan lo mismo: una grava el ingreso personal y otra las compras de bienes. Por la clasificación básica del curso, ¿cómo se distinguen?", [
+    "La primera es un impuesto directo y la segunda un impuesto indirecto.",
+    "La primera es un impuesto indirecto y la segunda un impuesto directo.",
+    "Ambas son impuestos directos porque generan ingresos para el gobierno.",
+    "Ambas son impuestos indirectos porque modifican decisiones de los contribuyentes.",
+  ], "La clasificación se refiere al objeto y estructura del gravamen, no a si ambos recaudan o afectan incentivos. No determina por sí sola quién soporta toda la carga económica."],
+  ["010", "Ingresos públicos e impuestos", "Una tasa de 10% recauda sobre una base de Q1,000. Al subir a 20%, la base cae a Q400. ¿Qué ocurre con la recaudación en este ejemplo?", [
+    "Baja de Q100 a Q80, porque la base cae más que lo que compensa la tasa.",
+    "Sube de Q100 a Q200, porque la base inicial debe mantenerse en el cálculo.",
+    "Baja de Q100 a Q40, porque la tasa anterior se aplica a la base nueva.",
+    "Sube de Q100 a Q400, porque la base nueva equivale a la recaudación.",
+  ], "Recaudación = tasa × base: 0.10 × 1,000 = 100 y 0.20 × 400 = 80. El ejemplo no demuestra que cualquier aumento reduzca la recaudación."],
+  ["011", "Ingresos públicos e impuestos", "Un político afirma que reducir cualquier tasa de impuestos siempre aumenta la recaudación. ¿Qué falta para justificar esa conclusión mediante la idea de Laffer?", [
+    "Conocer la respuesta de la base y la posición inicial de la tasa.",
+    "Conocer solo el nombre del impuesto y el funcionario que lo recauda.",
+    "Suponer que la base permanece fija al reducir la tasa aplicada.",
+    "Suponer que el gasto público crece en igual porcentaje que la rebaja.",
+  ], "La recaudación depende de tasa y base. Una rebaja con base fija reduce ingresos; para aumentarlos, la expansión de la base debe compensarla suficientemente."],
+  ["012", "Ingresos públicos e impuestos", "Dos actividades antes igual de rentables reciben trato fiscal distinto: una obtiene una exención y la otra no. ¿Qué efecto sobre la asignación debe examinarse?", [
+    "Puede dirigirse inversión hacia la favorecida por su ventaja tributaria relativa.",
+    "Las decisiones quedan iguales porque los impuestos no afectan resultados netos.",
+    "La exención demuestra que la actividad favorecida usa menos recursos físicos.",
+    "La actividad gravada recibe necesariamente más inversión para compensar el impuesto.",
+  ], "Una diferencia tributaria cambia rentabilidades netas y puede alterar la elección. Favorecer fiscalmente una actividad no prueba mayor eficiencia productiva."],
+  ["013", "Ingresos públicos e impuestos", "Dos sistemas recaudan Q1 millón, pero uno exige muchos más trámites y horas de cumplimiento. ¿Qué criterio distingue sus costos para la sociedad?", [
+    "La misma recaudación puede obtenerse con cargas administrativas diferentes.",
+    "La misma recaudación implica costos totales idénticos para los contribuyentes.",
+    "Las horas de cumplimiento aumentan el ingreso fiscal aunque no se cobren.",
+    "Los costos administrativos desaparecen si no se registran como impuesto pagado.",
+  ], "El costo de un sistema no se reduce al dinero transferido. Cumplir y administrar obligaciones consume tiempo y recursos con usos alternativos."],
+  ["014", "Ingresos públicos e impuestos", "El gobierno compra un inmueble vendiendo otro de igual valor, sin endeudarse ni cobrar nuevos tributos. ¿Qué distingue esa entrada de una recaudación tributaria recurrente?", [
+    "Proviene de transformar un activo existente y no de una base tributaria periódica.",
+    "Proviene de crear patrimonio nuevo sin entregar un recurso previamente poseído.",
+    "Proviene de un impuesto indirecto porque interviene una compraventa de inmuebles.",
+    "Proviene de deuda porque cualquier ingreso público debe reembolsarse después.",
+  ], "Enajenar un activo genera efectivo a cambio de desprenderse de patrimonio. No constituye por sí mismo una fuente recurrente comparable a cobrar tributos."],
+  ["015", "Ingresos públicos e impuestos", "En el planteamiento de la curva de Rahn, un gasto que garantiza seguridad puede favorecer la actividad, mientras un aparato excesivo puede obstaculizarla. ¿Qué implica ese argumento?", [
+    "La relación propuesta entre tamaño del gasto y crecimiento no es siempre creciente.",
+    "Cualquier aumento del gasto eleva el crecimiento en la misma proporción.",
+    "Un gasto nulo garantiza por definición el máximo crecimiento de cualquier sociedad.",
+    "Existe un porcentaje universal exacto que no depende de instituciones ni contexto.",
+  ], "La hipótesis plantea beneficios de ciertas funciones y costos de expansión excesiva. No identifica por sí sola un tamaño óptimo universal ni garantiza causalidad a partir de una correlación."],
+  ["016", "Mercantilismo e intervención", "Un país acumula oro, pero produce menos alimentos, vivienda y servicios útiles por habitante. ¿Qué objeción haría la concepción de riqueza asociada a Adam Smith?", [
+    "La riqueza no se identifica con el metal acumulado, sino con bienes y servicios disponibles.",
+    "La riqueza aumenta necesariamente porque cualquier oro adicional compensa toda menor producción.",
+    "La riqueza depende solo del saldo de comercio, sin importar qué consumen los habitantes.",
+    "La riqueza debe medirse por importaciones prohibidas, aunque caiga la productividad del trabajo.",
+  ], "La crítica al mercantilismo distingue acumulación monetaria de disponibilidad de bienes y capacidad productiva. El oro puede ser un medio, pero no equivale por sí solo a bienestar real."],
+  ["017", "Mercantilismo e intervención", "Se impone un arancel a un bien importado que también se produce localmente. En una economía pequeña, sin represalias ni cambios del precio externo, ¿qué distribución básica se espera?", [
+    "Productores locales favorecidos y consumidores pagando más por el bien.",
+    "Consumidores favorecidos y productores locales recibiendo un precio menor.",
+    "Productores y consumidores pagando menos porque cae el precio externo.",
+    "Consumidores sin cambios y productores sin cambios porque el arancel se recauda en aduana.",
+  ], "El arancel encarece el bien dentro del país y protege a oferentes locales, mientras perjudica a compradores y puede recaudar para el Estado. No se evalúa solo el beneficio del sector protegido."],
+  ["018", "Mercantilismo e intervención", "Una cuota limita importaciones a 1,000 unidades; un arancel permite importar cualquier cantidad pagando una tasa. ¿Qué diferencia distingue los instrumentos?", [
+    "La cuota restringe directamente cantidad; el arancel modifica el costo de importar.",
+    "La cuota modifica solo ingresos; el arancel fija directamente la cantidad máxima.",
+    "La cuota garantiza precio mundial interno; el arancel elimina toda importación.",
+    "La cuota recauda siempre para el fisco; el arancel entrega siempre rentas privadas.",
+  ], "Ambos pueden restringir comercio, pero actúan por mecanismos distintos. Los ingresos asociados a una cuota dependen de cómo se asignan sus permisos."],
+  ["019", "Mercantilismo e intervención", "Una industria protegida conserva empleos, pero sus clientes pagan más y compran menos de otros productos. ¿Qué exige una evaluación completa de la protección?", [
+    "Considerar efectos sobre otros sectores y consumidores además del empleo visible.",
+    "Contar solo los empleos protegidos porque los consumidores no son productores.",
+    "Suponer que todo gasto adicional crea ingreso sin desplazar ninguna compra.",
+    "Medir el beneficio social por los ingresos brutos de la industria favorecida.",
+  ], "El beneficio concentrado no describe el efecto neto. Los recursos que compradores destinan al producto encarecido ya no están disponibles para otros usos."],
+  ["020", "Mercantilismo e intervención", "En un mercado laboral competitivo, el salario mínimo se fija por encima del equilibrio y no cambian productividad ni demanda. ¿Qué desajuste predice ese modelo?", [
+    "La cantidad de trabajo ofrecida excede la que las empresas desean contratar.",
+    "La cantidad de trabajo demandada excede la que las personas desean ofrecer.",
+    "La cantidad contratada aumenta necesariamente al subir el costo de cada trabajador.",
+    "La productividad física aumenta automáticamente hasta igualar el nuevo salario legal.",
+  ], "Es el caso de un precio mínimo vinculante dentro del modelo competitivo especificado. No se presenta como predicción independiente de cualquier estructura de mercado o contexto."],
+  ["021", "Mercantilismo e intervención", "Un límite de precios vuelve poco rentable abastecer legalmente un bien escaso y aparecen transacciones clandestinas. ¿Qué incentivo conecta ambos hechos?", [
+    "La diferencia entre el precio permitido y la disposición efectiva a pagar.",
+    "La desaparición de la demanda porque el precio permitido es más bajo.",
+    "La conversión de los costos de producción en recursos disponibles gratuitamente.",
+    "La obligación de que todo vendedor clandestino acepte el precio autorizado.",
+  ], "Un precio legal no elimina el costo de oportunidad ni la disposición a pagar. El racionamiento y la prima sobre el precio autorizado pueden incentivar un mercado negro."],
+  ["022", "Mercantilismo e intervención", "Un productor pide prohibir importaciones porque así aumentarán sus ventas. ¿Qué dato falta para concluir que también mejora el resultado para toda la sociedad?", [
+    "Los costos para compradores y los usos alternativos de los recursos reasignados.",
+    "El aumento de sus ventas, que por sí solo ya mide el beneficio colectivo neto.",
+    "La nacionalidad del productor, que convierte cualquier ingreso suyo en ganancia neta.",
+    "El valor de los bienes importados, que representa siempre una pérdida sin compensación.",
+  ], "Una ventaja privada no prueba una ganancia social. Los compradores reciben bienes a cambio de sus pagos, y proteger una actividad puede desplazar recursos de otras."],
+  ["023", "Sector externo y comercio internacional", "Un país exporta bienes por 100 e importa por 120, pero obtiene un saldo neto de servicios de +30. Sin otras partidas, ¿cómo se comparan sus saldos?", [
+    "Tiene saldo de bienes de −20 y saldo corriente de +10.",
+    "Tiene saldo de bienes de +20 y saldo corriente de +50.",
+    "Tiene saldo de bienes de −20 y saldo corriente de −50.",
+    "Tiene saldo de bienes de +10 y saldo corriente de −20.",
+  ], "La balanza de bienes es 100 − 120 = −20. Añadir servicios netos de +30 da +10 en la cuenta corriente si no hay otras partidas; ambas medidas no son idénticas."],
+  ["024", "Sector externo y comercio internacional", "Una persona residente recibe una remesa corriente de un familiar que trabaja y reside en el extranjero. ¿Dónde se registra esa transferencia en la balanza de pagos?", [
+    "En el ingreso secundario de la cuenta corriente.",
+    "En la inversión directa de la cuenta financiera.",
+    "En las exportaciones de mercancías de la balanza de bienes.",
+    "En una transferencia de capital por comprar un activo financiero.",
+  ], "Una remesa personal corriente no es una venta de bienes ni una inversión. Se registra como transferencia corriente en el ingreso secundario."],
+  ["025", "Sector externo y comercio internacional", "Una empresa extranjera adquiere participación duradera en una fábrica local. ¿Qué clasificación distingue esa operación de exportar los productos de la fábrica?", [
+    "La participación es inversión directa en la cuenta financiera; los productos exportados son bienes.",
+    "La participación es ingreso secundario en la cuenta corriente; los productos exportados son bienes.",
+    "La participación es exportación de servicios; los productos exportados son inversión de cartera.",
+    "La participación es recaudación arancelaria; los productos exportados son transferencias de capital.",
+  ], "La compra de una participación duradera es una operación financiera de inversión directa. Las ventas de mercancías al exterior pertenecen al comercio de bienes."],
+  ["026", "Sector externo y comercio internacional", "El tipo de cambio pasa de Q7 a Q8 por dólar. Un exportador cobra los mismos US$1,000 y sus costos locales no cambian. ¿Qué efecto directo tiene sobre su ingreso en quetzales?", [
+    "Aumenta de Q7,000 a Q8,000 por la depreciación del quetzal.",
+    "Disminuye de Q8,000 a Q7,000 por la depreciación del quetzal.",
+    "Aumenta de Q7,000 a Q8,000 por la apreciación del quetzal.",
+    "Permanece en Q7,000 porque el precio expresado en dólares no cambió.",
+  ], "Al necesitarse más quetzales por dólar, el quetzal se deprecia y cada dólar cobrado rinde más moneda local. El efecto neto podría cambiar si existieran costos importados, que aquí se mantienen fuera."],
+  ["027", "Sector externo y comercio internacional", "Un importador debe pagar US$2,000. El tipo de cambio sube de Q7 a Q8 por dólar. Sin cobertura cambiaria, ¿qué pasa con el costo en moneda local?", [
+    "Sube de Q14,000 a Q16,000 por el mismo monto de dólares.",
+    "Baja de Q16,000 a Q14,000 por el mismo monto de dólares.",
+    "Permanece en Q14,000 porque no cambió la factura en dólares.",
+    "Sube de Q14,000 a Q15,000 porque el cambio se suma una vez.",
+  ], "Se multiplica el monto en dólares por los quetzales que cuesta cada dólar: 2,000 × 7 y 2,000 × 8. Una factura extranjera fija no implica costo local fijo."],
+  ["028", "Sector externo y comercio internacional", "Crece la demanda de dólares mientras su oferta permanece constante. En un régimen flotante sin intervención, cotizado en quetzales por dólar, ¿qué presión se espera?", [
+    "Al alza sobre la cotización del dólar y a la depreciación del quetzal.",
+    "A la baja sobre la cotización del dólar y a la apreciación del quetzal.",
+    "Al alza sobre la cotización del dólar y a la apreciación del quetzal.",
+    "A la baja sobre la cotización del dólar y a la depreciación del quetzal.",
+  ], "Con oferta fija, la mayor demanda encarece el dólar en moneda local. Esa subida expresa depreciación del quetzal, no apreciación."],
+  ["029", "Sector externo y comercio internacional", "Una autoridad promete vender dólares a un precio fijo inferior al que equilibraría el mercado. Sin restricciones de compra y con reservas limitadas, ¿qué presión enfrenta?", [
+    "Exceso de demanda de dólares que puede reducir sus reservas internacionales.",
+    "Exceso de oferta de dólares que obliga a aumentar sus reservas internacionales.",
+    "Ausencia de presión porque anunciar un precio elimina las valoraciones de mercado.",
+    "Aumento automático de reservas porque la moneda extranjera está legalmente barata.",
+  ], "Al precio artificialmente bajo se desean comprar más dólares que los ofrecidos privadamente. Sostenerlo vendiendo divisas puede agotar reservas si no cambian otras condiciones."],
+  ["030", "Sector externo y comercio internacional", "Un país importa maquinaria financiada mediante inversión extranjera. ¿Por qué un déficit de bienes en ese caso no basta para diagnosticar una crisis?", [
+    "Debe examinarse qué se importa, cómo se financia y su capacidad productiva futura.",
+    "Toda importación financiada externamente desaparece del registro de la balanza de bienes.",
+    "La inversión extranjera garantiza que cada máquina generará utilidades suficientes sin riesgo.",
+    "Un déficit comercial demuestra que ningún residente recibió algo a cambio de sus pagos.",
+  ], "Un saldo aislado no revela sostenibilidad ni destino de los recursos. Importar capital productivo puede ampliar capacidad, pero la financiación y su rendimiento también deben evaluarse."],
+]
+
+export const procesoIIParcial2 = defineQuestions("pe2-p2", "Parcial 2", drafts)

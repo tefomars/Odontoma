@@ -1,0 +1,186 @@
+import { defineQuestions, type QuestionDraft } from "./questionBank"
+
+const drafts: QuestionDraft[] = [
+  ["001", "Ahorro, capital y capitalización", "Un pescador aparta pescado durante varios días para alimentarse mientras construye una red. ¿Qué papel desempeña el pescado reservado?", [
+    "Sostiene el consumo durante un proceso productivo que todavía no rinde frutos.",
+    "Constituye la herramienta que eleva directamente la captura por hora trabajada.",
+    "Representa una ganancia obtenida después de utilizar la nueva red terminada.",
+    "Sustituye la necesidad de dedicar tiempo y materiales a construir la red.",
+  ], "El ahorro permite sostener la espera y liberar tiempo para producir la red. La red es el bien de capital que luego aumenta la productividad."],
+  ["002", "Ahorro, capital y capitalización", "Una comunidad conoce una máquina más eficiente, pero consume todo lo producido y no dispone de medios para fabricarla. ¿Qué distingue el conocimiento técnico de la capitalización?", [
+    "Conocer la técnica no proporciona los recursos necesarios para materializarla.",
+    "Descubrir la técnica equivale a disponer ya de la máquina funcionando.",
+    "Ahorrar proporciona de inmediato tanto los materiales como la técnica que falta.",
+    "El conocimiento es capital ya instalado, aunque todavía no se haya invertido.",
+  ], "Una idea productiva y los medios para implementarla no son lo mismo. La capitalización requiere recursos que sostengan y ejecuten la inversión."],
+  ["003", "Ahorro, capital y capitalización", "Una empresa compra máquinas para reponer exactamente el desgaste anual de su equipo. ¿Qué sucede con su stock de capital si no hay otros cambios?", [
+    "Se mantiene, porque la inversión repone el capital consumido.",
+    "Aumenta, porque cualquier compra de maquinaria es acumulación neta.",
+    "Disminuye, porque la reposición cuenta como consumo de hogares.",
+    "Se duplica, porque deben sumarse máquinas nuevas y desgaste.",
+  ], "La inversión bruta puede limitarse a reponer depreciación. Solo la inversión que supera esa pérdida constituye aumento neto del stock de capital."],
+  ["004", "Ahorro, capital y capitalización", "El salario mensual de una persona permanece en Q4,000 y el costo de su canasta habitual baja de Q2,000 a Q1,600. ¿Cómo cambia su salario real medido en esas canastas?", [
+    "Aumenta de 2 a 2.5 canastas, aunque el salario nominal no cambie.",
+    "Disminuye de 2 a 1.6 canastas, aunque el salario nominal no cambie.",
+    "Permanece en 2 canastas, porque el ingreso monetario sigue siendo igual.",
+    "Aumenta de 2 a 4 canastas, porque cualquier caída de precios lo duplica.",
+  ], "El poder adquisitivo pasa de 4,000/2,000 = 2 a 4,000/1,600 = 2.5 canastas. Es un aumento real del 25%, sin aumento nominal."],
+  ["005", "Ahorro, capital y capitalización", "Una máquina permite producir la misma cantidad con menos trabajo. ¿Qué conclusión evita confundir desplazamiento de tareas con desempleo permanente de toda la economía?", [
+    "Puede liberar trabajo para otros usos, cuyo ajuste no tiene por qué ser inmediato.",
+    "Garantiza que todo trabajador desplazado encuentre empleo el mismo día.",
+    "Reduce el empleo total de forma permanente en igual número que los puestos desplazados.",
+    "Reduce costos, pero deja sin modificación posible los demás usos del trabajo liberado.",
+  ], "La productividad puede liberar recursos para nuevas actividades. Eso no niega costos de transición ni garantiza la recolocación inmediata de cada trabajador."],
+  ["006", "Preferencia temporal, interés y crédito", "Dos personas esperan iguales ingresos futuros y enfrentan el mismo riesgo. Una exige más compensación que la otra para posponer consumo. ¿Qué diferencia describe esa comparación?", [
+    "La primera manifiesta mayor preferencia temporal por la satisfacción presente.",
+    "La primera manifiesta menor preferencia temporal por la satisfacción presente.",
+    "La segunda enfrenta necesariamente una tasa de inflación más elevada.",
+    "La segunda dispone necesariamente de mayor productividad física actual.",
+  ], "Al mantener otras condiciones iguales, exigir más compensación por esperar expresa mayor valoración relativa del presente. No permite inferir productividad o inflación diferentes."],
+  ["007", "Preferencia temporal, interés y crédito", "Más familias deciden posponer consumo y ofrecer ahorro. En un modelo de fondos prestables con demanda de inversión constante, ¿qué presión se espera?", [
+    "A la baja sobre el interés, al aumentar la oferta de fondos.",
+    "Al alza sobre el interés, al aumentar la oferta de fondos.",
+    "A la baja sobre el ahorro, al aumentar la demanda de inversión.",
+    "Al alza sobre el consumo presente, al reducirse el ahorro ofrecido.",
+  ], "El aumento del ahorro ofrecido desplaza la oferta de fondos. Con la demanda fija, tiende a disminuir el interés de equilibrio y a facilitar inversiones."],
+  ["008", "Preferencia temporal, interés y crédito", "Un proyecto necesita dos años sin vender antes de generar bienes de consumo. ¿Por qué importa que existan recursos ahorrados durante esa espera?", [
+    "Permiten sostener a quienes producen antes de recibir el producto final.",
+    "Permiten consumir desde hoy los bienes que solo se producirán al finalizar el proyecto.",
+    "Compensan cualquier error de previsión si el proceso productivo dura suficientes años.",
+    "Sustituyen el uso de insumos presentes por el ingreso esperado de la venta futura.",
+  ], "La espera productiva requiere medios de subsistencia y otros recursos presentes. El ahorro hace posible el proceso, pero no elimina la incertidumbre empresarial."],
+  ["009", "Imputación, valor presente y cálculo", "Una máquina producirá un único ingreso neto de Q1,100 dentro de un año, sin valor residual. A una tasa de descuento del 10%, ¿cuál es su valor presente?", [
+    "Q1,000, al descontar el ingreso futuro por el factor 1.10.",
+    "Q990, al restar directamente el 10% del ingreso futuro.",
+    "Q1,210, al capitalizar el ingreso futuro por el factor 1.10.",
+    "Q1,100, al considerar que recibirlo después no afecta su valoración.",
+  ], "VP = 1,100/1.10 = Q1,000. Restar el 10% del monto futuro no equivale a descontarlo a una tasa del 10%."],
+  ["010", "Imputación, valor presente y cálculo", "Una inversión ofrece Q1,200 netos en un año y cuesta Q1,000 hoy. Si el rendimiento alternativo comparable es 10%, ¿qué evaluación corresponde?", [
+    "Tiene valor presente neto positivo, porque su rendimiento supera el costo de oportunidad.",
+    "Tiene valor presente neto nulo, porque cualquier ingreso futuro equivale al costo actual.",
+    "Tiene valor presente neto negativo, porque recibir dinero después elimina toda rentabilidad.",
+    "Tiene valor presente neto positivo, porque el interés alternativo debe sumarse al ingreso.",
+  ], "Su rendimiento es 20%, superior al 10% alternativo. VPN = 1,200/1.10 − 1,000 ≈ Q90.91; la comparación incorpora el costo de oportunidad."],
+  ["011", "Imputación, valor presente y cálculo", "Dos proyectos tienen igual riesgo y pagan Q1,000 netos: A dentro de un año y B dentro de dos. Si la tasa de descuento es positiva, ¿qué comparación es correcta?", [
+    "A vale más hoy porque su ingreso está menos alejado en el tiempo.",
+    "B vale más hoy porque acumula más años de espera antes del cobro.",
+    "Ambos valen igual hoy porque sus ingresos nominales finales son idénticos.",
+    "A vale menos hoy porque descontar menos años reduce el valor presente.",
+  ], "Con una tasa positiva se descuenta más el ingreso más lejano. A tiene VP = 1,000/(1+i); B, 1,000/(1+i)²."],
+  ["012", "Imputación, valor presente y cálculo", "Un terreno permite obtener ingresos futuros dados. Si aumenta la tasa de descuento y no cambia ninguna otra expectativa, ¿qué sucede con el máximo precio justificable hoy?", [
+    "Disminuye, porque el valor presente de esos ingresos se reduce.",
+    "Aumenta, porque una mayor tasa incrementa el valor presente.",
+    "Permanece igual, porque el terreno conserva sus características físicas.",
+    "Aumenta, porque los ingresos futuros se convierten en ingresos presentes.",
+  ], "El precio justificable depende de los ingresos esperados descontados, no solo de las propiedades físicas. Un mayor denominador reduce su valor presente."],
+  ["013", "Imputación, valor presente y cálculo", "Una empresa obtiene un rendimiento de 8% sobre el capital y enfrenta un costo de oportunidad comparable de 12%. ¿Cómo debe interpretar ese resultado?", [
+    "Hay pérdida económica relativa a la alternativa, aunque el rendimiento contable sea positivo.",
+    "Hay ganancia económica suficiente, porque cualquier rendimiento positivo cubre las alternativas.",
+    "Hay equilibrio económico, porque el costo de oportunidad no constituye un pago efectivo.",
+    "Hay pérdida contable inevitable, porque un rendimiento inferior al 12% siempre es negativo.",
+  ], "El rendimiento positivo puede no compensar el uso alternativo del capital. La pérdida económica no exige que el resultado monetario sea negativo."],
+  ["014", "Rendimientos y productividad marginal", "Con una máquina fija, tres trabajadores producen 60 unidades diarias y cuatro producen 76. ¿Cuál es el producto marginal del cuarto trabajador?", [
+    "16 unidades, por el aumento de producción al añadirlo.",
+    "19 unidades, por la producción media con cuatro trabajadores.",
+    "20 unidades, por la producción media con tres trabajadores.",
+    "76 unidades, por la producción total del equipo ampliado.",
+  ], "El producto marginal es el cambio de producción: 76 − 60 = 16. El promedio de cuatro trabajadores sería 76/4 = 19."],
+  ["015", "Rendimientos y productividad marginal", "El producto marginal de trabajadores sucesivos es 12, 9 y 5 unidades. ¿Qué ocurre con la producción total al incorporar a esos trabajadores?", [
+    "Sigue aumentando, pero cada incorporación agrega menos producto.",
+    "Disminuye desde el segundo, porque su producto marginal es menor.",
+    "Permanece constante, porque el producto marginal ya es decreciente.",
+    "Se vuelve negativa, porque el producto marginal baja de diez.",
+  ], "Un producto marginal decreciente no es lo mismo que uno negativo. Mientras sea positivo, la producción total aumenta, aunque a un ritmo menor."],
+  ["016", "Rendimientos y productividad marginal", "Una firma vende cada unidad adicional a Q5, sin alterar el precio. El siguiente trabajador agrega 8 unidades al día y cobra Q45. Sin otros costos variables, ¿conviene contratarlo?", [
+    "No, porque agrega Q40 de ingreso y Q45 de costo diario.",
+    "Sí, porque agrega 8 unidades y cualquier producto positivo compensa.",
+    "No, porque agrega Q45 de ingreso y Q40 de costo diario.",
+    "Sí, porque el salario debe compararse con toda la producción previa.",
+  ], "El valor del producto marginal es 8 × Q5 = Q40. Como el costo marginal laboral es Q45, esa contratación reduce el resultado en Q5 diarios."],
+  ["017", "Rendimientos y productividad marginal", "En un taller con espacio fijo, añadir otro operario hace que el equipo produzca menos que antes por congestión. ¿Qué describe ese caso?", [
+    "Producto marginal negativo del operario adicional bajo esa combinación de factores.",
+    "Producto marginal positivo, porque el número de trabajadores sigue aumentando.",
+    "Producto medio necesariamente negativo de todos los operarios del taller.",
+    "Ausencia de escasez, porque el capital fijo ya no limita la producción.",
+  ], "Si el producto total cae al añadir una unidad de trabajo, su producto marginal es negativo. Esto no implica que la producción total o media sean negativas."],
+  ["018", "Rendimientos y productividad marginal", "El producto medio de cuatro trabajadores es 10 unidades. Un quinto agrega 15 unidades. ¿Qué sucede con el producto medio?", [
+    "Sube a 11 unidades porque el producto marginal supera el promedio previo.",
+    "Baja a 8 unidades porque el producto total debe dividirse entre cinco.",
+    "Permanece en 10 unidades porque no cambió el promedio de los primeros.",
+    "Sube a 15 unidades porque el nuevo producto marginal reemplaza al promedio.",
+  ], "Los primeros cuatro producen 40; con el quinto producen 55. El nuevo promedio es 55/5 = 11, pues la incorporación aporta más que el promedio anterior."],
+  ["019", "Empresario, riesgo e incertidumbre", "Una comerciante detecta que un producto tiene compradores desatendidos en otro barrio y organiza su traslado. ¿Qué aspecto destaca la interpretación de Kirzner?", [
+    "La alerta ante una oportunidad de ganancia previamente desapercibida.",
+    "La innovación técnica que crea un producto distinto del transportado.",
+    "La remuneración automática por inmovilizar capital durante el traslado.",
+    "La compensación actuarial de un riesgo cuya frecuencia ya se conoce.",
+  ], "Kirzner enfatiza el descubrimiento de oportunidades en un entorno de conocimiento disperso. No exige que toda acción empresarial sea una invención tecnológica."],
+  ["020", "Empresario, riesgo e incertidumbre", "Una nueva plataforma vuelve innecesario un servicio tradicional y crea otro modo de atender la misma necesidad. ¿Qué enfoque empresarial describe mejor ese cambio?", [
+    "El de Schumpeter, por la innovación que transforma actividades existentes.",
+    "El de arbitraje de precios, por trasladar un servicio idéntico entre mercados.",
+    "El de riesgo asegurable, por distribuir pérdidas con frecuencias ya conocidas.",
+    "El de interés originario, por remunerar únicamente la espera del inversionista.",
+  ], "La destrucción creativa de Schumpeter vincula innovación con transformación y desplazamiento de actividades. Innovar no garantiza éxito ni preserva la estructura anterior."],
+  ["021", "Empresario, riesgo e incertidumbre", "Una aseguradora estima incendios a partir de miles de casos, pero una empresa no conoce la probabilidad de aceptación de un producto sin precedentes. En la distinción de Knight, ¿cómo se comparan?", [
+    "El primer caso ilustra riesgo estimable; el segundo, incertidumbre empresarial.",
+    "El primer caso ilustra incertidumbre pura; el segundo, riesgo estadístico conocido.",
+    "Ambos ilustran certeza, porque puede asignarse un precio al contrato.",
+    "Ambos ilustran riesgo medible, porque cualquier probabilidad se conoce antes.",
+  ], "Knight distingue el riesgo susceptible de estimación probabilística de la incertidumbre que no puede reducirse de igual manera a frecuencias conocidas."],
+  ["022", "Empresario, riesgo e incertidumbre", "Una empresaria calcula ganancias antes de invertir, pero termina perdiendo porque cambió la demanda. ¿Qué diferencia evidencia el caso?", [
+    "La expectativa ex ante puede diferir del resultado observado ex post.",
+    "Una estimación ex ante positiva asegura recuperar el capital ex post.",
+    "La pérdida ex post prueba que no existió ninguna expectativa ex ante.",
+    "El resultado ex post modifica retroactivamente los ingresos previstos ex ante.",
+  ], "El cálculo empresarial se realiza con expectativas y conocimiento limitado. El resultado posterior permite evaluar la decisión, pero no estaba garantizado de antemano."],
+  ["023", "Empresario, riesgo e incertidumbre", "Dos empresas compran los mismos insumos al mismo precio; una adapta su producto a nuevas preferencias y obtiene beneficio, la otra pierde. ¿Qué explica la diferencia sin atribuirla al costo físico?", [
+    "Difieren en anticipar y coordinar usos valorados por los consumidores.",
+    "Difieren en el interés originario, que explica por sí solo todo resultado empresarial.",
+    "Difieren en costos históricos, aunque el caso mantenga iguales todos los insumos pagados.",
+    "Difieren en utilidad física, que determina ingresos con independencia de las preferencias.",
+  ], "La igualdad de costos no implica igualdad de ingresos o de acierto empresarial. Importa cómo se coordinan los recursos con la demanda efectiva."],
+  ["024", "Competencia y monopolio", "Una firma vende un producto idéntico al de muchas otras y puede vender su producción al precio vigente, pero no elevarlo sin perder compradores. ¿Qué conducta predice la competencia perfecta?", [
+    "Tomar el precio de mercado como dado al decidir cuánto producir.",
+    "Fijar cualquier precio y mantener el mismo volumen de ventas.",
+    "Restringir el ingreso de rivales mediante su sola decisión productiva.",
+    "Determinar la demanda total a partir de sus propios costos históricos.",
+  ], "Una empresa competitiva individual es tomadora de precios. Eso no significa que carezca de decisiones sobre producción o que pueda fijar la demanda del mercado."],
+  ["025", "Competencia y monopolio", "Un empresario afirma: «Si no hay muchas firmas idénticas, no puede existir competencia». ¿Qué objeción corresponde al enfoque de competencia como proceso?", [
+    "La rivalidad también puede descubrir productos, técnicas y oportunidades nuevas.",
+    "La rivalidad se mide solo por la igualdad actual de precios y productos.",
+    "La rivalidad depende solo del número de firmas, sin considerar libertad de entrada.",
+    "La rivalidad requiere conocer antes de competir la solución productiva más eficiente.",
+  ], "El enfoque dinámico enfatiza entrada, descubrimiento, innovación y ajuste. No identifica toda competencia con las condiciones de un modelo estático de productos homogéneos."],
+  ["026", "Competencia y monopolio", "Una empresa es la única proveedora local, pero podría enfrentar entrada rápida de rivales si subiera mucho el precio. ¿Qué limita su poder de mercado en ese escenario?", [
+    "La competencia potencial y la posibilidad de perder ventas ante nuevos oferentes.",
+    "La imposibilidad de que los consumidores comparen precios antes de comprar.",
+    "La ausencia de rivales actuales, que elimina cualquier restricción a su precio.",
+    "La garantía de que todos sus costos históricos serán pagados por compradores.",
+  ], "Contar vendedores actuales no basta para evaluar el poder de mercado. La facilidad de entrada puede disciplinar precios y decisiones aun antes de que entren competidores."],
+  ["027", "Competencia y monopolio", "Un único vendedor enfrenta sustitutos cada vez más cercanos. Manteniendo lo demás igual, ¿qué ocurre con su capacidad de elevar el precio sin perder muchas ventas?", [
+    "Se reduce, porque los compradores encuentran alternativas más fácilmente.",
+    "Aumenta, porque los sustitutos vuelven menos sensible su demanda.",
+    "Permanece ilimitada, porque conserva su condición de único vendedor.",
+    "Se vuelve independiente de la demanda, porque controla su oferta.",
+  ], "La demanda limita incluso a un monopolista. Los sustitutos cercanos suelen volverla más elástica y restringir el margen para elevar precios."],
+  ["028", "Competencia y monopolio", "Una ley concede a una firma el derecho exclusivo de vender un servicio. ¿En qué se diferencia esa barrera de una ventaja basada en producir a menor costo?", [
+    "Impide legalmente la entrada aunque un rival pudiera ser eficiente.",
+    "Depende de que ningún consumidor encuentre útil el servicio ofrecido.",
+    "Desaparece automáticamente cuando un rival mejora su técnica productiva.",
+    "Exige que la empresa protegida mantenga siempre el menor precio.",
+  ], "La exclusividad legal restringe la entrada por una norma. Una ventaja de costos, por sí sola, no prohíbe que otros intenten competir."],
+  ["029", "Competencia y monopolio", "Una red de distribución requiere altos costos fijos y su costo medio cae en todo el rango relevante de demanda. ¿Qué explicación encaja con un monopolio natural?", [
+    "Una sola red puede abastecer ese mercado a menor costo que redes duplicadas.",
+    "Una sola red obtiene necesariamente ganancias aunque nadie compre el servicio.",
+    "Varias redes siempre reducen el costo total al repetir la infraestructura fija.",
+    "Varias redes quedan prohibidas por definición aunque ninguna norma lo disponga.",
+  ], "La noción se relaciona con economías de escala y costos de abastecer un mercado, no con una prohibición legal necesaria ni con rentabilidad garantizada."],
+  ["030", "Imputación, valor presente y cálculo", "Un productor espera una caída duradera del precio de su producto. Sin cambios de productividad, riesgo o interés, ¿qué efecto cabe esperar sobre su oferta máxima por una máquina específica?", [
+    "La reduce, porque disminuyen los ingresos futuros atribuibles a esa máquina.",
+    "La aumenta, porque la caída del producto eleva automáticamente su rentabilidad.",
+    "La mantiene, porque el precio histórico de fabricación fija el valor actual.",
+    "La aumenta, porque un factor específico conserva demanda sin producto final.",
+  ], "Imputación y descuento se conectan: menores ingresos futuros esperados reducen el valor presente del factor específico. Su costo histórico no asegura mantener su valoración.", "hard"],
+]
+
+export const procesoIParcial2 = defineQuestions("pe1-p2", "Parcial 2", drafts)

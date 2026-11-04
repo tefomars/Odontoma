@@ -9,7 +9,7 @@ import "./library.css"
 import { useDraftStatus } from "./draftStatus"
 import { publishIndex, useWorkspaceHistory, workspaceNavigate, type WorkspaceTarget } from "./workspaceBridge"
 import { archiveLibraryBank, restoreLibraryBank } from "./libraryActions"
-import { contentRevision, draftNeedsReview, libraryChanges, readLibraryDraft, type LibraryDraft } from "./librarySafety"
+import { contentRevision, draftNeedsReview, libraryChanges, readLibraryDraft, recoverLibraryDraft, type LibraryDraft } from "./librarySafety"
 
 const uid = () => crypto.randomUUID()
 const empty: StudioData = { version: 1, banks: [] }
@@ -94,6 +94,7 @@ export default function LibraryEditor({ active = true, target }: { active?: bool
   }, [loaded, libraryState, setLibraryState])
   useEffect(() => { let active = true; Promise.all([fetch("/__odontoma-studio/catalog").then(async r => { if (!r.ok) throw new Error(await r.text()); return r.json() as Promise<StudioData> }), libraryDraftRecord().catch(() => undefined)]).then(async ([data, saved]) => {
     const revision = await contentRevision(data)
+    saved = await recoverLibraryDraft(saved, revision)
     if (!active) return
     const needsReview = draftNeedsReview(saved, data, revision)
     setApplied(data); history.reset(saved?.data || data); setBaseRevision(needsReview ? saved?.baseRevision || "legacy" : revision); setConflict(needsReview); setDraftSavedAt(saved?.savedAt)

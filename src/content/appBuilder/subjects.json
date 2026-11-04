@@ -98,6 +98,24 @@
       "destination": "filosofia-de-hayek"
     },
     {
+      "id": "proceso-economico-i",
+      "title": "Proceso Económico I",
+      "subtitle": "Mercado, precios, capital y función empresarial · Parcial 1 y Parcial 2",
+      "status": "Disponible",
+      "accentColor": "#0ea5e9",
+      "destination": "bank:proceso-economico-i",
+      "sectionId": "secondary"
+    },
+    {
+      "id": "proceso-economico-ii",
+      "title": "Proceso Económico II",
+      "subtitle": "Dinero, banca, Estado y comercio internacional · Parcial 1, Parcial 2 y Final",
+      "status": "Disponible",
+      "accentColor": "#0ea5e9",
+      "destination": "bank:proceso-economico-ii",
+      "sectionId": "secondary"
+    },
+    {
       "id": "microbiologia",
       "title": "Microbiología",
       "subtitle": "Capítulos del libro de Negroni",

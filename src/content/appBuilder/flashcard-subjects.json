@@ -36,6 +36,16 @@
     "destination": "proceso-economico-i"
   },
   {
+    "id": "proceso-economico-ii",
+    "title": "Proceso Económico II",
+    "subtitle": "Material de clase",
+    "description": "Flashcards de dinero, banca, macroeconomía, Estado, comercio internacional, propiedad privada y socialismo.",
+    "accent": "from-sky-500/20 to-cyan-500/10",
+    "accentColor": "#0ea5e9",
+    "destination": "bank:proceso-economico-ii",
+    "sectionId": "secondary"
+  },
+  {
     "id": "filosofia-de-hayek",
     "title": "Filosofía de Hayek",
     "subtitle": "Hayek",

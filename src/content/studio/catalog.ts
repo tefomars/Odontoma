@@ -16,6 +16,9 @@ import bioCards from "../flashcards/bioquimica/cards"
 import semioCards from "../flashcards/semiologia/cards"
 import hayekCards from "../flashcards/filosofia-de-hayek/cards"
 import procesoCards from "../flashcards/proceso-economico-i/cards"
+import procesoIICards from "../flashcards/proceso-economico-ii/cards"
+import { procesoEconomicoIIChapters } from "../flashcards/proceso-economico-ii/chapters"
+import { procesoIQuestions, procesoIIQuestions, procesoIChapters } from "../proceso-economico"
 import { citoIIPrePartialFlashcards, citoIIPrePartialQuestions } from "../prePartial/citoII"
 import { CITO_II_THIRD_PARTIAL, citoIIIPrePartialQuestions } from "../prePartial/citoIII"
 import { citoIIIPrePartialFlashcards } from "../prePartial/citoIIIFlashcards"
@@ -26,7 +29,8 @@ const base = [
   { id: "microbiologia", title: "Microbiología", subject: "Microbiología", questions: micro, chapters: microChapters, flashcards: [] },
   { id: "semiologia", title: "Semiología", subject: "Semiología", questions: semio, chapters: semioChapters, flashcards: semioCards },
   { id: "filosofia-de-hayek", title: "Filosofía de Hayek", subject: "Filosofía", questions: hayek, chapters: hayekChapters, flashcards: hayekCards },
-  { id: "proceso-economico-i", title: "Proceso Económico I", subject: "Proceso Económico I", questions: [], chapters: [], flashcards: procesoCards },
+  { id: "proceso-economico-i", title: "Proceso Económico I", subject: "Proceso Económico I", questions: procesoIQuestions, chapters: procesoIChapters, flashcards: procesoCards },
+  { id: "proceso-economico-ii", title: "Proceso Económico II", subject: "Proceso Económico II", questions: procesoIIQuestions, chapters: procesoEconomicoIIChapters, flashcards: procesoIICards },
   { id: "Parcial 2 · Cito II", title: "Parcial 2 · Cito II", subject: "Histología", kind: "prepartial", questions: citoIIPrePartialQuestions, chapters: [], flashcards: citoIIPrePartialFlashcards },
   { id: CITO_II_THIRD_PARTIAL, title: CITO_II_THIRD_PARTIAL, subject: "Histología", kind: "prepartial", questions: citoIIIPrePartialQuestions, chapters: [], flashcards: citoIIIPrePartialFlashcards }
 ] as unknown as StudyBank[]

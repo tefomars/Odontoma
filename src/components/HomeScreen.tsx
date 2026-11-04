@@ -5,6 +5,7 @@ import histologiaImage from "@/assets/chapters/cap14.jpg"
 import microbiologiaImage from "@/assets/chapters/micro-cap20.jpg"
 import semiologiaImage from "@/assets/chapters/cap15.jpg"
 import hayekImage from "@/assets/flashcard-decks/hayek.jpg"
+import procesoImage from "@/assets/flashcard-decks/proceso-economico.jpg"
 import bioquimicaImage from "@/assets/bioquimica/carbohydrate-metabolism.png"
 
 import {
@@ -30,7 +31,9 @@ const SUBJECT_IMAGES: Partial<Record<HomeSubject["destination"], string>> = {
   "filosofia-de-hayek": hayekImage,
   microbiologia: microbiologiaImage,
   bioquimica: bioquimicaImage,
-  semiologia: semiologiaImage
+  semiologia: semiologiaImage,
+  "bank:proceso-economico-i": procesoImage,
+  "bank:proceso-economico-ii": procesoImage
 }
 
 export default function HomeScreen({

@@ -19,6 +19,14 @@ export function draftNeedsReview(saved: LibraryDraft | undefined, current: Studi
   return Boolean(saved && JSON.stringify(saved.data) !== JSON.stringify(current) && saved.baseRevision !== revision)
 }
 
+/** A cached, unedited library is not a pending draft. Prefer new official content
+ * only when its stored hash proves there were no user edits; keep unknown or
+ * modified drafts for the existing explicit recovery flow. */
+export async function recoverLibraryDraft(saved: LibraryDraft | undefined, currentRevision: string) {
+  if (saved?.baseRevision && saved.baseRevision !== currentRevision && await contentRevision(saved.data) === saved.baseRevision) return undefined
+  return saved
+}
+
 export type ItemCounts = { added: number; modified: number; removed: number }
 export function itemChanges(before: { id: string }[], after: { id: string }[]): ItemCounts {
   const old = new Map(before.map(item => [item.id, item]))
