@@ -1219,6 +1219,7 @@ input[type="range"] {
 .live-inspector {
   display: grid;
   min-height: 0;
+  grid-template-columns: minmax(0, 1fr);
   grid-template-rows: auto 1fr auto;
   background: #111113;
 }
@@ -1234,11 +1235,15 @@ input[type="range"] {
 
 .inspector-header h2 {
   margin: 0;
-  overflow: hidden;
   font-size: 1.2rem;
   letter-spacing: -.03em;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+.inspector-header > div {
+  flex: 1;
+  min-width: 0;
 }
 
 .inspector-close {
@@ -1257,6 +1262,8 @@ input[type="range"] {
 
 .inspector-fields {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  min-width: 0;
   align-content: start;
   gap: 18px;
   max-height: 650px;
@@ -1266,7 +1273,14 @@ input[type="range"] {
 
 .inspector-field {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  min-width: 0;
   gap: 8px;
+}
+
+.inspector-field > span {
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .inspector-field > span:first-child,
@@ -1291,6 +1305,8 @@ input[type="range"] {
 .inspector-field textarea,
 .inspector-field select {
   width: 100%;
+  min-width: 0;
+  max-width: 100%;
   padding: 11px 12px;
   border: 1px solid #303036;
   border-radius: 10px;
@@ -1323,6 +1339,7 @@ input[type="range"] {
 }
 
 .inspector-color-row input {
+  flex: none;
   width: 44px;
   height: 34px;
   padding: 0;
@@ -1442,6 +1459,8 @@ input[type="range"] {
 
 .inspector-actions {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  min-width: 0;
   gap: 10px;
   padding: 16px;
   border-top: 1px solid #27272a;
@@ -1456,6 +1475,8 @@ input[type="range"] {
 }
 
 .inspector-status p {
+  min-width: 0;
+  overflow-wrap: anywhere;
   margin: 0;
   color: #85858f;
   font-size: 10px;
@@ -1464,7 +1485,13 @@ input[type="range"] {
 
 .inspector-actions .actions {
   display: grid;
-  grid-template-columns: 1fr 1.35fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr);
+}
+
+.inspector-actions .actions > button {
+  min-width: 0;
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
 
 footer {
@@ -1949,6 +1976,7 @@ footer {
 
 .universal-toolbar {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: 20px;
@@ -1962,6 +1990,9 @@ footer {
 
 .universal-mode-switcher {
   display: flex;
+  flex-wrap: wrap;
+  min-width: 0;
+  max-width: 100%;
   gap: 6px;
   padding: 5px;
   border: 1px solid var(--builder-border);
@@ -2031,13 +2062,15 @@ footer {
 
 .structure-actions {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 8px;
 }
 
 .structure-actions button,
 .hidden-blocks-panel button {
   min-height: 42px;
+  min-width: 0;
+  overflow-wrap: anywhere;
   border: 1px solid #14532d;
   border-radius: 11px;
   background: #0c2119;
