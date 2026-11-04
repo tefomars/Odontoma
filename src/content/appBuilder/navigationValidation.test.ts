@@ -1,11 +1,12 @@
 import { describe, expect, it } from "vitest"
 import home from "./subjects.json"
 import decks from "./flashcard-subjects.json"
+import pages from "./custom-pages.json"
 import { validateNavigation, type NavigationProject } from "./navigationValidation"
 import { studioBanks } from "../studio/catalog"
 
 function fixture(): NavigationProject {
-  return { home: structuredClone(home) as NavigationProject["home"], decks: structuredClone(decks) as NavigationProject["decks"], pages: [], banks: studioBanks }
+  return { home: structuredClone(home) as NavigationProject["home"], decks: structuredClone(decks) as NavigationProject["decks"], pages: structuredClone(pages) as NavigationProject["pages"], banks: studioBanks }
 }
 describe("enlaces editables", () => {
   it("acepta los accesos actuales y sus destinos heredados", () => {
@@ -18,9 +19,9 @@ describe("enlaces editables", () => {
   })
   it("permite menús sin accesos y avisa de autoenlaces sin bloquear", () => {
     const p = fixture()
-    p.pages = [{ id: "menu", title: "Menú", blocks: [] }]
+    p.pages.push({ id: "menu", title: "Menú", blocks: [] })
     expect(validateNavigation(p).filter(i => i.severity === "error")).toEqual([])
-    p.pages[0].blocks.push({ id: "self", type: "button", destination: "custom-page:menu" })
+    p.pages.at(-1)!.blocks.push({ id: "self", type: "button", destination: "custom-page:menu" })
     expect(validateNavigation(p)).toContainEqual(expect.objectContaining({ severity: "warning" }))
   })
   it("detecta bancos ausentes e ignora tarjetas de acceso quitadas", () => {

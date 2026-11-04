@@ -1,6 +1,5 @@
 import type { CSSProperties } from "react"
 import logoImage from "@/assets/logo.png"
-import AppearanceSettings from "./AppearanceSettings"
 
 import {
   mainMenuContent,
@@ -119,7 +118,6 @@ export default function StudyMethodScreen({
               </div>
             ))}
           </div>
-          {!editorMode && <div className="mt-6 flex justify-end"><AppearanceSettings /></div>}
         </section>
 
       </div>

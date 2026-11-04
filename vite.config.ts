@@ -14,6 +14,7 @@ import type { Plugin } from "vite"
 import { renderBuilderCss, type BuilderTheme } from "./src/builder/theme.ts"
 import { validateUiOverrides } from "./src/content/appBuilder/uiOverrideSchema.ts"
 import { validateCustomPages } from "./src/content/appBuilder/customPageSchema.ts"
+import { validChangelog } from "./src/content/changelog/model.ts"
 import { validateWrittenContent, normalizeWrittenForSave } from "./src/content/openQuizzes/validation.ts"
 
 type OpenQuizQuestion = {
@@ -265,6 +266,8 @@ function validateHomeContent(value: unknown): value is HomeContent {
     "my-quizzes",
     "history",
     "backup",
+    "appearance",
+    "changelog",
     "pre-partial",
     "coming-soon"
   ])
@@ -572,7 +575,7 @@ export default defineConfig({
 
   plugins: [
     react(),
-    studioServer({ written: validateOpenQuizContent, home: validateHomeContent, decks: validateFlashcardSubjects, pages: validateCustomPages, overrides: validateUiOverrides, theme: validateTheme }),
+    studioServer({ written: validateOpenQuizContent, home: validateHomeContent, decks: validateFlashcardSubjects, pages: validateCustomPages, overrides: validateUiOverrides, theme: validateTheme, changelog: validChangelog }),
     tailwindcss(),
     localBuilderPlugin(),
   ],

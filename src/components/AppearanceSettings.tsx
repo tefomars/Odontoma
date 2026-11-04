@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef, useState } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import './appearance.css'
 
 type Theme = 'original' | 'light' | 'graphite' | 'midnight' | 'paper'
@@ -31,11 +31,19 @@ function readSettings(): {theme: Theme; accent: Accent} {
   } catch { return fallbackSettings }
 }
 function Gear(){return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true"><path d="m9 3-.7 2.4-2.4 1L3.7 6 2 9l1.8 1.7v2.6L2 15l1.7 3 2.2-.4 2.4 1L9 21h3l.7-2.4 2.4-1 2.2.4 1.7-3-1.8-1.7v-2.6L19 9l-1.7-3-2.2.4-2.4-1L12 3Z" transform="translate(1.5)"/><circle cx="12" cy="12" r="3"/></svg>}
-export default function AppearanceSettings(){
+export default function AppearanceSettings({ showTrigger = true }: { showTrigger?: boolean }){
   const [settings,setSettings] = useState(readSettings)
   const [open,setOpen] = useState(false)
   const dialog = useRef<HTMLDialogElement>(null)
   const trigger = useRef<HTMLButtonElement>(null)
+  const previousFocus = useRef<HTMLElement | null>(null)
+  useEffect(() => {
+    const show = () => { previousFocus.current = document.activeElement as HTMLElement | null; setOpen(true) }
+    const hide = () => { setOpen(false); previousFocus.current?.focus() }
+    window.addEventListener('odontoma-open-appearance', show)
+    window.addEventListener('odontoma-close-appearance', hide)
+    return () => { window.removeEventListener('odontoma-open-appearance', show); window.removeEventListener('odontoma-close-appearance', hide) }
+  }, [])
   const selectedTheme = themes.find(t=>t.id===settings.theme)!
   const selectedAccent = accents.find(a=>a.id===settings.accent)!
   useLayoutEffect(()=>{
@@ -57,9 +65,9 @@ export default function AppearanceSettings(){
     if(open&&!dialog.current?.open)dialog.current?.showModal()
     if(!open&&dialog.current?.open)dialog.current?.close()
   },[open])
-  const close=()=>{setOpen(false);trigger.current?.focus()}
+  const close=()=>{setOpen(false);(trigger.current || previousFocus.current)?.focus()}
   return <>
-    <button ref={trigger} className="oa-trigger" onClick={()=>setOpen(true)} aria-label="Abrir ajustes de apariencia" aria-haspopup="dialog" aria-expanded={open}><Gear/><span>Apariencia</span><i style={{background:settings.accent==='original'?'linear-gradient(135deg,#a78bfa,#34d399,#fbbf24)':selectedAccent.color}}/></button>
+    {showTrigger && <button ref={trigger} className="oa-trigger" onClick={()=>setOpen(true)} aria-label="Abrir ajustes de apariencia" aria-haspopup="dialog" aria-expanded={open}><Gear/><span>Apariencia</span><i style={{background:settings.accent==='original'?'linear-gradient(135deg,#a78bfa,#34d399,#fbbf24)':selectedAccent.color}}/></button>}
     <dialog ref={dialog} className="oa-dialog" aria-labelledby="appearance-title" onCancel={close} onClose={()=>setOpen(false)} onClick={e=>{if(e.target===dialog.current){const r=dialog.current.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)close()}}}>
       <div className="oa-heading"><div className="oa-heading-icon"><Gear/></div><div><p>Personaliza Odontoma</p><h2 id="appearance-title">Apariencia</h2></div><button className="oa-close" aria-label="Cerrar ajustes de apariencia" onClick={close}>×</button></div>
       <div className="oa-scroll"><div className="oa-section-heading"><h3>Tema</h3><span>{selectedTheme.name}</span></div><div className="oa-themes" role="group" aria-label="Tema de la aplicación">{themes.map(t=><button key={t.id} className={`oa-theme ${settings.theme===t.id?'is-selected':''}`} aria-pressed={settings.theme===t.id} onClick={()=>setSettings(s=>({...s,theme:t.id}))} aria-label={`Tema ${t.name}`}><div className="oa-mini" style={{background:t.bg,color:t.text}}><div className="oa-mini-title"/><div className="oa-mini-grid">{[0,1,2,3].map(n=><div key={n} style={{background:t.card}}><i style={{background:settings.accent==='original'?['#a78bfa','#34d399','#fbbf24','#60a5fa'][n]:selectedAccent.color}}/><span/></div>)}</div>{settings.theme===t.id&&<b>✓</b>}</div><strong>{t.name}</strong><small>{t.detail}</small></button>)}</div>

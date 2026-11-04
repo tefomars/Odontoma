@@ -30,12 +30,12 @@
       },
       {
         "id": "backup",
-        "eyebrow": "Tus datos",
-        "title": "Backup",
-        "subtitle": "Exportá, importá y protegé tu progreso y tus quizzes.",
+        "eyebrow": "Tu Odontoma",
+        "title": "Backup y Opciones",
+        "subtitle": "Protegé tus datos, elegí la apariencia y consultá las novedades.",
         "symbol": "⇅",
         "accentColor": "#38bdf8",
-        "destination": "backup"
+        "destination": "custom-page:backup-options"
       }
     ]
   },

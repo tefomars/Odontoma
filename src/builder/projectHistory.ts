@@ -1,7 +1,7 @@
 export type ProjectSnapshot = { app: "Odontoma Project"; version: 1; files: Record<string, unknown>; revision?: string }
 export type HistoryEntry = { name: string; createdAt: string; label: string; kind: "automatic" | "checkpoint" | "publication"; changes: string[]; counts: { banks: number; questions: number; flashcards: number; written: number; pages: number } }
 type Bank = { id: string; title: string; archived?: boolean; questions?: unknown[]; flashcards?: unknown[]; chapters?: unknown[] }
-const areaNames: Record<string, string> = { home: "Menús y materias", decks: "Portadas y decks", pages: "Pantallas personalizadas", written: "Cuestionarios escritos", overrides: "Ajustes visuales", theme: "Apariencia", organization: "Subdivisiones y organización" }
+const areaNames: Record<string, string> = { home: "Menús y materias", decks: "Portadas y decks", pages: "Pantallas personalizadas", written: "Cuestionarios escritos", overrides: "Ajustes visuales", theme: "Apariencia", organization: "Subdivisiones y organización", changelog: "Versión e historial de cambios" }
 
 export function describeChanges(before: ProjectSnapshot, after: ProjectSnapshot): string[] {
   const changes: string[] = []

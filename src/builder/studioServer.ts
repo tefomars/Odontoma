@@ -29,7 +29,7 @@ export function studioServer(validators: Record<string, (value: unknown) => bool
     const root = server.config.root
     const contentPath = path.join(root, "src/content/studio/data.json")
     const historyPath = path.join(root, ".odontoma-history")
-    const files = { library: "src/content/studio/data.json", written: "src/content/openQuizzes/data.json", home: "src/content/appBuilder/subjects.json", decks: "src/content/appBuilder/flashcard-subjects.json", pages: "src/content/appBuilder/custom-pages.json", overrides: "src/content/appBuilder/ui-overrides.json", theme: "src/builder/applied-theme.json", organization: "src/content/appBuilder/organization.json" }
+    const files = { library: "src/content/studio/data.json", written: "src/content/openQuizzes/data.json", home: "src/content/appBuilder/subjects.json", decks: "src/content/appBuilder/flashcard-subjects.json", pages: "src/content/appBuilder/custom-pages.json", overrides: "src/content/appBuilder/ui-overrides.json", theme: "src/builder/applied-theme.json", organization: "src/content/appBuilder/organization.json", changelog: "src/content/changelog/data.json" }
     async function project() { const content = Object.fromEntries(await Promise.all(Object.entries(files).map(async ([key, file]) => [key, JSON.parse(await fs.readFile(path.join(root, file), "utf8"))]))); return { app: "Odontoma Project", version: 1, files: content, revision: await contentRevision(content) } }
     let savingProject = false
     let snapshotTime = 0
@@ -55,6 +55,7 @@ export function studioServer(validators: Record<string, (value: unknown) => bool
           await snapshot(await project() as ProjectSnapshot); next(); return
         }
         if (route === "/__odontoma-studio/project" && req.method === "GET") { res.setHeader("Content-Type", "application/json"); res.setHeader("Content-Disposition", 'attachment; filename="odontoma-proyecto-editable.json"'); res.end(JSON.stringify(await project())); return }
+        if (route === "/__odontoma-studio/changelog" && req.method === "GET") { res.setHeader("Content-Type", "application/json"); res.end(await fs.readFile(path.join(root, files.changelog), "utf8")); return }
         if (route === "/__odontoma-studio/project" && req.method === "POST") {
           if (savingProject) { res.statusCode = 409; throw new Error("Otro guardado está en curso. Esperá y revisá antes de reintentar.") }
           savingProject = true
@@ -63,6 +64,10 @@ export function studioServer(validators: Record<string, (value: unknown) => bool
           const value = JSON.parse(body)
           if (value.app !== "Odontoma Project" || value.version !== 1 || !value.files) throw new Error("No es un backup de proyecto Odontoma.")
           if (!value.files.organization) value.files.organization = (await project()).files.organization
+          // Legacy backups predate the changelog. Preserve it instead of erasing
+          // newer notes or making old project backups impossible to restore.
+          if (!value.files.changelog) value.files.changelog = (await project()).files.changelog
+          else if (value.files.changelog.appVersion === undefined) value.files.changelog.appVersion = (await project()).files.changelog.appVersion
           if (Array.isArray(value.files.library?.banks)) for (const bank of value.files.library.banks) for (const chapter of bank.chapters || []) if (chapter.image?.startsWith("/src/")) chapter.image = "@legacy"
           const catalog = await server.ssrLoadModule("/src/content/studio/catalog.ts")
           const library = { version: 1, banks: catalog.resolveStudioBanks(value.files.library) }

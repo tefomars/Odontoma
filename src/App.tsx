@@ -25,6 +25,7 @@ import QuizHistoryScreen from "./components/QuizHistoryScreen"
 import QuizReviewScreen from "./components/QuizReviewScreen"
 import CustomPageScreen from "./components/CustomPageScreen"
 import BackupScreen from "./components/BackupScreen"
+import ChangelogScreen from "./components/ChangelogScreen"
 import PrePartialReviewScreen from "./components/PrePartialReviewScreen"
 import { customPages, type CustomPageDestination } from "@/content/appBuilder/customPages"
 
@@ -36,7 +37,7 @@ import {
   loadUserQuizDecks
 } from "@/lib/userQuizzes"
 
-import packageJson from "../package.json"
+import { currentAppVersion } from "@/content/changelog"
 import { getStudyBank, getStudyQuestions, studioBanks } from "@/content/studio/catalog"
 import { chapterDisplayName } from "@/lib/studyLabels"
 import { resetFreeFlashcardProgress } from "@/lib/freeFlashcardProgress"
@@ -151,7 +152,7 @@ function getPausedPrePartialId() {
 function VersionBadge() {
   return (
     <div className="app-version-badge hidden lg:block">
-      Odontoma v{packageJson.version}
+      Odontoma v{currentAppVersion()}
     </div>
   )
 }
@@ -228,7 +229,7 @@ function AppVersion() {
       backdrop-blur
       pointer-events-none
     ">
-      v{packageJson.version}
+      v{currentAppVersion()}
     </div>
   )
 }
@@ -248,6 +249,7 @@ export default function App() {
     useState<"quizzes" | "flashcards" | null>(null)
 
   const [showBackup, setShowBackup] = useState(false)
+  const [showChangelog, setShowChangelog] = useState(false)
 
   const [showPrePartialReview, setShowPrePartialReview] = useState(false)
 
@@ -1000,6 +1002,7 @@ export default function App() {
 
     setSelectedStudyMethod(null)
     setShowBackup(false)
+    setShowChangelog(false)
     setShowPrePartialReview(false)
     setPrePartialReviewType(null)
     setPrePartialActivePartial(null)
@@ -1129,6 +1132,10 @@ export default function App() {
   }
 
   function goBack() {
+    if (document.querySelector("dialog.oa-dialog[open]")) {
+      window.dispatchEvent(new Event("odontoma-close-appearance"))
+      return
+    }
     const entry = builderReturn.current
     if (entry && !started && !reviewingAttempt && !showMastery && !selectedFlashcardTopic && !activeOpenQuizDeckId && !activeUserTopicId && !showSuspendedFlashcards) {
       const destination = entry.destination
@@ -1138,10 +1145,11 @@ export default function App() {
         : destination === "multiple-choice" ? selectedQuizMode === "multiple-choice" && !selectedSubject
         : destination === "flashcards" ? selectedStudyMethod === "flashcards" && !selectedFlashcardSubject
         : destination === "backup" ? showBackup
+        : destination === "changelog" ? showChangelog
         : destination === "open-ended" ? selectedSubject === "open-quizzes" && !selectedOpenQuizClass && !selectedOpenQuizPartial
         : destination === "pre-partial" ? showPrePartialReview && !prePartialReviewType
         : false
-      if (atEntry) { setSelectedCustomPageId(entry.page); builderReturn.current = null; setSelectedStudyMethod(null); setSelectedSubject(null); setSelectedQuizMode(null); setSelectedFlashcardSubject(null); setShowBackup(false); setShowPrePartialReview(false); return }
+      if (atEntry) { setSelectedCustomPageId(entry.page); builderReturn.current = null; setSelectedStudyMethod(null); setSelectedSubject(null); setSelectedQuizMode(null); setSelectedFlashcardSubject(null); setShowBackup(false); setShowChangelog(false); setShowPrePartialReview(false); return }
     }
 
     // Pre-partial flashcards are a nested route, even though they reuse the
@@ -1164,6 +1172,11 @@ export default function App() {
       setSelectedStudyMethod(null)
       setShowPrePartialReview(true)
       localStorage.removeItem("odontoma_paused_session")
+      return
+    }
+
+    if (showChangelog) {
+      setShowChangelog(false)
       return
     }
 
@@ -1310,6 +1323,10 @@ export default function App() {
   }
 
   function navigateToBuilderDestination(destination: CustomPageDestination | string) {
+    if (destination === "appearance") {
+      window.dispatchEvent(new Event("odontoma-open-appearance"))
+      return
+    }
     if (selectedCustomPageId && !destination.startsWith("custom-page:") && destination !== "home") builderReturn.current = { page: selectedCustomPageId, destination }
     if (destination.startsWith("bank:")) { setSelectedCustomPageId(null); setSelectedStudyMethod("quizzes"); setSelectedQuizMode("multiple-choice"); setSelectedSubject(destination); setSelectedChapters([]); return }
     if (destination.startsWith("flashcard-bank:")) { setSelectedCustomPageId(null); setSelectedStudyMethod("flashcards"); setSelectedFlashcardSubject(`bank:${destination.slice("flashcard-bank:".length)}`); return }
@@ -1321,6 +1338,7 @@ export default function App() {
         setSelectedSubject(selectedSubject)
         setSelectedFlashcardSubject(selectedFlashcardSubject)
         setShowBackup(showBackup)
+        setShowChangelog(showChangelog)
         setShowPrePartialReview(showPrePartialReview)
         setPrePartialReviewType(prePartialReviewType)
       }
@@ -1330,6 +1348,11 @@ export default function App() {
 
     setSelectedCustomPageId(null)
     if (destination === "home") return goToMainMenu()
+    if (destination === "changelog") {
+      setShowChangelog(true)
+      setShowBackup(false)
+      return
+    }
     if (destination === "backup") {
       setShowBackup(true)
       setShowPrePartialReview(false)
@@ -1473,6 +1496,10 @@ export default function App() {
       </ScreenTransition>
 
     )
+  }
+
+  if (showChangelog) {
+    return <ScreenTransition screenKey="changelog"><ChangelogScreen onBack={goBack} onMainMenu={goToMainMenu}/></ScreenTransition>
   }
 
   if (showBackup) {

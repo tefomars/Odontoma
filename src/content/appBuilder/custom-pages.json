@@ -1,1 +1,44 @@
-[]
+[
+  {
+    "id": "backup-options",
+    "eyebrow": "Odontoma",
+    "title": "Backups y Opciones",
+    "description": "Guarda tu información, cambia la apariencia de Odontoma y revisa las actualizaciones de la app",
+    "accentColor": "#38bdf8",
+    "layout": {
+      "maxWidth": 1000,
+      "columns": 1,
+      "gap": 16,
+      "padding": 28
+    },
+    "blocks": [
+      {
+        "id": "options-backup",
+        "type": "button",
+        "title": "Backup",
+        "text": "Exportá o importá una copia de tu progreso, tarjetas y quizzes.",
+        "symbol": "⇅",
+        "accentColor": "#38bdf8",
+        "destination": "backup"
+      },
+      {
+        "id": "options-appearance",
+        "type": "button",
+        "title": "Apariencia",
+        "text": "Elegí el tema y los colores de Odontoma en este dispositivo.",
+        "symbol": "◐",
+        "accentColor": "#a78bfa",
+        "destination": "appearance"
+      },
+      {
+        "id": "options-changelog",
+        "type": "button",
+        "title": "Historial de cambios",
+        "text": "Mirá las últimas novedades, mejoras y correcciones de la app.",
+        "symbol": "↻",
+        "accentColor": "#34d399",
+        "destination": "changelog"
+      }
+    ]
+  }
+]

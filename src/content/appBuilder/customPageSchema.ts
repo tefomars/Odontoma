@@ -8,6 +8,8 @@ export type CustomPageDestination =
   | "open-ended"
   | "my-quizzes"
   | "backup"
+  | "appearance"
+  | "changelog"
   | "pre-partial"
   | "coming-soon"
   | `custom-page:${string}`
@@ -41,6 +43,8 @@ const knownDestinations = new Set([
   "open-ended",
   "my-quizzes",
   "backup",
+  "appearance",
+  "changelog",
   "pre-partial",
   "coming-soon"
 ])

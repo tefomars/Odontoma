@@ -26,12 +26,13 @@ async function start(project: ProjectSnapshot) {
   written.openQuizContent.classes = written.openQuizClasses
   for (const key of Object.keys(org.organization)) delete org.organization[key]
   Object.assign(org.organization, files.organization)
+  if (files.changelog) Object.assign((await import("../content/changelog")).changelogData, files.changelog)
   overrides.uiOverrides.splice(0, overrides.uiOverrides.length, ...files.overrides)
   const style = document.createElement("style"); style.textContent = theme.renderBuilderCss(files.theme); document.head.append(style)
   document.documentElement.classList.add("dark"); document.documentElement.dataset.odontomaApp = "true"
-  const [{ default: App }, { default: UiOverrideApplier }] = await Promise.all([import("../App"), import("../components/UiOverrideApplier")])
+  const [{ default: App }, { default: UiOverrideApplier }, { default: AppearanceSettings }] = await Promise.all([import("../App"), import("../components/UiOverrideApplier"), import("../components/AppearanceSettings")])
   function Ready() { useEffect(() => { window.parent.postMessage({ type: "odontoma-draft-mounted" }, window.location.origin) }, []); return null }
-  ReactDOM.createRoot(document.getElementById("root")!).render(<React.StrictMode><UiOverrideApplier/><div id="odontoma-original-ui"><App/></div><Ready/></React.StrictMode>)
+  ReactDOM.createRoot(document.getElementById("root")!).render(<React.StrictMode><UiOverrideApplier/><div id="odontoma-original-ui"><App/></div><AppearanceSettings showTrigger={false}/><Ready/></React.StrictMode>)
 }
 if (import.meta.env.DEV && window.parent !== window) {
   let started = false

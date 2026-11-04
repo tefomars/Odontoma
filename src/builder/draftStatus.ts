@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useSyncExternalStore } from "react"
 import type { NavigationIssue } from "@/content/appBuilder/navigationValidation"
 
-export const draftLabels = { library: "Bancos de preguntas y flashcards", home: "Menús y tarjetas de quizzes", decks: "Tarjetas de flashcards", written: "Cuestionarios escritos", pages: "Menús personalizados", organization: "Subdivisiones y clases de repaso", theme: "Apariencia global", overrides: "Edición directa de la app" } as const
+export const draftLabels = { library: "Bancos de preguntas y flashcards", home: "Menús y tarjetas de quizzes", decks: "Tarjetas de flashcards", written: "Cuestionarios escritos", pages: "Menús personalizados", organization: "Subdivisiones y clases de repaso", theme: "Apariencia global", overrides: "Edición directa de la app", changelog: "Versión e historial de cambios" } as const
 export type DraftArea = keyof typeof draftLabels
 export type DraftReport = { area: DraftArea; label: string; ready: boolean; dirty: boolean; blocked?: string }
 let reports: DraftReport[] = (Object.keys(draftLabels) as DraftArea[]).map(area => ({ area, label: draftLabels[area], ready: false, dirty: false }))

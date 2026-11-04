@@ -4,7 +4,9 @@
   "version": "0.10.0",
   "type": "module",
   "scripts": {
+    "predev": "node scripts/update-changelog.mjs",
     "dev": "vite",
+    "prebuild": "node scripts/update-changelog.mjs",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "test": "vitest run",

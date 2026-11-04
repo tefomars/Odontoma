@@ -65,6 +65,8 @@ const mainMenuDestinationOptions: Array<{ value: AppMenuDestination; label: stri
   { value: "flashcards", label: "Abrir Flashcards" },
   { value: "pre-partial", label: "Repaso pre-parcial" },
   { value: "backup", label: "Abrir Backup" },
+  { value: "appearance", label: "Abrir Apariencia" },
+  { value: "changelog", label: "Historial de cambios" },
   { value: "coming-soon", label: "Sin acción por ahora" }
 ]
 

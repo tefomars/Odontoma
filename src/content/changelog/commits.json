@@ -1,0 +1,302 @@
+[
+  {
+    "id": "git-78ab97100bfde42e57193d078f5e7251df2d7d6a",
+    "date": "2026-11-04T13:10:32.000Z",
+    "title": "proceso II y examenes proceso I y II",
+    "body": ""
+  },
+  {
+    "id": "git-4fe13001ce6e3e9296b0d81220f6a902599d73bb",
+    "date": "2026-11-04T12:07:47.000Z",
+    "title": "proceso II y examenes proceso I y II",
+    "body": ""
+  },
+  {
+    "id": "git-c981382c8026a6a6d1a9a3fbdbc316c5cbe29472",
+    "date": "2026-11-03T22:10:02.000Z",
+    "title": "Bufixes y optimizaciones",
+    "body": ""
+  },
+  {
+    "id": "git-e8382ef09daf8df80f277a32540202da35bcf81e",
+    "date": "2026-11-03T13:35:14.000Z",
+    "title": "todo citohistología semestre i y ii",
+    "body": ""
+  },
+  {
+    "id": "git-f6de1e91976ab59369da7afc364f0d1db9f1dc9e",
+    "date": "2026-11-03T00:31:39.000Z",
+    "title": "Ionómero de vidrio examen",
+    "body": ""
+  },
+  {
+    "id": "git-ea0834b72ea970b3e9b5276ac237767ca43dc609",
+    "date": "2026-11-03T00:18:48.000Z",
+    "title": "Ionómero de vidrio examen",
+    "body": ""
+  },
+  {
+    "id": "git-b8807854d25a460cee32cc44fb069c718d47d6d1",
+    "date": "2026-11-02T22:30:16.000Z",
+    "title": "cambios",
+    "body": ""
+  },
+  {
+    "id": "git-ead7909649c6c3601e9da8ed4c613efa414e5f05",
+    "date": "2026-10-15T02:11:12.000Z",
+    "title": "arreglado misspelling materiales",
+    "body": ""
+  },
+  {
+    "id": "git-c85d7635445738317b31462b12dff62833f6ed86",
+    "date": "2026-10-05T02:09:56.000Z",
+    "title": "release: v0.10.0 apariencias",
+    "body": ""
+  },
+  {
+    "id": "git-e55fa298f4496c11ff1ee23d8f21e8703df49df2",
+    "date": "2026-10-05T00:39:03.000Z",
+    "title": "bugfix",
+    "body": ""
+  },
+  {
+    "id": "git-d3094a635b8e70c706b6461bfe41fb6bd215381e",
+    "date": "2026-10-03T18:46:11.000Z",
+    "title": "bioqui tercer parcial",
+    "body": ""
+  },
+  {
+    "id": "git-b0dae9317a74302003ef224ac2b9382b5db17086",
+    "date": "2026-09-30T21:51:06.000Z",
+    "title": "bugfix",
+    "body": ""
+  },
+  {
+    "id": "git-f03124d57990b02fb73cf15d8bd3fc9818b86205",
+    "date": "2026-09-30T02:38:26.000Z",
+    "title": "preparcial cito3",
+    "body": ""
+  },
+  {
+    "id": "git-4032ab9212726a8e6f3682abaa358aa8ca78476c",
+    "date": "2026-09-19T17:47:14.000Z",
+    "title": "bugfix",
+    "body": ""
+  },
+  {
+    "id": "git-4027ce98710090ee6a220d2da5627d761640bfbe",
+    "date": "2026-09-19T13:33:39.000Z",
+    "title": "agregado sistema urinario y bug fixes",
+    "body": ""
+  },
+  {
+    "id": "git-23dd1f78996f0e83ee32d6aa67f24961f8364c02",
+    "date": "2026-09-18T02:00:43.000Z",
+    "title": "arregle las flashcards feas de cap 17,18 y publique cap 19",
+    "body": ""
+  },
+  {
+    "id": "git-94e6e1613d7e4f4d4f6d6e6fd0caaff919ff0556",
+    "date": "2026-09-10T22:54:36.000Z",
+    "title": "Balance pre-partial quiz alternatives",
+    "body": ""
+  },
+  {
+    "id": "git-27b09c08410d7e97b7d3ca3a22f98ad23d016154",
+    "date": "2026-09-10T22:22:53.000Z",
+    "title": "Fix pre-partial swipe navigation",
+    "body": ""
+  },
+  {
+    "id": "git-93732694c22021080112babf031f4cbd478e2990",
+    "date": "2026-09-10T22:19:30.000Z",
+    "title": "Improve pre-partial study progress",
+    "body": ""
+  },
+  {
+    "id": "git-2d8f82afd6a40b5438b203ae90609b54e256432c",
+    "date": "2026-09-10T22:08:34.000Z",
+    "title": "Release Odontoma v0.9.23 pre-partial review",
+    "body": ""
+  },
+  {
+    "id": "git-659f16c0bb822eeea24432cf6a9c2890911eb6ca",
+    "date": "2026-09-07T23:01:30.000Z",
+    "title": "Fix navigation for incorrect answer review",
+    "body": ""
+  },
+  {
+    "id": "git-cfbc558fca21b5ade94dc8b3aba3fb745709f371",
+    "date": "2026-09-07T22:56:36.000Z",
+    "title": "Add per-attempt incorrect answer review",
+    "body": ""
+  },
+  {
+    "id": "git-78bea9a81b5e69a72d17bba7014b9521f13d07b0",
+    "date": "2026-09-07T22:48:57.000Z",
+    "title": "Revert \"Add per-attempt incorrect answer review\"",
+    "body": "This reverts commit f866f5adb9cd1836a02c79488e06133e68536053."
+  },
+  {
+    "id": "git-f866f5adb9cd1836a02c79488e06133e68536053",
+    "date": "2026-09-07T22:46:07.000Z",
+    "title": "Add per-attempt incorrect answer review",
+    "body": ""
+  },
+  {
+    "id": "git-5ce388c881d50293f0f3d94dcedabf167cb95bcd",
+    "date": "2026-09-07T22:26:09.000Z",
+    "title": "Describe tus cambios",
+    "body": ""
+  },
+  {
+    "id": "git-667a97faf2a136a2f6afb1bb3d173543fdeba456",
+    "date": "2026-09-07T22:24:39.000Z",
+    "title": "Describe tus cambios",
+    "body": ""
+  },
+  {
+    "id": "git-8723dee10b0976a8de7256f05f63b9625b1e1bf1",
+    "date": "2026-09-07T22:04:28.000Z",
+    "title": "Describe tus cambios",
+    "body": ""
+  },
+  {
+    "id": "git-2ddb5889b473bad5a95802cfc32e48a6b851c4bf",
+    "date": "2026-09-07T22:02:13.000Z",
+    "title": "Describe tus cambios",
+    "body": ""
+  },
+  {
+    "id": "git-05c4e44ba13199635763b229f48d0fecbb663c0f",
+    "date": "2026-09-07T21:56:55.000Z",
+    "title": "Fix a pregunta y new ui",
+    "body": ""
+  },
+  {
+    "id": "git-20c0a5e62b18488f3f03d3ac745ad50e1ba7bcf2",
+    "date": "2026-09-07T01:01:01.000Z",
+    "title": "Quiz y flashcards de lo nuevo",
+    "body": ""
+  },
+  {
+    "id": "git-16f8b11b55052e4efd9f0edf7a09aee299b3864c",
+    "date": "2026-09-07T00:37:00.000Z",
+    "title": "Ácidos grasos y cetogénesis",
+    "body": ""
+  },
+  {
+    "id": "git-5cb69193539f787e0ff903ff2575599f5c009c89",
+    "date": "2026-09-06T02:51:12.000Z",
+    "title": "Añade estudio de bioquímica",
+    "body": ""
+  },
+  {
+    "id": "git-6549c47aabf58c0d10f44b9aa5b66e3e9e48863c",
+    "date": "2026-09-06T02:08:18.000Z",
+    "title": "Quiz de pentosas fosfato",
+    "body": ""
+  },
+  {
+    "id": "git-84050a9c0f68f89b49e48a7079742307f7d0dee6",
+    "date": "2026-09-05T23:10:47.000Z",
+    "title": "Nueva quiz de gluconeogénesis",
+    "body": ""
+  },
+  {
+    "id": "git-0f6de5e5556cf59844419e5d404550e5691f23f8",
+    "date": "2026-09-05T02:36:48.000Z",
+    "title": "Publish glycogen metabolism open quiz",
+    "body": ""
+  },
+  {
+    "id": "git-2f85f356b34eac0ffb4ce1260de0e6397911966e",
+    "date": "2026-08-30T14:55:11.000Z",
+    "title": "Add histology chapter 18 study content",
+    "body": ""
+  },
+  {
+    "id": "git-d567bb6b1d5b7c77d79447eafa69ba2c691e0e3b",
+    "date": "2026-08-26T23:28:35.000Z",
+    "title": "feat: add dental history open quiz",
+    "body": ""
+  },
+  {
+    "id": "git-0e47ac447fcb4521feabdf2349bfde31e9afd9b1",
+    "date": "2026-08-26T23:02:51.000Z",
+    "title": "feat: publish composites quiz in builder",
+    "body": ""
+  },
+  {
+    "id": "git-dca08a1f0a63fad542b6630883644170c6f79c82",
+    "date": "2026-08-26T01:38:17.000Z",
+    "title": "feat: add complete semiology study content",
+    "body": ""
+  },
+  {
+    "id": "git-f9358cf84caf9910b94be2133a13d97597f28489",
+    "date": "2026-08-23T23:55:16.000Z",
+    "title": "Release Odontoma v0.9.16",
+    "body": ""
+  },
+  {
+    "id": "git-98b92f20b7cbb565acaab08cac49fdab0cd94195",
+    "date": "2026-08-23T15:12:37.000Z",
+    "title": "Release Odontoma v0.9.15",
+    "body": ""
+  },
+  {
+    "id": "git-0deedad5d6af2abac40a33645457a0c44d07f4d0",
+    "date": "2026-08-21T02:44:12.000Z",
+    "title": "Release Odontoma v0.9.14",
+    "body": ""
+  },
+  {
+    "id": "git-5ee828f857d9218fe405879469e1ccdf4a721257",
+    "date": "2026-08-15T04:21:21.000Z",
+    "title": "Release Odontoma v0.9.13",
+    "body": ""
+  },
+  {
+    "id": "git-be18a488b8098965065c82434b976661c08a2c16",
+    "date": "2026-08-15T03:48:57.000Z",
+    "title": "Add visual artwork to study selectors",
+    "body": ""
+  },
+  {
+    "id": "git-8a401b25e2c59159748494e7f7a7180ae03d1c5a",
+    "date": "2026-08-15T03:19:02.000Z",
+    "title": "Revamp quiz progress diagnostics",
+    "body": ""
+  },
+  {
+    "id": "git-b281fc51e0050d8d000dd672ed590b4d71d06a36",
+    "date": "2026-08-15T03:09:15.000Z",
+    "title": "Improve mobile quiz chapter setup",
+    "body": ""
+  },
+  {
+    "id": "git-d333d4e68921060710e12f309162c98ce553da98",
+    "date": "2026-08-14T23:54:00.000Z",
+    "title": "Add chapter 16 study content",
+    "body": ""
+  },
+  {
+    "id": "git-043d656aabc4b5b624169fb21c99d88d229f14d8",
+    "date": "2026-08-12T20:21:42.000Z",
+    "title": "Refine histology flashcards for chapters 4 through 12",
+    "body": ""
+  },
+  {
+    "id": "git-4584b75567938ca80bc37c2723559b140083bcd3",
+    "date": "2026-08-12T20:07:10.000Z",
+    "title": "Add histology artwork for chapters 9 through 15",
+    "body": ""
+  },
+  {
+    "id": "git-924a9b7559bbe6cacd696ff3b27ed8f8af3d6e4f",
+    "date": "2026-08-12T19:48:54.000Z",
+    "title": "Expand histology quiz coverage",
+    "body": ""
+  }
+]
