@@ -25,4 +25,19 @@ describe("protecciones responsive del editor de escritas", () => {
     expect(css).toMatch(/\.content-actions\s*\{[^}]*display: grid;[^}]*grid-template-columns: minmax\(0, 1fr\);/)
     expect(css).toMatch(/\.question-list-item\s*\{\s*min-width: 0;/)
   })
+
+  it("coloca las flechas dentro de la tarjeta sin una fila adicional ni botones anidados", () => {
+    expect(css).toMatch(/\.written-deck-row\s*\{[^}]*position: relative;/)
+    expect(css).toMatch(/\.studio-shell \.written-deck-row \.written-order-buttons\s*\{[^}]*position: absolute;[^}]*right: 6px;/)
+    expect(css).toMatch(/\.written-deck-row \.deck-list-item\s*\{[^}]*padding-right: 42px;/)
+    expect(css).toMatch(/\.written-deck-row \.written-order-buttons button\s*\{[^}]*min-height: 28px;[^}]*padding: 0;/)
+    expect(editor).toContain('</button>\n                      <div className="written-order-buttons">')
+    expect(editor).toContain('aria-label={`Subir cuestionario ${deck.title}`}')
+  })
+
+  it("permite ver y usar las flechas con mouse, teclado y pantallas táctiles", () => {
+    expect(css).toContain("@media (hover: hover) and (pointer: fine)")
+    expect(css).toContain(".written-deck-row:focus-within .written-order-buttons { opacity: 1; pointer-events: auto; }")
+    expect(css).toMatch(/@media \(any-pointer: coarse\)[\s\S]*?\.written-order-buttons \{[^}]*opacity: 1; pointer-events: auto;/)
+  })
 })

@@ -1,5 +1,11 @@
 [
   {
+    "id": "git-dc1d7331f0a261fa1833c5cf2d492d0832a3cae9",
+    "date": "2026-11-04T22:43:07.000Z",
+    "title": "Preguntas glosario parcial 2",
+    "body": ""
+  },
+  {
     "id": "git-35d41c71b376003cd6f60098222b3dea37d4ba42",
     "date": "2026-11-04T21:36:19.000Z",
     "title": "Nuevo menu y cambie pos. de backups. Agregue changelog, bugfixes y autonomidad en el backend",
