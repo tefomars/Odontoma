@@ -3,6 +3,7 @@ import { createPortal } from "react-dom"
 
 import logoImage from "@/assets/logo.png"
 import { chapterEyebrow } from "@/lib/studyLabels"
+import { studyImagePosition } from "@/lib/studyImagePosition"
 
 type Props = {
   title: string
@@ -169,6 +170,13 @@ export default function SetupScreen({
             )
           }
         ].filter(group => group.chapters.length > 0)
+      : title === "Materiales dentales"
+        ? [1, 2].map(number => ({
+            id: `materiales-parcial-${number}`,
+            title: `Parcial ${number}`,
+            range: number === 1 ? "Propiedades, amalgamas e historia" : "Adhesión, composites e ionómeros",
+            chapters: chapters.filter(chapter => chapter.subtitle === `Parcial ${number}`)
+          })).filter(group => group.chapters.length > 0)
       : title === "Bioquímica"
         ? [
             {
@@ -1130,7 +1138,8 @@ export default function SetupScreen({
                       <div
                         className="phone-chapter-image absolute inset-0 bg-cover bg-center opacity-80"
                         style={{
-                          backgroundImage: `url(${chapter.image})`
+                          backgroundImage: `url(${chapter.image})`,
+                          backgroundPosition: studyImagePosition(chapter.image)
                         }}
                       />
 
@@ -1299,7 +1308,8 @@ export default function SetupScreen({
                     "
                     style={{
                       backgroundImage:
-                        `url(${chapter.image})`
+                        `url(${chapter.image})`,
+                      backgroundPosition: studyImagePosition(chapter.image)
                     }}
                   />
 

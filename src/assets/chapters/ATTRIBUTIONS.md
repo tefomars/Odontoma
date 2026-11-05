@@ -56,3 +56,15 @@ Son fondos temáticos: muestran tejidos, orgánulos, muestras o correlaciones cl
 - `bioquimica/selection/eicosanoids.jpg` — *Margination of neutrophils*, reacción inflamatoria relacionada con mediadores eicosanoides. Department of Pathology, Calicut Medical College. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Margination_of_neutrophils.jpg). Licencia: CC BY-SA 4.0.
 - `bioquimica/selection/lipoproteins.jpg` — *Lipemic sérum ex1*, muestra de suero lipémico. J3D3. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Lipemic_s%C3%A9rum_ex1.jpg). Licencia: CC BY-SA 4.0.
 - `bioquimica/selection/cholesterol.jpg` — *Cholesterol Crystals Synovial Fluid Polarized Light*, cristales de colesterol bajo luz polarizada. Ed Uthman. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Cholesterol_Crystals_Synovial_Fluid_Polarized_Light.jpg). Licencia: CC BY 3.0.
+
+## Materiales dentales — menús y selección de bloques
+
+Archivos en `public/media/materiales-dentales/`, servidos localmente también en Vercel. Son fotos reales, no generadas. Se descargaron versiones reducidas de Commons (hasta 960 px; fotocurado conserva 591 px). Sin retoques: el recorte y los velos de contraste se aplican solo en la interfaz. Cada imagen conserva su licencia. Créditos públicos completos: `/media/materiales-dentales/credits.html`.
+
+- `materiales.jpg` — *Dental composites and tools*. Mattes. [Fuente](https://commons.wikimedia.org/wiki/File:Dental_composites_and_tools.JPG). [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/).
+- `amalgamas.jpg` — *Filling*. Kauzio. [Fuente](https://commons.wikimedia.org/wiki/File:Filling.jpg). Dominio público, liberada por el autor.
+- `historia.jpg` — *Set of dental instruments in case, late 19th century. Detail*, Wellcome Images / Science Museum, referencia A75934, foto L0057331. [Fuente](https://commons.wikimedia.org/wiki/File:Set_of_dental_instruments_in_case,_late_19th_century._Detail_Wellcome_L0057331.jpg). [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+- `fotocurado.jpg` — *Light setting dental material*. Niomno. [Fuente](https://commons.wikimedia.org/wiki/File:Light_setting_dental_material.jpg). [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/).
+- `composites.jpg` — *Composite material*. Shaimaa Abdellatif, con apoyo de Wikimedia UK. [Fuente](https://commons.wikimedia.org/wiki/File:Composite_material.jpg). [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). También se usa como portada de la materia.
+- `adhesivos.jpg` — *Dental bonding agents*. Shaimaa Abdellatif, con apoyo de Wikimedia UK. [Fuente](https://commons.wikimedia.org/wiki/File:Dental_bonding_agents.jpg). [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
+- `ionomeros.jpg` — *Glas- jonomer cement*. Isonandra gutta. [Fuente](https://commons.wikimedia.org/wiki/File:Glas-_jonomer_cement.jpg). [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).

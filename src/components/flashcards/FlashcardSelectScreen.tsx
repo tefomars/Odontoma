@@ -6,6 +6,7 @@ import {
 } from "react"
 
 import logoImage from "@/assets/logo.png"
+import { studyImagePosition } from "@/lib/studyImagePosition"
 import { getStudyBank, studioBanks } from "@/content/studio/catalog"
 import { histologiaChapters } from "@/content/histologia/chapters"
 
@@ -2376,6 +2377,18 @@ export default function FlashcardSelectScreen({
   const chapterCourseGroups =
     useMemo<ChapterCourseGroup[]>(
       () => {
+        if (getStudyBank(subject)?.id === "materiales-dentales") {
+          const bank = getStudyBank(subject)!
+          return [1, 2].map(number => ({
+            title: `Parcial ${number}`,
+            range: number === 1 ? "Propiedades, amalgamas e historia" : "Adhesión, composites e ionómeros",
+            menus: availableChapterMenus.filter(menu => bank.chapters.find(chapter => chapter.id === menu.chapter)?.subtitle === `Parcial ${number}`)
+          })).filter(group => group.menus.length > 0).concat(
+            availableChapterMenus.some(menu => !["Parcial 1", "Parcial 2"].includes(bank.chapters.find(chapter => chapter.id === menu.chapter)?.subtitle || ""))
+              ? [{ title: "Otros bloques", range: "", menus: availableChapterMenus.filter(menu => !["Parcial 1", "Parcial 2"].includes(bank.chapters.find(chapter => chapter.id === menu.chapter)?.subtitle || "")) }]
+              : []
+          )
+        }
         if (subject !== "histologia") {
           return [
             {
@@ -2458,6 +2471,11 @@ export default function FlashcardSelectScreen({
   const mobileMenu =
     availableChapterMenus.find(menu => menu.chapter === mobileChapterMenu) ||
     null
+
+  const chapterLabel = (chapter: string) =>
+    getStudyBank(subject)?.id === "materiales-dentales"
+      ? getStudyBank(subject)?.chapters.find(item => item.id === chapter)?.subtitle || "Materiales dentales"
+      : chapter
 
   useEffect(() => {
     topicPanelRef.current?.scrollTo({
@@ -2891,7 +2909,9 @@ export default function FlashcardSelectScreen({
                         menu.chapter === currentMenu?.chapter
 
                       const chapterImage =
-                        subject === "histologia"
+                        getStudyBank(subject)?.id === "materiales-dentales"
+                          ? getStudyBank(subject)?.chapters.find(chapter => chapter.id === menu.chapter)?.image
+                          : subject === "histologia"
                           ? HISTOLOGY_CHAPTER_IMAGES.get(menu.chapter)
                           : undefined
 
@@ -2930,7 +2950,7 @@ export default function FlashcardSelectScreen({
                               <span
                                 aria-hidden="true"
                                 className="absolute inset-0 bg-cover bg-center opacity-50 transition-transform duration-500 group-hover:scale-105"
-                                style={{ backgroundImage: `url(${chapterImage})` }}
+                                style={{ backgroundImage: `url(${chapterImage})`, backgroundPosition: studyImagePosition(chapterImage) }}
                               />
                               <span
                                 aria-hidden="true"
@@ -2951,7 +2971,7 @@ export default function FlashcardSelectScreen({
                             tracking-[0.18em]
                             text-zinc-300
                           ">
-                            {menu.chapter}
+                            {chapterLabel(menu.chapter)}
                           </p>
 
                           <p className="
@@ -3021,7 +3041,7 @@ export default function FlashcardSelectScreen({
                         tracking-[0.2em]
                         text-violet-300
                       ">
-                        {currentMenu.chapter}
+                        {chapterLabel(currentMenu.chapter)}
                       </p>
 
                       <h2 className="
@@ -3208,7 +3228,7 @@ export default function FlashcardSelectScreen({
                   tracking-[0.22em]
                   text-violet-300
                 ">
-                  {mobileMenu.chapter}
+                  {chapterLabel(mobileMenu.chapter)}
                 </p>
 
                 <h2 className="

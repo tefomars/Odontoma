@@ -1,0 +1,752 @@
+{
+  "capturedAt": "2026-11-04",
+  "purpose": "Referencia de autoría, no se carga ni modifica los cuestionarios escritos",
+  "decks": [
+    {
+      "id": "open-deck-1787780481952-dc59cf02-4c7b-4097-a526-3ea30b0b0f10",
+      "title": "Glosario P1",
+      "questions": [
+        {
+          "id": "open-question-1787780540804-c8764b90-2882-49ec-97be-1673e507c9a6",
+          "prompt": "Qué es la tixotropía?",
+          "modelAnswer": "Propiedad en la cual la viscosidad de un material disminuye cuando se somete a fuerza y se recupera cuando se libra de ella.",
+          "acceptedPoints": [],
+          "explanation": ""
+        },
+        {
+          "id": "open-question-1787780730153-7ff7f25c-39df-4027-80d1-f235c54a07eb",
+          "prompt": "Qué diferencia la deformación elástica y a la deformación plastica? Explique con la definición de cada una.",
+          "modelAnswer": "Deformación elástica: Deformación reversible donde el material regresa a su forma original cuando se elimina la fuerza.\n\nDeformación plástica: Deformación irreversible donde el material NO regresa a su forma original y queda deformado permanentemente tras la fuerza.",
+          "acceptedPoints": [],
+          "explanation": ""
+        },
+        {
+          "id": "open-question-1787780919052-376da703-d3df-4fab-baf6-df756675c374",
+          "prompt": "Mencione qué unidad de esfuerzo/tensión se utiliza para medir la fuerza de compresión del esmalte o amgalamas.",
+          "modelAnswer": "Megapascales (MPa)",
+          "acceptedPoints": [],
+          "explanation": ""
+        },
+        {
+          "id": "open-question-1787780975418-f63213e4-03de-4652-b37d-7118f3d8f025",
+          "prompt": "Qué es el módulo de elasticidad y qué mide?",
+          "modelAnswer": "Es el esfuerzo requerido para provocar una deformación elástica en un material. Determina qué tan rígido es dicho material.",
+          "acceptedPoints": [],
+          "explanation": ""
+        },
+        {
+          "id": "open-question-1787781041485-2559b0ce-7754-4f67-9fcf-25f715399903",
+          "prompt": "Qué es la tenacidad/tougness?",
+          "modelAnswer": "Capacidad de absorber energía elástica y posteriormente energía plástica antes de romperse. ",
+          "acceptedPoints": [],
+          "explanation": ""
+        },
+        {
+          "id": "open-question-1787781188100-3d8dc00b-8ae9-490f-a481-54c196bcffc6",
+          "prompt": "Qué es la resiliencia?",
+          "modelAnswer": "Es la capacidad de un material para absorber y almacenar energía elástica sin sufrir una deformación permanente.",
+          "acceptedPoints": [],
+          "explanation": ""
+        },
+        {
+          "id": "open-question-1787781216167-e5a3aaca-dd11-420d-b34e-39cbe92d7d11",
+          "prompt": "Qué es la resistencia a la compresión?",
+          "modelAnswer": "Capacidad de un material para resistir fuerzas compresivas antes de llegar al punto de fractura.",
+          "acceptedPoints": [],
+          "explanation": ""
+        },
+        {
+          "id": "open-question-1787781255417-6d0738ca-21ef-4f5d-8569-b9b0ce7bf4ac",
+          "prompt": "Qué es un material fragilizo (brittleness)?",
+          "modelAnswer": "Es la incapacidad de un material para sufrir deformación plástica.",
+          "acceptedPoints": [],
+          "explanation": "Pensemos en el vidrio. Es muy fuerte, pero conforme recibe fuerza, se deformará un poco elásticamente y antes de sufrir su \"deformación plástica irreversible\", se romperá. No sufre una deformación plástica porque se rompe antes de sufrirla."
+        }
+      ]
+    },
+    {
+      "id": "open-deck-1787781538967-69ceeff8-bc31-4fc2-aab9-7dd6772bd47f",
+      "title": "Amalgamas",
+      "questions": [
+        {
+          "id": "open-question-1787781564466-ffb1c3bf-4422-46c1-bb9f-a09e0f8c5147",
+          "prompt": "Defina una amalgama y mencione los cuatro elementos que la conforma.",
+          "modelAnswer": "Es un restaurador directo metálico.\nSe conforma por:\nMercurio con plata, estaño, cobre y zinc",
+          "acceptedPoints": [],
+          "explanation": ""
+        },
+        {
+          "id": "open-question-1787781616755-bf694d8d-cbb6-4232-9193-423ccf246755",
+          "prompt": "Cuáles son las diferentes fases de la amalgama y qué metales participan en cada una?",
+          "modelAnswer": "Fase gamma: Plata y Estaño\nFase gamma 1: Mercurio y Plata\nFase gamma 2: Mercurio y Estaño",
+          "acceptedPoints": [],
+          "explanation": ""
+        },
+        {
+          "id": "open-question-1787781842376-4a22241e-38bc-45e4-876c-fe0d4e3ecbe4",
+          "prompt": "Indique cuál es la fase gamma con peores propiedades mecánicas y más susceptible a corrosión. Cómo se elimina esta fase y cómo se nombra?",
+          "modelAnswer": "Fase gamma 2\nSe elimina al agregar suficiente Cobre\n--> Amalgama de fase dispersa ",
+          "acceptedPoints": [
+            "Amalgama con cobre abundante"
+          ],
+          "explanation": ""
+        },
+        {
+          "id": "open-question-1787782298423-9c66f223-010b-4b52-8ff9-7424a8cec9d4",
+          "prompt": "A grandes razgos, identifique el rol de cada metal de la aleación que conforma a una amalgama.",
+          "modelAnswer": "Mercurio: Permite la reacción entre los metales para formar la aleación.\n\nZinc: Funciona como desoxidante para proteger a los demás metales. (se oxida primero)\n\nEstaño: Reduce el punto de fusión y controla la expansión durante la reacción. (facilita la reacción)\n\nPlata y cobre: Aumentan la resistencia, dureza y reducen la corrosión\n",
+          "acceptedPoints": [],
+          "explanation": "Esta muy específico, pero en corto:\nMercurio: Permite la unión de los metales\nZinc: Protege a los metales durante la reacción\nEstaño: Facilita y controla la reacción\nPlata y cobre: Mayor dureza y resistencia a la aleación final"
+        },
+        {
+          "id": "open-question-1787782653453-9ae93265-1de0-4404-bc76-526b475c68ec",
+          "prompt": "Describa el proceso de formación de la amalgama.",
+          "modelAnswer": "Se da por medio de la amalgamación. El mercurio líquido y  la aleación de los demás metales en polvo se mezclan en un amalgamador.",
+          "acceptedPoints": [],
+          "explanation": ""
+        },
+        {
+          "id": "open-question-1787782732243-0c245703-702c-4e9e-8cdf-3f5981ae95ea",
+          "prompt": "Mencione una ventaja y una desventaja de las amalgamas",
+          "modelAnswer": "Ventaja: Resistente\nDesventaja: Poco estético",
+          "acceptedPoints": [
+            "Ventajas: Dura mucho tiempo, no necesita adhesión química",
+            "Desventajas: Requiere retención mecánica, Susceptible a corrosión, Requiere mayor desgaste de diente natural, mucha conductividad térmica"
+          ],
+          "explanation": ""
+        },
+        {
+          "id": "open-question-1787782903891-ebfc181c-d765-4028-93c1-8b42bac24f4b",
+          "prompt": "En dónde se prefiere el uso de restauraciones de amalgama?",
+          "modelAnswer": "En dientes posteriores, por resistencia y por ser poco estéticos.",
+          "acceptedPoints": [],
+          "explanation": ""
+        }
+      ]
+    },
+    {
+      "id": "open-deck-1793830866107-64a15420-a6a4-40d9-97a2-b8a99f6c30c7",
+      "title": "Glosario P2",
+      "questions": [
+        {
+          "id": "open-question-1793830883658-e5b5931f-c4af-4e36-bc1e-e6ca47060188",
+          "prompt": "Qué es la humectación y cómo se aumenta en el diente?",
+          "modelAnswer": "Capacidad de un líquido para contactar y extenderse sobre la superficie de un sólido. \n- Se aumenta al aumentar la energía superficial del diente por medio de un grabador ácido.",
+          "acceptedPoints": [],
+          "explanation": ""
+        },
+        {
+          "id": "open-question-1793830915175-e3bfd8ae-c428-4656-8508-bf10ef2b3cfc",
+          "prompt": "Qué es la energía superficial y cómo se aumenta?\n",
+          "modelAnswer": "Es la energía que resulta debido al desequilibrio de las fuerzas de atracción entre las moléculas más superficiales de un sólido. Se aumenta por medio del uso de un grabador ácido. \n",
+          "acceptedPoints": [],
+          "explanation": ""
+        },
+        {
+          "id": "open-6729ee15-af0b-4140-9ed1-918b92e03b92",
+          "prompt": "Qué es el ángulo de contacto y qué significa un valor alto y uno bajo?",
+          "modelAnswer": "Es el ángulo de intersección entre un líquido y una superficie sólida. \n- Un valor cercano a 0° indica alta humectabilidad\n- Un valor cercano a 180° indica baja humectabilidad",
+          "acceptedPoints": [],
+          "explanation": ""
+        },
+        {
+          "id": "open-question-1793831129701-647f4040-73bd-4535-96cf-f18cf31c82ed",
+          "prompt": "Explique la relación entre humectación, energía superficial y ángulo de contacto",
+          "modelAnswer": "Alta energía superficial --> Alta humectabilidad --> Menor ángulo de contacto",
+          "acceptedPoints": [],
+          "explanation": ""
+        },
+        {
+          "id": "open-question-1793831235217-6e5a296e-7341-4c78-bb6d-ceb2b80ab04b",
+          "prompt": "Qué es la capa híbrida?",
+          "modelAnswer": "Es la capa de dentina parcialmente desmineralizada con sus redes colágenas mezclada con la resina polimerizada",
+          "acceptedPoints": [],
+          "explanation": ""
+        },
+        {
+          "id": "open-question-1793831343916-92fc3028-6ef6-41f6-a5e9-3d06efca2eab",
+          "prompt": "Qué son los resin-tags y qué ventaja tienen?",
+          "modelAnswer": "Los tags de resina son prolongaciones de resina polimerizada que se extienden sobre las porosidades e irregularidades de la superficie dental. Aumentan la resistencia mecánica.",
+          "acceptedPoints": [],
+          "explanation": ""
+        },
+        {
+          "id": "open-question-1793831362950-82cf9801-dd6d-41b2-8d3d-b566022de54b",
+          "prompt": "Explique qué es el autograbado y qué lo hace posible",
+          "modelAnswer": "El autograbado es cuando el material en cuestión es capaz de desmineralizar e infiltrar la superficie dental de forma independiente, sin grabadores ácidos por separado. Se debe a que sus monómeros contienen propiedades ácidas; adhesivos de 8va generación lo hacen por medio de 10-MDP, que contiene un fosfato ácido.\n",
+          "acceptedPoints": [],
+          "explanation": "Pueden o pueden no usar grabador ácido. En la mayoría de los casos, se recomienda emplear un grabado selectivo. Ácido solo en esmalte y solo el adhesivo en la dentina."
+        },
+        {
+          "id": "open-question-1793831434165-de25e057-40c1-4ac4-a561-a6741fafeaaa",
+          "prompt": "Defina adhesión y cohesión. Luego, indique cuál otorga una unión de mayor fuerza.",
+          "modelAnswer": "Adhesión: Capacidad de unión por fuerzas de atracción entre moléculas de distinta especie química\nCohesión: Capacidad de unión por fuerzas de atracción entre moléculas de la misma especie química\n\nCohesión suele ser más fuerte.",
+          "acceptedPoints": [],
+          "explanation": ""
+        },
+        {
+          "id": "open-question-1793831573849-345ce432-c3f4-4533-ae6c-a3a609231290",
+          "prompt": "Describa la tensión superficial. ¿Cómo debe ser la tensión superficial respecto a la energía superficial para que haya buena humectación?",
+          "modelAnswer": "Energía cohesiva asociada con la superficie de un líquido.\n\nLa tensión superficial de un líquido debe ser igual o menor a la energía superficial del sólido.",
+          "acceptedPoints": [],
+          "explanation": ""
+        },
+        {
+          "id": "open-question-1793831663548-e9b663f1-6b4d-4595-ad83-b865fe371b5a",
+          "prompt": "Qué diferencia existe entre un grabado parcial y un grabado total?",
+          "modelAnswer": "El grabado parcial (selectivo) solo aplica el grabador ácido al esmalte y no a la dentina.\nEl grabado total aplica el grabador ácido tanto al esmalte como a la dentina.",
+          "acceptedPoints": [],
+          "explanation": ""
+        },
+        {
+          "id": "open-question-1793832052873-9004c65f-9798-4ba2-8462-169584c3aa4e",
+          "prompt": "Diferencie hidrofílico de hidrofóbico...",
+          "modelAnswer": "Hidrofílico: Alta afinidad por medios acuosos\nHidrofóbico: Evitan interacciones con el agua y se repelen de ella. No son solubles.",
+          "acceptedPoints": [],
+          "explanation": ""
+        }
+      ]
+    },
+    {
+      "id": "open-deck-1787785702774-44eed264-b5da-46d6-844c-5346b0d627ae",
+      "title": "Señores de la historia",
+      "questions": [
+        {
+          "id": "open-question-1787785810522-b597820d-a864-4b86-bfdc-19da64dead08",
+          "prompt": "Qué título se le otorga a Pierre Fauchard?",
+          "modelAnswer": "Padre de la odontología moderna",
+          "acceptedPoints": [],
+          "explanation": ""
+        },
+        {
+          "id": "open-question-1787785829940-a1d98148-422e-4579-8239-d6b21fcc4083",
+          "prompt": "Qué título se le otorga a Greene Vardiman Black?",
+          "modelAnswer": "Padre de la odontología operatoria moderna",
+          "acceptedPoints": [],
+          "explanation": ""
+        },
+        {
+          "id": "open-question-1787785862790-83c9d823-c2a4-45d1-9093-a0486113967e",
+          "prompt": "Qué título se le otorga a Michael G. Buonocore?",
+          "modelAnswer": "Padre de la odontología adhesiva ",
+          "acceptedPoints": [
+            "Padre de la odontología adhesiva moderna"
+          ],
+          "explanation": ""
+        },
+        {
+          "id": "open-question-1787785910040-786978b5-89a4-4fd0-978f-4b10c8503978",
+          "prompt": "Qué publicó Fauchard y en qué año?",
+          "modelAnswer": "Le Chiriurgen Dentiste (El Cirujano Dentista) en 1728",
+          "acceptedPoints": [],
+          "explanation": ""
+        },
+        {
+          "id": "open-question-1787785942340-541fafb1-3957-44e3-b99b-70540f509752",
+          "prompt": "Qué estableció Pierre Fauchard?",
+          "modelAnswer": "Las bases científicas y sistemáticas de la odontología. ",
+          "acceptedPoints": [
+            "Transición de práctica empírica a una disciplina científica"
+          ],
+          "explanation": ""
+        },
+        {
+          "id": "open-question-1787786003257-8733dbf0-0a14-4fa1-931b-75182b29cd99",
+          "prompt": "Qué propuso Buonocore?",
+          "modelAnswer": "El uso de adhesivo (ácido ortofosfórico) en los tejidos mineralizados del diente para facilitar la adhesión de resina al diente.",
+          "acceptedPoints": [],
+          "explanation": ""
+        },
+        {
+          "id": "open-question-1787786041457-6f630b3d-3f80-4bbd-95c7-30b298220958",
+          "prompt": "Cómo funciona el ácido ortofosfórico?",
+          "modelAnswer": "Su acidez crea microporosidades en el tejido calcificado, mejorando así la penetración del material de obturación y aumentando su superficie de unión.",
+          "acceptedPoints": [],
+          "explanation": ""
+        },
+        {
+          "id": "open-question-1787786090941-f257e42d-18e2-47f3-9cd3-20e1cb5c968a",
+          "prompt": "Qué % de ácido ortofosfórico fue el primero en utilizarse y cuánto tiempo? Cómo es esto hoy en día?",
+          "modelAnswer": "85% por 30 segundos\n\nAhora es 30-40% por 15 segundos",
+          "acceptedPoints": [],
+          "explanation": ""
+        },
+        {
+          "id": "open-question-1787786127757-8765ea3f-eb64-4bc4-880a-a57f5730d177",
+          "prompt": "Qué contribuyó GV Black a la odontología?",
+          "modelAnswer": "Un sistema de clasificación de caries y cavidades.",
+          "acceptedPoints": [
+            "Rehizo la fórmula de amalgama para mejorar sus cualidades",
+            "Desarrolló la extensión por prevención (no bueno hoy en día)",
+            "Implementó sustento científico y sistemático para estandarizar ciertos procesos odontológicos."
+          ],
+          "explanation": ""
+        },
+        {
+          "id": "open-question-1787786273974-4e694478-3164-4f95-ad52-7a0c51553d9c",
+          "prompt": "Numere las clasificaciones de cavidades de Black. (no en dónde se halla cada una)",
+          "modelAnswer": "I\nII\nIII\nIV\nV",
+          "acceptedPoints": [],
+          "explanation": "La VI fue agregada después por otro cuate... No por Black"
+        },
+        {
+          "id": "open-question-1787786384824-ae9144ad-6be4-44b8-aafe-f33195699188",
+          "prompt": "Dónde están las cavidades tipo I?",
+          "modelAnswer": "Anteriores: Superficie lingual/palatina\nPosteriores: Superficie oclusal (fosas y fisuras)",
+          "acceptedPoints": [],
+          "explanation": ""
+        },
+        {
+          "id": "open-question-1787786499250-f21e565c-056e-4fe1-8414-5b6dc77b37d9",
+          "prompt": "Dónde están las cavidades tipo II?",
+          "modelAnswer": "Superficies proximales (mesial o distal) de dientes POSTERIORES",
+          "acceptedPoints": [],
+          "explanation": ""
+        },
+        {
+          "id": "open-question-1787786547703-00a9a8b9-552a-4d0e-809d-3bdeaf0f737f",
+          "prompt": "Dónde están las cavidades tipo III?",
+          "modelAnswer": "Superficies proximales de dientes anteriores, sin involucrar el borde incisal",
+          "acceptedPoints": [],
+          "explanation": ""
+        },
+        {
+          "id": "open-question-1787786561587-3011029a-d263-405a-8043-1a737d7ca0bc",
+          "prompt": "Dónde están las cavidades tipo IV?",
+          "modelAnswer": "Superficies proximales de dientes anteriores, involucrando al borde incisal.",
+          "acceptedPoints": [],
+          "explanation": ""
+        },
+        {
+          "id": "open-question-1787786583904-3f82821d-85e0-42e9-9563-41b8b6ee6a44",
+          "prompt": "Dónde están las cavidades tipo V?",
+          "modelAnswer": "Tercio cervical del diente, sea en su superficie palatina/lingual o vestibular de cualquier diente.",
+          "acceptedPoints": [],
+          "explanation": ""
+        },
+        {
+          "id": "open-question-1787786614803-4cf68ebc-eb0c-42c5-9593-191e152ab512",
+          "prompt": "Dónde están las cavidades tipo VI?",
+          "modelAnswer": "En las cúspides de dientes posteriores\nBorde incisal de dientes anteriores",
+          "acceptedPoints": [],
+          "explanation": ""
+        },
+        {
+          "id": "open-question-1787786654303-2fe29d10-c36a-4010-92b6-450ef4d0dad4",
+          "prompt": "Quién creó el agente de acople y descubrió el monómero para dar lugar a las primeras resinas compuestas?",
+          "modelAnswer": "Rafael Bowen en 1962",
+          "acceptedPoints": [],
+          "explanation": ""
+        },
+        {
+          "id": "open-question-1787786726336-b9451876-fc22-48bf-b8dd-e00f5ea896e6",
+          "prompt": "Qué dos cosas descubrió Rafael Bowen y cuál fue la importancia de cada una?",
+          "modelAnswer": "Bis-GMA: Fue una gran mejora desde la PMMA, pues producía menor estrés de polimerización (por ser más grande)\n\nSilano: Permitió la unión de partículas de relleno con la matriz resinosa. Otorgó mayor resistencia a las resinas y propiedades más favorables.",
+          "acceptedPoints": [],
+          "explanation": ""
+        }
+      ]
+    },
+    {
+      "id": "open-deck-1787783043024-4c22ff19-b163-4d55-9133-37fe98f9e6d2",
+      "title": "Composites",
+      "questions": [
+        {
+          "id": "open-question-1787783096606-8eef1998-72cb-4df5-a7c8-2482347657de",
+          "prompt": "Qué son las composites o resinas compuestas?",
+          "modelAnswer": "Material multifásico donde cada fase mantiene sus propiedades físicas.",
+          "acceptedPoints": [],
+          "explanation": ""
+        },
+        {
+          "id": "open-question-1787783226090-02626e62-9a7a-4ee0-b1f4-207d2452c2a7",
+          "prompt": "Cuáles son los tres elementos que conforman a la resina compuesta.?Provea un ejemplo para cada uno.",
+          "modelAnswer": "Matriz orgánica/resinosa: Bis-GMA, Bis-EMA, UDMA\n\nMatriz inorgánica/relleno: Vidrio, Cuarzo, Zirconia\n\nAgente de acople: Silano",
+          "acceptedPoints": [],
+          "explanation": ""
+        },
+        {
+          "id": "open-question-1787783315671-9a73e2e1-1ba5-4719-b15e-5b20ee87c0f6",
+          "prompt": "Cuál es la función de la matriz resinosa/orgánica?",
+          "modelAnswer": "Permite la polimerización para convertirse en un material sólido.",
+          "acceptedPoints": [
+            "Permite la manipulación del material",
+            "Permite \"sostener\" las fases",
+            "Transmitir las fuerzas al relleno"
+          ],
+          "explanation": ""
+        },
+        {
+          "id": "open-question-1787783486220-2e85ea00-40d6-435b-bbc0-722ffe5e2bb0",
+          "prompt": "Cuál es la función del relleno inorgánico?",
+          "modelAnswer": "Aumenta la resistencia, rigidez y dureza",
+          "acceptedPoints": [
+            "Aumenta resistencia al desgaste",
+            "Reduce la contracción al reducir la cantidad de matriz orgánica"
+          ],
+          "explanation": ""
+        },
+        {
+          "id": "open-question-1787783561036-1e57d740-110b-4159-804c-eb75a89262b0",
+          "prompt": "Qué descubrimiento hizo posible la creación de las resinas modernas? Cuál es la función de este descubrimiento?",
+          "modelAnswer": "El silano. Permite la unión entre la matriz orgánica y el relleno inorgánico.",
+          "acceptedPoints": [],
+          "explanation": ""
+        },
+        {
+          "id": "open-question-1787783605468-38444f94-673e-4003-baed-9c56072e5157",
+          "prompt": "Cuál fue el primer monómero utilizado en la matriz resinosa y cuál es su forma polimerizada?",
+          "modelAnswer": "Metilmetacrilato (MMA) \nPolimerizada --> Polimetilmetacrilato (PMMA)",
+          "acceptedPoints": [],
+          "explanation": ""
+        },
+        {
+          "id": "open-question-1787783717907-94973b95-f47f-41e6-957e-a4be539d4e27",
+          "prompt": "Qué se agrega a la matriz resinosa para reducir su viscosidad y permitir mayor cantidad de relleno? Mencione un ejemplo.",
+          "modelAnswer": "Monómeros diluyentes.\n\nTEGDMA\nEGDMA\nMMA",
+          "acceptedPoints": [],
+          "explanation": ""
+        },
+        {
+          "id": "open-question-1787783772391-c096b0c3-f980-4d7a-a484-13aa10b3552e",
+          "prompt": "Qué herramienta se utiliza para endurecer al composite media vez está colocada en el diente?",
+          "modelAnswer": "Lámpara de fotocurado",
+          "acceptedPoints": [],
+          "explanation": ""
+        },
+        {
+          "id": "open-question-1787783840457-df707b1c-5624-4d5c-9b0f-f7881c2e2041",
+          "prompt": "Por qué la lámpara de fotocurado promueve la polimerización de la matriz resinosa?",
+          "modelAnswer": "Porque activa a fotoiniciadores en la matriz.",
+          "acceptedPoints": [],
+          "explanation": "Los fotoiniciadores liberan radicales libres para reaccionar los grupos metacrilatos de los monómeros de la matriz resinosa."
+        },
+        {
+          "id": "open-question-1787783895207-60fb0fcb-014f-4b63-b295-00b097e5feae",
+          "prompt": "Mencione los 4 fotoiniciadores principales de la resina y su aproximado espectro de luz.",
+          "modelAnswer": "Canforquinona: 400-500 nm\nFenilpropanidiona: 400-450 nm\nIvocerina: 370-460\nLucerina TPO: 350-430",
+          "acceptedPoints": [],
+          "explanation": ""
+        },
+        {
+          "id": "open-question-1787784086974-b676454b-7789-4bd5-8ab5-08b457b8c6e5",
+          "prompt": "Cuál es la potencia recomendada que debe tener una lámpara de fotocurado? Cuál es la importancia de esto?",
+          "modelAnswer": "1000 - 1500 mW/cm2\nMejora la fotopenetración para llegar a activar fotoiniciadores de la matriz.",
+          "acceptedPoints": [],
+          "explanation": ""
+        },
+        {
+          "id": "open-question-1787784199040-062578e1-225e-47eb-88d2-a0de5efee85a",
+          "prompt": "Cuál es el espectro de luz ideal que debe tener una lámpara de fotocurado?",
+          "modelAnswer": "380-450nm",
+          "acceptedPoints": [],
+          "explanation": ""
+        },
+        {
+          "id": "open-question-1787784236307-6e937522-25b4-4ac8-b7b9-a9967229d03b",
+          "prompt": "Escriba, de más viejo a más moderno, las diferentes composites  de la historia.",
+          "modelAnswer": "Macrorelleno\nMicrorelleno\nHíbrido Tradicional\nMicrohíbrido\nNanorellenos (Universales)\nBulk-Fill (Baja resistencia)\n",
+          "acceptedPoints": [],
+          "explanation": ""
+        },
+        {
+          "id": "open-question-1787784340324-a0b32841-978f-4347-b5ce-94d8c68c2750",
+          "prompt": "Mencione cuál es el principal agente inhibidor de las resinas y cuál es su función en clínica.",
+          "modelAnswer": "Butilhidroxitolueno\n\nInhibe la polimerización lo suficiente para prolongar el tiempo de trabajo y manipulación del material.",
+          "acceptedPoints": [],
+          "explanation": ""
+        },
+        {
+          "id": "open-question-1787784588294-ad9a6063-3042-4d96-a140-5706b0e1129a",
+          "prompt": "Qué caracteriza al Macrorelleno y por qué se dejó de utilizar?",
+          "modelAnswer": "Era muy resistente.\nSe dejó de usar por su mal pulido y baja resistencia al desgaste.",
+          "acceptedPoints": [],
+          "explanation": ""
+        },
+        {
+          "id": "open-question-1787784623013-693f1703-2534-4d2a-8b5c-0299abc41c38",
+          "prompt": "Qué mejoró en el microrelleno y qué empeoró? En qué piezas dentales se utilizaban?",
+          "modelAnswer": "Mejoró su pulido y estética. Se preferían usar en dientes anteriores, porque no tenían mucha resistencia.",
+          "acceptedPoints": [],
+          "explanation": ""
+        },
+        {
+          "id": "open-question-1787784680451-c0f23102-52e1-4bc9-86d9-966dcb070277",
+          "prompt": "Cuál fue la primera resina en utilizarse de forma \"universal\" y qué la componía?",
+          "modelAnswer": "Los microhíbridos.\nTenían buen pulido y resistencia gracias a su densa distribución de partículas (MUY pequeñas).",
+          "acceptedPoints": [],
+          "explanation": "Se asemeja más al microrelleno que al macrorelleno, conservando lo mejor del híbrido tradicional."
+        },
+        {
+          "id": "open-question-1787784838116-e513aad8-17fc-428a-a0c2-e61c36f51fae",
+          "prompt": "Qué necesita una resina fluida y dónde se utilizan?",
+          "modelAnswer": "Necesita mayor matriz orgánica.\nSe utilizan en:\n- Bordes incisales\n- Tercios cervicales vestibular o palatino",
+          "acceptedPoints": [],
+          "explanation": ""
+        },
+        {
+          "id": "open-question-1787784926216-067de4e1-0a8f-4bba-b6f4-19e6461faf8c",
+          "prompt": "Por qué el nanorelleno se considera una resina universal? Qué lo caracteriza?",
+          "modelAnswer": "Porque es muy estético y resistente, entonces puede utilizarse tanto en dientes anteriores como posteriores.\n\nSe caracteriza por nanopartículas (0-100nm) y nanoclusters.",
+          "acceptedPoints": [],
+          "explanation": ""
+        },
+        {
+          "id": "open-question-1787784997667-0f484b36-9a13-4ea5-b079-199f175a811b",
+          "prompt": "Mencione una ventaja y desventaja de las resinas Bulk-Fill (baja contracción)",
+          "modelAnswer": "Ventaja: Reduce tiempo de trabajo al poderse agregar en capas grandes\n\nDesventaja: Su translucidez los hace ver opacos y a veces grisáceos.\n",
+          "acceptedPoints": [
+            "Ventajas: Resistente, baja contracción"
+          ],
+          "explanation": ""
+        },
+        {
+          "id": "open-question-1787785074102-ea481a08-600c-4fae-b2f5-f0f043518676",
+          "prompt": "Mencione los dos monómeros de la matriz resinosa utilizada en resinas de baja contracción y la función de uno.",
+          "modelAnswer": "UDMA: Reduce viscosidad\nAUDMA: Alenta el proceso de polimerización, generando menor contracción.",
+          "acceptedPoints": [],
+          "explanation": ""
+        },
+        {
+          "id": "open-question-1787785138634-92415124-ccb1-4bec-a561-72b240f9ff88",
+          "prompt": "Qué tipo de lámpara de fotocurado fue la primera en utilizarse? Qué lo reemplazó y por qué?",
+          "modelAnswer": "Lámparas de UV fueron las primeras, pero se consideraban poco seguras. Por eso cambiamos a luz halógena",
+          "acceptedPoints": [],
+          "explanation": ""
+        },
+        {
+          "id": "open-question-1787785193718-075585e5-428d-4a92-9ccc-990acbd1ab59",
+          "prompt": "Por qué evolucionamos desde luz halógena a luz LED? Qué significa LED?",
+          "modelAnswer": "Porque la luz halógena tenía un espectro de luz muy limitado, entonces activaba menos fotoiniciadores.\n\nLED--> Luz Emitida por Diodo",
+          "acceptedPoints": [],
+          "explanation": ""
+        }
+      ]
+    },
+    {
+      "id": "open-deck-1793832820668-a5d0d557-bd26-4042-bf37-aa4880189704",
+      "title": "Adhesivos",
+      "questions": [
+        {
+          "id": "open-question-1793832836351-967bb548-3155-48d3-a280-7904902a027d",
+          "prompt": "Qué es el IDS y qué ventajas tiene?\n",
+          "modelAnswer": "Sellado dentinario inmediato, donde se aplica el sistema adhesivo justo después de la preparación cavitaria y antes de la colocación del provisional. \n\nReduce filtración, mejora la fuerza de adhesión y reduce la sensibilidad postoperatoria\n",
+          "acceptedPoints": [],
+          "explanation": ""
+        },
+        {
+          "id": "open-question-1793832904368-2c4346fe-9c26-431c-a876-8989787ddcc5",
+          "prompt": "Qué es el SMEAR layer (capa de barrillo)?",
+          "modelAnswer": "Es una capa de tejido dentinario residual que queda después de fresar o cortar un tejido dental.",
+          "acceptedPoints": [],
+          "explanation": ""
+        },
+        {
+          "id": "open-question-1793833313113-04736aaa-45ff-480f-9192-225b4f3e9c17",
+          "prompt": "Pregunta larga pero... Cuáles son los pasos para aplicar un adhesivo universal y luego su resina universal, idealmente? (9 pasos, aproximadamente)",
+          "modelAnswer": "1. Preparar la cavidad, limpiar y aislar\n2. Grabado parcial con ácido ortofosfórico, 37%, 15-30 segundos sobre esmalte\n3. Enjuagar 15-30 segundos\n4. Aplicar adhesivo universal y frotar 20 segundos\n5. Aire 5-15 segundos para evaporar solventes\n6. Fotopolimerizar 10-20 segundos\n7. Colocar resina universal oblicuamente en incrementos de 2mm– fotopolimerizar cada incremento 20 segundos\n8. Capa de glicerina para eliminar la capa inhibida por oxígeno y fotocurar 20 segundos.\n9. Acabado y pulido",
+          "acceptedPoints": [],
+          "explanation": ""
+        },
+        {
+          "id": "open-question-1793833544732-c5fee38c-fecd-48fe-82a2-41010007bdbb",
+          "prompt": "Mencione posibles causas que puedan provocar fallos en el sistema adhesivo",
+          "modelAnswer": "Gaps de aire\nInterferencia por saliva o humedad\nÁreas con poca humectación\nMala infiltración de monómeros adhesivos",
+          "acceptedPoints": [],
+          "explanation": ""
+        },
+        {
+          "id": "open-question-1793833594431-a0d79e05-a23a-4c0d-9328-35a49074bd8d",
+          "prompt": "Mencione las características que debe cumplir un adhesivo",
+          "modelAnswer": "Baja viscosidad\nBaja contracción al polimerizar\nEspesor reducido\nTensión superficial igual o menor al sustrato",
+          "acceptedPoints": [],
+          "explanation": ""
+        },
+        {
+          "id": "open-question-1793833721716-a68a5e08-61eb-45ff-a8e9-144dbba16036",
+          "prompt": "Por qué podrían presentarse más problemas al aplicar el sistema adhesivo en dentina profunda?",
+          "modelAnswer": "Porque hay mayor proporción de tubulillos dentinarios y, por ende, líquido dentinario.",
+          "acceptedPoints": [],
+          "explanation": "La humedad puede interferir en la capa híbrida al formar gaps... además si es saliva la que se infiltra, sus proteínas y compuestos arruinan la superficie de adhesión"
+        },
+        {
+          "id": "open-question-1793834465321-aefd69a0-4c09-44ad-bf76-b758e87cc9c5",
+          "prompt": "Qué sistema de adhesivos utilizamos en la universidad?",
+          "modelAnswer": "3M Single-Bond Universal, 8a Generación de 1 paso",
+          "acceptedPoints": [],
+          "explanation": ""
+        },
+        {
+          "id": "open-question-1793834557482-b97eff53-2313-4aef-b179-d77ade4a5102",
+          "prompt": "Qué es el Primer y qué utilidad tiene?",
+          "modelAnswer": "Es un compuesto fluido que mejora la humectación de la superficie dental.",
+          "acceptedPoints": [],
+          "explanation": "Sus monómeros hidrofílicos, junto al agua y solventes, logran penetrar profundo en el contenido irregular y acuoso del diente (líquido dentinario). Pueden llevar consigo diferente monómeros resinosos para mejorar la cohesión con monómeros orgánicos al momento de agregar el adhesivo."
+        },
+        {
+          "id": "open-question-1793835300667-79b53df1-039d-48a2-babc-2aa44740b914",
+          "prompt": "Por qué es diferente un adhesivo de 4a generación a uno de 8a generación?",
+          "modelAnswer": "4a generación utiliza 3 diferentes \"frascos\": 1. Grabador ácido, 2. Primer, 3. Adhesivo\n8a generación utiliza 3 en 1 frasco: 10-MDP como principal monómero que funciona tanto como grabador, primer y monómero adhesivo. ",
+          "acceptedPoints": [],
+          "explanation": ""
+        }
+      ]
+    },
+    {
+      "id": "open-deck-446865fa-10af-4c7e-a68e-2b0d5529ac3b",
+      "title": "Ionómeros de vidrio",
+      "questions": [
+        {
+          "id": "open-question-1793659882984-8b2fa77c-e08d-45bd-bfd4-e8aa12eeb41a",
+          "prompt": "Cuáles son los tipos de Ionómero de vidrio, según los usos?",
+          "modelAnswer": "Tipo I – Cementación\nTipo II – Obturaciones/Restauraciones\nTipo III – Sellantes\nTipo IV – Bases y forros\nTipo V – Ionómeros reforzados con metal",
+          "acceptedPoints": [],
+          "explanation": ""
+        },
+        {
+          "id": "open-question-1793659899699-40f4f24a-d621-4bf2-9253-b62cf43476d6",
+          "prompt": "Qué funciones tiene el ácido itacónico en la composición del ionómero de vidrio?",
+          "modelAnswer": "Reduce la viscosidad del líquido\nEvita gelación prematura\n",
+          "acceptedPoints": [],
+          "explanation": "Facilita la manipulación y tiempo de trabajo al evitar un endurecimiento demasiado rápido durante la colocación"
+        },
+        {
+          "id": "open-question-1793661178156-626935c2-64f0-4373-9887-3e87586ca6a3",
+          "prompt": "Mencione los 6 componentes principales del polvo del vidrio ionomérico y sus funciones",
+          "modelAnswer": "Dióxido de Sílice (SiO2) – Forma la red estructural para el vidrio en polvo y mantiene la integridad del material\n\nFluoruro de Calcio (CaF2) – Aporta el Ca+ que participa en el fraguado inicial al entrecruzarse con los ácidos poliacrílicos para formar puentes de sal temporales. También aporta fluor.\nÓxido de Aluminio (Al2O3) – Provee el Aluminio que desplaza y sustituye los iones Ca+ para otorgar mayor resistencia al material\n\nFluoruro de Aluminio (AlF) – Reduce temperatura de fusión en fabricación y libera fluor. \nFluoruro de Sodio (NaF) – Modifica las propiedades del material durante su fabricación. Libera fluor.\n\nFosfato de Aluminio (AlPO4) – Modifica la reactividad y estructura del vidrio para favorecer su interacción con el ácido durante el fraguado. Aporta aluminio.",
+          "acceptedPoints": [
+            "Decir Matriz en lugar de Red estructural para SiO2",
+            "Primero actúa Ca para formar cadenas polisales, luego aluminio lo reemplaza y, al tener más sitios de unión, forma una unión más fuerte... aunque suceda de forma más tardía"
+          ],
+          "explanation": ""
+        },
+        {
+          "id": "open-question-1793663070915-494797b3-7ede-4bd7-b67d-7eaa02cfb0b3",
+          "prompt": "Qué tipos de ácidos componen la parte líquida del ionómero de vidrio? (Categoría general)",
+          "modelAnswer": "Polímeros de ácido acrílico (Ácidos poliacrílicos)",
+          "acceptedPoints": [],
+          "explanation": ""
+        },
+        {
+          "id": "open-question-1793663179959-c944ef02-1999-4b9d-a061-38f8cc31c7ef",
+          "prompt": "Qué categoría de vidrios o partículas componen el polvo del ionómero de vidrio?",
+          "modelAnswer": "Polvos de vidrio de FluoroAluminoSilicatos",
+          "acceptedPoints": [],
+          "explanation": ""
+        },
+        {
+          "id": "open-question-1793663231974-17723e23-80e6-4ca8-8c8d-415961fe6da9",
+          "prompt": "Qué sucede cuando el líquido del ionómero de vidrio se modifica con Ácido polimaleico?",
+          "modelAnswer": "Hace menos reactivo al aluminosilicato y otorga mayor translucidez y estética",
+          "acceptedPoints": [],
+          "explanation": "Parece que la reacción al aluminosilicato se da en fábrica y tiene como objetivo aumentar el tiempo de trabajo del material. La función aparece diferente en google pero esta respuesta es la que está en la presentación del Dr."
+        },
+        {
+          "id": "open-question-1793663450297-199200d3-c35d-4b16-bd8d-66d7ed782ce6",
+          "prompt": "Qué se debe aplicar sobre el ionómero de vidrio convencional tras su colocación y por qué?",
+          "modelAnswer": "Una barniz protectora. Para que no absorba agua en exceso y provoque sensibilidad pulpar.",
+          "acceptedPoints": [],
+          "explanation": ""
+        },
+        {
+          "id": "open-question-1793663613894-5f2198c5-9b5d-4c95-b869-b187d0666e3f",
+          "prompt": "Menciona la proporción polvo:líquido del ionómero para: Cementar y Bases",
+          "modelAnswer": "Cementar: 1:1\nBases: 1:3",
+          "acceptedPoints": [],
+          "explanation": ""
+        },
+        {
+          "id": "open-a59af16a-da2c-489e-86df-afb74753bb2a",
+          "prompt": "Menciona la proporción polvo:líquido del ionómero para: Cementar y Bases",
+          "modelAnswer": "Cementar: 1:1\nBases: 1:3",
+          "acceptedPoints": [],
+          "explanation": ""
+        },
+        {
+          "id": "open-question-1793663709843-97c3ef96-c1c2-491f-8e53-d851548ee37d",
+          "prompt": "Cuáles son las funciones del ácido tartárico en el ionómero de vidrio?",
+          "modelAnswer": "Aumenta el tiempo de trabajo\nReduce la viscosidad del material\nDisminuye el tiempo de fraguado",
+          "acceptedPoints": [],
+          "explanation": ""
+        },
+        {
+          "id": "open-question-1793663751778-9eccb6f1-d741-485b-a0cd-c8b5d1a5b6fc",
+          "prompt": "Qué funciones tiene el ácido poliacrílico del ionómero de vidrio? Mencionar por lo menos una.",
+          "modelAnswer": "Permite iniciar el fraguado al disolver y liberar los iones del polvo\nSe adhiere químicamente al diente",
+          "acceptedPoints": [],
+          "explanation": ""
+        },
+        {
+          "id": "open-question-1793663765777-2087d79c-5046-4783-bb3c-e5c42c7ad886",
+          "prompt": "Cuáles son las tres categorías de ionómeros de vidrio?",
+          "modelAnswer": "Ionómero de vidrio convencional\nIonómeros de vidrio reforzados con resina\nResinas compuestas modificadas con poliácidos (Compómeros)",
+          "acceptedPoints": [],
+          "explanation": ""
+        },
+        {
+          "id": "open-question-1793664044743-ad9caa49-0668-4272-9855-e8fd14b0a3f3",
+          "prompt": "Mencione las marcas de ionómero de vidrio que se usan en la UFM para: Ionómeros convencionales, Ionómeros reforzados con resina, Compómeros",
+          "modelAnswer": "Convencionales: 3M ESPE Ketac-Fil\nReforzados con resina: Vitremer 3M\nCompómeros: Dyract –> No lo mencionó en clase entonces no sé... para mientras pongamos este de placeholder ",
+          "acceptedPoints": [],
+          "explanation": ""
+        },
+        {
+          "id": "open-question-1793664210824-88510f2d-58e0-4d6c-b6ff-b60cec63b1e1",
+          "prompt": "Después del 50% ácido poliacrílico que compone el líquido del ionómero, qué componente le sigue con 45%?",
+          "modelAnswer": "Agua. ",
+          "acceptedPoints": [],
+          "explanation": ""
+        },
+        {
+          "id": "open-question-1793664254674-eaaa74cc-73c4-475d-9e12-4078301f3e88",
+          "prompt": "En qué difiere la Resina compuesta modificada con poliácidos (Compómero) vs. otros ionómeros?",
+          "modelAnswer": "Su componente principal es la resina y utiliza al ionómero como subcomponente. ",
+          "acceptedPoints": [],
+          "explanation": "La cantidad es tan pequeña que la reacción ácido-base apenas contribuye al fraguado"
+        },
+        {
+          "id": "open-question-1793664327376-38809888-81ee-48a7-ab1c-6209ca17d354",
+          "prompt": "Qué tipo de reacción utiliza el ionómero de vidrio para fraguar?",
+          "modelAnswer": "Reacción ácido-base",
+          "acceptedPoints": [],
+          "explanation": ""
+        },
+        {
+          "id": "open-question-1793664346243-12e3fa51-a98f-4ac0-942e-8c17ff78d94f",
+          "prompt": "Escriba el proceso mediante el cual se endurece el ionómero de vidrio convencional",
+          "modelAnswer": "Aluminio silicato de vidrio (Polvo) + Ácido poliacrílico (líquido) ----> Gel polisal (Matriz) + Gel silícico (Recubrimiento)",
+          "acceptedPoints": [],
+          "explanation": ""
+        },
+        {
+          "id": "open-question-1793664476713-fbf518ee-7d6a-4e5f-be17-829d823a1cd2",
+          "prompt": "Enumere ventajas del ionómero de vidrio. Por lo menos 3",
+          "modelAnswer": "Se adhiere a esmalte, dentina y cemento\nBuena resistencia compresiva media\nCoeficiente de expansión térmica similar al diente, lo que limita microfiltración\nEfecto anticariogénico por presencia de fluor\nFácil de mezclar\nBaja solubilidad\nAlta resistencia a la disolución por ácidos",
+          "acceptedPoints": [],
+          "explanation": ""
+        },
+        {
+          "id": "open-a9d9a311-daa6-4008-aac7-1f918238a1de",
+          "prompt": "Enumere desventajas del ionómero de vidrio. Por lo menos 1",
+          "modelAnswer": "Fraguado inicial lento\nPuede provocar sensibilidad pulpar si se reseca el diente\nPoco estético",
+          "acceptedPoints": [],
+          "explanation": ""
+        },
+        {
+          "id": "open-question-1793664638926-e3d95ffa-f6c4-473e-9111-efa954f9dcde",
+          "prompt": "Cuáles son los pasos para colocar el ionómero de vidrio como base? ",
+          "modelAnswer": "1. Preparar cavidad\n2. Idealmente aislar\n3. Mezclar polvo y líquido en tablita (No más de 45 segundos)\n4. Aplicar, asentar y presionar\n5. Barniz protector + Acabado y Pulido",
+          "acceptedPoints": [],
+          "explanation": ""
+        },
+        {
+          "id": "open-question-1793664841407-d4298aa0-0365-4126-909f-2ac529b27316",
+          "prompt": "Qué importancia tiene que el ionómero de vidrio sea capaz de liberar fluor?",
+          "modelAnswer": "Las propiedades bacteriostáticas y anticariogéncias del fluor\nReemplazo de OH- de hidroxiapatita por F- --> Fluoropatita",
+          "acceptedPoints": [],
+          "explanation": ""
+        }
+      ]
+    }
+  ]
+}

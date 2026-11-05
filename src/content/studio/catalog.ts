@@ -22,12 +22,14 @@ import { procesoIQuestions, procesoIIQuestions, procesoIChapters } from "../proc
 import { citoIIPrePartialFlashcards, citoIIPrePartialQuestions } from "../prePartial/citoII"
 import { CITO_II_THIRD_PARTIAL, citoIIIPrePartialQuestions } from "../prePartial/citoIII"
 import { citoIIIPrePartialFlashcards } from "../prePartial/citoIIIFlashcards"
+import { materialesBank } from "../materiales-dentales"
 
 const base = [
   { id: "histologia", title: "Histología", subject: "Histología", questions: histo, chapters: histoChapters, flashcards: histologiaFlashcards },
   { id: "bioquimica", title: "Bioquímica", subject: "Bioquímica", questions: bio, chapters: bioChapters, flashcards: bioCards },
   { id: "microbiologia", title: "Microbiología", subject: "Microbiología", questions: micro, chapters: microChapters, flashcards: [] },
   { id: "semiologia", title: "Semiología", subject: "Semiología", questions: semio, chapters: semioChapters, flashcards: semioCards },
+  materialesBank,
   { id: "filosofia-de-hayek", title: "Filosofía de Hayek", subject: "Filosofía", questions: hayek, chapters: hayekChapters, flashcards: hayekCards },
   { id: "proceso-economico-i", title: "Proceso Económico I", subject: "Proceso Económico I", questions: procesoIQuestions, chapters: procesoIChapters, flashcards: procesoCards },
   { id: "proceso-economico-ii", title: "Proceso Económico II", subject: "Proceso Económico II", questions: procesoIIQuestions, chapters: procesoEconomicoIIChapters, flashcards: procesoIICards },

@@ -4,7 +4,8 @@ import FreeFlashcardReviewScreen from "./FreeFlashcardReviewScreen"
 import { useFlashcardStudyMode } from "@/lib/flashcardStudyMode"
 import { selectFlashcardScope, selectFlashcardPreference } from "@/lib/flashcardPractice"
 import { loadUserFlashcardTopics } from "@/lib/userFlashcards"
-import { flashcardTopicLabel } from "@/lib/studyLabels"
+import { flashcardChapterLabel, flashcardTopicLabel } from "@/lib/studyLabels"
+import { getStudyBank } from "@/content/studio/catalog"
 
 
 import {
@@ -737,7 +738,7 @@ function ScheduledFlashcardReviewScreen({
               font-black
               text-violet-200
             ">
-              {source === "user" ? flashcardTopicLabel(currentCard, source, userTopics) : currentCard.chapter}
+              {source === "user" ? flashcardTopicLabel(currentCard, source, userTopics) : flashcardChapterLabel(currentCard, getStudyBank("materiales-dentales")?.chapters || [])}
             </span>
 
             {source !== "user" && <span className="

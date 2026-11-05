@@ -11,6 +11,14 @@ export function chapterDisplayName(chapter: { id: string; title: string; eyebrow
   return !eyebrow || eyebrow === chapter.title || eyebrow === "Capítulo" ? chapter.title : `${eyebrow} · ${chapter.title}`
 }
 
+export function flashcardChapterLabel(
+  card: { chapter: string },
+  chapters: readonly { id: string; title: string; subtitle?: string; eyebrow?: string }[]
+): string {
+  const chapter = chapters.find(item => item.id === card.chapter)
+  return chapter ? chapter.subtitle?.trim() || chapterDisplayName(chapter) : card.chapter
+}
+
 /** Personal cards store a topic ID, not a title. Resolve it for display only. */
 export function flashcardTopicLabel(
   card: { topic: string; chapter: string },

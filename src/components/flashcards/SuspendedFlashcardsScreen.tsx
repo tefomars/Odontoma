@@ -1,6 +1,8 @@
 import { useState } from "react"
 
 import logoImage from "@/assets/logo.png"
+import { getStudyBank } from "@/content/studio/catalog"
+import { flashcardChapterLabel } from "@/lib/studyLabels"
 
 import {
   getDefaultFlashcards,
@@ -204,7 +206,7 @@ export default function SuspendedFlashcardsScreen({
                         tracking-[0.18em]
                         text-zinc-500
                       ">
-                        {card.chapter} · {card.subtopic || "General"}
+                        {flashcardChapterLabel(card, getStudyBank("materiales-dentales")?.chapters || [])} · {card.subtopic || "General"}
                       </p>
 
                       <p className="

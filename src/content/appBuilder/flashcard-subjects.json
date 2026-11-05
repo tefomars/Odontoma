@@ -27,6 +27,17 @@
     "destination": "bioquimica"
   },
   {
+    "id": "materiales-dentales",
+    "title": "Materiales dentales",
+    "image": "/media/materiales-dentales/composites.jpg",
+    "subtitle": "Materiales y adhesión",
+    "description": "Flashcards atómicas de propiedades, historia, amalgamas, composites, adhesivos e ionómeros.",
+    "accent": "from-amber-500/20 to-orange-500/10",
+    "accentColor": "#f59e0b",
+    "destination": "bank:materiales-dentales",
+    "sectionId": "primary"
+  },
+  {
     "id": "proceso-economico-i",
     "title": "Proceso Económico I",
     "subtitle": "Material de clase",

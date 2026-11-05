@@ -132,6 +132,16 @@
       "destination": "bioquimica"
     },
     {
+      "id": "materiales-dentales",
+      "title": "Materiales dentales",
+      "image": "/media/materiales-dentales/composites.jpg",
+      "subtitle": "Propiedades, amalgamas, adhesión, composites e ionómeros · Parciales 1 y 2",
+      "status": "Disponible",
+      "accentColor": "#f59e0b",
+      "destination": "bank:materiales-dentales",
+      "sectionId": "primary"
+    },
+    {
       "id": "semiologia",
       "title": "Semiología",
       "subtitle": "Lesión celular, inflamación, historia clínica y examen clínico",
