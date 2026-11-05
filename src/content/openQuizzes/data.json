@@ -3108,7 +3108,7 @@
         },
         {
           "id": "open-question-1787783226090-02626e62-9a7a-4ee0-b1f4-207d2452c2a7",
-          "prompt": "Cuáles son los tres elementos que conforman a la resina compuesta.?Provea un ejemplo para cada uno.",
+          "prompt": "Cuáles son los tres elementos que conforman a la resina compuesta? Provea un ejemplo para cada uno.",
           "modelAnswer": "Matriz orgánica/resinosa: Bis-GMA, Bis-EMA, UDMA\n\nMatriz inorgánica/relleno: Vidrio, Cuarzo, Zirconia\n\nAgente de acople: Silano",
           "acceptedPoints": [],
           "explanation": "",
@@ -3251,7 +3251,7 @@
         },
         {
           "id": "open-question-1787784926216-067de4e1-0a8f-4bba-b6f4-19e6461faf8c",
-          "prompt": "Por qué el nanorelleno se considera una resina universal? Qué lo caracteriza?",
+          "prompt": "Por qué el nanorelleno se considera una resina universal? Qué característica resalta en su composición?",
           "modelAnswer": "Porque es muy estético y resistente, entonces puede utilizarse tanto en dientes anteriores como posteriores.\n\nSe caracteriza por nanopartículas (0-100nm) y nanoclusters.",
           "acceptedPoints": [],
           "explanation": "",
@@ -3289,6 +3289,22 @@
           "modelAnswer": "Porque la luz halógena tenía un espectro de luz muy limitado, entonces activaba menos fotoiniciadores.\n\nLED--> Luz Emitida por Diodo",
           "acceptedPoints": [],
           "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-89d49a47-c543-43d6-83ab-34dfdb5ac0d0",
+          "prompt": "Cuáles son los tres elementos que conforman a la resina compuesta? Provea un ejemplo para cada uno.",
+          "modelAnswer": "Matriz orgánica/resinosa: Bis-GMA, Bis-EMA, UDMA\n\nMatriz inorgánica/relleno: Vidrio, Cuarzo, Zirconia\n\nAgente de acople: Silano",
+          "acceptedPoints": [],
+          "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1793919846979-f80329a7-03c8-4b1e-98b2-cdefecf9a159",
+          "prompt": "Qué diferencia al nanohíbrido de un nanorelleno?",
+          "modelAnswer": "El nanohíbrido combina partículas pequeñas y de mayor tamaño, adicional a sus partículas nanométricas. Es ligeramente más resistente que los nanorellenos, pero tiene un aspecto menos estético.",
+          "acceptedPoints": [],
+          "explanation": "Se asemejan más a microhíbridos, pero tienen las partículas nanométricas.\nClínicamente se consideran inferiores a nanorellenos, pero son más baratos y aparentemente son más fáciles de pulir a corto plazo. Son más nuevos pero sus propiedades son peores que los nanorellenos.\nLos nanorellenos, también, tienen nanoclusters y a eso se atribuye mucho de su resistencia y forma. Los nanohíbridos tienen nanoclusters en mucha menor medida.",
           "source": ""
         }
       ],
@@ -3460,15 +3476,6 @@
           "backImageAlt": ""
         },
         {
-          "id": "open-a59af16a-da2c-489e-86df-afb74753bb2a",
-          "prompt": "Menciona la proporción polvo:líquido del ionómero para: Cementar y Bases",
-          "modelAnswer": "Cementar: 1:1\nBases: 1:3",
-          "acceptedPoints": [],
-          "explanation": "",
-          "source": "",
-          "backImageAlt": ""
-        },
-        {
           "id": "open-question-1793663709843-97c3ef96-c1c2-491f-8e53-d851548ee37d",
           "prompt": "Cuáles son las funciones del ácido tartárico en el ionómero de vidrio?",
           "modelAnswer": "Aumenta el tiempo de trabajo\nReduce la viscosidad del material\nDisminuye el tiempo de fraguado",
@@ -3563,6 +3570,14 @@
           "modelAnswer": "Las propiedades bacteriostáticas y anticariogéncias del fluor\nReemplazo de OH- de hidroxiapatita por F- --> Fluoropatita",
           "acceptedPoints": [],
           "explanation": "",
+          "source": ""
+        },
+        {
+          "id": "open-question-1793919670679-6f4aaf1c-1533-456a-8e8f-2d6d52784a87",
+          "prompt": "Qué se coloca debajo de la dentina, en cavidades profundas, antes de colocar la base de ionómero de vidrio? Por qué?",
+          "modelAnswer": "Un \"Liner\" o Sub-base. Porque en la reacción de fraguado inicial del ionómero el pH baja bastante, lo que sensibiliza a la pulpa.",
+          "acceptedPoints": [],
+          "explanation": "Sub-bases como por ejemplo hidróxido de calcio, Estimula formación de dentina terciaria y además aisla a la pulpa de la reacción ácida del ionómero.",
           "source": ""
         }
       ]
