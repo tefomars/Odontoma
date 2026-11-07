@@ -20,8 +20,12 @@ import procesoIICards from "../flashcards/proceso-economico-ii/cards"
 import { procesoEconomicoIIChapters } from "../flashcards/proceso-economico-ii/chapters"
 import { procesoIQuestions, procesoIIQuestions, procesoIChapters } from "../proceso-economico"
 import { citoIIPrePartialFlashcards, citoIIPrePartialQuestions } from "../prePartial/citoII"
+import { CITO_II_FIRST_PARTIAL, citoIPrePartialQuestions } from "../prePartial/citoI"
+import { citoIPrePartialFlashcards } from "../prePartial/citoIFlashcards"
 import { CITO_II_THIRD_PARTIAL, citoIIIPrePartialQuestions } from "../prePartial/citoIII"
 import { citoIIIPrePartialFlashcards } from "../prePartial/citoIIIFlashcards"
+import { CITO_II_FOURTH_PARTIAL, citoIVPrePartialQuestions } from "../prePartial/citoIV"
+import { citoIVPrePartialFlashcards } from "../prePartial/citoIVFlashcards"
 import { materialesBank } from "../materiales-dentales"
 
 const base = [
@@ -33,8 +37,10 @@ const base = [
   { id: "filosofia-de-hayek", title: "Filosofía de Hayek", subject: "Filosofía", questions: hayek, chapters: hayekChapters, flashcards: hayekCards },
   { id: "proceso-economico-i", title: "Proceso Económico I", subject: "Proceso Económico I", questions: procesoIQuestions, chapters: procesoIChapters, flashcards: procesoCards },
   { id: "proceso-economico-ii", title: "Proceso Económico II", subject: "Proceso Económico II", questions: procesoIIQuestions, chapters: procesoEconomicoIIChapters, flashcards: procesoIICards },
+  { id: CITO_II_FIRST_PARTIAL, title: CITO_II_FIRST_PARTIAL, subject: "Histología", kind: "prepartial", questions: citoIPrePartialQuestions, chapters: [], flashcards: citoIPrePartialFlashcards },
   { id: "Parcial 2 · Cito II", title: "Parcial 2 · Cito II", subject: "Histología", kind: "prepartial", questions: citoIIPrePartialQuestions, chapters: [], flashcards: citoIIPrePartialFlashcards },
-  { id: CITO_II_THIRD_PARTIAL, title: CITO_II_THIRD_PARTIAL, subject: "Histología", kind: "prepartial", questions: citoIIIPrePartialQuestions, chapters: [], flashcards: citoIIIPrePartialFlashcards }
+  { id: CITO_II_THIRD_PARTIAL, title: CITO_II_THIRD_PARTIAL, subject: "Histología", kind: "prepartial", questions: citoIIIPrePartialQuestions, chapters: [], flashcards: citoIIIPrePartialFlashcards },
+  { id: CITO_II_FOURTH_PARTIAL, title: CITO_II_FOURTH_PARTIAL, subject: "Histología", kind: "prepartial", questions: citoIVPrePartialQuestions, chapters: [], flashcards: citoIVPrePartialFlashcards }
 ] as unknown as StudyBank[]
 
 export function resolveStudioBanks(stored: StudioStorage): StudyBank[] { return base.map(rawBank => {

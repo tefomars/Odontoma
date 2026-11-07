@@ -121,7 +121,8 @@ import type {
   FlashcardSource
 } from "@/lib/flashcardDecks"
 
-import { getPrePartialBank, prePartialBanks } from "@/content/prePartial/banks"
+import { getCumulativeQuestionTitle, getPrePartialBank, prePartialSessionBanks } from "@/content/prePartial/banks"
+import { selectPrePartialQuestions } from "@/content/prePartial/cumulative"
 
 import {
   saveQuizAttempt,
@@ -446,10 +447,11 @@ export default function App() {
         : "Histología"
 
   const activeBank = getStudyBank(selectedSubject || "histologia")
+  const activeReviewBank = getPrePartialBank((selectedSubject || "").replace(/^bank:/, ""))
   const quizQuestions = activeBank?.questions || legacyQuizQuestions
   const quizChapters = activeBank?.chapters || legacyQuizChapters
   const quizQuestionCountsByChapter = activeBank ? Object.fromEntries(activeBank.chapters.map(c => [c.id, activeBank.questions.filter(q => q.chapter === c.id).length])) : legacyQuizQuestionCountsByChapter
-  const quizTitle = activeBank?.title || legacyQuizTitle
+  const quizTitle = activeBank?.title || activeReviewBank?.title || legacyQuizTitle
 
   const availableQuestions =
     useMemo(() => {
@@ -683,9 +685,9 @@ export default function App() {
               ? semiologiaQuestions
             : [
                 ...histologiaQuestions,
-                ...prePartialBanks.flatMap(bank => bank.questions)
+                ...prePartialSessionBanks.flatMap(bank => bank.questions)
               ]
-      const currentQuestionBank = getStudyQuestions(pausedSubject).length ? [...getStudyQuestions(pausedSubject), ...prePartialBanks.flatMap(bank => bank.questions)] : legacyQuestionBank
+      const currentQuestionBank = getStudyQuestions(pausedSubject).length ? [...getStudyQuestions(pausedSubject), ...prePartialSessionBanks.flatMap(bank => bank.questions)] : legacyQuestionBank
       const restoredQuestions =
         pausedSubject === "my-quizzes"
           ? savedQuestions
@@ -966,6 +968,7 @@ export default function App() {
 
     const fallbackQuestions = [
       ...studioBanks.flatMap(bank => bank.questions),
+      ...prePartialSessionBanks.flatMap(bank => bank.questions),
       ...histologiaQuestions,
       ...hayekQuestions,
       ...microbiologiaQuestions,
@@ -1043,23 +1046,16 @@ export default function App() {
     const bank = getPrePartialBank(partial)
     if (!bank) return
 
-    const answered = (questionId: string) => {
-      const record = stats.questions?.[questionId]
-      return (record?.correct || 0) + (record?.incorrect || 0)
-    }
-
-    const pool =
-      preference === "new"
-        ? bank.questions.filter(question => answered(question.id) === 0)
-        : preference === "incorrect"
-          ? bank.questions.filter(question => (stats.questions?.[question.id]?.incorrect || 0) > 0)
-          : bank.questions
-
     const selected = shuffleQuestionsBalanced(
-      shuffleArray(pool).slice(0, amount)
+      selectPrePartialQuestions(bank, amount, preference, stats.questions)
     )
 
-    if (selected.length === 0) return
+    if (selected.length === 0) {
+      window.alert(preference === "new"
+        ? "No quedan preguntas nuevas en este banco. Podés elegir Mezcla o reiniciar solo su progreso."
+        : "No hay preguntas incorrectas para repasar en este banco. Podés elegir Nuevas o Mezcla.")
+      return
+    }
 
     setShowPrePartialReview(false)
     setPrePartialQuizReview(true)
@@ -2050,7 +2046,7 @@ export default function App() {
       <QuizScreen
         key={question.id}
         question={question}
-        chapterTitle={getStudyBank(selectedSubject)?.chapters.find(c => c.id === question.chapter) ? chapterDisplayName(getStudyBank(selectedSubject)!.chapters.find(c => c.id === question.chapter)!) : undefined}
+        chapterTitle={getCumulativeQuestionTitle(selectedSubject || "", String(question.chapter)) || (getStudyBank(selectedSubject)?.chapters.find(c => c.id === question.chapter) ? chapterDisplayName(getStudyBank(selectedSubject)!.chapters.find(c => c.id === question.chapter)!) : undefined)}
         current={current}
         total={sessionQuestions.length}
         score={score}

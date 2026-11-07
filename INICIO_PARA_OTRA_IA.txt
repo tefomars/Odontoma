@@ -1,0 +1,49 @@
+ODONTOMA — LEER PRIMERO AL CONTINUAR EN OTRA CUENTA O SESIÓN
+========================================================
+Actualizado: 2026-11-06.
+
+La guía extensa es GUIA_MAESTRA_ODONTOMA.txt, en esta misma carpeta.
+Leela antes de proponer cambios. Tiene índice, arquitectura, rutas, contratos,
+funciones, Builder, formatos importables, criterios de contenido, publicación,
+backups y fallos históricos que no debemos repetir.
+
+Carpeta activa inspeccionada: /Users/stefanomarsicovetere/odontoma
+Existe otra copia en Documents/Odontoma: comprobar cuál se está abriendo.
+Repositorio: https://github.com/tefomars/Odontoma.git
+No hay secretos ni credenciales en estas notas.
+
+Primeros pasos de lectura:
+1. pwd; git rev-parse --show-toplevel; git status --short.
+2. Leer la guía maestra y el pedido ACTUAL del dueño.
+3. Leer package.json, src/App.tsx y los archivos del área concreta.
+4. Revisar datos base Y parches en src/content/studio/data.json si cambia contenido.
+5. Recordar que escritos oficiales están en src/content/openQuizzes/data.json.
+
+Reglas innegociables:
+- No sobrescribir ediciones del dueño ni resetear el repositorio.
+- No reescribir sus respuestas/explicaciones/cifras de clase sin autorización.
+- Mantener IDs estables y progreso por alumno. Backup antes de cambios grandes.
+- Lo dudoso se revisa con él; pendientes de Materiales quedan fuera de bancos nuevos.
+- Flashcards: modelo 15/16 de Histología, una tarea concreta, contexto suficiente,
+  respuesta breve, cobertura profunda. No «En X, ¿qué es?» ni vaguedad ni listas enormes.
+- MC: distractores personalizados, de la misma categoría y detalle comparable;
+  clave inequívoca, no pista de longitud ni opciones absurdas o de otras flashcards.
+- Repaso pre-parcial usa bancos distintos de los normales.
+- Una tarjeta de acceso no es el banco. Quitarla no debe borrar ni resucitar contenido.
+- Builder privado local; no habilitarlo ni publicar sus endpoints en Vercel.
+- Funcionar en app Y Builder, PC/tablet/móvil, botones Y swipe de un solo nivel.
+- Guardar localmente NO publica a GitHub/Vercel; una nota no autoriza publicar.
+- Probar lo implementado. No declarar terminado/publicado si solo hiciste un plan.
+
+Arranque habitual:
+  cd /Users/stefanomarsicovetere/odontoma
+  npm run dev -- --host 127.0.0.1
+  App: http://127.0.0.1:5173/
+  Builder: http://127.0.0.1:5173/builder.html
+Leer el puerto real si está ocupado. No confundir almacenamientos entre puertos.
+
+Validaciones de implementación: npm test; npm run build; npm run lint.
+Build/dev actualizan el feed generado de commits: revisar el diff después.
+
+Entrega al dueño: resultado concreto, qué se conservó, pruebas hechas y si quedó
+local o realmente publicado. La guía extensa explica los límites y cada procedimiento.

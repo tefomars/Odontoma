@@ -1,0 +1,1710 @@
+ODONTOMA — GUÍA MAESTRA DE CONTINUIDAD, CONTENIDO Y DESARROLLO
+==========================================================
+Fecha de esta edición: 6 de noviembre de 2026, America/Guatemala.
+Destinatarios: Stefano, una persona desarrolladora o una nueva sesión/cuenta de IA.
+Propósito: poder continuar Odontoma SIN depender de la memoria de este chat.
+
+Esta guía describe el código local inspeccionado y las decisiones de trabajo
+acordadas con el dueño. No es una copia de todos los mensajes históricos ni una
+certificación de exactitud médica de todo el contenido antiguo. Si el código
+cambia, revisar y actualizar esta guía. Las rutas internas se dan relativas a
+la raíz del proyecto, excepto cuando se especifica una ruta absoluta.
+
+ÍNDICE
+------
+00. Lectura de cinco minutos y reglas que no se deben romper
+01. Qué es Odontoma, qué NO es y qué quiere su dueño
+02. Carpeta correcta, cuentas y traslado a otra computadora/IA
+03. Encender la app, el Builder y una vista de producción
+04. Inventario de archivos y arquitectura general
+05. Mapa funcional de la app estudiantil
+06. Opción múltiple: sesiones, aleatorización, progreso e historial
+07. Escritas: respuestas, categorías, intentos y repaso de incorrectas
+08. Flashcards: organización, FSRS, modo libre, suspensión y Undo
+09. Repaso pre-parcial: bancos independientes y reinicio acotado
+10. Almacenamiento del estudiante y seguridad de datos
+11. Builder: recorrido y tareas sin código
+12. Guardado, borradores viejos, concurrencia y Deshacer
+13. Preview responsive, edición directa y menús personalizados
+14. Backups, restauración y diferencia respecto de un rollback remoto
+15. Modelos de datos y contrato del catálogo compartido
+16. Formatos de importación: ejemplos para cualquier IA
+17. Método editorial para flashcards
+18. Método editorial para opción múltiple y V/F
+19. Escritas, fuentes, discrepancias docentes y material dudoso
+20. Cómo agregar un capítulo o una materia completa
+21. Imágenes, rutas, licencias y contraste
+22. Navegación, móvil, scroll, swipe y accesibilidad
+23. Builder por dentro: archivos, eventos y endpoints locales
+24. Apariencia, versión pública y changelog
+25. Pruebas, verificación y rendimiento
+26. Publicar a GitHub/Vercel y revertir con seguridad
+27. Diagnóstico de errores habituales
+28. Estado del contenido e inventario orientativo a esta fecha
+29. Recetas de mantenimiento para la próxima persona/IA
+30. Qué conservar junto con esta guía y qué no prometer
+31. Prompt de continuidad listo para copiar
+
+
+00. LECTURA DE CINCO MINUTOS Y REGLAS QUE NO SE DEBEN ROMPER
+----------------------------------------------------------
+El proyecto activo inspeccionado está en:
+  /Users/stefanomarsicovetere/odontoma
+
+Existe otra carpeta /Users/stefanomarsicovetere/Documents/Odontoma. No asumir
+que ambas contienen lo mismo. La ruta de contexto de una herramienta puede
+apuntar a Documents aunque la app que se ha trabajado esté en la otra carpeta.
+Antes de editar: pwd, git rev-parse --show-toplevel y git status --short.
+
+Repositorio configurado: https://github.com/tefomars/Odontoma.git
+Rama habitual: main.
+Sitio público habitual: https://odontoma.vercel.app/
+App local habitual: http://127.0.0.1:5173/
+Builder privado habitual: http://127.0.0.1:5173/builder.html
+Si Vite usa otro puerto, esas dos URL deben usar ESE mismo puerto.
+
+Reglas esenciales:
+1) Leer esta guía y el código afectado antes de tocarlo.
+2) Respetar cambios existentes del usuario. Nunca resetear el repositorio para
+   conseguir una base limpia ni sobrescribir preguntas que él está escribiendo.
+3) Los cuestionarios escritos del dueño son contenido de clase. No reescribir
+   sus respuestas modelo, explicaciones, cifras o criterios por iniciativa propia.
+4) Una discrepancia académica se señala primero. No convertirla silenciosamente
+   en una nueva clave de examen. En Materiales dentales se acordó EXCLUIR del
+   banco nuevo los puntos dudosos mientras siguen pendientes de revisión.
+5) Mantener IDs estables. Un cambio de título o redacción no debe borrar progreso.
+6) Una tarjeta de acceso, un banco, una clase y una categoría son cosas distintas.
+   Quitar el acceso no significa borrar el contenido. No resucitar accesos quitados.
+7) Guardar en Odontoma escribe archivos LOCALES. NO publica a GitHub ni Vercel.
+8) Preview de borrador usa memoria aislada. Preview guardado puede usar progreso
+   normal. No probar a costa de borrar o contaminar datos reales del estudiante.
+9) Builder es PRIVADO y local. No incluirlo ni habilitar sus endpoints en producción.
+10) Todo cambio relevante debe funcionar en app y Builder, computadora/tablet/móvil,
+    navegación por botones y regreso por swipe. No añadir una ruta a medias.
+11) Respaldar antes de cambios grandes o destructivos. Restaurar en otra carpeta
+    cuando se recupera código completo. Nunca extraer encima del proyecto actual.
+12) Hacer el trabajo y verificarlo. No decir «ya empecé», «ya está publicado» o
+    «está todo corregido» si solo se formuló una intención o no hay comprobación.
+
+Al crear esta guía había cambios previos, ajenos a esta tarea documental, en:
+  src/content/openQuizzes/data.json
+  src/content/changelog/commits.json
+No se deben descartar. Este documento no implica autorización para publicarlos.
+
+
+01. QUÉ ES ODONTOMA, QUÉ NO ES Y QUÉ QUIERE SU DUEÑO
+---------------------------------------------------
+Odontoma es una app educativa para estudiar y ayudar a compañeros. Combina
+preguntas de opción múltiple, escritos de autoevaluación, flashcards normales,
+flashcards con repetición espaciada y bancos exclusivos para repaso pre-parcial.
+Se priorizan rapidez, claridad, buen diseño y facilidad de edición sin programar.
+
+Hay dos productos relacionados:
+  A. App pública del estudiante: se compila como sitio estático para Vercel.
+  B. Odontoma Studio / Builder: panel privado de autoría, ejecutado en desarrollo.
+
+El estudiante no necesita la cuenta de ChatGPT del dueño. En el código actual
+no existe un backend propio de usuarios con login y sincronización en nube.
+El progreso y los mazos personales están en el navegador/dispositivo del alumno.
+Los prompts para IA se COPIAN; el Builder no llama automáticamente a una API
+de OpenAI, no conecta una cuenta de IA y no genera contenido por sí mismo.
+
+No confundir «independiente de ChatGPT» con «GUI capaz de programar cualquier
+función imaginable». El Builder sí edita los tipos de contenido, menús, destinos
+y estilos que el código implementa. Un nuevo algoritmo, modo de juego, backend,
+tipo de pregunta o integración externa todavía puede requerir desarrollo.
+
+Preferencias de trabajo del dueño:
+- Hablar claro, normalmente en español, con trato cercano y sin tecnicismos vacíos.
+- Cumplir cambios completos por capítulo/lote, no ir entregando diez tarjetas
+  como si se hubiese terminado todo cuando pidió el capítulo entero.
+- No cambiar contenido que no pidió ni «mejorar» su explicación sin permiso.
+- Mantener el estudio rápido; no agregar pantallas, botones, tips o ayudas que
+  consuman espacio sin utilidad real, especialmente durante una sesión móvil.
+- Poder crear/importar, organizar, quitar, recuperar y publicar con su flujo habitual.
+- Fotografías reales, de ser posible, para las tarjetas de selección; no imágenes
+  generadas presentadas como cortes histológicos o fotografías clínicas reales.
+
+
+02. CARPETA CORRECTA, CUENTAS Y TRASLADO
+--------------------------------------
+La continuidad depende de ARCHIVOS, no de una cuenta de IA. Otra IA no recibe
+automáticamente la memoria de esta conversación ni acceso al disco de Stefano.
+Entregarle esta guía y el repositorio correcto; después el material de referencia
+de la tarea concreta. El archivo INICIO_PARA_OTRA_IA.txt es una entrada más corta.
+
+Antes de empezar en otra cuenta o computadora:
+  - Identificar la copia más reciente por Git y por los archivos locales guardados.
+  - Conservar cambios sin commit y borradores exportados que todavía importen.
+  - Respaldar el proyecto completo y, aparte, el progreso que quiera conservarse.
+  - Instalar Node y dependencias; autenticar GitHub/Vercel en la nueva máquina si
+    se desea publicar. La guía NO contiene contraseñas, tokens ni cookies.
+  - Mantener las fuentes externas si se necesita ampliar contenido académico.
+
+Los textos fuente se han leído desde Downloads, Documents y adjuntos de Codex.
+Ejemplos históricos: Citotexto.zip, rossenglish.txt y capítulos TXT individuales.
+No asumir que esas rutas existirán en otra máquina o que viajan dentro del repo.
+No publicar libros completos por accidente al hacer git add -A.
+
+Esta captura documental inspeccionó la revisión local c168546 y el estado de
+trabajo posterior. Si aparecen commits posteriores, el código actual prevalece
+para lo implementado; las preferencias editoriales siguen vigentes salvo cambio
+explícito del dueño.
+
+
+03. ENCENDER LA APP Y EL BUILDER
+-------------------------------
+En Terminal, para la carpeta actualmente activa:
+
+  cd /Users/stefanomarsicovetere/odontoma
+  npm run dev -- --host 127.0.0.1
+
+Dejar esa Terminal funcionando. Abrir:
+  http://127.0.0.1:5173/
+  http://127.0.0.1:5173/builder.html
+
+La app y el Builder salen del MISMO servidor. No hay que arrancar dos proyectos.
+Ctrl+C detiene ese servidor. Cerrar solo la pestaña no detiene Vite.
+
+Primera instalación / copia recién extraída:
+  npm install
+Después de eso, normalmente no se instala en cada arranque. Con lockfile válido,
+npm ci sirve para una instalación reproducible, teniendo presente que reemplaza
+node_modules. No usar npm audit fix --force por reflejo: puede cambiar versiones.
+
+Entorno comprobado al escribir la guía: Node v24.15.0. Vite instalado declara
+Node ^20.19.0 o >=22.12.0. Preferir una versión compatible y el package-lock.json
+del proyecto. No actualizar dependencias como parte de un cambio de contenido.
+
+Si 5173 está ocupado, Vite puede pasar a 5174/5180/etc. Leer la URL que imprime.
+localhost, 127.0.0.1 y distintos puertos NO comparten necesariamente el mismo
+almacenamiento del navegador. «Desapareció mi borrador» puede ser otro origen.
+
+Para probar sin interferir con el servidor que ya usa el dueño:
+  npm run dev -- --host 127.0.0.1 --port 5174 --strictPort
+Usar ese puerto para ambas pantallas; detener únicamente el servidor de prueba.
+
+Para revisar la compilación de producción:
+  npm run build
+  npm run preview -- --host 127.0.0.1
+Abrir el puerto que imprima preview. No esperar el Builder en esa compilación:
+su ausencia es intencional. No usar npm start: no existe ese script actualmente.
+
+
+04. INVENTARIO DE ARCHIVOS Y ARQUITECTURA
+---------------------------------------
+Stack actual: React 19, TypeScript, Vite 8, Tailwind CSS 4, Vitest, ESLint,
+ts-fsrs y optimizador FSRS en WebAssembly. package.json contiene las versiones;
+package-lock.json fija las dependencias instaladas.
+
+Mapa de alto nivel:
+
+  index.html -> src/main.tsx -> src/App.tsx -> pantallas de src/components/
+                                        -> lógica reutilizable de src/lib/
+                                        -> catálogo de src/content/studio/
+                                        -> configuración de src/content/appBuilder/
+
+  builder.html -> src/builder/main.tsx / StudioWorkspace.tsx
+               -> editores + borradores + previews
+               -> endpoints Vite LOCALES -> archivos JSON y snapshots
+
+Puntos de entrada y configuración:
+  package.json / package-lock.json: comandos y dependencias.
+  vite.config.ts: React/Tailwind, alias @, aislamiento y plugins locales de guardado.
+  vercel.json: configuración de instalación y cabeceras COOP/COEP.
+  src/main.tsx: monta App, overrides, avisos de almacenamiento, apariencia y Analytics.
+  src/App.tsx: orquestador de estado, rutas lógicas, sesiones y navegación.
+  src/index.css: estilos globales, responsive, scroll y excepciones de interacción.
+  builder.html: editor privado en desarrollo.
+  builder-preview.html: vista responsive de edición de pantallas.
+  builder-draft.html: prueba aislada del proyecto sin guardar.
+
+No hay React Router como eje de las pantallas actuales. App.tsx selecciona
+pantallas mediante estado de React, condicionales y manejadores centrales.
+No suponer que cambiar la URL reconstruye una ruta como en una SPA con router.
+
+Fuentes de contenido y configuración:
+  src/content/studio/catalog.ts       Catálogo resuelto y acceso a bancos.
+  src/content/studio/schema.ts        Tipos y validación de bancos.
+  src/content/studio/storage.ts       Parches, eliminaciones y orden.
+  src/content/studio/data.json        Ediciones del Builder y bancos nuevos.
+  src/content/studio/menuRegistration.ts  Accesos iniciales de materias nuevas.
+  src/content/openQuizzes/data.json   Clases y cuestionarios escritos oficiales.
+  src/content/openQuizzes/types.ts    Modelos de escritos.
+  src/content/openQuizzes/categories.ts  Carpetas libres y orden manual.
+  src/content/openQuizzes/partials.ts    Compatibilidad de parciales antiguos.
+  src/content/appBuilder/subjects.json   Menú principal, tipos de quiz y materias MC.
+  src/content/appBuilder/flashcard-subjects.json  Accesos a materias de flashcards.
+  src/content/appBuilder/organization.json       Subdivisiones y clases de repaso.
+  src/content/appBuilder/custom-pages.json       Menús personalizados.
+  src/content/appBuilder/ui-overrides.json       Texto/estilo de edición directa.
+  src/content/changelog/data.json     Versión pública y notas/ediciones manuales.
+  src/content/changelog/commits.json  Historial generado desde Git.
+  src/builder/applied-theme.json      Tema global aplicado por el dueño.
+  src/builder/applied-theme.css       CSS derivado del anterior; no editar a ciegas.
+
+Contenido base histórico:
+  src/content/histologia/             Preguntas MC y capítulos de Histología.
+  src/content/flashcards/histologia/  Tarjetas originales y reconstruidas.
+  src/content/bioquimica/             MC, capítulos y fotografías asociadas.
+  src/content/flashcards/bioquimica/   Flashcards de Bioquímica.
+  src/content/microbiologia/          MC de Microbiología.
+  src/content/semiologia/             MC y capítulos de Semiología.
+  src/content/flashcards/semiologia/  Tarjetas de Semiología.
+  src/content/filosofia-de-hayek/     MC de Filosofía.
+  src/content/flashcards/filosofia-de-hayek/  Tarjetas de Filosofía.
+  src/content/proceso-economico/      MC de Proceso I y II.
+  src/content/flashcards/proceso-economico-i/ y proceso-economico-ii/
+  src/content/materiales-dentales/    MC + flashcards, modelos, revisión y trazabilidad.
+  src/content/prePartial/            Bancos exclusivos de última vuelta.
+
+Algunos nombres de archivos son históricos. citoIII.ts contiene el parcial 3
+de Cito II: NO renombrar su título visible a Cito III por el nombre del archivo.
+cap17Rebuilt.ts, cap18Rebuilt.ts y cap19Rebuilt.ts son reconstrucciones; seguir
+las importaciones activas, no editar un archivo antiguo solo porque tiene buen nombre.
+
+src/data/questions.ts, src/lib/session.ts y scripts/build-*.cjs tienen historia
+previa. No asumir que son el origen de todo el contenido ni ejecutarlos para
+«actualizar» los capítulos: pueden regenerar/redactar cosas de otra época.
+
+
+05. MAPA FUNCIONAL DE LA APP ESTUDIANTIL
+--------------------------------------
+Menú principal habitual:
+  Quizzes
+    -> Opción múltiple -> materia -> capítulos -> configuración -> sesión/resultados.
+    -> Respuestas abiertas -> clase -> categoría/parcial -> cuestionario -> sesión.
+    -> Quiz Studio -> crear / importar / mis quizzes / editar / compartir.
+    -> Exámenes anteriores -> intento concreto -> revisión / repasar incorrectas.
+  Flashcards
+    -> Elegir modo -> materias oficiales o Mis decks -> capítulo -> grupo -> sesión.
+  Repaso pre-parcial
+    -> clase -> Opción múltiple o Flashcards esenciales -> parcial -> cantidad/filtro.
+  Backup y Opciones
+    -> respaldo de datos del estudiante / apariencia / historial de cambios.
+
+Los botones reales se configuran y pueden haberse renombrado o reordenado.
+Los menús personalizados pueden abrir estos mismos destinos desde otro origen.
+
+Pantallas importantes:
+  StudyMethodScreen.tsx: tarjetas del menú de entrada.
+  QuizModeScreen.tsx: selector de modalidad y herramientas.
+  HomeScreen.tsx: selector de materia para MC; NO es el menú principal de estudio.
+  SetupScreen.tsx: selección de capítulos, filtros y arranque del MC.
+  QuizScreen.tsx / ResultsScreen.tsx: pregunta MC, comprobación y resultado.
+  WeakTopicsScreen.tsx: progreso/cobertura y práctica por necesidades.
+  OpenQuizDecksScreen.tsx / OpenQuizSessionScreen.tsx: escritos.
+  QuizHistoryScreen.tsx / QuizReviewScreen.tsx: intentos y retroalimentación.
+  MyQuizDecksScreen.tsx / UserQuizDeckMenuScreen.tsx / UserQuizDeckScreen.tsx:
+    quizzes personales del estudiante; no confundir con el Builder privado.
+  flashcards/FlashcardSubjectScreen.tsx: materias y elección global del modo.
+  flashcards/FlashcardSelectScreen.tsx: capítulos y grupos de temas.
+  flashcards/FlashcardReviewScreen.tsx: sesión FSRS y selección del modo de revisión.
+  flashcards/FreeFlashcardReviewScreen.tsx: sesión sin espera.
+  flashcards/MyFlashcardTopicsScreen.tsx / UserTopicScreen.tsx / UserDeckMenuScreen.tsx:
+    mazos personales.
+  PrePartialReviewScreen.tsx: selector del repaso de última vuelta.
+  CustomPageScreen.tsx: pantalla creada por el dueño en Builder.
+  BackupScreen.tsx / BackupPanel.tsx: respaldo del navegador.
+  ChangelogScreen.tsx / AppearanceSettings.tsx: novedades y preferencias visuales.
+  StorageNotice.tsx / StudyImage.tsx / UiOverrideApplier.tsx: piezas transversales.
+
+
+06. OPCIÓN MÚLTIPLE: SESIONES, ALEATORIZACIÓN Y PROGRESO
+-----------------------------------------------------
+La selección de materia resuelve un banco mediante getStudyBank(). App.tsx
+conserva fallbacks antiguos; no retirar esos caminos sin revisar compatibilidad.
+Se filtra por capítulo(s), dificultad(es), cantidad y modalidad de historial.
+En móvil, la selección de capítulos tiene tratamiento propio y confirmación:
+el estudiante debe poder elegir y continuar sin quedar con las opciones ocultas.
+
+Modalidades actuales del selector incluyen Mixto, Nuevas, Incorrectas,
+Más falladas, Correctas y Todas. No equivalen a los filtros de FSRS ni al modo
+libre de flashcards. Ver los filtros concretos en App.tsx antes de alterarlos.
+
+Aleatorización:
+- src/lib/shuffleQuestion.ts contiene shuffleArray(), shuffleQuestion() y
+  shuffleQuestionsBalanced(). La mezcla no muta el arreglo original.
+- Al cambiar el orden de alternativas se remapea correctAnswers.
+- La distribución de posiciones correctas se equilibra por cantidad de opciones
+  para preguntas con una clave. Intenta reducir rachas; no garantiza ausencia
+  matemática de cualquier racha imaginable.
+- La selección de preguntas es una operación distinta de mezclar sus opciones.
+- buildSmartQuizPool() prioriza última respuesta incorrecta, débiles, nuevas,
+  en aprendizaje, sólidas antiguas y sólidas; mezcla dentro de grupos.
+- En modo inteligente puede haber prioridad deliberada. No llamar «bug de
+  aleatorización» a toda prioridad pedagógica, pero tampoco dejar bloques por
+  el orden original del archivo si la intención de ese modo es una mezcla.
+
+La corrección compara la selección con los índices correctos. En selección
+múltiple no basta con acertar una de varias respuestas. Al confirmar se muestra
+retroalimentación; la siguiente acción pasa a la próxima pregunta.
+
+Shortcuts de MC:
+  teclas numéricas seleccionan alternativas disponibles;
+  Enter o Espacio comprueban si hay selección y, tras comprobar, avanzan.
+  No deben dispararse mientras se escribe en input/textarea/select/contenteditable.
+  Se ignoran keydown repetidos para no responder/avanzar varias veces.
+
+Estado de sesión principal en App.tsx: preguntas, índice, puntaje, respuestas,
+inicio/final, materia, capítulos, modalidades y revisiones activas.
+Guardar y salir conserva sesión en odontoma_paused_session.
+Al reanudar se intenta reconciliar con el banco actual y conservar selecciones/
+orden válidos; no mezclar texto nuevo con claves antiguas por índice sin revisar
+src/lib/pausedQuizSession.ts y sus pruebas.
+
+Progreso por pregunta: src/lib/stats.ts y src/lib/quizProgress.ts.
+Guarda correctas, incorrectas, últimas cinco respuestas, última fecha, última
+corrección y racha. Es estado de práctica, NO un certificado de preparación.
+Estados calculados en getQuestionProgress():
+  unseen: cero intentos.
+  weak: última incorrecta o exactitud reciente inferior a 60%.
+  solid: al menos dos intentos, racha >=2 y exactitud >=75%.
+  learning: los demás casos respondidos.
+Cobertura = preguntas distintas respondidas / preguntas disponibles.
+La exactitud del resumen es el promedio de exactitudes por pregunta respondida,
+no necesariamente el porcentaje bruto de todos los clicks históricos.
+
+Intentos: src/lib/quizHistory.ts conserva hasta SIETE MC y SIETE escritos por
+separado. Un modo no debe expulsar a los siete del otro. Los intentos guardan
+respuestas, explicación y snapshots; son evidencia histórica de ese examen.
+«Repasar incorrectas» debe seleccionar las falladas de ESE intento concreto,
+no el agregado de fallos de la clase. MC usa snapshot cuando existe y fallback
+por ID en intentos antiguos. Revisar menú, pausa y guardado también en esta ruta.
+
+
+07. ESCRITAS: RESPUESTAS, CATEGORÍAS E INTENTOS
+--------------------------------------------
+El archivo oficial es src/content/openQuizzes/data.json; index.ts lo expone.
+No confundirlo con los MC de Bioquímica/Materiales ni con los escritos personales.
+
+Un escrito contiene tres campos distintos:
+  prompt: lo que se pregunta.
+  modelAnswer: respuesta modelo que contesta esa pregunta.
+  acceptedPoints: conceptos/frases adicionales que se consideran aceptables.
+  explanation: explicación pedagógica separada, no una segunda clave mezclada.
+También puede tener source e imágenes de pregunta/respuesta.
+
+La app permite escribir, revelar la modelo, compararla y AUTOEVALUARSE como
+Incorrecta, Parcial o Correcta. No hay un LLM corrigiendo semánticamente al alumno.
+acceptedPoints no es un algoritmo de coincidencia que apruebe automáticamente.
+Al finalizar puede haber «Sin calificar» y «No contestadas»; no confundirlos con
+incorrectas explícitas. La puntuación de parcial aporta 0.5, correcta aporta 1.
+
+src/lib/openQuizProgress.ts guarda sesiones POR deckId: orden de IDs, índice,
+respuestas, preguntas reveladas y notas de autoevaluación. Reanudar no debe
+volver a barajar todo ni perder lo escrito. initialQuestions permite repetir
+incorrectas de un intento; mantener ese subconjunto durante la sesión.
+
+Categorías y orden:
+- OpenQuizClass identifica una clase y puede tener categories: [{id,name}].
+- deck.subject agrupa por nombre de clase. Sus categorías no son bancos MC.
+- categoryId definido indica la carpeta elegida; categoryId:null es explícitamente
+  sin categoría. undefined permite inferir el parcial antiguo desde partial/título.
+- El soporte antiguo de partial no es una categoría libre ilimitada: el helper
+  legacy reconoce parciales 1–9 y ciertos ordinales. Para Año 1, Unidad clínica,
+  Parcial 10/11/12, etc., usar CATEGORÍAS LIBRES, no ampliar títulos a mano.
+- El arreglo de categorías expresa orden manual; los cuestionarios conservan
+  su orden de arreglo dentro de cada grupo. No volver a alfabetizarlos siempre.
+- Eliminar una categoría mueve cuestionarios a Sin categoría, NO borra preguntas.
+- Mover cuestionario debe afectar solo sus hermanos de clase/categoría.
+- Renombrar una clase exige sincronizar la relación con sus cuestionarios desde
+  la operación prevista, sin reidentificar preguntas ni intentos.
+
+La retroalimentación debe diferenciar visualmente «Tu respuesta», «Respuesta
+modelo», «También se considera correcto» y «Explicación», tanto durante sesión
+como al revisar un intento. backImage solo aparece al revelar/responder/revisar,
+nunca como pista visible antes de revelar la respuesta.
+
+
+08. FLASHCARDS: ORGANIZACIÓN, FSRS, MODO LIBRE Y UNDO
+--------------------------------------------------
+Jerarquía pedagógica habitual:
+  materia/banco -> capítulo -> bloque grande/topic -> subtema -> tarjeta.
+El menú muestra bloques manejables, no una tarjeta de menú por cada dato.
+La selección debe filtrar capítulo Y tema correctamente; no enviar Bioquímica
+a Histología ni mezclar un banco de repaso con la biblioteca normal.
+
+El tipo Flashcard vive actualmente en src/content/flashcards/histologia/cards.ts.
+Es una ubicación histórica del tipo compartido; otras materias también lo usan.
+getDefaultFlashcards() en src/lib/flashcardDecks.ts deriva cartas del catálogo
+oficial de cursos no archivados. Los mazos personales usan source:"user".
+Los repasos pre-parcial pasan sus propias cartas; no agregarlos al conjunto normal.
+
+El selector de modo se ofrece fuera de la sesión:
+  Repetición espaciada -> valor técnico "fsrs".
+  Solo flashcards -> valor técnico "free", antes llamado Sin espera.
+No reintroducir un gran selector FSRS/Sin espera durante cada tarjeta: el dueño
+pidió liberar espacio en móvil y también en PC. La elección se conserva localmente.
+
+FSRS:
+- src/lib/fsrs.ts envuelve ts-fsrs. Estados, estabilidad/dificultad e intervalos
+  se representan en FsrsCardState; los reviews guardan antes/después.
+- Calificaciones: again, hard, good, easy; UI 1 Otra vez, 2 Difícil, 3 Bien, 4 Fácil.
+- El programador decide qué está vencido. No mostrar por defecto cualquier carta
+  en cooldown como si fuese un fallo del algoritmo.
+- El modo FSRS da prioridad a repasos vencidos y luego a nuevas; se mezclan grupos
+  para evitar que el orden de los archivos domine la ronda.
+- Retención deseada: valor inicial 0.90, limitado entre 0.80 y 0.97.
+- Aprendizaje/reaprendizaje usan pasos definidos en fsrs.ts; no simularlo con
+  un temporizador cosmético ni crear un algoritmo alternativo sin pedirlo.
+- fsrsLoadBalancer.ts distribuye vencimientos para evitar acumulaciones.
+- fsrsOptimizer.ts usa un worker WASM; necesita aislamiento crossOriginIsolated.
+- fsrsEligibility.ts exige >=100 repasos y al menos una carta vista en días
+  distintos. Cien clicks el mismo día no satisfacen todo el criterio.
+- «Restablecer ajustes» elimina parámetros entrenados conservando la retención
+  elegida; NO borra las cartas ni todo el progreso. Puede parecer que no cambió
+  mucho si no había parámetros personalizados.
+
+Solo flashcards / sin espera:
+- FreeFlashcardReviewScreen.tsx no espera vencimientos y no reprograma FSRS.
+- «La recuerdo» registra esa carta como completed en la memoria del modo libre.
+- «Otra vez» la registra incorrect y la vuelve a poner en la ronda.
+- Salir y entrar no debe mostrar otra vez las ya completadas del bloque.
+- Nuevas = sin registro libre; Incorrectas = registro incorrect; Mezcla = pendientes
+  no completadas. Son filtros distintos de los del historial de FSRS.
+- «Reiniciar este bloque» pide confirmación y limpia SOLO los IDs de ese alcance.
+  No toca parámetros/fechas FSRS, otros mazos ni suspensiones.
+- La cola inicial se baraja antes de limitar cantidad; no seleccionar primero
+  los primeros 20 del archivo y mezclarlos después como falsa aleatoriedad global.
+
+Undo de revisión:
+- Debe mostrar la tarjeta realmente revisada antes, NO otra al azar por recalcular
+  los elegibles del programador. Es una corrección histórica importante.
+- FSRS conserva una pila con cardId/reviewedAt y enfoca la carta restaurada.
+  undoFsrsReview() restaura stateBefore o elimina el estado nuevo si antes no existía.
+- Modo libre restaura resultado previo y marco de cola/cursor; conserva hasta
+  100 marcos en esa implementación. Varios Undo consecutivos deben funcionar.
+- No confundir Undo del alumno con Deshacer del Builder: son historiales diferentes.
+
+Suspender excluye una tarjeta de la práctica; no la elimina del banco oficial.
+SuspendedFlashcardsScreen permite recuperarla. Un reinicio parcial no debería
+resucitar o borrar suspensiones por accidente.
+
+Las etiquetas deben mostrar temas humanos. Las cartas personales guardan IDs
+de topic; flashcardTopicLabel() los resuelve al nombre. No mostrar UUIDs o
+topic-179... como contenido. Para Materiales, el rótulo del parcial se resuelve
+desde capítulos; no debe enseñarse md-glosario-p1 como título al estudiante.
+
+
+09. REPASO PRE-PARCIAL
+---------------------
+Es una biblioteca de última vuelta, de alta relevancia, INDEPENDIENTE de los
+quizzes y flashcards normales. No es un filtro del mismo banco ni una puerta
+a los decks normales. Evitar reciclar literalmente todo el contenido como si
+solo cambiarle el nombre lo convirtiera en repaso esencial.
+
+Los bancos tienen kind:"prepartial" y se resuelven por prePartial/banks.ts.
+Las clases se obtienen de bank.subject y su presentación editable viene de
+organization/reviewClassPresentation. Un parcial es un banco de repaso, no una
+categoría de escritos. Existen Parcial 1, 2, 3 y 4 · Cito II; P1 y P4 se
+incorporaron el 7 de noviembre de 2026.
+
+Parcial 1 cubre Ross 13–14 y el artículo de hemostasia/coagulación: 108 preguntas
+(90 MC y 18 V/F) y 150 tarjetas esenciales. Archivos: prePartial/citoI.ts,
+citoIFlashcards.ts, citoI.test.ts y README-citoI.md. Tiene 36 preguntas por área
+(cardiovascular, linfático, hemostasia), con subtemas propios para las tarjetas.
+
+Parcial 4 cubre Ross 21–23: 96 preguntas (78 MC y 18 V/F) y 120 tarjetas esenciales.
+Archivos: prePartial/citoIV.ts, citoIVFlashcards.ts, citoIV.test.ts y README-citoIV.md.
+Los recuerdos de parciales orientan alcance/nivel, pero no se copian sus enunciados
+ni se acepta una clave colaborativa sin contrastarla con Ross. Un enunciado falso
+puede ser una V/F legítima, no un error del estudiante. El banco usa el catálogo
+compartido de app/Builder y no altera los mazos normales ni escritos del dueño.
+
+Flujo: clase -> Opción múltiple / Flashcards esenciales -> parcial -> 10, 20 o
+Todas -> filtro Nuevas, Incorrectas o Mezcla según los controles existentes.
+Las cantidades, selección de preferencia y popup deben mantenerse ágiles y
+centrados; no volver a multiplicar pantallas por cada pequeña opción.
+
+Los filtros no tienen todos idéntica semántica histórica: en MC pre-parcial,
+Incorrectas actualmente incluye preguntas con algún fallo histórico; el modo
+libre usa su último estado independiente. Leer la implementación al ajustarlos.
+
+Reiniciar un parcial hace una operación por los IDs de ESE banco: estadísticas
+MC, intentos asociados según su helper, memoria libre, historial FSRS de sus cartas
+y sesión pausada de ese parcial si existe. No reiniciar el resto de la aplicación.
+El comportamiento de intentos que mezclen IDs debe revisarse en
+removeQuizAttemptsForQuestionIds(); no asumir que todo historial es por clase.
+
+El nombre visible correcto es Cito II también en parcial 3. Existe compatibilidad
+con la etiqueta antigua Cito III en sesiones guardadas; no quitarla sin migración.
+
+Desde el 7/11/2026 también hay Examen final acumulativo al pie de los parciales
+de opción múltiple de cada clase con al menos dos bancos habilitados y preguntas.
+cumulative.ts deriva la combinación en memoria, sin duplicarla en studio/data.json.
+Se usan los parciales que existan, no se presupone que estén los cuatro: en Cito
+hay P1/P2/P3/P4 (393 preguntas fuente). Reparte la selección por turnos entre parciales elegibles, mezcla al
+final y no repite preguntas dentro de un intento. Conserva Nuevas/Incorrectas/Mezcla.
+IDs y tags de progreso finales están aislados de los parciales originales. El
+reset final no toca el avance de estos ni FSRS. prePartialSessionBanks incluye
+finales para guardar/reanudar, historial y recuperación de incorrectas; la lista
+prePartialBanks y sus cantidades no cuentan el mismo contenido dos veces.
+Builder -> Repaso pre-parcial -> editar clase permite cambiar finalExamTitle y
+finalExamEnabled en organization.reviewClasses. Si se editan bancos fuente, se
+regenera la combinación. No editar contenido en una supuesta copia del final.
+
+PROPUESTA, NO IMPLEMENTADA: exámenes completos mixtos creados vacíos por el dueño
+en el Builder, con MC, V/F y respuestas escritas en una misma secuencia. Posible
+acceso público Quizzes -> Exámenes completos. Requeriría contrato discriminado
+por tipo, edición/importación mixta, motor de sesión persistente y corrección
+separada (objetivas automáticas, escritas autoevaluadas con respuesta modelo),
+además de resultados, historial, backups y navegación. No confundir esta idea con
+el final acumulativo ya implementado ni generar material premade sin autorización.
+
+
+10. ALMACENAMIENTO DEL ESTUDIANTE
+--------------------------------
+Claves relevantes de localStorage (leer módulos para campos exactos):
+  odontoma_stats                         Estadísticas de MC.
+  odontoma_paused_session                Sesión MC pausada.
+  odontoma_quiz_history_v1               Últimos intentos por modalidad.
+  odontoma_open_quiz_progress_v1          Escritos en curso por cuestionario.
+  odontoma_fsrs_storage                  Estado y reviews de flashcards FSRS.
+  odontoma_fsrs_parameters               Retención/pesos/entrenamiento FSRS.
+  odontoma_flashcard_study_mode_v1        Texto simple "fsrs" o "free".
+  odontoma_free_flashcard_progress_v1     Memoria del modo sin espera.
+  odontoma_user_quiz_decks                Quizzes personales, cabeceras.
+  odontoma_user_quiz_questions            Preguntas personales.
+  odontoma_user_flashcard_topics          Mazos personales de flashcards.
+  odontoma_user_flashcards                Sus cartas.
+  odontoma_appearance_v1                  Preferencias visuales del alumno.
+  Clave de suspensiones: ver src/lib/suspendedFlashcards.ts.
+
+No todas las claves del Builder usan el prefijo odontoma_ con guion bajo:
+varias usan odontoma- con guion. No crear un «backup general» que capture solo
+un prefijo y luego afirmar que conserva IndexedDB y todo el proyecto.
+
+El backup estudiantil de src/lib/backup.ts exporta claves odontoma_ del origen
+actual, con app:"Odontoma", version:1, exportedAt y localStorage. Al importar,
+valida los valores, maneja la excepción de modo almacenado como texto simple,
+intenta escribir antes de quitar claves obsoletas y revertir si falla la cuota.
+Importar reemplaza estado estudiantil; no es una fusión inocua de estadísticas.
+
+Cada navegador, dispositivo, dominio y puerto puede tener progreso diferente.
+Publicar contenido no sincroniza los datos personales entre dispositivos.
+Borrar datos del sitio puede borrar progreso y borradores. Exportar antes.
+
+storageSafety.ts centraliza avisos de errores de persistencia; StorageNotice
+los hace visibles. No mostrar éxito si localStorage falló por cuota o permisos.
+Hay código antiguo que escribe directamente; no prometer que todo acceso ya
+es transaccional. Al agregar nuevas persistencias, reutilizar manejo de errores.
+
+Quiz Studio comparte archivos .odontoma-quiz, no cuentas. Usa Web Share cuando
+el navegador puede compartir archivos; de lo contrario ofrece descarga. Su
+paquete versionado contiene contenido, no la libreta de progreso del alumno.
+Los mazos personales de flashcards importan/exportan texto tabulado compatible.
+
+
+11. BUILDER: RECORRIDO Y TAREAS SIN CÓDIGO
+----------------------------------------
+La interfaz actual se llama Odontoma Studio. El árbol lateral es la navegación
+principal: buscar por clase/menú, desplegar materia y elegir Quiz/Flashcards/
+Escritas o un capítulo. Los paneles siguen montados para no perder borradores.
+
+Herramientas principales:
+  + Agregar contenido: asistente de creación/importación de cuatro tipos.
+  Formatos y prompts para AI: ejemplos JSON/CSV y prompt copiable por tipo.
+  Menú principal / Tipos de quiz / Materias: editar accesos, textos, colores y orden.
+  Subdivisiones y organización: grupos como Materias principales o Clases secundarias.
+  Menús personalizados: agregar pantallas enlazadas.
+  Materias: biblioteca de MC y flashcards por banco/capítulo.
+  Repaso pre-parcial: bancos independientes agrupados por clase.
+  Cuestionarios escritos: administrar clases, carpetas, preguntas y orden.
+  Navegar y editar la app: preview, texto y bloques de la app real.
+  Apariencia global: estilo global del proyecto.
+  Versión e historial de cambios: número público y novedades para estudiantes.
+  Historial y backups: puntos de recuperación, exportación y restauración.
+
+Ejemplo: agregar un escrito de ionómeros de vidrio.
+  1. Cuestionarios escritos -> Administrar clases y cuestionarios.
+  2. Elegir Materiales dentales o crear la clase.
+  3. + Cuestionario, título y categoría, por ejemplo Parcial 2.
+  4. Agregar pregunta o importar; separar modelo, puntos aceptados y explicación.
+  5. Añadir imágenes si corresponden y revisar su comportamiento al revelar.
+  6. Reordenar dentro de la carpeta. La app y el árbol respetan ese orden.
+  7. Revisar cambios -> Guardar en Odontoma -> probar -> publicar por terminal.
+
+Ejemplo: agregar una materia y contenido de MC/flashcards.
+  1. + Agregar contenido -> modalidad -> materia normal o repaso.
+  2. Seleccionar destino existente o crear banco y capítulo.
+  3. Pegar JSON/tabla o archivo; revisar mapeo, errores y duplicados.
+  4. Confirmar importación al borrador, no al sitio público.
+  5. Configurar portada y accesos; comprobar la tarjeta de quizzes y de flashcards.
+  6. Guardar, recargar y verificar que no desaparece ni se duplica.
+
+Ejemplo: crear una nueva subdivisión.
+  Subdivisiones y organización -> elegir quizzes o flashcards -> añadir grupo ->
+  nombre, descripción, color, orden. Después asignar cada tarjeta a ese grupo.
+  Los dos selectores se organizan independientemente.
+
+Ejemplo: crear un menú entero.
+  Menús personalizados -> + -> título/plantilla -> bloques -> destinos ->
+  columnas/ancho/separación -> enlazar desde una tarjeta existente -> probar.
+  Un menú sin enlaces de entrada puede ser válido pero invisible al alumno.
+
+Quitar material correctamente:
+  - Solo quitar acceso: editor de tarjeta de la pantalla. El banco permanece.
+  - Ocultar banco: casilla de visibilidad; no equivale a purgarlo.
+  - Quitar materia de biblioteca: archiva, permite recuperar desde Materias quitadas.
+  - Quitar capítulo: puede quitar su contenido, con confirmación y Undo previsto.
+  - Quitar categoría de escritos: conserva cuestionarios, los deja sin categoría.
+  - Quitar botón personalizado que apuntaba a un banco: hacerlo además en el menú.
+No simular una eliminación borrando contenido de archivos base sin revisar parches.
+
+
+12. GUARDADO, BORRADORES Y DESHACER
+---------------------------------
+Existen nueve áreas reportadas por draftStatus.ts:
+  library, home, decks, written, pages, organization, theme, overrides, changelog.
+Algunas instrucciones antiguas dicen «ocho»; el código actual ya incluye changelog.
+El contador de pendientes indica SECCIONES distintas del estado guardado, no teclas.
+
+Hay tres niveles:
+  A. Borrador del editor en navegador/IndexedDB: aún no aplicado al proyecto.
+  B. Guardado en archivos locales: se conserva y participa del siguiente build.
+  C. Publicación remota: commit/push y despliegue, fuera del Builder.
+
+Guardar (⌘/Ctrl+S) prepara revisión de cambios y enlaces. Se recogen los valores
+actuales de los editores, se esperan escrituras pendientes y se compara la revisión
+base. La confirmación aplica todos los borradores incluidos en el resumen.
+Si el borrador cambia después del resumen, se exige revisarlo otra vez.
+
+El servidor comprueba expectedRevision y libraryBaseRevision. Un conflicto 409
+no debe «solucionarse» quitando los controles de revisión: exportar borrador,
+recargar, comparar y reconciliar. Son defensa contra pisar cambios nuevos desde
+una ventana vieja o desde código mientras el Builder seguía abierto.
+
+La biblioteca guarda el borrador en IndexedDB:
+  base odontoma-builder-library, store draft, registro current.
+Otros editores usan claves odontoma-... en localStorage; ProjectTools.tsx las lista.
+SessionStorage conserva el destino del árbol y mensajes de guardado.
+
+Aviso: «Borrador recuperado de otra versión: no se aplicó nada».
+  - No significa que las eliminaciones ya se ejecutaron.
+  - El resumen compara un borrador antiguo con la biblioteca actual y puede
+    mostrar cientos de elementos ausentes. No habilitar guardado sin revisar.
+  - Descargar borrador recuperado SOLO descarga su contenido; no cambia el proyecto.
+  - Descargar y usar versión actual conserva una copia y abre la base actual.
+  - «Revisé las diferencias» habilita la posibilidad de guardar; no es revisión
+    académica ni permiso para eliminar todo lo ausente.
+  - No borrar IndexedDB primero para ocultar el aviso: se perderían ediciones.
+
+Deshacer/Rehacer global:
+  globalHistory.ts guarda hasta 80 acciones globales, con agrupación de escritura
+  consecutiva en el mismo campo (ventana de 700 ms). Puede agrupar creación de
+  contenido y accesos en una sola acción. Sigue funcionando entre paneles.
+  useHistoryState.ts no debe duplicar eventos por React StrictMode.
+  Dentro de campos se conserva Undo nativo; fuera funcionan shortcuts globales.
+  Guardar/recargar establece otra base: para cambios YA APLICADOS usar Historial
+  y backups, no esperar que el Undo en memoria deshaga publicaciones remotas.
+
+Una tarjeta eliminada NO debe volver al refrescar. menuRegistration.ts registra
+accesos para bancos NUEVOS comparando contra la biblioteca previa; no reinsertar
+en cada arranque los accesos que el dueño decidió quitar.
+
+
+13. PREVIEW, EDICIÓN DIRECTA Y PANTALLAS PERSONALIZADAS
+----------------------------------------------------
+ResponsivePreview.tsx usa iframe con viewport real: escritorio 1280, tablet 768,
+teléfono 390 px. La escala visual permite que quepa; no cambia el ancho CSS interno.
+No sustituirlo por un div estrecho si eso comprime un layout de escritorio sin
+activar media queries: fue un problema que ya se corrigió.
+
+Dos maneras distintas de probar:
+  «Probar borrador sin guardar»: collectProjectDraft() recoge áreas, se manda
+  una instantánea al iframe builder-draft y se inyecta antes de montar App.
+  LocalStorage y SessionStorage del iframe se reemplazan por memoria vacía.
+  No lee ni modifica el progreso real; Actualizar borrador toma otra instantánea.
+
+  «Ver proyecto guardado»: usa archivos aplicados y almacenamiento normal de la
+  app. Una respuesta de prueba puede contar para el estudiante en ese origen.
+
+UniversalUiEditor/UiOverrideApplier manejan edición directa de textos y bloques.
+Su capacidad visual no cambia la semántica de una acción por arte de magia.
+Un bloque duplicado conserva la acción del original. Para crear una función
+nueva o enlazar una pantalla, usar el editor estructural/destino correcto.
+Después de reestructurar DOM revisar que overrides antiguos no apunten a otro
+elemento. No guardar selectores frágiles sin contexto de pantalla.
+
+CustomPage admite bloques heading, text, button, callout y divider; puede incluir
+imagen. layout configura maxWidth (320–1800), columns (1–3), gap/padding (0–80).
+Estas cifras son límites actuales del validador, no tamaños recomendados para todo.
+En móvil el diseño debe colapsar sin desbordar ni alterar el orden lógico.
+
+Destinos técnicos usados:
+  home, quizzes, flashcards, multiple-choice, open-ended, my-quizzes,
+  backup, appearance, changelog, pre-partial, coming-soon,
+  bank:<id>, flashcard-bank:<id>, custom-page:<id>.
+Hay destinos legacy adicionales en algunos validadores (p. ej. history/open-quizzes).
+Para añadir uno nuevo hay que revisar tipos, validadores, editor y App.tsx juntos.
+Los IDs nuevos en esos prefijos deben usar el formato aceptado, no títulos libres.
+
+validateNavigation() diferencia errores bloqueantes y avisos: destino inexistente
+es error; banco oculto/archivado o botón al mismo menú normalmente es advertencia.
+Que no haya enlaces rotos NO valida tipos, imágenes ni contenido académico.
+
+
+14. BACKUPS, RESTAURACIÓN Y ROLLBACK
+----------------------------------
+Tres respaldos DIFERENTES:
+
+  1. Backup del estudiante (.json desde la app).
+     Progreso y contenido personal del navegador/origen. No incluye todo el
+     código ni los borradores IndexedDB del Builder.
+
+  2. Proyecto editable (.json desde Builder).
+     app:"Odontoma Project", version:1, files y revisión. Guarda biblioteca,
+     escritos, menús, organización, overrides, tema y changelog editables.
+     No es una copia completa de los módulos TypeScript de los bancos base.
+
+  3. Copia completa (.tar.gz desde Builder o backup manual bien delimitado).
+     Código, assets, contenido y Builder. La exportación implementada excluye
+     .git, node_modules, dist, .vercel, .env/.env.* y .odontoma-history.
+     No es copia de credenciales ni del historial de Git ni de todo el navegador.
+
+Snapshots automáticos locales viven en .odontoma-history/, fuera de Git.
+El nombre lleva fecha UTC para ordenar; el panel presenta fecha/hora de Guatemala.
+El listado principal recupera las 50 copias más recientes con metadatos/cantidades.
+Las automáticas guardan el estado ANTES de aplicar; puntos manuales guardan el
+estado aplicado ACTUAL. Etiquetar puntos: «Antes de cambiar menús», «Publicación X».
+Marcar publicación es una anotación del dueño, no una verificación real de Vercel.
+
+Restaurar desde Builder:
+  - Leer diferencias y guardar/exportar el trabajo que aún importe.
+  - Confirmar punto correcto; se conserva copia del proyecto guardado anterior.
+  - Se restauran archivos editables y se descartan borradores que podrían taparlos.
+  - No se hace checkout de todos los .tsx ni rollback de Vercel automáticamente.
+  - Verificar y publicar otra vez si se quiere cambiar el sitio público.
+
+Para recuperar una copia completa: extraer en carpeta NUEVA, inspeccionar, instalar
+dependencias, probar. Nunca descomprimir encima de cambios actuales sin revisión.
+Una copia histórica del JSON editable se interpreta con el código base actual;
+por eso no sustituye una copia completa de código cuando se necesita volver
+exactamente a una implementación antigua.
+
+Existe un respaldo previo importante de la tarea de Materiales:
+  /Users/stefanomarsicovetere/Desktop/
+  Odontoma-backup-2026-11-04-before-materiales-study-banks.tar.gz
+Comprobar que siga existiendo antes de ofrecerlo como recuperación.
+
+
+15. MODELOS DE DATOS Y CATÁLOGO COMPARTIDO
+----------------------------------------
+StudyBank (src/content/studio/schema.ts):
+  id, title, subject, kind:"course"|"prepartial", enabled?, archived?,
+  chapters: StudyChapter[], questions: StudyQuestion[], flashcards: Flashcard[].
+
+StudyChapter:
+  id, title, eyebrow?, subtitle, description, image, questionCount, accent.
+  id es una clave estable; title es el nombre humano; eyebrow es la etiqueta
+  pequeña; subtitle puede codificar «Parcial 2». No exponer IDs de sistema.
+
+StudyQuestion (formato interno):
+  id, chapter, topic?, tags?, difficulty:"easy"|"medium"|"hard",
+  type:"single"|"multiple", question, options:string[],
+  correctAnswers:number[], explanation, image?, imageAlt?.
+IMPORTANTE: correctAnswers usa índices DESDE CERO: [0] es A; [1] es B.
+
+Flashcard (formato interno):
+  id, subject, book, chapter, topic, subtopic, front, back, tags:string[],
+  image?, backImage?, imageAlt?, legacyId?.
+No meter fechas FSRS, puntajes o avance en el archivo de contenido.
+
+OpenQuizQuestion:
+  id, prompt, modelAnswer, acceptedPoints:string[], explanation?, source?,
+  image?, imageAlt?, backImage?, backImageAlt?.
+OpenQuizDeck:
+  id, title, subject, questions, partial?, categoryId?, description?,
+  color?, classSymbol?, classColor?.
+OpenQuizClass:
+  id, name, symbol, color, categories?:[{id,name}].
+
+Resolución del catálogo:
+  módulos base + src/content/studio/data.json -> resolveStudioBanks()
+  -> studioBanks, getStudyBank(), getStudyQuestions()
+  -> app y biblioteca del Builder.
+
+No editar solo un arreglo legacy y asumir que cambió la app. El Builder puede
+tener un parche que sobrescribe ese elemento. Al diagnosticar un texto que
+«regresa», revisar base, patch, banco completo guardado, borrador y snapshot.
+
+StudioStorage = {version:1, banks:[bancos nuevos/completos], patches?:{id:patch}}.
+BankPatch puede conservar metadatos, capítulos, y cambios por preguntas/cartas:
+  upserts: elementos agregados o modificados completos;
+  removed: IDs eliminados intencionalmente;
+  order: orden autoritativo de IDs.
+compactStudioData()/compactLibrary() evitan duplicar toda la biblioteca base
+por editar una sola pregunta. applyBankPatch() reconstruye la vista final.
+No tratar la ausencia de un elemento en un patch como eliminación automática.
+No retirar removed/order como «datos redundantes»: reaparecería contenido.
+
+getStudyBank() acepta un id o bank:<id>. No resuelve por cualquier título visible.
+subject, title e id no son intercambiables. Enlazar con destino válido.
+Se sintetizan capítulos faltantes para contenido legacy y se recalculan counts.
+También se resuelven IDs de flashcards duplicadas antiguas con legacyId; no
+eliminar esa compatibilidad sin migrar los progresos correspondientes.
+
+El progreso MC y FSRS usa IDs; aunque el validador permita IDs iguales en espacios
+distintos, para autoría nueva usar prefijos globalmente claros por banco/modalidad.
+Renumerar por posición después de insertar o reordenar un archivo reasigna avance.
+Si un generador antiguo deriva IDs de índices, no regenerar su orden masivamente.
+
+
+16. FORMATOS DE IMPORTACIÓN PARA CUALQUIER IA
+-------------------------------------------
+Fuente ejecutable del contrato: src/builder/contentFormats.ts y contentImport.ts.
+La UI «Formatos y prompts para AI» copia ejemplos y prompts actuales. Preferir
+ese contrato a inventar un formato en cada capítulo. El importador asigna IDs y
+destino; una IA que solo genera un lote NO debe generar bancos, progreso o UUIDs.
+
+Ejemplo válido — flashcards:
+{
+  "format": "odontoma-import",
+  "version": 1,
+  "type": "flashcards",
+  "items": [
+    {
+      "front": "¿Qué plexo nervioso se localiza en la submucosa digestiva?",
+      "back": "El plexo submucoso de Meissner.",
+      "topic": "Pared del tubo digestivo",
+      "subtopic": "Plexos entéricos",
+      "tags": [],
+      "image": "",
+      "backImage": "",
+      "imageAlt": ""
+    }
+  ]
+}
+
+Ejemplo válido — opción múltiple:
+{
+  "format": "odontoma-import",
+  "version": 1,
+  "type": "multiple-choice",
+  "items": [
+    {
+      "question": "Una cavidad proximal de un incisivo alcanza el borde incisal. ¿Qué clase corresponde?",
+      "options": ["Clase II.", "Clase III.", "Clase IV.", "Clase VI."],
+      "answer": "C",
+      "explanation": "La extensión proximal anterior con participación incisal identifica la clase IV; la III no afecta ese borde y la VI se limita al borde o a puntas cuspídeas.",
+      "difficulty": "medium",
+      "topic": "Clasificación cavitaria",
+      "image": "",
+      "imageAlt": ""
+    }
+  ]
+}
+
+Ejemplo válido — verdadero/falso dentro del banco de preguntas:
+{
+  "format": "odontoma-import",
+  "version": 1,
+  "type": "true-false",
+  "items": [
+    {
+      "question": "El plexo mientérico se localiza en la submucosa.",
+      "answer": false,
+      "explanation": "El mientérico está entre las capas circular y longitudinal de la muscular externa; en submucosa se encuentra el de Meissner.",
+      "topic": "Plexos entéricos"
+    }
+  ]
+}
+
+Ejemplo válido — escritas:
+{
+  "format": "odontoma-import",
+  "version": 1,
+  "type": "written",
+  "items": [
+    {
+      "question": "Defina deformación elástica.",
+      "answer": "Deformación reversible: el material recupera su forma al retirar la fuerza.",
+      "acceptedPoints": ["Recuperación de la forma al retirar la carga"],
+      "explanation": "Se distingue de la deformación plástica, que deja un cambio permanente.",
+      "topic": "Propiedades mecánicas",
+      "image": "",
+      "backImage": "",
+      "imageAlt": "",
+      "backImageAlt": ""
+    }
+  ]
+}
+
+En el sobre de importación answer usa letras A–H o números 1–8, también arrays
+para varias correctas. correctAnswers interno usa cero: NO confundir [1] con A.
+V/F usa booleanos true/false, no las cadenas "true"/"false" en el prompt ideal.
+El lector admite varias formas legacy; producir la forma clara del ejemplo.
+
+CSV/TSV/Excel:
+  MC sin encabezado: Pregunta | A | B | C | D | Correcta | Explicación.
+  V/F: Afirmación | Respuesta | Explicación.
+  Flashcards: Frente | Respuesta | Subtema.
+  Escritas: Pregunta | Respuesta modelo | Puntos aceptados | Explicación.
+Aquí | entre columnas es solo ilustrativo: usar tabuladores, comas o el
+delimitador real detectado. DENTRO de Puntos aceptados se usa | para la lista.
+Hay detección de encabezados y mapeo de columnas en el importador actual;
+algunos flujos antiguos esperan filas sin encabezado. Revisar la preview.
+Comillas correctas protegen comas y saltos dentro de CSV. No usar split(',')
+como sustituto del parser de src/lib/delimitedText.ts.
+
+El importador revisa hasta 10,000 elementos por lote, opciones repetidas,
+2–8 alternativas, índices, dificultad, imágenes y duplicados del destino.
+No agrega silenciosamente filas inválidas; omitir errores requiere decisión.
+Detectar duplicados de texto no equivale a detectar duplicados conceptuales.
+La restauración de un proyecto completo NO se importa como un lote de preguntas.
+
+El archivo .odontoma-quiz de estudiantes tiene otro sobre:
+  app:"Odontoma", kind:"quiz", version:1, exportedAt, deck y questions.
+No sustituirlo automáticamente por odontoma-import; son contratos relacionados
+pero diferentes. Leer userQuizzes.ts si se toca compartir/importar personal.
+
+
+17. MÉTODO EDITORIAL PARA FLASHCARDS
+-----------------------------------
+Referencia estilística expresamente elegida por el dueño: capítulos 15 y 16 de
+Histología. También comparar las versiones activas reconstruidas de 17 y 18,
+y los capítulos posteriores aceptados. No usar como modelo una versión antigua
+rechazada solo porque sigue apareciendo en algún script o backup.
+
+Objetivo: alta cobertura, preguntas naturales y precisas, recuperación de
+conocimiento en unidades pequeñas. «Atómica» NO quiere decir superficial ni
+telegrama sin sentido. Se puede cubrir un capítulo profundo con muchas preguntas
+cortas sobre sus relaciones, mecanismos, estructuras, diferencias y excepciones.
+
+Reglas prácticas:
+- Leer el material completo autorizado primero; reconocer límites y anexos excluidos.
+- Hacer mapa de secciones y subtemas antes de decidir cantidad.
+- Preguntar una unidad recuperable por tarjeta. Si necesita cinco respuestas
+  independientes, dividirla. Una lista pequeña esencial puede tener una tarjeta
+  de panorama además de sus preguntas específicas.
+- La pregunta debe tener sujeto, localización y alcance suficientes para
+  contestarse al azar, sin depender de la tarjeta anterior.
+- Respuesta breve, preferentemente una frase o término; una comparación corta
+  puede necesitar dos miembros. No hay un límite mágico universal de palabras.
+- Mantener contexto mínimo útil, no alargar todas las preguntas con «En X...». 
+- No comenzar todo con «¿Qué es...?». Usar dónde, cuál estructura/célula,
+  función, mecanismo, comparación, secuencia acotada, consecuencia o reconocimiento.
+- Incluir definiciones cuando son importantes, pero con alcance concreto.
+- Incluir detalles examinables y a veces rebuscados respaldados por la fuente,
+  no solo el resumen high-yield; la cátedra puede pedir especificidad.
+- No aumentar el conteo con paráfrasis triviales ni pares invertidos sin utilidad.
+- No copiar párrafos del libro como respuesta. Reformular sin perder precisión.
+- Mantener símbolos, unidades, relaciones y restricciones que distinguen conceptos.
+- No añadir «según los apuntes», «según el libro», «según el texto» al enunciado.
+  Conservar procedencia aparte, no como muletilla visible de cada pregunta.
+- No usar verdadero/falso como sustituto de recuperación activa en flashcards
+  nuevas. Convertir esas afirmaciones en preguntas concretas.
+- La mezcla de tarjetas debe funcionar sin dependencia de un orden de lectura.
+
+Ejemplos del estilo buscado:
+  Bien: ¿Dónde desemboca el conducto parotídeo de Stensen?
+        En la papila parótida frente al segundo molar superior.
+  Bien: ¿Qué glándulas desembocan en los surcos de las papilas caliciformes?
+        Las glándulas serosas de Von Ebner.
+  Bien: ¿Qué distingue una cavidad clase III de una clase IV?
+        La participación del borde incisal, ausente en III y presente en IV.
+  Bien: ¿Cómo cambia la viscosidad de un material tixotrópico al manipularlo?
+        Disminuye con la acción mecánica.
+
+  Mal: «En los senos paranasales, ¿qué es?»
+       Falta un objeto y una tarea interpretable.
+  Mal: «Mencione cosas correctas de intestino grueso».
+       No especifica qué se pide ni cómo autoevaluarse.
+  Mejor: preguntar qué estructuras concretas presenta su lámina propia, o
+       separar cada estructura/relación identificable si la lista es extensa.
+  Mal: «Explique todo sobre mucosa, glándulas, irrigación e inervación».
+       Son varias tareas. Dividir por estructura y función.
+
+SuperMemo: el usuario proporcionó los Twenty rules of formulating knowledge
+de Piotr Wozniak. Aplicación resumida al proyecto, no cita literal del artículo:
+  1. Comprender antes de intentar memorizar.
+  2. Construir una visión general antes de fragmentar hechos.
+  3. Asegurar fundamentos antes de detalles derivados.
+  4. Reducir cada unidad a la mínima información útil.
+  5. Usar huecos/cloze cuando ayuden a una recuperación precisa.
+  6. Aprovechar imágenes pertinentes.
+  7. Usar mnemotecnia si aclara y no introduce errores.
+  8. El ocultamiento gráfico puede ayudar al aprendizaje visual.
+  9. Evitar conjuntos arbitrarios y listas enormes sin estructura.
+ 10. Fragmentar enumeraciones difíciles en relaciones aprendibles.
+ 11. Atacar interferencia entre conceptos parecidos con discriminaciones concretas.
+ 12. Optimizar redacción: breve pero inequívoca.
+ 13. Conectar con conocimientos relacionados.
+ 14. Incorporar ejemplos significativos cuando aporten comprensión.
+ 15. Usar asociaciones memorables sin inventar datos clínicos.
+ 16. Incluir pistas de contexto necesarias, no pistas que regalen la respuesta.
+ 17. La redundancia útil no es repetir lo mismo con mínimas palabras cambiadas.
+ 18. Registrar la fuente para comprobar y actualizar contenido.
+ 19. Fechar conocimientos que dependan de época o guías cambiantes.
+ 20. Priorizar lo importante y distribuir bien la cobertura.
+
+La app NO implementa por esto un editor nativo de cloze, oclusión gráfica o audio.
+Son técnicas pedagógicas; en esta app muchas se traducen a pregunta-respuesta
+o a una imagen aportada. No prometer funcionalidades que no existen.
+
+Cobertura y cantidad:
+No fijar «20 por capítulo» ni «400 porque lo prometimos» como regla universal.
+La cantidad sale de contenido autorizado, densidad, detalles examinables y
+ausencia de duplicados. El dueño ha rechazado bancos demasiado superficiales
+o incompletos, pero también cientos de tarjetas mal escritas para inflar números.
+Para un capítulo largo: mapa -> autoría completa -> revisión -> integración ->
+reporte de conteo/cobertura. Entregar el lote solicitado de una vez cuando se pueda.
+Si el material termina antes de un anexo, respetarlo. Ejemplo histórico de cap20:
+el banco se limitó al capítulo principal previo a «Histología 101».
+
+Organización:
+Usar bloques grandes legibles (órgano/función/estructura) y subtemas concretos
+dentro de cada uno. No mostrar veinte submenús diminutos ni un bloque gigantesco
+sin diferenciación. Verificar que las tarjetas tienen chapter/topic/subtopic
+correctos y que FlashcardSelectScreen realmente expone sus grupos.
+
+
+18. MÉTODO EDITORIAL PARA OPCIÓN MÚLTIPLE Y V/F
+--------------------------------------------
+No basta con tomar la pregunta de una flashcard y ponerle de distractores tres
+respuestas escogidas al azar de otras flashcards. Ese fue un problema real.
+Cada pregunta nueva necesita opciones redactadas INDIVIDUALMENTE.
+
+Criterios:
+  - Evaluar un objetivo claro del contenido visto; integrar relaciones y mini
+    situaciones cuando sirvan. No traer mecanismos o términos no estudiados.
+  - Una clave inequívoca en single; en multiple explicitar que hay varias.
+  - Opciones de la misma categoría semántica: células con células, secreciones
+    con secreciones, capas con capas, secuencias comparables entre sí.
+  - Distractores basados en confusiones reales y cercanas, no frases absurdas.
+  - Longitud, complejidad, gramática, unidades y grado de detalle equivalentes.
+  - No hacer que solo la correcta tenga una salvedad, inciso o explicación extra.
+  - No regalar exclusión: «Meissner» frente a «Auerbach, entre capas musculares»
+    cuando la pregunta pide qué plexo está en submucosa, se descarta por el texto
+    de localización sin recordar el plexo. Usar alternativas paralelas sin esa pista.
+  - «Sublingual» frente a otras glándulas con descripciones largas es un patrón
+    sospechoso; dejar solo nombres o dar descripciones equivalentes a todas.
+  - En estratos epidérmicos no poner «lúcido —solo piel gruesa—» únicamente en
+    la clave. Poner el contexto en el enunciado o en la explicación.
+  - No construir una clave párrafo y tres términos sueltos. Tampoco volver la
+    correcta siempre la más corta para disimularlo: balance real de alternativas.
+  - Evitar absolutos artificiales, negaciones tramposas, «todas/ninguna» y
+    distractores cuya propia redacción anuncia que son incorrectos.
+  - No debe haber dos correctas defendibles por una condición no especificada.
+  - Explicación separada: por qué la clave encaja y qué confusión representan
+    distractores relevantes. No referir «A» o «C» porque la app baraja alternativas.
+  - La dificultad debe venir de conocimiento/discriminación, no de ambigüedad.
+
+Malo:
+  ¿Qué secretan las glándulas de Brunner?
+  A un párrafo sobre su secreción; B Auerbach; C Meissner; D quimo.
+Son categorías distintas y una alternativa resalta por forma.
+
+Mejor patrón:
+  Preguntar una secreción o una comparación precisa y ofrecer cuatro secreciones
+  plausibles del contexto digestivo, equivalentes en detalle, sin que otra sea
+  también válida bajo una interpretación razonable del enunciado.
+
+V/F sí se quiere en ciertos bancos MC, especialmente repaso pre-parcial:
+  una afirmación y dos alternativas, Verdadero/Falso. Las falsas pueden cambiar
+  sutilmente célula, capa, ubicación, hormona, dirección o secuencia. El cambio
+  debe producir una falsedad real e inequívoca, NO una frase discutible o maliciosa.
+  Mezclar verdaderas y falsas; explicar cómo se corrige la falsa. No convertir
+  las flashcards en V/F por esa preferencia del banco de preguntas.
+
+QA editorial antes de cerrar:
+  revisar todas las alternativas, no solo el ejemplo que envió el dueño;
+  contar duplicados textuales y conceptuales;
+  comprobar claves tras autoría y tras mezcla;
+  mirar casos donde la clave es la más larga o la única con paréntesis;
+  releer desde el punto de vista de quien no sabe el tema: ¿se responde solo
+  mirando la forma? Si sí, rehacer.
+Un test de longitud o balance A/B/C/D detecta síntomas, no certifica plausibilidad.
+
+
+19. ESCRITAS, FUENTES Y DISCREPANCIAS DOCENTES
+-------------------------------------------
+El dueño redacta escritos de clase y ha pedido expresamente no cambiar sus
+explicaciones sin permiso. Una corrección de gramática ligera no autoriza
+reescribir el significado ni completar con una guía médica ajena al curso.
+Se conservó especialmente el primer parcial de Bioquímica por sus criterios
+y cifras docentes. No «normalizar» todo primer parcial a otra fuente.
+
+Hubo una reversión pedida después de alterar explicaciones de exámenes. Lo
+aceptado de esa discusión fue una corrección puntual sobre la expresión hepática
+de glucosa-6-fosfatasa, y la función de repasar incorrectas. No interpretar ese
+permiso como autorización permanente para revisar todas las explicaciones.
+
+Cuando existe una aparente incoherencia:
+  a. Localizar exactamente pregunta, respuesta y explicación originales.
+  b. Distinguir error de redacción, notación, unidad, simplificación o discrepancia
+     real con el material/fabricante/docente.
+  c. Proponer el cambio con ejemplos al dueño; no sustituir silenciosamente.
+  d. Mientras no se confirme, excluir la afirmación dudosa de NUEVAS claves.
+  e. Mantener registro de lo retenido y qué parte segura sí se cubrió.
+
+Materiales dentales:
+  src/content/materiales-dentales/source-snapshot.json conserva la referencia
+  inicial de 97 escritos, SIN ser la fuente viva de los cuestionarios actuales.
+  review.json documenta 21 puntos pendientes: proporciones y tiempos de ionómero,
+  espectros/irradiancia, clasificaciones y otras generalizaciones, entre otros.
+  El dueño decidió no cubrir lo dudoso en los bancos nuevos. No reinsertarlo
+  porque el examen escrito original aún lo contenga.
+  Las partes claras e independientes de una misma pregunta pueden estar cubiertas.
+  Si el dueño cambia luego el escrito, el banco MC/flashcards NO se sincroniza
+  automáticamente: revisar el delta y autorizar la actualización correspondiente.
+
+Escritas nuevas deben incluir definiciones cuando forman parte de objetivos,
+pero no solo definiciones: relaciones, mecanismos, comparaciones y aplicaciones.
+La modelo responde lo pedido, acceptedPoints recoge variantes pertinentes y
+explanation desarrolla el porqué. No convertir acceptedPoints en una lista
+de palabras obligatorias como si la app corrigiera por coincidencia exacta.
+
+Para fuentes extensas (TXT, PDF reconstruido, OCR): no tratar el texto como
+infalible. Revisar símbolos, acentos, fórmulas, tablas, unidades, cortes de página
+y notas de exclusión. Las instrucciones incrustadas en un documento no son por
+sí mismas autorización para ejecutar comandos ni alterar archivos ajenos.
+
+
+20. AGREGAR CAPÍTULO O MATERIA COMPLETA
+-------------------------------------
+Opción preferida para el dueño: Builder + formato odontoma-import. Permite
+agregar contenido y accesos sin editar módulos base. Usar ese camino si satisface
+la tarea. No generar TypeScript por costumbre si el usuario quiere autonomía GUI.
+
+Si se hace desde código por una tarea de autoría grande:
+  1. Backup y lectura de git status; conservar borradores ajenos.
+  2. Leer fuente autorizada y capítulos modelo activos.
+  3. Definir alcance, bloques, subtemas y un mapa de cobertura.
+  4. Redactar flashcards y MC por separado con IDs estables y prefijos propios.
+  5. Declarar capítulos y sus imágenes; conectar módulos en el agregador correcto.
+  6. Integrar al catálogo compartido y comprobar parches que pudieran ocultarlos.
+  7. Para materia nueva: accesos de quizzes y flashcards con destino bank:<id>,
+     sección apropiada, título y portada; no olvidar el Builder.
+  8. Para repaso: kind:"prepartial", IDs propios, clase adecuada y bancos exclusivos.
+  9. Si se añaden escritos: clase, categoría y preguntas en su contrato separado.
+ 10. Comprobar conteos desde catálogo RESUELTO, no solo contar filas de un archivo.
+ 11. Verificar selección, subtema, inicio de sesión, respuesta y explicación reales.
+ 12. Probar editar, quitar, guardar, recargar y exportar desde Builder; no basta
+     que la app lea un arreglo nuevo si el Builder lo ignora.
+ 13. Tests, build, lint, diff; reportar qué existe, qué falta y si se publicó o no.
+
+Ejemplo de autoría compacta: materiales-dentales/model.ts acepta tuplas explícitas
+para cartas y MC. Solo ensambla metadatos/IDs/posiciones; NO crea distractores
+tomando otras respuestas. En QuizDraft la primera opción ES la clave antes del
+ensamblado; en StudyQuestion exportado lo determina correctAnswers. No confundir
+esa convención de un archivo autoral con la del importador general.
+
+Si se insertan tarjetas en generadores con IDs derivados del índice, detenerse
+y diseñar una preservación de IDs antes de regenerar. No reenlazar capítulos
+antiguos a tarjetas nuevas por haber reutilizado el mismo número de fila.
+
+
+21. IMÁGENES, LICENCIAS Y CONTRASTE
+---------------------------------
+Hay imágenes para portadas de materias/capítulos y otras para preguntas/cartas.
+No son lo mismo. El dueño pidió varias veces fotos SOLO del selector de capítulos:
+no convertir esa petición en añadir imágenes que den pistas durante un examen.
+
+Soporte actual:
+  MC oficial: image/imageAlt en enunciado.
+  Flashcard: image en frente y backImage en respuesta.
+  Escrita: image/imageAlt y backImage/backImageAlt; reverso solo al revelar.
+No prometer imagen de respuesta de MC con el esquema actual: no tiene backImage.
+
+Carga por archivo en Builder (ImageField): PNG/JPEG/WebP/GIF hasta 15 MB; se
+decodifica a imagen estática WebP, máximo 1600 px, calidad .85 y se incrusta como
+data URL. El archivo de Downloads no es necesario en la computadora del alumno.
+Un GIF no conservará animación por este proceso. El contenido guardado viaja
+en el build; las imágenes externas por URL sí dependen del sitio remoto.
+
+Assets locales habituales:
+  src/assets/... importados desde TypeScript -> Vite produce URL de assets compilados.
+  public/media/... -> URL pública /media/... copiada al build sin importar el archivo.
+  Nunca usar /Users/... o file:// como URL que deban cargar otros estudiantes.
+  No fijar /src/... manualmente como URL de producción. @legacy ayuda a conservar
+  imágenes heredadas al compactar; no es una ruta de imagen para inventar.
+
+Los validadores actuales permiten HTTP(S), data:image de tipos admitidos y rutas
+locales /src/, /assets/ o /media/. /images/... no era aceptado por esos contratos;
+las nuevas fotos de Materiales quedaron deliberadamente en /media/.
+No quitar validaciones para «arreglar» un archivo: usar rutas válidas.
+
+COOP/COEP pueden bloquear imágenes externas que no permitan su carga. Para
+portadas estables preferir descarga autorizada al proyecto con atribución,
+no hotlink a un comercio, Pinterest o una URL firmada que expirará.
+Las fotos no deben contener datos identificables de pacientes sin permiso.
+
+Fuentes/licencias generales: src/assets/chapters/ATTRIBUTIONS.md.
+Materiales: public/media/materiales-dentales/, con credits.html público.
+Incluye instrumental, amalgama, instrumental histórico, fotocurado, composites,
+adhesivos e ionómero. Imágenes reales, no generadas; versiones reducidas de Commons.
+studyImagePosition.ts mantiene visible la cápsula de la foto de ionómero en
+tarjetas anchas; una foto reemplazada desde Builder vuelve al recorte centrado.
+
+Mantener contraste con velos oscuros, sin agrandar el menú solo para la foto.
+Verificar en móvil que el recorte sigue mostrando lo relevante y que el texto
+no se mezcla con etiquetas del producto. No alterar la foto científicamente
+para que «parezca» otra estructura histológica.
+
+
+22. NAVEGACIÓN, MÓVIL, SCROLL Y ACCESIBILIDAD
+------------------------------------------
+App.tsx tiene goBack(), goToMainMenu() y navigateToBuilderDestination().
+No hacer que todos los «Volver» llamen a goToMainMenu por comodidad.
+customPageHistory, customPageOrigin y builderReturn conservan menú de origen
+cuando un menú personalizado abre otro menú o banco. Revisar el retorno desde
+quiz, escritos, flashcards, historial, backup, apariencia y repaso.
+
+useSwipeBack.ts usa el mismo retroceso lógico, no un salto genérico al home.
+Valores por defecto actuales: inicio dentro de 56 px izquierdos, recorrido mínimo
+80 px, deriva vertical máxima 96 px; exige predominio horizontal y admite cierta
+diagonal. Ignora botones, enlaces, inputs y data-no-swipe-back='true'.
+No añadir un segundo listener global que duplique el regreso.
+Una sola transición por gesto. Pruebas reales de iOS/iPad siguen siendo necesarias.
+
+Regresiones históricas que no deben volver:
+  - Repaso -> flashcards/cantidad -> swipe no debe saltar hasta el menú principal.
+  - Volver del examen debe cerrar/pausar el nivel correcto, no perder contexto.
+  - Al entrar a un menú nuevo en móvil se reinicia el scroll de su pantalla.
+  - El tag de flashcards no debe quedar escondido a medias bajo la cabecera.
+  - El botón de confirmar capítulos debe quedar accesible en pantallas pequeñas.
+  - Tarjetas del selector no deben superponerse ni encogerse para ocultar contenido.
+  - Atrás y Menú principal en HomeScreen deben compartir el ancho centrado del
+    contenido (mx-auto max-w-7xl), no pegarse a extremos de un monitor ancho.
+
+Scroll:
+  FlashcardSelectScreen separa cabecera fija, selector de capítulos y subtemas.
+  El dueño no quiere dos scrolls anidados que compitan ni una página infinita.
+  relayWheelToPanel() permite que rueda sobre margen exterior mueva el panel
+  principal; respeta data-independent-scroll para áreas con independencia real.
+  Reglas CSS globales sobre main > div ya causaron apilado y recortes: revisar
+  sus efectos en TODOS los menús antes de cambiarlas.
+
+Móvil bloquea desbordamiento horizontal accidental. El swipe de regreso es una
+acción distinta de desplazar toda la página lateralmente. No desactivar todo
+touch para esconder overflow: rompería scroll, sliders y respuestas.
+
+Existe bloqueo de zoom en viewport y zoomLock.ts, pedido por el dueño para
+evitar zoom accidental y autozoom. Es un compromiso de accesibilidad existente,
+no una recomendación universal. Si se cambia, discutirlo y probar formularios,
+lectura, Safari y preferencias del usuario, no quitarlo por sorpresa.
+
+Hover/movimiento: las tarjetas deben conservar el pequeño realce sin artefactos
+de esquinas/cuadrícula al escalar. No reintroducir capas escaladas que muestren
+bordes rectangulares al llegar a escala máxima. Mantener bordes redondeados.
+En accesibilidad: foco visible, etiquetas claras, no depender solo de color,
+targets táctiles utilizables y respeto por campos de texto/teclado.
+
+
+23. BUILDER POR DENTRO: ARCHIVOS, EVENTOS Y ENDPOINTS
+--------------------------------------------------
+StudioWorkspace.tsx: árbol unificado, panel activo, selección, toolbar y Undo.
+LibraryEditor.tsx: bancos, capítulos, MC, flashcards, imágenes e IndexedDB.
+OpenQuizContentEditor.tsx: escritos; WrittenCategoriesEditor.tsx y
+WrittenBatchTools.tsx apoyan organización/lotes.
+LiveAppBuilder.tsx: estructura de menús y tarjetas usando componentes reales.
+SectionsEditor.tsx: subdivisiones, presentación de clases y organización.
+CustomPagesEditor.tsx: páginas personalizadas y layout.
+UniversalUiEditor.tsx: inspección visual, texto/bloques y overrides.
+main.tsx / theme.ts: arranque del Builder y controles/derivación de tema.
+ChangelogEditor.tsx: versión pública, notas y overrides del historial Git.
+ContentWizard.tsx / contentCreation.ts: creación coordinada de contenido/destinos.
+ImportPanel.tsx / ImportGuide.tsx / contentFormats.ts / contentImport.ts:
+  formatos, prompts, previsualización, columnas y validación de importaciones.
+workspaceBridge.ts: navegación entre editores e índices resumidos para el árbol.
+ProjectTools.tsx: revisión, aplicar, exportación y restauración global.
+projectDraft.ts: recoger instantánea consistente de borradores.
+globalHistory.ts / useHistoryState.ts / historyState.ts: journal y estados.
+draftStatus.ts / draftEquality.ts: listo/sucio/bloqueado sin recalcular todo por tecla.
+librarySafety.ts: hashes SHA-256 y protección contra borradores de otra versión.
+previewIsolation.ts / draft-preview-entry.tsx / ResponsivePreview.tsx:
+  prueba real aislada y dimensiones responsive.
+studioServer.ts y vite.config.ts: persistencia local y validadores.
+
+Eventos importantes, no API pública externa:
+  odontoma-flush-drafts: recolectar files y esperar promesas de borradores.
+  odontoma-workspace-index: actualizar índice resumido del árbol.
+  odontoma-workspace-navigate: seleccionar panel/elemento desde otra herramienta.
+  odontoma-workspace-undo: deshacer/rehacer global.
+  odontoma-create-content / odontoma-import-existing / odontoma-create-access:
+    coordinar alta de contenido y accesos.
+  odontoma-sync-bank-title: sincronización opcional de títulos de accesos.
+  odontoma-save-busy / odontoma-request-save-review: estado/revisión de guardado.
+  odontoma-draft-ready / odontoma-draft-project / odontoma-draft-mounted:
+    handshake de preview de borrador mediante postMessage.
+No aceptar postMessage de cualquier origen/ventana. Conservar verificaciones.
+
+Áreas persistidas por /__odontoma-studio/project:
+  library -> src/content/studio/data.json
+  written -> src/content/openQuizzes/data.json
+  home -> src/content/appBuilder/subjects.json
+  decks -> src/content/appBuilder/flashcard-subjects.json
+  pages -> src/content/appBuilder/custom-pages.json
+  overrides -> src/content/appBuilder/ui-overrides.json
+  theme -> src/builder/applied-theme.json y CSS derivado
+  organization -> src/content/appBuilder/organization.json
+  changelog -> src/content/changelog/data.json
+
+Endpoints de desarrollo relevantes:
+  GET/POST /__odontoma-studio/project
+  GET/POST /__odontoma-studio/catalog
+  GET/POST /__odontoma-studio/organization
+  GET      /__odontoma-studio/changelog
+  POST     /__odontoma-studio/checkpoint
+  GET      /__odontoma-studio/history
+  GET      /__odontoma-studio/project-revisions
+  GET      /__odontoma-studio/project-revisions/<nombre-validado>
+  GET      /__odontoma-studio/revisions y /revisions/<nombre-validado>
+  GET      /__odontoma-studio/backup
+  GET/POST /__odontoma-builder/theme, open-quizzes, home-content,
+           flashcard-subjects, custom-pages, ui-overrides
+Los últimos sostienen editores/guardados anteriores. Leer el código antes de
+eliminarlos: el guardado global y estas rutas comparten defensas de snapshots.
+
+Seguridad del servidor local:
+  Plugins apply:"serve"; restricciones a dirección remota loopback y origen local.
+  Endpoints no son funciones de Vercel ni un backend público autenticado.
+  Validación estructural + navegación + revisiones antes de escribir.
+  Guardado global limita tamaño (aprox. 40 millones de caracteres), usa archivos
+  temporales/rename, copia previa y recuperación si hay error. No es una base
+  de datos ACID multiusuario; no extenderlo como si lo fuese sin rediseño.
+  Mantener validación de nombres de snapshots para impedir path traversal.
+  No habilitar CORS abierto ni --host 0.0.0.0 para «arreglar» un 403 del Builder.
+
+Límite de personalización sin código:
+  Se editan los contratos existentes. Si se agrega una función nueva, actualizar
+  modelo, validadores, import/export, borradores, save global, snapshots, preview,
+  navegación, pruebas y documentación. Una pestaña nueva sola no completa el trabajo.
+
+
+24. APARIENCIA, VERSIÓN PÚBLICA Y CHANGELOG
+----------------------------------------
+Separar dos apariencias:
+  Preferencia del alumno en AppearanceSettings: original, light, graphite,
+  midnight o paper y acentos; se almacena en su navegador.
+  Apariencia global del proyecto aplicada desde Builder: theme JSON/CSS y
+  overrides distribuidos con el sitio. No confundirlas ni borrar preferencias.
+Los colores semánticos de correcta/incorrecta deben seguir diferenciándose.
+
+La versión pública vive en src/content/changelog/data.json, campo appVersion.
+A esta fecha es 0.11.0; package.json aún dice 0.10.0 y no es un bug por sí mismo.
+currentAppVersion() usa el campo público válido con fallback al paquete.
+version:1 de JSON es versión del FORMATO, no la versión comercial de Odontoma.
+
+El dueño puede editar la versión en Builder, con propuestas Corrección/Mejora/
+Versión mayor. No se incrementa mágicamente con cada push. No hardcodear el
+número en múltiples componentes ni revertir la capacidad GUI al actualizarlo.
+
+Historial público:
+  data.json: entradas manuales, correcciones/ocultamiento por ID, versión y textos.
+  commits.json: feed generado por scripts/update-changelog.mjs.
+  scripts/changelog-history.mjs: parseo/mezcla y fallback de metadata de deploy.
+  npm run dev y npm run build disparan predev/prebuild para actualizarlo.
+  Lee hasta 50 commits recientes y conserva hasta 100 entradas acumuladas.
+  Publica fecha/mensaje, no autor, correo, archivos o diff. Aun así, el mensaje
+  del commit debe ser adecuado para estudiantes, sin secretos o datos personales.
+
+El build local hecho ANTES del commit no contiene ese commit nuevo en su feed.
+El build remoto tras push puede incorporarlo desde Git/metadata. Si se publica
+un build local preconstruido, reconstruir después del commit para reflejarlo.
+No confundir changelog público con historial privado de backups del Builder.
+
+
+25. PRUEBAS, VERIFICACIÓN Y RENDIMIENTO
+-------------------------------------
+Comandos existentes:
+  npm test          Vitest, ejecución completa.
+  npm run build     tsc -b + vite build, con prebuild de changelog.
+  npm run lint      ESLint.
+  git diff --check  Errores de espacios/conflictos básicos en cambios.
+
+La revisión previa a esta guía tenía 300 pruebas; ese número es una referencia
+fechada, no una constante que deba conservarse al agregar funcionalidades.
+Los tests viven junto al módulo: src/lib, src/hooks, src/builder, src/content,
+src/components, etc. Hay verificaciones de contenido, persistencia, categorías,
+patches, preview aislado, navegación, Undo, rendimiento de escritura e imágenes.
+
+Para un cambio acotado se puede empezar con:
+  npx vitest run src/content/materiales-dentales/materiales.test.tsx
+Luego ejecutar la suite completa antes de entregar un cambio de implementación.
+Una tarea solo documental no exige publicar ni modificar contenido para probarla.
+
+Qué comprobar además de que compile:
+  App: abrir materia nueva, seleccionar capítulo, confirmar e iniciar sesión.
+  MC: contestar, comprobar, avanzar, pausar, continuar, resultados e incorrectas.
+  Escritas: escribir varias palabras/espacios, revelar, diferenciar modelo y
+    explicación, autoevaluar, salir/reanudar, historial e incorrectas del intento.
+  Flashcards: FSRS y libre, selección de subtema, carta/reverso, suspender,
+    varios Undo, salir/volver y reinicio del bloque correcto.
+  Repaso: bancos distintos, 10/20/Todas, filtros y regreso de un nivel.
+  Builder: crear/importar, error de fila, duplicado, Undo/Rehacer, guardar,
+    recargar, eliminar sin reaparición, exportar y preview sin progreso real.
+  Responsive: teléfono 390, tablet 768, escritorio y monitor ancho; teclado y touch.
+  Protección: ningún cambio a preguntas no autorizadas, IDs o progreso externo.
+
+Los tests con renderToStaticMarkup detectan contrato/render, no equivalen a
+un navegador real ni prueban la física del gesto de Safari. Usar dispositivo
+real para swipe, teclado virtual, safe areas y cambios de orientación.
+src/test/localStorageMock.ts ofrece almacenamiento aislado para pruebas.
+Si se abre navegador de prueba en otro puerto, no limpiarle datos al origen real.
+
+Rendimiento y deuda conocida:
+  El bundle principal es grande (en la revisión de noviembre, cerca de 4.9 MB
+  minificado antes de gzip) y Vite advierte chunks >500 kB. Es advertencia, no
+  build fallido, y no se debe prometer carga rápida en toda conexión/dispositivo.
+  El catálogo importa mucho contenido en el arranque; una separación futura
+  exige mantener Builder, parches, snapshots y preview. No hacerlo de pasada.
+  El usuario se quejó de retraso al escribir: se evitó reconstruir/renderizar
+  biblioteca completa, índices y diferencias profundas por cada tecla.
+  No reintroducir debounce que deje Guardar con texto viejo ni serialización
+  masiva por keydown. Ver typingPerformance.test.ts y draftEquality.ts.
+  Guardar usa el borrador actual, no el último timer que alcanzó a persistir.
+  Las imágenes incrustadas pueden aumentar mucho los JSON y cuotas; preferir
+  portadas locales optimizadas y lotes razonables, sin comprometer integridad.
+
+
+26. PUBLICAR Y REVERTIR CON SEGURIDAD
+-----------------------------------
+El Builder no publica automáticamente. Flujo del dueño:
+  Guardar localmente -> probar app -> Terminal -> Git -> Vercel.
+
+Comandos habituales, después de revisar qué se va a incluir:
+
+  cd /Users/stefanomarsicovetere/odontoma
+  npm test
+  npm run build
+  git status
+  git diff --stat
+  git add -A
+  git commit -m "Descripción pública de los cambios"
+  git push origin main
+
+git add -A agrega TODOS los cambios: inspeccionar antes, sobre todo fuentes,
+archivos temporales, imágenes grandes o cambios escritos aún no listos.
+Si no hay nada nuevo, no fabricar un commit vacío para decir que se publicó.
+El acceso a GitHub/Vercel depende de la máquina/cuenta; permisos previos del chat
+no sustituyen autenticación ni autorizan acciones futuras no solicitadas.
+
+Con la integración Git->Vercel configurada, el push normalmente dispara el deploy.
+No afirmar que eso está activo ni que el deploy terminó solo porque git push pasó.
+Confirmar en Vercel la revisión correcta, estado Ready y dominio de producción;
+después abrir y comprobar el contenido nuevo, no solo que responde la portada.
+
+Publicación directa alternativa, solo si se solicita y el proyecto está vinculado:
+  npx vercel --prod
+Leer el resultado. Un enlace de inspección, preview o pantalla Authorize Device
+no es una publicación completada. El usuario debe reconocer/autenticar un intento
+legítimo de su CLI; nunca aceptar autorizaciones desconocidas por reflejo.
+
+Conservar vercel.json y sus cabeceras:
+  Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Embedder-Policy: require-corp
+Son necesarias para el optimizador WASM actual. No eliminarlas para facilitar
+un hotlink de imágenes sin antes revisar el impacto.
+
+Si el dueño pide «deshacer publicación»:
+  1. Identificar exactamente qué deploy/commit/contenido quiere recuperar.
+  2. Diferenciar promoción de un deploy anterior (si está disponible), restauración
+     local de contenido y reversión de código con Git.
+  3. Respaldar trabajo actual no publicado.
+  4. Preferir procedimientos reversibles y commits correctivos/revert según caso.
+  5. No usar git reset --hard ni push --force sin autorización específica y revisión.
+  6. Verificar el sitio público final; explicar qué volvió atrás y qué NO.
+Una reversión remota no borra los localStorage de estudiantes ni los borradores
+locales del dueño; puede haber compatibilidad de datos que conservar.
+
+
+27. DIAGNÓSTICO DE PROBLEMAS HABITUALES
+-------------------------------------
+«No veo mis preguntas nuevas / aparece 0»:
+  - ¿Se aplicó al proyecto o sigue como borrador del navegador?
+  - ¿Se abrió el puerto/copia/repositorio correcto?
+  - ¿El capítulo existe y coincide EXACTAMENTE con question.chapter?
+  - ¿El banco está integrado en catalog.ts, activo y enlazado al destino correcto?
+  - ¿Filtros de dificultad/modo/capítulos dejan el conjunto vacío?
+  - ¿Un patch/banco completo antiguo está sobrescribiendo la base nueva?
+  - ¿El deploy público corresponde al último commit listo?
+
+«Guardar no guarda y la tarjeta vuelve»:
+  - Leer resultado HTTP/aviso del Builder; no inferir éxito por cambiar la preview.
+  - Revisar revisión base, guardado global y registerNewCourseCards.
+  - No reinsertar accesos de bancos existentes durante cada guardado.
+  - No culpar a Vercel si el archivo local aún no contiene el cambio.
+
+«Contenido de inicio inválido / Backup inválido en written»:
+  - Navegación sin enlaces rotos no significa estructura válida.
+  - Revisar tipos y validadores del área; campos mal tipados, colores, IDs,
+    acceptedPoints, strings vacíos, imágenes o destinos no admitidos.
+  - No recortar preguntas para que el validador deje de protestar.
+  - No desactivar la validación para que «pase».
+
+«Tengo miles de eliminaciones en un borrador recuperado»:
+  - Es diferencia potencial, no necesariamente borrado aplicado.
+  - Exportar y revisar antes de habilitar guardado. Ver sección 12.
+
+«Flashcards me manda a Histología»:
+  - Revisar destination, getStudyBank(), bank.subject y el filtro de selección.
+  - No depender de un else final que llama Histología a toda materia desconocida.
+  - Comprobar ambos accesos, banco normal y repaso; preservar IDs.
+
+«Tarjetas no se repiten aunque quiero»:
+  - En FSRS puede ser cooldown correcto. Elegir Solo flashcards.
+  - En modo libre puede estar completada; reiniciar ese bloque si corresponde.
+  - No vaciar todo el FSRS para lograr repetición libre.
+
+«Undo trae una tarjeta aleatoria»:
+  - Restaurar cardId y estado/cursor previos, no solo decrementar un índice sobre
+    un arreglo de elegibles que acaba de cambiar. Ver sección 08.
+
+«Queda cortado / no hace scroll / se mueve lateralmente»:
+  - Revisar altura de contenedores flex, min-h-0/min-w-0, shrink, overflow,
+    scroll independiente, safe areas y cabeceras fijas.
+  - Revisar reglas generales main > div antes de añadir !important sobre todo.
+  - Probar selector de capítulos con muchos bloques, no solo dos tarjetas vacías.
+
+«Se ven UUIDs, topic-... o chapter-...»:
+  - Resolver etiquetas por metadatos con studyLabels.ts.
+  - No renombrar IDs de progreso para arreglar un texto visible.
+
+«La respuesta correcta se adivina por larga/corta»:
+  - Revisión editorial de TODO el banco o alcance pedido, no un parche del ejemplo.
+  - No arreglarlo con mezcla de opciones: la pista de longitud seguiría ahí.
+
+«La imagen se ve local pero no en Vercel»:
+  - Revisar si es una ruta de disco, /src/ literal, asset no versionado, URL remota
+    bloqueada por COEP, ruta no permitida o archivo no copiado al build.
+
+«No aparece el Builder en Vercel»:
+  - Es correcto. Es privado y de desarrollo. No habilitarlo públicamente.
+
+
+28. INVENTARIO ORIENTATIVO A 2026-11-06
+-------------------------------------
+Conteos resueltos leídos del catálogo local al preparar la guía. NO son objetivos
+de autoría ni garantías de que todo elemento sea visible bajo cualquier filtro.
+
+Banco normal                  Capítulos    MC       Flashcards
+Histología                         24      1448      10439
+Bioquímica                         12       193        178
+Microbiología                       4       266          0
+Semiología                          4       127        240
+Materiales dentales                 7       120        192
+Filosofía de Hayek                   4       446        332
+Proceso Económico I                 2        60        195
+Proceso Económico II                3        80        416
+
+Repasos exclusivos:
+  Incorporación del 7/11/2026: Parcial 1 · Cito II, 108 preguntas (90 MC y 18 V/F)
+  y 150 flashcards de cardiovascular, linfático y hemostasia.
+  Parcial 2 · Cito II: 115 MC, 120 flashcards.
+  Parcial 3 · Cito II: 74 MC, 80 flashcards.
+  Incorporación del 7/11/2026: Parcial 4 · Cito II, 96 preguntas (78 MC y 18 V/F)
+  y 120 flashcards, repartidas en endocrino, masculino y femenino.
+  Total de los cuatro parciales: 393 preguntas y 470 flashcards. El examen final
+  deriva esas 393 preguntas sin agregarlas otra vez al inventario editable.
+El catálogo también conserva una Nueva materia vacía y un banco Farmacología
+con una pregunta de prueba. No borrarlos por considerarlos sobrantes sin consultar.
+Que existan en catálogo no implica que el dueño quiera su acceso público.
+
+Escritos oficiales: clases Bioquímica, Citohistología, Semiología y Materiales
+dentales; la clase de Citohistología puede estar vacía. Leer data.json para los
+cuestionarios/orden actuales. Los Materiales escritos ya tienen modificaciones
+posteriores al snapshot de 97 preguntas usado para derivar el banco nuevo.
+
+Materiales normal, distribución del banco nuevo:
+  Glosario P1: 14 cartas / 10 MC.
+  Amalgamas: 22 / 14.
+  Historia y clasificación cavitaria: 28 / 18.
+  Glosario P2: 21 / 14.
+  Composites: 39 / 22.
+  Adhesivos: 32 / 20.
+  Ionómeros de vidrio: 36 / 22.
+Fuente de esas cuentas: sus módulos, no el contenido vivo del escrito del dueño.
+No actualizar snapshot y pruebas para fingir cobertura de cambios posteriores.
+
+Histología usa capítulos 1–23 y material de hemostasia/trombosis dentro de sus
+capítulos resueltos; revisar chapters.ts para la lista exacta. Hay tarjetas
+legacy y reconstruidas con diferentes formas de autoría. Aplicar los criterios
+de calidad de esta guía a nuevas entregas; no presumir que el banco antiguo
+entero está auditado por el simple hecho de existir.
+
+
+29. RECETAS PARA CONTINUAR CON SEGURIDAD
+---------------------------------------
+Antes de programar:
+  leer solicitud actual -> identificar copia activa -> git status/diff -> backup
+  si aplica -> localizar código vivo y tests -> plan de alcance corto y concreto.
+
+Antes de entregar contenido:
+  confirmar fuente/recorte -> comparar estilo 15/16 -> mapa de cobertura ->
+  autoría individual -> detectar ambigüedad/duplicados/pistas -> integrar ->
+  verificar en catálogo y Builder -> probar sesión real -> reportar resultado.
+
+Antes de cambiar esquema:
+  tipos -> validación -> import/export -> catálogo/patches -> borradores ->
+  guardado del servidor -> backup/restauración -> preview -> app -> pruebas.
+  Preservar lectores legacy y no dar por migrado el almacenamiento de alumnos.
+
+Antes de cambiar navegación:
+  dibujar la ruta de entrada y su nivel padre; mantener contexto; actualizar
+  App/goBack, customPageOrigin/history, Builder destinations y validadores;
+  probar botones y swipe desde todas las rutas nuevas, no solo el camino feliz.
+
+Antes de publicar:
+  revisar cambios exactos -> guardar Builder -> comprobar versión/changelog ->
+  tests/build/lint -> revisar Git -> autorización actual -> commit/push/deploy ->
+  confirmar Ready/revisión/dominio -> verificar contenido público -> informar URL.
+
+Antes de restaurar:
+  identificar el estado deseado -> conservar trabajo actual -> explicar alcance
+  y diferencias -> elegir respaldo correcto -> recuperar localmente -> verificar ->
+  solo publicar de nuevo si se pidió. No equiparar un snapshot editable con Git.
+
+Cómo informar al dueño:
+  - Primero resultado real: qué cambió y dónde lo encuentra.
+  - Decir si quedó local, guardado, en GitHub o publicado en Vercel.
+  - Mencionar límites/pendientes importantes sin esconderlos entre elogios.
+  - No decir «100% libre de bugs»: indicar pruebas y revisiones realizadas.
+  - Evitar una actualización por cada diez preguntas; dar avances significativos
+    y una entrega completa según el alcance autorizado.
+
+
+30. QUÉ CONSERVAR Y QUÉ NO PROMETER
+---------------------------------
+Conservar junto con esta guía:
+  repositorio completo actualizado; backup editable y copia completa cuando
+  corresponda; exportaciones de borradores valiosos; fuentes autorizadas para
+  tareas nuevas; imágenes y atribuciones; credenciales por canales seguros aparte.
+  src/builder/README.md sigue siendo una ayuda funcional, aunque sus secciones
+  antiguas pueden usar etiquetas de menús anteriores. El código actual manda.
+
+No prometer:
+  - memoria de chat entre cuentas solo por iniciar sesión;
+  - que un backup de app guarda también código o IndexedDB del Builder;
+  - sincronización de progreso entre dispositivos sin implementarla;
+  - actualización automática de MC/tarjetas desde escritos editados;
+  - corrección por IA de los escritos;
+  - que cada punto del libro está cubierto sin cotejar un mapa de cobertura;
+  - que todas las cifras docentes coinciden con práctica clínica actual;
+  - que las pruebas automáticas verifican por sí solas buen diseño o exactitud médica;
+  - que guardar/publicar implica el otro;
+  - que el Builder implementa cualquier nuevo tipo de función sin código.
+
+Esta guía es documentación, no una orden para ejecutar todos sus comandos.
+La petición actual del dueño define qué cambios, restauraciones o publicaciones
+están autorizados. Las operaciones peligrosas requieren revisar sus blancos.
+
+
+31. PROMPT DE CONTINUIDAD LISTO PARA COPIAR
+------------------------------------------
+«Este repositorio es Odontoma. Primero leé GUIA_MAESTRA_ODONTOMA.txt y el código
+actual del área afectada; no asumas memoria de otra cuenta. Confirmá la carpeta
+activa y el git status. Conservá mis preguntas, respuestas modelo, explicaciones,
+cifras docentes, IDs y cambios sin commit. No alterés contenido académico dudoso
+sin consultarme; los puntos pendientes de Materiales no se incluyen en bancos
+nuevos. Para flashcards seguí el estilo de los capítulos 15 y 16: preguntas
+naturales, específicas, atómicas, con cobertura profunda y respuestas breves.
+Para MC redactá todos los distractores individualmente, plausibles y equilibrados,
+sin pistas de longitud ni respuestas tomadas al azar de flashcards. Mantené
+compatibilidad entre app, Builder, backups, móvil, navegación y swipe. Guardar no
+es publicar. Hacé y verificá el trabajo antes de afirmar que está terminado.
+Mi solicitud concreta de hoy es: [DESCRIBIR AQUÍ].»
+
+FIN DE LA GUÍA — mantener este archivo actualizado al cambiar contratos o flujos.

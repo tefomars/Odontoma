@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { reviewClassPresentation } from "@/content/appBuilder/organization"
-import { prePartialBanks } from "@/content/prePartial/banks"
+import { getCumulativePrePartialBank, prePartialBanks } from "@/content/prePartial/banks"
 
 import FlashcardStudyModeSwitch from "./flashcards/FlashcardStudyModeSwitch"
 
@@ -31,6 +31,9 @@ export default function PrePartialReviewScreen({ onBack, onMainMenu, onStartMult
   )
   const [reviewType, setReviewType] = useState<ReviewType | null>(initialReviewType)
   const [selectedPreference, setSelectedPreference] = useState<ReviewPreference>("Mezcla")
+  const finalBank = selectedClass && reviewType === "Opción múltiple"
+    ? getCumulativePrePartialBank(selectedClass.subject)
+    : undefined
 
   function closeDialog() {
     setSelectedClass(null)
@@ -149,7 +152,33 @@ export default function PrePartialReviewScreen({ onBack, onMainMenu, onStartMult
                   </p>
                 </article>
               ))}
-            </div></>
+            </div>
+            {finalBank && (
+              <article className="mt-6 rounded-3xl border border-amber-400/40 bg-amber-500/5 p-5 sm:p-6">
+                <p className="text-xs font-black uppercase tracking-[0.2em] text-amber-300">Repaso acumulativo</p>
+                <h2 className="mt-3 break-words text-2xl font-black">{finalBank.title}</h2>
+                <p className="mt-2 text-sm leading-relaxed text-zinc-300">
+                  Mezcla de los {finalBank.chapters.length} parciales disponibles · {finalBank.questions.length} preguntas de opción múltiple y V/F.
+                </p>
+                <p className="mt-2 text-xs leading-relaxed text-zinc-400">
+                  Incluye: {finalBank.chapters.map(chapter => chapter.title).join(" · ")}. Se reparten preguntas entre los parciales con contenido disponible, sin repetirlas dentro del intento.
+                </p>
+                {pausedPartial === finalBank.id && (
+                  <button type="button" onClick={onContinuePartial} className="mt-4 w-full rounded-xl border border-emerald-400/50 bg-emerald-500/10 px-3 py-3 text-sm font-black text-emerald-200 hover:bg-emerald-500/20">Continuar examen final guardado</button>
+                )}
+                <div className="mt-5 flex flex-wrap justify-center gap-2">
+                  {(["Nuevas", "Incorrectas", "Mezcla"] as ReviewPreference[]).map(preference => (
+                    <button key={preference} type="button" onClick={() => setSelectedPreference(preference)} aria-pressed={selectedPreference === preference} className={`rounded-full border px-3 py-2 text-xs font-black ${selectedPreference === preference ? "border-amber-300 bg-amber-500/15 text-amber-200" : "border-zinc-700 text-zinc-400"}`}>{preference}</button>
+                  ))}
+                </div>
+                <div className="mx-auto mt-5 grid max-w-md grid-cols-3 gap-2">
+                  {reviewAmounts.map(amount => <button key={amount} type="button" onClick={() => startReview(finalBank.id, amount)} className="rounded-xl border border-amber-400/50 bg-amber-500/10 px-2 py-3 text-sm font-black text-amber-200 hover:bg-amber-500/20">Repasar {amount}</button>)}
+                  <button type="button" onClick={() => startReview(finalBank.id, finalBank.questions.length)} className="rounded-xl border border-amber-400/50 bg-amber-500/10 px-2 py-3 text-sm font-black text-amber-200 hover:bg-amber-500/20">Todas</button>
+                </div>
+                <button type="button" onClick={() => onResetPartial(finalBank.id)} className="mt-5 w-full rounded-xl border border-rose-400/40 bg-rose-500/10 px-3 py-3 text-sm font-black text-rose-200 hover:bg-rose-500/20">↺ Reiniciar solo el examen final</button>
+                <p className="mt-2 text-center text-xs leading-relaxed text-zinc-500">Avance independiente: responder o reiniciar aquí no cambia el progreso de los parciales originales.</p>
+              </article>
+            )}</>
           )}
         </section>
       </div>

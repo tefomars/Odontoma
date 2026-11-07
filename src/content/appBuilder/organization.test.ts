@@ -27,4 +27,14 @@ describe("subdivisiones editables", () => {
     expect(validateOrganization(edited)).toBe(true)
     expect(validateOrganization({ ...edited, reviewClasses: { Histología: { title: "" } } })).toBe(false)
   })
+  it("permite configurar el final desde Builder manteniendo compatibilidad con proyectos previos", () => {
+    expect(reviewClassPresentation("Histología", config).finalExamEnabled).toBe(true)
+    expect(reviewClassPresentation("Histología", config).finalExamTitle).toBe("Examen final")
+    const edited: Organization = { ...config, reviewClasses: { Histología: { title: "Cito", finalExamEnabled: false, finalExamTitle: "Simulacro anual" } } }
+    expect(validateOrganization(edited)).toBe(true)
+    expect(reviewClassPresentation("Histología", edited).finalExamEnabled).toBe(false)
+    expect(reviewClassPresentation("Histología", edited).finalExamTitle).toBe("Simulacro anual")
+    expect(validateOrganization({ ...edited, reviewClasses: { Histología: { title: "Cito", finalExamEnabled: "false" } } })).toBe(false)
+    expect(validateOrganization({ ...edited, reviewClasses: { Histología: { title: "Cito", finalExamTitle: " " } } })).toBe(false)
+  })
 })

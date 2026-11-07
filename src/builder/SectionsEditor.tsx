@@ -35,7 +35,25 @@ export default function SectionsEditor({ active, target }: { active: boolean; ta
     const subject = target.subject
     const presentation = reviewClassPresentation(subject, history.state)
     const updateReview = (changes: Partial<ReviewClassStyle>) => history.setState(org => ({ ...org, reviewClasses: { ...org.reviewClasses, [subject]: { ...reviewClassPresentation(subject, org), ...changes } } }))
-    return <section className="studio-sections-editor"><header><small>REPASO PRE-PARCIAL</small><h2>Editar clase</h2><p>Cambia el nombre de la tarjeta y del árbol, no los bancos, preguntas ni el progreso. Es independiente de la materia de los quizzes y flashcards normales.</p></header><label>Clase<select value={subject} onChange={e => workspaceNavigate({ panel: "sections", id: "review-class", subject: e.target.value })}>{reviewSubjects.map(s => <option key={s} value={s}>{reviewClassPresentation(s, history.state).title}</option>)}</select></label><article><label>Nombre visible<input aria-label="Nombre visible de la clase de repaso" value={presentation.title} onChange={e => updateReview({ title: e.target.value })}/></label><label>Descripción<textarea value={presentation.description} onChange={e => updateReview({ description: e.target.value })}/></label><label>Símbolo<input value={presentation.symbol} maxLength={20} onChange={e => updateReview({ symbol: e.target.value })}/></label><label>Color<input type="color" value={presentation.color} onChange={e => updateReview({ color: e.target.value })}/></label></article>{!validateOrganization(history.state) && <p role="alert">El nombre visible no puede quedar vacío.</p>}<p>Usá Guardar en Odontoma para aplicar. Deshacer recupera el nombre anterior.</p><button onClick={() => workspaceNavigate({ panel: "preview", destination: "pre-partial" })}>Ver Repaso pre-parcial guardado</button></section>
+    return <section className="studio-sections-editor">
+      <header><small>REPASO PRE-PARCIAL</small><h2>Editar clase</h2><p>Cambia el nombre de la tarjeta y del árbol, no los bancos, preguntas ni el progreso. Es independiente de la materia de los quizzes y flashcards normales.</p></header>
+      <label>Clase<select value={subject} onChange={e => workspaceNavigate({ panel: "sections", id: "review-class", subject: e.target.value })}>{reviewSubjects.map(s => <option key={s} value={s}>{reviewClassPresentation(s, history.state).title}</option>)}</select></label>
+      <article>
+        <label>Nombre visible<input aria-label="Nombre visible de la clase de repaso" value={presentation.title} onChange={e => updateReview({ title: e.target.value })}/></label>
+        <label>Descripción<textarea value={presentation.description} onChange={e => updateReview({ description: e.target.value })}/></label>
+        <label>Símbolo<input value={presentation.symbol} maxLength={20} onChange={e => updateReview({ symbol: e.target.value })}/></label>
+        <label>Color<input type="color" value={presentation.color} onChange={e => updateReview({ color: e.target.value })}/></label>
+      </article>
+      <article>
+        <h3>Examen final acumulativo</h3>
+        <label><input type="checkbox" checked={presentation.finalExamEnabled} onChange={e => updateReview({ finalExamEnabled: e.target.checked })}/> Mostrar examen final de esta clase</label>
+        <label>Nombre del examen final<input aria-label="Nombre del examen final acumulativo" value={presentation.finalExamTitle} maxLength={180} onChange={e => updateReview({ finalExamTitle: e.target.value })}/></label>
+        <p>Aparece al final de Opción múltiple cuando hay al menos dos parciales con preguntas. Combina sus bancos actuales automáticamente; editá las preguntas en sus parciales originales. No genera contenido ni duplica bancos guardados. El progreso del final es independiente.</p>
+      </article>
+      {!validateOrganization(history.state) && <p role="alert">Revisá los nombres y colores antes de guardar.</p>}
+      <p>Usá Guardar en Odontoma para aplicar. Deshacer recupera la edición anterior.</p>
+      <button onClick={() => workspaceNavigate({ panel: "preview", destination: "pre-partial" })}>Ver Repaso pre-parcial guardado</button>
+    </section>
   }
   return <section className="studio-sections-editor"><header><small>ORGANIZACIÓN</small><h2>Subdivisiones de materias</h2><p>Creá grupos como «Materias principales», «Clases secundarias» o «Electivas». En cada tarjeta de materia podés elegir a cuál pertenece.</p></header>
     <div className="studio-segmented"><button className={scope === "quizzes" ? "active" : ""} onClick={() => setScope("quizzes")}>Opción múltiple</button><button className={scope === "flashcards" ? "active" : ""} onClick={() => setScope("flashcards")}>Flashcards</button></div>

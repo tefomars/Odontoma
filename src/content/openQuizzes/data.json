@@ -3339,9 +3339,9 @@
         {
           "id": "open-question-1793833313113-04736aaa-45ff-480f-9192-225b4f3e9c17",
           "prompt": "Pregunta larga pero... Cuáles son los pasos para aplicar un adhesivo universal y luego su resina universal, idealmente? (9 pasos, aproximadamente)",
-          "modelAnswer": "1. Preparar la cavidad, limpiar y aislar\n2. Grabado parcial con ácido ortofosfórico, 37%, 15-30 segundos sobre esmalte\n3. Enjuagar 15-30 segundos\n4. Aplicar adhesivo universal y frotar 20 segundos\n5. Aire 5-15 segundos para evaporar solventes\n6. Fotopolimerizar 10-20 segundos\n7. Colocar resina universal oblicuamente en incrementos de 2mm– fotopolimerizar cada incremento 20 segundos\n8. Capa de glicerina para eliminar la capa inhibida por oxígeno y fotocurar 20 segundos.\n9. Acabado y pulido",
+          "modelAnswer": "1. Preparar la cavidad, limpiar y aislar\n2. Grabado parcial con ácido ortofosfórico, 37%, 15-30 segundos sobre esmalte\n3. Enjuagar 15-30 segundos, luego aire para secar \n4. Aplicar adhesivo universal y frotar 20 segundos\n5. Aire 5-15 segundos para evaporar solventes\n6. Fotopolimerizar 10-20 segundos\n7. Colocar resina universal oblicuamente en incrementos de 2mm– fotopolimerizar cada incremento 20 segundos\n8. Capa de glicerina para eliminar la capa inhibida por oxígeno y fotocurar 20 segundos. Lavar glicerina.\n9. Acabado y pulido",
           "acceptedPoints": [],
-          "explanation": "",
+          "explanation": "En paso 3, después de enjuagar... preveer no echar demasiado aire para no deshidratar dentina y colapsar las redes colágenas. Esto aumentará sensibilidad postoperatoria.",
           "source": ""
         },
         {
@@ -3566,7 +3566,7 @@
         },
         {
           "id": "open-question-1793664841407-d4298aa0-0365-4126-909f-2ac529b27316",
-          "prompt": "Qué importancia tiene que el ionómero de vidrio sea capaz de liberar fluor?",
+          "prompt": "Qué importancia tiene que el ionómero de vidrio sea capaz de liberar fluoruro?",
           "modelAnswer": "Las propiedades bacteriostáticas y anticariogéncias del fluor\nReemplazo de OH- de hidroxiapatita por F- --> Fluoropatita",
           "acceptedPoints": [],
           "explanation": "",
