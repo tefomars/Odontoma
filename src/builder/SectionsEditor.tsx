@@ -4,6 +4,7 @@ import { organization, validateOrganization, reviewClassPresentation, type Organ
 import { useHistoryState } from "./useHistoryState"
 import { useDraftStatus } from "./draftStatus"
 import { publishIndex, useWorkspaceBanks, useWorkspaceHistory, workspaceNavigate, type WorkspaceTarget } from "./workspaceBridge"
+import { inheritFinalExamSelection } from "@/content/appBuilder/organizationSchema"
 
 export default function SectionsEditor({ active, target }: { active: boolean; target?: WorkspaceTarget }) {
   const banks = useWorkspaceBanks()
@@ -18,7 +19,7 @@ export default function SectionsEditor({ active, target }: { active: boolean; ta
   useEffect(() => {
     fetch("/__odontoma-studio/organization").then(r => { if (!r.ok) throw new Error("No se pudo cargar la organización"); return r.json() }).then(value => {
       const raw = localStorage.getItem("odontoma-organization-draft-v1")
-      setApplied(value); history.reset(raw ? JSON.parse(raw) : value); setLoaded(true)
+      setApplied(value); history.reset(raw ? inheritFinalExamSelection(JSON.parse(raw), value) : value); setLoaded(true)
     }).catch(e => setStatus(String(e)))
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
   useEffect(() => {
@@ -45,10 +46,15 @@ export default function SectionsEditor({ active, target }: { active: boolean; ta
         <label>Color<input type="color" value={presentation.color} onChange={e => updateReview({ color: e.target.value })}/></label>
       </article>
       <article>
-        <h3>Examen final acumulativo</h3>
+        <h3>Examen final del semestre</h3>
         <label><input type="checkbox" checked={presentation.finalExamEnabled} onChange={e => updateReview({ finalExamEnabled: e.target.checked })}/> Mostrar examen final de esta clase</label>
         <label>Nombre del examen final<input aria-label="Nombre del examen final acumulativo" value={presentation.finalExamTitle} maxLength={180} onChange={e => updateReview({ finalExamTitle: e.target.value })}/></label>
-        <p>Aparece al final de Opción múltiple cuando hay al menos dos parciales con preguntas. Combina sus bancos actuales automáticamente; editá las preguntas en sus parciales originales. No genera contenido ni duplica bancos guardados. El progreso del final es independiente.</p>
+        <label>Semestre o curso del final<input aria-label="Semestre o curso del examen final" placeholder="Por ejemplo: Cito II, Bioquímica I" value={presentation.finalExamScope} maxLength={180} onChange={e => updateReview({ finalExamScope: e.target.value })}/></label>
+        <fieldset><legend>Parciales incluidos en este semestre</legend>
+          {banks.filter(b => b.kind === "prepartial" && !b.archived && b.subject === subject).map(bank => <label key={bank.id}><input type="checkbox" checked={presentation.finalExamBankIds.includes(bank.id)} onChange={e => updateReview({ finalExamBankIds: e.target.checked ? [...presentation.finalExamBankIds, bank.id] : presentation.finalExamBankIds.filter(id => id !== bank.id) })}/>{bank.title} · {bank.questions} preguntas{bank.enabled === false ? " · Oculto" : ""}</label>)}
+        </fieldset>
+        {presentation.finalExamBankIds.filter(id => banks.some(b => b.id === id && !b.archived && b.enabled !== false && b.questions > 0)).length < 2 && <p>Elegí al menos dos parciales habilitados con preguntas para mostrar este final.</p>}
+        <p>Combina solo los parciales marcados de ese semestre. Cito I y Cito II no deben seleccionarse juntos. Crear otro banco no lo agrega al final: hay que marcarlo aquí. Los cambios de preguntas en los bancos elegidos sí se reflejan automáticamente. No se duplica contenido y el progreso del final es independiente.</p>
       </article>
       {!validateOrganization(history.state) && <p role="alert">Revisá los nombres y colores antes de guardar.</p>}
       <p>Usá Guardar en Odontoma para aplicar. Deshacer recupera la edición anterior.</p>

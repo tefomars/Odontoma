@@ -14,11 +14,13 @@ export function createCumulativePrePartial(
   banks: readonly StudyBank[],
   subject: string,
   title = "Examen final",
-  classTitle = subject
+  classTitle = subject,
+  sourceBankIds?: readonly string[]
 ): StudyBank | undefined {
   const sources = banks.filter(bank =>
     bank.kind === "prepartial" && !isCumulativePrePartial(bank.id) &&
-    bank.subject === subject && bank.enabled !== false && !bank.archived && bank.questions.length > 0
+    bank.subject === subject && bank.enabled !== false && !bank.archived && bank.questions.length > 0 &&
+    (sourceBankIds === undefined || sourceBankIds.includes(bank.id))
   )
   if (sources.length < 2) return undefined
 

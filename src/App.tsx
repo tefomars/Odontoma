@@ -23,6 +23,7 @@ import OpenQuizDecksScreen from "./components/OpenQuizDecksScreen"
 import OpenQuizSessionScreen from "./components/OpenQuizSessionScreen"
 import QuizHistoryScreen from "./components/QuizHistoryScreen"
 import QuizReviewScreen from "./components/QuizReviewScreen"
+import MixedExamsScreen from "./components/MixedExamsScreen"
 import CustomPageScreen from "./components/CustomPageScreen"
 import BackupScreen from "./components/BackupScreen"
 import ChangelogScreen from "./components/ChangelogScreen"
@@ -89,10 +90,10 @@ import {
 
 import {
   loadStats,
-  saveStats,
+  recordQuestionAnswer,
   resetQuestionBankStats,
-  type AnswerStats
 } from "@/lib/stats"
+import { subscribeStudyProgress } from "@/lib/studyProgressEvents"
 
 import {
   getPracticeQuestionIds
@@ -280,7 +281,8 @@ export default function App() {
     useState<string | null>(null)
 
   const [selectedQuizMode, setSelectedQuizMode] =
-    useState<"multiple-choice" | "open-ended" | "my-quizzes" | "history" | null>(null)
+    useState<"multiple-choice" | "open-ended" | "my-quizzes" | "history" | "mixed" | null>(null)
+  const [mixedRetry, setMixedRetry] = useState<QuizAttempt | null>(null)
 
   const [historySubject, setHistorySubject] =
     useState<string | null>(null)
@@ -344,6 +346,8 @@ export default function App() {
 
   const [stats, setStats] =
     useState(() => loadStats())
+
+  useEffect(() => subscribeStudyProgress(["odontoma_stats"], () => setStats(loadStats())), [])
 
   const [selectedChapters, setSelectedChapters] =
     useState<string[]>([])
@@ -786,60 +790,10 @@ export default function App() {
   }
 
   function updateStats(question: any, correct: boolean) {
-
-    function recordAnswer(currentStats?: AnswerStats): AnswerStats {
-      return {
-        correct:
-          (currentStats?.correct || 0) + (correct ? 1 : 0),
-        incorrect:
-          (currentStats?.incorrect || 0) + (correct ? 0 : 1),
-        recent: [
-          ...(currentStats?.recent || []),
-          correct
-        ].slice(-5),
-        lastAnsweredAt: Date.now(),
-        lastCorrect: correct,
-        correctStreak: correct
-          ? (currentStats?.correctStreak || 0) + 1
-          : 0
-      }
-    }
-
-    const nextStats = {
-      ...stats,
-      totalAnswered:
-        (stats.totalAnswered || 0) + 1,
-      totalCorrect:
-        (stats.totalCorrect || 0) + (correct ? 1 : 0),
-      tags: {
-        ...(stats.tags || {})
-      },
-      questions: {
-        ...(stats.questions || {})
-      }
-    }
-
-    for (const tag of question.tags || []) {
-
-      const currentTag =
-        nextStats.tags[tag] || {
-          correct: 0,
-          incorrect: 0
-        }
-
-      nextStats.tags[tag] = recordAnswer(currentTag)
-    }
-
-    const currentQuestion =
-      nextStats.questions[question.id] || {
-        correct: 0,
-        incorrect: 0
-      }
-
-    nextStats.questions[question.id] = recordAnswer(currentQuestion)
-
+    const nextStats = recordQuestionAnswer(question, correct)
+    if (!nextStats) return false
     setStats(nextStats)
-    saveStats(nextStats)
+    return true
   }
 
   function startProgressPractice(
@@ -891,9 +845,9 @@ export default function App() {
     const question =
       sessionQuestions[current]
 
+    if (!updateStats(question, true)) return false
     setScore(prev => prev + 1)
-
-    updateStats(question, true)
+    return true
   }
 
   function handleIncorrect() {
@@ -901,7 +855,7 @@ export default function App() {
     const question =
       sessionQuestions[current]
 
-    updateStats(question, false)
+    return updateStats(question, false)
   }
 
   function handleAnswered(response: QuizResponseRecord) {
@@ -948,7 +902,7 @@ export default function App() {
   function getIncorrectResponses(attempt: QuizAttempt) {
     return attempt.responses.filter(response =>
       response.grade === "incorrect" ||
-      (attempt.mode !== "open-ended" && !response.isCorrect)
+      (attempt.mode !== "open-ended" && attempt.mode !== "mixed" && !response.isCorrect)
     )
   }
 
@@ -956,6 +910,15 @@ export default function App() {
     const incorrectResponses = getIncorrectResponses(attempt)
 
     if (incorrectResponses.length === 0) return
+
+    if (attempt.mode === "mixed") {
+      setMixedRetry(attempt)
+      setReviewingAttempt(null)
+      setSelectedStudyMethod("quizzes")
+      setSelectedQuizMode("mixed")
+      setSelectedSubject(null)
+      return
+    }
 
     if (attempt.mode === "open-ended") {
       setRetryingOpenAttempt(attempt)
@@ -1015,6 +978,8 @@ export default function App() {
     setSelectedSubject(null)
     setSelectedQuizMode(null)
 
+    setMixedRetry(null)
+
     setSelectedFlashcardSubject(null)
     setSelectedFlashcardTopic(null)
     setSelectedFlashcardSubtopic(null)
@@ -1046,8 +1011,10 @@ export default function App() {
     const bank = getPrePartialBank(partial)
     if (!bank) return
 
+    const savedStats = loadStats()
+    setStats(savedStats)
     const selected = shuffleQuestionsBalanced(
-      selectPrePartialQuestions(bank, amount, preference, stats.questions)
+      selectPrePartialQuestions(bank, amount, preference, savedStats.questions)
     )
 
     if (selected.length === 0) {
@@ -1146,6 +1113,11 @@ export default function App() {
         : destination === "pre-partial" ? showPrePartialReview && !prePartialReviewType
         : false
       if (atEntry) { setSelectedCustomPageId(entry.page); builderReturn.current = null; setSelectedStudyMethod(null); setSelectedSubject(null); setSelectedQuizMode(null); setSelectedFlashcardSubject(null); setShowBackup(false); setShowChangelog(false); setShowPrePartialReview(false); return }
+    }
+
+    if (selectedQuizMode === "mixed" && !reviewingAttempt) {
+      window.dispatchEvent(new Event("odontoma-mixed-back"))
+      return
     }
 
     // Pre-partial flashcards are a nested route, even though they reuse the
@@ -1383,6 +1355,16 @@ export default function App() {
       setActiveOpenQuizDeckId(null)
       setSelectedOpenQuizClass(null)
       setSelectedOpenQuizPartial(null)
+      return
+    }
+    if (destination === "mixed-exams") {
+      setShowPrePartialReview(false)
+      setShowBackup(false)
+      setShowChangelog(false)
+      setSelectedStudyMethod("quizzes")
+      setSelectedQuizMode("mixed")
+      setSelectedSubject(null)
+      setMixedRetry(null)
       return
     }
     if (destination === "my-quizzes") {
@@ -1727,6 +1709,14 @@ export default function App() {
       </ScreenTransition>
 
     )
+  }
+
+  if (selectedQuizMode === "mixed") {
+    return <ScreenTransition screenKey={`mixed-exams-${mixedRetry?.id || "catalog"}`}><MixedExamsScreen initialRetry={mixedRetry} onBack={() => {
+      const entry = builderReturn.current
+      if (entry?.destination === "mixed-exams") { setSelectedCustomPageId(entry.page); builderReturn.current = null; setSelectedStudyMethod(null) }
+      setSelectedQuizMode(mixedRetry ? "history" : null); setMixedRetry(null)
+    }} onMainMenu={goToMainMenu}/></ScreenTransition>
   }
 
   if (!selectedQuizMode && !selectedSubject) {

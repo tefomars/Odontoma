@@ -2,7 +2,7 @@ import { writeBrowserStorage } from "../lib/storageSafety"
 import { useEffect, useRef, useState, type ReactNode } from "react"
 import { collectProjectDraft } from "./projectDraft"
 import type { ProjectSnapshot } from "./projectHistory"
-import { validateStudio } from "@/content/studio/schema"
+import { validatePreviewContent } from "./previewValidation"
 import { useDraftStatus, useDraftReports } from "./draftStatus"
 import { useWorkspaceHistory, workspaceNavigate, type WorkspaceTarget } from "./workspaceBridge"
 import { useHistoryState } from "./useHistoryState"
@@ -159,9 +159,11 @@ export default function UniversalUiEditor({ active = true, target }: { active?: 
   const [draftProject, setDraftProject] = useState<ProjectSnapshot | null>(null)
   const [frameVersion, setFrameVersion] = useState(0)
   const [preparingPreview, setPreparingPreview] = useState(false)
+  const [previewError, setPreviewError] = useState("")
   async function previewDraft() {
     setPreparingPreview(true)
-    try { const p = await collectProjectDraft(); const errors = validateStudio(p.files.library); if (errors.length) throw new Error(errors.slice(0, 4).join("\n")); setDraftProject(p); setFrameVersion(v => v + 1); setSelection(null); setMode("navigate"); setStatus("Borrador cargado: prueba aislada, sin guardar ni modificar progreso real.") } catch (e) { setStatus(String(e)) } finally { setPreparingPreview(false) }
+    setPreviewError("")
+    try { const p = await collectProjectDraft(); const errors = validatePreviewContent(p); if (errors.length) throw new Error(errors.slice(0, 6).join("\n")); setDraftProject(p); setFrameVersion(v => v + 1); setSelection(null); setMode("navigate"); setStatus("Borrador cargado: prueba aislada, sin guardar ni modificar progreso real.") } catch (e) { const message = e instanceof Error ? e.message : String(e); setPreviewError(message); setStatus(message) } finally { setPreparingPreview(false) }
   }
   const selectedNodeRef = useRef<HTMLElement | null>(null)
   const [mode, setMode] = useState<SelectionMode>("navigate")
@@ -449,6 +451,7 @@ export default function UniversalUiEditor({ active = true, target }: { active?: 
   return (
     <section className="universal-editor">
       <div className="universal-stage">
+        {previewError && <p role="alert" className="studio-preview-error">No se pudo abrir el borrador. Revisá estos campos antes de probar: {previewError}</p>}
         <div className="universal-toolbar">
           <div>
             <p className="eyebrow">EDITOR UNIVERSAL</p>

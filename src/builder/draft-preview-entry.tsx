@@ -27,6 +27,7 @@ async function start(project: ProjectSnapshot) {
   for (const key of Object.keys(org.organization)) delete org.organization[key]
   Object.assign(org.organization, files.organization)
   if (files.changelog) Object.assign((await import("../content/changelog")).changelogData, files.changelog)
+  if (files.mixed) Object.assign((await import("../content/mixedExams")).mixedContent, files.mixed)
   overrides.uiOverrides.splice(0, overrides.uiOverrides.length, ...files.overrides)
   const style = document.createElement("style"); style.textContent = theme.renderBuilderCss(files.theme); document.head.append(style)
   document.documentElement.classList.add("dark"); document.documentElement.dataset.odontomaApp = "true"

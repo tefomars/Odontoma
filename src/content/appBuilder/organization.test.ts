@@ -1,7 +1,28 @@
 import { describe, expect, it } from "vitest"
 import { subjectSections, validateOrganization, reviewClassPresentation, type Organization } from "./organization"
+import { inheritFinalExamSelection } from "./organizationSchema"
+import { draftValuesEqual } from "@/builder/draftEquality"
 const config: Organization = { version: 1, quizzes: [{ id: "primary", title: "Principales", description: "", color: "#123456" }, { id: "electivas", title: "Electivas", description: "", color: "#abcdef" }], flashcards: [{ id: "primary", title: "Materias", description: "", color: "#123456" }] }
 describe("subdivisiones editables", () => {
+  it("conserva el alcance nuevo al recuperar borradores antiguos sin pisar selecciones explícitas", () => {
+    const current: Organization = { ...config, reviewClasses: { Histología: { title: "Citohistología", finalExamScope: "Cito II", finalExamBankIds: ["p1", "p2"] } } }
+    expect(draftValuesEqual(inheritFinalExamSelection(config, current), current)).toBe(true)
+    const old: Organization = { ...config, reviewClasses: { Histología: { title: "Mi Cito", color: "#123456" } } }
+    const restored = inheritFinalExamSelection(old, current)
+    expect(restored.reviewClasses!.Histología).toEqual({ title:"Mi Cito", color:"#123456", finalExamScope:"Cito II", finalExamBankIds:["p1","p2"] })
+    old.reviewClasses!.Histología.finalExamBankIds=[]
+    old.reviewClasses!.Histología.finalExamScope=""
+    expect(inheritFinalExamSelection(old,current).reviewClasses!.Histología.finalExamBankIds).toEqual([])
+    expect(inheritFinalExamSelection(old,current).reviewClasses!.Histología.finalExamScope).toBe("")
+  })
+  it("guarda alcance y fuentes explícitas sin incluir automáticamente otros semestres", () => {
+    expect(reviewClassPresentation("Bioquímica", config).finalExamBankIds).toEqual([])
+    const edited: Organization = { ...config, reviewClasses: { Bioquímica: { title: "Bioquímica", finalExamScope: "Bioquímica II", finalExamBankIds: ["bio-p1", "bio-p2"] } } }
+    expect(validateOrganization(edited)).toBe(true)
+    expect(reviewClassPresentation("Bioquímica", edited).finalExamBankIds).toEqual(["bio-p1", "bio-p2"])
+    expect(validateOrganization({ ...edited, reviewClasses: { Bioquímica: { title: "Bioquímica", finalExamBankIds: ["x", "x"] } } })).toBe(false)
+    expect(validateOrganization({ ...edited, reviewClasses: { Bioquímica: { title: "Bioquímica", finalExamBankIds: [2] } } })).toBe(false)
+  })
   it("permite agregar, renombrar y reordenar sin perder materias", () => {
     const items = [{ destination: "bank:uno", sectionId: "electivas" }, { destination: "histologia" }, { destination: "bank:otro", sectionId: "quitada" }]
     const groups = subjectSections(items, [...config.quizzes].reverse())

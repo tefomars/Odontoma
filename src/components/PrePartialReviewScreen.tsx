@@ -1,8 +1,11 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { reviewClassPresentation } from "@/content/appBuilder/organization"
 import { getCumulativePrePartialBank, prePartialBanks } from "@/content/prePartial/banks"
 
 import FlashcardStudyModeSwitch from "./flashcards/FlashcardStudyModeSwitch"
+import { useFlashcardStudyMode } from "@/lib/flashcardStudyMode"
+import { subscribeStudyProgress } from "@/lib/studyProgressEvents"
+import { countPrePartialProgress, loadPrePartialPreferences, prePartialPreferenceKey, readPrePartialProgress, savePrePartialPreference, PREPARTIAL_PREFERENCES_KEY } from "@/lib/prePartialProgress"
 
 type Props = {
   onBack: () => void
@@ -22,15 +25,41 @@ const classes = [...new Set(prePartialBanks.map(bank => bank.subject))].map(subj
 
 const reviewAmounts = [10, 20] as const
 type ReviewType = "Opción múltiple" | "Flashcards esenciales"
-type ReviewPreference = "Nuevas" | "Incorrectas" | "Mezcla"
 type ReviewMode = "new" | "incorrect" | "mixed"
+const reviewPreferences = [{ value: "new", label: "Nuevas" }, { value: "incorrect", label: "Incorrectas" }, { value: "mixed", label: "Mezcla" }] as const
 
 export default function PrePartialReviewScreen({ onBack, onMainMenu, onStartMultipleChoice, onStartFlashcards, onResetPartial, pausedPartial, onContinuePartial, initialReviewType = null, onReviewTypeChange, initialSubject, onClassChange }: Props) {
   const [selectedClass, setSelectedClass] = useState<(typeof classes)[number] | null>(
     initialReviewType ? classes.find(c => c.subject === initialSubject) || classes[0] : null
   )
   const [reviewType, setReviewType] = useState<ReviewType | null>(initialReviewType)
-  const [selectedPreference, setSelectedPreference] = useState<ReviewPreference>("Mezcla")
+  const [preferences, setPreferences] = useState(loadPrePartialPreferences)
+  const [studyMode] = useFlashcardStudyMode()
+  const [, refreshProgress] = useState(0)
+  const kind = reviewType === "Flashcards esenciales" ? "flashcards" : "questions"
+  const progress = readPrePartialProgress(kind, studyMode)
+  useEffect(() => subscribeStudyProgress([
+    "odontoma_stats", "odontoma_fsrs_storage", "odontoma_free_flashcard_progress_v1", PREPARTIAL_PREFERENCES_KEY,
+  ], () => {
+    refreshProgress(version => version + 1)
+    setPreferences(loadPrePartialPreferences())
+  }), [])
+
+  function preferenceFor(bankId: string): ReviewMode {
+    return preferences[prePartialPreferenceKey(bankId, kind)] || "mixed"
+  }
+
+  function choosePreference(bankId: string, preference: ReviewMode) {
+    if (savePrePartialPreference(bankId, kind, preference)) setPreferences(loadPrePartialPreferences())
+  }
+
+  function progressCounter(bank: (typeof prePartialBanks)[number]) {
+    const counts = countPrePartialProgress(bank, kind, studyMode, progress)
+    return <div className="mt-3 min-w-0 rounded-xl border border-zinc-800 bg-zinc-900/50 px-3 py-2" aria-label={`Progreso de ${bank.title}`}>
+      <p className="text-sm font-black text-zinc-200">{counts.done}/{counts.total} {kind === "questions" ? "preguntas hechas" : "tarjetas repasadas"}</p>
+      <p className="mt-1 text-xs leading-relaxed text-zinc-400">{counts.new} nuevas · {counts.incorrect} incorrectas{kind === "flashcards" ? ` · ${studyMode === "free" ? "Solo flashcards" : "Repetición espaciada"}` : ""}</p>
+    </div>
+  }
   const finalBank = selectedClass && reviewType === "Opción múltiple"
     ? getCumulativePrePartialBank(selectedClass.subject)
     : undefined
@@ -52,12 +81,7 @@ export default function PrePartialReviewScreen({ onBack, onMainMenu, onStartMult
   function startReview(partial: string, amount: number) {
     if (!reviewType) return
 
-    const preference =
-      selectedPreference === "Nuevas"
-        ? "new"
-        : selectedPreference === "Incorrectas"
-          ? "incorrect"
-          : "mixed"
+    const preference = preferenceFor(partial)
 
     if (reviewType === "Opción múltiple") {
       onStartMultipleChoice(partial, amount, preference)
@@ -108,25 +132,27 @@ export default function PrePartialReviewScreen({ onBack, onMainMenu, onStartMult
                   <p className="mt-2 text-sm leading-relaxed text-zinc-500">
                     Banco exclusivo de {reviewType?.toLowerCase()} · {reviewType === "Opción múltiple" ? bank.questions.length : bank.flashcards.length} {reviewType === "Opción múltiple" ? "preguntas" : "flashcards"}.
                   </p>
+                  {progressCounter(bank)}
                   {reviewType === "Opción múltiple" && pausedPartial === bank.id && (
                     <button type="button" onClick={onContinuePartial} className="mt-4 w-full rounded-xl border border-emerald-400/50 bg-emerald-500/10 px-3 py-3 text-sm font-black text-emerald-200 hover:bg-emerald-500/20">
                       Continuar examen guardado
                     </button>
                   )}
                   <div className="mt-5 flex flex-wrap justify-center gap-2">
-                    {(["Nuevas", "Incorrectas", "Mezcla"] as ReviewPreference[]).map(preference => (
+                    {reviewPreferences.map(({ value, label }) => (
                       <button
-                        key={preference}
+                        key={value}
                         type="button"
-                        onClick={() => setSelectedPreference(preference)}
+                        aria-pressed={preferenceFor(bank.id) === value}
+                        onClick={() => choosePreference(bank.id, value)}
                         className="rounded-full border px-3 py-2 text-xs font-black transition"
                         style={{
-                          borderColor: selectedPreference === preference ? selectedClass.accentColor : "#3f3f46",
-                          color: selectedPreference === preference ? selectedClass.accentColor : "#a1a1aa",
-                          backgroundColor: selectedPreference === preference ? `${selectedClass.accentColor}18` : "var(--background)"
+                          borderColor: preferenceFor(bank.id) === value ? selectedClass.accentColor : "#3f3f46",
+                          color: preferenceFor(bank.id) === value ? selectedClass.accentColor : "#a1a1aa",
+                          backgroundColor: preferenceFor(bank.id) === value ? `${selectedClass.accentColor}18` : "var(--background)"
                         }}
                       >
-                        {preference}
+                        {label}
                       </button>
                     ))}
                   </div>
@@ -155,20 +181,21 @@ export default function PrePartialReviewScreen({ onBack, onMainMenu, onStartMult
             </div>
             {finalBank && (
               <article className="mt-6 rounded-3xl border border-amber-400/40 bg-amber-500/5 p-5 sm:p-6">
-                <p className="text-xs font-black uppercase tracking-[0.2em] text-amber-300">Repaso acumulativo</p>
+                <p className="text-xs font-black uppercase tracking-[0.2em] text-amber-300">Final del semestre</p>
                 <h2 className="mt-3 break-words text-2xl font-black">{finalBank.title}</h2>
                 <p className="mt-2 text-sm leading-relaxed text-zinc-300">
-                  Mezcla de los {finalBank.chapters.length} parciales disponibles · {finalBank.questions.length} preguntas de opción múltiple y V/F.
+                  Mezcla de los {finalBank.chapters.length} parciales seleccionados para este semestre · {finalBank.questions.length} preguntas de opción múltiple y V/F.
                 </p>
                 <p className="mt-2 text-xs leading-relaxed text-zinc-400">
                   Incluye: {finalBank.chapters.map(chapter => chapter.title).join(" · ")}. Se reparten preguntas entre los parciales con contenido disponible, sin repetirlas dentro del intento.
                 </p>
+                {progressCounter(finalBank)}
                 {pausedPartial === finalBank.id && (
                   <button type="button" onClick={onContinuePartial} className="mt-4 w-full rounded-xl border border-emerald-400/50 bg-emerald-500/10 px-3 py-3 text-sm font-black text-emerald-200 hover:bg-emerald-500/20">Continuar examen final guardado</button>
                 )}
                 <div className="mt-5 flex flex-wrap justify-center gap-2">
-                  {(["Nuevas", "Incorrectas", "Mezcla"] as ReviewPreference[]).map(preference => (
-                    <button key={preference} type="button" onClick={() => setSelectedPreference(preference)} aria-pressed={selectedPreference === preference} className={`rounded-full border px-3 py-2 text-xs font-black ${selectedPreference === preference ? "border-amber-300 bg-amber-500/15 text-amber-200" : "border-zinc-700 text-zinc-400"}`}>{preference}</button>
+                  {reviewPreferences.map(({ value, label }) => (
+                    <button key={value} type="button" onClick={() => choosePreference(finalBank.id, value)} aria-pressed={preferenceFor(finalBank.id) === value} className={`rounded-full border px-3 py-2 text-xs font-black ${preferenceFor(finalBank.id) === value ? "border-amber-300 bg-amber-500/15 text-amber-200" : "border-zinc-700 text-zinc-400"}`}>{label}</button>
                   ))}
                 </div>
                 <div className="mx-auto mt-5 grid max-w-md grid-cols-3 gap-2">

@@ -131,7 +131,7 @@ function QuizTypeCard({
 }) {
   return (
     <div
-      className="relative"
+      className={`relative ${!compact && card.destination === "mixed-exams" ? "md:col-span-2" : ""}`}
       draggable={editorMode}
       onDragStart={event => event.dataTransfer.setData("text/odontoma-card", card.id)}
       onDragOver={event => editorMode && event.preventDefault()}

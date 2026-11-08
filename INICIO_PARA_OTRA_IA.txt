@@ -1,6 +1,6 @@
 ODONTOMA — LEER PRIMERO AL CONTINUAR EN OTRA CUENTA O SESIÓN
 ========================================================
-Actualizado: 2026-11-06.
+Actualizado: 2026-11-07.
 
 La guía extensa es GUIA_MAESTRA_ODONTOMA.txt, en esta misma carpeta.
 Leela antes de proponer cambios. Tiene índice, arquitectura, rutas, contratos,
@@ -18,6 +18,9 @@ Primeros pasos de lectura:
 3. Leer package.json, src/App.tsx y los archivos del área concreta.
 4. Revisar datos base Y parches en src/content/studio/data.json si cambia contenido.
 5. Recordar que escritos oficiales están en src/content/openQuizzes/data.json.
+6. Los exámenes completos mixtos son independientes: src/content/mixedExams/.
+   Builder -> Exámenes completos. No confundirlos con el final acumulativo.
+   Ver guía maestra y src/builder/README.md para formato, sesión y recuperación.
 
 Reglas innegociables:
 - No sobrescribir ediciones del dueño ni resetear el repositorio.

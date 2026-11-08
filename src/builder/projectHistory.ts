@@ -1,7 +1,7 @@
 export type ProjectSnapshot = { app: "Odontoma Project"; version: 1; files: Record<string, unknown>; revision?: string }
-export type HistoryEntry = { name: string; createdAt: string; label: string; kind: "automatic" | "checkpoint" | "publication"; changes: string[]; counts: { banks: number; questions: number; flashcards: number; written: number; pages: number } }
+export type HistoryEntry = { name: string; createdAt: string; label: string; kind: "automatic" | "checkpoint" | "publication"; changes: string[]; counts: { banks: number; questions: number; flashcards: number; written: number; mixed?: number; pages: number } }
 type Bank = { id: string; title: string; archived?: boolean; questions?: unknown[]; flashcards?: unknown[]; chapters?: unknown[] }
-const areaNames: Record<string, string> = { home: "Menús y materias", decks: "Portadas y decks", pages: "Pantallas personalizadas", written: "Cuestionarios escritos", overrides: "Ajustes visuales", theme: "Apariencia", organization: "Subdivisiones y organización", changelog: "Versión e historial de cambios" }
+const areaNames: Record<string, string> = { mixed: "Exámenes completos", home: "Menús y materias", decks: "Portadas y decks", pages: "Pantallas personalizadas", written: "Cuestionarios escritos", overrides: "Ajustes visuales", theme: "Apariencia", organization: "Subdivisiones y organización", changelog: "Versión e historial de cambios" }
 
 export function describeChanges(before: ProjectSnapshot, after: ProjectSnapshot): string[] {
   const changes: string[] = []
@@ -20,7 +20,8 @@ export function describeChanges(before: ProjectSnapshot, after: ProjectSnapshot)
 export function projectCounts(project: ProjectSnapshot) {
   const banks = ((project.files.library as { banks?: Bank[] })?.banks || []).filter(b => !b.archived)
   const written = (project.files.written as { decks?: { questions: unknown[] }[] })?.decks || []
-  return { banks: banks.length, questions: banks.reduce((n, b) => n + (b.questions?.length || 0), 0), flashcards: banks.reduce((n, b) => n + (b.flashcards?.length || 0), 0), written: written.reduce((n, d) => n + d.questions.length, 0), pages: Array.isArray(project.files.pages) ? project.files.pages.length : 0 }
+  const mixed = (project.files.mixed as { exams?: { questions: unknown[] }[] })?.exams || []
+  return { banks: banks.length, questions: banks.reduce((n, b) => n + (b.questions?.length || 0), 0), flashcards: banks.reduce((n, b) => n + (b.flashcards?.length || 0), 0), written: written.reduce((n, d) => n + d.questions.length, 0), mixed: mixed.reduce((n, e) => n + e.questions.length, 0), pages: Array.isArray(project.files.pages) ? project.files.pages.length : 0 }
 }
 
 export function historyDate(name: string) {

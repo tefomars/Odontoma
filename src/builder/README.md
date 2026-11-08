@@ -1,6 +1,59 @@
 # Editor visual local de Odontoma
 
+## Exámenes completos mixtos
+
+1. En el árbol, **Exámenes completos → Nuevo examen**. Comienza vacío y oculto.
+2. Escribí título, clase y categoría libre (Parcial 10, Año 2, Final…). Agregá
+   preguntas de **Opción múltiple**, **V/F** y **Respuesta escrita** al mismo examen.
+3. Marcá las opciones correctas (puede haber varias). En V/F elegí el booleano.
+   En escritas separá respuesta modelo, puntos aceptados y explicación.
+4. Reordená con arrastrar o ↑/↓; duplicá o quitá preguntas/exámenes. Deshacer y
+   Rehacer globales funcionan también aquí. Los IDs permanecen al editar.
+5. Las imágenes de pregunta se muestran mientras contestás; las de respuesta
+   al comprobar en MC/VF o al entregar en escritas. Las imágenes subidas usan el mismo almacenamiento del resto
+   del Builder y viajan en JSON/backup, no dependen de Downloads.
+6. **Importar, exportar y prompt para AI** ofrece plantilla JSON y prompt sin
+   cuentas ni API. Importá un examen o una biblioteca, revisá y confirmá. Agrega
+   contenido con IDs nuevos; nunca sobrescribe preguntas del mismo nombre.
+   Podés agregar solo sus preguntas al examen seleccionado. correctAnswers son
+   índices desde cero; B = 1. Un error impide confirmar, no se omite en silencio.
+7. Marcá **Visible en Odontoma** y guardá arriba. La app muestra
+   **Quizzes → Exámenes completos → clase → categoría/examen**. Vacíos no aparecen.
+   **Ver esta parte en la app → Probar borrador sin guardar** también los incluye.
+8. Preguntas en orden del autor o mezcladas según la casilla; opciones siempre
+   mezcladas conservando claves. Se puede salir/reanudar con el snapshot original.
+9. En MC/VF, **Comprobar** muestra Correcta/Incorrecta, solución, explicación e
+   imagen de respuesta. La selección queda fija y se conserva al salir/reanudar.
+   Enter/Espacio comprueba y después avanza; 1–8 elige opción. Las escritas se autoevalúan con
+   el modelo. No hay corrección por IA. Cada pregunta vale 1, parcial escrita 0.5.
+   La respuesta, su imagen y la explicación se mantienen separadas en revisión.
+10. Resultados, historial (7 mixtos además de 7 MC y 7 escritos) y repaso solo de
+    incorrectas por intento. El reintento no pisa el avance del examen original.
+
+La vista previa valida también los exámenes mixtos antes de ejecutarlos: si falta
+un enunciado, clave o respuesta modelo, muestra qué completar. En **Navegar** los
+botones ejecutan acciones; en **Editar texto/Bloques** sirven para seleccionarlos.
+El repaso conserva preguntas del intento, incluso después de editar el banco.
+Un título largo no impide iniciarlo; si un intento antiguo o incompleto no puede
+reconstruirse, se muestra el motivo sin borrar sus resultados ni omitir errores
+silenciosamente.
+
+Esta biblioteca es independiente del repaso pre-parcial y del final acumulativo.
+No se generó contenido premade ni se tocaron los escritos existentes. Menús
+personalizados pueden abrir el destino **Exámenes completos (mixtos)**. Volver
+y swipe recorren un nivel cada vez. Guardar incluye esta área en snapshots,
+restauración y backup; un backup anterior sin `mixed` conserva los mixtos actuales.
+Publicar sigue siendo por terminal. No se agregaron dependencias ni servicios.
+
 ## Espacio de trabajo unificado
+
+El **Examen final** de Repaso pre-parcial es del semestre, no de toda la carrera:
+por ejemplo, Cito II no mezcla Cito I. En **Repaso pre-parcial → ✎ de la clase**,
+poné el curso/semestre y marcá sus bancos. Se requieren al menos dos con preguntas
+y habilitados. Un banco nuevo no se agrega automáticamente: marcá su casilla si
+pertenece a ese semestre. Las preguntas editadas en los bancos seleccionados sí
+se actualizan en el final. Cito II conserva sus cuatro parciales y 393 preguntas.
+Las clases nuevas requieren seleccionar fuentes antes de mostrar un final.
 
 La escritura actualiza el borrador y el historial inmediatamente; no hay un
 temporizador que retrase el texto antes de Guardar o cambiar de sección.
@@ -247,5 +300,13 @@ Los errores estructurales se validan al guardar. Gestos físicos de Safari/iPad 
 ### Flashcards: FSRS y Sin espera
 
 Todos los bancos, incluidos los importados y los de repaso pre-parcial, admiten ambos modos sin agregar campos al contenido. En **Sin espera**, «La recuerdo» guarda la tarjeta como completada en este dispositivo; al volver no se repite. «Otra vez» queda pendiente y vuelve en la ronda. Nuevas e Incorrectas consultan esta memoria independiente, no el historial de FSRS. Deshacer también revierte ese resultado guardado.
+
+En **Repaso pre-parcial**, cada bloque muestra **X/total preguntas hechas** o
+**tarjetas repasadas**, además de nuevas e incorrectas. Se cuentan elementos
+únicos del banco actual, no el número de intentos. En flashcards se usa el modo
+seleccionado, sin mezclar su memoria con FSRS. Los filtros se recuerdan por parcial
+y tipo: elegir Nuevas se conserva al salir o recargar, sin cambiar los demás bloques.
+Los totales se adaptan al contenido que edites aquí. La prueba de borrador sigue
+aislada del progreso real del estudiante; no sirve para comprobar su avance de Vercel.
 
 **Reiniciar este bloque** pide confirmación y borra únicamente esta memoria para las tarjetas del mazo, capítulo o grupo de subtemas abierto, sin cambiar FSRS ni suspensiones. El reinicio general de un parcial también incluye esta memoria de sus flashcards. La memoria se incluye automáticamente en el backup de estudiante de la app, no en los archivos de contenido compartidos; cada estudiante empieza con su propio avance. Cambiar títulos o texto manteniendo los IDs conserva el avance; tarjetas con IDs nuevos se consideran nuevas.

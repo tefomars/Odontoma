@@ -265,6 +265,7 @@ function validateHomeContent(value: unknown): value is HomeContent {
     "flashcards",
     "multiple-choice",
     "open-ended",
+    "mixed-exams",
     "my-quizzes",
     "history",
     "backup",

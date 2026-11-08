@@ -40,11 +40,11 @@ export default function QuizReviewScreen({ attempt, onBack, onMainMenu }: Props)
               </div>
               <h2 className="mt-4 break-words text-2xl font-black leading-tight [overflow-wrap:anywhere]">{response.question}</h2>
               <StudyImage src={response.image} alt={response.imageAlt} />
-              <div className={`mt-6 grid min-w-0 gap-4 ${attempt.mode === "open-ended" ? "grid-cols-1" : "md:grid-cols-2"}`}>
+              <div className={`mt-6 grid min-w-0 gap-4 ${attempt.mode === "open-ended" || response.responseKind === "written" ? "grid-cols-1" : "md:grid-cols-2"}`}>
                 <AnswerBox title="Tu respuesta" answers={response.selectedAnswers} tone={presentation.answerTone} />
-                <AnswerBox title={attempt.mode === "open-ended" ? "Respuesta modelo" : "Respuesta correcta"} answers={response.correctAnswers} tone="correct" image={response.backImage} imageAlt={response.backImageAlt} />
+                <AnswerBox title={attempt.mode === "open-ended" || response.responseKind === "written" ? "Respuesta modelo" : "Respuesta correcta"} answers={response.correctAnswers} tone="correct" image={response.backImage} imageAlt={response.backImageAlt} />
               </div>
-              {attempt.mode === "open-ended" && response.acceptedPoints && response.acceptedPoints.length > 0 && (
+              {(attempt.mode === "open-ended" || response.responseKind === "written") && response.acceptedPoints && response.acceptedPoints.length > 0 && (
                 <div className="mt-4 min-w-0 rounded-2xl border border-amber-500/25 bg-amber-500/8 p-4">
                   <p className="text-xs font-black uppercase tracking-[0.18em] text-amber-300">También se considera correcto mencionar</p>
                   <ul className="mt-3 grid gap-2 text-sm leading-relaxed text-zinc-200">

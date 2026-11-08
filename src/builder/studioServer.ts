@@ -4,13 +4,14 @@ import { promises as fs } from "node:fs"
 import path from "node:path"
 import { spawn } from "node:child_process"
 import { validateStudio } from "../content/studio/schema.ts"
-import { validateOrganization } from "../content/appBuilder/organizationSchema.ts"
+import { validateOrganization, inheritFinalExamSelection } from "../content/appBuilder/organizationSchema.ts"
 import { registerNewCourseCards } from "../content/studio/menuRegistration.ts"
 import { describeChanges, projectCounts, historyDate, type ProjectSnapshot } from "./projectHistory.ts"
 import { renderBuilderCss, type BuilderTheme } from "./theme.ts"
 import { validateWrittenContent, normalizeWrittenForSave } from "../content/openQuizzes/validation.ts"
 import type { OpenQuizContent } from "../content/openQuizzes/types.ts"
 import { contentRevision } from "./librarySafety.ts"
+import { validateMixedContent } from "../content/mixedExams/model.ts"
 
 function assertNavigation(project: NavigationProject) {
   const errors = validateNavigation(project).filter(i => i.severity === "error")
@@ -29,7 +30,7 @@ export function studioServer(validators: Record<string, (value: unknown) => bool
     const root = server.config.root
     const contentPath = path.join(root, "src/content/studio/data.json")
     const historyPath = path.join(root, ".odontoma-history")
-    const files = { library: "src/content/studio/data.json", written: "src/content/openQuizzes/data.json", home: "src/content/appBuilder/subjects.json", decks: "src/content/appBuilder/flashcard-subjects.json", pages: "src/content/appBuilder/custom-pages.json", overrides: "src/content/appBuilder/ui-overrides.json", theme: "src/builder/applied-theme.json", organization: "src/content/appBuilder/organization.json", changelog: "src/content/changelog/data.json" }
+    const files = { mixed: "src/content/mixedExams/data.json", library: "src/content/studio/data.json", written: "src/content/openQuizzes/data.json", home: "src/content/appBuilder/subjects.json", decks: "src/content/appBuilder/flashcard-subjects.json", pages: "src/content/appBuilder/custom-pages.json", overrides: "src/content/appBuilder/ui-overrides.json", theme: "src/builder/applied-theme.json", organization: "src/content/appBuilder/organization.json", changelog: "src/content/changelog/data.json" }
     async function project() { const content = Object.fromEntries(await Promise.all(Object.entries(files).map(async ([key, file]) => [key, JSON.parse(await fs.readFile(path.join(root, file), "utf8"))]))); return { app: "Odontoma Project", version: 1, files: content, revision: await contentRevision(content) } }
     let savingProject = false
     let snapshotTime = 0
@@ -56,6 +57,7 @@ export function studioServer(validators: Record<string, (value: unknown) => bool
         }
         if (route === "/__odontoma-studio/project" && req.method === "GET") { res.setHeader("Content-Type", "application/json"); res.setHeader("Content-Disposition", 'attachment; filename="odontoma-proyecto-editable.json"'); res.end(JSON.stringify(await project())); return }
         if (route === "/__odontoma-studio/changelog" && req.method === "GET") { res.setHeader("Content-Type", "application/json"); res.end(await fs.readFile(path.join(root, files.changelog), "utf8")); return }
+        if (route === "/__odontoma-studio/mixed" && req.method === "GET") { res.setHeader("Content-Type", "application/json"); res.end(await fs.readFile(path.join(root, files.mixed), "utf8")); return }
         if (route === "/__odontoma-studio/project" && req.method === "POST") {
           if (savingProject) { res.statusCode = 409; throw new Error("Otro guardado está en curso. Esperá y revisá antes de reintentar.") }
           savingProject = true
@@ -64,6 +66,9 @@ export function studioServer(validators: Record<string, (value: unknown) => bool
           const value = JSON.parse(body)
           if (value.app !== "Odontoma Project" || value.version !== 1 || !value.files) throw new Error("No es un backup de proyecto Odontoma.")
           if (!value.files.organization) value.files.organization = (await project()).files.organization
+          if (validateOrganization(value.files.organization)) value.files.organization = inheritFinalExamSelection(value.files.organization, (await project()).files.organization)
+          // Backups created before mixed exams must not silently erase newer exams.
+          if (value.files.mixed === undefined) value.files.mixed = (await project()).files.mixed
           // Legacy backups predate the changelog. Preserve it instead of erasing
           // newer notes or making old project backups impossible to restore.
           if (!value.files.changelog) value.files.changelog = (await project()).files.changelog
@@ -78,7 +83,10 @@ export function studioServer(validators: Record<string, (value: unknown) => bool
           const menus = value.restore ? { home: value.files.home, decks: value.files.decks } : registerNewCourseCards(value.files.home, value.files.decks, new Set(beforeBanks.map((b: { id: string }) => b.id)), library.banks)
           value.files.home = menus.home; value.files.decks = menus.decks
           for (const key of Object.keys(files)) {
-            if (key === "written") {
+            if (key === "mixed") {
+              const issues = validateMixedContent(value.files.mixed)
+              if (issues.length) throw new Error(`No se guardaron los exámenes completos:\n${issues.slice(0, 12).join("\n")}`)
+            } else if (key === "written") {
               const issues = validateWrittenContent(value.files.written)
               if (issues.length) throw new Error(`No se guardó el contenido de escritas:\n${issues.slice(0, 12).join("\n")}`)
             } else if (key === "library" ? validateStudio(library).length > 0 : !(key === "organization" ? validateOrganization(value.files[key]) : validators[key]?.(value.files[key]))) throw new Error(`Backup inválido en ${key}`)

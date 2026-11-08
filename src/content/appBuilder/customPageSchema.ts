@@ -6,6 +6,7 @@ export type CustomPageDestination =
   | "flashcards"
   | "multiple-choice"
   | "open-ended"
+  | "mixed-exams"
   | "my-quizzes"
   | "backup"
   | "appearance"
@@ -41,6 +42,7 @@ const knownDestinations = new Set([
   "flashcards",
   "multiple-choice",
   "open-ended",
+  "mixed-exams",
   "my-quizzes",
   "backup",
   "appearance",

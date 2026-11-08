@@ -20,8 +20,8 @@ type Props = {
   onMainMenu?: () => void
 
   onNext: () => void
-  onCorrect: () => void
-  onIncorrect: () => void
+  onCorrect: () => boolean | void
+  onIncorrect: () => boolean | void
   onAnswered: (response: QuizResponseRecord) => void
 }
 
@@ -122,6 +122,7 @@ export default function QuizScreen({
   }
 
   function checkAnswer() {
+    if (checked || selected.length === 0) return
 
     const correct =
       arraysEqual(
@@ -129,11 +130,8 @@ export default function QuizScreen({
         [...correctAnswers].sort()
       )
 
-    if (correct) {
-      onCorrect()
-    } else {
-      onIncorrect()
-    }
+    // Do not lock the answer or claim it was recorded when persistence failed.
+    if ((correct ? onCorrect() : onIncorrect()) === false) return
 
     onAnswered({
       image: question.image,

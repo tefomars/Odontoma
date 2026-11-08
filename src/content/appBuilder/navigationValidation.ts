@@ -5,7 +5,7 @@ export type NavigationTarget = { panel: "structure" | "pages"; view?: "main-menu
 export type NavigationIssue = { id: string; severity: "error" | "warning"; message: string; target: NavigationTarget }
 export type NavigationBank = { id: string; title: string; archived?: boolean; enabled?: boolean }
 export type NavigationProject = { home: HomeContent; decks: FlashcardSubjectBlock[]; pages: Pick<CustomPage, "id" | "title" | "blocks">[]; banks: NavigationBank[] }
-const builtins = new Set(["home", "quizzes", "flashcards", "multiple-choice", "open-ended", "open-quizzes", "my-quizzes", "backup", "appearance", "changelog", "pre-partial", "coming-soon", "history"])
+const builtins = new Set(["home", "quizzes", "flashcards", "multiple-choice", "open-ended", "mixed-exams", "open-quizzes", "my-quizzes", "backup", "appearance", "changelog", "pre-partial", "coming-soon", "history"])
 
 export function validateNavigation(project: NavigationProject): NavigationIssue[] {
   const issues: NavigationIssue[] = []

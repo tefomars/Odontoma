@@ -19,5 +19,5 @@ export function subjectSections<T extends { destination: string; sectionId?: str
 }
 
 export function reviewClassPresentation(subject: string, config: Organization = organization) {
-  return { title: subject === "Histología" ? "Citohistología" : subject, description: "Bancos exclusivos para repaso.", color: "#a78bfa", symbol: "⌬", finalExamEnabled: true, finalExamTitle: "Examen final", ...config.reviewClasses?.[subject] }
+  return { title: subject === "Histología" ? "Citohistología" : subject, description: "Bancos exclusivos para repaso.", color: "#a78bfa", symbol: "⌬", finalExamBankIds: [] as string[], finalExamScope: "", finalExamEnabled: true, finalExamTitle: "Examen final", ...config.reviewClasses?.[subject] }
 }

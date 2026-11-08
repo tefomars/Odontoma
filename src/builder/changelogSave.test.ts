@@ -8,6 +8,7 @@ import { contentRevision } from "./librarySafety"
 import { validChangelog } from "@/content/changelog/model"
 import organization from "@/content/appBuilder/organization.json"
 import { moveWrittenDeck } from "@/content/openQuizzes/categories"
+import { newMixedExam } from "@/content/mixedExams/model"
 
 const roots: string[] = []
 afterEach(async () => { for (const root of roots.splice(0)) await rm(root, { recursive: true, force: true }) })
@@ -15,6 +16,7 @@ afterEach(async () => { for (const root of roots.splice(0)) await rm(root, { rec
 async function fixture() {
   const root = await mkdtemp(path.join(tmpdir(), "odontoma-changelog-save-")); roots.push(root)
   const files = {
+    mixed: ["src/content/mixedExams/data.json", { version: 1, exams: [] }],
     library: ["src/content/studio/data.json", { version: 1, banks: [] }],
     written: ["src/content/openQuizzes/data.json", { classes: [], decks: [] }],
     home: ["src/content/appBuilder/subjects.json", { mainMenu: { cards: [{ id: "backup", destination: "custom-page:backup-options" }] }, quizMenu: { cards: [] }, subjects: [] }],
@@ -89,6 +91,43 @@ describe("changelog in full project saves and backups", () => {
     invalid.files.changelog.appVersion = "nueva versión"
     expect((await app.save(invalid)).status).toBe(400)
     expect(await app.project()).toEqual(current)
+  })
+})
+
+describe("mixed exams in guarded project save and restore", () => {
+  it("saves types, order and images, includes them in backups and restores them", async () => {
+    const app = await fixture(), before = await app.project()
+    const exam = { ...newMixedExam(), title:"Mi examen", subject:"Clase", enabled:true, questions:[
+      {id:"w1",kind:"written",prompt:"Pregunta",modelAnswer:"Respuesta",acceptedPoints:["Dos palabras"],backImage:"/media/answer.png"},
+      {id:"v1",kind:"true-false",prompt:"Afirmación",correct:false},
+      {id:"c1",kind:"choice",prompt:"Elegí",options:["A","B"],correctAnswers:[1]}
+    ] }
+    before.files.mixed={version:1,exams:[exam]}
+    expect((await app.save(before)).status).toBe(200)
+    const saved=await app.project()
+    expect(saved.files.mixed).toEqual(before.files.mixed)
+    expect(JSON.parse((await app.request("/__odontoma-studio/mixed")).output)).toEqual(before.files.mixed)
+    expect(saved.files.written).toEqual(before.files.written)
+    const next=structuredClone(saved);next.files.mixed.exams[0].questions.reverse()
+    expect((await app.save(next)).status).toBe(200)
+    const names=JSON.parse((await app.request("/__odontoma-studio/project-revisions")).output)
+    const snapshot=JSON.parse((await app.request(`/__odontoma-studio/project-revisions/${names[0]}`)).output)
+    expect(snapshot.files.mixed).toEqual(saved.files.mixed)
+    snapshot.restore=true;snapshot.revision=(await app.project()).revision
+    expect((await app.save(snapshot)).status).toBe(200)
+    expect((await app.project()).files.mixed).toEqual(saved.files.mixed)
+  })
+  it("rejects malformed keys without changing any other file and preserves mixed data in legacy restores", async () => {
+    const app=await fixture(), before=await app.project()
+    before.files.mixed={version:1,exams:[newMixedExam()]}
+    expect((await app.save(before)).status).toBe(200)
+    const saved=await app.project(), invalid=structuredClone(saved)
+    invalid.files.mixed.exams[0].questions=[{id:"x",kind:"true-false",prompt:"Afirmación",correct:"false"}]
+    expect((await app.save(invalid)).status).toBe(400)
+    expect(await app.project()).toEqual(saved)
+    const old=structuredClone(saved);delete old.files.mixed;old.restore=true
+    expect((await app.save(old)).status).toBe(200)
+    expect((await app.project()).files.mixed).toEqual(saved.files.mixed)
   })
 })
 

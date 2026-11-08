@@ -1,4 +1,5 @@
 import { writeBrowserStorage } from "./storageSafety"
+import { notifyStudyProgress } from "./studyProgressEvents"
 export type AnswerStats = {
   correct: number
   incorrect: number
@@ -102,10 +103,30 @@ export function loadStats(): OdontomaStats {
 
 export function saveStats(stats: OdontomaStats) {
 
-  return writeBrowserStorage(
+  const saved = writeBrowserStorage(
     "odontoma_stats",
     JSON.stringify(stats)
   )
+  if (saved) notifyStudyProgress("odontoma_stats")
+  return saved
+}
+
+/** Read at answer time: an App mounted earlier must not overwrite another tab's answers. */
+export function recordQuestionAnswer(question: { id: string; tags?: string[] }, correct: boolean): OdontomaStats | null {
+  const stats = loadStats()
+  const record = (previous?: AnswerStats): AnswerStats => ({
+    correct: (previous?.correct || 0) + (correct ? 1 : 0),
+    incorrect: (previous?.incorrect || 0) + (correct ? 0 : 1),
+    recent: [...(previous?.recent || []), correct].slice(-5),
+    lastAnsweredAt: Date.now(),
+    lastCorrect: correct,
+    correctStreak: correct ? (previous?.correctStreak || 0) + 1 : 0,
+  })
+  stats.totalAnswered += 1
+  stats.totalCorrect += correct ? 1 : 0
+  stats.questions[question.id] = record(stats.questions[question.id])
+  for (const tag of new Set(question.tags || [])) stats.tags[tag] = record(stats.tags[tag])
+  return saveStats(stats) ? stats : null
 }
 
 export function deleteQuestionStats(questionIds: string[]) {

@@ -8,7 +8,7 @@ export const prePartialBanks = studioBanks.filter(bank => bank.kind === "prepart
 export const cumulativePrePartialBanks = [...new Set(prePartialBanks.map(bank => bank.subject))].flatMap(subject => {
   const presentation = reviewClassPresentation(subject)
   if (presentation.finalExamEnabled === false) return []
-  const bank = createCumulativePrePartial(prePartialBanks, subject, presentation.finalExamTitle, presentation.title)
+  const bank = createCumulativePrePartial(prePartialBanks, subject, presentation.finalExamTitle, presentation.finalExamScope || presentation.title, presentation.finalExamBankIds)
   return bank ? [bank] : []
 })
 

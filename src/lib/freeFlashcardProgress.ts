@@ -1,4 +1,5 @@
 import type { Flashcard } from "@/content/flashcards/histologia/cards"
+import { notifyStudyProgress } from "./studyProgressEvents"
 
 export const FREE_FLASHCARD_PROGRESS_KEY = "odontoma_free_flashcard_progress_v1"
 export type FreeFlashcardResult = { status: "incorrect" | "completed"; reviewedAt: string }
@@ -24,6 +25,7 @@ export function saveFreeFlashcardResult(cardId: string, result?: FreeFlashcardRe
   if (result) progress[cardId] = result
   else delete progress[cardId]
   localStorage.setItem(FREE_FLASHCARD_PROGRESS_KEY, JSON.stringify(progress))
+  notifyStudyProgress(FREE_FLASHCARD_PROGRESS_KEY)
   return progress
 }
 
@@ -32,6 +34,7 @@ export function resetFreeFlashcardProgress(cardIds: string[]) {
   const progress = loadFreeFlashcardProgress()
   for (const id of cardIds) delete progress[id]
   localStorage.setItem(FREE_FLASHCARD_PROGRESS_KEY, JSON.stringify(progress))
+  notifyStudyProgress(FREE_FLASHCARD_PROGRESS_KEY)
   return progress
 }
 

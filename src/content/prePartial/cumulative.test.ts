@@ -4,6 +4,7 @@ import { renderToStaticMarkup } from "react-dom/server"
 import type { StudyBank } from "../studio/schema"
 import { validateStudio } from "../studio/schema"
 import { studioBanks } from "../studio/catalog"
+import { reviewClassPresentation } from "../appBuilder/organization"
 import { createCumulativePrePartial, selectPrePartialQuestions } from "./cumulative"
 import { getCumulativePrePartialBank, getCumulativeQuestionTitle, getPrePartialBank, prePartialSessionBanks } from "./banks"
 import { refreshPausedQuizQuestions } from "@/lib/pausedQuizSession"
@@ -24,6 +25,20 @@ function bank(id: string, count: number): StudyBank {
 
 describe("examen final acumulativo", () => {
   beforeEach(installLocalStorageMock)
+
+  it("limita el final a los parciales elegidos del semestre, aunque se agregue Cito I a la misma clase", () => {
+    const presentation = reviewClassPresentation("Histología")
+    expect(presentation.finalExamScope).toBe("Cito II")
+    const citoI = { ...bank("Parcial 1 · Cito I", 20), subject: "Histología" }
+    const final = createCumulativePrePartial([...studioBanks, citoI], "Histología", presentation.finalExamTitle, presentation.finalExamScope, presentation.finalExamBankIds)!
+    expect(final.title).toBe("Examen final · Cito II")
+    expect(final.questions).toHaveLength(393)
+    expect(final.chapters.some(c => c.id === citoI.id)).toBe(false)
+    expect(createCumulativePrePartial([bank("P1", 5), bank("P2", 5)], "Clase de prueba", "Final", "Semestre 1", [])).toBeUndefined()
+    const selected = createCumulativePrePartial([bank("P1", 5), bank("P2", 5), bank("P3 otro semestre", 8)], "Clase de prueba", "Final", "Semestre 1", ["P1", "P2"])!
+    expect(selected.chapters.map(c => c.id)).toEqual(["P1", "P2"])
+    expect(selected.questions).toHaveLength(10)
+  })
 
   it("deriva el final de los parciales reales, sin guardarlo como banco duplicado", () => {
     const final = getCumulativePrePartialBank("Histología")!
@@ -131,6 +146,6 @@ describe("examen final acumulativo", () => {
     }))
     expect(html).toContain("393")
     expect(html).toContain("Reiniciar solo el examen final")
-    expect(html.lastIndexOf("Repaso acumulativo")).toBeGreaterThan(html.indexOf("Parcial 4 · Cito II"))
+    expect(html.lastIndexOf("Final del semestre")).toBeGreaterThan(html.indexOf("Parcial 4 · Cito II"))
   })
 })

@@ -517,6 +517,19 @@ Todas -> filtro Nuevas, Incorrectas o Mezcla según los controles existentes.
 Las cantidades, selección de preferencia y popup deben mantenerse ágiles y
 centrados; no volver a multiplicar pantallas por cada pequeña opción.
 
+Progreso persistente del repaso pre-parcial:
+Nuevas excluye toda pregunta ya comprobada, correcta o incorrecta. Cada tanda
+consulta loadStats() al iniciarse, no una copia vieja del estado de App.
+recordQuestionAnswer() lee el progreso persistido antes de agregar cada respuesta;
+si falla el guardado, QuizScreen no confirma ni avanza la respuesta.
+Los filtros se recuerdan por banco y tipo (MC/flashcards) en
+odontoma_prepartial_preferences_v1; volver al menú no debe cambiar Nuevas a Mezcla.
+Cada bloque muestra X/total preguntas hechas o tarjetas repasadas y cantidades de
+nuevas/incorrectas. Cuenta IDs únicos del contenido vigente, no intentos; las
+tarjetas usan la memoria del modo seleccionado (FSRS o Solo flashcards).
+studyProgressEvents.ts sincroniza la interfaz entre documentos y al recuperar foco.
+La vista de borrador del Builder mantiene su progreso aislado y temporal, como antes.
+
 Los filtros no tienen todos idéntica semántica histórica: en MC pre-parcial,
 Incorrectas actualmente incluye preguntas con algún fallo histórico; el modo
 libre usa su último estado independiente. Leer la implementación al ajustarlos.
@@ -533,24 +546,67 @@ con la etiqueta antigua Cito III en sesiones guardadas; no quitarla sin migraci�
 Desde el 7/11/2026 también hay Examen final acumulativo al pie de los parciales
 de opción múltiple de cada clase con al menos dos bancos habilitados y preguntas.
 cumulative.ts deriva la combinación en memoria, sin duplicarla en studio/data.json.
-Se usan los parciales que existan, no se presupone que estén los cuatro: en Cito
-hay P1/P2/P3/P4 (393 preguntas fuente). Reparte la selección por turnos entre parciales elegibles, mezcla al
+Se usan SOLO los bancos elegidos por el dueño para el semestre, no todos los de
+la clase. finalExamBankIds es la lista explícita; finalExamScope nombra el curso
+del semestre. En Cito el final es de Cito II: P1/P2/P3/P4, 393 preguntas fuente,
+sin mezclar Cito I. Un banco nuevo no se suma automáticamente. Las clases nuevas
+empiezan sin fuentes seleccionadas; marcar al menos dos en Builder. Reparte la
+selección por turnos entre parciales elegibles, mezcla al
 final y no repite preguntas dentro de un intento. Conserva Nuevas/Incorrectas/Mezcla.
 IDs y tags de progreso finales están aislados de los parciales originales. El
 reset final no toca el avance de estos ni FSRS. prePartialSessionBanks incluye
 finales para guardar/reanudar, historial y recuperación de incorrectas; la lista
 prePartialBanks y sus cantidades no cuentan el mismo contenido dos veces.
-Builder -> Repaso pre-parcial -> editar clase permite cambiar finalExamTitle y
-finalExamEnabled en organization.reviewClasses. Si se editan bancos fuente, se
+Builder -> Repaso pre-parcial -> editar clase permite cambiar finalExamTitle,
+finalExamEnabled, finalExamScope y finalExamBankIds en organization.reviewClasses.
+Si se editan bancos fuente seleccionados, se
 regenera la combinación. No editar contenido en una supuesta copia del final.
 
-PROPUESTA, NO IMPLEMENTADA: exámenes completos mixtos creados vacíos por el dueño
-en el Builder, con MC, V/F y respuestas escritas en una misma secuencia. Posible
-acceso público Quizzes -> Exámenes completos. Requeriría contrato discriminado
-por tipo, edición/importación mixta, motor de sesión persistente y corrección
-separada (objetivas automáticas, escritas autoevaluadas con respuesta modelo),
-además de resultados, historial, backups y navegación. No confundir esta idea con
-el final acumulativo ya implementado ni generar material premade sin autorización.
+IMPLEMENTADO el 7/11/2026: Quizzes -> Exámenes completos. Biblioteca independiente
+src/content/mixedExams/data.json (vacía por defecto), model.ts valida el contrato
+discriminado choice / true-false / written. NO deriva contenido de otros bancos.
+No confundir con Examen final acumulativo de Repaso pre-parcial.
+
+Builder -> Exámenes completos -> Nuevo examen permite título, clase, categoría
+libre, descripción, visibilidad y mezcla de preguntas. Agregar los tres tipos,
+duplicar/quitar, arrastrar o usar flechas. Imágenes en pregunta y respuesta;
+backImage se revela al comprobar objetivas o al entregar escritas. Importación JSON aditiva validada con
+vista previa, IDs nuevos, exportación de examen/biblioteca y prompt para AI.
+Formatos y prompts para AI también enlaza este editor. Los exámenes nuevos
+empiezan ocultos y vacíos; no se crea material premade. Vacíos no salen en la app.
+
+mixedExamSession.ts conserva un snapshot del examen y opciones ya mezcladas en
+odontoma_mixed_session_v1:<examId>:. Cada intento tiene ID estable para reintentar
+un guardado sin duplicarlo. Las preguntas respetan el orden del autor salvo
+shuffleQuestions; las opciones se mezclan preservando correctAnswers (índices 0).
+En choice se admite una o varias correctas, puntuación por coincidencia exacta.
+V/F usa correct:boolean; written usa modelAnswer/acceptedPoints separados de
+explanation. En objetivas, Comprobar revela resultado/solución/explicación e imagen
+y bloquea la selección para conservar la nota original. checkedQuestionIds se
+persiste con la sesión; las sesiones antiguas se migran a [] sin perder respuestas.
+Enter/Espacio comprueba y luego avanza, sin repetir por mantener la tecla. Al entregar se califican
+las escritas respondidas antes de guardar el resultado; sin responder vale cero,
+correcta 1, parcial escrita 0.5. No hay IA ni evaluación semántica automática.
+
+QuizAttempt.mode="mixed" y cada respuesta conserva responseKind/mixedQuestion
+para revisar y repasar incorrectas del intento, aunque el banco luego cambie.
+Los 7 mixtos de historial son independientes de los 7 MC y 7 escritos. Reintento
+de incorrectas tiene sesión propia, no cambia el original ni las estadísticas
+de los bancos normales/FSRS. No usar la ruta MC normal para un intento mixto.
+prepareMixedRetry devuelve examen o error explícito: no descartar silenciosamente
+una validación fallida. El título del reintento conserva el límite de 180 caracteres
+sin acumular sufijos «Incorrectas». No alterar enunciados/claves para hacer pasar
+un snapshot incompleto. previewValidation.ts valida bancos y mixtos antes de correr
+un borrador del Builder, y los errores se muestran junto a los controles de vista.
+
+MixedExamEditor registra el área mixed en guardado global, borrador recuperable,
+Deshacer/Rehacer, índices ligeros y vista previa aislada. studioServer valida antes
+de escribir, incluye mixed en backups/snapshots/revisión de cambios y conserva
+el contenido mixed actual si un backup antiguo no tenía ese campo. El destino
+mixed-exams puede asignarse a menús personalizados. Volver/swipe utiliza el mismo
+manejador por nivel: sesión -> detalles -> clase -> catálogo -> menú de origen.
+Antes de salir de una sesión se comprueba el guardado. Validar además Safari/iPad
+físicos: una simulación de tamaño no certifica el gesto táctil del dispositivo.
 
 
 10. ALMACENAMIENTO DEL ESTUDIANTE

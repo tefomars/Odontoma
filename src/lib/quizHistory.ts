@@ -7,6 +7,8 @@ const OLD_THIRD_PARTIAL_NAME = "Parcial 3 · Cito III"
 const THIRD_PARTIAL_NAME = "Parcial 3 · Cito II"
 
 export type QuizResponseRecord = {
+  responseKind?: "choice" | "true-false" | "written"
+  mixedQuestion?: import("@/content/mixedExams/model").MixedQuestion
   image?: string
   imageAlt?: string
   backImage?: string
@@ -43,7 +45,7 @@ export type QuizAttempt = {
   score: number
   total: number
   responses: QuizResponseRecord[]
-  mode?: "multiple-choice" | "open-ended"
+  mode?: "multiple-choice" | "open-ended" | "mixed"
 }
 
 function isAttempt(value: unknown): value is QuizAttempt {
@@ -59,6 +61,7 @@ function isAttempt(value: unknown): value is QuizAttempt {
 }
 
 function getAttemptMode(attempt: QuizAttempt) {
+  if (attempt.mode === "mixed") return "mixed"
   return attempt.mode === "open-ended"
     ? "open-ended"
     : "multiple-choice"
@@ -66,6 +69,7 @@ function getAttemptMode(attempt: QuizAttempt) {
 
 function limitHistoryByMode(attempts: QuizAttempt[]) {
   const counts = {
+    mixed: 0,
     "multiple-choice": 0,
     "open-ended": 0
   }

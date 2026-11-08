@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { studioBanks } from "@/content/studio/catalog"
 import { customPages } from "@/content/appBuilder/customPages"
 
-export type WorkspaceTarget = { panel: "library" | "structure" | "pages" | "written" | "preview" | "appearance" | "history" | "sections" | "create" | "formats" | "changelog"; bankId?: string; chapterId?: string; mode?: "questions" | "flashcards"; view?: "main-menu" | "quiz-menu" | "subjects" | "flashcard-subjects"; id?: string; blockId?: string; name?: string; subject?: string; destination?: string; stamp?: number }
+export type WorkspaceTarget = { panel: "library" | "structure" | "pages" | "written" | "mixed" | "preview" | "appearance" | "history" | "sections" | "create" | "formats" | "changelog"; bankId?: string; chapterId?: string; mode?: "questions" | "flashcards"; view?: "main-menu" | "quiz-menu" | "subjects" | "flashcard-subjects"; id?: string; blockId?: string; name?: string; subject?: string; destination?: string; stamp?: number }
 export type BankIndex = { id: string; title: string; subject: string; kind: string; archived?: boolean; enabled?: boolean; questions: number; flashcards: number; chapters: { id: string; title: string }[] }
 const indexCache = new Map<string, unknown>()
 const indexSignatures = new Map<string, string>()

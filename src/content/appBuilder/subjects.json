@@ -70,10 +70,20 @@
         "accentColor": "#10b981"
       },
       {
+        "id": "mixed-exams",
+        "eyebrow": "Simulación de examen",
+        "title": "Exámenes completos",
+        "subtitle": "Opción múltiple, verdadero/falso y respuestas escritas en un mismo examen.",
+        "symbol": "▤",
+        "accentColor": "#38bdf8",
+        "destination": "mixed-exams",
+        "section": "main"
+      },
+      {
         "id": "history",
         "eyebrow": "Tu progreso",
         "title": "Exámenes anteriores",
-        "subtitle": "Revisá tus respuestas de los últimos 7 exámenes de opción múltiple y los últimos 7 escritos.",
+        "subtitle": "Revisá por separado tus últimos 7 exámenes de opción múltiple, 7 escritos y 7 mixtos.",
         "symbol": "↶",
         "accentColor": "#06b6d4",
         "section": "tools"

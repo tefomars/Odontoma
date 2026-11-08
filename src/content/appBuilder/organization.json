@@ -39,5 +39,19 @@
       "description": "",
       "color": "#a1a1aa"
     }
-  ]
+  ],
+  "reviewClasses": {
+    "Histología": {
+      "title": "Citohistología",
+      "finalExamBankIds": [
+        "Parcial 1 · Cito II",
+        "Parcial 2 · Cito II",
+        "Parcial 3 · Cito II",
+        "Parcial 4 · Cito II"
+      ],
+      "finalExamScope": "Cito II",
+      "finalExamEnabled": true,
+      "finalExamTitle": "Examen final"
+    }
+  }
 }

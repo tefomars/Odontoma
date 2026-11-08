@@ -74,6 +74,7 @@ const quizDestinationOptions: Array<{ value: AppMenuDestination; label: string }
   ...studioBanks.filter(b => b.kind === "course").map(bank => ({ value: `bank:${bank.id}` as AppMenuDestination, label: `Banco: ${bank.title}` })),
   { value: "multiple-choice", label: "Opción múltiple" },
   { value: "open-ended", label: "Respuestas abiertas" },
+  { value: "mixed-exams", label: "Exámenes completos (mixtos)" },
   { value: "my-quizzes", label: "My quizzes" },
   { value: "coming-soon", label: "Sin acción por ahora" }
 ]

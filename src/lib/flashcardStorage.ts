@@ -3,6 +3,7 @@ import type {
 } from "@/lib/fsrs"
 import { studioBanks } from "@/content/studio/catalog"
 import { writeBrowserStorage, removeBrowserStorage } from "./storageSafety"
+import { notifyStudyProgress } from "./studyProgressEvents"
 
 const STORAGE_KEY =
   "odontoma_fsrs_storage"
@@ -44,17 +45,21 @@ export function saveFsrsStorage(
   storage: FsrsStorage
 ) {
 
-  return writeBrowserStorage(
+  const saved = writeBrowserStorage(
     STORAGE_KEY,
     JSON.stringify(storage)
   )
+  if (saved) notifyStudyProgress(STORAGE_KEY)
+  return saved
 }
 
 export function clearFsrsStorage() {
 
-  return removeBrowserStorage(
+  const removed = removeBrowserStorage(
     STORAGE_KEY
   )
+  if (removed) notifyStudyProgress(STORAGE_KEY)
+  return removed
 }
 
 export function deleteFsrsCardHistory(
