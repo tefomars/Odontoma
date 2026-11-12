@@ -1,5 +1,11 @@
 [
   {
+    "id": "git-795a1dde01ad0abb714fdf656c064f9fa804fe10",
+    "date": "2026-11-12T01:53:47.000Z",
+    "title": "fixed bug q duplicaba preguntas en escritas",
+    "body": ""
+  },
+  {
     "id": "git-43a8c208f9b4851cd4f3f458c1c77b3381cae7c3",
     "date": "2026-11-12T01:33:38.000Z",
     "title": "Pre-parciales cito I, fix typo en mat. dentales tougness → toughness",

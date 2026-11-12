@@ -40,7 +40,7 @@
       "id": "open-deck-1785600952470-667c488d-1311-46e3-b11d-15f91a6ab323",
       "title": "Bioquímica Primer Parcial - Glucólisis",
       "subject": "Bioquímica",
-      "description": "Glucólisis",
+      "description": "Glosario de palabras para el Primer Parcial",
       "questions": [
         {
           "id": "open-question-1785610241325-d92573e2-dcf9-4f66-8f29-ce1bdc42467e",
@@ -1655,7 +1655,7 @@
         {
           "id": "open-question-1787782653453-9ae93265-1de0-4404-bc76-526b475c68ec",
           "prompt": "Describa el proceso de formación de la amalgama.",
-          "modelAnswer": "Se da por medio de la amalgamación. El mercurio líquido y  la aleación de los demás metales en polvo se mezclan en un amalgamador.",
+          "modelAnswer": "Se da por medio de la amalgamación. El mercurio líquido y la aleación de los demás metales en polvo se mezclan en un amalgamador.",
           "acceptedPoints": [],
           "explanation": "",
           "source": ""
@@ -3305,6 +3305,14 @@
           "modelAnswer": "El nanohíbrido combina partículas pequeñas y de mayor tamaño, adicional a sus partículas nanométricas. Es ligeramente más resistente que los nanorellenos, pero tiene un aspecto menos estético.",
           "acceptedPoints": [],
           "explanation": "Se asemejan más a microhíbridos, pero tienen las partículas nanométricas.\nClínicamente se consideran inferiores a nanorellenos, pero son más baratos y aparentemente son más fáciles de pulir a corto plazo. Son más nuevos pero sus propiedades son peores que los nanorellenos.\nLos nanorellenos, también, tienen nanoclusters y a eso se atribuye mucho de su resistencia y forma. Los nanohíbridos tienen nanoclusters en mucha menor medida.",
+          "source": ""
+        },
+        {
+          "id": "open-question-1794449523340-be3bedfc-2a0d-45ae-83fe-a0d50223a8ed",
+          "prompt": "Qué nanorelleno utilizamos en la UFM?",
+          "modelAnswer": "3M Filtek Z350 XT",
+          "acceptedPoints": [],
+          "explanation": "",
           "source": ""
         }
       ],
