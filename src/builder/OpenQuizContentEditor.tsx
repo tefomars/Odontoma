@@ -1,5 +1,5 @@
 import { writeBrowserStorage } from "../lib/storageSafety"
-import { useEffect, useMemo, useState } from "react"
+import { useEffect, useId, useMemo, useState } from "react"
 import { useDraftStatus } from "./draftStatus"
 import { addWrittenContent, type CreationEvent } from "./contentCreation"
 import { publishIndex, useWorkspaceHistory, type WorkspaceTarget } from "./workspaceBridge"
@@ -66,6 +66,7 @@ function normalizeContent(value: OpenQuizContent): OpenQuizContent {
 }
 
 export default function OpenQuizContentEditor({ active = true, target }: { active?: boolean; target?: WorkspaceTarget }) {
+  const questionPromptId = useId()
   const contentHistory = useHistoryState<OpenQuizContent>(emptyContent, 80, "written")
   useWorkspaceHistory(active, contentHistory)
   const { state: content, setState: setContent, reset: resetContent } = contentHistory
@@ -711,15 +712,21 @@ export default function OpenQuizContentEditor({ active = true, target }: { activ
                       </button>
                     </div>
 
-                    <BuilderField label="Pregunta" required>
+                    <div className="builder-field">
+                      {/* Action buttons must not be inside a label: clicking its heading
+                          would otherwise activate the first button (Duplicate). */}
+                      <label className="builder-field-heading" htmlFor={questionPromptId}>
+                        <strong>Pregunta *</strong>
+                      </label>
                       <div className="actions"><button type="button" onClick={() => { const copy = { ...selectedQuestion, id: `open-${crypto.randomUUID()}` }; updateDeck({ questions: [...selectedDeck.questions, copy] }); setSelectedQuestionId(copy.id) }}>Duplicar</button>{[-1,1].map(step => <button type="button" key={step} onClick={() => { const list = [...selectedDeck.questions]; const from = list.findIndex(q => q.id === selectedQuestion.id); const to = from + step; if (to < 0 || to >= list.length) return; [list[from], list[to]] = [list[to], list[from]]; updateDeck({ questions: list }) }}>{step < 0 ? "↑ Mover arriba" : "↓ Mover abajo"}</button>)}</div>
                       <textarea
+                        id={questionPromptId}
                         value={selectedQuestion.prompt}
                         onChange={event => updateQuestion({ prompt: event.target.value })}
                         placeholder="Escribí el enunciado tal como lo verá el estudiante…"
                         rows={3}
                       />
-                    </BuilderField>
+                    </div>
 
                     <ImageField label="Imagen de la pregunta" value={selectedQuestion.image} onChange={image => updateQuestion({ image })} />
                     <BuilderField label="Descripción de la imagen de la pregunta (opcional)">

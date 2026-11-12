@@ -1,5 +1,11 @@
 [
   {
+    "id": "git-43a8c208f9b4851cd4f3f458c1c77b3381cae7c3",
+    "date": "2026-11-12T01:33:38.000Z",
+    "title": "Pre-parciales cito I, fix typo en mat. dentales tougness → toughness",
+    "body": ""
+  },
+  {
     "id": "git-078499d247ba013d989a8775a4e26b652c88f682",
     "date": "2026-11-08T17:24:46.000Z",
     "title": "fixes y optimizations a pre-parcial",

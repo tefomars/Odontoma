@@ -1605,14 +1605,6 @@
           "acceptedPoints": [],
           "explanation": "Pensemos en el vidrio. Es muy fuerte, pero conforme recibe fuerza, se deformará un poco elásticamente y antes de sufrir su \"deformación plástica irreversible\", se romperá. No sufre una deformación plástica porque se rompe antes de sufrirla.",
           "source": ""
-        },
-        {
-          "id": "open-7c88d0da-85e0-4b0e-8121-cdd68e1d8c37",
-          "prompt": "Qué es la tenacidad/toughness?",
-          "modelAnswer": "Capacidad de absorber energía elástica y posteriormente energía plástica antes de romperse. ",
-          "acceptedPoints": [],
-          "explanation": "",
-          "source": ""
         }
       ],
       "partial": 1

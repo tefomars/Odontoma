@@ -5,6 +5,22 @@ const css = readFileSync(new URL("./written-editor.css", import.meta.url), "utf8
 const editor = readFileSync(new URL("./OpenQuizContentEditor.tsx", import.meta.url), "utf8")
 
 describe("protecciones responsive del editor de escritas", () => {
+  it("asocia la etiqueta Pregunta al textarea, nunca al botón Duplicar", () => {
+    expect(editor).toContain('const questionPromptId = useId()')
+    const start = editor.indexOf('<label className="builder-field-heading" htmlFor={questionPromptId}>')
+    expect(start).toBeGreaterThan(-1)
+    const end = editor.indexOf('<ImageField label="Imagen de la pregunta"', start)
+    expect(end).toBeGreaterThan(start)
+    const field = editor.slice(start, end)
+    const label = field.slice(0, field.indexOf('</label>') + '</label>'.length)
+    expect(label).toContain('<strong>Pregunta *</strong>')
+    expect(label).not.toMatch(/<(?:button|textarea|input|select)\b/)
+    expect(field).toMatch(/<\/label>\s*<div className="actions">/)
+    expect(field).toMatch(/<textarea\s+id=\{questionPromptId\}/)
+    expect(field).toContain('onChange={event => updateQuestion({ prompt: event.target.value })}')
+    expect(field).toContain('>Duplicar</button>')
+  })
+
   it("carga estilos propios sin modificar las pantallas públicas de la app", () => {
     expect(editor).toContain('import "./written-editor.css"')
     expect(css).toContain(".studio-shell .studio-main .content-editor-panel")
