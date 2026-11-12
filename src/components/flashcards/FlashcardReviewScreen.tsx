@@ -738,7 +738,7 @@ function ScheduledFlashcardReviewScreen({
               font-black
               text-violet-200
             ">
-              {source === "user" ? flashcardTopicLabel(currentCard, source, userTopics) : flashcardChapterLabel(currentCard, getStudyBank("materiales-dentales")?.chapters || [])}
+              {source === "user" ? flashcardTopicLabel(currentCard, source, userTopics) : flashcardChapterLabel(currentCard, getStudyBank("materiales-dentales")?.chapters || [], getStudyBank(currentCard.chapter))}
             </span>
 
             {source !== "user" && <span className="

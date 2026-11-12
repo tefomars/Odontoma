@@ -1,7 +1,13 @@
 import { describe, expect, it } from "vitest"
-import { chapterEyebrow, flashcardTopicLabel } from "./studyLabels"
+import { chapterEyebrow, flashcardChapterLabel, flashcardTopicLabel } from "./studyLabels"
 
 describe("etiquetas visibles de capítulos", () => {
+  it("muestra el título editable del preparcial sin exponer su clave histórica", () => {
+    const card = { chapter: "Recuperación muscular · Cito I" }
+    expect(flashcardChapterLabel(card, [], { kind: "prepartial", title: "Muscular" })).toBe("Muscular")
+    expect(flashcardChapterLabel(card, [], { kind: "prepartial", title: "Mi bloque muscular" })).toBe("Mi bloque muscular")
+    expect(card.chapter).toBe("Recuperación muscular · Cito I")
+  })
   it("no expone las claves generadas por el builder", () => {
     expect(chapterEyebrow({ id: "chapter-d5e3060b-9c7f-4b44-b08a-5928f98d0794", title: "Bloque 1" })).toBe("Capítulo")
     expect(chapterEyebrow({ id: "d5e3060b-9c7f-4b44-b08a-5928f98d0794", title: "Bloque 1" })).toBe("Capítulo")

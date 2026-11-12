@@ -22,6 +22,8 @@ la raíz del proyecto, excepto cuando se especifica una ruta absoluta.
 07. Escritas: respuestas, categorías, intentos y repaso de incorrectas
 08. Flashcards: organización, FSRS, modo libre, suspensión y Undo
 09. Repaso pre-parcial: bancos independientes y reinicio acotado
+    Cito I (primerSemestre/): P1 caps.1–3; P2 4–6; P3 7–8 + artículos;
+    P4 9/10/12; recuperación opcional cap.11 fuera del final. Ver su README.
 10. Almacenamiento del estudiante y seguridad de datos
 11. Builder: recorrido y tareas sin código
 12. Guardado, borradores viejos, concurrencia y Deshacer

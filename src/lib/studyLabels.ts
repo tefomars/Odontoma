@@ -13,8 +13,10 @@ export function chapterDisplayName(chapter: { id: string; title: string; eyebrow
 
 export function flashcardChapterLabel(
   card: { chapter: string },
-  chapters: readonly { id: string; title: string; subtitle?: string; eyebrow?: string }[]
+  chapters: readonly { id: string; title: string; subtitle?: string; eyebrow?: string }[],
+  bank?: { kind: string; title: string }
 ): string {
+  if (bank?.kind === "prepartial") return bank.title
   const chapter = chapters.find(item => item.id === card.chapter)
   return chapter ? chapter.subtitle?.trim() || chapterDisplayName(chapter) : card.chapter
 }

@@ -41,8 +41,23 @@
     }
   ],
   "reviewClasses": {
+    "Citohistología I": {
+      "title": "Citohistología I",
+      "description": "Bancos exclusivos para repaso.",
+      "symbol": "Ⅰ",
+      "color": "#67e8f9",
+      "finalExamBankIds": [
+        "Parcial 1 · Cito I",
+        "Parcial 2 · Cito I",
+        "Parcial 3 · Cito I",
+        "Parcial 4 · Cito I"
+      ],
+      "finalExamScope": "Cito I",
+      "finalExamEnabled": true,
+      "finalExamTitle": "Examen final"
+    },
     "Histología": {
-      "title": "Citohistología",
+      "title": "Citohistología II",
       "finalExamBankIds": [
         "Parcial 1 · Cito II",
         "Parcial 2 · Cito II",
